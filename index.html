@@ -1,0 +1,2264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Architecture Tour Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    :root {
+      --bg: #F7F7F5;
+      --surface: #FFFFFF;
+      --border: #E8E8E4;
+      --text-primary: #111111;
+      --text-secondary: #787878;
+      --accent: #111111;
+      --sidebar-w: 300px;
+      --panel-w: 400px;
+      --header-h: 54px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg); color: var(--text-primary);
+      height: 100vh; display: flex; flex-direction: column; overflow: hidden;
+    }
+
+    /* ── HEADER ─────────────────────────────────────────── */
+    header {
+      height: var(--header-h);
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+      padding: 0 18px; gap: 12px; z-index: 1000; flex-shrink: 0;
+    }
+    .logo {
+      font-size: 14px; font-weight: 600; letter-spacing: -0.3px;
+      white-space: nowrap; display: flex; align-items: center; gap: 8px;
+    }
+    .logo-icon {
+      width: 28px; height: 28px; background: #111; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .logo-sub { font-weight: 300; color: var(--text-secondary); }
+    .search-wrap { flex: 1; max-width: 360px; position: relative; }
+    .search-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); pointer-events: none; }
+    #search {
+      width: 100%; height: 34px;
+      border: 1px solid var(--border); border-radius: 8px;
+      padding: 0 12px 0 34px; font-size: 13px; font-family: inherit;
+      background: var(--bg); outline: none; transition: border-color 0.2s;
+    }
+    #search:focus { border-color: #999; }
+    .map-toggle {
+      display: flex; border: 1px solid var(--border); border-radius: 8px;
+      overflow: hidden; flex-shrink: 0;
+    }
+    .map-toggle button {
+      padding: 6px 12px; font-size: 12px; font-family: inherit;
+      border: none; background: transparent; cursor: pointer;
+      color: var(--text-secondary); transition: all 0.15s; white-space: nowrap;
+    }
+    .map-toggle button.active { background: #111; color: #fff; }
+    #gps-btn {
+      height: 34px; padding: 0 13px;
+      border: 1px solid var(--border); border-radius: 8px;
+      font-size: 12px; font-family: inherit; background: white;
+      cursor: pointer; display: flex; align-items: center; gap: 6px;
+      white-space: nowrap; flex-shrink: 0; transition: all 0.2s;
+    }
+    #gps-btn:hover { border-color: #111; }
+    #gps-btn.locating { border-color: #4F46E5; color: #4F46E5; }
+    #gps-btn.located  { border-color: #15803D; color: #15803D; }
+    #menu-btn {
+      display: none; width: 34px; height: 34px;
+      border: 1px solid var(--border); border-radius: 8px;
+      background: white; cursor: pointer; align-items: center;
+      justify-content: center; flex-shrink: 0; font-size: 16px;
+    }
+
+    /* ── LAYOUT ─────────────────────────────────────────── */
+    .app { display: flex; flex: 1; overflow: hidden; position: relative; }
+
+    /* ── SIDEBAR ─────────────────────────────────────────── */
+    .sidebar {
+      width: var(--sidebar-w);
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; overflow: hidden;
+      flex-shrink: 0; z-index: 200; position: relative;
+    }
+    /* Sidebar top: filter active indicator */
+    .sb-top {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 14px 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .sb-top-label { font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-secondary); }
+    .sb-clear { font-size: 11px; color: #4F46E5; background: none; border: none; cursor: pointer; padding: 2px 6px; border-radius: 4px; display: none; }
+    .sb-clear.show { display: block; }
+    .sb-clear:hover { background: #EEF2FF; }
+
+    /* Filter sections */
+    .fsec { border-bottom: 1px solid var(--border); }
+    .fsec-hdr {
+      width: 100%; padding: 9px 14px;
+      display: flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
+      color: var(--text-secondary); background: transparent; border: none;
+      cursor: pointer; text-align: left; transition: background 0.12s;
+    }
+    .fsec-hdr:hover { background: var(--bg); }
+    .fsec-arr { margin-left: auto; font-size: 9px; transition: transform 0.2s; color: #999; }
+    .fsec.open .fsec-arr { transform: rotate(180deg); }
+    .fsec-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: #4F46E5;
+      flex-shrink: 0; display: none;
+    }
+    .fsec-dot.show { display: block; }
+    /* Per-filter reset badge — appears when a filter section is active */
+    .fsec-reset {
+      display: none; align-items: center; gap: 3px;
+      font-size: 10px; font-weight: 500; letter-spacing: 0;
+      text-transform: none; color: #4F46E5;
+      background: #EEF2FF; border: 1px solid #C7D2FE;
+      border-radius: 4px; padding: 1px 6px; cursor: pointer;
+      line-height: 1.5; flex-shrink: 0; transition: background 0.12s;
+      white-space: nowrap;
+    }
+    .fsec-reset.show { display: flex; }
+    .fsec-reset:hover { background: #E0E7FF; border-color: #A5B4FC; color: #3730A3; }
+    .fsec-body {
+      padding: 2px 14px 10px;
+      display: flex; flex-wrap: wrap; gap: 5px;
+      max-height: 80px; overflow-y: auto;
+    }
+    /* hide body when section closed — !important overrides display:flex/block on arch-list */
+    .fsec:not(.open) .fsec-body { display: none !important; }
+    /* Architects list — scrollable column */
+    .fsec-body.arch-list {
+      display: flex; flex-direction: column; flex-wrap: nowrap;
+      max-height: 140px; overflow-y: auto; gap: 0; padding: 2px 14px 8px;
+    }
+    .arch-item {
+      flex-shrink: 0; /* prevent items compressing inside flex column */
+      width: 100%; text-align: left;
+      padding: 5px 8px; font-size: 12px;
+      border: none; background: none; cursor: pointer;
+      color: #333; border-radius: 5px;
+      font-family: inherit; transition: background 0.12s;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      line-height: 1.5;
+    }
+    .arch-item:hover { background: var(--bg); color: #111; }
+    .arch-item.active { background: #111; color: white; }
+
+    /* ── PER-SECTION DRAG HANDLES ────────────────────────── */
+    .drag-h-sec {
+      height: 5px; cursor: ns-resize; flex-shrink: 0;
+      background: var(--bg); border-top: 1px solid var(--border);
+      position: relative; transition: background 0.15s;
+    }
+    .drag-h-sec::after {
+      content: ''; position: absolute; top: 1px;
+      left: 50%; transform: translateX(-50%);
+      width: 20px; height: 3px; border-radius: 2px; background: #ccc;
+    }
+    .drag-h-sec:hover, .drag-h-sec.dragging { background: #e4e4e0; }
+    .drag-h-sec:hover::after, .drag-h-sec.dragging::after { background: #999; }
+    /* Filter chips */
+    .chip {
+      padding: 4px 10px; border-radius: 20px;
+      border: 1px solid var(--border); font-size: 11px;
+      font-family: inherit; cursor: pointer;
+      background: white; color: var(--text-secondary); transition: all 0.15s;
+    }
+    .chip.active { background: #111; border-color: #111; color: white; }
+
+    /* Sort + results bar */
+    .list-bar {
+      padding: 8px 14px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--border); flex-shrink: 0;
+    }
+    #list-meta { font-size: 11px; color: var(--text-secondary); font-weight: 500; }
+    #sort-sel {
+      font-size: 11px; font-family: inherit;
+      border: 1px solid var(--border); border-radius: 6px;
+      padding: 3px 8px; background: white; color: var(--text-primary);
+      cursor: pointer; outline: none;
+    }
+
+    /* Location list */
+    .loc-list { flex: 1; overflow-y: auto; }
+    .loc-card {
+      padding: 12px 14px; border-bottom: 1px solid var(--border);
+      cursor: pointer; display: flex; gap: 11px; align-items: flex-start;
+      transition: background 0.12s;
+    }
+    .loc-card:hover { background: var(--bg); }
+    .loc-card.active { background: #F0F0EE; }
+    .card-img {
+      width: 52px; height: 52px; border-radius: 7px;
+      object-fit: cover; flex-shrink: 0; background: var(--border);
+    }
+    .card-body { flex: 1; min-width: 0; }
+    .card-name {
+      font-size: 13px; font-weight: 500;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 2px;
+    }
+    .card-meta { font-size: 11px; color: var(--text-secondary); margin-bottom: 5px; }
+    .card-row { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+    .cat-badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 10px; }
+    .year-badge { font-size: 10px; color: var(--text-secondary); }
+    /* Access badges */
+    .access-badge {
+      display: inline-flex; align-items: center; gap: 3px;
+      font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 10px;
+    }
+    .access-open  { background: #DCFCE7; color: #15803D; }
+    .access-paid  { background: #FEF9C3; color: #A16207; }
+    .access-priv  { background: #F3F4F6; color: #6B7280; }
+    .no-results { padding: 36px 14px; text-align: center; color: var(--text-secondary); font-size: 13px; line-height: 1.6; }
+
+    /* ── MAP ─────────────────────────────────────────────── */
+    #map { flex: 1; z-index: 1; }
+    .leaflet-control-zoom { border: 1px solid var(--border) !important; border-radius: 8px !important; overflow: hidden; box-shadow: none !important; }
+
+    /* ── DETAIL PANEL ────────────────────────────────────── */
+    .panel {
+      width: var(--panel-w); background: var(--surface);
+      border-left: 1px solid var(--border);
+      display: flex; flex-direction: column; overflow: hidden;
+      flex-shrink: 0; position: absolute; right: 0; top: 0; bottom: 0;
+      transform: translateX(100%);
+      transition: transform 0.28s cubic-bezier(.4,0,.2,1);
+      z-index: 500;
+    }
+    .panel.open { transform: translateX(0); }
+    .panel-close {
+      position: absolute; top: 12px; right: 12px;
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.3);
+      background: rgba(0,0,0,0.35); color: white;
+      cursor: pointer; font-size: 16px; display: flex;
+      align-items: center; justify-content: center; z-index: 10; line-height: 1;
+    }
+    .panel-close:hover { background: rgba(0,0,0,0.6); }
+
+    /* Gallery */
+    .gallery {
+      height: 230px; position: relative; overflow: hidden;
+      background: #1a1a1a; flex-shrink: 0;
+    }
+    .gallery img {
+      width: 100%; height: 100%; object-fit: cover;
+      position: absolute; top: 0; left: 0;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .gallery img.active { opacity: 1; }
+    .g-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.35); border: none; color: white;
+      width: 30px; height: 30px; border-radius: 50%; cursor: pointer;
+      font-size: 18px; display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s; z-index: 5;
+    }
+    .g-btn:hover { background: rgba(0,0,0,0.6); }
+    .g-prev { left: 10px; }
+    .g-next { right: 10px; }
+    .g-dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; z-index: 5; }
+    .g-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.45); cursor: pointer; transition: background 0.2s; }
+    .g-dot.active { background: white; }
+    .g-label { position: absolute; bottom: 10px; right: 12px; font-size: 10px; color: rgba(255,255,255,0.6); }
+
+    /* Panel scroll + header */
+    .panel-scroll { flex: 1; overflow-y: auto; }
+    .panel-head { padding: 16px 18px 12px; border-bottom: 1px solid var(--border); }
+    .p-cat { font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 4px; }
+    .p-title { font-size: 19px; font-weight: 700; letter-spacing: -0.4px; line-height: 1.2; margin-bottom: 3px; }
+    .p-sub { font-size: 12px; color: var(--text-secondary); margin-bottom: 9px; }
+    .p-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+    .p-tag { font-size: 10px; padding: 2px 8px; border-radius: 10px; background: var(--bg); color: var(--text-secondary); border: 1px solid var(--border); }
+
+    /* Tabs — horizontally scrollable */
+    .tabs {
+      display: flex; border-bottom: 1px solid var(--border); padding: 0 18px;
+      overflow-x: auto; flex-shrink: 0; gap: 0;
+    }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab {
+      padding: 10px 2px; margin-right: 16px;
+      font-size: 12px; cursor: pointer; color: var(--text-secondary);
+      border-bottom: 2px solid transparent; transition: all 0.15s;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .tab.active { color: #111; border-bottom-color: #111; font-weight: 500; }
+    .tab-pane { display: none; padding: 18px; }
+    .tab-pane.active { display: block; }
+
+    /* Common panel content */
+    .desc { font-size: 13px; line-height: 1.75; color: #333; margin-bottom: 14px; }
+    .info-row { display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 12.5px; }
+    .info-row:last-child { border-bottom: none; }
+    .info-label { width: 88px; color: var(--text-secondary); flex-shrink: 0; font-size: 11.5px; padding-top: 1px; }
+    .info-val { flex: 1; line-height: 1.55; white-space: pre-line; }
+    .tour-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 10px; }
+    .tour-yes { background: #F0FDF4; color: #15803D; }
+    .tour-no  { background: #FFF1F2; color: #BE185D; }
+    .btns { margin-top: 16px; display: flex; flex-direction: column; gap: 7px; }
+    .btn-p {
+      display: block; width: 100%; padding: 11px;
+      background: #111; color: white; border: none; border-radius: 8px;
+      font-size: 12.5px; font-family: inherit; cursor: pointer;
+      text-align: center; text-decoration: none; transition: opacity 0.15s;
+    }
+    .btn-p:hover { opacity: 0.82; }
+    .btn-s {
+      display: block; width: 100%; padding: 11px;
+      background: transparent; color: #111;
+      border: 1px solid var(--border); border-radius: 8px;
+      font-size: 12.5px; font-family: inherit; cursor: pointer;
+      text-align: center; text-decoration: none; transition: background 0.15s;
+    }
+    .btn-s:hover { background: var(--bg); }
+
+    /* ── STREET VIEW TAB ─────────────────────── */
+    .sv-intro {
+      font-size: 12px; color: var(--text-secondary);
+      line-height: 1.6; margin-bottom: 16px;
+    }
+    .sv-services { display: flex; flex-direction: column; gap: 9px; }
+    .sv-card {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid var(--border); border-radius: 10px;
+      text-decoration: none; color: inherit;
+      transition: all 0.15s; background: white;
+    }
+    .sv-card:hover { border-color: #bbb; background: var(--bg); }
+    .sv-icon {
+      width: 38px; height: 38px; border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .sv-info { flex: 1; min-width: 0; }
+    .sv-name { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+    .sv-desc { font-size: 11px; color: var(--text-secondary); }
+    .sv-arrow { color: var(--text-secondary); font-size: 14px; }
+    .sv-divider { display: flex; align-items: center; gap: 8px; margin: 14px 0 10px; }
+    .sv-divider span { font-size: 10px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+    .sv-divider::before, .sv-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .sv-map-mini { height: 130px; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 14px; }
+
+    /* ── DRAWINGS TAB ────────────────────────── */
+    .dw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+    .dw-item { cursor: pointer; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); background: #f5f5f3; transition: border-color 0.15s; }
+    .dw-item:hover { border-color: #aaa; }
+    .dw-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+    .dw-caption { font-size: 10px; color: var(--text-secondary); padding: 6px 8px; line-height: 1.4; }
+    .dw-type { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; color: #888; }
+    .dw-placeholder {
+      text-align: center; padding: 24px 12px;
+      border: 1px dashed var(--border); border-radius: 10px; margin-bottom: 16px;
+    }
+    .dw-placeholder .dw-icon { font-size: 32px; margin-bottom: 8px; }
+    .dw-placeholder p { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+    /* Lightbox */
+    .lightbox {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.9); z-index: 9999;
+      align-items: center; justify-content: center;
+    }
+    .lightbox.show { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 4px; }
+    .lb-close {
+      position: absolute; top: 16px; right: 18px;
+      font-size: 28px; color: white; cursor: pointer; line-height: 1;
+      background: none; border: none; opacity: 0.8;
+    }
+    .lb-close:hover { opacity: 1; }
+    .lb-caption {
+      position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,0.8); font-size: 12px; white-space: nowrap;
+    }
+
+    /* External resources */
+    .ext-resources { margin-top: 4px; }
+    .ext-title { font-size: 11px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 8px; }
+    .ext-links { display: flex; flex-wrap: wrap; gap: 6px; }
+    .ext-link {
+      font-size: 11.5px; padding: 5px 12px;
+      border: 1px solid var(--border); border-radius: 20px;
+      text-decoration: none; color: #333; background: white;
+      transition: all 0.15s;
+    }
+    .ext-link:hover { border-color: #999; background: var(--bg); }
+
+    /* ── CATEGORY COLORS ─────────────────────── */
+    .c-sky  { background: #EEF2FF; color: #4338CA; }
+    .c-his  { background: #FFF7ED; color: #C2410C; }
+    .c-mus  { background: #FDF4FF; color: #9333EA; }
+    .c-park { background: #F0FDF4; color: #166534; }
+    .c-mod  { background: #F0F9FF; color: #0369A1; }
+    .c-rel  { background: #FFFBEB; color: #B45309; }
+    .c-uni  { background: #EFF6FF; color: #1D4ED8; }
+    .c-inf  { background: #F8FAFC; color: #475569; }
+
+    /* ── REVIEWS ─────────────────────────────────────────── */
+    .star-selector { display: flex; gap: 2px; }
+    .star-btn {
+      font-size: 22px; cursor: pointer; color: #DDD;
+      background: none; border: none; padding: 1px 2px;
+      line-height: 1; font-family: inherit; transition: color 0.1s;
+    }
+    .star-btn.lit { color: #F59E0B; }
+    .review-avg {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+      padding: 12px 14px; background: var(--bg); border-radius: 10px;
+    }
+    .review-avg-score { font-size: 32px; font-weight: 700; letter-spacing: -1.5px; }
+    .review-avg-stars { font-size: 14px; color: #F59E0B; margin-bottom: 2px; }
+    .review-avg-count { font-size: 11px; color: var(--text-secondary); }
+    .review-form {
+      background: var(--bg); border-radius: 10px; padding: 14px; margin-bottom: 16px;
+    }
+    .review-form-title { font-size: 12px; font-weight: 600; margin-bottom: 10px; }
+    .review-form-label { font-size: 11px; color: var(--text-secondary); margin-bottom: 5px; }
+    .review-input {
+      width: 100%; padding: 7px 10px;
+      border: 1px solid var(--border); border-radius: 7px;
+      font-size: 12px; font-family: inherit; background: white; outline: none;
+      transition: border-color 0.2s;
+    }
+    .review-input:focus { border-color: #999; }
+    .review-textarea {
+      width: 100%; height: 68px; padding: 7px 10px;
+      border: 1px solid var(--border); border-radius: 7px;
+      font-size: 12px; font-family: inherit; resize: vertical;
+      background: white; outline: none; transition: border-color 0.2s;
+    }
+    .review-textarea:focus { border-color: #999; }
+    .review-submit {
+      width: 100%; padding: 9px; margin-top: 8px;
+      background: #111; color: white; border: none; border-radius: 8px;
+      font-size: 12.5px; font-family: inherit; cursor: pointer; transition: opacity 0.15s;
+    }
+    .review-submit:hover { opacity: 0.82; }
+    .review-card { padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .review-card:last-child { border-bottom: none; }
+    .review-card-stars { color: #F59E0B; font-size: 13px; letter-spacing: 1px; }
+    .review-card-meta { font-size: 11px; color: var(--text-secondary); margin: 3px 0 5px; }
+    .review-card-text { font-size: 12.5px; line-height: 1.65; color: #333; }
+    .review-empty { padding: 18px 0; text-align: center; color: var(--text-secondary); font-size: 12.5px; }
+    .review-name-badge {
+      display: inline-block; font-size: 11px; font-weight: 500;
+      background: #111; color: white; padding: 1px 7px; border-radius: 8px; margin-left: 6px;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 3px; height: 3px; }
+    ::-webkit-scrollbar-thumb { background: #DDD; border-radius: 2px; }
+
+    /* Pilot badge */
+    .pilot-badge {
+      position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+      background: rgba(0,0,0,0.62); color: rgba(255,255,255,0.82);
+      font-size: 10px; padding: 5px 14px; border-radius: 20px;
+      pointer-events: none; z-index: 800; white-space: nowrap; letter-spacing: 0.2px;
+    }
+
+    /* ── SIDEBAR STREET VIEW PANEL ───────────────────────── */
+    .sv-side {
+      display: none; position: relative;
+      flex-shrink: 0; background: #111; overflow: hidden;
+    }
+    .sv-side.open { display: block; }
+    .sv-side-hdr {
+      display: flex; align-items: center; gap: 6px;
+      padding: 7px 10px; background: #111;
+      height: 36px; position: relative; z-index: 1;
+    }
+    .sv-side-title { font-size: 10px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+    .sv-svc-group { display: flex; gap: 3px; margin-left: auto; }
+    .sv-svc-btn {
+      font-size: 10px; font-family: inherit; font-weight: 500;
+      padding: 3px 8px; border-radius: 10px;
+      border: 1px solid #444; color: #888; background: transparent; cursor: pointer;
+      transition: all 0.15s;
+    }
+    .sv-svc-btn.active { background: #fff; color: #111; border-color: #fff; }
+    .sv-svc-btn:hover:not(.active) { border-color: #777; color: #ccc; }
+    .sv-close-btn {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: #333; border: none; color: #999;
+      cursor: pointer; font-size: 14px; display: flex;
+      align-items: center; justify-content: center; flex-shrink: 0; line-height: 1;
+    }
+    .sv-close-btn:hover { background: #555; color: white; }
+    /* Body: absolutely positioned below header, fills remaining height */
+    .sv-side-body {
+      position: absolute; top: 36px; left: 0; right: 0; bottom: 0;
+      overflow: hidden;
+    }
+    .sv-side-iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; border: none; display: block;
+    }
+    /* Link-card view (used for Mapillary, KartaView, and Google fallback) */
+    .sv-side-cards {
+      position: absolute; inset: 0;
+      display: none; flex-direction: column; gap: 6px;
+      padding: 10px; overflow-y: auto;
+      background: var(--surface);
+    }
+    .sv-side-cards.show { display: flex; }
+    .sv-card-link {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 12px;
+      border: 1px solid var(--border); border-radius: 9px; background: white;
+      text-decoration: none; color: inherit; transition: all 0.15s;
+    }
+    .sv-card-link:hover { border-color: #999; background: var(--bg); }
+    .sv-card-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .sv-card-info { flex: 1; min-width: 0; }
+    .sv-card-name { font-size: 12px; font-weight: 600; margin-bottom: 1px; }
+    .sv-card-desc { font-size: 10px; color: var(--text-secondary); }
+    .sv-card-arr { color: #bbb; font-size: 13px; }
+    /* "Can't see iframe?" fallback note */
+    .sv-iframe-note {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 6px 10px; background: rgba(0,0,0,0.72);
+      font-size: 10px; color: rgba(255,255,255,0.7); text-align: center;
+      display: none;
+    }
+    .sv-iframe-note a { color: #adf; text-decoration: none; }
+    .sv-iframe-note a:hover { text-decoration: underline; }
+
+    /* ── DRAG HANDLES ─────────────────────────────────────── */
+    .drag-h {
+      height: 5px; flex-shrink: 0; cursor: ns-resize;
+      background: var(--border); position: relative;
+      transition: background 0.15s; z-index: 10;
+    }
+    .drag-h:hover, .drag-h.dragging { background: #aaa; }
+    .drag-h.hidden { display: none; }
+    .drag-h::after {
+      content: ''; position: absolute;
+      left: 50%; transform: translateX(-50%);
+      top: 1px; width: 26px; height: 3px;
+      border-radius: 2px; background: #ccc;
+    }
+    .drag-h:hover::after, .drag-h.dragging::after { background: #888; }
+
+    /* ── RESIZE HANDLES ──────────────────────────────────── */
+    .sb-resize {
+      position: absolute; right: -3px; top: 0; bottom: 0; width: 6px;
+      cursor: ew-resize; z-index: 300;
+      background: transparent; transition: background 0.15s;
+    }
+    .sb-resize:hover, .sb-resize.dragging { background: rgba(0,0,0,0.15); }
+    .panel-resize {
+      position: absolute; left: -3px; top: 0; bottom: 0; width: 6px;
+      cursor: ew-resize; z-index: 600;
+      background: transparent; transition: background 0.15s;
+    }
+    .panel-resize:hover, .panel-resize.dragging { background: rgba(0,0,0,0.15); }
+
+    /* ── SIDEBAR SECTIONS ─────────────────────────────────── */
+    .sb-filters {
+      overflow-y: auto; flex-shrink: 0;
+      border-bottom: 1px solid var(--border);
+      height: 240px; /* initial height; drag-resizable via dh-fl */
+    }
+    .sb-list-wrap { display: flex; flex-direction: column; flex: 1; overflow: hidden; min-height: 80px; }
+
+    /* ── CITY SELECTOR BAR ───────────────────────────────── */
+    .city-bar {
+      height: 42px; background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+      padding: 0 16px; gap: 6px; flex-shrink: 0;
+      overflow-x: auto; z-index: 999;
+    }
+    .city-bar::-webkit-scrollbar { display: none; }
+    .city-bar-label {
+      font-size: 10.5px; font-weight: 600; letter-spacing: 0.5px;
+      text-transform: uppercase; color: var(--text-secondary);
+      white-space: nowrap; flex-shrink: 0; padding-right: 4px;
+    }
+    .city-divider { width: 1px; height: 16px; background: var(--border); flex-shrink: 0; margin: 0 2px; }
+    .city-tab {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 12px; border-radius: 20px;
+      border: 1px solid var(--border); font-size: 12px; font-family: inherit;
+      cursor: pointer; background: white; color: var(--text-secondary);
+      transition: all 0.15s; white-space: nowrap; flex-shrink: 0;
+    }
+    .city-tab:hover:not(.soon) { border-color: #999; color: #111; background: var(--bg); }
+    .city-tab.active { background: #111; color: white; border-color: #111; }
+    .city-tab.soon { opacity: 0.45; cursor: default; }
+    .city-soon-badge {
+      font-size: 9px; font-weight: 600; padding: 1px 5px;
+      background: #aaa; color: white; border-radius: 8px; letter-spacing: 0.2px;
+    }
+    .city-tab.active .city-soon-badge { background: rgba(255,255,255,0.3); }
+
+    /* ── MOBILE ─────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .sidebar {
+        position: absolute; left: 0; top: 0; bottom: 0;
+        transform: translateX(-100%);
+        transition: transform 0.28s cubic-bezier(.4,0,.2,1);
+        box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+      }
+      .sidebar.open { transform: translateX(0); }
+      .panel {
+        width: 100%; top: auto; height: 80vh;
+        border-left: none; border-top: 1px solid var(--border);
+        border-radius: 16px 16px 0 0;
+        transform: translateY(100%);
+      }
+      .panel.open { transform: translateY(0); }
+      #menu-btn { display: flex; }
+      .map-toggle { display: none; }
+      .logo-sub { display: none; }
+    }
+    @media (max-width: 480px) {
+      header { padding: 0 12px; gap: 10px; }
+      #gps-btn span { display: none; }
+    }
+
+    /* ── ADMIN PANEL ─────────────────────────────────────────── */
+    .admin-panel {
+      position: fixed; inset: 0; background: var(--surface);
+      z-index: 10000; display: none; flex-direction: column;
+    }
+    .admin-panel.open { display: flex; }
+    .admin-hdr {
+      height: 52px; background: #111; color: white;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px; flex-shrink: 0; gap: 12px;
+    }
+    .admin-hdr-title { font-size: 13px; font-weight: 600; letter-spacing: -0.2px; }
+    .admin-hdr-actions { display: flex; align-items: center; gap: 8px; }
+    .admin-hdr-count { font-size: 11px; color: #888; margin-right: 4px; }
+    .adm-hbtn {
+      padding: 5px 13px; border-radius: 6px; font-size: 12px;
+      border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1);
+      color: white; cursor: pointer; font-family: inherit; transition: background 0.15s;
+    }
+    .adm-hbtn:hover { background: rgba(255,255,255,0.22); }
+    .adm-hbtn.adm-hbtn-add { background: #4F46E5; border-color: #4F46E5; }
+    .adm-hbtn.adm-hbtn-add:hover { background: #4338CA; }
+    .adm-hbtn.adm-hbtn-export { background: #15803D; border-color: #15803D; }
+    .adm-hbtn.adm-hbtn-export:hover { background: #166534; }
+    .admin-body { flex: 1; overflow-y: auto; }
+    .admin-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .admin-table th {
+      text-align: left; padding: 10px 14px;
+      background: var(--bg); border-bottom: 2px solid var(--border);
+      font-size: 10.5px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.4px; color: var(--text-secondary); position: sticky; top: 0;
+    }
+    .admin-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    .admin-table tr:hover td { background: var(--bg); }
+    .admin-table .td-name { font-weight: 500; }
+    .adm-btn { padding: 3px 10px; border-radius: 5px; border: 1px solid var(--border); font-size: 11px; cursor: pointer; font-family: inherit; transition: background 0.12s; }
+    .adm-edit { background: #EEF2FF; color: #4F46E5; border-color: #C7D2FE; }
+    .adm-edit:hover { background: #E0E7FF; }
+    .adm-del  { background: #FEF2F2; color: #DC2626; border-color: #FECACA; margin-left: 4px; }
+    .adm-del:hover  { background: #FEE2E2; }
+
+    /* Admin modal */
+    .adm-modal-bg {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.5); z-index: 11000;
+      align-items: flex-start; justify-content: center;
+      padding: 24px 16px; overflow-y: auto;
+    }
+    .adm-modal-bg.open { display: flex; }
+    .adm-modal {
+      background: white; border-radius: 12px;
+      width: 100%; max-width: 780px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+      display: flex; flex-direction: column;
+    }
+    .adm-modal-hdr {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 15px 20px; border-bottom: 1px solid var(--border);
+      font-size: 14px; font-weight: 600; flex-shrink: 0;
+    }
+    .adm-modal-hdr button { background: none; border: none; font-size: 20px; cursor: pointer; color: #aaa; line-height: 1; }
+    .adm-modal-hdr button:hover { color: #111; }
+    .adm-form-body { padding: 20px; overflow-y: auto; }
+    .af-section { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--text-secondary); margin: 16px 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+    .af-section:first-child { margin-top: 0; }
+    .af-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .af-field { display: flex; flex-direction: column; gap: 4px; }
+    .af-wide { grid-column: 1 / -1; }
+    .af-field label { font-size: 11px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.4px; }
+    .af-field input, .af-field textarea, .af-field select {
+      border: 1px solid var(--border); border-radius: 6px;
+      padding: 7px 10px; font-size: 13px; font-family: inherit;
+      background: var(--bg); outline: none; transition: border-color 0.15s;
+    }
+    .af-field input:focus, .af-field textarea:focus, .af-field select:focus { border-color: #4F46E5; background: white; }
+    .af-field textarea { resize: vertical; }
+    .af-check-row { display: flex; align-items: center; gap: 7px; padding-top: 20px; }
+    .af-check-row input { width: 15px; height: 15px; cursor: pointer; }
+    .af-check-row label { font-size: 12px; font-weight: 500; text-transform: none; letter-spacing: 0; cursor: pointer; }
+    .adm-modal-footer {
+      padding: 13px 20px; border-top: 1px solid var(--border);
+      display: flex; justify-content: flex-end; gap: 8px; flex-shrink: 0;
+    }
+    .adm-cancel { padding: 8px 18px; border-radius: 7px; border: 1px solid var(--border); background: white; cursor: pointer; font-size: 13px; font-family: inherit; }
+    .adm-save   { padding: 8px 20px; border-radius: 7px; border: none; background: #111; color: white; cursor: pointer; font-size: 13px; font-family: inherit; font-weight: 500; }
+    .adm-save:hover { background: #333; }
+    .adm-reset-btn {
+      padding: 5px 13px; border-radius: 6px; border: 1px solid #FECACA;
+      background: #FEF2F2; color: #DC2626; font-size: 11px;
+      cursor: pointer; font-family: inherit; margin-right: auto;
+    }
+    .adm-reset-btn:hover { background: #FEE2E2; }
+  </style>
+</head>
+<body>
+
+<!-- ── ADMIN PANEL ─────────────────────────────────────── -->
+<div class="admin-panel" id="admin-panel">
+  <div class="admin-hdr">
+    <div class="admin-hdr-title">🏛 Location Admin</div>
+    <div class="admin-hdr-actions">
+      <span class="admin-hdr-count" id="admin-count"></span>
+      <button class="adm-hbtn adm-hbtn-add" onclick="openAddForm()">+ Add Location</button>
+      <button class="adm-hbtn adm-hbtn-export" onclick="exportDataJS()">⬇ Export data.js</button>
+      <button class="adm-hbtn" onclick="closeAdmin()">✕ Close</button>
+    </div>
+  </div>
+  <div class="admin-body">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th style="width:36px">#</th>
+          <th>Name</th>
+          <th>Architect</th>
+          <th style="width:60px">Year</th>
+          <th>Category</th>
+          <th>Access</th>
+          <th style="width:110px">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="admin-tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Admin add/edit modal -->
+<div class="adm-modal-bg" id="adm-modal">
+  <div class="adm-modal">
+    <div class="adm-modal-hdr">
+      <span id="adm-form-title">Add Location</span>
+      <button onclick="closeAdmModal()">×</button>
+    </div>
+    <div class="adm-form-body" id="adm-form">
+
+      <div class="af-section">Basic Info</div>
+      <div class="af-grid">
+        <div class="af-field af-wide"><label>Name *</label><input id="af-name" type="text" placeholder="e.g. Empire State Building"></div>
+        <div class="af-field"><label>Architect *</label><input id="af-arch" type="text" placeholder="e.g. Shreve, Lamb & Harmon"></div>
+        <div class="af-field"><label>Year Completed</label><input id="af-yr" type="number" placeholder="e.g. 1931"></div>
+        <div class="af-field">
+          <label>Category</label>
+          <select id="af-cat">
+            <option>Skyscrapers</option><option>Historic Buildings</option>
+            <option>Museums & Culture</option><option>Parks & Public Spaces</option>
+            <option>Modern Architecture</option><option>Religious Architecture</option>
+            <option>Universities & Research</option><option>Infrastructure</option>
+          </select>
+        </div>
+        <div class="af-field">
+          <label>Access</label>
+          <select id="af-access">
+            <option>Open to Public</option><option>Paid Ticket</option><option>Private</option>
+          </select>
+        </div>
+        <div class="af-field">
+          <label>City</label>
+          <select id="af-city">
+            <option value="new-york">New York</option>
+            <option value="seoul">Seoul</option>
+            <option value="tokyo">Tokyo</option>
+          </select>
+        </div>
+        <div class="af-field"><label>Architectural Style</label><input id="af-style" type="text" placeholder="e.g. Art Deco"></div>
+        <div class="af-field"><label>Style Group (for filter)</label><input id="af-styleGroup" type="text" placeholder="e.g. Art Deco"></div>
+        <div class="af-field">
+          <label>Era</label>
+          <select id="af-era">
+            <option>Pre-1900</option><option>Pre-1930</option>
+            <option>1930–1969</option><option>1970–1999</option><option>2000–Present</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="af-section">Location</div>
+      <div class="af-grid">
+        <div class="af-field"><label>Latitude *</label><input id="af-lat" type="number" step="0.00001" placeholder="e.g. 40.74844"></div>
+        <div class="af-field"><label>Longitude *</label><input id="af-lng" type="number" step="0.00001" placeholder="e.g. -73.98566"></div>
+        <div class="af-field af-wide"><label>Street Address</label><input id="af-addr" type="text" placeholder="e.g. 350 5th Ave, New York, NY 10118"></div>
+        <div class="af-field af-wide"><label>Neighborhood</label><input id="af-hood" type="text" placeholder="e.g. Midtown Manhattan"></div>
+      </div>
+
+      <div class="af-section">Description</div>
+      <div class="af-grid">
+        <div class="af-field af-wide"><label>Description</label><textarea id="af-desc" rows="4" placeholder="Describe the architectural significance…"></textarea></div>
+      </div>
+
+      <div class="af-section">Visit Info</div>
+      <div class="af-grid">
+        <div class="af-field af-wide"><label>Opening Hours</label><input id="af-hours" type="text" placeholder="e.g. Daily 10:00 AM – 8:00 PM"></div>
+        <div class="af-field af-wide"><label>Admission</label><input id="af-admission" type="text" placeholder="e.g. Adults: $30 · Under 12: Free"></div>
+        <div class="af-field af-wide"><label>Official Website</label><input id="af-web" type="url" placeholder="https://"></div>
+        <div class="af-check-row af-wide">
+          <input id="af-tourOk" type="checkbox">
+          <label for="af-tourOk">Guided tours available</label>
+        </div>
+        <div class="af-field af-wide"><label>Tour Info</label><input id="af-tourInfo" type="text" placeholder="Tour details…"></div>
+      </div>
+
+      <div class="af-section">Links & Tags</div>
+      <div class="af-grid">
+        <div class="af-field"><label>Google Maps URL</label><input id="af-gmaps" type="url" placeholder="https://maps.google.com/?q=…"></div>
+        <div class="af-field"><label>Wikipedia URL</label><input id="af-wiki" type="url" placeholder="https://en.wikipedia.org/…"></div>
+        <div class="af-field"><label>ArchDaily URL</label><input id="af-archdaily" type="url" placeholder="https://www.archdaily.com/…"></div>
+        <div class="af-field"><label>Tags (comma-separated)</label><input id="af-tags" type="text" placeholder="Art Deco, Free Entry, Midtown"></div>
+        <div class="af-field af-wide"><label>Photo URLs (one per line)</label><textarea id="af-photos" rows="3" placeholder="https://upload.wikimedia.org/…"></textarea></div>
+      </div>
+
+    </div>
+    <div class="adm-modal-footer">
+      <button class="adm-reset-btn" id="adm-reset-storage" onclick="confirmResetStorage()" style="display:none">↺ Reset All to Defaults</button>
+      <button class="adm-cancel" onclick="closeAdmModal()">Cancel</button>
+      <button class="adm-save" onclick="saveAdmForm()">Save Location</button>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()">&#215;</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-caption" id="lb-cap"></div>
+</div>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <rect x="2" y="10" width="3" height="6" fill="white" opacity="0.9"/>
+        <rect x="6.5" y="6" width="3" height="10" fill="white"/>
+        <rect x="11" y="8" width="3" height="8" fill="white" opacity="0.75"/>
+        <rect x="2" y="8" width="12" height="1" fill="white" opacity="0.4"/>
+      </svg>
+    </div>
+    Architecture <span class="logo-sub">&nbsp;Tour Guide</span>
+  </div>
+  <div class="search-wrap">
+    <svg class="search-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.2">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input type="text" id="search" placeholder="Search buildings, architects, styles…">
+  </div>
+  <div class="map-toggle">
+    <button class="active" id="btn-street" onclick="setMapType('street')">Street</button>
+    <button id="btn-sat" onclick="setMapType('satellite')">Satellite</button>
+  </div>
+  <button id="gps-btn" onclick="locateUser()">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+      <circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+    </svg>
+    <span>My Location</span>
+  </button>
+  <button id="menu-btn" onclick="toggleSidebar()">&#9776;</button>
+</header>
+
+<!-- City selector bar -->
+<div class="city-bar">
+  <span class="city-bar-label">City</span>
+  <div class="city-divider"></div>
+  <button class="city-tab active" id="city-nyc" onclick="selectCity('nyc')">🗽 New York</button>
+  <button class="city-tab" id="city-sel" onclick="selectCity('sel')">🏙 Seoul</button>
+  <button class="city-tab soon" id="city-tky" onclick="selectCity('tky')" title="Coming soon">🏯 Tokyo <span class="city-soon-badge">Soon</span></button>
+</div>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+
+    <!-- Street View panel (hidden by default, shown when location selected) -->
+    <div class="sv-side" id="sv-side">
+      <div class="sv-side-hdr">
+        <span class="sv-side-title">Street View</span>
+        <div class="sv-svc-group">
+          <button class="sv-svc-btn active" data-svc="google" onclick="setSvSvc('google')">Google</button>
+          <button class="sv-svc-btn" data-svc="mapillary" onclick="setSvSvc('mapillary')">Mapillary</button>
+          <button class="sv-svc-btn" data-svc="kartaview" onclick="setSvSvc('kartaview')">KartaView</button>
+        </div>
+        <button class="sv-close-btn" onclick="closeSvSide()" title="Close Street View">×</button>
+      </div>
+      <div class="sv-side-body">
+        <iframe class="sv-side-iframe" id="sv-iframe" src="about:blank" allowfullscreen
+          onload="onSvIframeLoad(this)" onerror="onSvIframeError(this)"></iframe>
+        <div class="sv-iframe-note" id="sv-iframe-note">
+          ↑ Not loading? <a id="sv-direct-link" href="#" target="_blank" rel="noopener">Open directly in Google Maps ↗</a>
+        </div>
+        <div class="sv-side-cards" id="sv-side-cards"></div>
+      </div>
+    </div>
+
+    <!-- Drag handle: between Street View and Filters -->
+    <div class="drag-h hidden" id="dh-sv"></div>
+
+    <!-- Filters section (resizable height) -->
+    <div class="sb-filters" id="sb-filters">
+
+      <!-- Top bar -->
+      <div class="sb-top">
+        <span class="sb-top-label">Filters</span>
+        <button class="sb-clear" id="sb-clear" onclick="clearAllFilters()">✕ Clear all</button>
+      </div>
+
+      <!-- Category -->
+      <div class="fsec" id="fsec-cat">
+        <button class="fsec-hdr" onclick="toggleFsec('cat')">
+          <span>Category</span>
+          <span class="fsec-dot" id="dot-cat"></span>
+          <span class="fsec-reset" id="reset-cat" onclick="event.stopPropagation();setFilter('cat','All')" title="Clear category filter">✕ Clear</span>
+          <span class="fsec-arr">▼</span>
+        </button>
+        <div class="fsec-body" id="body-cat"></div>
+      </div>
+      <div class="drag-h-sec" id="dh-sec-cat" style="display:none" title="Drag to resize Category"></div>
+
+      <!-- Style -->
+      <div class="fsec" id="fsec-style">
+        <button class="fsec-hdr" onclick="toggleFsec('style')">
+          <span>Style</span>
+          <span class="fsec-dot" id="dot-style"></span>
+          <span class="fsec-reset" id="reset-style" onclick="event.stopPropagation();setFilter('style','All')" title="Clear style filter">✕ Clear</span>
+          <span class="fsec-arr">▼</span>
+        </button>
+        <div class="fsec-body" id="body-style"></div>
+      </div>
+      <div class="drag-h-sec" id="dh-sec-style" style="display:none" title="Drag to resize Style"></div>
+
+      <!-- Era -->
+      <div class="fsec" id="fsec-era">
+        <button class="fsec-hdr" onclick="toggleFsec('era')">
+          <span>Era</span>
+          <span class="fsec-dot" id="dot-era"></span>
+          <span class="fsec-reset" id="reset-era" onclick="event.stopPropagation();setFilter('era','All')" title="Clear era filter">✕ Clear</span>
+          <span class="fsec-arr">▼</span>
+        </button>
+        <div class="fsec-body" id="body-era"></div>
+      </div>
+      <div class="drag-h-sec" id="dh-sec-era" style="display:none" title="Drag to resize Era"></div>
+
+      <!-- Access -->
+      <div class="fsec" id="fsec-access">
+        <button class="fsec-hdr" onclick="toggleFsec('access')">
+          <span>Access</span>
+          <span class="fsec-dot" id="dot-access"></span>
+          <span class="fsec-reset" id="reset-access" onclick="event.stopPropagation();setFilter('access','All')" title="Clear access filter">✕ Clear</span>
+          <span class="fsec-arr">▼</span>
+        </button>
+        <div class="fsec-body" id="body-access"></div>
+      </div>
+      <div class="drag-h-sec" id="dh-sec-access" style="display:none" title="Drag to resize Access"></div>
+
+      <!-- Architect -->
+      <div class="fsec open" id="fsec-arch">
+        <button class="fsec-hdr" onclick="toggleFsec('arch')">
+          <span>Architect</span>
+          <span class="fsec-dot" id="dot-arch"></span>
+          <span class="fsec-reset" id="reset-arch" onclick="event.stopPropagation();setFilter('arch','All')" title="Clear architect filter">✕ Clear</span>
+          <span class="fsec-arr">▼</span>
+        </button>
+        <div class="fsec-body arch-list" id="body-arch"></div>
+      </div>
+      <div class="drag-h-sec" id="dh-sec-arch" title="Drag to resize Architect"></div>
+
+    </div><!-- /sb-filters -->
+
+    <!-- Drag handle: between Filters and List -->
+    <div class="drag-h" id="dh-fl"></div>
+
+    <!-- Location list (flex: 1, fills remaining space) -->
+    <div class="sb-list-wrap">
+      <div class="list-bar">
+        <span id="list-meta">Loading…</span>
+        <select id="sort-sel" onchange="setSort(this.value)">
+          <option value="default">Default order</option>
+          <option value="year-asc">Oldest first</option>
+          <option value="year-desc">Newest first</option>
+          <option value="name">Name A–Z</option>
+        </select>
+      </div>
+      <div class="loc-list" id="loc-list"></div>
+    </div>
+
+    <!-- Right-edge horizontal resize handle -->
+    <div class="sb-resize" id="sb-resize"></div>
+
+  </aside>
+
+  <div id="map"></div>
+
+  <div class="panel" id="panel">
+    <div class="panel-resize" id="panel-resize" title="Drag to resize panel"></div>
+    <button class="panel-close" onclick="closePanel()">&#215;</button>
+    <div class="gallery" id="gallery">
+      <button class="g-btn g-prev" onclick="prevPhoto()">&#8249;</button>
+      <button class="g-btn g-next" onclick="nextPhoto()">&#8250;</button>
+      <div class="g-dots" id="g-dots"></div>
+      <div class="g-label" id="g-label"></div>
+    </div>
+    <div class="panel-scroll">
+      <div class="panel-head" id="panel-head"></div>
+      <div class="tabs">
+        <div class="tab active" data-tab="overview" onclick="switchTab('overview')">Overview</div>
+        <div class="tab" data-tab="visit" onclick="switchTab('visit')">Visit</div>
+        <div class="tab" data-tab="here" onclick="switchTab('here')">Directions</div>
+        <div class="tab" data-tab="sv" onclick="switchTab('sv')">Street View</div>
+        <div class="tab" data-tab="dw" onclick="switchTab('dw')">Drawings</div>
+        <div class="tab" data-tab="reviews" onclick="switchTab('reviews')">Reviews</div>
+      </div>
+      <div class="tab-pane active" id="pane-overview"></div>
+      <div class="tab-pane" id="pane-visit"></div>
+      <div class="tab-pane" id="pane-here"></div>
+      <div class="tab-pane" id="pane-sv"></div>
+      <div class="tab-pane" id="pane-dw"></div>
+      <div class="tab-pane" id="pane-reviews"></div>
+    </div>
+  </div>
+
+  <div class="pilot-badge" id="pilot-badge">🗺 Architecture Tour Guide · Pilot v0.1</div>
+</div>
+
+<script src="data.js"></script>
+<script>
+// ══════════════════════════════════════════════════════════════════
+// DATA
+// ══════════════════════════════════════════════════════════════════
+// LOCS_DEFAULT loaded from data.js
+
+// ══════════════════════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════════════════════
+// Load from localStorage (admin edits) or fall back to hardcoded defaults
+function _loadLocsFromStorage() {
+  try { const d = localStorage.getItem('arch_tour_locs_v1'); return d ? JSON.parse(d) : null; }
+  catch(e) { return null; }
+}
+let LOCS = _loadLocsFromStorage() || LOCS_DEFAULT.map(l => ({...l}));
+
+const state = { cat:'All', style:'All', era:'All', access:'All', arch:'All', sort:'default', query:'' };
+
+// ══════════════════════════════════════════════════════════════════
+// CONFIG
+// ══════════════════════════════════════════════════════════════════
+const CAT_COLORS = {
+  'Skyscrapers':'#4338CA','Historic Buildings':'#C2410C','Museums & Culture':'#9333EA',
+  'Parks & Public Spaces':'#166534','Modern Architecture':'#0369A1',
+  'Religious Architecture':'#B45309','Universities & Research':'#1D4ED8','Infrastructure':'#475569'
+};
+const STYLES = ['Art Deco','Beaux-Arts','Neoclassical','Gothic Revival','Modernist','Expressionist Modernism','Postmodern','Contemporary','Adaptive Reuse','Landscape'];
+const ERAS   = ['Pre-1900','Pre-1930','1930–1969','1970–1999','2000–Present'];
+const ACCESS = ['All', 'Open to Public', 'Paid Ticket', 'Private'];
+const ACCESS_META = {
+  'Open to Public': { cls:'access-open', icon:'🔓' },
+  'Paid Ticket':    { cls:'access-paid', icon:'🎫' },
+  'Private':        { cls:'access-priv', icon:'🔒' },
+};
+const ERA_RANGE = { 'Pre-1900':[0,1900], 'Pre-1930':[1900,1930], '1930–1969':[1930,1970], '1970–1999':[1970,2000], '2000–Present':[2000,9999] };
+
+// All unique architects (sorted) — will be rebuilt per city in initMap / refreshApp
+let ARCHITECTS = [];
+
+// ══════════════════════════════════════════════════════════════════
+// CONFIGURATION
+// ══════════════════════════════════════════════════════════════════
+// Google Maps Embed API — free, unlimited (no billing needed)
+// Get key: console.cloud.google.com → Enable "Maps Embed API" → Credentials → Create API Key
+// Embed API streetview URL: https://www.google.com/maps/embed/v1/streetview?key=KEY&location=LAT,LNG
+const GOOGLE_MAPS_KEY = 'AIzaSyCg3_F1ra7cLs6Vw-Df5_kUWlyZtyEY598';
+
+// ══════════════════════════════════════════════════════════════════
+// MAP
+// ══════════════════════════════════════════════════════════════════
+let map, streetLayer, satLayer, markers = [], userMarker = null;
+let svMiniMap = null;
+
+function initMap() {
+  map = L.map('map', { center:[40.745,-73.990], zoom:13, zoomControl:false });
+  streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution:'© <a href="https://openstreetmap.org">OpenStreetMap</a>', maxZoom:19
+  }).addTo(map);
+  satLayer = L.tileLayer(
+    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    { attribution:'© Esri / DigitalGlobe', maxZoom:18 }
+  );
+  L.control.zoom({ position:'bottomright' }).addTo(map);
+  const initLocs = LOCS.filter(l => l.city === activeCityKey);
+  ARCHITECTS = [...new Set(initLocs.flatMap(l => l.archs || [l.arch]))].sort();
+  initLocs.forEach(addMarker);
+  buildFilters();
+  renderList();
+  // Update badge with city-specific count
+  const badge = document.getElementById('pilot-badge');
+  if (badge) badge.textContent = `🗺 Architecture Tour Guide · Pilot v0.1 · ${initLocs.length} Locations`;
+}
+
+function refreshApp() {
+  const cityLocs = LOCS.filter(l => l.city === activeCityKey);
+  ARCHITECTS = [...new Set(cityLocs.flatMap(l => l.archs || [l.arch]))].sort();
+  markers.forEach(({m}) => m.remove());
+  markers.length = 0;
+  ['cat','style','era','access','arch'].forEach(k => {
+    const el = document.getElementById(k === 'arch' ? 'body-arch' : `body-${k}`);
+    if (el) el.innerHTML = '';
+  });
+  cityLocs.forEach(addMarker);
+  buildFilters();
+  clearAllFilters();
+  if (activeLoc) closePanel();
+  // Update badge
+  const badge = document.getElementById('pilot-badge');
+  if (badge) badge.textContent = `🗺 Architecture Tour Guide · Pilot v0.1 · ${cityLocs.length} Locations`;
+}
+
+// ══════════════════════════════════════════════════════════════════
+// MARKERS
+// ══════════════════════════════════════════════════════════════════
+function addMarker(loc) {
+  const color = CAT_COLORS[loc.cat] || '#111';
+  const icon = L.divIcon({
+    className:'',
+    html:`<div style="width:24px;height:24px;background:${color};border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2.5px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3)"></div>`,
+    iconSize:[24,24], iconAnchor:[12,24]
+  });
+  const m = L.marker([loc.lat, loc.lng], { icon })
+    .addTo(map)
+    .bindTooltip(loc.name, { direction:'top', offset:[0,-26], opacity:0.94 })
+    .on('click', () => openLoc(loc));
+  markers.push({ loc, m });
+}
+
+// ══════════════════════════════════════════════════════════════════
+// FILTER BUILDING
+// ══════════════════════════════════════════════════════════════════
+function buildFilters() {
+  // Category
+  const cats = ['All', ...new Set(LOCS.map(l => l.cat))];
+  buildChipGroup('body-cat', cats, 'cat', cat => cat === 'All' ? 'All' : cat.split(' ')[0], cat => cat);
+
+  // Style
+  buildChipGroup('body-style', ['All',...STYLES], 'style', s => s, s => s);
+
+  // Era
+  buildChipGroup('body-era', ['All',...ERAS], 'era', e => e, e => e);
+
+  // Access
+  buildChipGroup('body-access', ACCESS, 'access',
+    a => a === 'All' ? 'All' : `${ACCESS_META[a].icon} ${a}`,
+    a => a
+  );
+
+  // Architect — scrollable list
+  const archWrap = document.getElementById('body-arch');
+  ['All', ...ARCHITECTS].forEach(a => {
+    const b = document.createElement('button');
+    b.className = 'arch-item' + (a === 'All' ? ' active' : '');
+    b.textContent = a;
+    b.title = a;
+    b.onclick = () => setFilter('arch', a);
+    archWrap.appendChild(b);
+  });
+}
+
+function buildChipGroup(containerId, items, key, labelFn, valueFn) {
+  const wrap = document.getElementById(containerId);
+  items.forEach(item => {
+    const b = document.createElement('button');
+    b.className = 'chip' + (item === 'All' ? ' active' : '');
+    b.textContent = labelFn(item);
+    b.title = valueFn(item);
+    b.onclick = () => setFilter(key, valueFn(item));
+    wrap.appendChild(b);
+  });
+}
+
+// ══════════════════════════════════════════════════════════════════
+// FILTER LOGIC
+// ══════════════════════════════════════════════════════════════════
+function setFilter(key, val) {
+  state[key] = val;
+
+  // Update chip/item highlight
+  const bodyId = key === 'arch' ? 'body-arch' : `body-${key}`;
+  const selector = key === 'arch' ? '.arch-item' : '.chip';
+  document.getElementById(bodyId).querySelectorAll(selector).forEach(b => {
+    b.classList.toggle('active', b.title === val);
+  });
+
+  // Dot indicator
+  const dot = document.getElementById(`dot-${key}`);
+  if (dot) dot.classList.toggle('show', val !== 'All');
+
+  // Per-section reset badge
+  const resetBtn = document.getElementById(`reset-${key}`);
+  if (resetBtn) resetBtn.classList.toggle('show', val !== 'All');
+
+  updateClearBtn();
+  renderList();
+  syncMarkers();
+}
+
+function setSort(val) { state.sort = val; renderList(); }
+
+function clearAllFilters() {
+  ['cat','style','era','access','arch'].forEach(k => {
+    state[k] = 'All';
+    const bodyId = k === 'arch' ? 'body-arch' : `body-${k}`;
+    const sel = k === 'arch' ? '.arch-item' : '.chip';
+    document.getElementById(bodyId).querySelectorAll(sel).forEach(b =>
+      b.classList.toggle('active', b.title === 'All')
+    );
+    const dot = document.getElementById(`dot-${k}`);
+    if (dot) dot.classList.remove('show');
+    const resetBtn = document.getElementById(`reset-${k}`);
+    if (resetBtn) resetBtn.classList.remove('show');
+  });
+  updateClearBtn();
+  renderList();
+  syncMarkers();
+}
+
+function updateClearBtn() {
+  const active = ['cat','style','era','access','arch'].some(k => state[k] !== 'All');
+  document.getElementById('sb-clear').classList.toggle('show', active);
+}
+
+function toggleFsec(id) {
+  const sec = document.getElementById(`fsec-${id}`);
+  sec.classList.toggle('open');
+  const handle = document.getElementById(`dh-sec-${id}`);
+  if (handle) handle.style.display = sec.classList.contains('open') ? '' : 'none';
+}
+
+// ══════════════════════════════════════════════════════════════════
+// FILTERED + SORTED LIST
+// ══════════════════════════════════════════════════════════════════
+function getFiltered() {
+  let list = LOCS.filter(l => l.city === activeCityKey);
+  if (state.cat   !== 'All') list = list.filter(l => l.cat === state.cat);
+  if (state.style !== 'All') list = list.filter(l => l.styleGroup === state.style);
+  if (state.era   !== 'All') {
+    const [mn, mx] = ERA_RANGE[state.era];
+    list = list.filter(l => l.yr >= mn && l.yr < mx);
+  }
+  if (state.access !== 'All') list = list.filter(l => l.access === state.access);
+  if (state.arch  !== 'All') list = list.filter(l => (l.archs || [l.arch]).includes(state.arch));
+  if (state.query) {
+    const q = state.query.toLowerCase();
+    list = list.filter(l =>
+      l.name.toLowerCase().includes(q) || l.arch.toLowerCase().includes(q) ||
+      l.style.toLowerCase().includes(q) || l.hood.toLowerCase().includes(q) ||
+      l.styleGroup.toLowerCase().includes(q) || l.tags.some(t => t.toLowerCase().includes(q))
+    );
+  }
+  // Sort
+  if (state.sort === 'year-asc')  list = [...list].sort((a,b) => a.yr - b.yr);
+  if (state.sort === 'year-desc') list = [...list].sort((a,b) => b.yr - a.yr);
+  if (state.sort === 'name')      list = [...list].sort((a,b) => a.name.localeCompare(b.name));
+  return list;
+}
+
+document.getElementById('search').addEventListener('input', function() {
+  state.query = this.value;
+  renderList();
+  syncMarkers();
+});
+
+// ══════════════════════════════════════════════════════════════════
+// RENDER LIST
+// ══════════════════════════════════════════════════════════════════
+let activeLoc = null;
+
+function renderList() {
+  const list = getFiltered();
+  document.getElementById('list-meta').textContent =
+    `${list.length} location${list.length !== 1 ? 's' : ''}`;
+
+  const wrap = document.getElementById('loc-list');
+  if (!list.length) {
+    wrap.innerHTML = '<div class="no-results">No locations match.<br>Try adjusting your filters.</div>';
+    return;
+  }
+  wrap.innerHTML = list.map(loc => `
+    <div class="loc-card${activeLoc?.id === loc.id ? ' active' : ''}" onclick="openLocById('${loc.id}')">
+      <img class="card-img" src="${loc.photos[0]}" alt="${loc.name}"
+           onerror="this.style.background='#E0E0DC';this.src='data:image/svg+xml,<svg/>'">
+      <div class="card-body">
+        <div class="card-name">${loc.name}</div>
+        <div class="card-meta">${loc.arch}</div>
+        <div class="card-row">
+          <span class="cat-badge ${loc.cc}">${loc.cat}</span>
+          <span class="year-badge">${loc.yr}</span>
+          ${loc.access ? `<span class="access-badge ${ACCESS_META[loc.access]?.cls||''}">${ACCESS_META[loc.access]?.icon||''} ${loc.access}</span>` : ''}
+          ${(()=>{ const rv=loadReviews(loc.id); return rv.length ? `<span style="font-size:10px;color:#F59E0B;letter-spacing:0.5px">★ ${(rv.reduce((s,r)=>s+r.stars,0)/rv.length).toFixed(1)}</span>` : ''; })()}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function syncMarkers() {
+  const visible = new Set(getFiltered().map(l => l.id));
+  markers.forEach(({loc, m}) => {
+    if (visible.has(loc.id)) m.addTo(map); else m.remove();
+  });
+}
+
+// ══════════════════════════════════════════════════════════════════
+// DETAIL PANEL
+// ══════════════════════════════════════════════════════════════════
+let photoIdx = 0;
+
+function openLocById(id) { openLoc(LOCS.find(l => l.id === id)); }
+
+function openLoc(loc) {
+  activeLoc = loc;
+  map.flyTo([loc.lat, loc.lng], 16, { duration:1.1 });
+
+  // Gallery
+  photoIdx = 0;
+  const gallery = document.getElementById('gallery');
+  gallery.querySelectorAll('img').forEach(i => i.remove());
+  loc.photos.forEach((src, i) => {
+    const img = document.createElement('img');
+    img.src = src; img.alt = loc.name;
+    if (i === 0) img.classList.add('active');
+    img.onerror = function() { this.style.display = 'none'; };
+    gallery.insertBefore(img, gallery.querySelector('.g-btn'));
+  });
+  document.getElementById('g-dots').innerHTML =
+    loc.photos.map((_, i) => `<div class="g-dot${i===0?' active':''}" onclick="gotoPhoto(${i})"></div>`).join('');
+  updateGLabel();
+
+  // Header
+  const color = CAT_COLORS[loc.cat] || '#111';
+  document.getElementById('panel-head').innerHTML = `
+    <div class="p-cat" style="color:${color}">${loc.cat}</div>
+    <div class="p-title">${loc.name}</div>
+    <div class="p-sub">${loc.arch} &nbsp;·&nbsp; ${loc.yr} &nbsp;·&nbsp; ${loc.style}</div>
+    <div class="p-tags">${loc.tags.map(t=>`<span class="p-tag">${t}</span>`).join('')}</div>
+  `;
+
+  // Build tabs
+  document.getElementById('pane-overview').innerHTML = buildOverviewTab(loc);
+  document.getElementById('pane-visit').innerHTML    = buildVisitTab(loc);
+  document.getElementById('pane-here').innerHTML     = buildDirectionsTab(loc);
+  document.getElementById('pane-sv').innerHTML       = buildStreetViewTab(loc);
+  document.getElementById('pane-dw').innerHTML       = buildDrawingsTab(loc);
+  document.getElementById('pane-reviews').innerHTML  = buildReviewsTab(loc);
+
+  switchTab('overview');
+  document.getElementById('panel').classList.add('open');
+  renderList();
+  showSvSide(loc);
+
+  if (window.innerWidth <= 900) document.getElementById('sidebar').classList.remove('open');
+}
+
+function closePanel() {
+  document.getElementById('panel').classList.remove('open');
+  activeLoc = null;
+  closeSvSide();
+  renderList();
+}
+
+// ══════════════════════════════════════════════════════════════════
+// TAB BUILDERS
+// ══════════════════════════════════════════════════════════════════
+function buildOverviewTab(loc) {
+  return `
+    <p class="desc">${loc.desc}</p>
+    <div class="info-row"><span class="info-label">Neighborhood</span><span class="info-val">${loc.hood}</span></div>
+    <div class="info-row"><span class="info-label">Address</span><span class="info-val">${loc.addr}</span></div>
+    <div class="info-row"><span class="info-label">Architect</span><span class="info-val">${loc.arch}</span></div>
+    <div class="info-row"><span class="info-label">Completed</span><span class="info-val">${loc.yr}</span></div>
+    <div class="info-row"><span class="info-label">Style</span><span class="info-val">${loc.style}</span></div>
+    ${loc.access ? `<div class="info-row"><span class="info-label">Access</span><span class="info-val"><span class="access-badge ${ACCESS_META[loc.access]?.cls||''}">${ACCESS_META[loc.access]?.icon||''} ${loc.access}</span></span></div>` : ''}
+  `;
+}
+
+function buildVisitTab(loc) {
+  return `
+    <div class="info-row"><span class="info-label">Hours</span><span class="info-val">${loc.hours}</span></div>
+    ${loc.lastEntry && loc.lastEntry !== 'N/A' ? `<div class="info-row"><span class="info-label">Last Entry</span><span class="info-val">${loc.lastEntry}</span></div>` : ''}
+    <div class="info-row"><span class="info-label">Admission</span><span class="info-val">${loc.admission}</span></div>
+    <div class="info-row">
+      <span class="info-label">Guided Tour</span>
+      <span class="info-val"><span class="tour-badge ${loc.tourOk ? 'tour-yes' : 'tour-no'}">${loc.tourOk ? '✓ Available' : '✗ Not available'}</span></span>
+    </div>
+    ${loc.tourInfo ? `<div class="info-row"><span class="info-label">Tour Info</span><span class="info-val">${loc.tourInfo}</span></div>` : ''}
+    ${loc.web ? `<div class="btns"><a href="${loc.web}" target="_blank" rel="noopener" class="btn-p">Visit Official Website ↗</a></div>` : ''}
+  `;
+}
+
+function buildDirectionsTab(loc) {
+  return `
+    <div class="info-row"><span class="info-label">Subway</span><span class="info-val">${loc.transit}</span></div>
+    ${loc.walkFrom ? `<div class="info-row"><span class="info-label">Nearby</span><span class="info-val">${loc.walkFrom}</span></div>` : ''}
+    <div class="btns" style="margin-top:18px">
+      <a href="${loc.gmaps}" target="_blank" rel="noopener" class="btn-p">Open in Google Maps ↗</a>
+      <a href="https://maps.google.com/?q=${encodeURIComponent(loc.addr)}&layer=c" target="_blank" rel="noopener" class="btn-s">Street View (Google Maps) ↗</a>
+    </div>
+  `;
+}
+
+function buildStreetViewTab(loc) {
+  const mUrl  = `https://www.mapillary.com/app/?lat=${loc.lat}&lng=${loc.lng}&z=17&focus=photo`;
+  const kvUrl = `https://kartaview.org/map/@${loc.lat},${loc.lng},17z`;
+  const gmUrl = `https://maps.google.com/?q=${encodeURIComponent(loc.addr)}&layer=c`;
+  return `
+    <p class="sv-intro">Explore <strong>${loc.name}</strong> at street level using open-source and community-powered imagery services.</p>
+    <div class="sv-services">
+      <a class="sv-card" href="${mUrl}" target="_blank" rel="noopener">
+        <div class="sv-icon" style="background:#EEF2FF">🗺</div>
+        <div class="sv-info">
+          <div class="sv-name">Mapillary</div>
+          <div class="sv-desc">Open-source street-level imagery · Community + AI labels</div>
+        </div>
+        <span class="sv-arrow">↗</span>
+      </a>
+      <a class="sv-card" href="${kvUrl}" target="_blank" rel="noopener">
+        <div class="sv-icon" style="background:#F0FDF4">📍</div>
+        <div class="sv-info">
+          <div class="sv-name">KartaView</div>
+          <div class="sv-desc">Community-driven street view · Open data by OSM contributors</div>
+        </div>
+        <span class="sv-arrow">↗</span>
+      </a>
+      <a class="sv-card" href="${gmUrl}" target="_blank" rel="noopener">
+        <div class="sv-icon" style="background:#FFF7ED">🔭</div>
+        <div class="sv-info">
+          <div class="sv-name">Google Street View</div>
+          <div class="sv-desc">Most comprehensive coverage · 360° photo spheres</div>
+        </div>
+        <span class="sv-arrow">↗</span>
+      </a>
+    </div>
+    <div class="sv-divider"><span>Map preview</span></div>
+    <div class="sv-map-mini" id="sv-mini-map"></div>
+  `;
+}
+
+function buildDrawingsTab(loc) {
+  let html = '';
+
+  if (loc.drawings && loc.drawings.length > 0) {
+    html += '<div class="dw-grid">';
+    loc.drawings.forEach((dw, i) => {
+      html += `
+        <div class="dw-item" onclick="openLightbox('${dw.src}','${dw.caption}')">
+          <img class="dw-img" src="${dw.src}" alt="${dw.type}"
+               onerror="this.closest('.dw-item').style.display='none'">
+          <div class="dw-caption">
+            <div class="dw-type">${dw.type}</div>
+            ${dw.caption}
+          </div>
+        </div>`;
+    });
+    html += '</div>';
+  } else {
+    html += `
+      <div class="dw-placeholder">
+        <div class="dw-icon">📐</div>
+        <p>Architectural drawings and diagrams for <strong>${loc.name}</strong> will be added in future updates.</p>
+      </div>`;
+  }
+
+  html += `
+    <div class="ext-resources">
+      <div class="ext-title">Explore Architectural Resources</div>
+      <div class="ext-links">
+        <a class="ext-link" href="${loc.archdaily}" target="_blank" rel="noopener">ArchDaily ↗</a>
+        <a class="ext-link" href="${loc.wiki}" target="_blank" rel="noopener">Wikipedia ↗</a>
+        <a class="ext-link" href="https://www.ctbuh.org/buildings?search=${encodeURIComponent(loc.name)}" target="_blank" rel="noopener">CTBUH ↗</a>
+        <a class="ext-link" href="https://commons.wikimedia.org/w/index.php?search=${encodeURIComponent(loc.name+' drawing plan')}" target="_blank" rel="noopener">Wikimedia Commons ↗</a>
+      </div>
+    </div>
+  `;
+  return html;
+}
+
+// ══════════════════════════════════════════════════════════════════
+// MINI MAP (Street View tab)
+// ══════════════════════════════════════════════════════════════════
+function initSvMiniMap(loc) {
+  const el = document.getElementById('sv-mini-map');
+  if (!el) return;
+  if (svMiniMap) { svMiniMap.remove(); svMiniMap = null; }
+  setTimeout(() => {
+    svMiniMap = L.map(el, { zoomControl:false, dragging:false, scrollWheelZoom:false, center:[loc.lat, loc.lng], zoom:17 });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom:19 }).addTo(svMiniMap);
+    L.circleMarker([loc.lat, loc.lng], { radius:8, fillColor: CAT_COLORS[loc.cat]||'#111', fillOpacity:1, color:'white', weight:2.5 }).addTo(svMiniMap);
+  }, 50);
+}
+
+// ══════════════════════════════════════════════════════════════════
+// TABS
+// ══════════════════════════════════════════════════════════════════
+function switchTab(id) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === id));
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('active', p.id === 'pane-' + id));
+  if (id === 'sv' && activeLoc) initSvMiniMap(activeLoc);
+}
+
+// ══════════════════════════════════════════════════════════════════
+// PHOTOS
+// ══════════════════════════════════════════════════════════════════
+function gotoPhoto(idx) {
+  const gallery = document.getElementById('gallery');
+  gallery.querySelectorAll('img').forEach((img, i) => img.classList.toggle('active', i === idx));
+  document.getElementById('g-dots').querySelectorAll('.g-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+  photoIdx = idx;
+  updateGLabel();
+}
+function updateGLabel() {
+  if (!activeLoc) return;
+  document.getElementById('g-label').textContent = `${photoIdx + 1} / ${activeLoc.photos.length}`;
+}
+function prevPhoto() { if (activeLoc) gotoPhoto((photoIdx - 1 + activeLoc.photos.length) % activeLoc.photos.length); }
+function nextPhoto() { if (activeLoc) gotoPhoto((photoIdx + 1) % activeLoc.photos.length); }
+
+// ══════════════════════════════════════════════════════════════════
+// LIGHTBOX
+// ══════════════════════════════════════════════════════════════════
+function openLightbox(src, caption) {
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lb-cap').textContent = caption;
+  document.getElementById('lightbox').classList.add('show');
+}
+function closeLightbox() { document.getElementById('lightbox').classList.remove('show'); }
+
+// ══════════════════════════════════════════════════════════════════
+// SIDEBAR DRAG RESIZE
+// ══════════════════════════════════════════════════════════════════
+function setupVDrag(handleId, targetId, minH, maxH) {
+  const handle = document.getElementById(handleId);
+  const target = document.getElementById(targetId);
+  if (!handle || !target) return;
+  let dragging = false, startY = 0, startH = 0;
+
+  const start = y => {
+    dragging = true; startY = y; startH = target.offsetHeight;
+    target.style.flexShrink = '0';
+    handle.classList.add('dragging');
+    document.body.style.cursor = 'ns-resize';
+    document.body.style.userSelect = 'none';
+  };
+  const move = y => {
+    if (!dragging) return;
+    target.style.height = Math.max(minH, Math.min(maxH, startH + y - startY)) + 'px';
+  };
+  const end = () => {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove('dragging');
+    document.body.style.cursor = '';
+    document.body.style.userSelect = '';
+  };
+
+  handle.addEventListener('mousedown', e => { e.preventDefault(); start(e.clientY); });
+  document.addEventListener('mousemove', e => move(e.clientY));
+  document.addEventListener('mouseup', end);
+  handle.addEventListener('touchstart', e => { e.preventDefault(); start(e.touches[0].clientY); }, { passive: false });
+  document.addEventListener('touchmove', e => { if (dragging) { e.preventDefault(); move(e.touches[0].clientY); } }, { passive: false });
+  document.addEventListener('touchend', end);
+}
+
+function setupHDrag(handleId, targetId, minW, maxW) {
+  const handle = document.getElementById(handleId);
+  const target = document.getElementById(targetId);
+  if (!handle || !target) return;
+  let dragging = false, startX = 0, startW = 0;
+
+  const start = x => {
+    dragging = true; startX = x; startW = target.offsetWidth;
+    handle.classList.add('dragging');
+    document.body.style.cursor = 'ew-resize';
+    document.body.style.userSelect = 'none';
+  };
+  const move = x => {
+    if (!dragging) return;
+    const w = Math.max(minW, Math.min(maxW, startW + x - startX));
+    target.style.width = w + 'px';
+    document.documentElement.style.setProperty('--sidebar-w', w + 'px');
+    if (map) map.invalidateSize();
+  };
+  const end = () => {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove('dragging');
+    document.body.style.cursor = '';
+    document.body.style.userSelect = '';
+  };
+
+  handle.addEventListener('mousedown', e => { e.preventDefault(); start(e.clientX); });
+  document.addEventListener('mousemove', e => move(e.clientX));
+  document.addEventListener('mouseup', end);
+  handle.addEventListener('touchstart', e => { e.preventDefault(); start(e.touches[0].clientX); }, { passive: false });
+  document.addEventListener('touchmove', e => { if (dragging) { e.preventDefault(); move(e.touches[0].clientX); } }, { passive: false });
+  document.addEventListener('touchend', end);
+}
+
+// Drag-resize from LEFT edge (for right panel — dragging left = wider)
+function setupHDragLeft(handleId, targetId, minW, maxW) {
+  const handle = document.getElementById(handleId);
+  const target = document.getElementById(targetId);
+  if (!handle || !target) return;
+  let dragging = false, startX = 0, startW = 0;
+
+  const start = x => {
+    dragging = true; startX = x; startW = target.offsetWidth;
+    handle.classList.add('dragging');
+    document.body.style.cursor = 'ew-resize';
+    document.body.style.userSelect = 'none';
+  };
+  const move = x => {
+    if (!dragging) return;
+    // Drag left → increase width; drag right → decrease width
+    const w = Math.max(minW, Math.min(maxW, startW + startX - x));
+    target.style.width = w + 'px';
+    document.documentElement.style.setProperty('--panel-w', w + 'px');
+    if (map) map.invalidateSize();
+  };
+  const end = () => {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove('dragging');
+    document.body.style.cursor = '';
+    document.body.style.userSelect = '';
+  };
+
+  handle.addEventListener('mousedown', e => { e.preventDefault(); start(e.clientX); });
+  document.addEventListener('mousemove', e => move(e.clientX));
+  document.addEventListener('mouseup', end);
+  handle.addEventListener('touchstart', e => { e.preventDefault(); start(e.touches[0].clientX); }, { passive: false });
+  document.addEventListener('touchmove', e => { if (dragging) { e.preventDefault(); move(e.touches[0].clientX); } }, { passive: false });
+  document.addEventListener('touchend', end);
+}
+
+// ══════════════════════════════════════════════════════════════════
+// SIDEBAR STREET VIEW
+// ══════════════════════════════════════════════════════════════════
+let svLoc = null, svSvc = 'google';
+
+function showSvSide(loc) {
+  svLoc = loc;
+  const side = document.getElementById('sv-side');
+  const dhSv = document.getElementById('dh-sv');
+  if (!side.classList.contains('open')) {
+    side.classList.add('open');
+    side.style.height = '220px';
+    dhSv.classList.remove('hidden');
+  }
+  setSvSvc(svSvc);
+}
+
+function closeSvSide() {
+  const side = document.getElementById('sv-side');
+  const dhSv = document.getElementById('dh-sv');
+  side.classList.remove('open');
+  dhSv.classList.add('hidden');
+  document.getElementById('sv-iframe').src = 'about:blank';
+  svLoc = null;
+}
+
+function setSvSvc(svc) {
+  svSvc = svc;
+  document.querySelectorAll('.sv-svc-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.svc === svc)
+  );
+  if (!svLoc) return;
+
+  const iframe    = document.getElementById('sv-iframe');
+  const cards     = document.getElementById('sv-side-cards');
+  const note      = document.getElementById('sv-iframe-note');
+  const directLnk = document.getElementById('sv-direct-link');
+
+  const gmUrl = `https://maps.google.com/?q=${encodeURIComponent(svLoc.addr)}&layer=c`;
+  const mUrl  = `https://www.mapillary.com/app/?lat=${svLoc.lat}&lng=${svLoc.lng}&z=17&focus=photo`;
+  const kvUrl = `https://kartaview.org/map/@${svLoc.lat},${svLoc.lng},17z`;
+
+  if (svc === 'google') {
+    directLnk.href = gmUrl;
+
+    // file:// protocol — Google Embed API blocks iframes loaded from local files
+    if (window.location.protocol === 'file:') {
+      iframe.style.display = 'none';
+      iframe.src = 'about:blank';
+      note.style.display = 'none';
+      if (iframe._noteTimer) clearTimeout(iframe._noteTimer);
+      cards.innerHTML = `
+        <p style="font-size:10.5px;color:var(--text-secondary);line-height:1.55;padding:4px 2px 6px">
+          Google Street View cannot load inside a file opened directly from your computer.<br>
+          Serve this file via a local server (e.g. <code style="background:#f3f3f1;padding:1px 4px;border-radius:3px;font-size:10px">python -m http.server</code>), or click below to view on Google Maps.
+        </p>
+        <a class="sv-card-link" href="${gmUrl}" target="_blank" rel="noopener">
+          <div class="sv-card-icon" style="background:#FFF7ED">🔭</div>
+          <div class="sv-card-info">
+            <div class="sv-card-name">Open in Google Street View ↗</div>
+            <div class="sv-card-desc">Opens in Google Maps · Full 360° street view</div>
+          </div>
+          <span class="sv-card-arr">›</span>
+        </a>
+      `;
+      cards.classList.add('show');
+      return;
+    }
+
+    // Normal HTTP(S) — use Maps Embed API with key, or fallback URL
+    cards.classList.remove('show');
+    note.style.display = 'none';
+    iframe.style.display = 'block';
+    if (GOOGLE_MAPS_KEY) {
+      iframe.src = `https://www.google.com/maps/embed/v1/streetview?key=${GOOGLE_MAPS_KEY}&location=${svLoc.lat},${svLoc.lng}&heading=0&pitch=0&fov=80`;
+    } else {
+      iframe.src = `https://maps.google.com/maps?q=&layer=c&cbll=${svLoc.lat},${svLoc.lng}&cbp=12,0,,0,0&z=18&output=embed`;
+    }
+    // Show "not loading?" hint after 3s in case iframe is blocked
+    if (iframe._noteTimer) clearTimeout(iframe._noteTimer);
+    iframe._noteTimer = setTimeout(() => { note.style.display = 'block'; }, 3000);
+  } else {
+    // Mapillary / KartaView — show link cards (embed not available without API key)
+    iframe.style.display = 'none';
+    iframe.src = 'about:blank';
+    note.style.display = 'none';
+    if (iframe._noteTimer) clearTimeout(iframe._noteTimer);
+
+    const isPillary = svc === 'mapillary';
+    const url  = isPillary ? mUrl  : kvUrl;
+    const name = isPillary ? 'Mapillary' : 'KartaView';
+    const icon = isPillary ? '🗺' : '📍';
+    const bg   = isPillary ? '#EEF2FF' : '#F0FDF4';
+    const desc = isPillary
+      ? 'Open-source · Community imagery + AI labels'
+      : 'Community-driven · Open data from OSM contributors';
+
+    cards.innerHTML = `
+      <p style="font-size:10.5px;color:var(--text-secondary);line-height:1.55;padding:2px 2px 4px">
+        ${name} opens in a new tab. Click the card below to view <strong>${svLoc.name}</strong> at street level.
+      </p>
+      <a class="sv-card-link" href="${url}" target="_blank" rel="noopener">
+        <div class="sv-card-icon" style="background:${bg}">${icon}</div>
+        <div class="sv-card-info">
+          <div class="sv-card-name">Open in ${name} ↗</div>
+          <div class="sv-card-desc">${desc}</div>
+        </div>
+        <span class="sv-card-arr">›</span>
+      </a>
+      <a class="sv-card-link" href="${gmUrl}" target="_blank" rel="noopener" style="margin-top:2px">
+        <div class="sv-card-icon" style="background:#FFF7ED">🔭</div>
+        <div class="sv-card-info">
+          <div class="sv-card-name">Open in Google Street View ↗</div>
+          <div class="sv-card-desc">Best coverage · 360° photo spheres</div>
+        </div>
+        <span class="sv-card-arr">›</span>
+      </a>
+    `;
+    cards.classList.add('show');
+  }
+}
+
+function onSvIframeLoad(el) {
+  // If iframe loaded successfully, hide the fallback note
+  const note = document.getElementById('sv-iframe-note');
+  if (el._noteTimer) clearTimeout(el._noteTimer);
+  // Keep note hidden — if content loaded, all is fine
+  note.style.display = 'none';
+}
+function onSvIframeError(el) {
+  document.getElementById('sv-iframe-note').style.display = 'block';
+}
+
+// ══════════════════════════════════════════════════════════════════
+// PER-SECTION FILTER DRAG RESIZE
+// ══════════════════════════════════════════════════════════════════
+function setupBodyDrag(handleId, bodyId, minH, maxH) {
+  const handle = document.getElementById(handleId);
+  const body   = document.getElementById(bodyId);
+  if (!handle || !body) return;
+  let dragging = false, startY = 0, startH = 0;
+
+  const start = y => {
+    dragging = true; startY = y; startH = body.offsetHeight;
+    handle.classList.add('dragging');
+    document.body.style.cursor = 'ns-resize';
+    document.body.style.userSelect = 'none';
+  };
+  const move = y => {
+    if (!dragging) return;
+    body.style.maxHeight = Math.max(minH, Math.min(maxH, startH + y - startY)) + 'px';
+  };
+  const end = () => {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove('dragging');
+    document.body.style.cursor = '';
+    document.body.style.userSelect = '';
+  };
+
+  handle.addEventListener('mousedown', e => { e.preventDefault(); start(e.clientY); });
+  document.addEventListener('mousemove', e => move(e.clientY));
+  document.addEventListener('mouseup', end);
+  handle.addEventListener('touchstart', e => { e.preventDefault(); start(e.touches[0].clientY); }, { passive: false });
+  document.addEventListener('touchmove', e => { if (dragging) { e.preventDefault(); move(e.touches[0].clientY); } }, { passive: false });
+  document.addEventListener('touchend', end);
+}
+
+// ══════════════════════════════════════════════════════════════════
+// REVIEWS & RATINGS
+// ══════════════════════════════════════════════════════════════════
+const REVIEWS_KEY = 'arch_tour_reviews_v1';
+
+function loadReviews(locId) {
+  try {
+    const data = JSON.parse(localStorage.getItem(REVIEWS_KEY) || '{}');
+    return data[locId]?.reviews || [];
+  } catch(e) { return []; }
+}
+
+function saveReview(locId, review) {
+  try {
+    const data = JSON.parse(localStorage.getItem(REVIEWS_KEY) || '{}');
+    if (!data[locId]) data[locId] = { reviews: [] };
+    data[locId].reviews.unshift(review);
+    localStorage.setItem(REVIEWS_KEY, JSON.stringify(data));
+  } catch(e) { console.warn('Review save failed', e); }
+}
+
+function starsHtml(n, total = 5, size = 14) {
+  let h = '';
+  for (let i = 1; i <= total; i++)
+    h += `<span style="color:${i <= n ? '#F59E0B' : '#DDD'};font-size:${size}px">★</span>`;
+  return h;
+}
+
+const reviewStarState = {};
+
+function hoverStar(locId, val) {
+  document.querySelectorAll(`#star-sel-${locId} .star-btn`).forEach((b, i) => {
+    b.style.color = (i + 1) <= val ? '#F59E0B' : '#DDD';
+  });
+}
+function unhoverStar(locId) {
+  const cur = reviewStarState[locId] || 0;
+  document.querySelectorAll(`#star-sel-${locId} .star-btn`).forEach((b, i) => {
+    b.style.color = (i + 1) <= cur ? '#F59E0B' : '#DDD';
+  });
+}
+function setReviewStar(locId, val) {
+  reviewStarState[locId] = val;
+  document.querySelectorAll(`#star-sel-${locId} .star-btn`).forEach((b, i) => {
+    b.classList.toggle('lit', (i + 1) <= val);
+  });
+}
+
+function renderReviewList(reviews) {
+  if (!reviews.length) return '<div class="review-empty">No reviews yet — be the first to share your experience!</div>';
+  return reviews.map(r => `
+    <div class="review-card">
+      <div style="display:flex;align-items:center;gap:6px">
+        <span class="review-card-stars">${'★'.repeat(r.stars)}${'☆'.repeat(5 - r.stars)}</span>
+        <span class="review-name-badge">${r.name}</span>
+      </div>
+      <div class="review-card-meta">${r.date}</div>
+      ${r.text ? `<div class="review-card-text">${r.text}</div>` : ''}
+    </div>
+  `).join('');
+}
+
+function buildReviewsTab(loc) {
+  const reviews = loadReviews(loc.id);
+  const avg = reviews.length ? reviews.reduce((s, r) => s + r.stars, 0) / reviews.length : 0;
+
+  const avgBlock = reviews.length ? `
+    <div class="review-avg">
+      <div class="review-avg-score">${avg.toFixed(1)}</div>
+      <div>
+        <div class="review-avg-stars">${starsHtml(Math.round(avg), 5, 15)}</div>
+        <div class="review-avg-count">${reviews.length} review${reviews.length !== 1 ? 's' : ''}</div>
+      </div>
+    </div>` : '';
+
+  return `
+    ${avgBlock}
+    <div class="review-form">
+      <div class="review-form-title">Write a Review</div>
+      <div style="margin-bottom:10px">
+        <div class="review-form-label">Your rating</div>
+        <div class="star-selector" id="star-sel-${loc.id}">
+          ${[1,2,3,4,5].map(i =>
+            `<button class="star-btn" data-val="${i}"
+              onmouseover="hoverStar('${loc.id}',${i})"
+              onmouseout="unhoverStar('${loc.id}')"
+              onclick="setReviewStar('${loc.id}',${i})">★</button>`
+          ).join('')}
+        </div>
+      </div>
+      <div style="margin-bottom:8px">
+        <div class="review-form-label">Name (optional)</div>
+        <input type="text" id="rev-name-${loc.id}" class="review-input" placeholder="Your name">
+      </div>
+      <div style="margin-bottom:2px">
+        <div class="review-form-label">Review</div>
+        <textarea id="rev-text-${loc.id}" class="review-textarea"
+          placeholder="Share your experience visiting ${loc.name}…"></textarea>
+      </div>
+      <button class="review-submit" onclick="submitReview('${loc.id}')">Submit Review</button>
+    </div>
+    <div id="reviews-list-${loc.id}">${renderReviewList(reviews)}</div>
+  `;
+}
+
+function submitReview(locId) {
+  const stars = reviewStarState[locId] || 0;
+  if (!stars) { alert('Please select a star rating first.'); return; }
+
+  const nameEl = document.getElementById(`rev-name-${locId}`);
+  const textEl = document.getElementById(`rev-text-${locId}`);
+  const name = (nameEl?.value.trim()) || 'Anonymous';
+  const text = textEl?.value.trim() || '';
+
+  saveReview(locId, {
+    stars,
+    name,
+    text,
+    date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+  });
+
+  // Reset form
+  delete reviewStarState[locId];
+  document.querySelectorAll(`#star-sel-${locId} .star-btn`).forEach(b => {
+    b.classList.remove('lit'); b.style.color = '';
+  });
+  if (nameEl) nameEl.value = '';
+  if (textEl) textEl.value = '';
+
+  // Refresh reviews list + avg block
+  document.getElementById(`reviews-list-${locId}`).innerHTML = renderReviewList(loadReviews(locId));
+  // Update avg display
+  const reviews = loadReviews(locId);
+  const avg = reviews.reduce((s, r) => s + r.stars, 0) / reviews.length;
+  const avgEl = document.querySelector('.review-avg');
+  if (avgEl) {
+    avgEl.querySelector('.review-avg-score').textContent = avg.toFixed(1);
+    avgEl.querySelector('.review-avg-stars').innerHTML = starsHtml(Math.round(avg), 5, 15);
+    avgEl.querySelector('.review-avg-count').textContent = `${reviews.length} review${reviews.length !== 1 ? 's' : ''}`;
+  } else {
+    // Avg block didn't exist before (first review) — rebuild tab
+    if (activeLoc?.id === locId) {
+      document.getElementById('pane-reviews').innerHTML = buildReviewsTab(activeLoc);
+    }
+  }
+  // Refresh sidebar card rating badge
+  renderList();
+}
+
+// ══════════════════════════════════════════════════════════════════
+// MAP TYPE / GPS / MOBILE
+// ══════════════════════════════════════════════════════════════════
+function setMapType(type) {
+  document.getElementById('btn-street').classList.toggle('active', type === 'street');
+  document.getElementById('btn-sat').classList.toggle('active', type === 'satellite');
+  if (type === 'street') { map.removeLayer(satLayer); streetLayer.addTo(map); }
+  else { map.removeLayer(streetLayer); satLayer.addTo(map); }
+}
+
+function locateUser() {
+  if (!navigator.geolocation) { alert('Geolocation not supported.'); return; }
+  const btn = document.getElementById('gps-btn');
+  btn.classList.add('locating');
+  navigator.geolocation.getCurrentPosition(
+    pos => {
+      const { latitude:lat, longitude:lng } = pos.coords;
+      if (userMarker) userMarker.remove();
+      userMarker = L.circleMarker([lat, lng], { radius:10, fillColor:'#4F46E5', fillOpacity:1, color:'white', weight:3 })
+        .addTo(map).bindPopup('📍 You are here').openPopup();
+      map.flyTo([lat, lng], 15, { duration:1.3 });
+      btn.classList.remove('locating'); btn.classList.add('located');
+      setTimeout(() => btn.classList.remove('located'), 4000);
+    },
+    () => {
+      alert('Could not get your location. Check browser permissions.');
+      btn.classList.remove('locating');
+    }
+  );
+}
+
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); }
+
+// ══════════════════════════════════════════════════════════════════
+// CITY SELECTOR
+// ══════════════════════════════════════════════════════════════════
+const CITY_META = {
+  nyc: { key: 'new-york', label: '🗽 New York', lat: 40.7549, lng: -73.9840, zoom: 13 },
+  sel: { key: 'seoul',    label: '🏙 Seoul',    lat: 37.5665, lng: 126.9780, zoom: 13 },
+  tky: { key: 'tokyo',    label: '🏯 Tokyo',    lat: 35.6762, lng: 139.6503, zoom: 13 }
+};
+let activeCity    = 'nyc';
+let activeCityKey = 'new-york';
+
+function selectCity(city) {
+  if (city === activeCity) return;
+  const meta = CITY_META[city];
+  if (!meta) return;
+  // Check if there's any data for this city
+  const cityLocs = LOCS.filter(l => l.city === meta.key);
+  if (!cityLocs.length) return; // no data yet — tab stays disabled
+  activeCity    = city;
+  activeCityKey = meta.key;
+  document.querySelectorAll('.city-tab').forEach(t => t.classList.remove('active'));
+  const btn = document.getElementById(`city-${city}`);
+  if (btn) btn.classList.add('active');
+  // Fly map to city center
+  if (window.map) map.flyTo([meta.lat, meta.lng], meta.zoom, { duration: 1.2 });
+  // Rebuild markers, filters, list for new city (also updates badge)
+  refreshApp();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox() || closePanel(); });
+
+// ══════════════════════════════════════════════════════════════════
+// BOOT
+// ══════════════════════════════════════════════════════════════════
+window.addEventListener('load', function() {
+  if (typeof L === 'undefined') {
+    document.getElementById('map').innerHTML =
+      '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:14px;font-family:Inter,sans-serif;color:#555;background:#F7F7F5">' +
+      '<div style="font-size:36px">⚠️</div>' +
+      '<div style="font-size:15px;font-weight:600;color:#111">Map library failed to load</div>' +
+      '<div style="font-size:13px;text-align:center;line-height:1.6">인터넷 연결을 확인하고 새로고침 해주세요.</div>' +
+      '<button onclick="location.reload()" style="padding:10px 22px;background:#111;color:white;border:none;border-radius:8px;font-size:13px;cursor:pointer">Refresh ↺</button></div>';
+    return;
+  }
+  initMap(); // badge is updated inside initMap → refreshApp path
+  // Sidebar macro drag-resize
+  setupVDrag('dh-sv', 'sv-side', 80, 460);
+  setupVDrag('dh-fl', 'sb-filters', 50, 480);
+  setupHDrag('sb-resize', 'sidebar', 220, 700);
+  setupHDragLeft('panel-resize', 'panel', 300, 900);
+  // Per-filter-section body resize (cat/style/era start open; arch starts closed)
+  setupBodyDrag('dh-sec-cat',   'body-cat',   30, 220);
+  setupBodyDrag('dh-sec-style', 'body-style', 30, 220);
+  setupBodyDrag('dh-sec-era',    'body-era',    30, 220);
+  setupBodyDrag('dh-sec-access', 'body-access', 30, 180);
+  setupBodyDrag('dh-sec-arch',  'body-arch',  50, 320);
+});
+
+// ══════════════════════════════════════════════════════════════════
+// ADMIN PANEL
+// ══════════════════════════════════════════════════════════════════
+const CAT_CC_MAP = {
+  'Skyscrapers':'c-sky','Historic Buildings':'c-his','Museums & Culture':'c-mus',
+  'Parks & Public Spaces':'c-park','Modern Architecture':'c-mod',
+  'Religious Architecture':'c-rel','Universities & Research':'c-uni','Infrastructure':'c-inf'
+};
+
+// Open with Ctrl+Shift+A
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'A') { e.preventDefault(); openAdmin(); }
+});
+
+function openAdmin() {
+  renderAdminTable();
+  document.getElementById('admin-panel').classList.add('open');
+}
+function closeAdmin() {
+  document.getElementById('admin-panel').classList.remove('open');
+}
+
+function renderAdminTable() {
+  document.getElementById('admin-count').textContent = `${LOCS.length} locations`;
+  const saved = localStorage.getItem('arch_tour_locs_v1');
+  document.getElementById('adm-reset-storage').style.display = saved ? 'block' : 'none';
+  document.getElementById('admin-tbody').innerHTML = LOCS.map((loc, i) => `
+    <tr>
+      <td style="color:var(--text-secondary)">${i+1}</td>
+      <td class="td-name">${loc.name}</td>
+      <td style="color:var(--text-secondary)">${loc.arch}</td>
+      <td style="color:var(--text-secondary)">${loc.yr}</td>
+      <td><span class="cat-badge ${loc.cc||''}" style="font-size:10px">${loc.cat}</span></td>
+      <td>${loc.access ? `<span class="access-badge ${ACCESS_META[loc.access]?.cls||''}" style="font-size:10px">${ACCESS_META[loc.access]?.icon||''} ${loc.access}</span>` : '—'}</td>
+      <td>
+        <button class="adm-btn adm-edit" onclick="openEditForm('${loc.id}')">Edit</button>
+        <button class="adm-btn adm-del"  onclick="confirmDeleteLoc('${loc.id}')">Delete</button>
+      </td>
+    </tr>
+  `).join('');
+}
+
+let _admEditId = null;
+
+function openAddForm() {
+  _admEditId = null;
+  _clearAdmForm();
+  document.getElementById('adm-form-title').textContent = 'Add New Location';
+  document.getElementById('adm-modal').classList.add('open');
+}
+function openEditForm(id) {
+  _admEditId = id;
+  const loc = LOCS.find(l => l.id === id);
+  if (!loc) return;
+  _fillAdmForm(loc);
+  document.getElementById('adm-form-title').textContent = 'Edit Location';
+  document.getElementById('adm-modal').classList.add('open');
+}
+function closeAdmModal() {
+  document.getElementById('adm-modal').classList.remove('open');
+}
+
+function _clearAdmForm() {
+  ['af-name','af-arch','af-yr','af-style','af-styleGroup','af-lat','af-lng',
+   'af-addr','af-hood','af-desc','af-hours','af-admission','af-web',
+   'af-gmaps','af-wiki','af-archdaily','af-tags','af-photos','af-tourInfo'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  document.getElementById('af-tourOk').checked = false;
+  document.getElementById('af-cat').value    = 'Modern Architecture';
+  document.getElementById('af-access').value = 'Open to Public';
+  document.getElementById('af-era').value    = '2000–Present';
+  document.getElementById('af-city').value   = activeCityKey || 'new-york';
+}
+
+function _fillAdmForm(loc) {
+  const sv = (id, val) => { const el = document.getElementById(id); if (el) el.value = val || ''; };
+  sv('af-name',       loc.name);
+  sv('af-arch',       loc.arch);
+  sv('af-yr',         loc.yr);
+  sv('af-style',      loc.style);
+  sv('af-styleGroup', loc.styleGroup);
+  sv('af-lat',        loc.lat);
+  sv('af-lng',        loc.lng);
+  sv('af-addr',       loc.addr);
+  sv('af-hood',       loc.hood);
+  sv('af-desc',       loc.desc);
+  sv('af-hours',      loc.hours);
+  sv('af-admission',  loc.admission);
+  sv('af-web',        loc.web);
+  sv('af-gmaps',      loc.gmaps);
+  sv('af-wiki',       loc.wiki);
+  sv('af-archdaily',  loc.archdaily);
+  sv('af-tourInfo',   loc.tourInfo);
+  sv('af-tags',       (loc.tags || []).join(', '));
+  sv('af-photos',     (loc.photos || []).join('\n'));
+  document.getElementById('af-tourOk').checked = !!loc.tourOk;
+  document.getElementById('af-cat').value    = loc.cat    || 'Modern Architecture';
+  document.getElementById('af-access').value = loc.access || 'Open to Public';
+  document.getElementById('af-era').value    = loc.era    || '2000–Present';
+  document.getElementById('af-city').value   = loc.city   || 'new-york';
+}
+
+function saveAdmForm() {
+  const fv = id => (document.getElementById(id)?.value || '').trim();
+  const name = fv('af-name');
+  const lat  = parseFloat(fv('af-lat'));
+  const lng  = parseFloat(fv('af-lng'));
+  if (!name)           { alert('Name is required.'); return; }
+  if (isNaN(lat)||isNaN(lng)) { alert('Valid Latitude and Longitude are required.'); return; }
+
+  const cat = fv('af-cat') || 'Modern Architecture';
+  const loc = {
+    id:         _admEditId || name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') + '-' + Date.now(),
+    name,       arch:       fv('af-arch') || 'Unknown',
+    yr:         parseInt(fv('af-yr')) || new Date().getFullYear(),
+    cat,        cc:         CAT_CC_MAP[cat] || 'c-mod',
+    style:      fv('af-style'),
+    styleGroup: fv('af-styleGroup') || 'Contemporary',
+    era:        fv('af-era') || '2000–Present',
+    access:     fv('af-access') || 'Open to Public',
+    city:       fv('af-city') || 'new-york',
+    lat, lng,
+    addr:       fv('af-addr'),   hood:     fv('af-hood'),
+    desc:       fv('af-desc'),   hours:    fv('af-hours'),
+    lastEntry:  '',              admission: fv('af-admission'),
+    tourOk:     document.getElementById('af-tourOk').checked,
+    tourInfo:   fv('af-tourInfo'), web:    fv('af-web'),
+    gmaps:      fv('af-gmaps'),  wiki:     fv('af-wiki'),
+    archdaily:  fv('af-archdaily'),
+    tags:       fv('af-tags').split(',').map(t=>t.trim()).filter(Boolean),
+    photos:     fv('af-photos').split('\n').map(s=>s.trim()).filter(Boolean),
+    drawings:   _admEditId ? (LOCS.find(l=>l.id===_admEditId)?.drawings||[]) : []
+  };
+
+  if (_admEditId) {
+    const idx = LOCS.findIndex(l => l.id === _admEditId);
+    if (idx >= 0) LOCS[idx] = loc;
+  } else {
+    LOCS.push(loc);
+  }
+  try { localStorage.setItem('arch_tour_locs_v1', JSON.stringify(LOCS)); } catch(e) {}
+  refreshApp();
+  closeAdmModal();
+  renderAdminTable();
+}
+
+function confirmDeleteLoc(id) {
+  const loc = LOCS.find(l => l.id === id);
+  if (!loc || !confirm(`"${loc.name}"을(를) 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.`)) return;
+  LOCS.splice(LOCS.findIndex(l => l.id === id), 1);
+  try { localStorage.setItem('arch_tour_locs_v1', JSON.stringify(LOCS)); } catch(e) {}
+  refreshApp();
+  renderAdminTable();
+}
+
+function confirmResetStorage() {
+  if (!confirm('모든 변경사항을 삭제하고 기본 데이터로 초기화하시겠습니까?')) return;
+  localStorage.removeItem('arch_tour_locs_v1');
+  LOCS = LOCS_DEFAULT.map(l => ({...l}));
+  refreshApp();
+  renderAdminTable();
+}
+
+function exportDataJS() {
+  const btn = document.querySelector('.adm-hbtn.adm-hbtn-export');
+  if (btn) { btn.textContent = '⏳ Generating…'; btn.disabled = true; }
+
+  const newLocs = `const LOCS_DEFAULT = ${JSON.stringify(LOCS, null, 2)};`;
+  const output = `// Architecture Tour Guide — Location Data\n// Edit this file to add, remove, or update locations.\n// Deploy alongside index.html (Netlify, etc.)\n// ─────────────────────────────────────────────────\n/* DATA_START */\n${newLocs}\n/* DATA_END */\n`;
+
+  const blob = new Blob([output], {type: 'application/javascript;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'data.js';
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
+
+  if (btn) { btn.textContent = '⬇ Export data.js'; btn.disabled = false; }
+}
+</script>
+</body>
+</html>
