@@ -644,24 +644,44 @@
         position: absolute; left: 0; top: 0; bottom: 0;
         transform: translateX(-100%);
         transition: transform 0.28s cubic-bezier(.4,0,.2,1);
-        box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+        box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+        z-index: 300;
       }
       .sidebar.open { transform: translateX(0); }
       .panel {
-        width: 100%; top: auto; height: 80vh;
+        width: 100%; top: auto; height: 85vh;
         border-left: none; border-top: 1px solid var(--border);
-        border-radius: 16px 16px 0 0;
+        border-radius: 20px 20px 0 0;
         transform: translateY(100%);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
       }
       .panel.open { transform: translateY(0); }
+      .panel::before {
+        content: ''; display: block; width: 36px; height: 4px;
+        background: #ccc; border-radius: 2px; margin: 10px auto 4px;
+        flex-shrink: 0;
+      }
       #menu-btn { display: flex; }
       .map-toggle { display: none; }
       .logo-sub { display: none; }
+      #sidebar-backdrop {
+        display: none; position: fixed; inset: 0;
+        background: rgba(0,0,0,0.4); z-index: 299;
+      }
+      #sidebar-backdrop.visible { display: block; }
+      .gallery img { max-height: 200px; }
     }
     @media (max-width: 480px) {
-      header { padding: 0 12px; }
-      .header-top-row { gap: 8px; }
+      header { padding: 0 10px; min-height: 52px; }
+      .header-top-row { gap: 6px; }
       #gps-btn span { display: none; }
+      .tabs { padding: 0 6px; gap: 0; }
+      .tabs button, .tabs .tab { padding: 8px 10px; font-size: 12px; white-space: nowrap; }
+      .panel { height: 88vh; }
+      .gallery { max-height: 180px; }
+      .detail-section { padding: 14px 14px; }
+      h2 { font-size: 16px; }
+      .panel-close { width: 32px; height: 32px; font-size: 16px; }
     }
 
     /* ── ADMIN PANEL ─────────────────────────────────────────── */
@@ -1387,12 +1407,14 @@ function openLoc(loc) {
   gallery.querySelectorAll('img').forEach(i => i.remove());
   loc.photos.forEach((src, i) => {
     const img = document.createElement('img');
-    img.src = src; img.alt = loc.name;
+      img.loading = 'lazy';
+    img.src = photoUrl(src, window.innerWidth < 768); img.alt = loc.name;
     if (i === 0) img.classList.add('active');
     img.onerror = function() { this.style.display = 'none'; };
     gallery.insertBefore(img, gallery.querySelector('.g-btn'));
   });
   document.getElementById('g-dots').innerHTML =
+  function photoUrl(u,mob){if(!u)return u;return u.includes("?width=")?u.replace(/\?width=\d+/,mob?"?width=500":"?width=800"):u;}
     loc.photos.map((_, i) => `<div class="g-dot${i===0?' active':''}" onclick="gotoPhoto(${i})"></div>`).join('');
   updateGLabel();
 
@@ -1419,6 +1441,7 @@ function openLoc(loc) {
   showSvSide(loc);
 
   if (window.innerWidth <= 900) document.getElementById('sidebar').classList.remove('open');
+  const bd2=document.getElementById('sidebar-backdrop');if(bd2)bd2.classList.remove('visible');
 }
 
 function closePanel() {
@@ -1714,6 +1737,7 @@ function showSvSide(loc) {
   const dhSv = document.getElementById('dh-sv');
   if (!side.classList.contains('open')) {
     side.classList.add('open');
+    const bd=document.getElementById('sidebar-backdrop');if(bd)bd.classList.add('visible');
     side.style.height = '220px';
     dhSv.classList.remove('hidden');
   }
@@ -2323,5 +2347,18 @@ function exportDataJS() {
   if (btn) { btn.textContent = '⬇ Export data.js'; btn.disabled = false; }
 }
 </script>
+
+  <script>
+  // sidebar-backdrop-script
+  (function(){
+    var bd = document.getElementById('sidebar-backdrop');
+    if (!bd) return;
+    bd.addEventListener('click', function() {
+      var sb = document.getElementById('sidebar');
+      if (sb) sb.classList.remove('open');
+      bd.classList.remove('visible');
+    });
+  })();
+  </script>
 </body>
 </html>
