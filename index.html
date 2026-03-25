@@ -639,37 +639,42 @@
     .city-tab.active .city-soon-badge { background: rgba(255,255,255,0.3); }
 
     /* ── MOBILE ─────────────────────────────────────────── */
+    #city-select-mobile {
+      display: none;
+      font-size: 13px; padding: 5px 10px;
+      border-radius: 8px; border: 1px solid var(--border);
+      background: var(--surface); color: var(--text);
+      cursor: pointer; font-family: inherit;
+    }
     @media (max-width: 900px) {
+      .app { overflow: visible; }
       .sidebar {
-        position: absolute; left: 0; top: 0; bottom: 0;
+        position: fixed; left: 0; top: 0; bottom: 0;
         transform: translateX(-100%);
         transition: transform 0.28s cubic-bezier(.4,0,.2,1);
         box-shadow: 4px 0 20px rgba(0,0,0,0.15);
-        z-index: 300;
+        z-index: 400;
       }
       .sidebar.open { transform: translateX(0); }
       .panel {
-        width: 100%; top: auto; height: 85vh;
+        position: fixed; bottom: 0; left: 0; right: 0; top: auto;
+        width: 100%; height: 85vh;
         border-left: none; border-top: 1px solid var(--border);
         border-radius: 20px 20px 0 0;
         transform: translateY(100%);
         padding-bottom: env(safe-area-inset-bottom, 0px);
+        z-index: 500;
       }
       .panel.open { transform: translateY(0); }
-      .panel::before {
-        content: ''; display: block; width: 36px; height: 4px;
-        background: #ccc; border-radius: 2px; margin: 10px auto 4px;
-        flex-shrink: 0;
-      }
+      .panel::before { content: ''; display: block; width: 36px; height: 4px; background: #ccc; border-radius: 2px; margin: 10px auto 4px; flex-shrink: 0; }
       #menu-btn { display: flex; }
       .map-toggle { display: none; }
       .logo-sub { display: none; }
-      #sidebar-backdrop {
-        display: none; position: fixed; inset: 0;
-        background: rgba(0,0,0,0.4); z-index: 299;
-      }
+      #sidebar-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 350; }
       #sidebar-backdrop.visible { display: block; }
       .gallery img { max-height: 200px; }
+      .header-city-row { display: none; }
+      #city-select-mobile { display: block; }
     }
     @media (max-width: 480px) {
       header { padding: 0 10px; min-height: 52px; }
@@ -929,6 +934,12 @@
       </svg>
       <span>My Location</span>
     </button>
+    <select id="city-select-mobile" onchange="selectCity(this.value)">
+      <option value="nyc">New York</option>
+      <option value="sel">Seoul</option>
+      <option value="lon">London</option>
+      <option value="tky">Tokyo</option>
+    </select>
     <div class="header-city-row">
       <button class="city-tab active" id="city-nyc" onclick="selectCity('nyc')">🗽 New York</button>
       <button class="city-tab" id="city-sel" onclick="selectCity('sel')">🏙 Seoul</button>
@@ -2132,6 +2143,9 @@ function selectCity(city) {
   // Fly map to city center
   if (window.map) map.flyTo([meta.lat, meta.lng], meta.zoom, { duration: 1.2 });
   // Rebuild markers, filters, list for new city (also updates badge)
+  // Sync mobile city select
+  const _msel = document.getElementById('city-select-mobile');
+  if (_msel) _msel.value = city;
   refreshApp();
 }
 
