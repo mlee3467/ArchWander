@@ -73,11 +73,10 @@ const LOCS_NEW_YORK = [
     wiki:'https://en.wikipedia.org/wiki/One_World_Trade_Center',
     tags:['Observatory','Memorial','Lower Manhattan','1,776 ft'],
     photos:[
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/View_to_One_World_Trade_Center.jpg/800px-View_to_One_World_Trade_Center.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/New_York_City_%28New_York%2C_USA%29%2C_One_World_Trade_Center_--_2012_--_6566.jpg/800px-New_York_City_%28New_York%2C_USA%29%2C_One_World_Trade_Center_--_2012_--_6566.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/One_World_Trade_Center_2025_063.jpg/800px-One_World_Trade_Center_2025_063.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/One_World_Trade_Center_%28low-angle%29.jpg/800px-One_World_Trade_Center_%28low-angle%29.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/One_WTC_NY1.jpg/800px-One_WTC_NY1.jpg'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/View_to_One_World_Trade_Center.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/One_World_Trade_Center_%28low-angle%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/One_World_Trade_Center_2025.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/New_York_City_%28New_York%2C_USA%29%2C_One_World_Trade_Center_--_2012_--_6566.jpg?width=800'
     ],
     drawings:[]
   },
@@ -99,8 +98,9 @@ const LOCS_NEW_YORK = [
     wiki:'https://en.wikipedia.org/wiki/Flatiron_Building',
     tags:['Beaux-Arts','Triangular','Chicago School','Free'],
     photos:[
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Flatiron_building_ny.jpg/800px-Flatiron_building_ny.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Flatiron_bldg_06.jpg/800px-Flatiron_bldg_06.jpg'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Edificio_Fuller_%28Flatiron%29_en_2010_desde_el_Empire_State_crop_boxin.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Flatiron-Building-NYC-September-2014.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Panorama_of_Madison_Square%2C_New_York_City_%28Flatiron_building%29_c1910-1915.jpg?width=800'
     ],
     drawings:[]
   },
@@ -123,8 +123,10 @@ const LOCS_NEW_YORK = [
     wiki:'https://en.wikipedia.org/wiki/Grand_Central_Terminal',
     tags:['Beaux-Arts','Celestial Ceiling','Transit Hub','Free Entry'],
     photos:[
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Grand_Central_Terminal%2C_New_York_City.jpg/800px-Grand_Central_Terminal%2C_New_York_City.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Grand_Central_Terminal_Concourse.jpg/800px-Grand_Central_Terminal_Concourse.jpg'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Image-Grand_central_Station_Outside_Night_2.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Grand_Central_Terminal_Main_Concourse%2C_New_York%2C_August_2021.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Grand_Central_Terminal%2C_New_York_City%2C_NY.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Grand_Central_Station%2C_New_York_c._1902.jpg?width=800'
     ],
     drawings:[
       { type:'Cross-Section Diagram', caption:'Main Concourse cross-section showing multi-level layout', src:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/GrandCentralStation_CrossSection.jpg/800px-GrandCentralStation_CrossSection.jpg' }
@@ -149,8 +151,10 @@ const LOCS_NEW_YORK = [
     wiki:'https://en.wikipedia.org/wiki/Brooklyn_Bridge',
     tags:['Gothic Revival','Suspension Bridge','Free Access','East River'],
     photos:[
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Brooklyn_Bridge_Postdlf.jpg/800px-Brooklyn_Bridge_Postdlf.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/BrooklynBridge_20050115_150853_1.jpg/800px-BrooklynBridge_20050115_150853_1.jpg'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Brooklyn_Bridge_from_60_water.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Pont_de_Brooklyn_de_nuit_-_Octobre_2008_edit.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Brooklyn_Bridge_promenade%2C_New_York_City%2C_20231005_0933_2156.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Currier_and_Ives_Brooklyn_Bridge2.jpg?width=800'
     ],
     drawings:[
       { type:'Original Engineering Drawing', caption:'John Roebling\'s original design elevation, 1869', src:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Brooklyn_Bridge_section_Roebling.jpg/800px-Brooklyn_Bridge_section_Roebling.jpg' }
@@ -175,8 +179,10 @@ const LOCS_NEW_YORK = [
     wiki:'https://en.wikipedia.org/wiki/Solomon_R._Guggenheim_Museum',
     tags:['Frank Lloyd Wright','Spiral Ramp','Modern Art','Upper East Side'],
     photos:[
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Guggenheim_museum_exterior.jpg/800px-Guggenheim_museum_exterior.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/NYC_-_Guggenheim_museum_-_interior.jpg/800px-NYC_-_Guggenheim_museum_-_interior.jpg'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/2003-03-New-York-Guggenheim-Museum-Frank-Lloyd-Wright.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Solomon_R._Guggenheim_Museum%2C_New_York_City%2C_Lobby_Skylight_Delight.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Solomon_R._Guggenheim_Museum_skylight.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Int%C3%A9rieur_du_mus%C3%A9e_Solomon_R._Guggenheim_%C3%A0_New-York.jpg?width=800'
     ],
     drawings:[
       { type:'Cross-Section', caption:'Frank Lloyd Wright\'s longitudinal section through the spiral ramp', src:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Guggenheim_museum_section.jpg/800px-Guggenheim_museum_section.jpg' },
@@ -202,8 +208,11 @@ const LOCS_NEW_YORK = [
     wiki:'https://en.wikipedia.org/wiki/Whitney_Museum_of_American_Art',
     tags:['Renzo Piano','American Art','Meatpacking','High Line'],
     photos:[
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Whitney_Museum_of_American_Art%2C_NYC_%28cropped%29.jpg/800px-Whitney_Museum_of_American_Art%2C_NYC_%28cropped%29.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Whitney_Museum_2015.jpg/800px-Whitney_Museum_2015.jpg'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Whitney_Museum_of_American_Art_%2849051573133%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/The_Whitney_Museum%2C_New_York_City_in_2015.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Whitney_Museum_of_American_Art_August_2024_004.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Whitney_Stairwell_%2836773194964%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/2022_Whitney_Biennial_Placard.jpg?width=800'
     ],
     drawings:[]
   },
@@ -226,8 +235,13 @@ const LOCS_NEW_YORK = [
     wiki:'https://en.wikipedia.org/wiki/High_Line',
     tags:['Adaptive Reuse','Linear Park','Free Access','DS+R'],
     photos:[
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/High_Line_-_20110422.jpg/800px-High_Line_-_20110422.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/High_line_gansevoort.jpg/800px-High_line_gansevoort.jpg'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/High_Line%2C_Manhattan%2C_New_York_City%2C_20231001_1722_1458.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/At_New_York_City_2023_024_-_High_Line_Section_3.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/At_New_York_City_2023_028.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/New_York%27s_High_Line_in_March_2025_29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/High_Line%2C_New_York_City%2C_20231001_1806_1489.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/New_York%27s_High_Line_in_March_2025_06.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/High_Line%2C_New_York_2012_39.jpg?width=800'
     ],
     drawings:[]
   },
@@ -249,8 +263,11 @@ const LOCS_NEW_YORK = [
     wiki:'https://en.wikipedia.org/wiki/Vessel_(structure)',
     tags:['Heatherwick','Sculptural','Hudson Yards','Free'],
     photos:[
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Vessel_at_Hudson_Yards_%28cropped%29.jpg/800px-Vessel_at_Hudson_Yards_%28cropped%29.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Hudson_Yards_Vessel_%2846979506471%29.jpg/800px-Hudson_Yards_Vessel_%2846979506471%29.jpg'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Hudson_Yards_Plaza_March_2019_18.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/At_New_York_City_2023_021.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/The_Vessel_at_Night_2021.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/The_Vessel_in_New_York_from_inside.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Inside_Vessel_NYC.jpg?width=800'
     ],
     drawings:[]
   },
@@ -273,8 +290,9 @@ const LOCS_NEW_YORK = [
     wiki:'https://en.wikipedia.org/wiki/World_Trade_Center_Transportation_Hub',
     tags:['Calatrava','Transit Hub','Neo-Expressionism','Free Entry'],
     photos:[
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/WTC_Oculus_%2833111068923%29.jpg/800px-WTC_Oculus_%2833111068923%29.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Oculus_World_Trade_Center.jpg/800px-Oculus_World_Trade_Center.jpg'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Oculus_%2841393p%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Oculus_%2841285p%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/WTC_Oculus_Exterior_018.jpg?width=800'
     ],
     drawings:[]
   },
