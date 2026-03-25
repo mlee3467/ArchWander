@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Coordinate Geocoder — Architecture Tour Guide</title>
+<title>Coordinate Geocoder — ArchWander</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:system-ui,-apple-system,sans-serif;background:#f5f5f0;color:#1a1a1a;font-size:14px}
@@ -50,21 +50,21 @@ td.mono{font-family:monospace;font-size:11px}
 </head>
 <body>
 <header>
-  <h1>📍 Coordinate Geocoder — Architecture Tour Guide</h1>
+  <h1>📍 Coordinate Geocoder — ArchWander</h1>
   <p>Load your <code>data.js</code>, then batch-verify all locations via Nominatim / OpenStreetMap · Works offline (open directly, no server needed)</p>
 </header>
 
 <div class="wrap">
 
-  <!-- Step 0: Load data.js -->
+  <!-- Step 0: Load city data file -->
   <div class="card" id="load-card">
     <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
       <div style="flex:1;min-width:200px">
-        <div style="font-weight:600;font-size:14px;margin-bottom:4px">Step 1 — Load your data.js</div>
-        <div style="font-size:12px;color:#666">Select the current <code>data.js</code> file from your project folder. The tool will parse all locations automatically.</div>
+        <div style="font-weight:600;font-size:14px;margin-bottom:4px">Step 1 — Load a city data file</div>
+        <div style="font-size:12px;color:#666">Select a city file from your project folder — e.g. <code>data-new-york.js</code> or <code>data-seoul.js</code>. The tool will parse all locations automatically.</div>
       </div>
       <label style="display:inline-block;padding:9px 18px;background:#1a1a1a;color:#fff;border-radius:7px;cursor:pointer;font-size:13px;font-weight:500;white-space:nowrap">
-        📂 Choose data.js
+        📂 Choose city file
         <input type="file" accept=".js" onchange="loadFile(event)" style="display:none">
       </label>
     </div>
@@ -83,7 +83,7 @@ td.mono{font-family:monospace;font-size:11px}
     <button id="btn-run" onclick="runGeocoding()" disabled>▶ Start Geocoding</button>
     <button class="sec" id="btn-all" disabled onclick="setAll(true)">✓ Select All Fixes</button>
     <button class="sec" id="btn-none" disabled onclick="setAll(false)">✗ Deselect All</button>
-    <button id="btn-dl" disabled onclick="download()">⬇ Download corrected data.js</button>
+    <button id="btn-dl" disabled onclick="download()">⬇ Download corrected file</button>
     <div class="thr">Show errors &gt; <input type="number" id="thr" value="100" min="0" max="9999" onchange="refilter()"> m</div>
   </div>
 
@@ -113,8 +113,9 @@ td.mono{font-family:monospace;font-size:11px}
 
 <script>
 /* ── Embedded location list (id / addr / lat / lng only) ── */
-let LOCS = [];  // populated by loadFile()
-let rawDataJs = null;  // text of loaded data.js
+let LOCS = [];          // populated by loadFile()
+let rawDataJs = null;   // text of loaded city file
+let loadedFileName = 'data.js';  // original filename for download
 
 
 /* ── State ─────────────────────────────────────────────── */
@@ -149,10 +150,11 @@ function parseDataJs(text) {
   return out;
 }
 
-/* ── Load data.js from disk via FileReader ──────────────── */
+/* ── Load city file from disk via FileReader ────────────── */
 function loadFile(event) {
   const file = event.target.files[0];
   if (!file) return;
+  loadedFileName = file.name;
   const status = document.getElementById('load-status');
   status.style.color = '#aaa';
   status.textContent = 'Reading ' + file.name + '…';
@@ -191,25 +193,53 @@ function haversine(la1, lo1, la2, lo2) {
 }
 
 async function nominatim(addr) {
-  // Detect country code from address string to help Nominatim accuracy
-  // Korean addresses contain Korean districts or 'Seoul' / 'Busan' etc.
-  let cc = '';
-  if (/seoul|busan|incheon|gu,|daero|dong,|ro,|jongno|gangnam|yongsan|mapo|seongdong|seongsu/i.test(addr)) {
-    cc = '&countrycodes=kr';
-  } else if (/new york|brooklyn|manhattan|bronx|queens|staten island|nyc/i.test(addr)) {
-    cc = '&countrycodes=us';
+  // ── Country code detection ──────────────────────────────────────
+  // Extended Korean keyword list covers all districts, road suffixes, and
+  // well-known neighbourhood names used in the data set.
+  const KR_RE = /seoul|busan|incheon|daegu|gwangju|daejeon|ulsan|gyeonggi|jeju|seongnam|pangyo|bundang|\bgu[,\s]|daero|dong[,\s]|\bro[,\s]|-ro[,\s]|-gil[,\s]|jongno|gangnam|yongsan|mapo|seongdong|seongsu|nowon|songpa|seocho|gangseo|eunpyeong|itaewon|myeongdong|insadong|hongdae|sinchon|yeouido|apgujeong|hannam|hanam|ichon|huam|magok/i;
+  const NY_RE = /new york|brooklyn|manhattan|bronx|queens|staten island|\bnyc\b/i;
+  const cc = KR_RE.test(addr) ? '&countrycodes=kr'
+           : NY_RE.test(addr) ? '&countrycodes=us'
+           : '';
+
+  // ── Address cleaning ────────────────────────────────────────────
+  // Strip parenthetical noise:  "432 Toegye-ro, Jung-gu, Seoul (overpass)" → clean
+  // Strip slash-separated extras:  "Gangnam-gu, Seoul (Garosu-gil / Dosan-daero area)" → clean
+  function clean(a) {
+    return a.replace(/\s*\([^)]*\)/g, '').replace(/\s{2,}/g, ' ').trim();
   }
-  const url = 'https://nominatim.openstreetmap.org/search?q='
-    + encodeURIComponent(addr) + '&format=json&limit=1' + cc;
-  try {
-    const resp = await fetch(url, {
-      headers: { 'User-Agent': 'ArchTourGuide/1.0 coord-checker' }
-    });
-    const data = await resp.json();
-    if (data && data.length > 0)
-      return { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) };
-  } catch (e) {
-    console.warn('Nominatim error for', addr, e);
+
+  // ── Build tiered fallback queries ───────────────────────────────
+  // Tier 1 : cleaned full address           "281 Euljiro, Jung-gu, Seoul"
+  // Tier 2 : drop street number prefix      "Euljiro, Jung-gu, Seoul"
+  // Tier 3 : last 2 comma-parts only        "Jung-gu, Seoul"
+  const base   = clean(addr);
+  const noNum  = base.replace(/^\d[\d\-]*\s+/, '');   // strip leading number
+  const parts  = base.split(',').map(s => s.trim());
+  const simple = parts.length >= 3 ? parts.slice(-2).join(', ') : null;
+
+  const queries = [base];
+  if (noNum !== base) queries.push(noNum);
+  if (simple && simple !== base && simple !== noNum) queries.push(simple);
+
+  // ── Query loop with per-fallback rate limiting ─────────────────
+  for (let i = 0; i < queries.length; i++) {
+    if (i > 0) await sleep(1100);   // Nominatim: max 1 req/sec
+    const url = 'https://nominatim.openstreetmap.org/search?q='
+      + encodeURIComponent(queries[i]) + '&format=json&limit=1' + cc;
+    try {
+      const resp = await fetch(url, {
+        headers: {
+          'User-Agent':      'ArchWander/1.0 coord-checker',
+          'Accept-Language': 'en'
+        }
+      });
+      const data = await resp.json();
+      if (data && data.length > 0)
+        return { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) };
+    } catch(e) {
+      console.warn('Nominatim error for', queries[i], e);
+    }
   }
   return null;
 }
@@ -382,13 +412,13 @@ function download() {
   const blob = new Blob([raw], { type: 'application/javascript' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'data.js';
+  a.download = loadedFileName;  // preserve original city filename
   a.click();
 
   const note = document.getElementById('note');
   note.style.display = '';
   note.innerHTML = '✅ <strong>' + n + ' coordinate(s) corrected.</strong> '
-    + 'Replace your existing <code>data.js</code> with the downloaded file, then redeploy.';
+    + 'Replace your existing <code>' + loadedFileName + '</code> with the downloaded file, then redeploy.';
 }
 </script>
 </body>

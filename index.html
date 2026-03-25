@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Architecture Tour Guide</title>
+  <title>ArchWander</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mapillary-js@4/dist/mapillary.min.css"/>
   <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
     :root {
@@ -508,7 +509,42 @@
       position: absolute; inset: 0;
       width: 100%; height: 100%; border: none; display: block;
     }
-    /* Link-card view (used for Mapillary, KartaView, and Google fallback) */
+    /* Mapillary inline viewer */
+    #mly-viewer {
+      position: absolute; inset: 0;
+      display: none; background: #111;
+    }
+    #mly-viewer .mapillary-js { width: 100%; height: 100%; }
+    #mly-status {
+      position: absolute; inset: 0; display: none;
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 6px; padding: 16px; text-align: center;
+      background: #111; color: #aaa; font-size: 11px; line-height: 1.6;
+      z-index: 2;
+    }
+    #mly-status a { color: #60a5fa; }
+    #mly-status code { background: #222; padding: 1px 5px; border-radius: 3px; font-size: 10px; }
+    .mly-attrib {
+      position: absolute; bottom: 4px; right: 6px; z-index: 10;
+      font-size: 9px; color: #bbb; opacity: 0.7;
+      pointer-events: none;
+    }
+    .mly-attrib a { color: #bbb; pointer-events: all; }
+
+    .sv-side-iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; border: none; display: block;
+    }
+    .sv-iframe-note {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 6px 10px; background: rgba(0,0,0,0.72);
+      font-size: 10px; color: rgba(255,255,255,0.7); text-align: center;
+      display: none;
+    }
+    .sv-iframe-note a { color: #adf; text-decoration: none; }
+    .sv-iframe-note a:hover { text-decoration: underline; }
+
+    /* Link-card view (used for KartaView) */
     .sv-side-cards {
       position: absolute; inset: 0;
       display: none; flex-direction: column; gap: 6px;
@@ -532,15 +568,6 @@
     .sv-card-name { font-size: 12px; font-weight: 600; margin-bottom: 1px; }
     .sv-card-desc { font-size: 10px; color: var(--text-secondary); }
     .sv-card-arr { color: #bbb; font-size: 13px; }
-    /* "Can't see iframe?" fallback note */
-    .sv-iframe-note {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 6px 10px; background: rgba(0,0,0,0.72);
-      font-size: 10px; color: rgba(255,255,255,0.7); text-align: center;
-      display: none;
-    }
-    .sv-iframe-note a { color: #adf; text-decoration: none; }
-    .sv-iframe-note a:hover { text-decoration: underline; }
 
     /* ── DRAG HANDLES ─────────────────────────────────────── */
     .drag-h {
@@ -869,7 +896,7 @@
         <rect x="2" y="8" width="12" height="1" fill="white" opacity="0.4"/>
       </svg>
     </div>
-    Architecture <span class="logo-sub">&nbsp;Tour Guide</span>
+    Arch<span class="logo-sub">Wander</span>
   </div>
   <div class="search-wrap">
     <svg class="search-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.2">
@@ -914,11 +941,16 @@
         <button class="sv-close-btn" onclick="closeSvSide()" title="Close Street View">×</button>
       </div>
       <div class="sv-side-body">
-        <iframe class="sv-side-iframe" id="sv-iframe" src="about:blank" allowfullscreen
-          onload="onSvIframeLoad(this)" onerror="onSvIframeError(this)"></iframe>
+        <!-- Google Street View iframe (default) -->
+        <iframe class="sv-side-iframe" id="sv-iframe" src="about:blank" allowfullscreen></iframe>
         <div class="sv-iframe-note" id="sv-iframe-note">
-          ↑ Not loading? <a id="sv-direct-link" href="#" target="_blank" rel="noopener">Open directly in Google Maps ↗</a>
+          ↑ Not loading? <a id="sv-direct-link" href="#" target="_blank" rel="noopener">Open in Google Maps ↗</a>
         </div>
+        <!-- Mapillary inline viewer -->
+        <div id="mly-viewer"></div>
+        <div id="mly-status"></div>
+        <div class="mly-attrib"><a href="https://www.mapillary.com" target="_blank" rel="noopener">© Mapillary</a></div>
+        <!-- Link-card fallback (KartaView) -->
         <div class="sv-side-cards" id="sv-side-cards"></div>
       </div>
     </div>
@@ -1049,22 +1081,26 @@
     </div>
   </div>
 
-  <div class="pilot-badge" id="pilot-badge">🗺 Architecture Tour Guide · Pilot v0.1</div>
+  <div class="pilot-badge" id="pilot-badge">🗺 ArchWander · Pilot v0.1</div>
 </div>
 
+<script src="data-new-york.js"></script>
+<script src="data-seoul.js"></script>
 <script src="data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mapillary-js@4/dist/mapillary.min.js"></script>
 <script>
 // ══════════════════════════════════════════════════════════════════
 // DATA
 // ══════════════════════════════════════════════════════════════════
-// LOCS_DEFAULT loaded from data.js
+// LOCS_DEFAULT combined from data-new-york.js + data-seoul.js via data.js
+// To add a new city: create data-{city}.js, add <script> above, add to data.js
 
 // ══════════════════════════════════════════════════════════════════
 // STATE
 // ══════════════════════════════════════════════════════════════════
 // Load from localStorage (admin edits) or fall back to hardcoded defaults
 function _loadLocsFromStorage() {
-  try { const d = localStorage.getItem('arch_tour_locs_v1'); return d ? JSON.parse(d) : null; }
+  try { const d = localStorage.getItem('archwander_locs_v1'); return d ? JSON.parse(d) : null; }
   catch(e) { return null; }
 }
 let LOCS = _loadLocsFromStorage() || LOCS_DEFAULT.map(l => ({...l}));
@@ -1095,10 +1131,13 @@ let ARCHITECTS = [];
 // ══════════════════════════════════════════════════════════════════
 // CONFIGURATION
 // ══════════════════════════════════════════════════════════════════
-// Google Maps Embed API — free, unlimited (no billing needed)
-// Get key: console.cloud.google.com → Enable "Maps Embed API" → Credentials → Create API Key
-// Embed API streetview URL: https://www.google.com/maps/embed/v1/streetview?key=KEY&location=LAT,LNG
+// Google Maps Embed API — get key: console.cloud.google.com → Enable "Maps Embed API"
+// Restrict key to HTTP referrers (your domain) in Cloud Console for security
 const GOOGLE_MAPS_KEY = 'AIzaSyCg3_F1ra7cLs6Vw-Df5_kUWlyZtyEY598';
+
+// Mapillary Client Token — free, permanent. Get yours at:
+// https://www.mapillary.com/developer → Register app → copy Client Token
+const MAPILLARY_TOKEN = 'YOUR_MAPILLARY_TOKEN_HERE';
 
 // ══════════════════════════════════════════════════════════════════
 // MAP
@@ -1123,7 +1162,7 @@ function initMap() {
   renderList();
   // Update badge with city-specific count
   const badge = document.getElementById('pilot-badge');
-  if (badge) badge.textContent = `🗺 Architecture Tour Guide · Pilot v0.1 · ${initLocs.length} Locations`;
+  if (badge) badge.textContent = `🗺 ArchWander · Pilot v0.1 · ${initLocs.length} Locations`;
 }
 
 function refreshApp() {
@@ -1141,7 +1180,7 @@ function refreshApp() {
   if (activeLoc) closePanel();
   // Update badge
   const badge = document.getElementById('pilot-badge');
-  if (badge) badge.textContent = `🗺 Architecture Tour Guide · Pilot v0.1 · ${cityLocs.length} Locations`;
+  if (badge) badge.textContent = `🗺 ArchWander · Pilot v0.1 · ${cityLocs.length} Locations`;
 }
 
 // ══════════════════════════════════════════════════════════════════
@@ -1673,6 +1712,7 @@ function setupHDragLeft(handleId, targetId, minW, maxW) {
 // SIDEBAR STREET VIEW
 // ══════════════════════════════════════════════════════════════════
 let svLoc = null, svSvc = 'google';
+let mlyViewer = null; // mapillary-js Viewer instance (reused across locations)
 
 function showSvSide(loc) {
   svLoc = loc;
@@ -1691,7 +1731,15 @@ function closeSvSide() {
   const dhSv = document.getElementById('dh-sv');
   side.classList.remove('open');
   dhSv.classList.add('hidden');
-  document.getElementById('sv-iframe').src = 'about:blank';
+  const iframe = document.getElementById('sv-iframe');
+  iframe.src = 'about:blank';
+  if (iframe._noteTimer) clearTimeout(iframe._noteTimer);
+  document.getElementById('sv-iframe-note').style.display = 'none';
+  document.getElementById('mly-viewer').style.display = 'none';
+  document.getElementById('mly-status').style.display = 'none';
+  document.getElementById('sv-side-cards').classList.remove('show');
+  const attrib = document.querySelector('.mly-attrib');
+  if (attrib) attrib.style.display = 'none';
   svLoc = null;
 }
 
@@ -1703,86 +1751,49 @@ function setSvSvc(svc) {
   if (!svLoc) return;
 
   const iframe    = document.getElementById('sv-iframe');
-  const cards     = document.getElementById('sv-side-cards');
   const note      = document.getElementById('sv-iframe-note');
   const directLnk = document.getElementById('sv-direct-link');
+  const mlyView   = document.getElementById('mly-viewer');
+  const mlyStatus = document.getElementById('mly-status');
+  const cards     = document.getElementById('sv-side-cards');
+  const attrib    = document.querySelector('.mly-attrib');
 
   const gmUrl = `https://maps.google.com/?q=${encodeURIComponent(svLoc.addr)}&layer=c`;
-  const mUrl  = `https://www.mapillary.com/app/?lat=${svLoc.lat}&lng=${svLoc.lng}&z=17&focus=photo`;
   const kvUrl = `https://kartaview.org/map/@${svLoc.lat},${svLoc.lng},17z`;
+
+  // Reset all panels
+  iframe.style.display   = 'none';
+  iframe.src             = 'about:blank';
+  note.style.display     = 'none';
+  if (iframe._noteTimer) clearTimeout(iframe._noteTimer);
+  mlyView.style.display  = 'none';
+  mlyStatus.style.display = 'none';
+  cards.classList.remove('show');
+  if (attrib) attrib.style.display = 'none';
 
   if (svc === 'google') {
     directLnk.href = gmUrl;
-
-    // file:// protocol — Google Embed API blocks iframes loaded from local files
-    if (window.location.protocol === 'file:') {
-      iframe.style.display = 'none';
-      iframe.src = 'about:blank';
-      note.style.display = 'none';
-      if (iframe._noteTimer) clearTimeout(iframe._noteTimer);
-      cards.innerHTML = `
-        <p style="font-size:10.5px;color:var(--text-secondary);line-height:1.55;padding:4px 2px 6px">
-          Google Street View cannot load inside a file opened directly from your computer.<br>
-          Serve this file via a local server (e.g. <code style="background:#f3f3f1;padding:1px 4px;border-radius:3px;font-size:10px">python -m http.server</code>), or click below to view on Google Maps.
-        </p>
-        <a class="sv-card-link" href="${gmUrl}" target="_blank" rel="noopener">
-          <div class="sv-card-icon" style="background:#FFF7ED">🔭</div>
-          <div class="sv-card-info">
-            <div class="sv-card-name">Open in Google Street View ↗</div>
-            <div class="sv-card-desc">Opens in Google Maps · Full 360° street view</div>
-          </div>
-          <span class="sv-card-arr">›</span>
-        </a>
-      `;
-      cards.classList.add('show');
-      return;
-    }
-
-    // Normal HTTP(S) — use Maps Embed API with key, or fallback URL
-    cards.classList.remove('show');
-    note.style.display = 'none';
     iframe.style.display = 'block';
-    if (GOOGLE_MAPS_KEY) {
-      iframe.src = `https://www.google.com/maps/embed/v1/streetview?key=${GOOGLE_MAPS_KEY}&location=${svLoc.lat},${svLoc.lng}&heading=0&pitch=0&fov=80`;
-    } else {
-      iframe.src = `https://maps.google.com/maps?q=&layer=c&cbll=${svLoc.lat},${svLoc.lng}&cbp=12,0,,0,0&z=18&output=embed`;
-    }
-    // Show "not loading?" hint after 3s in case iframe is blocked
-    if (iframe._noteTimer) clearTimeout(iframe._noteTimer);
+    iframe.src = GOOGLE_MAPS_KEY
+      ? `https://www.google.com/maps/embed/v1/streetview?key=${GOOGLE_MAPS_KEY}&location=${svLoc.lat},${svLoc.lng}&heading=0&pitch=0&fov=80`
+      : `https://maps.google.com/maps?q=&layer=c&cbll=${svLoc.lat},${svLoc.lng}&cbp=12,0,,0,0&z=18&output=embed`;
     iframe._noteTimer = setTimeout(() => { note.style.display = 'block'; }, 3000);
-  } else {
-    // Mapillary / KartaView — show link cards (embed not available without API key)
-    iframe.style.display = 'none';
-    iframe.src = 'about:blank';
-    note.style.display = 'none';
-    if (iframe._noteTimer) clearTimeout(iframe._noteTimer);
 
-    const isPillary = svc === 'mapillary';
-    const url  = isPillary ? mUrl  : kvUrl;
-    const name = isPillary ? 'Mapillary' : 'KartaView';
-    const icon = isPillary ? '🗺' : '📍';
-    const bg   = isPillary ? '#EEF2FF' : '#F0FDF4';
-    const desc = isPillary
-      ? 'Open-source · Community imagery + AI labels'
-      : 'Community-driven · Open data from OSM contributors';
+  } else if (svc === 'mapillary') {
+    mlyView.style.display = 'block';
+    if (attrib) attrib.style.display = 'block';
+    loadMapillaryViewer(svLoc);
 
+  } else { // kartaview
     cards.innerHTML = `
-      <p style="font-size:10.5px;color:var(--text-secondary);line-height:1.55;padding:2px 2px 4px">
-        ${name} opens in a new tab. Click the card below to view <strong>${svLoc.name}</strong> at street level.
+      <p style="font-size:10.5px;color:var(--text-secondary);line-height:1.55;padding:4px 2px 6px">
+        KartaView opens in a new tab. Click below to view <strong>${svLoc.name}</strong> at street level.
       </p>
-      <a class="sv-card-link" href="${url}" target="_blank" rel="noopener">
-        <div class="sv-card-icon" style="background:${bg}">${icon}</div>
+      <a class="sv-card-link" href="${kvUrl}" target="_blank" rel="noopener">
+        <div class="sv-card-icon" style="background:#F0FDF4">📍</div>
         <div class="sv-card-info">
-          <div class="sv-card-name">Open in ${name} ↗</div>
-          <div class="sv-card-desc">${desc}</div>
-        </div>
-        <span class="sv-card-arr">›</span>
-      </a>
-      <a class="sv-card-link" href="${gmUrl}" target="_blank" rel="noopener" style="margin-top:2px">
-        <div class="sv-card-icon" style="background:#FFF7ED">🔭</div>
-        <div class="sv-card-info">
-          <div class="sv-card-name">Open in Google Street View ↗</div>
-          <div class="sv-card-desc">Best coverage · 360° photo spheres</div>
+          <div class="sv-card-name">Open in KartaView ↗</div>
+          <div class="sv-card-desc">Community-driven · Open data from OSM contributors</div>
         </div>
         <span class="sv-card-arr">›</span>
       </a>
@@ -1791,16 +1802,73 @@ function setSvSvc(svc) {
   }
 }
 
-function onSvIframeLoad(el) {
-  // If iframe loaded successfully, hide the fallback note
-  const note = document.getElementById('sv-iframe-note');
-  if (el._noteTimer) clearTimeout(el._noteTimer);
-  // Keep note hidden — if content loaded, all is fine
-  note.style.display = 'none';
+// ══════════════════════════════════════════════════════════════════
+// MAPILLARY INLINE VIEWER
+// ══════════════════════════════════════════════════════════════════
+async function loadMapillaryViewer(loc) {
+  const mlyView   = document.getElementById('mly-viewer');
+  const mlyStatus = document.getElementById('mly-status');
+
+  // Token check
+  if (!MAPILLARY_TOKEN || MAPILLARY_TOKEN === 'YOUR_MAPILLARY_TOKEN_HERE') {
+    mlyStatus.style.display = 'flex';
+    mlyStatus.innerHTML = `
+      Mapillary token not configured.<br>
+      Get a free token at
+      <a href="https://www.mapillary.com/developer" target="_blank" rel="noopener">mapillary.com/developer ↗</a>
+      then set <code>MAPILLARY_TOKEN</code> in the config section.
+    `;
+    return;
+  }
+
+  // Show loading state
+  mlyStatus.style.display = 'flex';
+  mlyStatus.innerHTML = 'Loading street-level imagery…';
+
+  try {
+    // Fetch nearest image from Mapillary Graph API
+    const delta = 0.0015; // ~165m radius
+    const bbox  = `${loc.lng - delta},${loc.lat - delta},${loc.lng + delta},${loc.lat + delta}`;
+    const resp  = await fetch(
+      `https://graph.mapillary.com/images?fields=id&bbox=${bbox}&limit=5&access_token=${MAPILLARY_TOKEN}`
+    );
+    if (!resp.ok) throw new Error(`Mapillary API error ${resp.status}`);
+    const data = await resp.json();
+
+    if (!data.data || data.data.length === 0) {
+      mlyStatus.innerHTML = `
+        No street-level imagery near this location.<br>
+        <a href="https://www.mapillary.com/app/?lat=${loc.lat}&lng=${loc.lng}&z=17" target="_blank" rel="noopener">Browse Mapillary ↗</a>
+      `;
+      return;
+    }
+
+    const imageId = data.data[0].id;
+    mlyStatus.style.display = 'none';
+
+    if (!mlyViewer) {
+      // First init — create viewer
+      mlyViewer = new mapillary.Viewer({
+        accessToken: MAPILLARY_TOKEN,
+        container:   'mly-viewer',
+        imageId:     imageId,
+        component:   { cover: false }
+      });
+    } else {
+      // Reuse existing viewer, resize in case panel changed size, then jump to new image
+      mlyViewer.resize();
+      await mlyViewer.moveTo(imageId);
+    }
+
+  } catch(e) {
+    console.error('Mapillary viewer error:', e);
+    mlyStatus.innerHTML = `
+      Could not load imagery.<br>
+      <a href="https://www.mapillary.com/app/?lat=${loc.lat}&lng=${loc.lng}&z=17" target="_blank" rel="noopener">Open Mapillary ↗</a>
+    `;
+  }
 }
-function onSvIframeError(el) {
-  document.getElementById('sv-iframe-note').style.display = 'block';
-}
+
 
 // ══════════════════════════════════════════════════════════════════
 // PER-SECTION FILTER DRAG RESIZE
@@ -1840,7 +1908,7 @@ function setupBodyDrag(handleId, bodyId, minH, maxH) {
 // ══════════════════════════════════════════════════════════════════
 // REVIEWS & RATINGS
 // ══════════════════════════════════════════════════════════════════
-const REVIEWS_KEY = 'arch_tour_reviews_v1';
+const REVIEWS_KEY = 'archwander_reviews_v1';
 
 function loadReviews(locId) {
   try {
@@ -2101,7 +2169,7 @@ function closeAdmin() {
 
 function renderAdminTable() {
   document.getElementById('admin-count').textContent = `${LOCS.length} locations`;
-  const saved = localStorage.getItem('arch_tour_locs_v1');
+  const saved = localStorage.getItem('archwander_locs_v1');
   document.getElementById('adm-reset-storage').style.display = saved ? 'block' : 'none';
   document.getElementById('admin-tbody').innerHTML = LOCS.map((loc, i) => `
     <tr>
@@ -2219,7 +2287,7 @@ function saveAdmForm() {
   } else {
     LOCS.push(loc);
   }
-  try { localStorage.setItem('arch_tour_locs_v1', JSON.stringify(LOCS)); } catch(e) {}
+  try { localStorage.setItem('archwander_locs_v1', JSON.stringify(LOCS)); } catch(e) {}
   refreshApp();
   closeAdmModal();
   renderAdminTable();
@@ -2229,14 +2297,14 @@ function confirmDeleteLoc(id) {
   const loc = LOCS.find(l => l.id === id);
   if (!loc || !confirm(`"${loc.name}"을(를) 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.`)) return;
   LOCS.splice(LOCS.findIndex(l => l.id === id), 1);
-  try { localStorage.setItem('arch_tour_locs_v1', JSON.stringify(LOCS)); } catch(e) {}
+  try { localStorage.setItem('archwander_locs_v1', JSON.stringify(LOCS)); } catch(e) {}
   refreshApp();
   renderAdminTable();
 }
 
 function confirmResetStorage() {
   if (!confirm('모든 변경사항을 삭제하고 기본 데이터로 초기화하시겠습니까?')) return;
-  localStorage.removeItem('arch_tour_locs_v1');
+  localStorage.removeItem('archwander_locs_v1');
   LOCS = LOCS_DEFAULT.map(l => ({...l}));
   refreshApp();
   renderAdminTable();
@@ -2247,7 +2315,7 @@ function exportDataJS() {
   if (btn) { btn.textContent = '⏳ Generating…'; btn.disabled = true; }
 
   const newLocs = `const LOCS_DEFAULT = ${JSON.stringify(LOCS, null, 2)};`;
-  const output = `// Architecture Tour Guide — Location Data\n// Edit this file to add, remove, or update locations.\n// Deploy alongside index.html (Netlify, etc.)\n// ─────────────────────────────────────────────────\n/* DATA_START */\n${newLocs}\n/* DATA_END */\n`;
+  const output = `// ArchWander — Location Data\n// Edit this file to add, remove, or update locations.\n// Deploy alongside index.html (Netlify, etc.)\n// ─────────────────────────────────────────────────\n/* DATA_START */\n${newLocs}\n/* DATA_END */\n`;
 
   const blob = new Blob([output], {type: 'application/javascript;charset=utf-8'});
   const a = document.createElement('a');
