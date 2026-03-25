@@ -822,6 +822,7 @@
           <select id="af-city">
             <option value="new-york">New York</option>
             <option value="seoul">Seoul</option>
+            <option value="london">London</option>
             <option value="tokyo">Tokyo</option>
           </select>
         </div>
@@ -923,6 +924,7 @@
   <div class="city-divider"></div>
   <button class="city-tab active" id="city-nyc" onclick="selectCity('nyc')">🗽 New York</button>
   <button class="city-tab" id="city-sel" onclick="selectCity('sel')">🏙 Seoul</button>
+  <button class="city-tab" id="city-lon" onclick="selectCity('lon')">🎡 London</button>
   <button class="city-tab soon" id="city-tky" onclick="selectCity('tky')" title="Coming soon">🏯 Tokyo <span class="city-soon-badge">Soon</span></button>
 </div>
 
@@ -2094,6 +2096,7 @@ function toggleSidebar() { document.getElementById('sidebar').classList.toggle('
 const CITY_META = {
   nyc: { key: 'new-york', label: '🗽 New York', lat: 40.7549, lng: -73.9840, zoom: 13 },
   sel: { key: 'seoul',    label: '🏙 Seoul',    lat: 37.5665, lng: 126.9780, zoom: 13 },
+  lon: { key: 'london',   label: '🎡 London',   lat: 51.5074, lng: -0.1278,  zoom: 13 },
   tky: { key: 'tokyo',    label: '🏯 Tokyo',    lat: 35.6762, lng: 139.6503, zoom: 13 }
 };
 let activeCity    = 'nyc';
