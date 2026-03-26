@@ -318,8 +318,10 @@ const LOCS_NEW_YORK = [
     wiki:"https://en.wikipedia.org/wiki/St._Patrick%27s_Cathedral,_New_York_City",
     tags:['Gothic Revival','Free Entry','Fifth Avenue','Active Parish'],
     photos:[
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/St._Patrick%27s_Cathedral_-_New_York_City.jpg/800px-St._Patrick%27s_Cathedral_-_New_York_City.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/St._Patrick%27s_Cathedral_Altar.jpg/800px-St._Patrick%27s_Cathedral_Altar.jpg"
+      'https://commons.wikimedia.org/wiki/Special:FilePath/St._Patrick%27s_Cathedral%2C_New_York_1.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/St._Patrick%27s_Cathedral_%28New_York%29_1.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/St._Patrick%27s_Cathedral%2C_New_York_City.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/St._Patrick%27s_%28Old%29_Cathedral%2C_Mott_Street%2C_New_York_City.jpg?width=800'
     ],
     drawings:[]
   },
@@ -572,7 +574,8 @@ const LOCS_NEW_YORK = [
     tags:['Herzog & de Meuron','Jenga Tower','Tribeca','Anish Kapoor'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/56_Leonard_Street_%2824249%29.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/View_of_56_Leonard_Street_apartment_building_from_Franklin_St_in_Tribeca.jpg?width=800'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/56_Leonard_Street_012.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/56_Leonard_Street_October_2024_004.jpg?width=800'
     ],
     drawings:[]
   },
@@ -646,8 +649,9 @@ const LOCS_NEW_YORK = [
     wiki:'https://en.wikipedia.org/wiki/New_York_Times_Building',
     tags:['Renzo Piano','Ceramic Tubes','LEED Silver','Times Square'],
     photos:[
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/New_York_Times_Building_by_Renzo_Piano.jpg/800px-New_York_Times_Building_by_Renzo_Piano.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/The_New_York_Times_Building_%28NYC%29_%282014%29.jpg/800px-The_New_York_Times_Building_%28NYC%29_%282014%29.jpg'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/New_york_times_building.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/New_York_Times_Building_-_Bottom_Portion_%2848193462432%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/The_New_York_Times_Building_-_Manhattan_-_New_York_City_-_USA_%2824894121662%29.jpg?width=800'
     ],
     drawings:[]
   },
@@ -670,8 +674,9 @@ const LOCS_NEW_YORK = [
     wiki:'https://en.wikipedia.org/wiki/Metropolitan_Museum_of_Art',
     tags:['Beaux-Arts','World Collection','5th Avenue','Central Park'],
     photos:[
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Metropolitan_Museum_of_Art_%28The_Met%29_-_Central_Park%2C_NYC.jpg/800px-Metropolitan_Museum_of_Art_%28The_Met%29_-_Central_Park%2C_NYC.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Metropolitan_Museum_of_Art%2C_NYC_01.jpg/800px-Metropolitan_Museum_of_Art%2C_NYC_01.jpg'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Metropolitan_Museum_of_Art_%28The_Met%29_-_Central_Park%2C_NYC.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Metropolitan_Museum_of_Art%2C_New_York_City_NY%2C_entrance.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/People_in_the_rooftop_bar_of_the_Metropolitan_Museum_of_Art%2C_New_York%2C_2007.jpg?width=800'
     ],
     drawings:[]
   },
@@ -744,8 +749,10 @@ const LOCS_NEW_YORK = [
     wiki:'https://en.wikipedia.org/wiki/United_Nations_Headquarters',
     tags:['Le Corbusier','Niemeyer','Curtain Wall','International Territory'],
     photos:[
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/UN_Secretariat_Building_2014.jpg/800px-UN_Secretariat_Building_2014.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/UN_General_Assembly_Building.jpg/800px-UN_General_Assembly_Building.jpg'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Headquarters_of_the_United_Nations%2C_New_York_City%2C_20231001_1103_1007.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Shore_of_the_East_River_with_Headquarters_of_the_United_Nations%2C_New_York_City%2C_20231005_1132_2230.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/2003-03-New-York-United-Nations-Secretariat-Building.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/United_Nations_Headquarters_-_Security_Council_chamber%2C_angled_view.jpg?width=800'
     ],
     drawings:[]
   },
@@ -768,8 +775,10 @@ const LOCS_NEW_YORK = [
     wiki:'https://en.wikipedia.org/wiki/Lincoln_Center_for_the_Performing_Arts',
     tags:['Philip Johnson','New Formalism','Performing Arts','Travertine Plaza'],
     photos:[
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Lincoln_Center_NYC.jpg/800px-Lincoln_Center_NYC.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Metropolitan_Opera_House_at_Lincoln_Center%2C_NYC.jpg/800px-Metropolitan_Opera_House_at_Lincoln_Center%2C_NYC.jpg'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Lincoln_Center_Overview_%2848047495362%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Lincoln_Center_Nov_2023_29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Lincoln_Center_Nov_2023_24.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Lincoln_Center_Nov_2023_12.jpg?width=800'
     ],
     drawings:[]
   },
@@ -791,8 +800,9 @@ const LOCS_NEW_YORK = [
     wiki:'https://en.wikipedia.org/wiki/Ford_Foundation_Building_(New_York_City)',
     tags:['Kevin Roche','Interior Atrium','Biophilic','Midtown East'],
     photos:[
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Ford_Foundation_Building%2C_NYC.jpg/800px-Ford_Foundation_Building%2C_NYC.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Ford_Foundation_Atrium.jpg/800px-Ford_Foundation_Atrium.jpg'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Ford_Foundation_Building_%2851921997207%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Ford_Foundation_Building_May_2021_26.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Ford_Foundation_Building_May_2021_15.jpg?width=800'
     ],
     drawings:[]
   },
@@ -866,8 +876,9 @@ const LOCS_NEW_YORK = [
     wiki:'https://en.wikipedia.org/wiki/The_Shed_(venue)',
     tags:['DS+R','Retractable Shell','Hudson Yards','Cultural Venue'],
     photos:[
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/The_Shed_Hudson_Yards.jpg/800px-The_Shed_Hudson_Yards.jpg',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/The_Shed_NYC_2019.jpg/800px-The_Shed_NYC_2019.jpg'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/The_Shed_-_Complete_%2848206488176%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/The_Shed_Hudson_Yards.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/The_Shed_Hudson_Yards_010.jpg?width=800'
     ],
     drawings:[]
   },
@@ -1026,7 +1037,8 @@ const LOCS_NEW_YORK = [
       ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/VIA_57_West_-_exterior.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/625_West_57th_Street_2015-07_jeh.jpg?width=800'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Via_57_West_003.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Via_57_West_007.jpg?width=800'
     ],
     drawings:[]
   },
@@ -1282,8 +1294,11 @@ const LOCS_NEW_YORK = [
         'Observation Deck'
       ],
     photos:[
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/30_Hudson_Yards_2019.jpg/800px-30_Hudson_Yards_2019.jpg'
-      ],
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Hudson_Yards_from_Hudson_Commons_%2895131p%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/30_Hudson_Yards_August_2024_008.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/30_Hudson_Yards_2025_021.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/30_Hudson_Yards_%2892900%29.jpg?width=800'
+    ],
     drawings:[]
   },
   {
@@ -1323,8 +1338,10 @@ const LOCS_NEW_YORK = [
         'Pfizer HQ'
       ],
     photos:[
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/The_Spiral_NYC_2022.jpg/800px-The_Spiral_NYC_2022.jpg'
-      ],
+      'https://commons.wikimedia.org/wiki/Special:FilePath/The_Spiral_Sep_2021.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/The_Spiral_004.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/The_Spiral_008.jpg?width=800'
+    ],
     drawings:[]
   },
   {
