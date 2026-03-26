@@ -121,8 +121,9 @@
 <div class="controls" style="padding-top:8px;padding-bottom:8px;gap:8px">
   <label style="font-size:12px;color:#666;white-space:nowrap">GitHub token:</label>
   <input class="token-input" id="token-input" type="password" placeholder="ghp_...">
-  <button class="btn-primary" onclick="loadData()" id="load-btn">⬇ Load &amp; Rank All</button>
-  <div class="mode-info" id="mode-info">City와 token을 선택 후 Load &amp; Rank All을 누르면 모든 location의 이미지를 자동 랭킹합니다.</div>
+  <button class="btn-secondary" onclick="loadData()" id="load-btn">⬇ Load Locations</button>
+  <button class="btn-primary"   onclick="rankSelected()" id="rank-btn" disabled>▶ Rank Selected</button>
+  <div class="mode-info" id="mode-info">Load Locations로 목록을 불러온 뒤, 원하는 location을 선택하고 Rank Selected를 누르세요.</div>
 </div>
 
 <!-- Selection bar — appears after processing completes -->
@@ -345,8 +346,9 @@ async function loadData() {
   const cityKey = document.getElementById('city-select').value;
   const cfg     = FILE_MAP[cityKey];
 
-  // Disable controls during run
+  // Disable controls during load
   document.getElementById('load-btn').disabled   = true;
+  document.getElementById('rank-btn').disabled   = true;
   document.getElementById('export-btn').disabled = true;
   document.getElementById('push-btn').disabled   = true;
   document.getElementById('sel-bar').classList.remove('visible');
@@ -372,10 +374,20 @@ async function loadData() {
   allLocs = parseLocsFromSrc(src, cfg.varName);
   results = {};
 
-  document.getElementById('mode-info').textContent =
-    `✓ ${allLocs.length}개 location 로드 완료 (${cfg.file}) — 이미지 랭킹 시작...`;
   renderGrid();
-  await startProcessing();
+
+  // Enable all checkboxes and pre-select all locations
+  allLocs.forEach((_, i) => setLocChecked(i, true));
+
+  setProgress(100);
+  setStatus(`✓ ${allLocs.length}개 location 로드됨. location을 선택 후 Rank Selected를 누르세요.`);
+  document.getElementById('mode-info').textContent =
+    `✓ ${allLocs.length}개 location 로드 완료 (${cfg.file}) — location을 선택 후 Rank Selected를 누르세요.`;
+
+  document.getElementById('load-btn').disabled = false;
+  document.getElementById('rank-btn').disabled = false;
+  document.getElementById('sel-bar').classList.add('visible');
+  updateSelCount();
 }
 
 function parseLocsFromSrc(src) {
@@ -394,21 +406,39 @@ function parseLocsFromSrc(src) {
 }
 
 // ── Processing ───────────────────────────────────────────────────────
+function rankSelected() {
+  const checkedIds = getCheckedIds();
+  if (!checkedIds.size) { alert('처리할 location을 하나 이상 선택하세요.'); return; }
+  if (!allLocs.length)  { alert('먼저 Load Locations를 실행하세요.'); return; }
+  startProcessing();
+}
+
 async function startProcessing() {
   isRunning = true; stopFlag = false;
-  document.getElementById('stop-btn').disabled = false;
+  document.getElementById('stop-btn').disabled   = false;
+  document.getElementById('load-btn').disabled   = true;
+  document.getElementById('rank-btn').disabled   = true;
+  document.getElementById('export-btn').disabled = true;
+  document.getElementById('push-btn').disabled   = true;
 
-  const mode  = document.getElementById('mode-select').value;
-  const topN  = parseInt(document.getElementById('top-n').value) || 4;
-  const city  = FILE_MAP[document.getElementById('city-select').value].city;
-  const total = allLocs.length;
+  const mode       = document.getElementById('mode-select').value;
+  const topN       = parseInt(document.getElementById('top-n').value) || 4;
+  const city       = FILE_MAP[document.getElementById('city-select').value].city;
+  const checkedIds = getCheckedIds();
+
+  // Only process checked locations; collect their original indices
+  const toProcess = allLocs
+    .map((loc, i) => ({ loc, i }))
+    .filter(({ loc }) => checkedIds.has(loc.id));
+
+  const total = toProcess.length;
   let doneCount = 0, keptCount = 0;
 
-  for (let i = 0; i < allLocs.length; i++) {
+  for (let t = 0; t < toProcess.length; t++) {
     if (stopFlag) break;
-    const loc = allLocs[i];
-    setProgress((i / total) * 100);
-    setStatus(`[${i+1}/${total}] ${loc.name} 이미지 검색 중...`);
+    const { loc, i } = toProcess[t];
+    setProgress((t / total) * 100);
+    setStatus(`[${t+1}/${total}] ${loc.name} 이미지 검색 중...`);
     updateLocBadge(i, 'searching', '검색 중...');
 
     try {
@@ -431,7 +461,6 @@ async function startProcessing() {
         results[loc.id] = candidates;
         updateLocCard(i, loc, candidates, topN);
         updateLocBadge(i, 'done', `${Math.min(candidates.length,topN)}장 선택 / ${candidates.length}개 후보`);
-        setLocChecked(i, true);   // auto-check: has Wikimedia images
         doneCount++;
       }
     } catch(e) {
@@ -453,6 +482,7 @@ async function startProcessing() {
   isRunning = false;
   document.getElementById('stop-btn').disabled   = true;
   document.getElementById('load-btn').disabled   = false;
+  document.getElementById('rank-btn').disabled   = false;
   document.getElementById('export-btn').disabled = false;
   document.getElementById('push-btn').disabled   = false;
   document.getElementById('sel-bar').classList.add('visible');
@@ -480,11 +510,36 @@ function getCheckedIds() {
   return ids;
 }
 
+function restoreExistingPhotos(i) {
+  const loc = allLocs[i];
+  if (!loc) return;
+  const row = document.getElementById(`photos-${i}`);
+  if (!row) return;
+  row.innerHTML = (loc.photos||[]).slice(0,8).map(url => `
+    <div class="photo-item">
+      <img class="photo-img" src="${url.replace(/\?width=\d+/,'?width=200')}"
+        onerror="this.style.display='none'" loading="lazy">
+      <div class="photo-src">existing</div>
+    </div>`).join('') || '<div class="empty">사진 없음</div>';
+}
+
 function onCheckChange(i, ev) {
   ev?.stopPropagation();
   const chk  = document.getElementById(`chk-${i}`);
   const card = document.getElementById(`loc-card-${i}`);
   card?.classList.toggle('selected', chk?.checked);
+
+  const loc = allLocs[i];
+  if (!chk?.checked) {
+    // Unchecked after search → restore existing photos if results exist
+    if (loc && results[loc.id] !== undefined) restoreExistingPhotos(i);
+  } else {
+    // Re-checked → show ranked results if available
+    if (loc && results[loc.id]?.length) {
+      const topN = parseInt(document.getElementById('top-n').value) || 4;
+      updateLocCard(i, loc, results[loc.id], topN);
+    }
+  }
   updateSelCount();
 }
 
@@ -493,6 +548,16 @@ function toggleCard(i) {
   if (!chk || chk.disabled) return;
   chk.checked = !chk.checked;
   document.getElementById(`loc-card-${i}`)?.classList.toggle('selected', chk.checked);
+
+  const loc = allLocs[i];
+  if (!chk.checked) {
+    if (loc && results[loc.id] !== undefined) restoreExistingPhotos(i);
+  } else {
+    if (loc && results[loc.id]?.length) {
+      const topN = parseInt(document.getElementById('top-n').value) || 4;
+      updateLocCard(i, loc, results[loc.id], topN);
+    }
+  }
   updateSelCount();
 }
 
