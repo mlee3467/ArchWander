@@ -778,6 +778,7 @@
         background: rgba(0,0,0,0.15);
         position: absolute !important;
         top: 0; left: 0;
+        transform: none;
         max-height: unset;
       }
       .gallery img.active { position: absolute !important; }
@@ -1304,8 +1305,9 @@ let svMiniMap = null;
 
 function initMap() {
   map = L.map('map', { center:[40.745,-73.990], zoom:13, zoomControl:false });
-  streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution:'© <a href="https://openstreetmap.org">OpenStreetMap</a>', maxZoom:19
+  streetLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution:'© <a href="https://openstreetmap.org">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains:'abcd', maxZoom:19
   }).addTo(map);
   satLayer = L.tileLayer(
     'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
@@ -1797,7 +1799,7 @@ function initSvMiniMap(loc) {
   if (svMiniMap) { svMiniMap.remove(); svMiniMap = null; }
   setTimeout(() => {
     svMiniMap = L.map(el, { zoomControl:false, dragging:false, scrollWheelZoom:false, center:[loc.lat, loc.lng], zoom:17 });
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom:19 }).addTo(svMiniMap);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { subdomains:'abcd', maxZoom:19 }).addTo(svMiniMap);
     L.circleMarker([loc.lat, loc.lng], { radius:8, fillColor: CAT_COLORS[loc.cat]||'#111', fillOpacity:1, color:'white', weight:2.5 }).addTo(svMiniMap);
   }, 50);
 }
