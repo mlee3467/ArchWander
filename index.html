@@ -647,6 +647,14 @@
       background: var(--surface); color: var(--text);
       cursor: pointer; font-family: inherit;
     }
+    /* ── MARKER SIZE ──────────────────────────────────────────── */
+    .m-pin-wrap {
+      width: 24px; height: 24px;
+      transform: scale(0.75);
+      transform-origin: 50% 100%;
+      transition: transform 0.18s ease-out;
+    }
+    #map.zoom-full .m-pin-wrap { transform: scale(1); }
     @media (max-width: 900px) {
       /* ── Compact mobile header ── */
       header { height: 52px; padding: 0 12px; gap: 8px; }
@@ -659,16 +667,18 @@
       /* ── Sidebar overlay ── */
       .app { overflow: visible; }
       .sidebar {
+        pointer-events: none;
         position: fixed; left: 0; top: 0; bottom: 0;
         transform: translateX(-100%);
         transition: transform 0.28s cubic-bezier(.4,0,.2,1);
         box-shadow: 4px 0 20px rgba(0,0,0,0.15);
         z-index: 400;
       }
-      .sidebar.open { transform: translateX(0); }
+      .sidebar.open { transform: translateX(0); pointer-events: auto; }
 
       /* ── Detail panel bottom sheet ── */
       .panel {
+        pointer-events: none;
         position: fixed; bottom: 0; left: 0; right: 0; top: auto;
         width: 100%; height: 85vh;
         border-left: none; border-top: 1px solid rgba(232,232,228,0.5);
@@ -678,7 +688,7 @@
         padding-bottom: env(safe-area-inset-bottom, 0px);
         z-index: 500;
       }
-      .panel.open { transform: translateY(0); }
+      .panel.open { transform: translateY(0); pointer-events: auto; }
       .panel::before { content: ''; display: block; width: 36px; height: 4px; background: #ccc; border-radius: 2px; margin: 10px auto 4px; flex-shrink: 0; }
 
       /* ── Hide desktop-only elements ── */
@@ -1227,11 +1237,17 @@ function refreshApp() {
 // ══════════════════════════════════════════════════════════════════
 // MARKERS
 // ══════════════════════════════════════════════════════════════════
+// ── Marker zoom sizing ──────────────────────────────────────
+function updateMarkerSize() {
+  document.getElementById('map').classList.toggle('zoom-full', map.getZoom() >= 14);
+}
+map.on('zoomend', updateMarkerSize);
+
 function addMarker(loc) {
   const color = CAT_COLORS[loc.cat] || '#111';
   const icon = L.divIcon({
     className:'',
-    html:`<div style="width:24px;height:24px;background:${color};border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2.5px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3)"></div>`,
+    html:`<div class="m-pin-wrap"><div style="width:24px;height:24px;background:${color};border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2.5px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3)"></div></div>`,
     iconSize:[24,24], iconAnchor:[12,24]
   });
   const m = L.marker([loc.lat, loc.lng], { icon })
@@ -1480,6 +1496,7 @@ function closePanel() {
   activeLoc = null;
   closeSvSide();
   renderList();
+  updateMarkerSize();
 }
 
 // ══════════════════════════════════════════════════════════════════
