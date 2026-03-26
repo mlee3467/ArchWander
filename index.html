@@ -382,7 +382,7 @@
       align-items: center; justify-content: center;
     }
     .lightbox.show { display: flex; }
-    .lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 4px; }
+    .lightbox img { max-width: 90vw; max-height: 67vh; object-fit: contain; border-radius: 4px; }
     .lb-close {
       position: absolute; top: 16px; right: 18px;
       font-size: 28px; color: white; cursor: pointer; line-height: 1;
@@ -690,6 +690,12 @@
         z-index: 500;
       }
       .panel.open { transform: translateY(0); pointer-events: auto; }
+      #panel-backdrop {
+        display: none; position: fixed;
+        top: 0; left: 0; right: 0; bottom: 33vh;
+        z-index: 490;
+      }
+      #panel-backdrop.visible { display: block; }
       .panel::before { content: ''; display: block; width: 36px; height: 4px; background: #ccc; border-radius: 2px; margin: 10px auto 4px; flex-shrink: 0; }
 
       /* ── Hide desktop-only elements ── */
@@ -1143,6 +1149,7 @@
 
   </aside>
 <div id="sidebar-backdrop" onclick="closeSidebar()"></div>
+<div id="panel-backdrop" onclick="closePanel()"></div>
 
   <div id="map"></div>
 
@@ -1529,6 +1536,7 @@ function openLoc(loc) {
 
   switchTab('overview');
   document.getElementById('panel').classList.add('open');
+  if (window.innerWidth <= 900) { const _pb = document.getElementById('panel-backdrop'); if (_pb) _pb.classList.add('visible'); }
   renderList();
   showSvSide(loc);
 
@@ -1538,6 +1546,7 @@ function openLoc(loc) {
 
 function closePanel() {
   document.getElementById('panel').classList.remove('open');
+  const _pb2 = document.getElementById('panel-backdrop'); if (_pb2) _pb2.classList.remove('visible');
   activeLoc = null;
   closeSvSide();
   renderList();
