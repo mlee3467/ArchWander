@@ -4830,8 +4830,8 @@ const LOCS_NEW_YORK = [
   {
     id: 'alice-tully-hall',
     name: 'Alice Tully Hall',
-    cat: 'Museums & Culture',
-    cc: 'c-mus',
+    cat: 'Cultural',
+    cc: 'c-cul',
     styleGroup: 'Contemporary',
     era: '2000–Present',
     city: 'new-york',
@@ -4896,8 +4896,8 @@ const LOCS_NEW_YORK = [
   {
     id: 'vagelos-education-center',
     name: 'Roy and Diana Vagelos Education Center',
-    cat: 'Universities & Research',
-    cc: 'c-uni',
+    cat: 'Academic / Institution',
+    cc: 'c-aca',
     styleGroup: 'Contemporary',
     era: '2000–Present',
     city: 'new-york',

@@ -566,8 +566,8 @@ const LOCS_LONDON = [
   {
     id: 'va-east-storehouse',
     name: 'V&A East Storehouse',
-    cat: 'Museums & Culture',
-    cc: 'c-mus',
+    cat: 'Cultural',
+    cc: 'c-cul',
     styleGroup: 'Contemporary',
     era: '2000–Present',
     city: 'london',
