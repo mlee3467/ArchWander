@@ -2162,7 +2162,7 @@ const LOCS_NEW_YORK = [
     archdaily:'https://www.archdaily.com/tag/queens-museum',
     wiki:'https://en.wikipedia.org/wiki/Queens_Museum',
     tags:[
-        'Grimshaw',
+        'Grimshaw Architects',
         'Panorama',
         'World\'s Fair',
         'Flushing Meadows',
@@ -4923,6 +4923,33 @@ const LOCS_NEW_YORK = [
     archdaily: 'https://www.archdaily.com/tag/vagelos-education-center',
     wiki: 'https://en.wikipedia.org/wiki/Roy_and_Diana_Vagelos_Education_Center',
     tags: ['Diller Scofidio + Renfro', 'Medical Education', 'Columbia University', 'Study Cascade', 'Double Skin Facade', 'Ceramic Frit'],
+    photos: [],
+    drawings: []
+  },
+
+  /* ── GRIMSHAW ARCHITECTS ─────────────────────────────────── */
+  {
+    id: 'fulton-center',
+    name: 'Fulton Center',
+    cat: 'Infrastructure', cc: 'c-inf', styleGroup: 'Contemporary',
+    era: '2000–Present', city: 'new-york',
+    arch: 'Grimshaw Architects', archs: ['Grimshaw Architects', 'Arup'],
+    yr: 2014, access: 'Open to Public', style: 'Contemporary',
+    lat: 40.7096, lng: -74.0099,
+    addr: '200 Broadway, New York, NY 10038', hood: 'Lower Manhattan / Financial District',
+    desc: 'The Fulton Center is a 190,000 sq ft transit hub and retail complex in the heart of Lower Manhattan, completed in 2014 at a total cost of $1.4 billion. Designed by Grimshaw with Arup, it consolidates connections between nine MTA subway lines — serving 300,000 daily passengers — in a building conceived as a luminous urban room beneath the street. The architectural centrepiece is the Sky Reflector-Net, a collaboration between Grimshaw and artist James Carpenter: a conical oculus of 952 triangular steel and glass panels suspended within a 120-foot atrium that draws natural light deep into the concourse below via reflective aluminium petals. The project transformed a chaotic tangle of underground connections into a clear, legible transit experience, winning the AIA New York Award and becoming an immediate civic landmark in the Financial District.',
+    hours: 'Open daily 24 hours (transit) · Retail: Mon–Sat 7am–9pm · Sun 10am–6pm',
+    lastEntry: '',
+    admission: 'Free (concourse) · Standard MTA fare for subway',
+    tourOk: false,
+    tourInfo: 'No guided tours. Atrium and Sky Reflector-Net freely viewable from concourse.',
+    web: 'https://new.mta.info/stops/fulton-street',
+    transit: 'A C E J Z 2 3 4 5 → Fulton St',
+    walkFrom: 'Brooklyn Bridge / City Hall: 5 min · One World Trade Center: 8 min · Wall Street: 5 min',
+    gmaps: 'https://maps.google.com/?q=Fulton+Center+200+Broadway+New+York',
+    archdaily: 'https://www.archdaily.com/780271/fulton-center-grimshaw',
+    wiki: 'https://en.wikipedia.org/wiki/Fulton_Center',
+    tags: ['Grimshaw Architects', 'Transit Hub', 'Sky Reflector-Net', 'MTA', 'Oculus', 'James Carpenter', 'Arup', 'Financial District', 'Infrastructure'],
     photos: [],
     drawings: []
   }
