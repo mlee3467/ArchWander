@@ -1363,8 +1363,12 @@
 <script src="data-london.js"></script>
 <script src="data-tokyo.js"></script>
 <script src="data.js"></script>
+<script src="data-ko.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mapillary-js@4/dist/mapillary.min.js"></script>
 <script>
+// Fallback: data-ko.js may not exist yet (e.g. before first translation run)
+if (typeof LOCS_KO === 'undefined') window.LOCS_KO = {};
+
 // ══════════════════════════════════════════════════════════════════
 // DATA
 // ══════════════════════════════════════════════════════════════════
@@ -1741,13 +1745,14 @@ function applyLang() {
   // Rebuild dynamic content
   buildFilters();
   renderList();
-  // Re-translate active location content when switching language
-  if (LANG === 'ko' && activeLoc) applyLocTranslation(activeLoc);
-  if (LANG === 'en' && activeLoc) {
-    // Restore original English content immediately
-    document.getElementById('pane-overview').innerHTML = buildOverviewTab(activeLoc);
-    document.getElementById('pane-visit').innerHTML    = buildVisitTab(activeLoc);
-    document.getElementById('pane-here').innerHTML     = buildDirectionsTab(activeLoc);
+  // Re-apply translations when switching language
+  if (activeLoc) {
+    const _st = (LANG === 'ko' && LOCS_KO[activeLoc.id]) ? LOCS_KO[activeLoc.id] : {};
+    document.getElementById('pane-overview').innerHTML = buildOverviewTab(activeLoc, _st);
+    document.getElementById('pane-visit').innerHTML    = buildVisitTab(activeLoc, _st);
+    document.getElementById('pane-here').innerHTML     = buildDirectionsTab(activeLoc, _st);
+    // Fall back to runtime translation only if no static entry
+    if (LANG === 'ko' && !Object.keys(_st).length) applyLocTranslation(activeLoc);
   }
   if (activeLoc) {
     document.getElementById('pane-overview').innerHTML = buildOverviewTab(activeLoc);
@@ -2132,12 +2137,14 @@ function openLoc(loc) {
     <div class="p-tags">${loc.tags.map(t=>`<span class="p-tag">${t}</span>`).join('')}</div>
   `;
 
-  // Build tabs
-  document.getElementById('pane-overview').innerHTML = buildOverviewTab(loc);
-  document.getElementById('pane-visit').innerHTML    = buildVisitTab(loc);
-  document.getElementById('pane-here').innerHTML     = buildDirectionsTab(loc);
-  // Async translation for Korean UI
-  if (LANG === 'ko') applyLocTranslation(loc);
+  // Build tabs — use pre-built static translation if available (instant),
+  // fall back to async runtime translation if LOCS_KO entry is missing
+  const _staticTrans = (LANG === 'ko' && LOCS_KO[loc.id]) ? LOCS_KO[loc.id] : {};
+  document.getElementById('pane-overview').innerHTML = buildOverviewTab(loc, _staticTrans);
+  document.getElementById('pane-visit').innerHTML    = buildVisitTab(loc, _staticTrans);
+  document.getElementById('pane-here').innerHTML     = buildDirectionsTab(loc, _staticTrans);
+  // If no static translation yet, fall back to runtime API translation
+  if (LANG === 'ko' && !Object.keys(_staticTrans).length) applyLocTranslation(loc);
   document.getElementById('pane-videos').innerHTML   = buildVideosTab(loc);
   document.getElementById('pane-reviews').innerHTML  = buildReviewsTab(loc);
 
