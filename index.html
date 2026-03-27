@@ -1832,8 +1832,8 @@ async function loadVideosForTab(loc) {
   // No API key configured — show direct YouTube search link
   if (!YOUTUBE_API_KEY) {
     el.innerHTML = `<div class="vid-fallback">
-      <p style="margin-bottom:10px">YouTube API 키를 <code>index.html</code>에 추가하면<br>관련 영상을 바로 볼 수 있어요.</p>
-      <a class="vid-yt-link" href="${ytSearchUrl}" target="_blank" rel="noopener">▶ YouTube에서 검색</a>
+      <p style="margin-bottom:10px">Add a <code>YOUTUBE_API_KEY</code> in <code>index.html</code><br>to show related videos here.</p>
+      <a class="vid-yt-link" href="${ytSearchUrl}" target="_blank" rel="noopener">▶ Search on YouTube</a>
     </div>`;
     return;
   }
@@ -1852,7 +1852,7 @@ async function loadVideosForTab(loc) {
     const sd = await sr.json();
     if (sd.error) throw new Error(sd.error.message);
     const items = (sd.items || []).filter(it => it.id?.videoId);
-    if (!items.length) throw new Error('결과 없음');
+    if (!items.length) throw new Error('No results found');
 
     // Stage 2: batch-fetch view counts for all candidates
     const ids = items.map(it => it.id.videoId).join(',');
@@ -1893,10 +1893,10 @@ async function loadVideosForTab(loc) {
     scored.sort((a, b) => b.score - a.score);
     el.innerHTML = `<div class="vid-list">${renderVideoCards(scored.slice(0, 3))}</div>`;
   } catch(e) {
-    const msg = e.name === 'AbortError' ? '요청 시간 초과' : e.message;
+    const msg = e.name === 'AbortError' ? 'Request timed out' : e.message;
     el.innerHTML = `<div class="vid-fallback">
-      <p>영상을 불러오지 못했습니다. (${msg})<br>아래 버튼으로 직접 검색하세요.</p>
-      <a class="vid-yt-link" href="${ytSearchUrl}" target="_blank" rel="noopener">▶ YouTube에서 검색</a>
+      <p>Could not load videos. (${msg})<br>Search directly on YouTube below.</p>
+      <a class="vid-yt-link" href="${ytSearchUrl}" target="_blank" rel="noopener">▶ Search on YouTube</a>
     </div>`;
   }
 }
