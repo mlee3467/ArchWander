@@ -3016,9 +3016,11 @@ function setSvSvc(svc) {
   if (svc === 'google') {
     directLnk.href = gmUrl;
     iframe.style.display = 'block';
+    // source=outdoor prevents indoor 360° panoramas; fallback uses address-based query
+    const svAddr = encodeURIComponent(svLoc.addr);
     iframe.src = GOOGLE_MAPS_KEY
-      ? `https://www.google.com/maps/embed/v1/streetview?key=${GOOGLE_MAPS_KEY}&location=${svLoc.lat},${svLoc.lng}&heading=0&pitch=0&fov=80`
-      : `https://maps.google.com/maps?q=&layer=c&cbll=${svLoc.lat},${svLoc.lng}&cbp=12,0,,0,0&z=18&output=embed`;
+      ? `https://www.google.com/maps/embed/v1/streetview?key=${GOOGLE_MAPS_KEY}&location=${svLoc.lat},${svLoc.lng}&source=outdoor&pitch=0&fov=80`
+      : `https://maps.google.com/maps?q=${svAddr}&layer=c&output=embed`;
     iframe._noteTimer = setTimeout(() => { note.style.display = 'block'; }, 3000);
 
   } else if (svc === 'mapillary') {
