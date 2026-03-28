@@ -1526,6 +1526,7 @@
       <button class="g-btn g-next" onclick="nextPhoto()">&#8250;</button>
       <div class="g-dots" id="g-dots"></div>
       <div class="g-label" id="g-label"></div>
+      <div id="g-attrib" style="display:none;position:absolute;bottom:4px;left:8px;background:rgba(0,0,0,0.45);color:#fff;font-size:9px;padding:2px 6px;border-radius:3px;pointer-events:none;max-width:75%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.5;z-index:10"></div>
     </div>
     <div class="panel-scroll">
       <div class="panel-head" id="panel-head"></div>
@@ -2434,6 +2435,9 @@ function openLoc(loc) {
   const gallery = document.getElementById('gallery');
   const isMob = window.innerWidth < 768;
   gallery.querySelectorAll('img').forEach(i => i.remove());
+  // Reset single attribution overlay
+  const gAttrib = document.getElementById('g-attrib');
+  if (gAttrib) { gAttrib.textContent = ''; gAttrib.style.display = 'none'; }
   loc.photos.forEach((src, i) => {
     const img = document.createElement('img');
     img.alt = loc.name;
@@ -2780,6 +2784,13 @@ function gotoPhoto(idx) {
   document.getElementById('g-dots').querySelectorAll('.g-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
   photoIdx = idx;
   updateGLabel();
+  // Show attribution for current photo only
+  const attribEl = document.getElementById('g-attrib');
+  if (attribEl) {
+    const text = cur?.dataset.attrib || '';
+    attribEl.textContent = text;
+    attribEl.style.display = text ? '' : 'none';
+  }
   // Preload next image in background
   const next = imgs[idx + 1];
   if (next && next.dataset.src) { next.src = next.dataset.src; delete next.dataset.src; }
@@ -2800,15 +2811,13 @@ async function applyPhotoAttribution(galleryEl, photos) {
     try {
       const lic = await fetchWikiLicense(url);
       if (lic.needsAttrib && lic.artist) {
-        const container = img.parentElement || img;
-        if (container.style.position !== 'absolute' && container.style.position !== 'relative') {
-          container.style.position = 'relative';
+        // Store attribution text on the img element — shown via single #g-attrib overlay
+        img.dataset.attrib = `© ${lic.artist.slice(0, 40)} · ${lic.license}`;
+        // If this is the currently visible photo, update the overlay immediately
+        if (i === photoIdx) {
+          const attribEl = document.getElementById('g-attrib');
+          if (attribEl) { attribEl.textContent = img.dataset.attrib; attribEl.style.display = ''; }
         }
-        const attribDiv = document.createElement('div');
-        attribDiv.className = 'photo-attrib';
-        attribDiv.style.cssText = 'position:absolute;bottom:4px;right:6px;background:rgba(0,0,0,0.45);color:#fff;font-size:9px;padding:2px 5px;border-radius:3px;pointer-events:none;max-width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.5;z-index:10';
-        attribDiv.textContent = `© ${lic.artist.slice(0, 30)} · ${lic.license}`;
-        container.appendChild(attribDiv);
       }
     } catch(e) {
       // Silently ignore fetch errors
