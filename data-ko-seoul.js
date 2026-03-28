@@ -405,7 +405,7 @@ const LOCS_KO_SEOUL = {
     tourInfo: '한국어, 영어, 중국어, 일본어의 상설 전시 무료 가이드 투어. 영어 투어: 화-금 오전 10:30, 오후 2:30.',
     transit: '4호선 → 이촌역 (2번 출구, 3분 산책)',
     walkFrom: 'Yongsan 가족 공원: 인접 · Amorepacific 본사: 12분'
-  }
+  },
 
   // ── Additional entries (appended) ──
   'boutique-monaco-seoul': {
