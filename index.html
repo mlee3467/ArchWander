@@ -72,16 +72,54 @@
       color: var(--text-secondary); transition: all 0.15s; white-space: nowrap;
     }
     .map-toggle button.active { background: #111; color: #fff; }
-    #gps-btn {
+    /* ── Near Me button (header) ───────────────────────── */
+    #near-me-btn {
       height: 34px; padding: 0 13px;
       border: 1px solid var(--border); border-radius: 8px;
       font-size: 12px; font-family: inherit; background: white;
       cursor: pointer; display: flex; align-items: center; gap: 6px;
       white-space: nowrap; flex-shrink: 0; transition: all 0.2s;
+      color: var(--text-primary);
     }
-    #gps-btn:hover { border-color: #111; }
-    #gps-btn.locating { border-color: #4F46E5; color: #4F46E5; }
-    #gps-btn.located  { border-color: #15803D; color: #15803D; }
+    #near-me-btn:hover { border-color: #4F46E5; color: #4F46E5; }
+    #near-me-btn.active {
+      background: #4F46E5; border-color: #4F46E5; color: white;
+    }
+    @keyframes pulse-border { 0%,100%{opacity:1} 50%{opacity:0.5} }
+    /* ── Walk bar (below header) ───────────────────────── */
+    #walk-bar {
+      display: none; min-height: 44px; background: #EEF2FF;
+      border-bottom: 1px solid #C7D2FE; padding: 0 18px;
+      align-items: center; gap: 10px; font-size: 12px; color: #4338CA;
+      flex-shrink: 0; z-index: 999; flex-wrap: wrap;
+    }
+    #walk-bar.visible { display: flex; }
+    /* Location picker buttons inside walk-bar */
+    .walk-loc-btn {
+      height: 28px; padding: 0 10px; border-radius: 6px; border: 1px solid #A5B4FC;
+      background: white; font-size: 11px; font-family: inherit; cursor: pointer;
+      display: flex; align-items: center; gap: 5px; color: #4338CA;
+      transition: all 0.15s; white-space: nowrap; flex-shrink: 0;
+    }
+    .walk-loc-btn:hover { border-color: #4F46E5; color: #4F46E5; }
+    .walk-loc-btn.active  { background: #4F46E5; border-color: #4F46E5; color: white; }
+    .walk-loc-btn.locating { border-color: #4F46E5; color: #4F46E5;
+      animation: pulse-border 0.9s ease-in-out infinite; }
+    .walk-bar-sep {
+      width: 1px; height: 20px; background: #C7D2FE; flex-shrink: 0; margin: 0 2px;
+    }
+    #walk-label { font-weight: 600; min-width: 40px; flex-shrink: 0; }
+    #walk-slider {
+      flex: 1; min-width: 80px; max-width: 220px; accent-color: #4F46E5;
+      cursor: pointer;
+    }
+    .walk-desc { color: #6366F1; }
+    #walk-close-btn {
+      margin-left: auto; padding: 3px 10px; border: 1px solid #A5B4FC; border-radius: 6px;
+      background: white; font-size: 11px; font-family: inherit; cursor: pointer;
+      color: #6366F1; transition: all 0.15s; white-space: nowrap; flex-shrink: 0;
+    }
+    #walk-close-btn:hover { background: #6366F1; color: white; border-color: #6366F1; }
 
     /* Language dropdown */
     .lang-dropdown { position: relative; flex-shrink: 0; }
@@ -804,7 +842,7 @@
       header { height: 52px; padding: 0 12px; gap: 8px; }
       .logo-img { height: 32px; }
       .search-wrap { max-width: none; }
-      #gps-btn { display: none; }
+      #near-me-btn span { display: none; } /* icon-only on mobile */
       #menu-btn { display: flex; order: -1; }
       #city-select-mobile { display: block; flex-shrink: 0; max-width: 110px; }
 
@@ -1158,11 +1196,11 @@
       <button class="active" id="btn-street" onclick="setMapType('street')">Street</button>
       <button id="btn-sat" onclick="setMapType('satellite')">Satellite</button>
     </div>
-    <button id="gps-btn" onclick="locateUser()">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+    <button id="near-me-btn" onclick="toggleNearMe()" title="Find architecture near a location">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="flex-shrink:0">
         <circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
       </svg>
-      <span>My Location</span>
+      <span>Find Near Me</span>
     </button>
     <select id="city-select-mobile" onchange="selectCity(this.value)">
       <option value="nyc">New York</option>
@@ -1195,6 +1233,27 @@
     </div>
   </div>
 </header>
+
+<!-- Near Me bar — slides in below header when Find Near Me is active -->
+<div id="walk-bar">
+  <!-- Location picker -->
+  <button class="walk-loc-btn" id="walk-gps-btn" onclick="locateUserGPS()" title="Use device GPS">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" style="flex-shrink:0"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+    Use GPS
+  </button>
+  <button class="walk-loc-btn" id="walk-pin-btn" onclick="startPinDrop()" title="Click map to drop a pin">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" style="flex-shrink:0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    Drop Pin
+  </button>
+  <span class="walk-bar-sep"></span>
+  <!-- Walking distance slider -->
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="flex-shrink:0"><path d="M13 4a1 1 0 1 0 2 0 1 1 0 0 0-2 0"/><path d="M7 20 8.5 16l2 2 3-9 2 5h3"/><path d="M14 11 12 6l-4 1"/></svg>
+  <span id="walk-label">15 min</span>
+  <input type="range" id="walk-slider" min="1" max="60" step="1" value="15">
+  <span class="walk-desc">walking radius</span>
+  <!-- Close -->
+  <button id="walk-close-btn" onclick="_fullDeactivate()" title="Close Near Me">✕ Close</button>
+</div>
 
 <div class="app">
   <aside class="sidebar" id="sidebar">
@@ -1771,6 +1830,22 @@ let map, streetLayer, satLayer, markers = [], userMarker = null;
 let clusterGroup = null;   // Leaflet.markercluster group
 let svMiniMap = null;
 
+// ── Walk filter state ──────────────────────────────────────────────
+let walkOrigin    = null;   // { lat, lng } GPS position or dropped pin
+let walkActive    = false;  // is walk filter currently on?
+let pinDropMode   = false;  // waiting for user to click map
+let pinDropMarker = null;   // the draggable pin on map
+
+function haversineM(lat1, lng1, lat2, lng2) {
+  const R = 6371000;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLng = (lng2 - lng1) * Math.PI / 180;
+  const a = Math.sin(dLat/2)**2 +
+            Math.cos(lat1 * Math.PI/180) * Math.cos(lat2 * Math.PI/180) *
+            Math.sin(dLng/2)**2;
+  return R * 2 * Math.asin(Math.sqrt(a));
+}
+
 function _makeStreetLayer() {
   if (THUNDERFOREST_API_KEY) {
     // Thunderforest: bilingual labels (local name + English name simultaneously)
@@ -2005,6 +2080,12 @@ function getFiltered() {
       l.style.toLowerCase().includes(q) || l.hood.toLowerCase().includes(q) ||
       l.styleGroup.toLowerCase().includes(q) || l.tags.some(t => t.toLowerCase().includes(q))
     );
+  }
+  // Walk distance filter
+  if (walkActive && walkOrigin) {
+    const minutes  = parseInt(document.getElementById('walk-slider').value, 10);
+    const maxDist  = minutes * 80; // ~80 m/min ≈ 4.8 km/h
+    list = list.filter(l => haversineM(walkOrigin.lat, walkOrigin.lng, l.lat, l.lng) <= maxDist);
   }
   // Sort
   if (state.sort === 'year-asc')  list = [...list].sort((a,b) => a.yr - b.yr);
@@ -2939,25 +3020,120 @@ function setMapType(type) {
   else { map.removeLayer(streetLayer); satLayer.addTo(map); }
 }
 
-function locateUser() {
+// ══════════════════════════════════════════════════════════════════
+// NEAR ME + WALK FILTER
+// ══════════════════════════════════════════════════════════════════
+let nearMeActive = false;
+
+function toggleNearMe() {
+  nearMeActive = !nearMeActive;
+  document.getElementById('near-me-btn').classList.toggle('active', nearMeActive);
+  if (nearMeActive) {
+    document.getElementById('walk-bar').classList.add('visible');
+  } else {
+    _fullDeactivate();
+  }
+}
+
+function _fullDeactivate() {
+  nearMeActive = false;
+  walkActive   = false;
+  walkOrigin   = null;
+  pinDropMode  = false;
+  if (window.map) map.getContainer().style.cursor = '';
+  if (userMarker)    { userMarker.remove();    userMarker    = null; }
+  if (pinDropMarker) { pinDropMarker.remove(); pinDropMarker = null; }
+  document.getElementById('walk-bar').classList.remove('visible');
+  document.getElementById('near-me-btn').classList.remove('active');
+  document.getElementById('walk-gps-btn').classList.remove('active', 'locating');
+  document.getElementById('walk-pin-btn').classList.remove('active', 'locating');
+  renderList();
+  syncMarkers();
+}
+
+// Alias kept so selectCity() still works unchanged
+function clearWalkFilter() { _fullDeactivate(); }
+
+function locateUserGPS() {
   if (!navigator.geolocation) { alert('Geolocation not supported.'); return; }
-  const btn = document.getElementById('gps-btn');
-  btn.classList.add('locating');
+  const gpsBtn = document.getElementById('walk-gps-btn');
+  const pinBtn = document.getElementById('walk-pin-btn');
+  gpsBtn.classList.add('locating');
+  pinBtn.classList.remove('active', 'locating');
   navigator.geolocation.getCurrentPosition(
     pos => {
-      const { latitude:lat, longitude:lng } = pos.coords;
-      if (userMarker) userMarker.remove();
-      userMarker = L.circleMarker([lat, lng], { radius:10, fillColor:'#4F46E5', fillOpacity:1, color:'white', weight:3 })
-        .addTo(map).bindPopup('📍 You are here').openPopup();
-      map.flyTo([lat, lng], 15, { duration:1.3 });
-      btn.classList.remove('locating'); btn.classList.add('located');
-      setTimeout(() => btn.classList.remove('located'), 4000);
+      gpsBtn.classList.remove('locating');
+      _setWalkOrigin(pos.coords.latitude, pos.coords.longitude, 'gps');
     },
     () => {
       alert('Could not get your location. Check browser permissions.');
-      btn.classList.remove('locating');
+      gpsBtn.classList.remove('locating');
     }
   );
+}
+
+function startPinDrop() {
+  pinDropMode = true;
+  map.getContainer().style.cursor = 'crosshair';
+  document.getElementById('walk-pin-btn').classList.add('locating');
+  document.getElementById('walk-gps-btn').classList.remove('active', 'locating');
+}
+
+function _setWalkOrigin(lat, lng, mode) {
+  walkOrigin = { lat, lng };
+  walkActive = true;
+
+  // Clear old markers
+  if (userMarker)    { userMarker.remove();    userMarker    = null; }
+  if (pinDropMarker) { pinDropMarker.remove(); pinDropMarker = null; }
+
+  if (mode === 'gps') {
+    userMarker = L.circleMarker([lat, lng], {
+      radius: 10, fillColor: '#4F46E5', fillOpacity: 1, color: 'white', weight: 3
+    }).addTo(map).bindPopup('📍 You are here').openPopup();
+    document.getElementById('walk-gps-btn').classList.add('active');
+    document.getElementById('walk-pin-btn').classList.remove('active', 'locating');
+  } else {
+    pinDropMarker = L.marker([lat, lng], {
+      draggable: true,
+      icon: L.divIcon({
+        html: '<div style="width:20px;height:20px;background:#4F46E5;border:3px solid white;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 2px 8px rgba(0,0,0,0.3)"></div>',
+        className: '',
+        iconSize:   [20, 20],
+        iconAnchor: [10, 20]
+      })
+    }).addTo(map);
+    pinDropMarker.on('dragend', function() {
+      const p = pinDropMarker.getLatLng();
+      walkOrigin = { lat: p.lat, lng: p.lng };
+      _runWalkFilter();
+    });
+    document.getElementById('walk-pin-btn').classList.add('active');
+    document.getElementById('walk-pin-btn').classList.remove('locating');
+    document.getElementById('walk-gps-btn').classList.remove('active', 'locating');
+    map.getContainer().style.cursor = '';
+    pinDropMode = false;
+  }
+
+  _runWalkFilter();
+}
+
+function _runWalkFilter() {
+  if (!walkActive || !walkOrigin) return;
+  const minutes = parseInt(document.getElementById('walk-slider').value, 10);
+  document.getElementById('walk-label').textContent = `${minutes} min`;
+  renderList();
+  syncMarkers();
+  // Fit map to nearby locations + origin
+  const nearby = getFiltered();
+  if (nearby.length > 0) {
+    const bounds = L.latLngBounds(nearby.map(l => [l.lat, l.lng]));
+    bounds.extend([walkOrigin.lat, walkOrigin.lng]);
+    map.fitBounds(bounds, { padding: [60, 60], maxZoom: 16 });
+  } else {
+    // No results — still center on origin at current zoom
+    map.setView([walkOrigin.lat, walkOrigin.lng], Math.max(map.getZoom(), 15));
+  }
 }
 
 function toggleSidebar() {
@@ -2996,6 +3172,8 @@ function selectCity(city) {
   document.querySelectorAll('.city-tab').forEach(t => t.classList.remove('active'));
   const btn = document.getElementById(`city-${city}`);
   if (btn) btn.classList.add('active');
+  // Clear walk filter when switching cities
+  if (walkActive) clearWalkFilter();
   // Fly map to city center
   if (window.map) map.flyTo([meta.lat, meta.lng], meta.zoom, { duration: 1.2 });
   // Rebuild markers, filters, list for new city (also updates badge)
@@ -3005,7 +3183,18 @@ function selectCity(city) {
   refreshApp();
 }
 
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox() || closePanel(); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    // Cancel pin drop mode if active (go back to "waiting" state, not full deactivate)
+    if (pinDropMode) {
+      pinDropMode = false;
+      map.getContainer().style.cursor = '';
+      document.getElementById('walk-pin-btn').classList.remove('locating');
+      return;
+    }
+    closeLightbox() || closePanel();
+  }
+});
 
 // ══════════════════════════════════════════════════════════════════
 // BOOT
@@ -3022,6 +3211,20 @@ window.addEventListener('load', function() {
   }
   initMap(); // badge is updated inside initMap → refreshApp path
   map.on('zoomend', updateMarkerSize);
+
+  // ── Pin drop: place marker on map click ────────────────────────
+  map.on('click', function(e) {
+    if (!pinDropMode) return;
+    pinDropMode = false;
+    map.getContainer().style.cursor = '';
+    _setWalkOrigin(e.latlng.lat, e.latlng.lng, 'pin');
+  });
+
+  // ── Walk slider: re-filter on change ──────────────────────────
+  document.getElementById('walk-slider').addEventListener('input', function() {
+    document.getElementById('walk-label').textContent = `${this.value} min`;
+    if (walkActive) _runWalkFilter();
+  });
   // Sidebar macro drag-resize
   setupVDrag('dh-sv', 'sv-side', 80, 460);
   setupVDrag('dh-fl', 'sb-filters', 50, 480);
