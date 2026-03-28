@@ -121,6 +121,26 @@
     }
     #walk-close-btn:hover { background: #6366F1; color: white; border-color: #6366F1; }
 
+    /* ── Translation loading bar (inside panel) ─────── */
+    #trans-bar {
+      display: none; align-items: center; gap: 8px;
+      padding: 7px 16px; background: #FFFBEB;
+      border-bottom: 1px solid #FDE68A;
+      font-size: 11px; color: #92400E; flex-shrink: 0;
+    }
+    #trans-bar.loading { display: flex; }
+    .trans-dots {
+      display: inline-flex; gap: 3px; flex-shrink: 0;
+    }
+    .trans-dots span {
+      width: 5px; height: 5px; background: #D97706; border-radius: 50%;
+      animation: trans-bounce 1.1s ease-in-out infinite;
+    }
+    .trans-dots span:nth-child(2) { animation-delay: 0.18s; }
+    .trans-dots span:nth-child(3) { animation-delay: 0.36s; }
+    @keyframes trans-bounce { 0%,80%,100%{transform:scale(0.6);opacity:0.4} 40%{transform:scale(1);opacity:1} }
+    .trans-phase2 { opacity: 0.7; font-style: italic; }
+
     /* Language dropdown */
     .lang-dropdown { position: relative; flex-shrink: 0; }
     #lang-btn {
@@ -1399,6 +1419,11 @@
     </div>
     <div class="panel-scroll">
       <div class="panel-head" id="panel-head"></div>
+      <!-- Translation loading bar — shown only during API translation (hidden on cache hit) -->
+      <div id="trans-bar">
+        <div class="trans-dots"><span></span><span></span><span></span></div>
+        <span class="trans-msg">한국어로 번역 중...</span>
+      </div>
       <div class="tabs">
         <div class="tab active" data-tab="overview" onclick="switchTab('overview')">Overview</div>
         <div class="tab" data-tab="visit" onclick="switchTab('visit')">Visit</div>
@@ -1422,11 +1447,10 @@
 <script src="data-london.js"></script>
 <script src="data-tokyo.js"></script>
 <script src="data.js"></script>
-<script src="data-ko.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mapillary-js@4/dist/mapillary.min.js"></script>
 <script>
-// Fallback: data-ko.js may not exist yet (e.g. before first translation run)
-if (typeof LOCS_KO === 'undefined') window.LOCS_KO = {};
+// Translation is fully on-demand via API + localStorage cache.
+// data-ko.js is no longer used.
 
 // ══════════════════════════════════════════════════════════════════
 // DATA
@@ -1643,8 +1667,6 @@ function setLang(lang) {
   applyLang();
   // Re-translate active location if switching to Korean
   if (LANG === 'ko' && activeLoc) applyLocTranslation(activeLoc);
-  // Warm cache for remaining locations in background
-  if (LANG === 'ko') setTimeout(prefetchTranslations, 1000);
 }
 
 // Close lang dropdown when clicking outside
@@ -1718,38 +1740,70 @@ async function getLocTranslation(loc, onlyPriority = false) {
   return result;
 }
 
-// Two-phase translation: render priority fields instantly, then update with full translation
+// ── Translation status bar helpers ─────────────────────────────────
+function _showTransBar(msg, phase2 = false) {
+  const bar = document.getElementById('trans-bar');
+  if (!bar) return;
+  const msgEl = bar.querySelector('.trans-msg');
+  if (msgEl) {
+    msgEl.textContent = msg;
+    msgEl.classList.toggle('trans-phase2', phase2);
+  }
+  bar.classList.add('loading');
+}
+function _hideTransBar() {
+  const bar = document.getElementById('trans-bar');
+  if (bar) bar.classList.remove('loading');
+}
+
+// On-demand translation with localStorage cache
+// Cache hit  → instant, no loading bar shown
+// Cache miss → loading bar shown, API called, cache saved for all future opens
 async function applyLocTranslation(loc) {
   const guard = () => activeLoc && activeLoc.id === loc.id && LANG === 'ko';
   if (!guard()) return;
 
-  // Phase 1 — priority fields (desc, hood, addr): ~300-500ms
+  // ── Fast path: full cache hit ───────────────────────────────────
+  const cacheKey = `archwander_trans_ko_${loc.id}`;
+  const _tryCache = () => {
+    try { const c = localStorage.getItem(cacheKey); return c ? JSON.parse(c) : null; } catch(e) { return null; }
+  };
+  const cached = _tryCache();
+  if (cached && TRANS_PRIORITY.every(k => cached[k] || !loc[k])) {
+    // Fully cached — apply instantly, no bar needed
+    const ovPane = document.getElementById('pane-overview');
+    const viPane = document.getElementById('pane-visit');
+    const hrPane = document.getElementById('pane-here');
+    if (ovPane) ovPane.innerHTML = buildOverviewTab(loc, cached);
+    if (viPane) viPane.innerHTML = buildVisitTab(loc, cached);
+    if (hrPane) hrPane.innerHTML = buildDirectionsTab(loc, cached);
+    return;
+  }
+
+  // ── Slow path: API translation ──────────────────────────────────
+  // Phase 1 — priority fields (desc, hood, addr)
+  // DeepL: ~200ms · MyMemory parallel: ~500ms
+  _showTransBar('한국어로 번역 중...', false);
+
   const priTrans = await getLocTranslation(loc, true);
-  if (!guard()) return;
+  if (!guard()) { _hideTransBar(); return; }
+
   const ovPane = document.getElementById('pane-overview');
   const viPane = document.getElementById('pane-visit');
   const hrPane = document.getElementById('pane-here');
   if (ovPane) ovPane.innerHTML = buildOverviewTab(loc, priTrans);
 
-  // Phase 2 — all fields (parallel): fires while user reads overview
+  // Phase 2 — deferred fields (hours, transit, tourInfo…)
+  // Runs while user reads Phase 1 result
+  _showTransBar('상세 정보 번역 중...', true);
+
   const fullTrans = await getLocTranslation(loc, false);
-  if (!guard()) return;
+  if (!guard()) { _hideTransBar(); return; }
+
   if (ovPane) ovPane.innerHTML = buildOverviewTab(loc, fullTrans);
   if (viPane) viPane.innerHTML = buildVisitTab(loc, fullTrans);
   if (hrPane) hrPane.innerHTML = buildDirectionsTab(loc, fullTrans);
-}
-
-// Background prefetch — quietly warm the cache for all LOCS when in Korean
-let _prefetchStarted = false;
-async function prefetchTranslations() {
-  if (_prefetchStarted || LANG !== 'ko') return;
-  _prefetchStarted = true;
-  const uncached = LOCS.filter(l => !localStorage.getItem(`archwander_trans_ko_${l.id}`));
-  for (let i = 0; i < uncached.length; i++) {
-    await getLocTranslation(uncached[i], false);
-    // Small pause between locations to avoid rate limits on MyMemory
-    await new Promise(r => setTimeout(r, 400));
-  }
+  _hideTransBar();
 }
 
 function setMapLang() {
@@ -1804,14 +1858,13 @@ function applyLang() {
   // Rebuild dynamic content
   buildFilters();
   renderList();
-  // Re-apply translations when switching language
+  // Re-apply panel when switching language
   if (activeLoc) {
-    const _st = (LANG === 'ko' && LOCS_KO[activeLoc.id]) ? LOCS_KO[activeLoc.id] : {};
-    document.getElementById('pane-overview').innerHTML = buildOverviewTab(activeLoc, _st);
-    document.getElementById('pane-visit').innerHTML    = buildVisitTab(activeLoc, _st);
-    document.getElementById('pane-here').innerHTML     = buildDirectionsTab(activeLoc, _st);
-    // Fall back to runtime translation only if no static entry
-    if (LANG === 'ko' && !Object.keys(_st).length) applyLocTranslation(activeLoc);
+    _hideTransBar();
+    document.getElementById('pane-overview').innerHTML = buildOverviewTab(activeLoc, {});
+    document.getElementById('pane-visit').innerHTML    = buildVisitTab(activeLoc, {});
+    document.getElementById('pane-here').innerHTML     = buildDirectionsTab(activeLoc, {});
+    if (LANG === 'ko') applyLocTranslation(activeLoc);
   }
   if (activeLoc) {
     document.getElementById('pane-overview').innerHTML = buildOverviewTab(activeLoc);
@@ -1839,6 +1892,7 @@ let pinDropMarker = null;   // the draggable pin on map
 let walkMaskLayer   = null; // gray outer mask (inverted circle)
 let walkCircleLayer = null; // dashed circle border
 let walkLineGroup   = null; // polylines to each nearby location
+let walkCountLabel  = null; // location count badge inside circle
 
 // Approximate a circle as a polygon in lat/lng space
 function circlePolyPoints(lat, lng, radiusM, n = 72) {
@@ -1898,8 +1952,7 @@ function initMap() {
   buildFilters();
   renderList();
   applyLang();
-  // Warm translation cache if starting in Korean
-  if (LANG === 'ko') setTimeout(prefetchTranslations, 2000);
+  // Translation is now fully on-demand — no prefetch on startup
   // Update badge with city-specific count
   const badge = document.getElementById('pilot-badge');
   if (badge) badge.textContent = `🗺 ArchWander · Pilot v0.1 · ${initLocs.length} Locations`;
@@ -2237,14 +2290,13 @@ function openLoc(loc) {
     <div class="p-tags">${loc.tags.map(t=>`<span class="p-tag">${t}</span>`).join('')}</div>
   `;
 
-  // Build tabs — use pre-built static translation if available (instant),
-  // fall back to async runtime translation if LOCS_KO entry is missing
-  const _staticTrans = (LANG === 'ko' && LOCS_KO[loc.id]) ? LOCS_KO[loc.id] : {};
-  document.getElementById('pane-overview').innerHTML = buildOverviewTab(loc, _staticTrans);
-  document.getElementById('pane-visit').innerHTML    = buildVisitTab(loc, _staticTrans);
-  document.getElementById('pane-here').innerHTML     = buildDirectionsTab(loc, _staticTrans);
-  // If no static translation yet, fall back to runtime API translation
-  if (LANG === 'ko' && !Object.keys(_staticTrans).length) applyLocTranslation(loc);
+  // Always render English immediately (instant), then apply Korean on-demand.
+  // applyLocTranslation() serves from localStorage cache (instant) or API (~200-500ms).
+  _hideTransBar();
+  document.getElementById('pane-overview').innerHTML = buildOverviewTab(loc, {});
+  document.getElementById('pane-visit').innerHTML    = buildVisitTab(loc, {});
+  document.getElementById('pane-here').innerHTML     = buildDirectionsTab(loc, {});
+  if (LANG === 'ko') applyLocTranslation(loc);
   document.getElementById('pane-videos').innerHTML   = buildVideosTab(loc);
   document.getElementById('pane-reviews').innerHTML  = buildReviewsTab(loc);
 
@@ -3099,6 +3151,22 @@ function startPinDrop() {
   document.getElementById('walk-gps-btn').classList.remove('active', 'locating');
 }
 
+// Shared person-on-dot icon for GPS + Pin markers.
+// Uses a single emoji character (🧍) — zero image memory, system-rendered.
+function _personMarkerIcon() {
+  return L.divIcon({
+    html: '<div style="display:flex;flex-direction:column;align-items:center;pointer-events:none">' +
+            '<span style="font-size:22px;line-height:1;display:block;' +
+              'filter:drop-shadow(0 1px 3px rgba(0,0,0,0.4));user-select:none">🧍</span>' +
+            '<div style="width:13px;height:13px;background:#EF4444;border:2.5px solid white;' +
+              'border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.4);margin-top:-3px"></div>' +
+          '</div>',
+    className: '',
+    iconSize:  [24, 38],
+    iconAnchor:[12, 38]   // anchor = centre of the dot at bottom
+  });
+}
+
 function _setWalkOrigin(lat, lng, mode) {
   walkOrigin = { lat, lng };
   walkActive = true;
@@ -3108,9 +3176,9 @@ function _setWalkOrigin(lat, lng, mode) {
   if (pinDropMarker) { pinDropMarker.remove(); pinDropMarker = null; }
 
   if (mode === 'gps') {
-    userMarker = L.circleMarker([lat, lng], {
+    userMarker = L.marker([lat, lng], {
       pane: 'walkMarker',
-      radius: 11, fillColor: '#EF4444', fillOpacity: 1, color: 'white', weight: 3
+      icon: _personMarkerIcon()
     }).addTo(map).bindPopup('📍 You are here').openPopup();
     document.getElementById('walk-gps-btn').classList.add('active');
     document.getElementById('walk-pin-btn').classList.remove('active', 'locating');
@@ -3118,12 +3186,7 @@ function _setWalkOrigin(lat, lng, mode) {
     pinDropMarker = L.marker([lat, lng], {
       pane:     'walkMarker',
       draggable: true,
-      icon: L.divIcon({
-        html: '<div style="width:18px;height:18px;background:#EF4444;border:3px solid white;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.35)"></div>',
-        className: '',
-        iconSize:   [18, 18],
-        iconAnchor: [9, 9]
-      })
+      icon:      _personMarkerIcon()
     }).addTo(map);
     pinDropMarker.on('dragend', function() {
       const p = pinDropMarker.getLatLng();
@@ -3199,12 +3262,38 @@ function _drawWalkOverlay() {
     })
   );
   walkLineGroup = L.layerGroup(lines).addTo(map);
+
+  // ④ Location count badge — centered below the person marker dot
+  const n    = nearby.length;
+  const lbl  = LANG === 'ko' ? `${n}곳` : `${n} spot${n !== 1 ? 's' : ''}`;
+  const zero = n === 0;
+  walkCountLabel = L.marker([lat, lng], {
+    pane:        'walkMarker',   // same pane as the person icon, renders above it in DOM
+    interactive: false,
+    icon: L.divIcon({
+      html: `<div style="
+        transform:translate(-50%,14px);
+        display:inline-block;
+        background:${zero ? 'rgba(107,114,128,0.92)' : 'rgba(239,68,68,0.92)'};
+        color:white;font-size:12px;font-weight:700;
+        font-family:Inter,-apple-system,sans-serif;
+        padding:3px 9px;border-radius:20px;
+        border:2px solid white;white-space:nowrap;
+        box-shadow:0 2px 8px rgba(0,0,0,0.28);
+        pointer-events:none;line-height:1.4
+      ">${lbl}</div>`,
+      className: '',
+      iconSize:   [0, 0],
+      iconAnchor: [0, 0]   // transform handles all positioning
+    })
+  }).addTo(map);
 }
 
 function _clearWalkOverlay() {
   if (walkMaskLayer)   { walkMaskLayer.remove();   walkMaskLayer   = null; }
   if (walkCircleLayer) { walkCircleLayer.remove();  walkCircleLayer = null; }
   if (walkLineGroup)   { walkLineGroup.remove();    walkLineGroup   = null; }
+  if (walkCountLabel)  { walkCountLabel.remove();   walkCountLabel  = null; }
 }
 
 function toggleSidebar() {
