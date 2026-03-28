@@ -1835,6 +1835,25 @@ let walkOrigin    = null;   // { lat, lng } GPS position or dropped pin
 let walkActive    = false;  // is walk filter currently on?
 let pinDropMode   = false;  // waiting for user to click map
 let pinDropMarker = null;   // the draggable pin on map
+// Walk overlay layers
+let walkMaskLayer   = null; // gray outer mask (inverted circle)
+let walkCircleLayer = null; // dashed circle border
+let walkLineGroup   = null; // polylines to each nearby location
+
+// Approximate a circle as a polygon in lat/lng space
+function circlePolyPoints(lat, lng, radiusM, n = 72) {
+  const R    = 6371000;
+  const latR = lat * Math.PI / 180;
+  const pts  = [];
+  for (let i = 0; i < n; i++) {
+    const angle = (i / n) * 2 * Math.PI;
+    pts.push([
+      lat + (radiusM * Math.cos(angle)) / R * (180 / Math.PI),
+      lng + (radiusM * Math.sin(angle)) / (R * Math.cos(latR)) * (180 / Math.PI)
+    ]);
+  }
+  return pts;
+}
 
 function haversineM(lat1, lng1, lat2, lng2) {
   const R = 6371000;
@@ -3043,6 +3062,7 @@ function _fullDeactivate() {
   if (window.map) map.getContainer().style.cursor = '';
   if (userMarker)    { userMarker.remove();    userMarker    = null; }
   if (pinDropMarker) { pinDropMarker.remove(); pinDropMarker = null; }
+  _clearWalkOverlay();
   document.getElementById('walk-bar').classList.remove('visible');
   document.getElementById('near-me-btn').classList.remove('active');
   document.getElementById('walk-gps-btn').classList.remove('active', 'locating');
@@ -3089,18 +3109,20 @@ function _setWalkOrigin(lat, lng, mode) {
 
   if (mode === 'gps') {
     userMarker = L.circleMarker([lat, lng], {
-      radius: 10, fillColor: '#4F46E5', fillOpacity: 1, color: 'white', weight: 3
+      pane: 'walkMarker',
+      radius: 11, fillColor: '#EF4444', fillOpacity: 1, color: 'white', weight: 3
     }).addTo(map).bindPopup('📍 You are here').openPopup();
     document.getElementById('walk-gps-btn').classList.add('active');
     document.getElementById('walk-pin-btn').classList.remove('active', 'locating');
   } else {
     pinDropMarker = L.marker([lat, lng], {
+      pane:     'walkMarker',
       draggable: true,
       icon: L.divIcon({
-        html: '<div style="width:20px;height:20px;background:#4F46E5;border:3px solid white;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 2px 8px rgba(0,0,0,0.3)"></div>',
+        html: '<div style="width:18px;height:18px;background:#EF4444;border:3px solid white;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.35)"></div>',
         className: '',
-        iconSize:   [20, 20],
-        iconAnchor: [10, 20]
+        iconSize:   [18, 18],
+        iconAnchor: [9, 9]
       })
     }).addTo(map);
     pinDropMarker.on('dragend', function() {
@@ -3124,6 +3146,7 @@ function _runWalkFilter() {
   document.getElementById('walk-label').textContent = `${minutes} min`;
   renderList();
   syncMarkers();
+  _drawWalkOverlay();
   // Fit map to nearby locations + origin
   const nearby = getFiltered();
   if (nearby.length > 0) {
@@ -3131,9 +3154,57 @@ function _runWalkFilter() {
     bounds.extend([walkOrigin.lat, walkOrigin.lng]);
     map.fitBounds(bounds, { padding: [60, 60], maxZoom: 16 });
   } else {
-    // No results — still center on origin at current zoom
     map.setView([walkOrigin.lat, walkOrigin.lng], Math.max(map.getZoom(), 15));
   }
+}
+
+function _drawWalkOverlay() {
+  if (!walkActive || !walkOrigin) return;
+  const minutes = parseInt(document.getElementById('walk-slider').value, 10);
+  const radiusM = minutes * 80; // ~80 m/min
+  const { lat, lng } = walkOrigin;
+
+  _clearWalkOverlay();
+
+  // ① Gray mask: world bbox with circular hole (evenodd fill rule)
+  const outerRing = [[-90, -360], [-90, 360], [90, 360], [90, -360]];
+  const innerRing = circlePolyPoints(lat, lng, radiusM);
+  walkMaskLayer = L.polygon([outerRing, innerRing], {
+    pane:        'walkMask',
+    stroke:      false,
+    fillColor:   '#666666',
+    fillOpacity: 0.45
+  }).addTo(map);
+
+  // ② Dashed circle border
+  walkCircleLayer = L.circle([lat, lng], {
+    pane:      'walkOverlay',
+    radius:    radiusM,
+    color:     '#EF4444',
+    weight:    2,
+    opacity:   0.85,
+    fill:      false,
+    dashArray: '7, 9'
+  }).addTo(map);
+
+  // ③ Lines from origin to each nearby location
+  const nearby = getFiltered();
+  const lines = nearby.map(loc =>
+    L.polyline([[lat, lng], [loc.lat, loc.lng]], {
+      pane:      'walkOverlay',
+      color:     '#EF4444',
+      weight:    1.5,
+      opacity:   0.5,
+      dashArray: '4, 8'
+    })
+  );
+  walkLineGroup = L.layerGroup(lines).addTo(map);
+}
+
+function _clearWalkOverlay() {
+  if (walkMaskLayer)   { walkMaskLayer.remove();   walkMaskLayer   = null; }
+  if (walkCircleLayer) { walkCircleLayer.remove();  walkCircleLayer = null; }
+  if (walkLineGroup)   { walkLineGroup.remove();    walkLineGroup   = null; }
 }
 
 function toggleSidebar() {
@@ -3210,6 +3281,19 @@ window.addEventListener('load', function() {
     return;
   }
   initMap(); // badge is updated inside initMap → refreshApp path
+
+  // ── Custom panes for walk overlay z-ordering ──────────────────
+  // Leaflet defaults: tilePane=200, overlayPane=400, markerPane=600
+  // Walk mask + lines must sit above tiles but BELOW location markers
+  const _mkPane = (name, z) => {
+    const p = map.createPane(name);
+    p.style.zIndex = z;
+    p.style.pointerEvents = 'none';
+  };
+  _mkPane('walkMask',    390); // gray outer mask — just under overlayPane
+  _mkPane('walkOverlay', 395); // circle border + lines
+  _mkPane('walkMarker',  610); // red dot — just above markerPane(600)
+
   map.on('zoomend', updateMarkerSize);
 
   // ── Pin drop: place marker on map click ────────────────────────
