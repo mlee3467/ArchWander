@@ -3261,13 +3261,16 @@ function startPinDrop() {
   document.getElementById('walk-gps-btn').classList.remove('active', 'locating');
 }
 
-// Shared pin icon for GPS + Pin markers. Uses 📌 emoji only.
+// Shared pin icon for GPS + Pin markers. Person emoji with red dot at feet.
 function _personMarkerIcon() {
   return L.divIcon({
-    html: '<span style="font-size:32px;line-height:1;display:block;text-align:center;pointer-events:none;user-select:none;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.35))">📌</span>',
+    html: '<div style="position:relative;width:32px;height:40px;pointer-events:none;user-select:none">' +
+          '<span style="font-size:30px;line-height:1;display:block;text-align:center;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.35))">🧍🏻</span>' +
+          '<div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:8px;height:8px;background:#EF4444;border-radius:50%;border:1.5px solid white;box-shadow:0 1px 3px rgba(0,0,0,0.5)"></div>' +
+          '</div>',
     className: '',
-    iconSize:  [32, 32],
-    iconAnchor:[16, 32]  // anchor = bottom-center (pin tip)
+    iconSize:  [32, 40],
+    iconAnchor:[16, 40]  // anchor = red dot at feet (bottom-center)
   });
 }
 
@@ -3354,18 +3357,8 @@ function _drawWalkOverlay() {
     dashArray: '7, 9'
   }).addTo(map);
 
-  // ③ Lines from origin to each nearby location
-  const nearby = getFiltered();
-  const lines = nearby.map(loc =>
-    L.polyline([[lat, lng], [loc.lat, loc.lng]], {
-      pane:      'walkOverlay',
-      color:     '#EF4444',
-      weight:    1.5,
-      opacity:   0.5,
-      dashArray: '4, 8'
-    })
-  );
-  walkLineGroup = L.layerGroup(lines).addTo(map);
+  // ③ Location count badge — centered below the person marker dot
+  // (lines removed — not needed)
 
   // ④ Location count badge — centered below the person marker dot
   const n    = nearby.length;
