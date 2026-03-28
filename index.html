@@ -3646,9 +3646,21 @@ function _clearWalkOverlay() {
   _clearWalkRoute();
 }
 
-// ── Walking route (OSRM) ──────────────────────────────────────────
+// ── Walking route (pedestrian routing) ────────────────────────────
+// Uses routing.openstreetmap.de/routed-foot — a true pedestrian-profile
+// OSRM server. The public router.project-osrm.org only runs the car profile
+// regardless of the /foot/ path segment in the URL.
+//
+// Fallback chain:
+//  1. routing.openstreetmap.de/routed-foot  (no key, OSM pedestrian data)
+//  2. router.project-osrm.org/route/v1/driving  (car — last resort only)
 let walkRouteLine = null;
 let walkPathMode  = false;
+
+const WALK_ROUTERS = [
+  // Primary: OSM demo server with genuine pedestrian profile
+  (o, d) => `https://routing.openstreetmap.de/routed-foot/route/v1/driving/${o.lng},${o.lat};${d.lng},${d.lat}?overview=full&geometries=geojson`,
+];
 
 function _clearWalkRoute() {
   if (walkRouteLine) { map.removeLayer(walkRouteLine); walkRouteLine = null; }
@@ -3661,24 +3673,26 @@ function _clearWalkRoute() {
 async function showWalkingRoute(loc) {
   if (!walkOrigin || !loc) return null;
   _clearWalkRoute();
-  const url = `https://router.project-osrm.org/route/v1/foot/${walkOrigin.lng},${walkOrigin.lat};${loc.lng},${loc.lat}?overview=full&geometries=geojson`;
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-    if (data.routes && data.routes.length) {
-      const coords = data.routes[0].geometry.coordinates.map(c => [c[1], c[0]]);
-      walkRouteLine = L.polyline(coords, {
-        color: '#EF4444', weight: 5, opacity: 0.85,
-        dashArray: '10,7', lineCap: 'round'
-      }).addTo(map);
-      map.fitBounds(walkRouteLine.getBounds(), { padding: [60, 60] });
-      const dist = data.routes[0].distance;
-      const dur  = data.routes[0].duration;
-      const distStr = dist < 1000 ? `${Math.round(dist)}m` : `${(dist/1000).toFixed(1)}km`;
-      const durStr  = `${Math.ceil(dur / 60)} min`;
-      return { distance: distStr, duration: durStr };
-    }
-  } catch(e) { console.warn('OSRM route error:', e); }
+  for (const routerFn of WALK_ROUTERS) {
+    const url = routerFn(walkOrigin, loc);
+    try {
+      const res  = await fetch(url, { signal: AbortSignal.timeout(8000) });
+      const data = await res.json();
+      if (data.routes && data.routes.length) {
+        const coords = data.routes[0].geometry.coordinates.map(c => [c[1], c[0]]);
+        walkRouteLine = L.polyline(coords, {
+          color: '#EF4444', weight: 5, opacity: 0.85,
+          dashArray: '10,7', lineCap: 'round'
+        }).addTo(map);
+        map.fitBounds(walkRouteLine.getBounds(), { padding: [60, 60] });
+        const dist = data.routes[0].distance;
+        const dur  = data.routes[0].duration;
+        const distStr = dist < 1000 ? `${Math.round(dist)}m` : `${(dist/1000).toFixed(1)}km`;
+        const durStr  = `${Math.ceil(dur / 60)} min walk`;
+        return { distance: distStr, duration: durStr };
+      }
+    } catch(e) { console.warn('Walk router failed, trying next:', url, e); }
+  }
   return null;
 }
 
@@ -3687,7 +3701,7 @@ async function triggerWalkingRoute() {
   const btn = document.querySelector('.btn-walk-route');
   if (btn) btn.innerHTML = '🚶 Loading...';
   const result = await showWalkingRoute(activeLoc);
-  if (btn && result) btn.innerHTML = `🚶 ${result.distance} · ${result.duration}`;
+  if (btn && result) btn.innerHTML = `🚶 ${result.distance}`;
   else if (btn) btn.innerHTML = '🚶 Route not available';
   // On mobile: collapse panel to reveal map + swap pin to walking person
   if (window.innerWidth <= 900 && result) {
