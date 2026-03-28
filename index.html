@@ -451,6 +451,15 @@
       text-align: center; text-decoration: none; transition: opacity 0.15s;
     }
     .btn-p:hover { opacity: 0.82; }
+    .btn-walk-route {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      width: 100%; padding: 11px; margin-top: 12px;
+      background: #EEF2FF; color: #4338CA;
+      border: 1px solid #C7D2FE; border-radius: 8px;
+      font-size: 12.5px; font-weight: 600; font-family: inherit; cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-walk-route:hover { background: #E0E7FF; border-color: #A5B4FC; }
     .btn-s {
       display: block; width: 100%; padding: 11px;
       background: transparent; color: #111;
@@ -891,6 +900,12 @@
         z-index: 500;
       }
       .panel.open { transform: translateY(0); pointer-events: auto; }
+      /* Walk-path mode: collapse panel to thin handle bar at bottom */
+      .panel.open.walk-path-mode {
+        top: auto; bottom: 0; height: 44px; min-height: 44px;
+        overflow: hidden; cursor: pointer;
+        transition: height 0.3s cubic-bezier(.4,0,.2,1), top 0.3s cubic-bezier(.4,0,.2,1);
+      }
       #panel-backdrop {
         display: none; position: fixed;
         top: 0; left: 0; right: 0;
@@ -2372,6 +2387,7 @@ function openLoc(loc) {
 }
 
 function closePanel() {
+  _clearWalkRoute();
   document.getElementById('panel').classList.remove('open');
   const _pb2 = document.getElementById('panel-backdrop'); if (_pb2) _pb2.classList.remove('visible');
   activeLoc = null;
@@ -2419,10 +2435,12 @@ function buildVisitTab(loc, trans = {}) {
 function buildDirectionsTab(loc, trans = {}) {
   const transit  = trans.transit  || loc.transit;
   const walkFrom = trans.walkFrom || loc.walkFrom;
+  const showWalkBtn = nearMeActive && walkOrigin;
   return `
     <div class="info-row"><span class="info-label">${t('subway')}</span><span class="info-val">${transit}</span></div>
     ${loc.walkFrom ? `<div class="info-row"><span class="info-label">${t('nearby')}</span><span class="info-val">${walkFrom}</span></div>` : ''}
-    <div class="btns" style="margin-top:18px">
+    ${showWalkBtn ? `<button class="btn-walk-route" onclick="triggerWalkingRoute()">🚶 Walking Path</button>` : ''}
+    <div class="btns" style="margin-top:${showWalkBtn ? '8' : '18'}px">
       <a href="${loc.gmaps}" target="_blank" rel="noopener" class="btn-p">${t('open_gmaps')}</a>
       <a href="https://maps.google.com/?q=${encodeURIComponent(loc.addr)}&layer=c" target="_blank" rel="noopener" class="btn-s">${t('sv_gmaps')}</a>
     </div>
@@ -2642,6 +2660,12 @@ function switchTab(id) {
   document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === id));
   document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('active', p.id === 'pane-' + id));
   if (id === 'videos' && activeLoc) loadVideosForTab(activeLoc);
+  // Desktop: auto-show walking route when switching to Directions tab during Near Me
+  if (id === 'here' && activeLoc && nearMeActive && walkOrigin && window.innerWidth > 900) {
+    triggerWalkingRoute();
+  }
+  // Clear route when leaving Directions tab
+  if (id !== 'here' && walkRouteLine) _clearWalkRoute();
 }
 
 // ══════════════════════════════════════════════════════════════════
@@ -3237,17 +3261,13 @@ function startPinDrop() {
   document.getElementById('walk-gps-btn').classList.remove('active', 'locating');
 }
 
-// Shared person-on-pin icon for GPS + Pin markers.
-// 𖨆 (Bamum figure) above 📍 pin emoji. iconAnchor = tip of 📍 = bottom-center of div.
+// Shared pin icon for GPS + Pin markers. Uses 📌 emoji only.
 function _personMarkerIcon() {
   return L.divIcon({
-    html: '<div style="display:flex;flex-direction:column;align-items:center;pointer-events:none;line-height:1">' +
-            '<span style="font-size:36px;display:block;text-align:center;filter:grayscale(1) brightness(0);user-select:none">𖨆</span>' +
-            '<span style="font-size:28px;display:block;text-align:center;line-height:1;user-select:none">📍</span>' +
-          '</div>',
+    html: '<span style="font-size:32px;line-height:1;display:block;text-align:center;pointer-events:none;user-select:none;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.35))">📌</span>',
     className: '',
-    iconSize:  [36, 64],
-    iconAnchor:[18, 64]  // anchor = tip of 📍 pin = bottom-center
+    iconSize:  [32, 32],
+    iconAnchor:[16, 32]  // anchor = bottom-center (pin tip)
   });
 }
 
@@ -3378,6 +3398,62 @@ function _clearWalkOverlay() {
   if (walkCircleLayer) { walkCircleLayer.remove();  walkCircleLayer = null; }
   if (walkLineGroup)   { walkLineGroup.remove();    walkLineGroup   = null; }
   if (walkCountLabel)  { walkCountLabel.remove();   walkCountLabel  = null; }
+  _clearWalkRoute();
+}
+
+// ── Walking route (OSRM) ──────────────────────────────────────────
+let walkRouteLine = null;
+let walkPathMode  = false;
+
+function _clearWalkRoute() {
+  if (walkRouteLine) { map.removeLayer(walkRouteLine); walkRouteLine = null; }
+  walkPathMode = false;
+  const panel = document.getElementById('panel');
+  if (panel) panel.classList.remove('walk-path-mode');
+}
+
+async function showWalkingRoute(loc) {
+  if (!walkOrigin || !loc) return null;
+  _clearWalkRoute();
+  const url = `https://router.project-osrm.org/route/v1/foot/${walkOrigin.lng},${walkOrigin.lat};${loc.lng},${loc.lat}?overview=full&geometries=geojson`;
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    if (data.routes && data.routes.length) {
+      const coords = data.routes[0].geometry.coordinates.map(c => [c[1], c[0]]);
+      walkRouteLine = L.polyline(coords, {
+        color: '#4F46E5', weight: 5, opacity: 0.85,
+        dashArray: '10,7', lineCap: 'round'
+      }).addTo(map);
+      map.fitBounds(walkRouteLine.getBounds(), { padding: [60, 60] });
+      const dist = data.routes[0].distance;
+      const dur  = data.routes[0].duration;
+      const distStr = dist < 1000 ? `${Math.round(dist)}m` : `${(dist/1000).toFixed(1)}km`;
+      const durStr  = `${Math.ceil(dur / 60)} min`;
+      return { distance: distStr, duration: durStr };
+    }
+  } catch(e) { console.warn('OSRM route error:', e); }
+  return null;
+}
+
+async function triggerWalkingRoute() {
+  if (!activeLoc || !walkOrigin) return;
+  const btn = document.querySelector('.btn-walk-route');
+  if (btn) btn.innerHTML = '🚶 Loading...';
+  const result = await showWalkingRoute(activeLoc);
+  if (btn && result) btn.innerHTML = `🚶 ${result.distance} · ${result.duration}`;
+  else if (btn) btn.innerHTML = '🚶 Route not available';
+  // On mobile: collapse panel to reveal map
+  if (window.innerWidth <= 900 && result) {
+    walkPathMode = true;
+    document.getElementById('panel').classList.add('walk-path-mode');
+  }
+}
+
+function toggleWalkPathMode() {
+  if (!walkPathMode) return;
+  walkPathMode = false;
+  document.getElementById('panel').classList.remove('walk-path-mode');
 }
 
 function toggleSidebar() {
@@ -3487,6 +3563,15 @@ window.addEventListener('load', function() {
   setupVDrag('dh-fl', 'sb-filters', 50, 480);
   setupHDrag('sb-resize', 'sidebar', 220, 700);
   setupHDragLeft('panel-resize', 'panel', 300, 900);
+
+  // ── Walk-path-mode: tap collapsed panel handle to restore ─────
+  document.getElementById('panel').addEventListener('click', function(e) {
+    if (walkPathMode && window.innerWidth <= 900) {
+      e.stopPropagation();
+      toggleWalkPathMode();
+    }
+  });
+
   // Per-filter-section body resize (cat/style/era start open; arch starts closed)
   setupBodyDrag('dh-sec-cat',   'body-cat',   30, 220);
   setupBodyDrag('dh-sec-style', 'body-style', 30, 220);
