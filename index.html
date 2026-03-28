@@ -590,6 +590,7 @@
     .c-lmk  { background: #F0F9FF; color: #0369A1; }  /* Landmarks        — sky     */
     .c-pub  { background: #F9FAFB; color: #6B7280; }  /* Public           — gray    */
     .c-ret  { background: #FFF1F2; color: #BE185D; }  /* Retail           — pink    */
+    .c-com  { background: #FFFBEB; color: #92400E; }  /* Commercial       — amber   */
 
     /* ── REVIEWS ─────────────────────────────────────────── */
     .star-selector { display: flex; gap: 2px; }
@@ -1650,6 +1651,7 @@ const CAT_COLORS = {
   'Landmarks':             '#0369A1',
   'Public':                '#6B7280',
   'Retail':                '#BE185D',
+  'Commercial':            '#92400E',
 };
 const CAT_ICON = {
   'Skyscrapers':            'img/icon_skyscraper.png',
@@ -1663,6 +1665,7 @@ const CAT_ICON = {
   'Landmarks':              'img/icon_landmark.png',
   'Public':                 'img/icon_public.png',
   'Retail':                 'img/icon_retail.png',
+  'Commercial':             'img/icon_commercial.png',
 };
 const CAT_BG = {
   'Skyscrapers':            '#EEF2FF',
@@ -1676,8 +1679,9 @@ const CAT_BG = {
   'Landmarks':              '#F0F9FF',
   'Public':                 '#F9FAFB',
   'Retail':                 '#FFF1F2',
+  'Commercial':             '#FFFBEB',
 };
-const STYLES = ['Art Deco','Beaux-Arts','Neoclassical','Gothic Revival','Modernist','Expressionist Modernism','Postmodern','Contemporary','Adaptive Reuse','Landscape'];
+const STYLES = ['Art Deco','Beaux-Arts','Neoclassical','Gothic Revival','Modernist','Expressionist Modernism','Postmodern','Contemporary','Adaptive Reuse','Landscape','High-Tech','Parametric Design','Traditional Korean'];
 const ERAS   = ['Pre-1900','Pre-1930','1930–1969','1970–1999','2000–Present'];
 const ACCESS = ['All', 'Open to Public', 'Paid Ticket', 'Private'];
 const ACCESS_META = {
@@ -1686,6 +1690,13 @@ const ACCESS_META = {
   'Private':        { cls:'access-priv', icon:'🔒' },
 };
 const ERA_RANGE = { 'Pre-1900':[0,1900], 'Pre-1930':[1900,1930], '1930–1969':[1930,1970], '1970–1999':[1970,2000], '2000–Present':[2000,9999] };
+
+// ── Multi-tag helpers ──────────────────────────────────────────
+// Primary category / style (first element) for color, icon, badge
+function _pCat(loc)   { return (loc.cats  || [loc.cat])[0]; }
+function _allCats(loc) { return loc.cats  || [loc.cat]; }
+function _allSGs(loc)  { return loc.styleGroups || [loc.styleGroup]; }
+function _pCC(loc)     { return CAT_CC_MAP[_pCat(loc)] || 'c-lmk'; }
 
 // All unique architects (sorted) — will be rebuilt per city in initMap / refreshApp
 let ARCHITECTS = [];
@@ -2187,7 +2198,7 @@ function createClusterGroup() {
 }
 
 function addMarker(loc) {
-  const color = CAT_COLORS[loc.cat] || '#111';
+  const color = CAT_COLORS[_pCat(loc)] || '#111';
   const icon = L.divIcon({
     className:'',
     html:`<div class="m-pin-wrap"><div style="width:24px;height:24px;background:${color};border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2.5px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3)"></div></div>`,
@@ -2205,7 +2216,7 @@ function addMarker(loc) {
 // ══════════════════════════════════════════════════════════════════
 function buildFilters() {
   // Category
-  const cats = ['All', ...new Set(LOCS.map(l => l.cat))];
+  const cats = ['All', ...new Set(LOCS.flatMap(l => _allCats(l)))];
   buildChipGroup('body-cat', cats, 'cat', cat => cat === 'All' ? 'All' : cat.split(' ')[0], cat => cat);
 
   // Style
@@ -2309,8 +2320,8 @@ function toggleFsec(id) {
 // ══════════════════════════════════════════════════════════════════
 function getFiltered() {
   let list = LOCS.filter(l => l.city === activeCityKey);
-  if (state.cat   !== 'All') list = list.filter(l => l.cat === state.cat);
-  if (state.style !== 'All') list = list.filter(l => l.styleGroup === state.style);
+  if (state.cat   !== 'All') list = list.filter(l => _allCats(l).includes(state.cat));
+  if (state.style !== 'All') list = list.filter(l => _allSGs(l).includes(state.style));
   if (state.era   !== 'All') {
     const [mn, mx] = ERA_RANGE[state.era];
     list = list.filter(l => l.yr >= mn && l.yr < mx);
@@ -2322,7 +2333,9 @@ function getFiltered() {
     list = list.filter(l =>
       l.name.toLowerCase().includes(q) || l.arch.toLowerCase().includes(q) ||
       l.style.toLowerCase().includes(q) || l.hood.toLowerCase().includes(q) ||
-      l.styleGroup.toLowerCase().includes(q) || l.tags.some(t => t.toLowerCase().includes(q))
+      _allSGs(l).some(s => s.toLowerCase().includes(q)) ||
+      _allCats(l).some(c => c.toLowerCase().includes(q)) ||
+      l.tags.some(t => t.toLowerCase().includes(q))
     );
   }
   // Walk distance filter
@@ -2350,10 +2363,10 @@ document.getElementById('search').addEventListener('input', function() {
 let activeLoc = null;
 
 function cardThumb(loc) {
-  const icon = CAT_ICON[loc.cat];
+  const icon = CAT_ICON[_pCat(loc)];
   if (icon) {
-    const bg = CAT_BG[loc.cat] || '#F3F4F6';
-    return `<div class="card-thumb-icon" style="background-image:url('${icon}');background-color:${bg}" title="${loc.cat}"></div>`;
+    const bg = CAT_BG[_pCat(loc)] || '#F3F4F6';
+    return `<div class="card-thumb-icon" style="background-image:url('${icon}');background-color:${bg}" title="${_allCats(loc).join(', ')}"></div>`;
   }
   return `<img class="card-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="background:#e8e8e4">`;
 }
@@ -2374,7 +2387,7 @@ function renderList() {
         <div class="card-name">${(LANG === 'ko' && typeof LOCS_KO !== 'undefined' && LOCS_KO[loc.id]?.name) ? LOCS_KO[loc.id].name : loc.name}</div>
         <div class="card-meta">${loc.arch}</div>
         <div class="card-row">
-          <span class="cat-badge ${loc.cc}">${loc.cat}</span>
+          ${_allCats(loc).map((c,i) => `<span class="cat-badge ${i===0 ? _pCC(loc) : (CAT_CC_MAP[c]||'c-lmk')}">${c}</span>`).join(' ')}
           <span class="year-badge">${loc.yr}</span>
           ${loc.access ? `<span class="access-badge ${ACCESS_META[loc.access]?.cls||''}">${ACCESS_META[loc.access]?.icon||''} ${loc.access}</span>` : ''}
           ${(()=>{ const rv=loadReviews(loc.id); return rv.length ? `<span style="font-size:10px;color:#F59E0B;letter-spacing:0.5px">★ ${(rv.reduce((s,r)=>s+r.stars,0)/rv.length).toFixed(1)}</span>` : ''; })()}
@@ -2459,10 +2472,11 @@ function openLoc(loc) {
   applyPhotoAttribution(gallery, loc.photos);
 
   // Header
-  const color = CAT_COLORS[loc.cat] || '#111';
+  const color = CAT_COLORS[_pCat(loc)] || '#111';
   const koName = (LANG === 'ko' && typeof LOCS_KO !== 'undefined' && LOCS_KO[loc.id]?.name) ? LOCS_KO[loc.id].name : loc.name;
+  const catBadges = _allCats(loc).map(c => `<span class="cat-badge ${CAT_CC_MAP[c]||'c-lmk'}" style="font-size:11px;margin-right:4px">${c}</span>`).join('');
   document.getElementById('panel-head').innerHTML = `
-    <div class="p-cat" style="color:${color}">${loc.cat}</div>
+    <div class="p-cat">${catBadges}</div>
     <div class="p-title">${koName}</div>
     <div class="p-sub">${loc.arch} &nbsp;·&nbsp; ${loc.yr} &nbsp;·&nbsp; ${loc.style}</div>
     <div class="p-tags">${loc.tags.map(t=>`<span class="p-tag">${t}</span>`).join('')}</div>
@@ -2480,6 +2494,7 @@ function openLoc(loc) {
 
   switchTab('overview');
   document.getElementById('panel').classList.add('open');
+  history.pushState({ view: 'panel', locId: loc.id }, '');
   if (window.innerWidth <= 900) { const _pb = document.getElementById('panel-backdrop'); if (_pb) _pb.classList.add('visible'); }
   renderList();
   showSvSide(loc);
@@ -2539,7 +2554,7 @@ function buildDirectionsTab(loc, trans = {}) {
   const walkFrom = trans.walkFrom || loc.walkFrom;
   const showWalkBtn = nearMeActive && walkOrigin;
   return `
-    ${showWalkBtn ? `<button class="btn-walk-route" onclick="triggerWalkingRoute()">🚶 Walking Path</button>` : ''}
+    ${showWalkBtn ? `<button class="btn-walk-route" onclick="triggerWalkingRoute()">🚶 ${window.innerWidth <= 900 ? 'See walking path' : 'Walking Path'}</button>` : ''}
     <div class="info-row" style="margin-top:${showWalkBtn ? '12' : '0'}px"><span class="info-label">${t('subway')}</span><span class="info-val">${transit}</span></div>
     ${loc.walkFrom ? `<div class="info-row"><span class="info-label">${t('nearby')}</span><span class="info-val">${walkFrom}</span></div>` : ''}
     <div class="btns" style="margin-top:18px">
@@ -2751,7 +2766,7 @@ function initSvMiniMap(loc) {
   setTimeout(() => {
     svMiniMap = L.map(el, { zoomControl:false, dragging:false, scrollWheelZoom:false, center:[loc.lat, loc.lng], zoom:17 });
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { subdomains:'abcd', maxZoom:19 }).addTo(svMiniMap);
-    L.circleMarker([loc.lat, loc.lng], { radius:8, fillColor: CAT_COLORS[loc.cat]||'#111', fillOpacity:1, color:'white', weight:2.5 }).addTo(svMiniMap);
+    L.circleMarker([loc.lat, loc.lng], { radius:8, fillColor: CAT_COLORS[_pCat(loc)]||'#111', fillOpacity:1, color:'white', weight:2.5 }).addTo(svMiniMap);
   }, 50);
 }
 
@@ -3429,6 +3444,7 @@ function toggleNearMe() {
   document.getElementById('near-me-btn').classList.toggle('active', nearMeActive);
   if (nearMeActive) {
     document.getElementById('walk-bar').classList.add('visible');
+    history.pushState({ view: 'nearMe' }, '');
   } else {
     _fullDeactivate();
   }
@@ -3479,7 +3495,7 @@ function startPinDrop() {
   document.getElementById('walk-gps-btn').classList.remove('active', 'locating');
 }
 
-// Shared pin icon for GPS + Pin markers. Person emoji with red dot at feet.
+// Shared pin icon for GPS + Pin markers. 📍 emoji.
 function _personMarkerIcon() {
   return L.divIcon({
     html: '<div style="position:relative;width:36px;height:40px;pointer-events:none;user-select:none">' +
@@ -3487,8 +3503,27 @@ function _personMarkerIcon() {
           '</div>',
     className: '',
     iconSize:  [36, 40],
-    iconAnchor:[18, 40]  // anchor = container bottom = pin tip
+    iconAnchor:[18, 40]
   });
+}
+// Walking person icon (mobile walk-path mode only)
+function _walkingPersonIcon() {
+  return L.divIcon({
+    html: '<div style="position:relative;width:36px;height:40px;pointer-events:none;user-select:none">' +
+          '<span style="position:absolute;bottom:4px;left:0;right:0;text-align:center;font-size:36px;line-height:1;' +
+          'filter:drop-shadow(0 2px 5px rgba(0,0,0,0.35));' +
+          '-webkit-text-stroke:0.5px black;color:black">🚶🏻‍♀️‍➡️</span>' +
+          '</div>',
+    className: '',
+    iconSize:  [36, 40],
+    iconAnchor:[18, 40]
+  });
+}
+// Swap marker icon between default pin and walking person
+function _setMarkerWalkMode(active) {
+  const m = userMarker || pinDropMarker;
+  if (!m) return;
+  m.setIcon(active ? _walkingPersonIcon() : _personMarkerIcon());
 }
 
 function _setWalkOrigin(lat, lng, mode) {
@@ -3617,6 +3652,7 @@ let walkPathMode  = false;
 
 function _clearWalkRoute() {
   if (walkRouteLine) { map.removeLayer(walkRouteLine); walkRouteLine = null; }
+  if (walkPathMode) _setMarkerWalkMode(false);
   walkPathMode = false;
   const panel = document.getElementById('panel');
   if (panel) panel.classList.remove('walk-path-mode');
@@ -3632,7 +3668,7 @@ async function showWalkingRoute(loc) {
     if (data.routes && data.routes.length) {
       const coords = data.routes[0].geometry.coordinates.map(c => [c[1], c[0]]);
       walkRouteLine = L.polyline(coords, {
-        color: '#4F46E5', weight: 5, opacity: 0.85,
+        color: '#EF4444', weight: 5, opacity: 0.85,
         dashArray: '10,7', lineCap: 'round'
       }).addTo(map);
       map.fitBounds(walkRouteLine.getBounds(), { padding: [60, 60] });
@@ -3653,10 +3689,12 @@ async function triggerWalkingRoute() {
   const result = await showWalkingRoute(activeLoc);
   if (btn && result) btn.innerHTML = `🚶 ${result.distance} · ${result.duration}`;
   else if (btn) btn.innerHTML = '🚶 Route not available';
-  // On mobile: collapse panel to reveal map
+  // On mobile: collapse panel to reveal map + swap pin to walking person
   if (window.innerWidth <= 900 && result) {
     walkPathMode = true;
     document.getElementById('panel').classList.add('walk-path-mode');
+    _setMarkerWalkMode(true);
+    history.pushState({ view: 'walkPath' }, '');
   }
   // Fit map to show both pin origin and full route
   if (result && walkRouteLine && walkOrigin) {
@@ -3667,6 +3705,7 @@ async function triggerWalkingRoute() {
 
 function toggleWalkPathMode() {
   if (!walkPathMode) return;
+  _setMarkerWalkMode(false);
   walkPathMode = false;
   document.getElementById('panel').classList.remove('walk-path-mode');
 }
@@ -3787,6 +3826,32 @@ window.addEventListener('load', function() {
     }
   });
 
+  // ── Browser back button navigation ──────────────────────────
+  // Push history states when opening panels/modes so Android/iOS back button
+  // navigates to the previous UI level instead of leaving the page.
+  history.replaceState({ view: 'main' }, '');
+
+  window.addEventListener('popstate', function(e) {
+    const st = e.state;
+    if (!st) { history.pushState({ view: 'main' }, ''); return; }
+    // If in walk-path mode → exit walk-path, restore panel
+    if (walkPathMode) {
+      toggleWalkPathMode();
+      return;
+    }
+    // If a location panel is open → close it
+    if (activeLoc) {
+      closePanel();
+      return;
+    }
+    // If walk/near-me bar is open → close it
+    if (walkActive || nearMeActive) {
+      _fullDeactivate();
+      return;
+    }
+    // Otherwise allow default (nothing to go back to within the app)
+  });
+
   // Per-filter-section body resize (cat/style/era start open; arch starts closed)
   setupBodyDrag('dh-sec-cat',   'body-cat',   30, 220);
   setupBodyDrag('dh-sec-style', 'body-style', 30, 220);
@@ -3809,6 +3874,7 @@ const CAT_CC_MAP = {
   'Landmarks':             'c-lmk',
   'Public':                'c-pub',
   'Retail':                'c-ret',
+  'Commercial':            'c-com',
 };
 
 // Open with Ctrl+Shift+A
@@ -3834,7 +3900,7 @@ function renderAdminTable() {
       <td class="td-name">${loc.name}</td>
       <td style="color:var(--text-secondary)">${loc.arch}</td>
       <td style="color:var(--text-secondary)">${loc.yr}</td>
-      <td><span class="cat-badge ${loc.cc||''}" style="font-size:10px">${loc.cat}</span></td>
+      <td>${_allCats(loc).map(c => `<span class="cat-badge ${CAT_CC_MAP[c]||'c-lmk'}" style="font-size:10px">${c}</span>`).join(' ')}</td>
       <td>${loc.access ? `<span class="access-badge ${ACCESS_META[loc.access]?.cls||''}" style="font-size:10px">${ACCESS_META[loc.access]?.icon||''} ${loc.access}</span>` : '—'}</td>
       <td>
         <button class="adm-btn adm-edit" onclick="openEditForm('${loc.id}')">Edit</button>
@@ -3884,7 +3950,7 @@ function _fillAdmForm(loc) {
   sv('af-arch',       loc.arch);
   sv('af-yr',         loc.yr);
   sv('af-style',      loc.style);
-  sv('af-styleGroup', loc.styleGroup);
+  sv('af-styleGroup', _allSGs(loc).join(', '));
   sv('af-lat',        loc.lat);
   sv('af-lng',        loc.lng);
   sv('af-addr',       loc.addr);
@@ -3900,7 +3966,7 @@ function _fillAdmForm(loc) {
   sv('af-tags',       (loc.tags || []).join(', '));
   sv('af-photos',     (loc.photos || []).join('\n'));
   document.getElementById('af-tourOk').checked = !!loc.tourOk;
-  document.getElementById('af-cat').value    = loc.cat    || 'Landmarks';
+  document.getElementById('af-cat').value    = _allCats(loc).join(', ') || 'Landmarks';
   document.getElementById('af-access').value = loc.access || 'Open to Public';
   document.getElementById('af-era').value    = loc.era    || '2000–Present';
   document.getElementById('af-city').value   = loc.city   || 'new-york';
@@ -3914,14 +3980,20 @@ function saveAdmForm() {
   if (!name)           { alert('Name is required.'); return; }
   if (isNaN(lat)||isNaN(lng)) { alert('Valid Latitude and Longitude are required.'); return; }
 
-  const cat = fv('af-cat') || 'Landmarks';
+  const catsRaw = fv('af-cat') || 'Landmarks';
+  const cats = catsRaw.split(',').map(s => s.trim()).filter(Boolean);
+  const pCat = cats[0];
+  const sgsRaw = fv('af-styleGroup') || 'Contemporary';
+  const styleGroups = sgsRaw.split(',').map(s => s.trim()).filter(Boolean);
   const loc = {
     id:         _admEditId || name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') + '-' + Date.now(),
     name,       arch:       fv('af-arch') || 'Unknown',
     yr:         parseInt(fv('af-yr')) || new Date().getFullYear(),
-    cat,        cc:         CAT_CC_MAP[cat] || 'c-lmk',
+    cats,       cc:         CAT_CC_MAP[pCat] || 'c-lmk',
+    cat: pCat,
     style:      fv('af-style'),
-    styleGroup: fv('af-styleGroup') || 'Contemporary',
+    styleGroups,
+    styleGroup: styleGroups[0],
     era:        fv('af-era') || '2000–Present',
     access:     fv('af-access') || 'Open to Public',
     city:       fv('af-city') || 'new-york',

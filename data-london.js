@@ -11,7 +11,7 @@ const LOCS_LONDON = [
   {
     id:'gherkin',
     name:'30 St Mary Axe (Gherkin)',
-    cat:'Skyscrapers', cc:'c-sky', styleGroup:'High-Tech',
+    cat:'Skyscrapers', cats:["Skyscrapers","Landmarks","Commercial"], cc:'c-sky', styleGroup:'High-Tech', styleGroups:["High-Tech","Contemporary"],
     era:'2000–Present', city:'london',
     arch:'Foster + Partners', archs:['Foster + Partners'],
     yr:2003, access:'Free Admission', style:'High-Tech',
@@ -41,7 +41,7 @@ const LOCS_LONDON = [
   {
     id:'bloomberg-hq-london',
     name:'Bloomberg European HQ',
-    cat:'Landmarks', cc:'c-lmk', styleGroup:'Contemporary',
+    cat:'Landmarks', cats:["Landmarks","Commercial"], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:["Contemporary","High-Tech"],
     era:'2000–Present', city:'london',
     arch:'Foster + Partners', archs:['Foster + Partners'],
     yr:2017, access:'Free Admission', style:'Contemporary',
@@ -71,7 +71,7 @@ const LOCS_LONDON = [
   {
     id:'great-court-british-museum',
     name:'Great Court, British Museum',
-    cat:'Cultural', cc:'c-cul', styleGroup:'Contemporary',
+    cat:'Cultural', cats:["Cultural","Landmarks","Public"], cc:'c-cul', styleGroup:'Contemporary', styleGroups:["Contemporary","High-Tech"],
     era:'2000–Present', city:'london',
     arch:'Foster + Partners', archs:['Foster + Partners'],
     yr:2000, access:'Free Admission', style:'Contemporary',
@@ -101,7 +101,7 @@ const LOCS_LONDON = [
   {
     id:'canary-wharf-station',
     name:'Canary Wharf Underground Station',
-    cat:'Infrastructure', cc:'c-inf', styleGroup:'High-Tech',
+    cat:'Infrastructure', cats:["Infrastructure","Commercial"], cc:'c-inf', styleGroup:'High-Tech', styleGroups:["High-Tech","Contemporary"],
     era:'1970–1999', city:'london',
     arch:'Foster + Partners', archs:['Foster + Partners'],
     yr:1999, access:'Free Admission', style:'High-Tech',
@@ -131,7 +131,7 @@ const LOCS_LONDON = [
   {
     id:'city-hall-london',
     name:'City Hall (GLA Building)',
-    cat:'Public', cc:'c-pub', styleGroup:'Contemporary',
+    cat:'Public', cats:["Public","Landmarks","Commercial"], cc:'c-pub', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'london',
     arch:'Foster + Partners', archs:['Foster + Partners'],
     yr:2002, access:'Free Admission', style:'Contemporary',
@@ -161,7 +161,7 @@ const LOCS_LONDON = [
   {
     id:'millennium-bridge-london',
     name:'Millennium Bridge',
-    cat:'Infrastructure', cc:'c-inf', styleGroup:'Contemporary',
+    cat:'Infrastructure', cats:["Infrastructure","Landmarks","Public"], cc:'c-inf', styleGroup:'Contemporary', styleGroups:["Contemporary","High-Tech"],
     era:'2000–Present', city:'london',
     arch:'Foster + Partners', archs:['Foster + Partners', 'Arup', 'Anthony Caro'],
     yr:2002, access:'Free Admission', style:'Contemporary',
@@ -191,7 +191,7 @@ const LOCS_LONDON = [
   {
     id:'hsbc-8-canada-square',
     name:'HSBC UK HQ (8 Canada Square)',
-    cat:'Skyscrapers', cc:'c-sky', styleGroup:'High-Tech',
+    cat:'Skyscrapers', cats:["Skyscrapers","Commercial","Landmarks"], cc:'c-sky', styleGroup:'High-Tech', styleGroups:["High-Tech","Contemporary"],
     era:'2000–Present', city:'london',
     arch:'Foster + Partners', archs:['Foster + Partners'],
     yr:2002, access:'Private', style:'High-Tech',
@@ -218,7 +218,7 @@ const LOCS_LONDON = [
   {
     id:'wembley-stadium',
     name:'Wembley Stadium',
-    cat:'Public', cc:'c-pub', styleGroup:'Contemporary',
+    cat:'Public', cats:["Public","Landmarks"], cc:'c-pub', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'london',
     arch:'Foster + Partners', archs:['Foster + Partners', 'HOK Sport'],
     yr:2007, access:'Paid Ticket', style:'Contemporary',
@@ -250,7 +250,7 @@ const LOCS_LONDON = [
   {
     id:'lloyds-of-london',
     name:"Lloyd's of London",
-    cat:'Historic', cc:'c-his', styleGroup:'High-Tech',
+    cat:'Historic', cats:["Historic","Commercial","Landmarks"], cc:'c-his', styleGroup:'High-Tech', styleGroups:["High-Tech"],
     era:'1970–1999', city:'london',
     arch:'Richard Rogers Partnership', archs:['Richard Rogers Partnership'],
     yr:1986, access:'Private', style:'High-Tech',
@@ -280,7 +280,7 @@ const LOCS_LONDON = [
   {
     id:'leadenhall-building',
     name:'Leadenhall Building (Cheesegrater)',
-    cat:'Skyscrapers', cc:'c-sky', styleGroup:'High-Tech',
+    cat:'Skyscrapers', cats:["Skyscrapers","Commercial","Landmarks"], cc:'c-sky', styleGroup:'High-Tech', styleGroups:["High-Tech"],
     era:'2000–Present', city:'london',
     arch:'Rogers Stirk Harbour + Partners', archs:['Rogers Stirk Harbour + Partners'],
     yr:2014, access:'Free Admission', style:'High-Tech',
@@ -310,7 +310,7 @@ const LOCS_LONDON = [
   {
     id:'o2-arena',
     name:'The O2 Arena (Millennium Dome)',
-    cat:'Public', cc:'c-pub', styleGroup:'High-Tech',
+    cat:'Public', cats:["Public","Landmarks"], cc:'c-pub', styleGroup:'High-Tech', styleGroups:["High-Tech","Contemporary"],
     era:'2000–Present', city:'london',
     arch:'Richard Rogers Partnership', archs:['Richard Rogers Partnership', 'Buro Happold'],
     yr:2000, access:'Paid Ticket', style:'High-Tech',
@@ -340,7 +340,7 @@ const LOCS_LONDON = [
   {
     id:'heathrow-terminal-5',
     name:'Heathrow Terminal 5',
-    cat:'Infrastructure', cc:'c-inf', styleGroup:'Contemporary',
+    cat:'Infrastructure', cats:["Infrastructure","Commercial"], cc:'c-inf', styleGroup:'Contemporary', styleGroups:["Contemporary","High-Tech"],
     era:'2000–Present', city:'london',
     arch:'Rogers Stirk Harbour + Partners', archs:['Rogers Stirk Harbour + Partners'],
     yr:2008, access:'Paid Ticket', style:'Contemporary',
@@ -367,7 +367,7 @@ const LOCS_LONDON = [
   {
     id:'one-hyde-park',
     name:'One Hyde Park',
-    cat:'Residential', cc:'c-res', styleGroup:'Contemporary',
+    cat:'Residential', cats:["Residential","Landmarks"], cc:'c-res', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'london',
     arch:'Rogers Stirk Harbour + Partners', archs:['Rogers Stirk Harbour + Partners'],
     yr:2011, access:'Private', style:'Contemporary',
@@ -397,7 +397,7 @@ const LOCS_LONDON = [
   {
     id:'88-wood-street',
     name:'88 Wood Street',
-    cat:'Landmarks', cc:'c-lmk', styleGroup:'High-Tech',
+    cat:'Landmarks', cats:["Landmarks","Commercial"], cc:'c-lmk', styleGroup:'High-Tech', styleGroups:["High-Tech","Contemporary"],
     era:'2000–Present', city:'london',
     arch:'Rogers Stirk Harbour + Partners', archs:['Rogers Stirk Harbour + Partners'],
     yr:2000, access:'Private', style:'High-Tech',
@@ -427,7 +427,7 @@ const LOCS_LONDON = [
   {
     id:'neo-bankside',
     name:'Neo Bankside',
-    cat:'Residential', cc:'c-res', styleGroup:'Contemporary',
+    cat:'Residential', cats:["Residential"], cc:'c-res', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'london',
     arch:'Rogers Stirk Harbour + Partners', archs:['Rogers Stirk Harbour + Partners'],
     yr:2012, access:'Private', style:'Contemporary',
@@ -457,7 +457,7 @@ const LOCS_LONDON = [
   {
     id:'montevetro',
     name:'Montevetro',
-    cat:'Residential', cc:'c-res', styleGroup:'Contemporary',
+    cat:'Residential', cats:["Residential","Landmarks"], cc:'c-res', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'1970–1999', city:'london',
     arch:'Richard Rogers Partnership', archs:['Richard Rogers Partnership'],
     yr:1999, access:'Private', style:'Contemporary',
@@ -482,7 +482,7 @@ const LOCS_LONDON = [
   {
     id:'chiswick-business-park',
     name:'Chiswick Business Park',
-    cat:'Landmarks', cc:'c-lmk', styleGroup:'Contemporary',
+    cat:'Landmarks', cats:["Commercial","Landmarks"], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'london',
     arch:'Richard Rogers Partnership', archs:['Richard Rogers Partnership'],
     yr:2000, access:'Free Admission', style:'Contemporary',
@@ -514,7 +514,7 @@ LOCS_LONDON.push(
   {
     id:'the-shard',
     name:'The Shard',
-    cat:'Skyscrapers', cc:'c-sky', styleGroup:'Contemporary',
+    cat:'Skyscrapers', cats:["Skyscrapers","Landmarks","Commercial"], cc:'c-sky', styleGroup:'Contemporary', styleGroups:["Contemporary","High-Tech"],
     era:'2000–Present', city:'london',
     arch:'Renzo Piano Building Workshop', archs:['Renzo Piano Building Workshop'],
     yr:2012, access:'Paid Ticket', style:'Contemporary',
@@ -543,7 +543,7 @@ LOCS_LONDON.push(
   {
     id:'coal-drops-yard',
     name:'Coal Drops Yard',
-    cat:'Landmarks', cc:'c-lmk', styleGroup:'Contemporary',
+    cat:'Landmarks', cats:["Landmarks","Retail"], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:["Contemporary","Adaptive Reuse"],
     era:'2000–Present', city:'london',
     arch:'Heatherwick Studio', archs:['Heatherwick Studio'],
     yr:2018, access:'Open to Public', style:'Contemporary',
@@ -570,7 +570,7 @@ LOCS_LONDON.push(
   {
     id:'rolling-bridge',
     name:'Rolling Bridge',
-    cat:'Landmarks', cc:'c-lmk', styleGroup:'Contemporary',
+    cat:'Landmarks', cats:["Landmarks","Public","Infrastructure"], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:["Contemporary","High-Tech"],
     era:'2000–Present', city:'london',
     arch:'Heatherwick Studio', archs:['Heatherwick Studio'],
     yr:2004, access:'Open to Public', style:'Contemporary',
@@ -596,7 +596,7 @@ LOCS_LONDON.push(
   {
     id:'google-hq-kings-cross',
     name:'Google UK HQ (King\'s Cross)',
-    cat:'Landmarks', cc:'c-lmk', styleGroup:'Contemporary',
+    cat:'Landmarks', cats:["Commercial","Landmarks"], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:["Contemporary","High-Tech"],
     era:'2000–Present', city:'london',
     arch:'Heatherwick Studio', archs:['Heatherwick Studio','BIG (Bjarke Ingels Group)'],
     yr:2024, access:'Open to Public', style:'Contemporary',
@@ -624,7 +624,7 @@ LOCS_LONDON.push(
   {
     id:'lisson-gallery-london',
     name:'Lisson Gallery Bell Street',
-    cat:'Cultural', cc:'c-cul', styleGroup:'Contemporary',
+    cat:'Cultural', cats:["Cultural","Commercial"], cc:'c-cul', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'london',
     arch:'Tadao Ando', archs:['Tadao Ando'],
     yr:1992, access:'Free Admission', style:'Contemporary',
