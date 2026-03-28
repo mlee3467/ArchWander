@@ -976,6 +976,312 @@ const LOCS_TOKYO = [
     tags:['Yuichiro Higuchi','Residential','Komazawa','Setagaya','Tokyo','Contemporary'],
     photos:[],
     drawings:[]
+  },
+
+  // ── NIKKEN SEKKEI ──────────────────────────────────────────────
+
+  {
+    id:'tokyu-plaza-ginza',
+    name:'Tokyu Plaza Ginza',
+    cat:'Retail', cats:['Retail','Landmarks','Commercial'], cc:'c-ret', styleGroup:'Contemporary', styleGroups:['Contemporary'],
+    era:'2000–Present', city:'tokyo',
+    arch:'Nikken Sekkei', archs:['Nikken Sekkei'],
+    yr:2016, access:'Open to Public', style:'Contemporary',
+    lat:35.6697, lng:139.7628,
+    addr:'5-2-1 Ginza, Chuo-ku, Tokyo 104-0061', hood:'Ginza',
+    desc:'Tokyu Plaza Ginza, completed in 2016, occupies the prominent Sukiyabashi intersection at the gateway to Ginza. Nikken Sekkei designed the 11-storey retail complex with a prismatic glass facade directly inspired by the traditional Edo Kiriko cut-glass technique — the angled facets fracture and multiply reflections of the surrounding city in the same way that a craftsman\'s grinding wheel creates layered refractions in hand-cut Edo glassware. The result is a facade that appears to shift colour and transparency with changing light and viewing angle. The rooftop KIRIKO TERRACE, a landscaped garden with panoramic views across Ginza and the Imperial Palace moat, is freely accessible to visitors — a rare piece of public urban green space in one of Tokyo\'s densest commercial districts.',
+    hours:'Shops: daily 11:00 AM – 9:00 PM · KIRIKO TERRACE (roof garden): 11:00 AM – 11:00 PM', lastEntry:'',
+    admission:'Free access · Individual shops may charge',
+    tourOk:false, tourInfo:'The building\'s rooftop garden is freely accessible to the public during opening hours. A good vantage point for viewing the Ginza streetscape and Tokyo skyline.',
+    web:'https://ginza.tokyu-plaza.com',
+    transit:'Ginza/Hibiya/Marunouchi → Ginza (C2/C3 exit, 1 min) · Yurakucho → Yurakucho (3 min)',
+    walkFrom:'Ginza Six: 5 min · Shibuya: 15 min by metro',
+    gmaps:'https://maps.google.com/?q=Tokyu+Plaza+Ginza+Tokyo',
+    archdaily:'https://www.archdaily.com/tag/tokyu-plaza-ginza',
+    wiki:'https://en.wikipedia.org/wiki/Tokyu_Plaza_Ginza',
+    tags:['Nikken Sekkei','Edo Kiriko','Ginza','Retail','Rooftop Garden','Facade','2016'],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyu_Plaza_Ginza_2016.jpg?width=800'
+    ],
+    drawings:[]
+  },
+
+  {
+    id:'yamaha-ginza',
+    name:'Yamaha Ginza Building',
+    cat:'Retail', cats:['Retail','Cultural','Commercial'], cc:'c-ret', styleGroup:'Contemporary', styleGroups:['Contemporary'],
+    era:'2000–Present', city:'tokyo',
+    arch:'Nikken Sekkei', archs:['Nikken Sekkei'],
+    yr:2010, access:'Open to Public', style:'Contemporary',
+    lat:35.6681, lng:139.7668,
+    addr:'7-9-14 Ginza, Chuo-ku, Tokyo 104-0061', hood:'Ginza',
+    desc:'The Yamaha Ginza Building, rebuilt by Nikken Sekkei in 2010, serves as the flagship Tokyo showroom for Yamaha\'s full range of musical instruments, audio equipment, and music education. The building\'s facade deploys a rhythmic pattern of vertical aluminium fins and glazing that evokes musical notation — the alternating opaque and transparent bays read as the bars and spaces of a musical score when seen from Chuo Dori. The interior showrooms occupy eight floors, with a concert hall, recording studios, and hands-on instrument demonstration spaces integrated across the building section. The project demonstrates Nikken Sekkei\'s command of programme-driven facade design: every element of the exterior expression is rooted in the building\'s function as a temple to sound and music.',
+    hours:'Daily 11:00 AM – 7:00 PM (concert hall hours vary)', lastEntry:'',
+    admission:'Showrooms free · Concert and event tickets vary',
+    tourOk:false, tourInfo:'The instrument showrooms on all floors are open to the public. Musical instrument demonstrations and workshops are frequently held. Check the Yamaha website for concert and event schedules.',
+    web:'https://www.yamahamusic.jp/shop/ginza',
+    transit:'Ginza/Hibiya/Marunouchi → Ginza (A4 exit, 5 min)',
+    walkFrom:'Shizuoka Press Building (Tange): 2 min · Ginza Six: 8 min',
+    gmaps:'https://maps.google.com/?q=Yamaha+Ginza+Building+Tokyo',
+    archdaily:'https://www.archdaily.com/tag/yamaha-ginza',
+    wiki:'',
+    tags:['Nikken Sekkei','Yamaha','Music','Retail','Ginza','Concert Hall','Facade'],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Yamaha_Ginza_Building_Tokyo.jpg?width=800'
+    ],
+    drawings:[]
+  },
+
+  // ── JUN AOKI & ASSOCIATES ─────────────────────────────────────
+
+  {
+    id:'lv-matsuya-ginza',
+    name:'Louis Vuitton Matsuya Ginza',
+    cat:'Retail', cats:['Retail','Landmarks'], cc:'c-ret', styleGroup:'Contemporary', styleGroups:['Contemporary'],
+    era:'2000–Present', city:'tokyo',
+    arch:'Jun Aoki & Associates', archs:['Jun Aoki & Associates'],
+    yr:2004, access:'Open to Public', style:'Contemporary',
+    lat:35.6712, lng:139.7637,
+    addr:'3-6-1 Ginza, Chuo-ku, Tokyo 104-8130', hood:'Ginza',
+    desc:'Jun Aoki\'s facade renewal for Louis Vuitton at Matsuya Ginza, completed in 2004, is one of the most influential pieces of retail facade design in contemporary Japan. The existing Matsuya department store building was wrapped in a new double-skin glass curtain wall perforated with a pattern derived from the Louis Vuitton monogram — the overlapping LV initials and floral motifs are translated into a screen of circular and rhombus-shaped apertures in a thin aluminium mesh. By day the facade reads as a shimmering, semi-transparent veil; at night, LED illumination transforms the entire surface into a glowing lantern that projects the pattern onto the surrounding street. The project established Jun Aoki as the definitive architect of Louis Vuitton\'s global retail identity, leading to commissions in Paris, New York, and Osaka.',
+    hours:'Mon–Sun 11:00 AM – 8:00 PM', lastEntry:'',
+    admission:'Free access (retail)',
+    tourOk:false, tourInfo:'Louis Vuitton boutique within the Matsuya Ginza department store. The facade is best viewed from Chuo Dori at dusk when the LED illumination is active.',
+    web:'https://jp.louisvuitton.com',
+    transit:'Ginza/Hibiya/Marunouchi → Ginza (A13 exit, 1 min)',
+    walkFrom:'Mikimoto Ginza 2 (Toyo Ito): 3 min · Tokyo International Forum: 10 min',
+    gmaps:'https://maps.google.com/?q=Louis+Vuitton+Matsuya+Ginza',
+    archdaily:'https://www.archdaily.com/tag/louis-vuitton-matsuya-ginza',
+    wiki:'',
+    tags:['Jun Aoki','Louis Vuitton','Matsuya','Ginza','Facade','LED','Monogram','Retail','2004'],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Louis_Vuitton_Matsuya_Ginza.jpg?width=800'
+    ],
+    drawings:[]
+  },
+
+  {
+    id:'lv-ginza-flagship',
+    name:'Louis Vuitton Ginza Namiki',
+    cat:'Retail', cats:['Retail','Landmarks'], cc:'c-ret', styleGroup:'Contemporary', styleGroups:['Contemporary'],
+    era:'2000–Present', city:'tokyo',
+    arch:'Jun Aoki & Associates', archs:['Jun Aoki & Associates','Peter Marino Architect'],
+    yr:2004, access:'Open to Public', style:'Contemporary',
+    lat:35.6708, lng:139.7645,
+    addr:'2-6-1 Ginza, Chuo-ku, Tokyo 104-0061', hood:'Ginza / Namiki Dori',
+    desc:'The Louis Vuitton Ginza Namiki flagship, completed in 2004 on Ginza\'s tree-lined Namiki Dori, is the product of a collaboration between Jun Aoki as design architect and Peter Marino as interior architect — a partnership that would define luxury retail architecture globally for the following two decades. Aoki clad the seven-storey building in an outer skin of translucent glass panels printed with a pattern derived from the Damier chessboard motif — Louis Vuitton\'s signature textile pattern since 1888 — creating a facade that appears to glow from within at night. The glass screen is separated from the structural envelope by a narrow cavity, allowing the outer skin to register wind movement and create an ever-shifting moiré effect as the viewer passes. Peter Marino\'s interior floors are thematically distinct, each presenting a different chapter of the Louis Vuitton universe in materials ranging from ebonised oak to champagne-coloured metal mesh.',
+    hours:'Mon–Sun 11:00 AM – 8:00 PM', lastEntry:'',
+    admission:'Free access (retail)',
+    tourOk:false, tourInfo:'Louis Vuitton flagship boutique on Namiki Dori. The facade\'s illuminated Damier pattern is most visible after dark. Namiki Dori (Tree-Lined Street) is one of Ginza\'s most architecturally concentrated retail streets.',
+    web:'https://jp.louisvuitton.com',
+    transit:'Ginza/Hibiya/Marunouchi → Ginza (B5 exit, 3 min)',
+    walkFrom:'LV Matsuya Ginza (Jun Aoki): 5 min · De Beers Ginza: 4 min',
+    gmaps:'https://maps.google.com/?q=Louis+Vuitton+Ginza+Namiki+Tokyo',
+    archdaily:'https://www.archdaily.com/tag/louis-vuitton-ginza',
+    wiki:'',
+    tags:['Jun Aoki','Peter Marino','Louis Vuitton','Ginza','Damier','Retail','Facade','Namiki Dori','2004'],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Louis_Vuitton_Ginza_Namiki_Tokyo.jpg?width=800'
+    ],
+    drawings:[]
+  },
+
+  // ── JUN MITSUI & ASSOCIATES ───────────────────────────────────
+
+  {
+    id:'de-beers-ginza',
+    name:'De Beers Ginza Building',
+    cat:'Retail', cats:['Retail','Landmarks'], cc:'c-ret', styleGroup:'Contemporary', styleGroups:['Contemporary'],
+    era:'2000–Present', city:'tokyo',
+    arch:'Jun Mitsui & Associates Architects', archs:['Jun Mitsui & Associates Architects'],
+    yr:2005, access:'Open to Public', style:'Contemporary',
+    lat:35.6718, lng:139.7640,
+    addr:'5-4-1 Ginza, Chuo-ku, Tokyo 104-0061', hood:'Ginza',
+    desc:'The De Beers Ginza Building by Jun Mitsui & Associates Architects is among the most literal exercises in brand-derived facade design in the Ginza luxury retail district. The entire building envelope is conceived as a faceted crystal — the glass and steel facade is composed of irregular diamond-shaped panels angled at varying inclinations, so that the building appears to be a single large-cut gemstone when seen from across Chuo Dori. The facet angles are calibrated to catch and scatter direct sunlight throughout the day, creating a building that sparkles and shifts in intensity from morning to evening. At night, backlighting transforms the crystal into a luminous presence. The project demonstrates Jun Mitsui\'s consistent approach: distilling a brand\'s most essential visual metaphor — in this case, the cut diamond itself — into a structural and atmospheric facade condition.',
+    hours:'Mon–Sun 11:00 AM – 7:00 PM', lastEntry:'',
+    admission:'Free access (retail)',
+    tourOk:false, tourInfo:'De Beers jewellery boutique. The facade\'s crystal-facet geometry is best appreciated from the opposite side of Chuo Dori, particularly in afternoon light.',
+    web:'https://www.debeers.com/en-jp',
+    transit:'Ginza/Hibiya/Marunouchi → Ginza (A2 exit, 3 min)',
+    walkFrom:'LV Matsuya Ginza (Jun Aoki): 2 min · Mikimoto Ginza 2 (Toyo Ito): 4 min',
+    gmaps:'https://maps.google.com/?q=De+Beers+Ginza+Building+Tokyo',
+    archdaily:'',
+    wiki:'',
+    tags:['Jun Mitsui','De Beers','Ginza','Diamond','Faceted Glass','Retail','Jewelry','2005'],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/De_Beers_Ginza_Tokyo.jpg?width=800'
+    ],
+    drawings:[]
+  },
+
+  // ── KENZO TANGE / METABOLIST ──────────────────────────────────
+
+  {
+    id:'shizuoka-press-building',
+    name:'Shizuoka Press and Broadcasting Center',
+    cat:'Historic', cats:['Historic','Landmarks','Commercial'], cc:'c-his', styleGroup:'Modernist', styleGroups:['Modernist'],
+    era:'1930–1969', city:'tokyo',
+    arch:'Kenzo Tange', archs:['Kenzo Tange'],
+    yr:1967, access:'Open to Public', style:'Metabolist',
+    lat:35.6655, lng:139.7682,
+    addr:'8-3-7 Ginza, Chuo-ku, Tokyo 104-0061', hood:'Ginza / Shimbashi',
+    desc:'The Shizuoka Press and Broadcasting Center (静岡新聞・静岡放送東京支局) of 1967 is one of Kenzo Tange\'s most celebrated Metabolist buildings and one of the most radical structural demonstrations in Tokyo\'s post-war cityscape. The building consists of a single cylindrical concrete service core — housing stairs, lifts, utilities, and a communications mast — from which eleven irregular office floor-plates are cantilevered in pairs at alternating angles. Each floor slab projects 8–10 metres from the central shaft with no peripheral columns; the impression is of capsule-like rooms clipped to a mast, ready to be added to, rearranged, or removed. The design directly embodies the Metabolist manifesto published by Tange, Kurokawa, and their contemporaries in 1960: that the city and its buildings should be understood as living organisms capable of growth and transformation. Standing at the southern end of Ginza between two major expressways, the tower reads as a structural diagram, pure and uncompromising.',
+    hours:'Office building · Exterior viewable 24/7', lastEntry:'',
+    admission:'Private office building · Exterior freely visible',
+    tourOk:false, tourInfo:'The building is a functioning office tower for the Shizuoka Broadcasting System Tokyo bureau. The exterior — best seen from across the elevated expressway — is accessible 24/7. A registered Important Cultural Property candidate.',
+    web:'',
+    transit:'Ginza/Hibiya/Marunouchi → Ginza (A4 exit, 8 min) · JR → Shimbashi (5 min)',
+    walkFrom:'Ginza Six: 8 min · Yamaha Ginza (Nikken Sekkei): 2 min',
+    gmaps:'https://maps.google.com/?q=Shizuoka+Press+Building+Ginza+Tokyo',
+    archdaily:'https://www.archdaily.com/tag/shizuoka-press-and-broadcasting-center',
+    wiki:'https://en.wikipedia.org/wiki/Shizuoka_Press_and_Broadcasting_Center',
+    tags:['Kenzo Tange','Metabolism','Metabolist','Ginza','1967','Cantilever','Cylindrical Core','Historic','Important Cultural Property'],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Shizuoka_Press_Building_Ginza_Kenzo_Tange.jpg?width=800'
+    ],
+    drawings:[]
+  },
+
+  // ── RAFAEL VIÑOLY ─────────────────────────────────────────────
+
+  {
+    id:'tokyo-international-forum',
+    name:'Tokyo International Forum',
+    cat:'Cultural', cats:['Cultural','Public','Landmarks'], cc:'c-cul', styleGroup:'Contemporary', styleGroups:['Contemporary'],
+    era:'1970–1999', city:'tokyo',
+    arch:'Rafael Viñoly Architects', archs:['Rafael Viñoly Architects'],
+    yr:1997, access:'Open to Public', style:'Contemporary',
+    lat:35.6771, lng:139.7636,
+    addr:'3-5-1 Marunouchi, Chiyoda-ku, Tokyo 100-0005', hood:'Marunouchi / Yurakucho',
+    desc:'The Tokyo International Forum, completed in 1997 to designs by Rafael Viñoly Architects following an international competition won in 1989, is one of the largest and most complex convention and performing-arts centres in Japan. The complex consists of four solid granite-and-glass hall blocks (Halls B, C, D, and E) grouped around the extraordinary Glass Building — a 60-metre-high ship-hull-shaped glass and steel atrium that spans the full 210-metre length of the site, its keel pointing toward Tokyo Station. The Glass Building\'s interior is suspended by a pair of inclined steel trusses visible through the glass, forming a transparent exoskeleton that glows at night. The atrium serves as an urban passageway connecting Yurakucho to Marunouchi, freely accessible 24 hours a day, and hosts the biannual Tokyo Antique Market and regular public events on its elevated walkways. The total site covers 41,544 square metres and can accommodate over 5,000 visitors across its eight halls.',
+    hours:'Atrium: 24/7 (free) · Halls: event hours vary', lastEntry:'',
+    admission:'Atrium free · Hall events ticketed',
+    tourOk:true, tourInfo:'The glass atrium is freely open to the public 24/7. Tours of the building\'s engineering and architecture are available. The Tokyo Antique Market is held on alternate months in the outdoor plaza.',
+    web:'https://www.t-i-forum.co.jp/en',
+    transit:'JR Yamanote/Keihin-Tohoku → Yurakucho (1 min) · Yurakucho → Yurakucho (B5 exit, 1 min)',
+    walkFrom:'Tokyo Station Marunouchi: 5 min · Imperial Palace East Garden: 10 min',
+    gmaps:'https://maps.google.com/?q=Tokyo+International+Forum',
+    archdaily:'https://www.archdaily.com/tag/tokyo-international-forum',
+    wiki:'https://en.wikipedia.org/wiki/Tokyo_International_Forum',
+    tags:['Rafael Viñoly','Marunouchi','Convention','Glass Atrium','Ship Hull','Public','Yurakucho','1997'],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_International_Forum.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_International_Forum_interior.jpg?width=800'
+    ],
+    drawings:[]
+  },
+
+  // ── HERZOG & DE MEURON ────────────────────────────────────────
+
+  {
+    id:'miu-miu-aoyama',
+    name:'Miu Miu Aoyama',
+    cat:'Retail', cats:['Retail','Landmarks'], cc:'c-ret', styleGroup:'Contemporary', styleGroups:['Contemporary'],
+    era:'2000–Present', city:'tokyo',
+    arch:'Herzog & de Meuron', archs:['Herzog & de Meuron'],
+    yr:2015, access:'Open to Public', style:'Contemporary',
+    lat:35.6643, lng:139.7133,
+    addr:'5-4-10 Minamiaoyama, Minato-ku, Tokyo 107-0062', hood:'Minamiaoyama / Omotesando',
+    desc:'Herzog & de Meuron\'s Miu Miu Aoyama (2015) stands as one of the most structurally inventive luxury retail buildings in Tokyo\'s fashion district. The four-storey building is wrapped in a facade of stacked precast concrete shelves — deep horizontal cantilever trays that project progressively further from the face of the building as they ascend, creating a tiered, geological section reminiscent of sedimentary rock strata. Narrow glazed slots between the concrete layers admit controlled ribbons of daylight into the interior, while the shelves themselves act as integrated planters, growing moss and small vegetation that changes with the seasons. The result is a facade that is simultaneously brutally structural and quietly natural, operating in careful dialogue with the mature zelkova tree canopy of nearby Omotesando. It is among the few Herzog & de Meuron projects in Japan and represents their continued interest in the tectonic materiality of concrete as a living surface.',
+    hours:'Mon–Sun 11:00 AM – 8:00 PM', lastEntry:'',
+    admission:'Free access (retail)',
+    tourOk:false, tourInfo:'Miu Miu boutique, freely accessible. The concrete shelf facade is best appreciated from across the narrow side street; the moss and seasonal vegetation on the shelves varies throughout the year.',
+    web:'https://www.miumiu.com',
+    transit:'Ginza/Hanzomon/Chiyoda → Omotesando (A5 exit, 5 min)',
+    walkFrom:'Omotesando Hills (Tadao Ando): 3 min · Prada Omotesando (Herzog & de Meuron): 5 min',
+    gmaps:'https://maps.google.com/?q=Miu+Miu+Aoyama+Tokyo',
+    archdaily:'https://www.archdaily.com/tag/miu-miu-aoyama',
+    wiki:'',
+    tags:['Herzog & de Meuron','Miu Miu','Aoyama','Omotesando','Concrete','Retail','Stacked Shelves','2015','Vegetation'],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Miu_Miu_Aoyama_Herzog_de_Meuron_Tokyo.jpg?width=800'
+    ],
+    drawings:[]
+  },
+
+  // ── NORIHIKO DAN AND ASSOCIATES ───────────────────────────────
+
+  {
+    id:'keyaki-building-omotesando',
+    name:'Keyaki Building',
+    cat:'Retail', cats:['Retail','Landmarks'], cc:'c-ret', styleGroup:'Contemporary', styleGroups:['Contemporary'],
+    era:'2000–Present', city:'tokyo',
+    arch:'Norihiko Dan and Associates', archs:['Norihiko Dan and Associates'],
+    yr:2008, access:'Open to Public', style:'Contemporary',
+    lat:35.6648, lng:139.7140,
+    addr:'5-6-2 Minamiaoyama, Minato-ku, Tokyo 107-0062', hood:'Minamiaoyama / Omotesando',
+    desc:'The Keyaki Building by Norihiko Dan and Associates takes its name from the keyaki (zelkova) trees — the same species that canopy Omotesando avenue — whose forms are abstracted into the building\'s facade. Norihiko Dan, who inherited and extended the legacy of his father Kenzo Tange\'s practice, applies a rigorous structural intelligence to the question of how a small commercial building might speak to the mature urban landscape of Omotesando without competing with it. The facade system uses a layered screen of perforated metal panels whose aperture pattern is derived from the branching silhouette of the keyaki tree in winter, allowing natural light to filter through in the same dappled pattern as the tree canopy overhead. At ground level, the building steps back to create a small covered arcade, a semi-public threshold between the pavement and the retail interior consistent with the pedestrian grain of the Omotesando side streets.',
+    hours:'Shops: daily 11:00 AM – 8:00 PM', lastEntry:'',
+    admission:'Free access',
+    tourOk:false, tourInfo:'Small commercial and retail building freely accessible during shop hours. The perforated metal facade and ground-floor arcade are best observed in late afternoon, when the dappled shadow pattern the screen casts onto the interior floors is most vivid.',
+    web:'',
+    transit:'Ginza/Hanzomon/Chiyoda → Omotesando (A5 exit, 3 min)',
+    walkFrom:'Miu Miu Aoyama (Herzog & de Meuron): 3 min · Omotesando Hills (Tadao Ando): 5 min',
+    gmaps:'https://maps.google.com/?q=Keyaki+Building+Omotesando+Tokyo',
+    archdaily:'',
+    wiki:'',
+    tags:['Norihiko Dan','Keyaki','Zelkova','Omotesando','Aoyama','Perforated Facade','Retail','2008'],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Keyaki_Building_Omotesando_Tokyo.jpg?width=800'
+    ],
+    drawings:[]
+  },
+
+  // ── OMA ───────────────────────────────────────────────────────
+
+  {
+    id:'coach-omotesando',
+    name:'Coach Omotesando Flagship',
+    cat:'Retail', cats:['Retail','Landmarks'], cc:'c-ret', styleGroup:'Contemporary', styleGroups:['Contemporary'],
+    era:'2000–Present', city:'tokyo',
+    arch:'OMA (Office for Metropolitan Architecture)', archs:['OMA (Office for Metropolitan Architecture)'],
+    yr:2016, access:'Open to Public', style:'Contemporary',
+    lat:35.6657, lng:139.7128,
+    addr:'5-3-1 Minamiaoyama, Minato-ku, Tokyo 107-0062', hood:'Minamiaoyama / Omotesando',
+    desc:'OMA\'s Coach Omotesando flagship, designed under the leadership of Shohei Shigematsu and completed in 2016, translates OMA\'s characteristic graphic and programmatic intelligence into a mid-scale luxury retail building on one of Tokyo\'s most architecturally competitive streets. The building\'s facade is articulated in bands of warm-toned stone and glazing, with the horizontal datum of the Omotesando streetscape extended into the building section. OMA organised the retail floors as a sectional promenade rather than stacked slabs — visitors encounter the Coach collection through a continuous spatial loop of ramps, platforms, and level changes that reference the movement patterns of a New York brownstone walk-up, a reference to Coach\'s American heritage. The ground floor is pulled back from the street to create a generous covered entry zone that functions as a semi-public threshold — OMA\'s consistent argument that even luxury retail should contribute to the public life of the city around it.',
+    hours:'Mon–Sun 11:00 AM – 8:00 PM', lastEntry:'',
+    admission:'Free access (retail)',
+    tourOk:false, tourInfo:'Coach flagship boutique. The sectional organisation of the interior is best explored by ascending through all retail floors. The entry forecourt functions as a publicly accessible covered space.',
+    web:'https://www.coach.com',
+    transit:'Ginza/Hanzomon/Chiyoda → Omotesando (A5 exit, 4 min)',
+    walkFrom:'Keyaki Building (Norihiko Dan): 3 min · Prada Omotesando (Herzog & de Meuron): 4 min',
+    gmaps:'https://maps.google.com/?q=Coach+Omotesando+Flagship+Tokyo',
+    archdaily:'https://www.archdaily.com/tag/coach-omotesando',
+    wiki:'',
+    tags:['OMA','Rem Koolhaas','Shohei Shigematsu','Coach','Omotesando','Retail','Flagship','2016','Sectional'],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Coach_Omotesando_OMA_Tokyo.jpg?width=800'
+    ],
+    drawings:[]
+  },
+
+  // ── HEATHERWICK STUDIO ────────────────────────────────────────
+
+  {
+    id:'azabudai-hills',
+    name:'Azabudai Hills',
+    cat:'Landmarks', cats:['Landmarks','Commercial','Cultural','Public'], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:['Contemporary','Landscape'],
+    era:'2000–Present', city:'tokyo',
+    arch:'Heatherwick Studio', archs:['Heatherwick Studio','Pelli Clarke & Partners','Diller Scofidio + Renfro'],
+    yr:2023, access:'Open to Public', style:'Contemporary',
+    lat:35.6587, lng:139.7399,
+    addr:'1-2-4 Azabudai, Minato-ku, Tokyo 106-0041', hood:'Azabudai / Toranomon',
+    desc:'Azabudai Hills, opened in November 2023, is one of the most ambitious urban development projects in Tokyo\'s history — a 8.1-hectare mixed-use district in Minato-ku that replaces a mid-20th-century residential neighbourhood with three landmark towers, 24,000 sqm of retail, a hotel, international school, and a significant contemporary art museum. The central landscape — a 6,000 sqm garden designed by Heatherwick Studio — is the project\'s civic heart: a topographically complex public green space planted with over 150 species of trees and flowering plants that creates the impression of a low hill at the centre of the city. Thomas Heatherwick\'s contribution addresses the fundamental critique of large-scale Tokyo development — the erasure of street life and public ground — by treating the landscape as a spatial event, not a residual amenity. The tallest tower (330 m, by Pelli Clarke & Partners) was briefly the tallest building in Japan at completion. Tower B, by Diller Scofidio + Renfro, includes the Azabudai Hills Gallery operated by teamLab. The project establishes a new model for high-density urban development in which landscape and public realm are primary design drivers.',
+    hours:'Garden and public areas: daily 24/7 · Retail: 11:00 AM – 9:00 PM · Gallery: 10:00 AM – 7:00 PM', lastEntry:'',
+    admission:'Garden and public areas: free · Gallery: ticketed (from ¥3,200)',
+    tourOk:true, tourInfo:'The central garden and public walkways are freely accessible at all times. The Azabudai Hills Gallery (teamLab) requires timed entry tickets booked in advance. The development also contains a Mori Art Museum satellite space.',
+    web:'https://www.azabudaihills.com',
+    transit:'Hibiya Line → Kamiyacho (3 min) · Namboku → Roppongi-Itchome (5 min)',
+    walkFrom:'Roppongi Hills: 10 min · Tokyo Tower: 10 min · Toranomon Hills: 7 min',
+    gmaps:'https://maps.google.com/?q=Azabudai+Hills+Tokyo',
+    archdaily:'https://www.archdaily.com/tag/azabudai-hills',
+    wiki:'https://en.wikipedia.org/wiki/Azabudai_Hills',
+    tags:['Heatherwick Studio','Pelli Clarke','Diller Scofidio Renfro','DS+R','Azabudai','Mixed-Use','Landscape','2023','teamLab','Tallest Japan','Minato-ku'],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Azabudai_Hills_Tokyo_2023.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Azabudai_Hills_aerial.jpg?width=800'
+    ],
+    drawings:[]
   }
 
 ];
