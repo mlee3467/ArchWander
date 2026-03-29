@@ -2782,85 +2782,80 @@ let _agPlaying  = false;
 let _agPaused   = false;
 let _agLoaded   = null; // id of location whose script is rendered
 
-/* ── Background playback support ───────────────────────────────────────
-   Mobile browsers kill speechSynthesis when the screen turns off.
-   Three defenses:
-   1. Wake Lock API  — prevents auto-sleep while audio plays
-   2. Silent <audio> — maintains browser audio session in background
-   3. visibilitychange — detects interrupted speech and auto-resumes
+/* ── Background-capable playback via <audio> element ───────────────────
+   speechSynthesis is killed by mobile OS when the screen turns off.
+   Solution: use Google Translate TTS to get real MP3 audio, played
+   through an <audio> element which DOES survive background on mobile.
+   Falls back to speechSynthesis if the TTS URL is unavailable.
    ──────────────────────────────────────────────────────────────────── */
 
-// 1. Wake Lock — keeps screen on during playback
+let _agAudio    = null;  // reusable <audio> element
+let _agMode     = '';    // 'audio' | 'synth' — which engine is active
+let _agTitle    = '';    // current location title (for Media Session)
+
+// Google Translate TTS → returns real MP3 via <audio> element
+function _agTtsUrl(text, lang) {
+  const tl = lang === 'ko' ? 'ko' : 'en';
+  return 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob'
+       + '&tl=' + tl + '&q=' + encodeURIComponent(text);
+}
+
+// Split long sentence into ≤180 char chunks (Google TTS limit)
+function _agChunk(text, max) {
+  max = max || 180;
+  text = text.trim();
+  if (text.length <= max) return [text];
+  const out = [];
+  while (text.length > max) {
+    let i = text.lastIndexOf(', ', max);
+    if (i < max * 0.3) i = text.lastIndexOf(' ', max);
+    if (i < max * 0.3) i = max;
+    out.push(text.substring(0, i).trim());
+    text = text.substring(i).replace(/^,?\s*/, '');
+  }
+  if (text) out.push(text);
+  return out;
+}
+
+// Ensure <audio> element exists
+function _agEnsureAudio() {
+  if (!_agAudio) {
+    _agAudio = new Audio();
+    _agAudio.preload = 'auto';
+  }
+  return _agAudio;
+}
+
+// Media Session API — lock screen controls
+function _agSetMediaSession(title) {
+  if (!('mediaSession' in navigator)) return;
+  try {
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: title || 'Audio Guide',
+      artist: 'ArchWander',
+      album: 'Architecture Guide',
+    });
+    navigator.mediaSession.setActionHandler('play',         () => agToggle());
+    navigator.mediaSession.setActionHandler('pause',        () => agToggle());
+    navigator.mediaSession.setActionHandler('previoustrack', () => agSkip(-1));
+    navigator.mediaSession.setActionHandler('nexttrack',     () => agSkip(1));
+  } catch(e) {}
+}
+
+// Wake Lock — keep screen on during playback (secondary defense)
 let _agWakeLock = null;
 async function _agRequestWakeLock() {
   if (!('wakeLock' in navigator)) return;
-  try { _agWakeLock = await navigator.wakeLock.request('screen'); }
-  catch(e) { /* user denied or not supported */ }
+  try { _agWakeLock = await navigator.wakeLock.request('screen'); } catch(e) {}
 }
 function _agReleaseWakeLock() {
   if (_agWakeLock) { _agWakeLock.release().catch(()=>{}); _agWakeLock = null; }
 }
 
-// 2. Silent audio keepalive — a looping ~1s silent WAV via data-URI
-//    Keeps the browser audio session alive so OS doesn't suspend the tab
-let _agKeepAlive = null;
-function _agStartKeepAlive() {
-  if (_agKeepAlive) return;
-  // Minimal WAV: 1 second of silence, 8kHz mono 8-bit
-  const silentWav = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAABCxAgABAAgAZGF0YQAAAAA=';
-  _agKeepAlive = new Audio(silentWav);
-  _agKeepAlive.loop = true;
-  _agKeepAlive.volume = 0.01; // near-silent
-  _agKeepAlive.play().catch(()=>{});
-}
-function _agStopKeepAlive() {
-  if (_agKeepAlive) { _agKeepAlive.pause(); _agKeepAlive = null; }
-}
-
-// 3. Visibility change — detect when page returns from background
-//    If speech was playing but got killed by OS, auto-resume from last sentence
-let _agBgSentIdx = 0; // sentence index when page went to background
+// Re-acquire wake lock when screen turns back on
 document.addEventListener('visibilitychange', () => {
-  if (!_agPlaying) return;
-  if (document.hidden) {
-    // Going to background — save current position
-    _agBgSentIdx = _agSentIdx;
-    // Chrome workaround: periodically nudge speechSynthesis to prevent timeout
-    _agStartBgNudge();
-  } else {
-    // Returning from background
-    _agStopBgNudge();
-    // Re-acquire wake lock (released when screen turns off)
-    _agRequestWakeLock();
-    // Check if speech was killed while in background
-    if (_agSynth && !_agSynth.speaking && !_agSynth.paused && _agPlaying && !_agPaused) {
-      // Speech was interrupted by OS — restart from saved position
-      console.log('[AudioGuide] Resuming from sentence', _agBgSentIdx);
-      _agStartPlayback(_agBgSentIdx);
-    } else if (_agSynth && _agSynth.paused && _agPaused) {
-      // Was properly paused — try resume
-      try { _agSynth.resume(); } catch(e) {
-        // Resume failed — restart from current position
-        _agStartPlayback(_agSentIdx);
-      }
-    }
-  }
+  if (!document.hidden && _agPlaying) _agRequestWakeLock();
 });
-
-// Chrome background nudge — prevents Chrome's ~15s speechSynthesis timeout
-let _agBgNudgeTimer = null;
-function _agStartBgNudge() {
-  _agStopBgNudge();
-  _agBgNudgeTimer = setInterval(() => {
-    if (_agSynth && _agSynth.speaking && !_agSynth.paused) {
-      _agSynth.pause();
-      _agSynth.resume();
-    }
-  }, 10000); // nudge every 10s
-}
-function _agStopBgNudge() {
-  if (_agBgNudgeTimer) { clearInterval(_agBgNudgeTimer); _agBgNudgeTimer = null; }
-}
 const _agSpeeds   = [0.75, 1, 1.25, 1.5];
 const _AG_SPEED_KEY    = 'aw_audio_speed';
 const _AG_AUTOPLAY_KEY = 'aw_audio_autoplay';
@@ -2882,7 +2877,7 @@ let _agAutoPlay = (() => {
 let _agScript   = '';  // current full script text
 let _agSentences = []; // split sentences
 let _agSentIdx  = 0;   // which sentence is playing
-let _agProgressTimer = null;
+// (progress now handled by requestAnimationFrame — see _agStartSmoothProgress)
 
 /* -- Shell HTML rendered immediately when location panel opens ---------- */
 function buildAudioGuideShell() {
@@ -3045,6 +3040,7 @@ async function loadAudioGuideTab(loc) {
   const entry = data ? data[loc.id] : null;
 
   if (entry && entry.script) {
+    _agTitle = entry.title || loc.name || 'Audio Guide';
     root.innerHTML = _agRenderPlayer(entry);
     // AUTO-PLAY: only if user has auto-play enabled (tab click = user gesture)
     if (_agAutoPlay) requestAnimationFrame(() => { agToggle(); });
@@ -3059,40 +3055,53 @@ async function loadAudioGuideTab(loc) {
 let _agRepeat = false; // repeat mode
 
 function agToggle() {
-  if (!_agSynth) return;
   if (_agPlaying && !_agPaused) {
-    _agSynth.pause();
+    /* ── Pause ── */
+    if (_agMode === 'audio' && _agAudio) {
+      _agAudio.pause();
+    } else if (_agMode === 'synth' && _agSynth) {
+      _agSynth.pause();
+    }
     _agPaused = true;
     _agSetPlayIcon(false);
-    _agStopProgressTimer();
-    // Keep wake lock + keepalive alive while paused (user may resume soon)
+    _agStopSmoothProgress();
   } else if (_agPaused) {
-    // Check if speechSynthesis was killed while paused (mobile OS does this)
-    if (!_agSynth.paused && !_agSynth.speaking) {
-      // Speech was killed — restart from current sentence
-      _agStartPlayback(_agSentIdx);
-    } else {
-      _agSynth.resume();
+    /* ── Resume ── */
+    if (_agMode === 'audio' && _agAudio) {
+      _agAudio.play().catch(() => {});
       _agPaused = false;
       _agSetPlayIcon(true);
-      _agStartProgressTimer();
+      _agStartSmoothProgress();
+    } else if (_agMode === 'synth' && _agSynth) {
+      // Check if speechSynthesis was killed while paused (mobile OS does this)
+      if (!_agSynth.paused && !_agSynth.speaking) {
+        _agStartPlayback(_agSentIdx);
+      } else {
+        _agSynth.resume();
+        _agPaused = false;
+        _agSetPlayIcon(true);
+        _agStartSmoothProgress();
+      }
+    } else {
+      _agStartPlayback(_agSentIdx);
     }
   } else {
+    /* ── Start fresh ── */
     _agStartPlayback(_agSentIdx);
   }
 }
 
 function agStop() {
+  if (_agAudio) { _agAudio.pause(); _agAudio.onended = null; _agAudio.onerror = null; _agAudio.src = ''; }
   if (_agSynth) _agSynth.cancel();
   _agPlaying = false;
   _agPaused  = false;
   _agSentIdx = 0;
-  _agStopProgressTimer();
+  _agMode    = '';
+  _agStopSmoothProgress();
   _agSetPlayIcon(false);
   _agUpdateTimeline(0);
   _agClearHighlight();
-  _agStopBgNudge();
-  _agStopKeepAlive();
   _agReleaseWakeLock();
 }
 
@@ -3128,9 +3137,13 @@ function agSetSpeed(idx) {
 
   // Apply new speed immediately if playing
   if (_agPlaying && !_agPaused) {
-    _agSynth.cancel();
-    _agPlaying = false;
-    _agStartPlayback(_agSentIdx);
+    if (_agMode === 'audio' && _agAudio) {
+      _agAudio.playbackRate = _agSpeeds[idx];
+    } else {
+      if (_agSynth) _agSynth.cancel();
+      _agPlaying = false;
+      _agStartPlayback(_agSentIdx);
+    }
   }
 }
 
@@ -3138,6 +3151,8 @@ function agSkip(delta) {
   // Skip forward or backward by 1 sentence
   const target = Math.max(0, Math.min(_agSentences.length - 1, _agSentIdx + delta));
   const wasPlaying = _agPlaying && !_agPaused;
+  // Stop current playback in either mode
+  if (_agAudio) { _agAudio.pause(); _agAudio.onended = null; _agAudio.onerror = null; }
   if (_agSynth) _agSynth.cancel();
   _agPlaying = false;
   _agPaused  = false;
@@ -3175,6 +3190,7 @@ function _agOnSeekEnd(val) {
   // Commit seek when drag ends
   const target = parseInt(val);
   const wasPlaying = _agPlaying && !_agPaused;
+  if (_agAudio) { _agAudio.pause(); _agAudio.onended = null; _agAudio.onerror = null; }
   if (_agSynth) _agSynth.cancel();
   _agPlaying = false;
   _agPaused  = false;
@@ -3183,80 +3199,133 @@ function _agOnSeekEnd(val) {
 }
 
 /* ── Internal playback engine ─────────────────────────────────────────── */
+
+// Smooth-progress state: track chunk timing for rAF interpolation
+let _agChunks       = [];   // chunks for current sentence
+let _agChunkIdx     = 0;    // which chunk is playing
+let _agRafId        = null; // requestAnimationFrame handle
+let _agSentStart    = 0;    // timestamp when current sentence started
+
+function _onPlaybackDone() {
+  _agPlaying = false;
+  _agPaused  = false;
+  _agSentIdx = 0;
+  _agMode    = '';
+  _agSetPlayIcon(false);
+  _agStopSmoothProgress();
+  _agUpdateTimeline(0);
+  _agClearHighlight();
+  _agReleaseWakeLock();
+}
+
 function _agStartPlayback(fromIdx) {
   fromIdx = (fromIdx === undefined) ? 0 : Math.max(0, Math.min(fromIdx, _agSentences.length - 1));
-  if (!_agSynth || !_agSentences.length) return;
-  _agSynth.cancel();
+  if (!_agSentences.length) return;
 
-  // Pick best voice for the current language — prefer neural voices
-  const voices = _agSynth.getVoices();
-  const isKo = (LANG === 'ko');
-  const _agVoicePriority = isKo ? [
-    'Google 한국의',                   // Chrome Korean
-    'Microsoft SunHi Online',         // Edge: Korean neural female
-    'Microsoft InJoon Online',        // Edge: Korean neural male
-    'Yuna',                           // macOS Korean
-  ] : [
-    'Google US English',              // Chrome: clear, natural
-    'Microsoft Aria Online',          // Edge: neural, warm narrator tone
-    'Microsoft Guy Online',           // Edge: neural, male
-    'Microsoft Jenny Online',         // Edge: neural, female
-    'Samantha',                       // macOS/iOS: high-quality default
-    'Daniel',                         // macOS: British English, polished
-    'Karen',                          // macOS: Australian English
-  ];
-  const langPrefix = isKo ? 'ko' : 'en';
-  let preferred = null;
-  for (const name of _agVoicePriority) {
-    const v = voices.find(v => v.name === name);
-    if (v) { preferred = v; break; }
-  }
-  // Fallback: any voice matching current language with neural/natural keyword
-  if (!preferred) preferred =
-    voices.find(v => v.lang.startsWith(langPrefix) && /neural|natural|premium|enhanced|online/i.test(v.name)) ||
-    voices.find(v => v.lang.startsWith(langPrefix)) ||
-    (isKo ? voices.find(v => /ko[-_]/i.test(v.lang)) : voices.find(v => /en[-_]/i.test(v.lang))) || null;
-
-  let idx = fromIdx;
-
-  // Activate background playback protection
-  _agStartKeepAlive();
-  _agRequestWakeLock();
-
-  function speakNext() {
-    if (idx >= _agSentences.length) {
-      if (_agRepeat) { idx = 0; speakNext(); return; } // loop
-      _agPlaying = false;
-      _agSentIdx = 0;
-      _agSetPlayIcon(false);
-      _agStopProgressTimer();
-      _agUpdateTimeline(0);
-      _agClearHighlight();
-      _agStopBgNudge();
-      _agStopKeepAlive();
-      _agReleaseWakeLock();
-      return;
-    }
-    _agSentIdx = idx;
-    _agHighlight(idx);
-    _agScrollToSentence(idx);
-
-    const u = new SpeechSynthesisUtterance(_agSentences[idx].trim());
-    u.lang = isKo ? 'ko-KR' : 'en-US';
-    u.rate = _agSpeeds[_agSpeedIdx];
-    if (preferred) u.voice = preferred;
-    u.onend   = () => { idx++; speakNext(); };
-    u.onerror = e => { if (e.error !== 'interrupted') { idx++; speakNext(); } };
-    _agSynth.speak(u);
-    _agUpdateTimeline(idx / Math.max(1, _agSentences.length - 1));
-    _agUpdateTimeDisplay(idx);
-  }
+  // Stop any existing playback
+  const audio = _agEnsureAudio();
+  audio.pause(); audio.onended = null; audio.onerror = null;
+  if (_agSynth) _agSynth.cancel();
 
   _agPlaying = true;
   _agPaused  = false;
   _agSetPlayIcon(true);
-  _agStartProgressTimer();
-  speakNext();
+  _agRequestWakeLock();
+  _agSetMediaSession(_agTitle);
+
+  let idx = fromIdx;
+
+  /* ── Strategy A: Google TTS via <audio> element (survives background) ── */
+  function playViaAudio() {
+    _agMode = 'audio';
+
+    function playSentence() {
+      if (idx >= _agSentences.length) {
+        if (_agRepeat) { idx = 0; playSentence(); return; }
+        _onPlaybackDone(); return;
+      }
+      _agSentIdx = idx;
+      _agSentStart = performance.now();
+      _agHighlight(idx);
+      _agScrollToSentence(idx);
+
+      const chunks = _agChunk(_agSentences[idx].trim());
+      _agChunks = chunks;
+      let ci = 0;
+      _agChunkIdx = 0;
+
+      function playChunk() {
+        if (ci >= chunks.length) { idx++; playSentence(); return; }
+        _agChunkIdx = ci;
+        const url = _agTtsUrl(chunks[ci], LANG);
+        audio.src = url;
+        audio.playbackRate = _agSpeeds[_agSpeedIdx];
+        audio.onended = () => { ci++; playChunk(); };
+        audio.onerror = () => {
+          // First chunk of first sentence fails → fall back to synth
+          if (idx === fromIdx && ci === 0) { playViaSynth(); return; }
+          ci++; playChunk();
+        };
+        audio.play().catch(() => {
+          if (idx === fromIdx && ci === 0) playViaSynth();
+          else { ci++; playChunk(); }
+        });
+      }
+      playChunk();
+    }
+    playSentence();
+  }
+
+  /* ── Strategy B: speechSynthesis fallback ──────────────────────────── */
+  function playViaSynth() {
+    _agMode = 'synth';
+    if (!_agSynth) { _onPlaybackDone(); return; }
+    _agSynth.cancel();
+
+    const voices = _agSynth.getVoices();
+    const isKo = (LANG === 'ko');
+    const voicePriority = isKo ? [
+      'Google 한국의', 'Microsoft SunHi Online', 'Microsoft InJoon Online', 'Yuna',
+    ] : [
+      'Google US English', 'Microsoft Aria Online', 'Microsoft Guy Online',
+      'Microsoft Jenny Online', 'Samantha', 'Daniel', 'Karen',
+    ];
+    const langPrefix = isKo ? 'ko' : 'en';
+    let preferred = null;
+    for (const name of voicePriority) {
+      const v = voices.find(v => v.name === name);
+      if (v) { preferred = v; break; }
+    }
+    if (!preferred) preferred =
+      voices.find(v => v.lang.startsWith(langPrefix) && /neural|natural|premium|enhanced|online/i.test(v.name)) ||
+      voices.find(v => v.lang.startsWith(langPrefix)) ||
+      (isKo ? voices.find(v => /ko[-_]/i.test(v.lang)) : voices.find(v => /en[-_]/i.test(v.lang))) || null;
+
+    function speakNext() {
+      if (idx >= _agSentences.length) {
+        if (_agRepeat) { idx = 0; speakNext(); return; }
+        _onPlaybackDone(); return;
+      }
+      _agSentIdx = idx;
+      _agSentStart = performance.now();
+      _agHighlight(idx);
+      _agScrollToSentence(idx);
+
+      const u = new SpeechSynthesisUtterance(_agSentences[idx].trim());
+      u.lang = isKo ? 'ko-KR' : 'en-US';
+      u.rate = _agSpeeds[_agSpeedIdx];
+      if (preferred) u.voice = preferred;
+      u.onend   = () => { idx++; speakNext(); };
+      u.onerror = e => { if (e.error !== 'interrupted') { idx++; speakNext(); } };
+      _agSynth.speak(u);
+    }
+    speakNext();
+  }
+
+  // Start smooth progress animation
+  _agStartSmoothProgress();
+  // Try real audio first (works in background), fall back to synth
+  playViaAudio();
 }
 
 function _agHighlight(idx) {
@@ -3294,12 +3363,17 @@ function _agUpdateTimeline(pct) {
   tl.style.setProperty('--pct', (pct * 100).toFixed(1) + '%');
 }
 
-function _agUpdateTimeDisplay(sentIdx) {
-  sentIdx = (sentIdx === undefined) ? _agSentIdx : sentIdx;
-  const totalSec  = _agEstMin(_agScript) * 60;
-  const elapsed   = Math.round((sentIdx / Math.max(1, _agSentences.length - 1)) * totalSec);
+function _agUpdateTimeDisplay(sentIdx, smoothPct) {
+  const totalSec = _agEstMin(_agScript) * 60;
+  let elapsed;
+  if (smoothPct !== undefined) {
+    elapsed = smoothPct * totalSec;
+  } else {
+    sentIdx = (sentIdx === undefined) ? _agSentIdx : sentIdx;
+    elapsed = (sentIdx / Math.max(1, _agSentences.length - 1)) * totalSec;
+  }
   const curEl = document.getElementById('ag-time-cur');
-  if (curEl) curEl.textContent = _agFmtSec(elapsed);
+  if (curEl) curEl.textContent = _agFmtSec(Math.round(elapsed));
 }
 
 function _agFmtSec(s) {
@@ -3307,16 +3381,40 @@ function _agFmtSec(s) {
   return `${Math.floor(s/60)}:${(s%60).toString().padStart(2,'0')}`;
 }
 
-function _agStartProgressTimer() {
-  _agStopProgressTimer();
-  _agProgressTimer = setInterval(() => {
-    _agUpdateTimeline(_agSentIdx / Math.max(1, _agSentences.length - 1));
-    _agUpdateTimeDisplay();
-  }, 800);
+/* ── Smooth progress via requestAnimationFrame ─────────────────────── */
+function _agStartSmoothProgress() {
+  _agStopSmoothProgress();
+  function tick() {
+    if (!_agPlaying || _agPaused) return;
+    const n = Math.max(1, _agSentences.length - 1);
+    let frac = 0; // fractional progress within current sentence (0..1)
+
+    if (_agMode === 'audio' && _agAudio && _agAudio.duration && isFinite(_agAudio.duration)) {
+      // Real progress from <audio> element for current chunk
+      const chunkFrac = _agAudio.currentTime / _agAudio.duration;
+      const totalChunks = Math.max(1, _agChunks.length);
+      frac = (_agChunkIdx + chunkFrac) / totalChunks;
+    } else {
+      // Estimate progress from elapsed time since sentence started
+      const isKo = (LANG === 'ko');
+      const sent = _agSentences[_agSentIdx] || '';
+      const estMs = isKo
+        ? (sent.length / 200) * 60000 / _agSpeeds[_agSpeedIdx]
+        : ((sent.split(/\s+/).length) / 130) * 60000 / _agSpeeds[_agSpeedIdx];
+      const elapsed = performance.now() - _agSentStart;
+      frac = Math.min(elapsed / Math.max(estMs, 500), 0.99);
+    }
+
+    const smoothPct = (_agSentIdx + frac) / n;
+    _agUpdateTimeline(smoothPct);
+    _agUpdateTimeDisplay(undefined, smoothPct);
+    _agRafId = requestAnimationFrame(tick);
+  }
+  _agRafId = requestAnimationFrame(tick);
 }
 
-function _agStopProgressTimer() {
-  if (_agProgressTimer) { clearInterval(_agProgressTimer); _agProgressTimer = null; }
+function _agStopSmoothProgress() {
+  if (_agRafId) { cancelAnimationFrame(_agRafId); _agRafId = null; }
 }
 
 // Pre-load voices (Chrome async)
