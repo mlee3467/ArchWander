@@ -2893,7 +2893,42 @@ let _agAudio    = null;  // pointer to whichever element is currently active
 let _agPong     = false; // false=A active, true=B active
 let _agMode     = '';    // 'audio' | 'synth' — which engine is active
 let _agTitle    = '';    // current location title (for Media Session)
-let _agKeepAlive = null; // keepalive <audio> for synth-mode background
+let _agKeepAlive = null; // keepalive <audio> for background
+
+// ── Web Audio API background session keeper ───────────────────────────────
+// iOS only keeps audio alive in background when there is an active AudioContext
+// started from a user gesture. A near-silent oscillator keeps the context
+// "running" so iOS does not suspend the audio session when the screen locks.
+let _agAudioCtx   = null;
+let _agBgOsc      = null;
+let _agBgGain     = null;
+
+function _agInitBgSession() {
+  // Only create once; resume if suspended
+  if (_agAudioCtx) {
+    if (_agAudioCtx.state === 'suspended') _agAudioCtx.resume().catch(() => {});
+    return;
+  }
+  try {
+    _agAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    // Near-silent 40 Hz tone: inaudible on phone speakers, but iOS-detectable
+    // (~-50 dB combined with gain 0.003 — well above iOS silence threshold)
+    _agBgGain = _agAudioCtx.createGain();
+    _agBgGain.gain.value = 0.003;
+    _agBgGain.connect(_agAudioCtx.destination);
+    _agBgOsc = _agAudioCtx.createOscillator();
+    _agBgOsc.type = 'sine';
+    _agBgOsc.frequency.value = 40; // 40 Hz — below human hearing on phone speakers
+    _agBgOsc.connect(_agBgGain);
+    _agBgOsc.start();
+  } catch(e) { _agAudioCtx = null; }
+}
+
+function _agStopBgSession() {
+  try { if (_agBgOsc)  { _agBgOsc.stop();        _agBgOsc  = null; } } catch(e) {}
+  try { if (_agAudioCtx) { _agAudioCtx.close();  _agAudioCtx = null; _agBgGain = null; } } catch(e) {}
+}
+// ─────────────────────────────────────────────────────────────────────────
 
 // Create a DOM-attached <audio> element
 function _agMakeAudio() {
@@ -3023,13 +3058,18 @@ function _agCreateKeepAliveWav() {
   v.setUint16(32,2,true); v.setUint16(34,16,true);
   ws(36,'data'); v.setUint32(40, n*2, true);
   for (let i = 0; i < n; i++) {
-    v.setInt16(44 + i*2, Math.sin(2 * Math.PI * 100 * i / sr) * 30, true);
+    // Amplitude 3000/32767 ≈ -21 dB at element level; combined with volume 0.01
+    // gives ~-61 dB — inaudible to humans but above iOS audio-session threshold
+    v.setInt16(44 + i*2, Math.sin(2 * Math.PI * 40 * i / sr) * 3000, true);
   }
   _agKeepAliveUrl = URL.createObjectURL(new Blob([buf], { type: 'audio/wav' }));
   return _agKeepAliveUrl;
 }
 
 function _agStartKeepAlive() {
+  // 1) Web Audio API session keeper (primary — survives iOS screen-off)
+  _agInitBgSession();
+  // 2) <audio> WAV loop (secondary backup)
   if (!_agKeepAlive) _agKeepAlive = _agMakeAudio();
   _agKeepAlive.src = _agCreateKeepAliveWav();
   _agKeepAlive.loop = true;
@@ -3038,6 +3078,8 @@ function _agStartKeepAlive() {
 }
 function _agStopKeepAlive() {
   if (_agKeepAlive) { _agKeepAlive.pause(); _agKeepAlive.removeAttribute('src'); }
+  // Note: _agBgSession is stopped separately in full stop (not here),
+  // so the AudioContext stays alive between sentences/chunks.
 }
 
 // Media Session API — lock screen controls
@@ -3066,17 +3108,34 @@ function _agReleaseWakeLock() {
   if (_agWakeLock) { _agWakeLock.release().catch(()=>{}); _agWakeLock = null; }
 }
 
-// Re-acquire wake lock when screen turns back on;
-// also detect if audio died while in background and attempt recovery
+// Re-acquire wake lock and resume AudioContext when screen turns back on.
+// Also recover <audio> playback that iOS may have paused while in background.
 document.addEventListener('visibilitychange', () => {
-  if (!document.hidden && _agPlaying && !_agPaused) {
-    _agRequestWakeLock();
-    // Check if audio mode playback was killed while in background
-    if (_agMode === 'audio' && _agAudio) {
-      if (_agAudio.paused && !_agAudio.ended) {
-        console.log('[ArchWander] Audio was paused in background — resuming');
-        _agAudio.play().catch(() => {});
+  if (!document.hidden) {
+    // Always try to resume AudioContext — iOS suspends it on screen-lock even
+    // if audio was playing. Calling resume() from a visibility event is
+    // sufficient to restart it without a new user gesture.
+    if (_agAudioCtx && _agAudioCtx.state === 'suspended') {
+      _agAudioCtx.resume().catch(() => {});
+    }
+    if (_agPlaying && !_agPaused) {
+      _agRequestWakeLock();
+      // Restart keepalive if it somehow stopped
+      if (_agKeepAlive && _agKeepAlive.paused) {
+        _agKeepAlive.play().catch(() => {});
       }
+      // Check if TTS audio was killed while in background
+      if (_agMode === 'audio' && _agAudio) {
+        if (_agAudio.paused && !_agAudio.ended) {
+          console.log('[ArchWander] Audio paused in background — resuming');
+          _agAudio.play().catch(() => {});
+        }
+      }
+    }
+  } else {
+    // Screen turning off — ensure AudioContext is running before we lose focus
+    if (_agAudioCtx && _agAudioCtx.state === 'suspended') {
+      _agAudioCtx.resume().catch(() => {});
     }
   }
 });
@@ -3319,6 +3378,7 @@ function agStop() {
     if(a){ a.pause(); a.onended=null; a.onerror=null; a.removeAttribute('src'); a.load(); }
   });
   _agStopKeepAlive();
+  _agStopBgSession(); // shut down Web Audio API context
   _agClearBlobCache();
   if (_agSynth) _agSynth.cancel();
   _agPlaying = false;
