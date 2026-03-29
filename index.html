@@ -21,7 +21,7 @@
       --text-secondary: #787878;
       --accent: #111111;
       --sidebar-w: 300px;
-      --panel-w: 400px;
+      --panel-w: 420px;
       --header-h: 120px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -418,19 +418,20 @@
     .p-tags { display: flex; flex-wrap: wrap; gap: 4px; }
     .p-tag { font-size: 10px; padding: 2px 8px; border-radius: 10px; background: var(--bg); color: var(--text-secondary); border: 1px solid var(--border); }
 
-    /* Tabs — horizontally scrollable */
+    /* Tabs — equal-width, always fully visible */
     .tabs {
-      display: flex; border-bottom: 1px solid var(--border); padding: 0 18px;
-      overflow-x: auto; flex-shrink: 0; gap: 0;
+      display: flex; border-bottom: 1px solid var(--border);
+      overflow: hidden; flex-shrink: 0; gap: 0;
     }
-    .tabs::-webkit-scrollbar { display: none; }
     .tab {
-      padding: 10px 2px; margin-right: 16px;
-      font-size: 12px; cursor: pointer; color: var(--text-secondary);
+      flex: 1; min-width: 0;
+      padding: 10px 3px;
+      font-size: 11.5px; cursor: pointer; color: var(--text-secondary);
       border-bottom: 2px solid transparent; transition: all 0.15s;
-      white-space: nowrap; flex-shrink: 0;
+      white-space: nowrap; text-align: center; overflow: hidden;
+      text-overflow: ellipsis;
     }
-    .tab.active { color: #111; border-bottom-color: #111; font-weight: 500; }
+    .tab.active { color: #111; border-bottom-color: #111; font-weight: 600; }
     .tab-pane { display: none; padding: 18px; }
     .tab-pane.active { display: block; }
 
@@ -686,13 +687,13 @@
 
     /* Report tab button — sits inline right after Reviews tab */
     .tab-report-btn {
-      padding: 10px 2px; margin-right: 16px;
-      font-size: 12px; cursor: pointer; color: var(--text-secondary);
+      padding: 10px 6px; margin-left: 2px;
+      font-size: 11px; cursor: pointer; color: var(--text-secondary);
       background: none; border: none; border-bottom: 2px solid transparent;
       font-family: inherit; white-space: nowrap; flex-shrink: 0;
-      transition: color 0.15s;
+      transition: color 0.15s; opacity: 0.65;
     }
-    .tab-report-btn:hover { color: #EF4444; }
+    .tab-report-btn:hover { color: #EF4444; opacity: 1; }
 
     /* Report modal */
     .report-modal-overlay {
@@ -1084,8 +1085,9 @@
       header { padding: 0 10px; min-height: 52px; }
       .header-top-row { gap: 6px; }
       #gps-btn span { display: none; }
-      .tabs { padding: 0 6px; gap: 0; }
-      .tabs button, .tabs .tab { padding: 8px 10px; font-size: 12px; white-space: nowrap; }
+      .tabs { padding: 0; gap: 0; overflow: hidden; }
+      .tabs .tab { padding: 8px 3px; font-size: 11px; }
+      .tab-report-btn { padding: 8px 5px; font-size: 10.5px; }
       .panel { top: 33vh; height: auto; }
       .gallery { height: 180px; }
       .detail-section { padding: 14px 14px; }
@@ -2607,10 +2609,10 @@ function buildDirectionsTab(loc, trans = {}) {
 // Audio data registry — populated on demand via dynamic <script> load
 // AUDIO_EN_NYC is defined in data-audio-en-new-york.js (lazy-loaded)
 const _AUDIO_CITY_MAP = {
-  'nyc': { varName: 'AUDIO_EN_NYC', file: 'data-audio-en-new-york.js' },
-  'sel': { varName: 'AUDIO_EN_SEL', file: 'data-audio-en-seoul.js'    },
-  'lon': { varName: 'AUDIO_EN_LON', file: 'data-audio-en-london.js'   },
-  'tky': { varName: 'AUDIO_EN_TKY', file: 'data-audio-en-tokyo.js'    },
+  'new-york': { varName: 'AUDIO_EN_NYC', file: 'data-audio-en-new-york.js' },
+  'seoul':    { varName: 'AUDIO_EN_SEL', file: 'data-audio-en-seoul.js'    },
+  'london':   { varName: 'AUDIO_EN_LON', file: 'data-audio-en-london.js'   },
+  'tokyo':    { varName: 'AUDIO_EN_TKY', file: 'data-audio-en-tokyo.js'    },
 };
 const _agLoadedCities = new Set(); // tracks which city files are already in DOM
 let _agSynth    = window.speechSynthesis || null;
