@@ -2006,6 +2006,8 @@ const T = {
     loc_count:    n => `${n} location${n !== 1 ? 's' : ''}`,
     fav_label:    'Favorite',
     vis_label:    'Visited',
+    near_me:      'Find Near Me',
+    favorites:    'Favorites',
   },
   ko: {
     search_ph:    '건물, 건축가, 스타일 검색…',
@@ -2038,6 +2040,8 @@ const T = {
     loc_count:    n => `${n}개 장소`,
     fav_label:    '즐겨찾기',
     vis_label:    '방문함',
+    near_me:      '내위치 근처 검색',
+    favorites:    '즐겨찾기',
   }
 };
 
@@ -2275,6 +2279,11 @@ function applyLang() {
     const el = document.querySelector(`.tab[data-tab="${tab}"]`);
     if (el) el.textContent = t(key);
   });
+  // Near Me + Favorites header buttons
+  const nearText = document.querySelector('#near-me-btn .near-text');
+  if (nearText) nearText.textContent = t('near_me');
+  const favText = document.querySelector('#fav-btn .fav-text');
+  if (favText) favText.textContent = t('favorites');
   updateReportBtnLabel();
   // Lang dropdown: update label + checkmarks (use short label on mobile)
   const langCur = document.getElementById('lang-current');
