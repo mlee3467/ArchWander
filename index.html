@@ -2809,6 +2809,7 @@ function openLoc(loc) {
 
 function closePanel() {
   if (typeof agStop === 'function') agStop();
+  _agLoaded = null; // reset so audio tab reloads when re-opening same location
   _clearWalkRoute();
   document.getElementById('panel').classList.remove('open');
   const _pb2 = document.getElementById('panel-backdrop'); if (_pb2) _pb2.classList.remove('visible');
@@ -3309,8 +3310,18 @@ function agSetAutoPlay(checked) {
 }
 
 /* -- Timeline seek (drag) ---------------------------------------------- */
+let _agSeeking = false; // true while user is dragging the timeline
+
 function _agOnSeek(val) {
-  // val is 0–1000; convert to 0–1 pct, then to sentence index
+  // Pause rAF progress updates so they don't fight with the user's drag
+  if (!_agSeeking) {
+    _agSeeking = true;
+    _agStopSmoothProgress();
+    // Pause speechSynthesis during drag so it doesn't advance sentences
+    if (_agPlaying && !_agPaused && _agSynth && _agSynth.speaking) {
+      _agSynth.pause();
+    }
+  }
   const pct = parseInt(val) / 1000;
   const sentIdx = Math.round(pct * Math.max(0, _agSentences.length - 1));
   _agUpdateTimeline(pct);
@@ -3319,6 +3330,7 @@ function _agOnSeek(val) {
 }
 
 function _agOnSeekEnd(val) {
+  _agSeeking = false;
   const pct = parseInt(val) / 1000;
   const target = Math.round(pct * Math.max(0, _agSentences.length - 1));
   const wasPlaying = _agPlaying && !_agPaused;
@@ -3482,7 +3494,7 @@ function _agFmtSec(s) {
 function _agStartSmoothProgress() {
   _agStopSmoothProgress();
   function tick() {
-    if (!_agPlaying || _agPaused) return;
+    if (!_agPlaying || _agPaused || _agSeeking) return;
     const n = Math.max(1, _agSentences.length - 1);
     let frac = 0; // fractional progress within current sentence (0..1)
 
