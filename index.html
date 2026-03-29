@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>ArchWander</title>
-  <link rel="icon" type="image/png" href="img/Logo_favicon.png">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect x='2' y='2' width='60' height='60' rx='6' fill='white' stroke='black' stroke-width='3'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Arial,sans-serif' font-weight='bold' font-size='30' fill='rgb(0,0,255)'%3EAW%3C/text%3E%3C/svg%3E">
   <!-- PWA manifest — enables "Add to Home Screen" for background audio on iOS/Android -->
   <link rel="manifest" href="manifest.json">
   <meta name="mobile-web-app-capable" content="yes">
@@ -95,6 +95,28 @@
     }
     #near-me-btn:hover { border-color: #4F46E5; color: #4F46E5; }
     #near-me-btn.active { background: #4F46E5; border-color: #4F46E5; color: white; }
+    /* ── Favorites button (header) ───────────────────── */
+    #fav-btn {
+      height: 34px; padding: 0 13px;
+      border: 1px solid #fbbf24; border-radius: 8px;
+      font-size: 12px; font-family: inherit; background: white;
+      cursor: pointer; display: flex; align-items: center; gap: 5px;
+      white-space: nowrap; flex-shrink: 0; transition: all 0.2s;
+      color: #b45309; font-weight: 600;
+    }
+    #fav-btn:hover { border-color: #f59e0b; background: #fffbeb; }
+    #fav-btn.active { background: #f59e0b; border-color: #f59e0b; color: white; }
+    /* ── Fav/Visited action buttons inside panel header ── */
+    .p-action-row { display: flex; gap: 6px; margin-top: 6px; }
+    .p-action-btn {
+      height: 28px; padding: 0 10px; border-radius: 14px;
+      font-size: 11px; font-family: inherit; font-weight: 600;
+      cursor: pointer; display: flex; align-items: center; gap: 4px;
+      transition: all 0.15s; border: 1.5px solid #e0e0e0; background: #fff; color: #555;
+    }
+    .p-action-btn:hover { border-color: #aaa; }
+    .p-action-btn.fav-active { background: #fef3c7; border-color: #f59e0b; color: #b45309; }
+    .p-action-btn.vis-active { background: #ecfdf5; border-color: #10b981; color: #047857; }
     @keyframes pulse-border { 0%,100%{opacity:1} 50%{opacity:0.5} }
     /* ── Walk bar (below header) ───────────────────────── */
     #walk-bar {
@@ -1079,6 +1101,8 @@
       .search-wrap { max-width: none; flex: 1; min-width: 0; }
       #near-me-btn .near-text { display: none; }
       #near-me-btn { padding: 0 8px; height: 28px; font-size: 11px; }
+      #fav-btn .fav-text { display: none; }
+      #fav-btn { padding: 0 8px; height: 28px; font-size: 13px; }
       #menu-btn { display: flex; }
       #city-select-mobile { display: block; flex-shrink: 0; max-width: 110px; font-size: 11px; height: 28px; }
       #lang-btn { height: 28px; font-size: 11px; padding: 0 8px; }
@@ -1520,7 +1544,7 @@
   </div>
   <div class="header-row2">
     <button id="near-me-btn" onclick="toggleNearMe()" title="Find architecture near a location">
-      <span style="font-size:15px;line-height:1;flex-shrink:0">📌</span>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="flex-shrink:0"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
       <span class="near-text">Find Near Me</span>
     </button>
     <select id="city-select-mobile" onchange="selectCity(this.value)">
@@ -1529,6 +1553,10 @@
       <option value="lon">London</option>
       <option value="tky">Tokyo</option>
     </select>
+    <button id="fav-btn" onclick="toggleFavFilter()" title="Show favorites & visited">
+      <span style="font-size:14px;line-height:1;flex-shrink:0">&#9734;</span>
+      <span class="fav-text">Favorites</span>
+    </button>
     <div class="header-city-row">
       <button class="city-tab active" id="city-nyc" onclick="selectCity('nyc')">🗽 New York</button>
       <button class="city-tab" id="city-sel" onclick="selectCity('sel')">🏙 Seoul</button>
@@ -2421,12 +2449,7 @@ function createClusterGroup() {
 }
 
 function addMarker(loc) {
-  const color = CAT_COLORS[_pCat(loc)] || '#111';
-  const icon = L.divIcon({
-    className:'',
-    html:`<div class="m-pin-wrap"><div style="width:24px;height:24px;background:${color};border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2.5px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3)"></div></div>`,
-    iconSize:[24,24], iconAnchor:[12,24]
-  });
+  const icon = _buildLocIcon(loc);
   const m = L.marker([loc.lat, loc.lng], { icon })
     .bindTooltip(loc.name, { direction:'top', offset:[0,-26], opacity:0.94 })
     .on('click', () => openLoc(loc));
@@ -2784,6 +2807,10 @@ function openLoc(loc) {
     <div class="p-title">${koName}</div>
     <div class="p-sub">${loc.arch} &nbsp;·&nbsp; ${loc.yr} &nbsp;·&nbsp; ${loc.style}</div>
     <div class="p-tags">${loc.tags.map(t=>`<span class="p-tag">${t}</span>`).join('')}</div>
+    <div class="p-action-row">
+      <button class="p-action-btn${isFav(loc.id)?' fav-active':''}" id="p-fav-btn" onclick="toggleFav('${loc.id}')">${isFav(loc.id)?'★':'☆'} Favorite</button>
+      <button class="p-action-btn${isVisited(loc.id)?' vis-active':''}" id="p-vis-btn" onclick="toggleVisited('${loc.id}')">${isVisited(loc.id)?'✓':'○'} Visited</button>
+    </div>
   `;
 
   // Always render English immediately (instant), then apply Korean on-demand.
@@ -4610,6 +4637,106 @@ function closeSidebar() {
 }
 
 // ══════════════════════════════════════════════════════════════════
+// FAVORITES & VISITED
+// ══════════════════════════════════════════════════════════════════
+const _FAV_KEY = 'archwander_favs_v1';
+const _VIS_KEY = 'archwander_visited_v1';
+let _favSet = new Set(JSON.parse(localStorage.getItem(_FAV_KEY) || '[]'));
+let _visSet = new Set(JSON.parse(localStorage.getItem(_VIS_KEY) || '[]'));
+let _favFilterActive = false;
+
+function _saveFavs() { localStorage.setItem(_FAV_KEY, JSON.stringify([..._favSet])); }
+function _saveVis()  { localStorage.setItem(_VIS_KEY, JSON.stringify([..._visSet])); }
+
+function isFav(id)     { return _favSet.has(id); }
+function isVisited(id) { return _visSet.has(id); }
+
+function toggleFav(id) {
+  if (_favSet.has(id)) _favSet.delete(id); else _favSet.add(id);
+  _saveFavs();
+  _updateFavBtns(id);
+  _refreshMarkerIcon(id);
+  if (_favFilterActive) _applyFavFilter();
+}
+
+function toggleVisited(id) {
+  if (_visSet.has(id)) _visSet.delete(id); else _visSet.add(id);
+  _saveVis();
+  _updateFavBtns(id);
+  _refreshMarkerIcon(id);
+  if (_favFilterActive) _applyFavFilter();
+}
+
+function _updateFavBtns(id) {
+  const fb = document.getElementById('p-fav-btn');
+  const vb = document.getElementById('p-vis-btn');
+  if (fb) {
+    fb.classList.toggle('fav-active', _favSet.has(id));
+    fb.innerHTML = (_favSet.has(id) ? '★' : '☆') + ' Favorite';
+  }
+  if (vb) {
+    vb.classList.toggle('vis-active', _visSet.has(id));
+    vb.innerHTML = (_visSet.has(id) ? '✓' : '○') + ' Visited';
+  }
+}
+
+function _refreshMarkerIcon(id) {
+  const entry = markers.find(e => e.loc.id === id);
+  if (!entry) return;
+  const loc = entry.loc;
+  entry.m.setIcon(_buildLocIcon(loc));
+}
+
+function _buildLocIcon(loc) {
+  const color = CAT_COLORS[_pCat(loc)] || '#111';
+  if (isFav(loc.id)) {
+    // Favorite: star marker
+    return L.divIcon({
+      className: '',
+      html: `<div class="m-pin-wrap"><div style="width:26px;height:26px;background:#f59e0b;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2.5px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center"><span style="transform:rotate(45deg);font-size:13px;line-height:1;color:white">★</span></div></div>`,
+      iconSize: [26, 26], iconAnchor: [13, 26]
+    });
+  }
+  if (isVisited(loc.id)) {
+    // Visited: hollow style — white fill, black outline
+    return L.divIcon({
+      className: '',
+      html: `<div class="m-pin-wrap"><div style="width:24px;height:24px;background:white;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2.5px solid #333;box-shadow:0 2px 8px rgba(0,0,0,0.15)"></div></div>`,
+      iconSize: [24, 24], iconAnchor: [12, 24]
+    });
+  }
+  // Default marker
+  return L.divIcon({
+    className: '',
+    html: `<div class="m-pin-wrap"><div style="width:24px;height:24px;background:${color};border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2.5px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3)"></div></div>`,
+    iconSize: [24, 24], iconAnchor: [12, 24]
+  });
+}
+
+function toggleFavFilter() {
+  _favFilterActive = !_favFilterActive;
+  document.getElementById('fav-btn').classList.toggle('active', _favFilterActive);
+  if (_favFilterActive) {
+    _applyFavFilter();
+  } else {
+    // Restore all markers
+    refreshApp();
+  }
+}
+
+function _applyFavFilter() {
+  if (!clusterGroup) return;
+  const favVisIds = new Set([..._favSet, ..._visSet]);
+  markers.forEach(({ loc, m }) => {
+    if (favVisIds.has(loc.id) && loc.city === activeCityKey) {
+      if (!clusterGroup.hasLayer(m)) clusterGroup.addLayer(m);
+    } else {
+      clusterGroup.removeLayer(m);
+    }
+  });
+}
+
+// ══════════════════════════════════════════════════════════════════
 // CITY SELECTOR
 // ══════════════════════════════════════════════════════════════════
 const CITY_META = {
@@ -4618,7 +4745,7 @@ const CITY_META = {
   lon: { key: 'london',   label: '🎡 London',   lat: 51.5074, lng: -0.1278,  zoom: 13 },
   tky: { key: 'tokyo',    label: '🏯 Tokyo',    lat: 35.6762, lng: 139.6503, zoom: 13 }
 };
-let activeCity    = 'nyc';
+let activeCity    = 'nyc';   // default — overridden by GPS in boot
 let activeCityKey = 'new-york';
 
 function selectCity(city) {
@@ -4658,6 +4785,30 @@ document.addEventListener('keydown', e => {
 });
 
 // ══════════════════════════════════════════════════════════════════
+// GPS → NEAREST CITY
+// ══════════════════════════════════════════════════════════════════
+function _nearestCity(lat, lng) {
+  let best = 'nyc', bestDist = Infinity;
+  for (const [code, m] of Object.entries(CITY_META)) {
+    const dLat = lat - m.lat, dLng = lng - m.lng;
+    const d = dLat * dLat + dLng * dLng;
+    if (d < bestDist) { bestDist = d; best = code; }
+  }
+  return best;
+}
+
+function _initCityByGPS() {
+  return new Promise(resolve => {
+    if (!navigator.geolocation) { resolve('nyc'); return; }
+    navigator.geolocation.getCurrentPosition(
+      pos => resolve(_nearestCity(pos.coords.latitude, pos.coords.longitude)),
+      () => resolve('nyc'),
+      { timeout: 4000, maximumAge: 300000 }
+    );
+  });
+}
+
+// ══════════════════════════════════════════════════════════════════
 // BOOT
 // ══════════════════════════════════════════════════════════════════
 window.addEventListener('load', function() {
@@ -4671,6 +4822,11 @@ window.addEventListener('load', function() {
     return;
   }
   initMap(); // badge is updated inside initMap → refreshApp path
+
+  // GPS-based city selection (async, overrides default after map init)
+  _initCityByGPS().then(city => {
+    if (city !== activeCity) selectCity(city);
+  });
 
   // ── Custom panes for walk overlay z-ordering ──────────────────
   // Leaflet defaults: tilePane=200, overlayPane=400, markerPane=600
