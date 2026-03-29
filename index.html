@@ -2979,10 +2979,13 @@ function _agTtsUrlWith(text, lang, epIdx) {
 }
 
 // Test a single TTS endpoint (returns promise → true/false)
+// NOTE: do NOT set crossOrigin on the Audio element — Google TTS does not
+// send CORS headers, so crossOrigin='anonymous' causes the load to fail.
+// Without crossOrigin, <audio> loads the resource in "no-cors" mode which
+// is perfectly fine for playback (just can't read the data via Web Audio API).
 function _agTestOneEndpoint(epIdx) {
   return new Promise(resolve => {
     const a = new Audio();
-    a.crossOrigin = 'anonymous';
     const url = _agTtsUrlWith('hello', 'en', epIdx);
     const timer = setTimeout(() => { a.src = ''; resolve(false); }, 5000);
     a.oncanplaythrough = () => { clearTimeout(timer); a.src = ''; resolve(true); };
