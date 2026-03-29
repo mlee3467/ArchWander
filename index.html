@@ -107,16 +107,19 @@
     #fav-btn:hover { border-color: #f59e0b; background: #fffbeb; }
     #fav-btn.active { background: #f59e0b; border-color: #f59e0b; color: white; }
     /* ── Fav/Visited action buttons inside panel header ── */
-    .p-action-row { display: flex; gap: 6px; margin-top: 6px; }
+    .p-action-row { display: flex; gap: 8px; margin-top: 8px; }
     .p-action-btn {
-      height: 28px; padding: 0 10px; border-radius: 14px;
-      font-size: 11px; font-family: inherit; font-weight: 600;
-      cursor: pointer; display: flex; align-items: center; gap: 4px;
-      transition: all 0.15s; border: 1.5px solid #e0e0e0; background: #fff; color: #555;
+      height: 36px; padding: 0 14px; border-radius: 6px;
+      font-size: 12px; font-family: inherit; font-weight: 700;
+      cursor: pointer; display: flex; align-items: center; gap: 6px;
+      transition: all 0.15s; border: 2px solid #d0d0d0; background: #f5f5f5; color: #888;
     }
-    .p-action-btn:hover { border-color: #aaa; }
-    .p-action-btn.fav-active { background: #fef3c7; border-color: #f59e0b; color: #b45309; }
-    .p-action-btn.vis-active { background: #ecfdf5; border-color: #10b981; color: #047857; }
+    .p-action-btn:hover { border-color: #999; background: #eee; }
+    .p-action-btn .act-icon { font-size: 18px; line-height: 1; }
+    .p-action-btn.fav-active { background: #fbbf24; border-color: #f59e0b; color: #fff; }
+    .p-action-btn.fav-active:hover { background: #f59e0b; }
+    .p-action-btn.vis-active { background: #10b981; border-color: #059669; color: #fff; }
+    .p-action-btn.vis-active:hover { background: #059669; }
     @keyframes pulse-border { 0%,100%{opacity:1} 50%{opacity:0.5} }
     /* ── Walk bar (below header) ───────────────────────── */
     #walk-bar {
@@ -2805,11 +2808,11 @@ function openLoc(loc) {
   document.getElementById('panel-head').innerHTML = `
     <div class="p-cat">${catBadges}</div>
     <div class="p-title">${koName}</div>
-    <div class="p-sub">${loc.arch} &nbsp;·&nbsp; ${loc.yr} &nbsp;·&nbsp; ${loc.style}</div>
+    <div class="p-sub">${loc.arch} &nbsp;·&nbsp; ${loc.yr}</div>
     <div class="p-tags">${loc.tags.map(t=>`<span class="p-tag">${t}</span>`).join('')}</div>
     <div class="p-action-row">
-      <button class="p-action-btn${isFav(loc.id)?' fav-active':''}" id="p-fav-btn" onclick="toggleFav('${loc.id}')">${isFav(loc.id)?'★':'☆'} Favorite</button>
-      <button class="p-action-btn${isVisited(loc.id)?' vis-active':''}" id="p-vis-btn" onclick="toggleVisited('${loc.id}')">${isVisited(loc.id)?'✓':'○'} Visited</button>
+      <button class="p-action-btn${isFav(loc.id)?' fav-active':''}" id="p-fav-btn" onclick="toggleFav('${loc.id}')"><span class="act-icon">${isFav(loc.id)?'★':'☆'}</span> Favorite</button>
+      <button class="p-action-btn${isVisited(loc.id)?' vis-active':''}" id="p-vis-btn" onclick="toggleVisited('${loc.id}')"><span class="act-icon">${isVisited(loc.id)?'✓':'○'}</span> Visited</button>
     </div>
   `;
 
@@ -4672,11 +4675,11 @@ function _updateFavBtns(id) {
   const vb = document.getElementById('p-vis-btn');
   if (fb) {
     fb.classList.toggle('fav-active', _favSet.has(id));
-    fb.innerHTML = (_favSet.has(id) ? '★' : '☆') + ' Favorite';
+    fb.innerHTML = `<span class="act-icon">${_favSet.has(id) ? '★' : '☆'}</span> Favorite`;
   }
   if (vb) {
     vb.classList.toggle('vis-active', _visSet.has(id));
-    vb.innerHTML = (_visSet.has(id) ? '✓' : '○') + ' Visited';
+    vb.innerHTML = `<span class="act-icon">${_visSet.has(id) ? '✓' : '○'}</span> Visited`;
   }
 }
 
@@ -4716,22 +4719,19 @@ function _buildLocIcon(loc) {
 function toggleFavFilter() {
   _favFilterActive = !_favFilterActive;
   document.getElementById('fav-btn').classList.toggle('active', _favFilterActive);
-  if (_favFilterActive) {
-    _applyFavFilter();
-  } else {
-    // Restore all markers
-    refreshApp();
-  }
+  _applyFavFilter();
 }
 
 function _applyFavFilter() {
   if (!clusterGroup) return;
   const favVisIds = new Set([..._favSet, ..._visSet]);
   markers.forEach(({ loc, m }) => {
-    if (favVisIds.has(loc.id) && loc.city === activeCityKey) {
-      if (!clusterGroup.hasLayer(m)) clusterGroup.addLayer(m);
+    if (loc.city !== activeCityKey) return;
+    if (_favFilterActive && !favVisIds.has(loc.id)) {
+      // Dim non-fav markers: reduce opacity
+      m.setOpacity(0.2);
     } else {
-      clusterGroup.removeLayer(m);
+      m.setOpacity(1);
     }
   });
 }
