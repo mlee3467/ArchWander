@@ -2911,7 +2911,7 @@ function _agTtsUrl(text, lang) {
 }
 
 // Test if TTS URL is reachable (returns promise → true/false)
-function _agTestTts() {
+function _agTestTtsOnce() {
   return new Promise(resolve => {
     const a = new Audio();
     const url = _agTtsUrl('ok', 'en');
@@ -2921,6 +2921,48 @@ function _agTestTts() {
     a.src = url;
     a.load();
   });
+}
+// Retry TTS test up to 3 times (network may be slow on first load)
+async function _agTestTts() {
+  for (let i = 0; i < 3; i++) {
+    if (await _agTestTtsOnce()) return true;
+    if (i < 2) await new Promise(r => setTimeout(r, 1500)); // wait between retries
+  }
+  return false;
+}
+
+/* ── Prefetch TTS audio as blob URLs ─────────────────────────────────
+   Download TTS MP3 ahead of time using fetch() → blob → objectURL.
+   This eliminates network dependency during playback so the audio
+   keeps playing even when the OS throttles network in background.
+   ──────────────────────────────────────────────────────────────────── */
+const _agBlobCache = new Map(); // key: ttsUrl → value: blobUrl
+let _agPrefetchAbort = null;    // AbortController for cancel on stop
+
+function _agPrefetchChunk(text, lang) {
+  const ttsUrl = _agTtsUrl(text, lang);
+  if (_agBlobCache.has(ttsUrl)) return Promise.resolve(_agBlobCache.get(ttsUrl));
+  const signal = _agPrefetchAbort ? _agPrefetchAbort.signal : undefined;
+  return fetch(ttsUrl, { signal }).then(r => r.blob()).then(blob => {
+    const blobUrl = URL.createObjectURL(blob);
+    _agBlobCache.set(ttsUrl, blobUrl);
+    return blobUrl;
+  }).catch(() => ttsUrl); // fallback to streaming URL on error
+}
+
+// Prefetch all chunks for a sentence (returns array of blob/streaming URLs)
+function _agPrefetchSentence(sentText, lang) {
+  const clean = _agCleanForTts(sentText.trim(), lang);
+  if (!clean) return Promise.resolve([]);
+  const chunks = _agChunk(clean);
+  return Promise.all(chunks.map(c => _agPrefetchChunk(c, lang)));
+}
+
+// Clear blob cache (on stop)
+function _agClearBlobCache() {
+  _agBlobCache.forEach(url => { try { URL.revokeObjectURL(url); } catch(e){} });
+  _agBlobCache.clear();
+  if (_agPrefetchAbort) { _agPrefetchAbort.abort(); _agPrefetchAbort = null; }
 }
 
 // Clean text for TTS: strip parenthetical English annotations in Korean mode
@@ -3011,9 +3053,19 @@ function _agReleaseWakeLock() {
   if (_agWakeLock) { _agWakeLock.release().catch(()=>{}); _agWakeLock = null; }
 }
 
-// Re-acquire wake lock when screen turns back on
+// Re-acquire wake lock when screen turns back on;
+// also detect if audio died while in background and attempt recovery
 document.addEventListener('visibilitychange', () => {
-  if (!document.hidden && _agPlaying) _agRequestWakeLock();
+  if (!document.hidden && _agPlaying && !_agPaused) {
+    _agRequestWakeLock();
+    // Check if audio mode playback was killed while in background
+    if (_agMode === 'audio' && _agAudio) {
+      if (_agAudio.paused && !_agAudio.ended) {
+        console.log('[ArchWander] Audio was paused in background — resuming');
+        _agAudio.play().catch(() => {});
+      }
+    }
+  }
 });
 const _agSpeeds   = [0.75, 1, 1.25, 1.5, 2];
 const _AG_SPEED_KEY    = 'aw_audio_speed';
@@ -3254,6 +3306,7 @@ function agStop() {
     if(a){ a.pause(); a.onended=null; a.onerror=null; a.removeAttribute('src'); a.load(); }
   });
   _agStopKeepAlive();
+  _agClearBlobCache();
   if (_agSynth) _agSynth.cancel();
   _agPlaying = false;
   _agPaused  = false;
@@ -3264,6 +3317,9 @@ function agStop() {
   _agUpdateTimeline(0);
   _agClearHighlight();
   _agReleaseWakeLock();
+  // Remove synth warning if shown
+  const warn = document.getElementById('ag-synth-warn');
+  if (warn) warn.remove();
 }
 
 function agToggleSpeedMenu(e) {
@@ -3376,8 +3432,11 @@ function _onPlaybackDone() {
   _agUpdateTimeline(0);
   _agClearHighlight();
   _agStopKeepAlive();
+  _agClearBlobCache();
   _agReleaseWakeLock();
   _agUpdateModeLabel('');
+  const warn = document.getElementById('ag-synth-warn');
+  if (warn) warn.remove();
 }
 
 // Show which playback engine is active in the player subtitle
@@ -3397,6 +3456,7 @@ function _agStartPlayback(fromIdx) {
   // Stop any existing playback
   [_agAudioA, _agAudioB].forEach(a => { if(a){a.pause(); a.onended=null; a.onerror=null;} });
   _agStopKeepAlive();
+  _agClearBlobCache();
   if (_agSynth) _agSynth.cancel();
 
   _agPlaying = true;
@@ -3411,6 +3471,7 @@ function _agStartPlayback(fromIdx) {
   //   and subsequent audio.play() calls are silently blocked by the OS.
   _agStartKeepAlive();
 
+  _agPrefetchAbort = new AbortController();
   let idx = fromIdx;
 
   _agStartSmoothProgress();
@@ -3420,17 +3481,24 @@ function _agStartPlayback(fromIdx) {
     playViaAudio();
   } else {
     // TTS unavailable or still testing → use synth (keepalive keeps session alive)
+    _agShowSynthWarning();
     playViaSynth();
   }
 
   /* ── Strategy A: Google TTS via ping-pong <audio> (survives bg) ──── */
+  /* Now with prefetch: downloads chunks as blobs BEFORE playing, so
+     playback continues even when OS throttles network in background.
+     Also preloads first chunk of next sentence for seamless transition. */
   function playViaAudio() {
     _agMode = 'audio';
     _agUpdateModeLabel('audio');
 
+    // Kick off lookahead prefetch for upcoming sentences
+    _agPrefetchAhead(idx);
+
     function playSentence() {
       if (idx >= _agSentences.length) {
-        if (_agRepeat) { idx = 0; playSentence(); return; }
+        if (_agRepeat) { idx = 0; _agPrefetchAhead(0); playSentence(); return; }
         _onPlaybackDone(); return;
       }
       _agSentIdx = idx;
@@ -3446,21 +3514,37 @@ function _agStartPlayback(fromIdx) {
       let ci = 0;
       _agChunkIdx = 0;
 
+      // Prefetch next 2 sentences while current one plays
+      _agPrefetchAhead(idx + 1);
+
       function playChunk() {
         if (ci >= chunks.length) { idx++; playSentence(); return; }
         _agChunkIdx = ci;
 
         const active  = _agGetActive();
         const standby = _agGetStandby();
-        const url = _agTtsUrl(chunks[ci], LANG);
+        const ttsUrl  = _agTtsUrl(chunks[ci], LANG);
+        // Use blob URL if available (prefetched), else streaming URL
+        const blobUrl = _agBlobCache.get(ttsUrl);
+        const playUrl = blobUrl || ttsUrl;
 
-        // Preload next chunk in standby element (gap-free transition)
+        // Preload next chunk in standby element (gap-free within sentence)
         if (ci + 1 < chunks.length) {
-          standby.src = _agTtsUrl(chunks[ci + 1], LANG);
+          const nextTts = _agTtsUrl(chunks[ci + 1], LANG);
+          standby.src = _agBlobCache.get(nextTts) || nextTts;
           standby.load();
+        } else if (idx + 1 < _agSentences.length) {
+          // ★ Cross-sentence preload: load first chunk of NEXT sentence
+          const nextClean = _agCleanForTts(_agSentences[idx + 1].trim(), LANG);
+          if (nextClean) {
+            const nextChunks = _agChunk(nextClean);
+            const nextTts = _agTtsUrl(nextChunks[0], LANG);
+            standby.src = _agBlobCache.get(nextTts) || nextTts;
+            standby.load();
+          }
         }
 
-        active.src = url;
+        active.src = playUrl;
         active.playbackRate = _agSpeeds[_agSpeedIdx];
         _agAudio = active; // for progress tracking
         active.onended = () => { _agSwapAudio(); ci++; playChunk(); };
@@ -3527,6 +3611,31 @@ function _agStartPlayback(fromIdx) {
     }
     speakNext();
   }
+}
+
+// Prefetch next N sentences (lookahead buffer for gap-free background playback)
+function _agPrefetchAhead(startIdx, count) {
+  count = count || 3;
+  for (let s = startIdx; s < Math.min(startIdx + count, _agSentences.length); s++) {
+    _agPrefetchSentence(_agSentences[s], LANG);
+  }
+}
+
+// Show warning when using synth mode on mobile (background audio won't survive)
+function _agShowSynthWarning() {
+  const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+  if (!isMobile) return;
+  const existing = document.getElementById('ag-synth-warn');
+  if (existing) return; // already shown
+  const bar = document.getElementById('ag-script-box');
+  if (!bar) return;
+  const warn = document.createElement('div');
+  warn.id = 'ag-synth-warn';
+  warn.style.cssText = 'background:#FEF3C7;color:#92400E;font-size:11px;padding:6px 12px;border-radius:6px;margin:6px 0;line-height:1.4;';
+  warn.innerHTML = LANG === 'ko'
+    ? '⚠ TTS 서버 연결 불가 — 기본 음성 엔진을 사용합니다. 화면을 끄면 재생이 중단될 수 있습니다.'
+    : '⚠ TTS server unavailable — using device voice. Audio may stop when screen is off.';
+  bar.parentNode.insertBefore(warn, bar);
 }
 
 function _agHighlight(idx) {
@@ -3621,10 +3730,11 @@ function _agStopSmoothProgress() {
 
 // Pre-test Google TTS on page load — result is ready before user taps play
 // (Never run this inside a play gesture — the async wait kills the gesture context)
+// Now retries up to 3 times with 1.5s delay between attempts.
 let _agTtsAvailable = null;  // null=testing, true=ok, false=unavailable
 _agTestTts().then(ok => {
   _agTtsAvailable = ok;
-  console.log('[ArchWander] TTS pre-test:', ok ? '✓ available' : '✗ unavailable');
+  console.log('[ArchWander] TTS pre-test:', ok ? '✓ available' : '✗ unavailable (after 3 retries)');
 });
 
 // Pre-load voices (Chrome async)
