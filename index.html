@@ -510,11 +510,24 @@
       margin: -18px -18px 16px -18px; /* bleed past tab-pane padding */
       padding: 14px 18px 12px;
     }
+    .ag-player-top-row {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 8px; margin-bottom: 0;
+    }
     .ag-player-title {
       font-size: 12px; font-weight: 700; color: #111;
       margin-bottom: 2px; display: flex; align-items: center; gap: 6px;
     }
     .ag-player-sub { font-size: 10.5px; color: var(--text-secondary); margin-bottom: 10px; }
+    .ag-autoplay-label {
+      display: flex; align-items: center; gap: 4px; cursor: pointer;
+      font-size: 10px; color: var(--text-secondary); white-space: nowrap;
+      padding-top: 1px; flex-shrink: 0;
+    }
+    .ag-autoplay-label input[type=checkbox] {
+      width: 12px; height: 12px; cursor: pointer; accent-color: #111;
+      flex-shrink: 0;
+    }
 
     /* Timeline range input */
     .ag-timeline-wrap { margin-bottom: 4px; }
@@ -564,14 +577,34 @@
     }
     .ag-ctrl-btn:hover { background: var(--bg); color: #111; border-color: #999; }
     .ag-ctrl-btn.active { color: #111; border-color: #111; background: var(--bg); }
+    /* Speed dropdown */
+    .ag-speed-wrap {
+      position: relative; flex-shrink: 0; margin-right: auto;
+    }
     .ag-speed-btn {
       font-size: 10px; font-weight: 700; color: var(--text-secondary);
       background: none; border: 1px solid var(--border);
       border-radius: 20px; padding: 5px 10px; cursor: pointer;
-      white-space: nowrap; flex-shrink: 0; margin-right: auto;
-      transition: all 0.12s;
+      white-space: nowrap; display: flex; align-items: center; gap: 3px;
+      transition: all 0.12s; user-select: none;
     }
-    .ag-speed-btn:hover { color: #111; border-color: #999; }
+    .ag-speed-btn:hover, .ag-speed-btn.open { color: #111; border-color: #999; background: var(--bg); }
+    .ag-speed-caret { font-size: 8px; opacity: 0.5; }
+    .ag-speed-menu {
+      display: none; position: absolute; bottom: calc(100% + 6px); left: 0;
+      background: white; border: 1px solid var(--border); border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1); overflow: hidden; min-width: 90px;
+      z-index: 20;
+    }
+    .ag-speed-wrap.open .ag-speed-menu { display: block; }
+    .ag-speed-opt {
+      padding: 9px 14px; font-size: 12px; font-weight: 500; cursor: pointer;
+      color: var(--text-secondary); transition: background 0.1s;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .ag-speed-opt:hover { background: var(--bg); color: #111; }
+    .ag-speed-opt.selected { color: #111; font-weight: 700; }
+    .ag-speed-opt .ag-speed-check { font-size: 10px; color: #111; }
     .ag-repeat-spacer { margin-left: auto; }
 
     /* Script text */
@@ -2727,8 +2760,24 @@ let _agUtter    = null;
 let _agPlaying  = false;
 let _agPaused   = false;
 let _agLoaded   = null; // id of location whose script is rendered
-let _agSpeeds   = [0.75, 1, 1.25, 1.5];
-let _agSpeedIdx = 1; // default 1×
+const _agSpeeds   = [0.75, 1, 1.25, 1.5];
+const _AG_SPEED_KEY    = 'aw_audio_speed';
+const _AG_AUTOPLAY_KEY = 'aw_audio_autoplay';
+// Restore saved speed from localStorage (persists across locations)
+let _agSpeedIdx = (() => {
+  try {
+    const saved = parseFloat(localStorage.getItem(_AG_SPEED_KEY));
+    const idx = _agSpeeds.indexOf(saved);
+    return idx >= 0 ? idx : 1; // default 1×
+  } catch(e) { return 1; }
+})();
+// Restore auto-play preference (default: true)
+let _agAutoPlay = (() => {
+  try {
+    const saved = localStorage.getItem(_AG_AUTOPLAY_KEY);
+    return saved === null ? true : saved === 'true';
+  } catch(e) { return true; }
+})();
 let _agScript   = '';  // current full script text
 let _agSentences = []; // split sentences
 let _agSentIdx  = 0;   // which sentence is playing
@@ -2813,8 +2862,18 @@ function _agRenderPlayer(entry) {
   return `<div class="ag-wrap">
     <!-- STICKY PLAYER BAR -->
     <div class="ag-player">
-      <div class="ag-player-title">🎧 ${entry.title}</div>
-      <div class="ag-player-sub">${minText} · English · Web Speech</div>
+      <div class="ag-player-top-row">
+        <div>
+          <div class="ag-player-title">🎧 ${entry.title}</div>
+          <div class="ag-player-sub">${minText} · English · Web Speech</div>
+        </div>
+        <label class="ag-autoplay-label" title="Auto-play when Audio tab opens">
+          <input type="checkbox" id="ag-autoplay-chk"
+            ${_agAutoPlay ? 'checked' : ''}
+            onchange="agSetAutoPlay(this.checked)">
+          <span>Auto-play</span>
+        </label>
+      </div>
 
       <!-- Timeline slider -->
       <div class="ag-timeline-wrap">
@@ -2831,8 +2890,15 @@ function _agRenderPlayer(entry) {
 
       <!-- Controls: speed · ⏮ ▶ ⏭ · 🔁 -->
       <div class="ag-ctrl-row">
-        <button class="ag-speed-btn" id="ag-speed-btn"
-          onclick="agCycleSpeed()">${_agSpeeds[_agSpeedIdx]}×</button>
+        <div class="ag-speed-wrap" id="ag-speed-wrap">
+          <button class="ag-speed-btn" id="ag-speed-btn"
+            onclick="agToggleSpeedMenu(event)">${_agSpeeds[_agSpeedIdx]}× <span class="ag-speed-caret">▲</span></button>
+          <div class="ag-speed-menu" id="ag-speed-menu">
+            ${_agSpeeds.map((s,i) => `<div class="ag-speed-opt${i===_agSpeedIdx?' selected':''}" onclick="agSetSpeed(${i})">
+              ${s}× <span class="ag-speed-check">${i===_agSpeedIdx?'✓':''}</span>
+            </div>`).join('')}
+          </div>
+        </div>
         <button class="ag-ctrl-btn" onclick="agSkip(-1)" title="Previous sentence">⏮</button>
         <button class="ag-play-btn" id="ag-play-btn" onclick="agToggle()">▶</button>
         <button class="ag-ctrl-btn" onclick="agSkip(1)" title="Next sentence">⏭</button>
@@ -2873,8 +2939,8 @@ async function loadAudioGuideTab(loc) {
 
   if (entry && entry.script) {
     root.innerHTML = _agRenderPlayer(entry);
-    // AUTO-PLAY immediately after rendering (tab click = user gesture)
-    requestAnimationFrame(() => { agToggle(); });
+    // AUTO-PLAY: only if user has auto-play enabled (tab click = user gesture)
+    if (_agAutoPlay) requestAnimationFrame(() => { agToggle(); });
   } else {
     if (!entry) _agLoaded = null; // allow retry
     root.innerHTML = _agRenderUnavail();
@@ -2913,10 +2979,37 @@ function agStop() {
   _agClearHighlight();
 }
 
-function agCycleSpeed() {
-  _agSpeedIdx = (_agSpeedIdx + 1) % _agSpeeds.length;
+function agToggleSpeedMenu(e) {
+  e.stopPropagation();
+  const wrap = document.getElementById('ag-speed-wrap');
+  if (!wrap) return;
+  wrap.classList.toggle('open');
   const btn = document.getElementById('ag-speed-btn');
-  if (btn) btn.textContent = _agSpeeds[_agSpeedIdx] + '×';
+  if (btn) btn.classList.toggle('open', wrap.classList.contains('open'));
+}
+
+function agSetSpeed(idx) {
+  _agSpeedIdx = idx;
+  // Persist to localStorage
+  try { localStorage.setItem(_AG_SPEED_KEY, _agSpeeds[idx]); } catch(e) {}
+
+  // Update button label
+  const btn = document.getElementById('ag-speed-btn');
+  if (btn) btn.innerHTML = `${_agSpeeds[idx]}× <span class="ag-speed-caret">▲</span>`;
+
+  // Update menu items
+  document.querySelectorAll('#ag-speed-menu .ag-speed-opt').forEach((el, i) => {
+    el.classList.toggle('selected', i === idx);
+    const chk = el.querySelector('.ag-speed-check');
+    if (chk) chk.textContent = i === idx ? '✓' : '';
+  });
+
+  // Close dropdown
+  const wrap = document.getElementById('ag-speed-wrap');
+  if (wrap) wrap.classList.remove('open');
+  btn && btn.classList.remove('open');
+
+  // Apply new speed immediately if playing
   if (_agPlaying && !_agPaused) {
     _agSynth.cancel();
     _agPlaying = false;
@@ -2947,6 +3040,11 @@ function agToggleRepeat() {
   if (btn) btn.classList.toggle('active', _agRepeat);
 }
 
+function agSetAutoPlay(checked) {
+  _agAutoPlay = checked;
+  try { localStorage.setItem(_AG_AUTOPLAY_KEY, String(checked)); } catch(e) {}
+}
+
 /* -- Timeline seek (drag) ---------------------------------------------- */
 function _agOnSeek(val) {
   // Live update display while dragging — don't restart speech yet
@@ -2973,10 +3071,26 @@ function _agStartPlayback(fromIdx) {
   if (!_agSynth || !_agSentences.length) return;
   _agSynth.cancel();
 
-  // Pick best English voice
+  // Pick best English voice — prefer high-quality neural voices
   const voices = _agSynth.getVoices();
-  const preferred =
-    voices.find(v => v.lang === 'en-US' && /google|natural|premium|enhanced/i.test(v.name)) ||
+  // Priority list: specific neural/natural voices known to sound human-like
+  const _agVoicePriority = [
+    'Google US English',          // Chrome: clear, natural
+    'Microsoft Aria Online',      // Edge: neural, warm narrator tone
+    'Microsoft Guy Online',       // Edge: neural, male
+    'Microsoft Jenny Online',     // Edge: neural, female
+    'Samantha',                   // macOS/iOS: high-quality default
+    'Daniel',                     // macOS: British English, polished
+    'Karen',                      // macOS: Australian English
+  ];
+  let preferred = null;
+  for (const name of _agVoicePriority) {
+    const v = voices.find(v => v.name === name);
+    if (v) { preferred = v; break; }
+  }
+  // Fallback: any en-US with neural/natural/premium keyword
+  if (!preferred) preferred =
+    voices.find(v => v.lang === 'en-US' && /neural|natural|premium|enhanced|online/i.test(v.name)) ||
     voices.find(v => v.lang === 'en-US') ||
     voices.find(v => /en[-_]/i.test(v.lang)) || null;
 
@@ -3079,6 +3193,13 @@ function _agStopProgressTimer() {
 if (_agSynth && _agSynth.onvoiceschanged !== undefined) {
   _agSynth.onvoiceschanged = () => {}; // trigger load
 }
+// Close speed dropdown when clicking outside
+document.addEventListener('click', () => {
+  const wrap = document.getElementById('ag-speed-wrap');
+  const btn  = document.getElementById('ag-speed-btn');
+  if (wrap) wrap.classList.remove('open');
+  if (btn)  btn.classList.remove('open');
+});
 
 function formatViews(n) {
   if (n >= 1e8) return (n/1e6).toFixed(0)+'M';
