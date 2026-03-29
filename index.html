@@ -2880,57 +2880,11 @@ let _agPlaying  = false;
 let _agPaused   = false;
 let _agLoaded   = null; // id of location whose script is rendered
 
-/* ── Background-capable playback via <audio> element ───────────────────
-   speechSynthesis is killed by mobile OS when the screen turns off.
-   Solution: use Google Translate TTS to get real MP3 audio, played
-   through an <audio> element which DOES survive background on mobile.
-   Falls back to speechSynthesis if the TTS URL is unavailable.
-   ──────────────────────────────────────────────────────────────────── */
-
-let _agAudioA   = null;  // ping-pong audio element A (DOM-attached)
-let _agAudioB   = null;  // ping-pong audio element B (DOM-attached)
-let _agAudio    = null;  // pointer to whichever element is currently active
-let _agPong     = false; // false=A active, true=B active
-let _agMode     = '';    // 'audio' | 'synth' — which engine is active
+let _agMode     = '';    // 'synth' — playback engine
 let _agTitle    = '';    // current location title (for Media Session)
 let _agKeepAlive = null; // keepalive <audio> for background
 
-// ── Web Audio API background session keeper ───────────────────────────────
-// iOS only keeps audio alive in background when there is an active AudioContext
-// started from a user gesture. A near-silent oscillator keeps the context
-// "running" so iOS does not suspend the audio session when the screen locks.
-let _agAudioCtx   = null;
-let _agBgOsc      = null;
-let _agBgGain     = null;
-
-function _agInitBgSession() {
-  // Only create once; resume if suspended
-  if (_agAudioCtx) {
-    if (_agAudioCtx.state === 'suspended') _agAudioCtx.resume().catch(() => {});
-    return;
-  }
-  try {
-    _agAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    // Near-silent 40 Hz tone: inaudible on phone speakers, but iOS-detectable
-    // (~-50 dB combined with gain 0.003 — well above iOS silence threshold)
-    _agBgGain = _agAudioCtx.createGain();
-    _agBgGain.gain.value = 0.003;
-    _agBgGain.connect(_agAudioCtx.destination);
-    _agBgOsc = _agAudioCtx.createOscillator();
-    _agBgOsc.type = 'sine';
-    _agBgOsc.frequency.value = 40; // 40 Hz — below human hearing on phone speakers
-    _agBgOsc.connect(_agBgGain);
-    _agBgOsc.start();
-  } catch(e) { _agAudioCtx = null; }
-}
-
-function _agStopBgSession() {
-  try { if (_agBgOsc)  { _agBgOsc.stop();        _agBgOsc  = null; } } catch(e) {}
-  try { if (_agAudioCtx) { _agAudioCtx.close();  _agAudioCtx = null; _agBgGain = null; } } catch(e) {}
-}
-// ─────────────────────────────────────────────────────────────────────────
-
-// Create a DOM-attached <audio> element
+// Create a DOM-attached <audio> element (used for keepalive only)
 function _agMakeAudio() {
   const a = new Audio();
   a.setAttribute('playsinline', '');
@@ -2940,120 +2894,7 @@ function _agMakeAudio() {
   return a;
 }
 
-// Initialize ping-pong audio pair
-function _agInitAudio() {
-  if (!_agAudioA) _agAudioA = _agMakeAudio();
-  if (!_agAudioB) _agAudioB = _agMakeAudio();
-  _agAudio = _agAudioA;
-  _agPong = false;
-}
-function _agGetActive()  { return _agPong ? _agAudioB : _agAudioA; }
-function _agGetStandby() { return _agPong ? _agAudioA : _agAudioB; }
-function _agSwapAudio()  { _agPong = !_agPong; _agAudio = _agGetActive(); }
-
-// ── Multi-endpoint TTS system ────────────────────────────────────────
-// Tries multiple Google TTS endpoints + StreamElements fallback.
-// Whichever works first on the page-load pre-test is used for playback.
-const _agTtsEndpoints = [
-  { id: 'tw-ob', make: (text, tl) =>
-      'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=' + tl + '&q=' + encodeURIComponent(text) },
-  { id: 'gtx', make: (text, tl) =>
-      'https://translate.google.com/translate_tts?ie=UTF-8&client=gtx&tl=' + tl + '&q=' + encodeURIComponent(text) },
-  { id: 'streamelement', make: (text, tl) => {
-      const voice = tl === 'ko' ? 'Seoyeon' : 'Brian';
-      return 'https://api.streamelements.com/kappa/v2/speech?voice=' + voice + '&text=' + encodeURIComponent(text);
-    }
-  }
-];
-let _agTtsEndpointIdx = 0; // index into _agTtsEndpoints — set by pre-test
-
-function _agTtsUrl(text, lang) {
-  const tl = lang === 'ko' ? 'ko' : 'en';
-  return _agTtsEndpoints[_agTtsEndpointIdx].make(text, tl);
-}
-
-// Build a TTS URL with a specific endpoint index (for testing)
-function _agTtsUrlWith(text, lang, epIdx) {
-  const tl = lang === 'ko' ? 'ko' : 'en';
-  return _agTtsEndpoints[epIdx].make(text, tl);
-}
-
-// Test a single TTS endpoint (returns promise → true/false)
-// NOTE: do NOT set crossOrigin on the Audio element — Google TTS does not
-// send CORS headers, so crossOrigin='anonymous' causes the load to fail.
-// Without crossOrigin, <audio> loads the resource in "no-cors" mode which
-// is perfectly fine for playback (just can't read the data via Web Audio API).
-function _agTestOneEndpoint(epIdx) {
-  return new Promise(resolve => {
-    const a = new Audio();
-    const url = _agTtsUrlWith('hello', 'en', epIdx);
-    const timer = setTimeout(() => { a.src = ''; resolve(false); }, 5000);
-    a.oncanplaythrough = () => { clearTimeout(timer); a.src = ''; resolve(true); };
-    a.onerror = () => { clearTimeout(timer); resolve(false); };
-    a.src = url;
-    a.load();
-  });
-}
-
-// Test all endpoints in order — return index of first working one, or -1
-async function _agTestTts() {
-  for (let ep = 0; ep < _agTtsEndpoints.length; ep++) {
-    // Try each endpoint up to 2 times
-    for (let retry = 0; retry < 2; retry++) {
-      if (await _agTestOneEndpoint(ep)) {
-        console.log('[ArchWander] TTS endpoint OK:', _agTtsEndpoints[ep].id, '(attempt', retry + 1 + ')');
-        return ep;
-      }
-      if (retry < 1) await new Promise(r => setTimeout(r, 800));
-    }
-    console.log('[ArchWander] TTS endpoint FAIL:', _agTtsEndpoints[ep].id);
-  }
-  return -1; // all failed
-}
-
-/* ── Prefetch TTS audio as blob URLs ─────────────────────────────────
-   Download TTS MP3 ahead of time using fetch() → blob → objectURL.
-   This eliminates network dependency during playback so the audio
-   keeps playing even when the OS throttles network in background.
-   ──────────────────────────────────────────────────────────────────── */
-const _agBlobCache = new Map(); // key: ttsUrl → value: blobUrl
-let _agPrefetchAbort = null;    // AbortController for cancel on stop
-
-function _agPrefetchChunk(text, lang) {
-  const ttsUrl = _agTtsUrl(text, lang);
-  if (_agBlobCache.has(ttsUrl)) return Promise.resolve(_agBlobCache.get(ttsUrl));
-  const signal = _agPrefetchAbort ? _agPrefetchAbort.signal : undefined;
-  // StreamElements supports CORS; Google TTS may not — try fetch, fall back to direct URL
-  return fetch(ttsUrl, { mode: 'cors', signal })
-    .then(r => { if (!r.ok) throw new Error(r.status); return r.blob(); })
-    .then(blob => {
-      const blobUrl = URL.createObjectURL(blob);
-      _agBlobCache.set(ttsUrl, blobUrl);
-      return blobUrl;
-    })
-    .catch(() => {
-      // CORS or network error — use no-cors opaque fetch to warm browser cache,
-      // then return the raw URL for <audio>.src (which ignores CORS)
-      return fetch(ttsUrl, { mode: 'no-cors', signal }).catch(() => {}).then(() => ttsUrl);
-    });
-}
-
-// Prefetch all chunks for a sentence (returns array of blob/streaming URLs)
-function _agPrefetchSentence(sentText, lang) {
-  const clean = _agCleanForTts(sentText.trim(), lang);
-  if (!clean) return Promise.resolve([]);
-  const chunks = _agChunk(clean);
-  return Promise.all(chunks.map(c => _agPrefetchChunk(c, lang)));
-}
-
-// Clear blob cache (on stop)
-function _agClearBlobCache() {
-  _agBlobCache.forEach(url => { try { URL.revokeObjectURL(url); } catch(e){} });
-  _agBlobCache.clear();
-  if (_agPrefetchAbort) { _agPrefetchAbort.abort(); _agPrefetchAbort = null; }
-}
-
-// Clean text for TTS: strip parenthetical English annotations in Korean mode
+// Clean text for speech: strip parenthetical English annotations in Korean mode
 // e.g. "엠파이어 스테이트 빌딩(Empire State Building)은" → "엠파이어 스테이트 빌딩은"
 function _agCleanForTts(text, lang) {
   if (lang === 'ko') {
@@ -3062,31 +2903,9 @@ function _agCleanForTts(text, lang) {
   return text.trim();
 }
 
-// Split long sentence into ≤180 char chunks (Google TTS limit)
-function _agChunk(text, max) {
-  max = max || 180;
-  text = text.trim();
-  if (text.length <= max) return [text];
-  const out = [];
-  while (text.length > max) {
-    let i = text.lastIndexOf(', ', max);
-    if (i < max * 0.3) i = text.lastIndexOf(' ', max);
-    if (i < max * 0.3) i = max;
-    out.push(text.substring(0, i).trim());
-    text = text.substring(i).replace(/^,?\s*/, '');
-  }
-  if (text) out.push(text);
-  return out;
-}
-
-/* ── Keepalive WAV for synth-mode background survival ───────────────
-   Generates a tiny 1-second WAV with a barely-audible 100 Hz tone,
-   played on loop through a real <audio> element. This keeps the
-   mobile audio session alive while speechSynthesis provides the voice.
-   ──────────────────────────────────────────────────────────────────── */
-let _agKeepAliveUrl = null;
-function _agCreateKeepAliveWav() {
-  if (_agKeepAliveUrl) return _agKeepAliveUrl;
+function _agStartKeepAlive() {
+  if (!_agKeepAlive) _agKeepAlive = _agMakeAudio();
+  // Silent WAV keepalive — keeps mobile audio session alive
   const sr = 8000, dur = 1, n = sr * dur;
   const buf = new ArrayBuffer(44 + n * 2);
   const v = new DataView(buf);
@@ -3097,29 +2916,14 @@ function _agCreateKeepAliveWav() {
   v.setUint32(24,sr,true); v.setUint32(28,sr*2,true);
   v.setUint16(32,2,true); v.setUint16(34,16,true);
   ws(36,'data'); v.setUint32(40, n*2, true);
-  for (let i = 0; i < n; i++) {
-    // Amplitude 3000/32767 ≈ -21 dB at element level; combined with volume 0.01
-    // gives ~-61 dB — inaudible to humans but above iOS audio-session threshold
-    v.setInt16(44 + i*2, Math.sin(2 * Math.PI * 40 * i / sr) * 3000, true);
-  }
-  _agKeepAliveUrl = URL.createObjectURL(new Blob([buf], { type: 'audio/wav' }));
-  return _agKeepAliveUrl;
-}
-
-function _agStartKeepAlive() {
-  // 1) Web Audio API session keeper (primary — survives iOS screen-off)
-  _agInitBgSession();
-  // 2) <audio> WAV loop (secondary backup)
-  if (!_agKeepAlive) _agKeepAlive = _agMakeAudio();
-  _agKeepAlive.src = _agCreateKeepAliveWav();
+  for (let i = 0; i < n; i++) v.setInt16(44 + i*2, Math.sin(2*Math.PI*40*i/sr)*3000, true);
+  _agKeepAlive.src = URL.createObjectURL(new Blob([buf], { type: 'audio/wav' }));
   _agKeepAlive.loop = true;
   _agKeepAlive.volume = 0.01;
   _agKeepAlive.play().catch(() => {});
 }
 function _agStopKeepAlive() {
   if (_agKeepAlive) { _agKeepAlive.pause(); _agKeepAlive.removeAttribute('src'); }
-  // Note: _agBgSession is stopped separately in full stop (not here),
-  // so the AudioContext stays alive between sentences/chunks.
 }
 
 // Media Session API — lock screen controls + Android audio focus
@@ -3166,37 +2970,12 @@ function _agReleaseWakeLock() {
   if (_agWakeLock) { _agWakeLock.release().catch(()=>{}); _agWakeLock = null; }
 }
 
-// Re-acquire wake lock and resume AudioContext when screen turns back on.
-// Also recover <audio> playback that iOS may have paused while in background.
+// Re-acquire wake lock when screen turns back on
 document.addEventListener('visibilitychange', () => {
-  if (!document.hidden) {
-    // Always try to resume AudioContext — iOS suspends it on screen-lock even
-    // if audio was playing. Calling resume() from a visibility event is
-    // sufficient to restart it without a new user gesture.
-    if (_agAudioCtx && _agAudioCtx.state === 'suspended') {
-      _agAudioCtx.resume().catch(() => {});
-    }
-    if (_agPlaying && !_agPaused) {
-      _agRequestWakeLock();
-      // Restart keepalive if it somehow stopped
-      if (_agKeepAlive && _agKeepAlive.paused) {
-        _agKeepAlive.play().catch(() => {});
-      }
-      // Re-assert audio focus (Android may have dropped it while in background)
-      _agSetPlaybackState('playing');
-      // Check if TTS audio was killed while in background
-      if (_agMode === 'audio' && _agAudio) {
-        if (_agAudio.paused && !_agAudio.ended) {
-          console.log('[ArchWander] Audio paused in background — resuming');
-          _agAudio.play().catch(() => {});
-        }
-      }
-    }
-  } else {
-    // Screen turning off — ensure AudioContext is running before we lose focus
-    if (_agAudioCtx && _agAudioCtx.state === 'suspended') {
-      _agAudioCtx.resume().catch(() => {});
-    }
+  if (!document.hidden && _agPlaying && !_agPaused) {
+    _agRequestWakeLock();
+    if (_agKeepAlive && _agKeepAlive.paused) _agKeepAlive.play().catch(() => {});
+    _agSetPlaybackState('playing');
   }
 });
 const _agSpeeds   = [0.75, 1, 1.25, 1.5, 2];
@@ -3400,33 +3179,19 @@ let _agRepeat = false; // repeat mode
 function agToggle() {
   if (_agPlaying && !_agPaused) {
     /* ── Pause ── */
-    if (_agMode === 'audio') {
-      [_agAudioA, _agAudioB].forEach(a => { if(a) a.pause(); });
-    } else if (_agMode === 'synth' && _agSynth) {
-      _agSynth.pause();
-    }
+    if (_agSynth) _agSynth.pause();
     _agPaused = true;
     _agSetPlayIcon(false);
     _agStopSmoothProgress();
-    _agSetPlaybackState('paused'); // Android: release audio focus gracefully
+    _agSetPlaybackState('paused');
   } else if (_agPaused) {
     /* ── Resume ── */
-    if (_agMode === 'audio' && _agAudio) {
-      _agAudio.play().catch(() => {});
+    if (_agSynth && (_agSynth.paused || _agSynth.speaking)) {
+      _agSynth.resume();
       _agPaused = false;
       _agSetPlayIcon(true);
       _agStartSmoothProgress();
-      _agSetPlaybackState('playing'); // Android: re-acquire audio focus
-    } else if (_agMode === 'synth' && _agSynth) {
-      if (!_agSynth.paused && !_agSynth.speaking) {
-        _agStartPlayback(_agSentIdx);
-      } else {
-        _agSynth.resume();
-        _agPaused = false;
-        _agSetPlayIcon(true);
-        _agStartSmoothProgress();
-        _agSetPlaybackState('playing');
-      }
+      _agSetPlaybackState('playing');
     } else {
       _agStartPlayback(_agSentIdx);
     }
@@ -3437,12 +3202,7 @@ function agToggle() {
 }
 
 function agStop() {
-  [_agAudioA, _agAudioB].forEach(a => {
-    if(a){ a.pause(); a.onended=null; a.onerror=null; a.removeAttribute('src'); a.load(); }
-  });
   _agStopKeepAlive();
-  _agStopBgSession(); // shut down Web Audio API context
-  _agClearBlobCache();
   if (_agSynth) _agSynth.cancel();
   _agPlaying = false;
   _agPaused  = false;
@@ -3453,10 +3213,8 @@ function agStop() {
   _agUpdateTimeline(0);
   _agClearHighlight();
   _agReleaseWakeLock();
-  _agSetPlaybackState('none'); // Android: fully release audio focus
-  // Remove synth warning if shown
-  const warn = document.getElementById('ag-synth-warn');
-  if (warn) warn.remove();
+  _agSetPlaybackState('none');
+  _agUpdateModeLabel('');
 }
 
 function agToggleSpeedMenu(e) {
@@ -3489,22 +3247,17 @@ function agSetSpeed(idx) {
   if (wrap) wrap.classList.remove('open');
   btn && btn.classList.remove('open');
 
-  // Apply new speed immediately if playing
+  // Apply new speed immediately if playing — restart current sentence
   if (_agPlaying && !_agPaused) {
-    if (_agMode === 'audio' && _agAudio) {
-      _agAudio.playbackRate = _agSpeeds[idx];
-    } else {
-      if (_agSynth) _agSynth.cancel();
-      _agPlaying = false;
-      _agStartPlayback(_agSentIdx);
-    }
+    if (_agSynth) _agSynth.cancel();
+    _agPlaying = false;
+    _agStartPlayback(_agSentIdx);
   }
 }
 
 function agSkip(delta) {
   const target = Math.max(0, Math.min(_agSentences.length - 1, _agSentIdx + delta));
   const wasPlaying = _agPlaying && !_agPaused;
-  [_agAudioA, _agAudioB].forEach(a => { if(a){a.pause(); a.onended=null; a.onerror=null;} });
   if (_agSynth) _agSynth.cancel();
   _agPlaying = false;
   _agPaused  = false;
@@ -3543,7 +3296,6 @@ function _agOnSeekEnd(val) {
   const pct = parseInt(val) / 1000;
   const target = Math.round(pct * Math.max(0, _agSentences.length - 1));
   const wasPlaying = _agPlaying && !_agPaused;
-  [_agAudioA, _agAudioB].forEach(a => { if(a){a.pause(); a.onended=null; a.onerror=null;} });
   if (_agSynth) _agSynth.cancel();
   _agPlaying = false;
   _agPaused  = false;
@@ -3553,9 +3305,7 @@ function _agOnSeekEnd(val) {
 
 /* ── Internal playback engine ─────────────────────────────────────────── */
 
-// Smooth-progress state: track chunk timing for rAF interpolation
-let _agChunks       = [];   // chunks for current sentence
-let _agChunkIdx     = 0;    // which chunk is playing
+// Smooth-progress state
 let _agRafId        = null; // requestAnimationFrame handle
 let _agSentStart    = 0;    // timestamp when current sentence started
 
@@ -3569,270 +3319,83 @@ function _onPlaybackDone() {
   _agUpdateTimeline(0);
   _agClearHighlight();
   _agStopKeepAlive();
-  _agClearBlobCache();
   _agReleaseWakeLock();
   _agUpdateModeLabel('');
-  const warn = document.getElementById('ag-synth-warn');
-  if (warn) warn.remove();
 }
 
-// Show which playback engine is active in the player subtitle
 function _agUpdateModeLabel(mode) {
   const el = document.getElementById('ag-mode-label');
   if (!el) return;
-  if (mode === 'audio') {
-    const epName = _agTtsEndpoints[_agTtsEndpointIdx].id;
-    el.textContent = 'TTS (' + epName + ')';
-  } else if (mode === 'synth') {
-    el.textContent = 'Web Speech';
-  } else {
-    el.textContent = '';
-  }
+  el.textContent = mode === 'synth' ? 'Web Speech' : '';
 }
 
 function _agStartPlayback(fromIdx) {
   fromIdx = (fromIdx === undefined) ? 0 : Math.max(0, Math.min(fromIdx, _agSentences.length - 1));
   if (!_agSentences.length) return;
 
-  // Ensure audio elements exist
-  _agInitAudio();
-
   // Stop any existing playback
-  [_agAudioA, _agAudioB].forEach(a => { if(a){a.pause(); a.onended=null; a.onerror=null;} });
   _agStopKeepAlive();
-  _agClearBlobCache();
   if (_agSynth) _agSynth.cancel();
 
   _agPlaying = true;
   _agPaused  = false;
+  _agMode    = 'synth';
   _agSetPlayIcon(true);
   _agRequestWakeLock();
-  _agSetMediaSession(_agTitle);        // sets playbackState = 'playing'
-  _agShowAndroidBatteryWarning();      // one-time Samsung guidance
+  _agSetMediaSession(_agTitle);
+  _agUpdateModeLabel('synth');
 
-  // ★ ALWAYS start keepalive immediately — this call is within the user gesture
-  //   window, so audio.play() succeeds and establishes the mobile audio session.
-  //   Without this, any async wait (TTS test etc.) expires the gesture context
-  //   and subsequent audio.play() calls are silently blocked by the OS.
+  // Start keepalive audio (must be within user gesture window)
   _agStartKeepAlive();
 
-  _agPrefetchAbort = new AbortController();
   let idx = fromIdx;
-
   _agStartSmoothProgress();
 
-  // Use pre-tested TTS result (tested on page load, not here)
-  if (_agTtsAvailable === true) {
-    playViaAudio();
-  } else {
-    // TTS unavailable or still testing → use synth (keepalive keeps session alive)
-    _agShowSynthWarning();
-    playViaSynth();
+  if (!_agSynth) { _onPlaybackDone(); return; }
+  _agSynth.cancel();
+
+  // Select best available voice
+  const voices = _agSynth.getVoices();
+  const isKo = (LANG === 'ko');
+  const voicePriority = isKo ? [
+    'Google 한국의', 'Microsoft SunHi Online', 'Microsoft InJoon Online', 'Yuna',
+  ] : [
+    'Google US English', 'Microsoft Aria Online', 'Microsoft Guy Online',
+    'Microsoft Jenny Online', 'Samantha', 'Daniel', 'Karen',
+  ];
+  const langPrefix = isKo ? 'ko' : 'en';
+  let preferred = null;
+  for (const name of voicePriority) {
+    const v = voices.find(v => v.name === name);
+    if (v) { preferred = v; break; }
   }
+  if (!preferred) preferred =
+    voices.find(v => v.lang.startsWith(langPrefix) && /neural|natural|premium|enhanced|online/i.test(v.name)) ||
+    voices.find(v => v.lang.startsWith(langPrefix)) ||
+    (isKo ? voices.find(v => /ko[-_]/i.test(v.lang)) : voices.find(v => /en[-_]/i.test(v.lang))) || null;
 
-  /* ── Strategy A: Google TTS via ping-pong <audio> (survives bg) ──── */
-  /* Now with prefetch: downloads chunks as blobs BEFORE playing, so
-     playback continues even when OS throttles network in background.
-     Also preloads first chunk of next sentence for seamless transition. */
-  function playViaAudio() {
-    _agMode = 'audio';
-    _agUpdateModeLabel('audio');
-    let _audioErrors = 0; // consecutive errors across all endpoints
-
-    // Kick off lookahead prefetch for upcoming sentences
-    _agPrefetchAhead(idx);
-
-    // ★ Emergency fallback: if TTS audio keeps failing, switch to speechSynthesis
-    function _fallbackToSynth() {
-      console.warn('[ArchWander] All TTS endpoints failed during playback → falling back to speechSynthesis');
-      [_agAudioA, _agAudioB].forEach(a => { if(a){a.pause(); a.onended=null; a.onerror=null; a.src='';} });
-      _agClearBlobCache();
-      _agShowSynthWarning();
-      playViaSynth();
+  function speakNext() {
+    if (idx >= _agSentences.length) {
+      if (_agRepeat) { idx = 0; speakNext(); return; }
+      _onPlaybackDone(); return;
     }
+    _agSentIdx = idx;
+    _agSentStart = performance.now();
+    _agHighlight(idx);
+    _agScrollToSentence(idx);
 
-    function playSentence() {
-      if (idx >= _agSentences.length) {
-        if (_agRepeat) { idx = 0; _agPrefetchAhead(0); playSentence(); return; }
-        _onPlaybackDone(); return;
-      }
-      _agSentIdx = idx;
-      _agSentStart = performance.now();
-      _agHighlight(idx);
-      _agScrollToSentence(idx);
+    const cleanText = _agCleanForTts(_agSentences[idx].trim(), LANG);
+    if (!cleanText) { idx++; speakNext(); return; }
 
-      const cleanText = _agCleanForTts(_agSentences[idx].trim(), LANG);
-      if (!cleanText) { idx++; playSentence(); return; }
-
-      const chunks = _agChunk(cleanText);
-      _agChunks = chunks;
-      let ci = 0;
-      _agChunkIdx = 0;
-
-      // Prefetch next 2 sentences while current one plays
-      _agPrefetchAhead(idx + 1);
-
-      function playChunk() {
-        if (ci >= chunks.length) { idx++; _audioErrors = 0; playSentence(); return; }
-        _agChunkIdx = ci;
-
-        const active  = _agGetActive();
-        const standby = _agGetStandby();
-        const ttsUrl  = _agTtsUrl(chunks[ci], LANG);
-        // Use blob URL if available (prefetched), else streaming URL
-        const blobUrl = _agBlobCache.get(ttsUrl);
-        const playUrl = blobUrl || ttsUrl;
-
-        // Preload next chunk in standby element (gap-free within sentence)
-        if (ci + 1 < chunks.length) {
-          const nextTts = _agTtsUrl(chunks[ci + 1], LANG);
-          standby.src = _agBlobCache.get(nextTts) || nextTts;
-          standby.load();
-        } else if (idx + 1 < _agSentences.length) {
-          // ★ Cross-sentence preload: load first chunk of NEXT sentence
-          const nextClean = _agCleanForTts(_agSentences[idx + 1].trim(), LANG);
-          if (nextClean) {
-            const nextChunks = _agChunk(nextClean);
-            const nextTts = _agTtsUrl(nextChunks[0], LANG);
-            standby.src = _agBlobCache.get(nextTts) || nextTts;
-            standby.load();
-          }
-        }
-
-        active.src = playUrl;
-        active.playbackRate = _agSpeeds[_agSpeedIdx];
-        _agAudio = active; // for progress tracking
-        active.onended = () => { _audioErrors = 0; _agSwapAudio(); ci++; playChunk(); };
-        active.onerror = () => {
-          _audioErrors++;
-          console.warn('[ArchWander] TTS chunk error #' + _audioErrors, 'sent:', idx, 'chunk:', ci, 'ep:', _agTtsEndpoints[_agTtsEndpointIdx].id);
-          // Runtime fallback: try next TTS endpoint for this same chunk
-          const nextEp = _agTtsEndpointIdx + 1;
-          if (nextEp < _agTtsEndpoints.length) {
-            console.log('[ArchWander] Trying next endpoint:', _agTtsEndpoints[nextEp].id);
-            _agTtsEndpointIdx = nextEp;
-            _agUpdateModeLabel('audio');
-            _agBlobCache.clear();
-            const fallbackUrl = _agTtsUrl(chunks[ci], LANG);
-            active.src = fallbackUrl;
-            active.play().catch(() => {
-              _audioErrors++;
-              if (_audioErrors >= 3) { _fallbackToSynth(); } else { ci++; playChunk(); }
-            });
-          } else {
-            // All TTS endpoints exhausted → fall back to speechSynthesis
-            _fallbackToSynth();
-          }
-        };
-        active.play().catch(() => {
-          _audioErrors++;
-          if (_audioErrors >= 3) { _fallbackToSynth(); } else { ci++; playChunk(); }
-        });
-      }
-      playChunk();
-    }
-    playSentence();
+    const u = new SpeechSynthesisUtterance(cleanText);
+    u.lang = isKo ? 'ko-KR' : 'en-US';
+    u.rate = _agSpeeds[_agSpeedIdx];
+    if (preferred) u.voice = preferred;
+    u.onend   = () => { idx++; speakNext(); };
+    u.onerror = e => { if (e.error !== 'interrupted') { idx++; speakNext(); } };
+    _agSynth.speak(u);
   }
-
-  /* ── Strategy B: speechSynthesis + keepalive WAV (bg attempt) ────── */
-  function playViaSynth() {
-    _agMode = 'synth';
-    _agUpdateModeLabel('synth');
-    if (!_agSynth) { _onPlaybackDone(); return; }
-    _agSynth.cancel();
-
-    // Start keepalive audio loop to keep mobile audio session alive
-    _agStartKeepAlive();
-
-    const voices = _agSynth.getVoices();
-    const isKo = (LANG === 'ko');
-    const voicePriority = isKo ? [
-      'Google 한국의', 'Microsoft SunHi Online', 'Microsoft InJoon Online', 'Yuna',
-    ] : [
-      'Google US English', 'Microsoft Aria Online', 'Microsoft Guy Online',
-      'Microsoft Jenny Online', 'Samantha', 'Daniel', 'Karen',
-    ];
-    const langPrefix = isKo ? 'ko' : 'en';
-    let preferred = null;
-    for (const name of voicePriority) {
-      const v = voices.find(v => v.name === name);
-      if (v) { preferred = v; break; }
-    }
-    if (!preferred) preferred =
-      voices.find(v => v.lang.startsWith(langPrefix) && /neural|natural|premium|enhanced|online/i.test(v.name)) ||
-      voices.find(v => v.lang.startsWith(langPrefix)) ||
-      (isKo ? voices.find(v => /ko[-_]/i.test(v.lang)) : voices.find(v => /en[-_]/i.test(v.lang))) || null;
-
-    function speakNext() {
-      if (idx >= _agSentences.length) {
-        if (_agRepeat) { idx = 0; speakNext(); return; }
-        _onPlaybackDone(); return;
-      }
-      _agSentIdx = idx;
-      _agSentStart = performance.now();
-      _agHighlight(idx);
-      _agScrollToSentence(idx);
-
-      const cleanText = _agCleanForTts(_agSentences[idx].trim(), LANG);
-      if (!cleanText) { idx++; speakNext(); return; }
-
-      const u = new SpeechSynthesisUtterance(cleanText);
-      u.lang = isKo ? 'ko-KR' : 'en-US';
-      u.rate = _agSpeeds[_agSpeedIdx];
-      if (preferred) u.voice = preferred;
-      u.onend   = () => { idx++; speakNext(); };
-      u.onerror = e => { if (e.error !== 'interrupted') { idx++; speakNext(); } };
-      _agSynth.speak(u);
-    }
-    speakNext();
-  }
-}
-
-// Prefetch next N sentences (lookahead buffer for gap-free background playback)
-function _agPrefetchAhead(startIdx, count) {
-  count = count || 3;
-  for (let s = startIdx; s < Math.min(startIdx + count, _agSentences.length); s++) {
-    _agPrefetchSentence(_agSentences[s], LANG);
-  }
-}
-
-// Show warning when using synth mode on mobile (background audio won't survive)
-function _agShowSynthWarning() {
-  const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
-  if (!isMobile) return;
-  const existing = document.getElementById('ag-synth-warn');
-  if (existing) return; // already shown
-  const bar = document.getElementById('ag-script-box');
-  if (!bar) return;
-  const warn = document.createElement('div');
-  warn.id = 'ag-synth-warn';
-  warn.style.cssText = 'background:#FEF3C7;color:#92400E;font-size:11px;padding:6px 12px;border-radius:6px;margin:6px 0;line-height:1.4;';
-  warn.innerHTML = LANG === 'ko'
-    ? '⚠ TTS 서버 연결 불가 — 기본 음성 엔진을 사용합니다. 화면을 끄면 재생이 중단될 수 있습니다.'
-    : '⚠ TTS server unavailable — using device voice. Audio may stop when screen is off.';
-  bar.parentNode.insertBefore(warn, bar);
-}
-
-// Samsung/Android battery optimization warning — shown once per session
-// when audio starts on an Android device.
-// Users must set Chrome → Battery → "Unrestricted" for background audio.
-let _agAndroidWarnShown = false;
-function _agShowAndroidBatteryWarning() {
-  if (_agAndroidWarnShown) return;
-  const isAndroid = /Android/i.test(navigator.userAgent);
-  if (!isAndroid) return;
-  const bar = document.getElementById('ag-script-box');
-  if (!bar) return;
-  _agAndroidWarnShown = true;
-  const warn = document.createElement('div');
-  warn.id = 'ag-android-warn';
-  warn.style.cssText = 'background:#EFF6FF;color:#1E40AF;font-size:11px;padding:7px 12px 7px 10px;border-radius:6px;margin:6px 0;line-height:1.5;display:flex;align-items:flex-start;gap:6px;';
-  const closeBtn = `<button onclick="this.parentNode.remove()" style="margin-left:auto;background:none;border:none;color:#1E40AF;font-size:14px;cursor:pointer;padding:0 0 0 6px;flex-shrink:0;line-height:1;">✕</button>`;
-  warn.innerHTML = (LANG === 'ko'
-    ? `<span style="flex-shrink:0">📱</span><span>삼성 갤럭시에서 화면 꺼짐 시 오디오가 멈출 수 있습니다.<br><b>설정 → 앱 → Chrome → 배터리 → 제한 없음</b>으로 변경하세요.</span>`
-    : `<span style="flex-shrink:0">📱</span><span>On Samsung devices, audio may stop when screen turns off.<br><b>Settings → Apps → Chrome → Battery → Unrestricted</b></span>`)
-    + closeBtn;
-  bar.parentNode.insertBefore(warn, bar);
+  speakNext();
 }
 
 function _agHighlight(idx) {
@@ -3897,21 +3460,14 @@ function _agStartSmoothProgress() {
     const n = Math.max(1, _agSentences.length - 1);
     let frac = 0; // fractional progress within current sentence (0..1)
 
-    if (_agMode === 'audio' && _agAudio && _agAudio.duration && isFinite(_agAudio.duration)) {
-      // Real progress from <audio> element for current chunk
-      const chunkFrac = _agAudio.currentTime / _agAudio.duration;
-      const totalChunks = Math.max(1, _agChunks.length);
-      frac = (_agChunkIdx + chunkFrac) / totalChunks;
-    } else {
-      // Estimate progress from elapsed time since sentence started
-      const isKo = (LANG === 'ko');
-      const sent = _agSentences[_agSentIdx] || '';
-      const estMs = isKo
-        ? (sent.length / 200) * 60000 / _agSpeeds[_agSpeedIdx]
-        : ((sent.split(/\s+/).length) / 130) * 60000 / _agSpeeds[_agSpeedIdx];
-      const elapsed = performance.now() - _agSentStart;
-      frac = Math.min(elapsed / Math.max(estMs, 500), 0.99);
-    }
+    // Estimate progress from elapsed time since sentence started
+    const isKo = (LANG === 'ko');
+    const sent = _agSentences[_agSentIdx] || '';
+    const estMs = isKo
+      ? (sent.length / 200) * 60000 / _agSpeeds[_agSpeedIdx]
+      : ((sent.split(/\s+/).length) / 130) * 60000 / _agSpeeds[_agSpeedIdx];
+    const elapsed = performance.now() - _agSentStart;
+    frac = Math.min(elapsed / Math.max(estMs, 500), 0.99);
 
     const smoothPct = (_agSentIdx + frac) / n;
     _agUpdateTimeline(smoothPct);
@@ -3925,25 +3481,11 @@ function _agStopSmoothProgress() {
   if (_agRafId) { cancelAnimationFrame(_agRafId); _agRafId = null; }
 }
 
-// Pre-test TTS endpoints on page load — result is ready before user taps play
-// (Never run this inside a play gesture — the async wait kills the gesture context)
-// Tests all endpoints in order; first working one becomes the default.
-let _agTtsAvailable = null;  // null=testing, true=ok, false=unavailable
-_agTestTts().then(epIdx => {
-  if (epIdx >= 0) {
-    _agTtsEndpointIdx = epIdx;
-    _agTtsAvailable = true;
-    console.log('[ArchWander] TTS pre-test: ✓ using', _agTtsEndpoints[epIdx].id);
-  } else {
-    _agTtsAvailable = false;
-    console.log('[ArchWander] TTS pre-test: ✗ all endpoints failed → speechSynthesis fallback');
-  }
-});
-
-// Pre-load voices (Chrome async)
+// Pre-load voices (Chrome loads them async)
 if (_agSynth && _agSynth.onvoiceschanged !== undefined) {
-  _agSynth.onvoiceschanged = () => {}; // trigger load
+  _agSynth.onvoiceschanged = () => {};
 }
+
 // Close speed dropdown when clicking outside
 document.addEventListener('click', () => {
   const wrap = document.getElementById('ag-speed-wrap');
@@ -5479,28 +5021,71 @@ function exportDataJS() {
     });
   }
 
-  // ── iOS "Add to Home Screen" banner (shown once, dismissed on tap) ─────
-  //    iOS Safari blocks background audio for regular tabs.
-  //    Installing as PWA via "Add to Home Screen" enables background audio.
+  // ── PWA Install Banner ─────────────────────────────────────────────
+  //    Shows a non-intrusive install prompt for better experience
+  //    (background audio, offline support, fullscreen mode).
+  //    Android: uses beforeinstallprompt API for native install dialog.
+  //    iOS: guides user to Safari Share → Add to Home Screen.
   (function() {
-    const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
-    const isInStandalone = ('standalone' in navigator) && navigator.standalone;
-    const dismissed = localStorage.getItem('aw_pwa_banner_dismissed');
-    if (!isIos || isInStandalone || dismissed) return;
+    const isInStandalone = window.matchMedia('(display-mode: standalone)').matches
+      || (('standalone' in navigator) && navigator.standalone);
+    const dismissed = localStorage.getItem('aw_pwa_dismissed');
+    if (isInStandalone || dismissed) return;
 
-    const banner = document.createElement('div');
-    banner.id = 'aw-pwa-banner';
-    banner.innerHTML = `
-      <div style="display:flex;align-items:center;gap:10px;padding:12px 16px;
-        background:#111;color:#fff;font-size:12px;line-height:1.5;
-        position:fixed;bottom:0;left:0;right:0;z-index:9999;
-        box-shadow:0 -2px 12px rgba(0,0,0,0.3);">
-        <span style="font-size:20px">🔊</span>
-        <span style="flex:1"><strong>백그라운드 오디오</strong>를 사용하려면 Safari 공유 버튼(<strong>□↑</strong>)을 탭한 후 <strong>"홈 화면에 추가"</strong>로 앱을 설치하세요.</span>
-        <button onclick="document.getElementById('aw-pwa-banner').remove();localStorage.setItem('aw_pwa_banner_dismissed','1')"
-          style="background:none;border:none;color:#fff;font-size:18px;cursor:pointer;padding:4px;flex-shrink:0">✕</button>
-      </div>`;
-    document.body.appendChild(banner);
+    let _deferredInstallPrompt = null;
+
+    // Android/Chrome: capture the native install prompt
+    window.addEventListener('beforeinstallprompt', e => {
+      e.preventDefault();
+      _deferredInstallPrompt = e;
+      _showPwaBanner();
+    });
+
+    // iOS: show after short delay (no beforeinstallprompt on iOS)
+    const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    if (isIos) setTimeout(_showPwaBanner, 3000);
+
+    function _showPwaBanner() {
+      if (document.getElementById('aw-pwa-banner')) return;
+      const banner = document.createElement('div');
+      banner.id = 'aw-pwa-banner';
+      const msgText = isIos
+        ? (LANG === 'ko'
+          ? '<strong>ArchWander 앱 설치</strong> — Safari 공유 버튼(<strong>□↑</strong>) → <strong>"홈 화면에 추가"</strong>를 탭하세요.'
+          : '<strong>Install ArchWander</strong> — Tap Safari Share (<strong>□↑</strong>) → <strong>"Add to Home Screen"</strong>.')
+        : (LANG === 'ko'
+          ? '<strong>ArchWander 앱 설치</strong> — 오프라인 지원 및 더 나은 경험을 위해 앱을 설치하세요.'
+          : '<strong>Install ArchWander</strong> — Get offline support and a better experience.');
+      const installBtn = _deferredInstallPrompt
+        ? `<button id="aw-pwa-install-btn" style="background:#fff;color:#111;border:none;border-radius:4px;padding:5px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;flex-shrink:0">${LANG === 'ko' ? '설치' : 'Install'}</button>`
+        : '';
+      banner.innerHTML = `
+        <div style="display:flex;align-items:center;gap:10px;padding:12px 16px;
+          background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;font-size:12px;line-height:1.5;
+          position:fixed;bottom:0;left:0;right:0;z-index:9999;
+          box-shadow:0 -2px 12px rgba(0,0,0,0.3);">
+          <span style="font-size:20px">📲</span>
+          <span style="flex:1">${msgText}</span>
+          ${installBtn}
+          <button onclick="document.getElementById('aw-pwa-banner').remove();localStorage.setItem('aw_pwa_dismissed','1')"
+            style="background:none;border:none;color:#fff;font-size:18px;cursor:pointer;padding:4px;flex-shrink:0">✕</button>
+        </div>`;
+      document.body.appendChild(banner);
+
+      // Android: wire up the install button to trigger native prompt
+      if (_deferredInstallPrompt) {
+        const btn = document.getElementById('aw-pwa-install-btn');
+        if (btn) btn.addEventListener('click', async () => {
+          _deferredInstallPrompt.prompt();
+          const { outcome } = await _deferredInstallPrompt.userChoice;
+          if (outcome === 'accepted') {
+            localStorage.setItem('aw_pwa_dismissed', '1');
+            banner.remove();
+          }
+          _deferredInstallPrompt = null;
+        });
+      }
+    }
   })();
   </script>
 </body>
