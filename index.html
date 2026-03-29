@@ -17,7 +17,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mapillary-js@4/dist/mapillary.min.css"/>
   <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
   <style>
@@ -245,20 +244,6 @@
     .sb-clear { font-size: 11px; color: #4F46E5; background: none; border: none; cursor: pointer; padding: 2px 6px; border-radius: 4px; display: none; }
     .sb-clear.show { display: block; }
     .sb-clear:hover { background: #EEF2FF; }
-
-    /* ── Street View reopen bar (global — must be outside @media) ── */
-    .sv-reopen-bar {
-      display: none; align-items: center; gap: 6px;
-      width: 100%; padding: 9px 14px; cursor: pointer;
-      font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
-      text-transform: uppercase; color: var(--text-secondary);
-      background: var(--surface); border: none;
-      border-bottom: 1px solid var(--border);
-      user-select: none; transition: background 0.12s; text-align: left;
-    }
-    .sv-reopen-bar:hover { background: var(--bg); color: var(--text-primary); }
-    .sv-reopen-bar .sv-reopen-arr { margin-left: auto; font-size: 9px; color: #999; }
-    .sv-reopen-bar.visible { display: flex; }
 
     /* Filter sections */
     .fsec { border-bottom: 1px solid var(--border); }
@@ -529,10 +514,6 @@
     .sv-name { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
     .sv-desc { font-size: 11px; color: var(--text-secondary); }
     .sv-arrow { color: var(--text-secondary); font-size: 14px; }
-    .sv-divider { display: flex; align-items: center; gap: 8px; margin: 14px 0 10px; }
-    .sv-divider span { font-size: 10px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
-    .sv-divider::before, .sv-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .sv-map-mini { height: 130px; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 14px; }
 
     /* ── AUDIO GUIDE TAB ────────────────────────── */
     .ag-wrap { display: flex; flex-direction: column; gap: 0; }
@@ -858,103 +839,6 @@
       pointer-events: none; z-index: 800; white-space: nowrap; letter-spacing: 0.2px;
     }
 
-    /* ── SIDEBAR STREET VIEW PANEL ───────────────────────── */
-    .sv-side {
-      display: none; position: relative;
-      flex-shrink: 0; background: #111; overflow: hidden;
-    }
-    .sv-side.open { display: block; }
-    .sv-side-hdr {
-      display: flex; align-items: center; gap: 6px;
-      padding: 7px 10px; background: #111;
-      height: 36px; position: relative; z-index: 1;
-    }
-    .sv-side-title { font-size: 10px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
-    .sv-svc-group { display: flex; gap: 3px; margin-left: auto; }
-    .sv-svc-btn {
-      font-size: 10px; font-family: inherit; font-weight: 500;
-      padding: 3px 8px; border-radius: 10px;
-      border: 1px solid #444; color: #888; background: transparent; cursor: pointer;
-      transition: all 0.15s;
-    }
-    .sv-svc-btn.active { background: #fff; color: #111; border-color: #fff; }
-    .sv-svc-btn:hover:not(.active) { border-color: #777; color: #ccc; }
-    .sv-close-btn {
-      width: 20px; height: 20px; border-radius: 50%;
-      background: #333; border: none; color: #999;
-      cursor: pointer; font-size: 14px; display: flex;
-      align-items: center; justify-content: center; flex-shrink: 0; line-height: 1;
-    }
-    .sv-close-btn:hover { background: #555; color: white; }
-    /* Body: absolutely positioned below header, fills remaining height */
-    .sv-side-body {
-      position: absolute; top: 36px; left: 0; right: 0; bottom: 0;
-      overflow: hidden;
-    }
-    .sv-side-iframe {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%; border: none; display: block;
-    }
-    /* Mapillary inline viewer */
-    #mly-viewer {
-      position: absolute; inset: 0;
-      display: none; background: #111;
-    }
-    #mly-viewer .mapillary-js { width: 100%; height: 100%; }
-    #mly-status {
-      position: absolute; inset: 0; display: none;
-      flex-direction: column; align-items: center; justify-content: center;
-      gap: 6px; padding: 16px; text-align: center;
-      background: #111; color: #aaa; font-size: 11px; line-height: 1.6;
-      z-index: 2;
-    }
-    #mly-status a { color: #60a5fa; }
-    #mly-status code { background: #222; padding: 1px 5px; border-radius: 3px; font-size: 10px; }
-    .mly-attrib {
-      position: absolute; bottom: 4px; right: 6px; z-index: 10;
-      font-size: 9px; color: #bbb; opacity: 0.7;
-      pointer-events: none;
-    }
-    .mly-attrib a { color: #bbb; pointer-events: all; }
-
-    .sv-side-iframe {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%; border: none; display: block;
-    }
-    .sv-iframe-note {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 6px 10px; background: rgba(0,0,0,0.72);
-      font-size: 10px; color: rgba(255,255,255,0.7); text-align: center;
-      display: none;
-    }
-    .sv-iframe-note a { color: #adf; text-decoration: none; }
-    .sv-iframe-note a:hover { text-decoration: underline; }
-
-    /* Link-card view (used for KartaView) */
-    .sv-side-cards {
-      position: absolute; inset: 0;
-      display: none; flex-direction: column; gap: 6px;
-      padding: 10px; overflow-y: auto;
-      background: var(--surface);
-    }
-    .sv-side-cards.show { display: flex; }
-    .sv-card-link {
-      display: flex; align-items: center; gap: 10px;
-      padding: 9px 12px;
-      border: 1px solid var(--border); border-radius: 9px; background: white;
-      text-decoration: none; color: inherit; transition: all 0.15s;
-    }
-    .sv-card-link:hover { border-color: #999; background: var(--bg); }
-    .sv-card-icon {
-      width: 32px; height: 32px; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; flex-shrink: 0;
-    }
-    .sv-card-info { flex: 1; min-width: 0; }
-    .sv-card-name { font-size: 12px; font-weight: 600; margin-bottom: 1px; }
-    .sv-card-desc { font-size: 10px; color: var(--text-secondary); }
-    .sv-card-arr { color: #bbb; font-size: 13px; }
-
     /* ── DRAG HANDLES ─────────────────────────────────────── */
     .drag-h {
       height: 5px; flex-shrink: 0; cursor: ns-resize;
@@ -1148,18 +1032,6 @@
       /* ── Sidebar backdrop ── */
       #sidebar-backdrop { display: none; position: fixed; top: calc(var(--mob-header-h) + var(--safe-top)); left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 350; }
       #sidebar-backdrop.visible { display: block; }
-    .sv-reopen-bar {
-      display: none; align-items: center; gap: 6px;
-      width: 100%; padding: 9px 14px; cursor: pointer;
-      font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
-      text-transform: uppercase; color: var(--text-secondary);
-      background: var(--surface); border: none;
-      border-bottom: 1px solid var(--border);
-      user-select: none; transition: background 0.12s; text-align: left;
-    }
-    .sv-reopen-bar:hover { background: var(--bg); color: var(--text-primary); }
-    .sv-reopen-bar .sv-reopen-arr { margin-left: auto; font-size: 9px; color: #999; }
-    .sv-reopen-bar.visible { display: flex; }
 
       /* ── Gallery: fixed height, aspect-ratio letterbox ── */
       .gallery {
@@ -1186,8 +1058,6 @@
         -webkit-overflow-scrolling: touch;
       }
 
-      /* ── Sidebar: sv-side pinned, filters+list scroll ── */
-      .sv-side { flex-shrink: 0; }
       .drag-h { display: none; }
       .sb-filters {
         flex: 1; height: auto; min-height: 0;
@@ -1597,39 +1467,6 @@
   <aside class="sidebar" id="sidebar">
 
     <!-- Street View panel (hidden by default, shown when location selected) -->
-    <div id="sv-reopen-bar" class="sv-reopen-bar" onclick="openSvSide()" title="Show Street View">
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0;opacity:0.6"><circle cx="12" cy="12" r="4"/><path d="M3 12a9 9 0 0 1 18 0"/><path d="M3 12a9 9 0 0 0 18 0"/></svg>
-      Street View
-      <span class="sv-reopen-arr">&#9660;</span>
-    </div>
-    <div class="sv-side" id="sv-side">
-      <div class="sv-side-hdr">
-        <span class="sv-side-title">Street View</span>
-        <div class="sv-svc-group">
-          <button class="sv-svc-btn active" data-svc="google" onclick="setSvSvc('google')">Google</button>
-          <button class="sv-svc-btn" data-svc="mapillary" onclick="setSvSvc('mapillary')">Mapillary</button>
-          <button class="sv-svc-btn" data-svc="kartaview" onclick="setSvSvc('kartaview')">KartaView</button>
-        </div>
-        <button class="sv-close-btn" onclick="closeSvSide()" title="Close Street View">×</button>
-      </div>
-      <div class="sv-side-body">
-        <!-- Google Street View iframe (default) -->
-        <iframe class="sv-side-iframe" id="sv-iframe" src="about:blank" allowfullscreen></iframe>
-        <div class="sv-iframe-note" id="sv-iframe-note">
-          ↑ Not loading? <a id="sv-direct-link" href="#" target="_blank" rel="noopener">Open in Google Maps ↗</a>
-        </div>
-        <!-- Mapillary inline viewer -->
-        <div id="mly-viewer"></div>
-        <div id="mly-status"></div>
-        <div class="mly-attrib"><a href="https://www.mapillary.com" target="_blank" rel="noopener">© Mapillary</a></div>
-        <!-- Link-card fallback (KartaView) -->
-        <div class="sv-side-cards" id="sv-side-cards"></div>
-      </div>
-    </div>
-
-    <!-- Drag handle: between Street View and Filters -->
-    <div class="drag-h hidden" id="dh-sv"></div>
-
     <!-- Filters section (resizable height) -->
     <div class="sb-filters" id="sb-filters">
 
@@ -1814,7 +1651,6 @@
 <script src="data-ko-london.js"></script>
 <script src="data-ko-tokyo.js"></script>
 <script src="data-ko.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/mapillary-js@4/dist/mapillary.min.js"></script>
 <script>
 // Translation priority: LOCS_KO (static, data-ko-*.js) → localStorage cache → API (MyMemory/DeepL)
 // data-ko.js combines city-specific data-ko-{city}.js files (same pattern as data.js).
@@ -1956,14 +1792,6 @@ let ARCHITECTS = [];
 // ══════════════════════════════════════════════════════════════════
 // CONFIGURATION
 // ══════════════════════════════════════════════════════════════════
-// Google Maps Embed API — get key: console.cloud.google.com → Enable "Maps Embed API"
-// Restrict key to HTTP referrers (your domain) in Cloud Console for security
-const GOOGLE_MAPS_KEY = 'AIzaSyCg3_F1ra7cLs6Vw-Df5_kUWlyZtyEY598';
-
-// Mapillary Client Token — free, permanent. Get yours at:
-// https://www.mapillary.com/developer → Register app → copy Client Token
-const MAPILLARY_TOKEN = 'YOUR_MAPILLARY_TOKEN_HERE';
-
 // Thunderforest (optional) — bilingual map tiles: shows local name + English name simultaneously.
 // e.g. 도쿄 / Tokyo, 서울 / Seoul on the same label. Free: 150,000 tiles/month.
 // Sign up at thunderforest.com → Hobby Project (free) → copy API key.
@@ -2327,8 +2155,6 @@ function applyLang() {
 // ══════════════════════════════════════════════════════════════════
 let map, streetLayer, satLayer, markers = [], userMarker = null;
 let clusterGroup = null;   // Leaflet.markercluster group
-let svMiniMap = null;
-
 // ── Walk filter state ──────────────────────────────────────────────
 let walkOrigin    = null;   // { lat, lng } GPS position or dropped pin
 let walkActive    = false;  // is walk filter currently on?
@@ -2848,7 +2674,6 @@ function openLoc(loc) {
   history.pushState({ view: 'panel', locId: loc.id }, '');
   if (window.innerWidth <= 900) { const _pb = document.getElementById('panel-backdrop'); if (_pb) _pb.classList.add('visible'); }
   renderList();
-  showSvSide(loc);
 
   if (window.innerWidth <= 900) document.getElementById('sidebar').classList.remove('open');
   const bd2=document.getElementById('sidebar-backdrop');if(bd2)bd2.classList.remove('visible');
@@ -2861,7 +2686,6 @@ function closePanel() {
   document.getElementById('panel').classList.remove('open');
   const _pb2 = document.getElementById('panel-backdrop'); if (_pb2) _pb2.classList.remove('visible');
   activeLoc = null;
-  closeSvSide();
   renderList();
   updateMarkerSize();
 }
@@ -3619,8 +3443,6 @@ function buildStreetViewTab(loc) {
         <span class="sv-arrow">↗</span>
       </a>
     </div>
-    <div class="sv-divider"><span>Map preview</span></div>
-    <div class="sv-map-mini" id="sv-mini-map"></div>
   `;
 }
 
@@ -3667,16 +3489,6 @@ function buildDrawingsTab(loc) {
 // ══════════════════════════════════════════════════════════════════
 // MINI MAP (Street View tab)
 // ══════════════════════════════════════════════════════════════════
-function initSvMiniMap(loc) {
-  const el = document.getElementById('sv-mini-map');
-  if (!el) return;
-  if (svMiniMap) { svMiniMap.remove(); svMiniMap = null; }
-  setTimeout(() => {
-    svMiniMap = L.map(el, { zoomControl:false, dragging:false, scrollWheelZoom:false, center:[loc.lat, loc.lng], zoom:17 });
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { subdomains:'abcd', maxZoom:19 }).addTo(svMiniMap);
-    L.circleMarker([loc.lat, loc.lng], { radius:8, fillColor: CAT_COLORS[_pCat(loc)]||'#111', fillOpacity:1, color:'white', weight:2.5 }).addTo(svMiniMap);
-  }, 50);
-}
 
 // ══════════════════════════════════════════════════════════════════
 // TABS
@@ -3873,177 +3685,10 @@ function setupHDragLeft(handleId, targetId, minW, maxW) {
 }
 
 // ══════════════════════════════════════════════════════════════════
-// SIDEBAR STREET VIEW
+// (Street View panel removed — links kept in Directions tab)
 // ══════════════════════════════════════════════════════════════════
-let svLoc = null, svSvc = 'google';
-let mlyViewer = null; // mapillary-js Viewer instance (reused across locations)
 
-function showSvSide(loc) {
-  svLoc = loc;
-  const side = document.getElementById('sv-side');
-  const dhSv = document.getElementById('dh-sv');
-  if (!side.classList.contains('open')) {
-    side.classList.add('open');
-    const bd=document.getElementById('sidebar-backdrop');if(bd)bd.classList.add('visible');
-    side.style.height = '220px';
-    dhSv.classList.remove('hidden');
-  }
-  setSvSvc(svSvc);
-}
 
-function closeSvSide() {
-  const side = document.getElementById('sv-side');
-  const dhSv = document.getElementById('dh-sv');
-  side.classList.remove('open');
-  dhSv.classList.add('hidden');
-  const iframe = document.getElementById('sv-iframe');
-  iframe.src = 'about:blank';
-  if (iframe._noteTimer) clearTimeout(iframe._noteTimer);
-  document.getElementById('sv-iframe-note').style.display = 'none';
-  document.getElementById('mly-viewer').style.display = 'none';
-  document.getElementById('mly-status').style.display = 'none';
-  document.getElementById('sv-side-cards').classList.remove('show');
-  const attrib = document.querySelector('.mly-attrib');
-  if (attrib) attrib.style.display = 'none';
-  svLoc = null;
-  const rb = document.getElementById('sv-reopen-bar'); if (rb) rb.classList.add('visible');
-}
-function openSvSide() {
-  const side = document.getElementById('sv-side');
-  const dhSv = document.getElementById('dh-sv');
-  const rb = document.getElementById('sv-reopen-bar');
-  side.classList.add('open');
-  if (dhSv) dhSv.classList.remove('hidden');
-  if (rb) rb.classList.remove('visible');
-}
-
-function setSvSvc(svc) {
-  svSvc = svc;
-  document.querySelectorAll('.sv-svc-btn').forEach(b =>
-    b.classList.toggle('active', b.dataset.svc === svc)
-  );
-  if (!svLoc) return;
-
-  const iframe    = document.getElementById('sv-iframe');
-  const note      = document.getElementById('sv-iframe-note');
-  const directLnk = document.getElementById('sv-direct-link');
-  const mlyView   = document.getElementById('mly-viewer');
-  const mlyStatus = document.getElementById('mly-status');
-  const cards     = document.getElementById('sv-side-cards');
-  const attrib    = document.querySelector('.mly-attrib');
-
-  const gmUrl = `https://maps.google.com/?q=${encodeURIComponent(svLoc.addr)}&layer=c`;
-  const kvUrl = `https://kartaview.org/map/@${svLoc.lat},${svLoc.lng},17z`;
-
-  // Reset all panels
-  iframe.style.display   = 'none';
-  iframe.src             = 'about:blank';
-  note.style.display     = 'none';
-  if (iframe._noteTimer) clearTimeout(iframe._noteTimer);
-  mlyView.style.display  = 'none';
-  mlyStatus.style.display = 'none';
-  cards.classList.remove('show');
-  if (attrib) attrib.style.display = 'none';
-
-  if (svc === 'google') {
-    directLnk.href = gmUrl;
-    iframe.style.display = 'block';
-    // source=outdoor prevents indoor 360° panoramas; fallback uses address-based query
-    const svAddr = encodeURIComponent(svLoc.addr);
-    iframe.src = GOOGLE_MAPS_KEY
-      ? `https://www.google.com/maps/embed/v1/streetview?key=${GOOGLE_MAPS_KEY}&location=${svLoc.lat},${svLoc.lng}&source=outdoor&pitch=0&fov=80`
-      : `https://maps.google.com/maps?q=${svAddr}&layer=c&output=embed`;
-    iframe._noteTimer = setTimeout(() => { note.style.display = 'block'; }, 3000);
-
-  } else if (svc === 'mapillary') {
-    mlyView.style.display = 'block';
-    if (attrib) attrib.style.display = 'block';
-    loadMapillaryViewer(svLoc);
-
-  } else { // kartaview
-    cards.innerHTML = `
-      <p style="font-size:10.5px;color:var(--text-secondary);line-height:1.55;padding:4px 2px 6px">
-        KartaView opens in a new tab. Click below to view <strong>${svLoc.name}</strong> at street level.
-      </p>
-      <a class="sv-card-link" href="${kvUrl}" target="_blank" rel="noopener">
-        <div class="sv-card-icon" style="background:#F0FDF4">📍</div>
-        <div class="sv-card-info">
-          <div class="sv-card-name">Open in KartaView ↗</div>
-          <div class="sv-card-desc">Community-driven · Open data from OSM contributors</div>
-        </div>
-        <span class="sv-card-arr">›</span>
-      </a>
-    `;
-    cards.classList.add('show');
-  }
-}
-
-// ══════════════════════════════════════════════════════════════════
-// MAPILLARY INLINE VIEWER
-// ══════════════════════════════════════════════════════════════════
-async function loadMapillaryViewer(loc) {
-  const mlyView   = document.getElementById('mly-viewer');
-  const mlyStatus = document.getElementById('mly-status');
-
-  // Token check
-  if (!MAPILLARY_TOKEN || MAPILLARY_TOKEN === 'YOUR_MAPILLARY_TOKEN_HERE') {
-    mlyStatus.style.display = 'flex';
-    mlyStatus.innerHTML = `
-      Mapillary token not configured.<br>
-      Get a free token at
-      <a href="https://www.mapillary.com/developer" target="_blank" rel="noopener">mapillary.com/developer ↗</a>
-      then set <code>MAPILLARY_TOKEN</code> in the config section.
-    `;
-    return;
-  }
-
-  // Show loading state
-  mlyStatus.style.display = 'flex';
-  mlyStatus.innerHTML = 'Loading street-level imagery…';
-
-  try {
-    // Fetch nearest image from Mapillary Graph API
-    const delta = 0.0015; // ~165m radius
-    const bbox  = `${loc.lng - delta},${loc.lat - delta},${loc.lng + delta},${loc.lat + delta}`;
-    const resp  = await fetch(
-      `https://graph.mapillary.com/images?fields=id&bbox=${bbox}&limit=5&access_token=${MAPILLARY_TOKEN}`
-    );
-    if (!resp.ok) throw new Error(`Mapillary API error ${resp.status}`);
-    const data = await resp.json();
-
-    if (!data.data || data.data.length === 0) {
-      mlyStatus.innerHTML = `
-        No street-level imagery near this location.<br>
-        <a href="https://www.mapillary.com/app/?lat=${loc.lat}&lng=${loc.lng}&z=17" target="_blank" rel="noopener">Browse Mapillary ↗</a>
-      `;
-      return;
-    }
-
-    const imageId = data.data[0].id;
-    mlyStatus.style.display = 'none';
-
-    if (!mlyViewer) {
-      // First init — create viewer
-      mlyViewer = new mapillary.Viewer({
-        accessToken: MAPILLARY_TOKEN,
-        container:   'mly-viewer',
-        imageId:     imageId,
-        component:   { cover: false }
-      });
-    } else {
-      // Reuse existing viewer, resize in case panel changed size, then jump to new image
-      mlyViewer.resize();
-      await mlyViewer.moveTo(imageId);
-    }
-
-  } catch(e) {
-    console.error('Mapillary viewer error:', e);
-    mlyStatus.innerHTML = `
-      Could not load imagery.<br>
-      <a href="https://www.mapillary.com/app/?lat=${loc.lat}&lng=${loc.lng}&z=17" target="_blank" rel="noopener">Open Mapillary ↗</a>
-    `;
-  }
-}
 
 
 // ══════════════════════════════════════════════════════════════════
@@ -4872,7 +4517,6 @@ window.addEventListener('load', function() {
     if (walkActive) _runWalkFilter();
   });
   // Sidebar macro drag-resize
-  setupVDrag('dh-sv', 'sv-side', 80, 460);
   setupVDrag('dh-fl', 'sb-filters', 50, 480);
   setupHDrag('sb-resize', 'sidebar', 220, 700);
   setupHDragLeft('panel-resize', 'panel', 300, 900);
