@@ -2789,15 +2789,27 @@ let _agLoaded   = null; // id of location whose script is rendered
    Falls back to speechSynthesis if the TTS URL is unavailable.
    ──────────────────────────────────────────────────────────────────── */
 
-let _agAudio    = null;  // reusable <audio> element
+let _agAudio    = null;  // reusable <audio> element (DOM-attached)
+let _agPreload  = null;  // second <audio> for preloading next chunk
 let _agMode     = '';    // 'audio' | 'synth' — which engine is active
 let _agTitle    = '';    // current location title (for Media Session)
 
 // Google Translate TTS → returns real MP3 via <audio> element
+// Uses 'gtx' client which is more reliable for web page usage
 function _agTtsUrl(text, lang) {
   const tl = lang === 'ko' ? 'ko' : 'en';
-  return 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob'
+  return 'https://translate.google.com/translate_tts?ie=UTF-8&client=gtx'
        + '&tl=' + tl + '&q=' + encodeURIComponent(text);
+}
+
+// Clean text for TTS: strip parenthetical English annotations in Korean mode
+// e.g. "엠파이어 스테이트 빌딩(Empire State Building)은" → "엠파이어 스테이트 빌딩은"
+function _agCleanForTts(text, lang) {
+  if (lang === 'ko') {
+    // Remove (English text) where content is primarily Latin/digit characters
+    text = text.replace(/\s*\([A-Za-z0-9\s,.'&\-\/\u2019]+\)/g, '');
+  }
+  return text.trim();
 }
 
 // Split long sentence into ≤180 char chunks (Google TTS limit)
@@ -2817,13 +2829,29 @@ function _agChunk(text, max) {
   return out;
 }
 
-// Ensure <audio> element exists
+// Ensure <audio> element exists, attached to DOM with playsinline
 function _agEnsureAudio() {
   if (!_agAudio) {
     _agAudio = new Audio();
-    _agAudio.preload = 'auto';
+    _agAudio.setAttribute('playsinline', '');
+    _agAudio.setAttribute('webkit-playsinline', '');
+    _agAudio.style.display = 'none';
+    document.body.appendChild(_agAudio);
   }
   return _agAudio;
+}
+
+// Second audio element for preloading next chunk (gap-free playback)
+function _agEnsurePreload() {
+  if (!_agPreload) {
+    _agPreload = new Audio();
+    _agPreload.setAttribute('playsinline', '');
+    _agPreload.setAttribute('webkit-playsinline', '');
+    _agPreload.preload = 'auto';
+    _agPreload.style.display = 'none';
+    document.body.appendChild(_agPreload);
+  }
+  return _agPreload;
 }
 
 // Media Session API — lock screen controls
@@ -3092,7 +3120,8 @@ function agToggle() {
 }
 
 function agStop() {
-  if (_agAudio) { _agAudio.pause(); _agAudio.onended = null; _agAudio.onerror = null; _agAudio.src = ''; }
+  if (_agAudio) { _agAudio.pause(); _agAudio.onended = null; _agAudio.onerror = null; _agAudio.removeAttribute('src'); _agAudio.load(); }
+  if (_agPreload) { _agPreload.removeAttribute('src'); _agPreload.load(); }
   if (_agSynth) _agSynth.cancel();
   _agPlaying = false;
   _agPaused  = false;
@@ -3238,6 +3267,7 @@ function _agStartPlayback(fromIdx) {
   /* ── Strategy A: Google TTS via <audio> element (survives background) ── */
   function playViaAudio() {
     _agMode = 'audio';
+    const preload = _agEnsurePreload();
 
     function playSentence() {
       if (idx >= _agSentences.length) {
@@ -3249,7 +3279,11 @@ function _agStartPlayback(fromIdx) {
       _agHighlight(idx);
       _agScrollToSentence(idx);
 
-      const chunks = _agChunk(_agSentences[idx].trim());
+      // Clean text for TTS (strip English in parentheses for Korean)
+      const cleanText = _agCleanForTts(_agSentences[idx].trim(), LANG);
+      if (!cleanText) { idx++; playSentence(); return; }
+
+      const chunks = _agChunk(cleanText);
       _agChunks = chunks;
       let ci = 0;
       _agChunkIdx = 0;
@@ -3258,15 +3292,25 @@ function _agStartPlayback(fromIdx) {
         if (ci >= chunks.length) { idx++; playSentence(); return; }
         _agChunkIdx = ci;
         const url = _agTtsUrl(chunks[ci], LANG);
+
+        // Preload next chunk while current one plays (gap-free)
+        if (ci + 1 < chunks.length) {
+          preload.src = _agTtsUrl(chunks[ci + 1], LANG);
+          preload.load();
+        }
+
         audio.src = url;
         audio.playbackRate = _agSpeeds[_agSpeedIdx];
         audio.onended = () => { ci++; playChunk(); };
-        audio.onerror = () => {
+        audio.onerror = (e) => {
+          console.warn('[ArchWander] TTS audio error:', e.type, 'chunk:', ci, 'sent:', idx);
           // First chunk of first sentence fails → fall back to synth
           if (idx === fromIdx && ci === 0) { playViaSynth(); return; }
           ci++; playChunk();
         };
-        audio.play().catch(() => {
+        const playPromise = audio.play();
+        if (playPromise) playPromise.catch((err) => {
+          console.warn('[ArchWander] TTS play() rejected:', err.message);
           if (idx === fromIdx && ci === 0) playViaSynth();
           else { ci++; playChunk(); }
         });
@@ -3311,7 +3355,11 @@ function _agStartPlayback(fromIdx) {
       _agHighlight(idx);
       _agScrollToSentence(idx);
 
-      const u = new SpeechSynthesisUtterance(_agSentences[idx].trim());
+      // Clean text for TTS (strip English in parentheses for Korean)
+      const cleanText = _agCleanForTts(_agSentences[idx].trim(), LANG);
+      if (!cleanText) { idx++; speakNext(); return; }
+
+      const u = new SpeechSynthesisUtterance(cleanText);
       u.lang = isKo ? 'ko-KR' : 'en-US';
       u.rate = _agSpeeds[_agSpeedIdx];
       if (preferred) u.voice = preferred;
