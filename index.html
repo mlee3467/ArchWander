@@ -500,70 +500,91 @@
 
     /* ── AUDIO GUIDE TAB ────────────────────────── */
     .ag-wrap { display: flex; flex-direction: column; gap: 0; }
-    .ag-header {
-      display: flex; align-items: center; gap: 8px;
-      padding: 0 0 14px 0;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 16px;
-    }
-    .ag-icon { font-size: 22px; line-height: 1; }
-    .ag-header-text { flex: 1; min-width: 0; }
-    .ag-header-title { font-size: 13px; font-weight: 700; color: #111; }
-    .ag-header-sub { font-size: 11px; color: var(--text-secondary); margin-top: 1px; }
 
-    /* Player controls */
-    .ag-controls {
-      display: flex; align-items: center; gap: 10px;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 12px; padding: 10px 14px;
-      margin-bottom: 16px;
+    /* ── Sticky player bar — stays at top when script scrolls ── */
+    .ag-player {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      margin: -18px -18px 16px -18px; /* bleed past tab-pane padding */
+      padding: 14px 18px 12px;
     }
-    .ag-play-btn {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: #111; color: white; border: none;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; cursor: pointer; flex-shrink: 0;
-      transition: background 0.15s, transform 0.1s;
+    .ag-player-title {
+      font-size: 12px; font-weight: 700; color: #111;
+      margin-bottom: 2px; display: flex; align-items: center; gap: 6px;
     }
-    .ag-play-btn:hover { background: #333; }
-    .ag-play-btn:active { transform: scale(0.95); }
-    .ag-play-btn.playing { background: #E63737; }
-    .ag-ctrl-mid { flex: 1; min-width: 0; }
-    .ag-progress {
-      width: 100%; height: 3px; border-radius: 2px;
-      background: var(--border); overflow: hidden; margin-bottom: 6px;
+    .ag-player-sub { font-size: 10.5px; color: var(--text-secondary); margin-bottom: 10px; }
+
+    /* Timeline range input */
+    .ag-timeline-wrap { margin-bottom: 4px; }
+    .ag-timeline {
+      -webkit-appearance: none; appearance: none;
+      width: 100%; height: 4px; border-radius: 2px; outline: none;
       cursor: pointer;
+      background: linear-gradient(to right, #111 var(--pct,0%), var(--border-color,#e5e5e0) var(--pct,0%));
     }
-    .ag-progress-bar {
-      height: 100%; background: #111; width: 0%;
-      transition: width 0.3s linear; border-radius: 2px;
+    .ag-timeline::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #111; cursor: pointer;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+      transition: transform 0.1s;
+    }
+    .ag-timeline::-webkit-slider-thumb:hover { transform: scale(1.25); }
+    .ag-timeline::-moz-range-thumb {
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #111; cursor: pointer; border: none;
     }
     .ag-time-row {
       display: flex; justify-content: space-between;
-      font-size: 10px; color: var(--text-secondary);
+      font-size: 10px; color: var(--text-secondary); margin-bottom: 10px;
     }
+
+    /* Controls row: speed | ⏮ ▶ ⏭ | 🔁 */
+    .ag-ctrl-row {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .ag-play-btn {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: #111; color: white; border: none;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; cursor: pointer; flex-shrink: 0;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .ag-play-btn:hover { background: #333; }
+    .ag-play-btn:active { transform: scale(0.92); }
+    .ag-play-btn.playing { background: #E63737; }
+    .ag-ctrl-btn {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: none; color: #555; border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; cursor: pointer; flex-shrink: 0;
+      transition: all 0.12s;
+    }
+    .ag-ctrl-btn:hover { background: var(--bg); color: #111; border-color: #999; }
+    .ag-ctrl-btn.active { color: #111; border-color: #111; background: var(--bg); }
     .ag-speed-btn {
       font-size: 10px; font-weight: 700; color: var(--text-secondary);
       background: none; border: 1px solid var(--border);
-      border-radius: 6px; padding: 3px 7px; cursor: pointer;
-      white-space: nowrap; flex-shrink: 0;
-      transition: color 0.12s, border-color 0.12s;
+      border-radius: 20px; padding: 5px 10px; cursor: pointer;
+      white-space: nowrap; flex-shrink: 0; margin-right: auto;
+      transition: all 0.12s;
     }
     .ag-speed-btn:hover { color: #111; border-color: #999; }
+    .ag-repeat-spacer { margin-left: auto; }
 
-    /* Script display */
+    /* Script text */
     .ag-script-box {
       background: var(--bg); border: 1px solid var(--border);
       border-radius: 12px; padding: 16px;
-      font-size: 13px; line-height: 1.8; color: var(--text-primary);
-      max-height: 320px; overflow-y: auto;
+      font-size: 13px; line-height: 1.85; color: #333;
     }
-    .ag-script-box p { margin: 0 0 14px 0; }
+    .ag-script-box p { margin: 0 0 16px 0; }
     .ag-script-box p:last-child { margin-bottom: 0; }
-    /* Highlight the sentence being spoken */
     .ag-sentence.speaking {
-      background: rgba(255, 220, 80, 0.35);
-      border-radius: 3px; padding: 0 2px;
+      background: rgba(255, 216, 60, 0.38);
+      border-radius: 3px; padding: 0 2px; margin: 0 -2px;
     }
 
     /* States */
@@ -586,7 +607,7 @@
     .ag-unavail .ag-unavail-icon { font-size: 28px; margin-bottom: 10px; }
     .ag-travel-note {
       font-size: 11px; color: var(--text-secondary);
-      text-align: center; margin-top: 12px;
+      text-align: center; margin-top: 14px;
       display: flex; align-items: center; justify-content: center; gap: 5px;
     }
     /* Lightbox */
@@ -1517,6 +1538,9 @@
           <option value="year-asc">Oldest first</option>
           <option value="year-desc">Newest first</option>
           <option value="name">Name A–Z</option>
+          <option value="clicks">Most Visited</option>
+          <option value="searches">Most Searched</option>
+          <option value="reviews">Most Reviewed</option>
         </select>
       </div>
       <div class="loc-list" id="loc-list"></div>
@@ -1786,6 +1810,7 @@ const T = {
     access:       'Access',       architect:    'Architect',
     sort_default: 'Default order',sort_oldest:  'Oldest first',
     sort_newest:  'Newest first', sort_az:      'Name A–Z',
+    sort_clicks:  'Most Visited', sort_searches:'Most Searched', sort_reviews: 'Most Reviewed',
     tab_overview: 'Overview',     tab_visit:    'Visit',
     tab_here:     'Directions',   tab_audio:    '🎧 Audio',       tab_reviews: 'Reviews',    tab_report: 'Report',
     neighborhood: 'Neighborhood', address:      'Address',
@@ -1815,6 +1840,7 @@ const T = {
     access:       '접근성',       architect:    '건축가',
     sort_default: '기본 순서',    sort_oldest:  '오래된순',
     sort_newest:  '최신순',       sort_az:      '이름 A–Z',
+    sort_clicks:  '많이 방문한순', sort_searches:'많이 검색된순', sort_reviews: '리뷰 많은순',
     tab_overview: '개요',         tab_visit:    '방문',
     tab_here:     '오시는 길',    tab_audio:    '🎧 오디오',      tab_reviews: '리뷰',        tab_report: '오류신고',
     neighborhood: '지역',         address:      '주소',
@@ -2059,7 +2085,7 @@ function applyLang() {
   // Sort dropdown options
   const sortSel = document.getElementById('sort-sel');
   if (sortSel) {
-    const keys = ['sort_default','sort_oldest','sort_newest','sort_az'];
+    const keys = ['sort_default','sort_oldest','sort_newest','sort_az','sort_clicks','sort_searches','sort_reviews'];
     [...sortSel.options].forEach((opt, i) => { if (keys[i]) opt.textContent = t(keys[i]); });
   }
   // Panel tabs
@@ -2354,6 +2380,82 @@ function toggleFsec(id) {
 }
 
 // ══════════════════════════════════════════════════════════════════
+// ANALYTICS — User Behaviour Tracking
+// ══════════════════════════════════════════════════════════════════
+// Stores per-location click and search counts in localStorage.
+// Key: 'aw_analytics_v1'  Value: { [locId]: { c: clicks, s: searches, lv: lastVisit } }
+// Review counts come from the existing 'archwander_reviews_v1' key.
+// This data is also readable by analytics-tool.html (same GitHub Pages origin).
+
+const AW_ANALYTICS_KEY = 'aw_analytics_v1';
+
+function _awReadStats() {
+  try { return JSON.parse(localStorage.getItem(AW_ANALYTICS_KEY) || '{}'); } catch(e) { return {}; }
+}
+function _awWriteStats(data) {
+  try { localStorage.setItem(AW_ANALYTICS_KEY, JSON.stringify(data)); } catch(e) {}
+}
+
+const awStats = {
+  // Track a location click (called when user opens a location panel)
+  click(locId) {
+    const d = _awReadStats();
+    if (!d[locId]) d[locId] = { c: 0, s: 0, lv: 0 };
+    d[locId].c = (d[locId].c || 0) + 1;
+    d[locId].lv = Date.now();
+    _awWriteStats(d);
+  },
+
+  // Track search result appearances (called after search renders results)
+  // locIds: array of location ids that appeared in results
+  search(locIds) {
+    if (!locIds || !locIds.length) return;
+    const d = _awReadStats();
+    locIds.forEach(id => {
+      if (!d[id]) d[id] = { c: 0, s: 0, lv: 0 };
+      d[id].s = (d[id].s || 0) + 1;
+    });
+    _awWriteStats(d);
+  },
+
+  // Get clicks for a location (0 if not tracked yet)
+  getClicks(locId) { return (_awReadStats()[locId]?.c) || 0; },
+
+  // Get searches for a location
+  getSearches(locId) { return (_awReadStats()[locId]?.s) || 0; },
+
+  // Get review count from existing review store
+  getReviews(locId) {
+    try {
+      const all = JSON.parse(localStorage.getItem('archwander_reviews_v1') || '{}');
+      return (all[locId] || []).length;
+    } catch(e) { return 0; }
+  },
+
+  // Reset all analytics data
+  resetAll() { localStorage.removeItem(AW_ANALYTICS_KEY); },
+
+  // Reset a single location
+  resetLoc(locId) {
+    const d = _awReadStats();
+    delete d[locId];
+    _awWriteStats(d);
+  },
+
+  // Full snapshot (for analytics tool interop)
+  snapshot() { return _awReadStats(); }
+};
+
+// Debounced search tracker — fires 800ms after the user stops typing
+let _awSearchTimer = null;
+function _awTrackSearchDebounced(locIds) {
+  clearTimeout(_awSearchTimer);
+  _awSearchTimer = setTimeout(() => {
+    if (locIds && locIds.length) awStats.search(locIds);
+  }, 800);
+}
+
+// ══════════════════════════════════════════════════════════════════
 // FILTERED + SORTED LIST
 // ══════════════════════════════════════════════════════════════════
 function getFiltered() {
@@ -2386,6 +2488,9 @@ function getFiltered() {
   if (state.sort === 'year-asc')  list = [...list].sort((a,b) => a.yr - b.yr);
   if (state.sort === 'year-desc') list = [...list].sort((a,b) => b.yr - a.yr);
   if (state.sort === 'name')      list = [...list].sort((a,b) => a.name.localeCompare(b.name));
+  if (state.sort === 'clicks')    list = [...list].sort((a,b) => awStats.getClicks(b.id)   - awStats.getClicks(a.id));
+  if (state.sort === 'searches')  list = [...list].sort((a,b) => awStats.getSearches(b.id) - awStats.getSearches(a.id));
+  if (state.sort === 'reviews')   list = [...list].sort((a,b) => awStats.getReviews(b.id)  - awStats.getReviews(a.id));
   return list;
 }
 
@@ -2412,6 +2517,8 @@ function cardThumb(loc) {
 function renderList() {
   const list = getFiltered();
   document.getElementById('list-meta').textContent = t('loc_count')(list.length);
+  // Track search appearances when user has an active query
+  if (state.query && list.length) _awTrackSearchDebounced(list.map(l => l.id));
 
   const wrap = document.getElementById('loc-list');
   if (!list.length) {
@@ -2474,7 +2581,7 @@ function photoUrl(u, mob, role) {
   return u;
 }
 
-function openLocById(id) { openLoc(LOCS.find(l => l.id === id)); }
+function openLocById(id) { awStats.click(id); openLoc(LOCS.find(l => l.id === id)); }
 
 function openLoc(loc) {
   activeLoc = loc;
@@ -2634,17 +2741,34 @@ function buildAudioGuideShell() {
 
 /* -- Dynamic lazy-load of city audio data file -------------------------- */
 function _agLoadCityFile(city) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const meta = _AUDIO_CITY_MAP[city];
-    if (!meta) return resolve(false); // city not supported yet
+    if (!meta) return resolve(false); // city not yet supported
+    // Already loaded?
     if (_agLoadedCities.has(city) || window[meta.varName]) {
       _agLoadedCities.add(city);
       return resolve(true);
     }
+    // Remove any previous failed script tag for this file
+    const prev = document.querySelector(`script[src="${meta.file}"]`);
+    if (prev) prev.remove();
+
     const s = document.createElement('script');
     s.src = meta.file;
-    s.onload  = () => { _agLoadedCities.add(city); resolve(true); };
-    s.onerror = () => resolve(false); // graceful — file may not exist yet
+    s.onload = () => {
+      // window[meta.varName] must be set by the file (as window.X = {...})
+      if (window[meta.varName]) {
+        _agLoadedCities.add(city);
+        resolve(true);
+      } else {
+        console.warn('[AudioGuide] File loaded but variable not found:', meta.varName);
+        resolve(false);
+      }
+    };
+    s.onerror = () => {
+      console.warn('[AudioGuide] Failed to load audio file:', meta.file);
+      resolve(false); // graceful — file may not exist yet
+    };
     document.head.appendChild(s);
   });
 }
@@ -2664,51 +2788,64 @@ function _agEstMin(text) {
 
 /* -- Split script into sentences for progress tracking ----------------- */
 function _agSplit(text) {
+  // Split on sentence endings, keeping the delimiter
   return text.match(/[^.!?]+[.!?]+[\s]*/g) || [text];
 }
 
-/* -- Build the full player UI for a location with a script ------------ */
-function _agRenderPlayer(entry, city) {
-  _agScript = entry.script;
+/* -- Build the full player + script UI --------------------------------- */
+function _agRenderPlayer(entry) {
+  _agScript    = entry.script;
   _agSentences = _agSplit(_agScript);
-  const minText = t('ag_min')(_agEstMin(_agScript));
+  const totalSec  = _agEstMin(_agScript) * 60;
+  const minText   = t('ag_min')(_agEstMin(_agScript));
 
-  // Convert script to paragraph HTML with span-wrapped sentences
-  const paragraphs = _agScript.split(/\n\n+/).map(para => {
+  // Flatten: global sentence index across all paragraphs
+  let sentGlobalIdx = 0;
+  const paragraphsHtml = _agScript.split(/\n\n+/).map(para => {
     const sents = _agSplit(para);
-    const spans = sents.map((s, i) => `<span class="ag-sentence" data-idx="${i}">${s}</span>`).join('');
+    const spans = sents.map(s => {
+      const idx = sentGlobalIdx++;
+      return `<span class="ag-sentence" data-sidx="${idx}">${s}</span>`;
+    }).join('');
     return `<p>${spans}</p>`;
-  });
+  }).join('');
 
   return `<div class="ag-wrap">
-    <div class="ag-header">
-      <div class="ag-icon">🎧</div>
-      <div class="ag-header-text">
-        <div class="ag-header-title">${entry.title}</div>
-        <div class="ag-header-sub">${minText} · English</div>
-      </div>
-    </div>
-    <div class="ag-controls">
-      <button class="ag-play-btn" id="ag-play-btn" onclick="agToggle()" title="${t('ag_play')}">▶</button>
-      <div class="ag-ctrl-mid">
-        <div class="ag-progress" id="ag-progress" onclick="agSeekClick(event)">
-          <div class="ag-progress-bar" id="ag-progress-bar"></div>
-        </div>
+    <!-- STICKY PLAYER BAR -->
+    <div class="ag-player">
+      <div class="ag-player-title">🎧 ${entry.title}</div>
+      <div class="ag-player-sub">${minText} · English · Web Speech</div>
+
+      <!-- Timeline slider -->
+      <div class="ag-timeline-wrap">
+        <input type="range" class="ag-timeline" id="ag-timeline"
+          min="0" max="${_agSentences.length - 1}" value="0" step="1"
+          oninput="_agOnSeek(this.value)"
+          onchange="_agOnSeekEnd(this.value)"
+          style="--pct:0%;--border-color:#e5e5e0">
         <div class="ag-time-row">
           <span id="ag-time-cur">0:00</span>
-          <span id="ag-time-tot">${_agFmtMin(_agEstMin(_agScript))}</span>
+          <span id="ag-time-tot">${_agFmtSec(totalSec)}</span>
         </div>
       </div>
-      <button class="ag-speed-btn" id="ag-speed-btn" onclick="agCycleSpeed()">${_agSpeeds[_agSpeedIdx]}×</button>
+
+      <!-- Controls: speed · ⏮ ▶ ⏭ · 🔁 -->
+      <div class="ag-ctrl-row">
+        <button class="ag-speed-btn" id="ag-speed-btn"
+          onclick="agCycleSpeed()">${_agSpeeds[_agSpeedIdx]}×</button>
+        <button class="ag-ctrl-btn" onclick="agSkip(-1)" title="Previous sentence">⏮</button>
+        <button class="ag-play-btn" id="ag-play-btn" onclick="agToggle()">▶</button>
+        <button class="ag-ctrl-btn" onclick="agSkip(1)" title="Next sentence">⏭</button>
+        <button class="ag-ctrl-btn${_agRepeat ? ' active' : ''}" id="ag-repeat-btn"
+          onclick="agToggleRepeat()" title="Repeat">🔁</button>
+      </div>
     </div>
-    <div class="ag-script-box" id="ag-script-box">
-      ${paragraphs.join('')}
-    </div>
+
+    <!-- SCRIPT TEXT -->
+    <div class="ag-script-box" id="ag-script-box">${paragraphsHtml}</div>
     <div class="ag-travel-note">🗺 ${t('ag_travel')}</div>
   </div>`;
 }
-
-function _agFmtMin(m) { return `${m}:00`; }
 
 /* -- Render "not available" state --------------------------------------- */
 function _agRenderUnavail() {
@@ -2723,27 +2860,31 @@ function _agRenderUnavail() {
 async function loadAudioGuideTab(loc) {
   const root = document.getElementById('ag-root');
   if (!root) return;
-  if (_agLoaded === loc.id) return; // already rendered for this location
+  if (_agLoaded === loc.id) return; // already rendered
   _agLoaded = loc.id;
 
-  agStop(); // stop any ongoing speech
-
-  // Show spinner while loading
+  agStop();
   root.innerHTML = `<div class="ag-loading"><div class="ag-spinner"></div><span>${t('ag_loading')}</span></div>`;
 
-  const city = loc.city; // 'nyc', 'sel', etc.
-  const ok = await _agLoadCityFile(city);
+  const city = loc.city;
+  const ok   = await _agLoadCityFile(city);
   const data = ok ? _agGetData(city) : null;
   const entry = data ? data[loc.id] : null;
 
   if (entry && entry.script) {
-    root.innerHTML = _agRenderPlayer(entry, city);
+    root.innerHTML = _agRenderPlayer(entry);
+    // AUTO-PLAY immediately after rendering (tab click = user gesture)
+    requestAnimationFrame(() => { agToggle(); });
   } else {
+    if (!entry) _agLoaded = null; // allow retry
     root.innerHTML = _agRenderUnavail();
   }
 }
 
-/* -- Playback controls ------------------------------------------------- */
+/* ── Playback controls ─────────────────────────────────────────────────── */
+
+let _agRepeat = false; // repeat mode
+
 function agToggle() {
   if (!_agSynth) return;
   if (_agPlaying && !_agPaused) {
@@ -2757,7 +2898,7 @@ function agToggle() {
     _agSetPlayIcon(true);
     _agStartProgressTimer();
   } else {
-    _agStartPlayback();
+    _agStartPlayback(_agSentIdx);
   }
 }
 
@@ -2768,7 +2909,7 @@ function agStop() {
   _agSentIdx = 0;
   _agStopProgressTimer();
   _agSetPlayIcon(false);
-  _agSetProgress(0);
+  _agUpdateTimeline(0);
   _agClearHighlight();
 }
 
@@ -2776,7 +2917,6 @@ function agCycleSpeed() {
   _agSpeedIdx = (_agSpeedIdx + 1) % _agSpeeds.length;
   const btn = document.getElementById('ag-speed-btn');
   if (btn) btn.textContent = _agSpeeds[_agSpeedIdx] + '×';
-  // Restart if playing to apply new speed
   if (_agPlaying && !_agPaused) {
     _agSynth.cancel();
     _agPlaying = false;
@@ -2784,41 +2924,72 @@ function agCycleSpeed() {
   }
 }
 
-function agSeekClick(e) {
-  if (!_agScript) return;
-  const bar = e.currentTarget;
-  const pct = Math.max(0, Math.min(1, e.offsetX / bar.offsetWidth));
-  const targetIdx = Math.floor(pct * _agSentences.length);
-  if (_agPlaying || _agPaused) {
-    _agSynth.cancel();
-    _agPlaying = false;
-    _agPaused  = false;
-    _agStartPlayback(targetIdx);
+function agSkip(delta) {
+  // Skip forward or backward by 1 sentence
+  const target = Math.max(0, Math.min(_agSentences.length - 1, _agSentIdx + delta));
+  const wasPlaying = _agPlaying && !_agPaused;
+  if (_agSynth) _agSynth.cancel();
+  _agPlaying = false;
+  _agPaused  = false;
+  if (wasPlaying) {
+    _agStartPlayback(target);
+  } else {
+    _agSentIdx = target;
+    _agHighlight(target);
+    _agUpdateTimeline(target / Math.max(1, _agSentences.length - 1));
+    _agUpdateTimeDisplay();
   }
 }
 
-/* -- Internal playback engine ------------------------------------------ */
+function agToggleRepeat() {
+  _agRepeat = !_agRepeat;
+  const btn = document.getElementById('ag-repeat-btn');
+  if (btn) btn.classList.toggle('active', _agRepeat);
+}
+
+/* -- Timeline seek (drag) ---------------------------------------------- */
+function _agOnSeek(val) {
+  // Live update display while dragging — don't restart speech yet
+  const pct = parseInt(val) / Math.max(1, _agSentences.length - 1);
+  _agUpdateTimeline(pct);
+  _agHighlight(parseInt(val));
+  _agUpdateTimeDisplay(parseInt(val));
+}
+
+function _agOnSeekEnd(val) {
+  // Commit seek when drag ends
+  const target = parseInt(val);
+  const wasPlaying = _agPlaying && !_agPaused;
+  if (_agSynth) _agSynth.cancel();
+  _agPlaying = false;
+  _agPaused  = false;
+  _agSentIdx = target;
+  if (wasPlaying) _agStartPlayback(target);
+}
+
+/* ── Internal playback engine ─────────────────────────────────────────── */
 function _agStartPlayback(fromIdx) {
-  fromIdx = fromIdx || 0;
+  fromIdx = (fromIdx === undefined) ? 0 : Math.max(0, Math.min(fromIdx, _agSentences.length - 1));
   if (!_agSynth || !_agSentences.length) return;
   _agSynth.cancel();
 
-  // Choose best English voice available
+  // Pick best English voice
   const voices = _agSynth.getVoices();
-  const preferred = voices.find(v => v.lang === 'en-US' && /google|natural|premium|enhanced/i.test(v.name))
-    || voices.find(v => v.lang === 'en-US')
-    || voices.find(v => /en[-_]/i.test(v.lang))
-    || null;
+  const preferred =
+    voices.find(v => v.lang === 'en-US' && /google|natural|premium|enhanced/i.test(v.name)) ||
+    voices.find(v => v.lang === 'en-US') ||
+    voices.find(v => /en[-_]/i.test(v.lang)) || null;
 
   let idx = fromIdx;
 
   function speakNext() {
     if (idx >= _agSentences.length) {
+      if (_agRepeat) { idx = 0; speakNext(); return; } // loop
       _agPlaying = false;
       _agSentIdx = 0;
       _agSetPlayIcon(false);
-      _agSetProgress(1);
       _agStopProgressTimer();
+      _agUpdateTimeline(0);
       _agClearHighlight();
       return;
     }
@@ -2827,13 +2998,14 @@ function _agStartPlayback(fromIdx) {
     _agScrollToSentence(idx);
 
     const u = new SpeechSynthesisUtterance(_agSentences[idx].trim());
-    u.lang  = 'en-US';
-    u.rate  = _agSpeeds[_agSpeedIdx];
+    u.lang = 'en-US';
+    u.rate = _agSpeeds[_agSpeedIdx];
     if (preferred) u.voice = preferred;
     u.onend   = () => { idx++; speakNext(); };
-    u.onerror = (e) => { if (e.error !== 'interrupted') { idx++; speakNext(); } };
+    u.onerror = e => { if (e.error !== 'interrupted') { idx++; speakNext(); } };
     _agSynth.speak(u);
-    _agUpdateProgress();
+    _agUpdateTimeline(idx / Math.max(1, _agSentences.length - 1));
+    _agUpdateTimeDisplay(idx);
   }
 
   _agPlaying = true;
@@ -2845,30 +3017,20 @@ function _agStartPlayback(fromIdx) {
 
 function _agHighlight(idx) {
   _agClearHighlight();
-  // Re-index: find the global sentence idx across all paragraphs
-  let count = 0;
-  document.querySelectorAll('#ag-script-box .ag-sentence').forEach(el => {
-    const matches = parseInt(el.dataset.idx) === idx && count === 0;
-    // Use sequential counting across all spans
-    el.classList.remove('speaking');
-    count++;
-  });
-  // Simpler: just highlight by order
   const all = document.querySelectorAll('#ag-script-box .ag-sentence');
   if (all[idx]) all[idx].classList.add('speaking');
 }
 
 function _agClearHighlight() {
-  document.querySelectorAll('#ag-script-box .ag-sentence.speaking').forEach(el => el.classList.remove('speaking'));
+  document.querySelectorAll('#ag-script-box .ag-sentence.speaking')
+    .forEach(el => el.classList.remove('speaking'));
 }
 
 function _agScrollToSentence(idx) {
-  const box  = document.getElementById('ag-script-box');
-  const all  = document.querySelectorAll('#ag-script-box .ag-sentence');
-  const span = all[idx];
-  if (!box || !span) return;
-  const top = span.offsetTop - box.offsetTop - box.clientHeight / 2;
-  box.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  // Scroll the panel-scroll container so the speaking sentence is visible
+  const span = document.querySelectorAll('#ag-script-box .ag-sentence')[idx];
+  if (!span) return;
+  span.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 function _agSetPlayIcon(playing) {
@@ -2879,36 +3041,41 @@ function _agSetPlayIcon(playing) {
   btn.title = playing ? t('ag_pause') : t('ag_play');
 }
 
-function _agUpdateProgress() {
-  if (!_agSentences.length) return;
-  const pct = _agSentIdx / _agSentences.length;
-  _agSetProgress(pct);
-  const elapsed = Math.round((_agSentIdx / _agSentences.length) * _agEstMin(_agScript) * 60);
-  const el = document.getElementById('ag-time-cur');
-  if (el) el.textContent = _agFmtSec(elapsed);
+function _agUpdateTimeline(pct) {
+  // Update range input value + CSS gradient fill
+  const tl = document.getElementById('ag-timeline');
+  if (!tl) return;
+  const sentIdx = Math.round(pct * (_agSentences.length - 1));
+  tl.value = sentIdx;
+  tl.style.setProperty('--pct', (pct * 100).toFixed(1) + '%');
 }
 
-function _agSetProgress(pct) {
-  const bar = document.getElementById('ag-progress-bar');
-  if (bar) bar.style.width = (pct * 100).toFixed(1) + '%';
+function _agUpdateTimeDisplay(sentIdx) {
+  sentIdx = (sentIdx === undefined) ? _agSentIdx : sentIdx;
+  const totalSec  = _agEstMin(_agScript) * 60;
+  const elapsed   = Math.round((sentIdx / Math.max(1, _agSentences.length - 1)) * totalSec);
+  const curEl = document.getElementById('ag-time-cur');
+  if (curEl) curEl.textContent = _agFmtSec(elapsed);
 }
 
 function _agFmtSec(s) {
-  const m = Math.floor(s / 60);
-  const sec = s % 60;
-  return `${m}:${sec.toString().padStart(2, '0')}`;
+  s = Math.round(s);
+  return `${Math.floor(s/60)}:${(s%60).toString().padStart(2,'0')}`;
 }
 
 function _agStartProgressTimer() {
   _agStopProgressTimer();
-  _agProgressTimer = setInterval(_agUpdateProgress, 1000);
+  _agProgressTimer = setInterval(() => {
+    _agUpdateTimeline(_agSentIdx / Math.max(1, _agSentences.length - 1));
+    _agUpdateTimeDisplay();
+  }, 800);
 }
 
 function _agStopProgressTimer() {
   if (_agProgressTimer) { clearInterval(_agProgressTimer); _agProgressTimer = null; }
 }
 
-// Ensure voices are loaded (Chrome loads them async)
+// Pre-load voices (Chrome async)
 if (_agSynth && _agSynth.onvoiceschanged !== undefined) {
   _agSynth.onvoiceschanged = () => {}; // trigger load
 }
@@ -3518,6 +3685,7 @@ function buildReviewsTab(loc) {
 function submitReview(locId) {
   const stars = reviewStarState[locId] || 0;
   if (!stars) { alert('Please select a star rating first.'); return; }
+  awStats.click(locId); // count review submission as an engagement
 
   const nameEl = document.getElementById(`rev-name-${locId}`);
   const textEl = document.getElementById(`rev-text-${locId}`);

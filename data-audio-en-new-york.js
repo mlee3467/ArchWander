@@ -17,7 +17,10 @@
      2. git add data-audio-en-new-york.js && git commit && git push
    ============================================================ */
 
-const AUDIO_EN_NYC = {
+// window.AUDIO_EN_NYC — must be on window so dynamic <script> injection
+// can detect it via window[varName]. Using const/let would be block-scoped
+// inside the script and NOT accessible on window after load.
+window.AUDIO_EN_NYC = {
 
   'empire-state': {
     title: 'Empire State Building',
