@@ -1038,7 +1038,9 @@
       #near-me-btn { padding: 0 8px; height: 28px; font-size: 11px; }
       #fav-btn .fav-text { display: none; }
       #fav-btn { padding: 0 8px; height: 28px; font-size: 13px; }
-      #fav-io-bar { display: none !important; }
+      #fav-io-bar.visible { display: flex; font-size: 11px; padding: 0 10px; min-height: 36px; gap: 6px; }
+      #fav-io-bar .fav-io-label { font-size: 10px; }
+      #fav-io-bar .fav-io-btn { height: 24px; padding: 0 8px; font-size: 10px; }
       #menu-btn { display: flex; }
       #city-select-mobile { max-width: 110px; font-size: 11px; height: 28px; }
       #lang-btn { height: 28px; font-size: 11px; padding: 0 8px; }
@@ -1525,7 +1527,7 @@
   <button id="walk-close-btn" onclick="_fullDeactivate()" title="Close Near Me">✕ Close</button>
 </div>
 
-<!-- Fav Export/Import bar — desktop only -->
+<!-- Fav Export/Import bar -->
 <div id="fav-io-bar">
   <span class="fav-io-label" id="fav-io-label">Favorites Data</span>
   <button class="fav-io-btn" onclick="favExportJSON()">
@@ -4567,10 +4569,8 @@ function _buildLocIcon(loc) {
 function toggleFavFilter() {
   _favFilterActive = !_favFilterActive;
   document.getElementById('fav-btn').classList.toggle('active', _favFilterActive);
-  // Desktop only: show/hide export-import bar
-  if (window.innerWidth > 900) {
-    document.getElementById('fav-io-bar').classList.toggle('visible', _favFilterActive);
-  }
+  // Show/hide export-import bar on all screen sizes
+  document.getElementById('fav-io-bar').classList.toggle('visible', _favFilterActive);
   _applyFavFilter();
 }
 
@@ -4591,7 +4591,7 @@ function _applyFavFilter() {
   });
 }
 
-// ── Fav Export / Import (desktop only) ──────────────────────────
+// ── Fav Export / Import ─────────────────────────────────────────
 function favExportJSON() {
   if (!_favSet.size && !_visSet.size) {
     alert(t('fav_exp_empty'));
@@ -5015,6 +5015,9 @@ async function exportPDF() {
     }
 
     // ── Create visible container with overlay ──
+    // IMPORTANT: html2canvas cannot capture position:fixed elements reliably
+    // (clips to viewport height). Use a regular in-flow element instead.
+    // The overlay (position:fixed) visually hides the raw HTML from the user.
     const overlay = document.createElement('div');
     overlay.id = 'pdf-overlay';
     overlay.style.cssText = 'position:fixed;inset:0;z-index:99998;background:white;display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif;font-size:15px;color:#555;';
@@ -5023,9 +5026,13 @@ async function exportPDF() {
 
     const container = document.createElement('div');
     container.id = 'pdf-render-container';
-    container.style.cssText = 'position:fixed;left:0;top:0;width:794px;z-index:99997;background:white;';
+    // Regular in-flow element — NOT position:fixed (which causes blank PDF)
+    container.style.cssText = 'width:794px;background:white;position:relative;';
     container.innerHTML = html;
     document.body.appendChild(container);
+
+    // Scroll to top so html2canvas starts from the right position
+    window.scrollTo(0, 0);
 
     // Wait for images and font rendering
     await new Promise(r => setTimeout(r, 600));
