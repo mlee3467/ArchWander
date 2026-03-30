@@ -1,6 +1,6 @@
 // ArchWander Service Worker
 // Enables PWA installation → background audio on iOS/Android
-const CACHE = 'archwander-v3';
+const CACHE = 'archwander-v4';
 const PRECACHE = [
   '/ArchWander/',
   '/ArchWander/index.html',
