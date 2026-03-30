@@ -2820,6 +2820,7 @@ function openLoc(loc) {
   loc.photos.forEach((src, i) => {
     const img = document.createElement('img');
     img.alt = loc.name;
+    img.crossOrigin = 'anonymous';      // CORS-cache for PDF export reuse
     img.dataset.photoUrl = src;
     if (i === 0) {
       // Load first image immediately
@@ -2830,7 +2831,11 @@ function openLoc(loc) {
       img.dataset.src = photoUrl(src, isMob, 'gallery');
       img.loading = 'lazy';
     }
-    img.onerror = function() { this.style.display = 'none'; };
+    img.onerror = function() {
+      // If CORS load fails, retry without crossOrigin for display only
+      if (this.crossOrigin) { this.crossOrigin = ''; this.src = this.src; return; }
+      this.style.display = 'none';
+    };
     gallery.insertBefore(img, gallery.querySelector('.g-btn'));
   });
   document.getElementById('g-dots').innerHTML =
@@ -4836,35 +4841,64 @@ async function _loadKoreanFont() {
   _koreanFontB64 = btoa(parts.join(''));
 }
 
-// Returns { dataUrl, w, h } or null.
-// Strategy: fetch() → blob → objectURL → <img> → canvas → dataURL
-// fetch() handles CORS redirects (Special:FilePath 302) correctly;
-// objectURL avoids canvas taint since the image source is local.
+// Returns { dataUrl, w, h, fmt } or null.
+// Strategy A: <img crossOrigin> → canvas  (instant if CORS-cached from gallery)
+// Strategy B: fetch → ArrayBuffer → parse JPEG/PNG header → base64  (no canvas, no taint)
+// Retries with backoff for Wikimedia 429 rate-limits.
 async function _fetchImgForPdf(url, timeout) {
-  try {
-    const ctl = new AbortController();
-    const tm = setTimeout(() => ctl.abort(), timeout || 12000);
-    const resp = await fetch(url, { mode: 'cors', credentials: 'omit', signal: ctl.signal });
-    clearTimeout(tm);
-    if (!resp.ok) return null;
-    const blob = await resp.blob();
-    if (!blob.type.startsWith('image/')) return null;
-    const objUrl = URL.createObjectURL(blob);
-    return await new Promise(resolve => {
-      const img = new Image();
-      img.onload = () => {
-        try {
-          const c = document.createElement('canvas');
-          c.width = img.naturalWidth; c.height = img.naturalHeight;
-          c.getContext('2d').drawImage(img, 0, 0);
-          URL.revokeObjectURL(objUrl);
-          resolve({ dataUrl: c.toDataURL('image/jpeg', 0.85), w: c.width, h: c.height });
-        } catch(e) { URL.revokeObjectURL(objUrl); resolve(null); }
-      };
-      img.onerror = () => { URL.revokeObjectURL(objUrl); resolve(null); };
-      img.src = objUrl;
-    });
-  } catch { return null; }
+  // ── Strategy A: try <img crossOrigin> from browser CORS-cache ──
+  const cached = await new Promise(resolve => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    const tm = setTimeout(() => { img.src = ''; resolve(null); }, 4000);
+    img.onload = () => {
+      clearTimeout(tm);
+      try {
+        const c = document.createElement('canvas');
+        c.width = img.naturalWidth; c.height = img.naturalHeight;
+        c.getContext('2d').drawImage(img, 0, 0);
+        resolve({ dataUrl: c.toDataURL('image/jpeg', 0.85), w: c.width, h: c.height, fmt: 'JPEG' });
+      } catch { resolve(null); }
+    };
+    img.onerror = () => { clearTimeout(tm); resolve(null); };
+    img.src = url;
+  });
+  if (cached) return cached;
+
+  // ── Strategy B: fetch → ArrayBuffer → header parse → base64 (bypasses canvas) ──
+  for (let att = 0; att < 3; att++) {
+    try {
+      const ctl = new AbortController();
+      const tm = setTimeout(() => ctl.abort(), timeout || 12000);
+      const resp = await fetch(url, { mode: 'cors', credentials: 'omit', signal: ctl.signal });
+      clearTimeout(tm);
+      if (resp.status === 429) { await new Promise(r => setTimeout(r, 2000 * (att + 1))); continue; }
+      if (!resp.ok) return null;
+      const ct = resp.headers.get('content-type') || '';
+      if (!ct.startsWith('image/')) return null;
+      const buf = await resp.arrayBuffer();
+      let w = 0, h = 0, fmt = 'JPEG';
+      const dv = new DataView(buf);
+      if (ct.includes('png') && buf.byteLength > 24) {
+        w = dv.getUint32(16); h = dv.getUint32(20); fmt = 'PNG';
+      } else {
+        let off = 2;
+        while (off < dv.byteLength - 9) {
+          const mk = dv.getUint16(off); off += 2;
+          if (mk >= 0xFFC0 && mk <= 0xFFC3) { h = dv.getUint16(off + 3); w = dv.getUint16(off + 5); break; }
+          off += dv.getUint16(off);
+        }
+      }
+      if (!w || !h) return null;
+      const bytes = new Uint8Array(buf), CHK = 65536, parts = [];
+      for (let i = 0; i < bytes.length; i += CHK)
+        parts.push(String.fromCharCode.apply(null, bytes.subarray(i, i + CHK)));
+      return { dataUrl: `data:${ct};base64,${btoa(parts.join(''))}`, w, h, fmt };
+    } catch {
+      if (att < 2) await new Promise(r => setTimeout(r, 1500 * (att + 1)));
+    }
+  }
+  return null;
 }
 
 async function _reverseGeocode(lat, lng) {
@@ -4922,15 +4956,19 @@ async function exportPDF() {
       return `${idx + 1}. ${_displayName(loc)}`;
     }
 
-    // ── Pre-fetch photos (img + canvas → dataUrl with dimensions) ──
-    progressEl.textContent = LANG === 'ko' ? '\uc0ac\uc9c4 \ub85c\ub529 \uc911\u2026' : 'Loading photos\u2026';
+    // ── Pre-fetch photos (sequential to avoid Wikimedia 429 rate-limit) ──
     const photoMap = {};
-    await Promise.all(locs.map(async loc => {
-      if (!loc.photos?.length) return;
-      const results = await Promise.all(loc.photos.slice(0, 4).map(url => _fetchImgForPdf(url, 12000)));
-      const valid = results.filter(Boolean);
-      if (valid.length) photoMap[loc.id] = valid;
-    }));
+    for (let li = 0; li < locs.length; li++) {
+      const loc = locs[li];
+      if (!loc.photos?.length) continue;
+      progressEl.textContent = `${LANG==='ko'?'\uc0ac\uc9c4':'Photos'} ${li+1}/${locs.length}\u2026`;
+      const results = [];
+      for (const url of loc.photos.slice(0, 4)) {
+        const r = await _fetchImgForPdf(url, 12000);
+        if (r) results.push(r);
+      }
+      if (results.length) photoMap[loc.id] = results;
+    }
 
     // ── Create jsPDF document ──
     const { jsPDF } = window.jspdf;
@@ -5059,8 +5097,7 @@ async function exportPDF() {
         let xOff = ML;
         photos.forEach(p => {
           const imgW = MAX_H * (p.w / p.h) * scale;
-          const fmt  = p.dataUrl.startsWith('data:image/png') ? 'PNG' : 'JPEG';
-          try { doc.addImage(p.dataUrl, fmt, xOff, y, imgW, imgH); } catch(e) { /* skip bad image */ }
+          try { doc.addImage(p.dataUrl, p.fmt || 'JPEG', xOff, y, imgW, imgH); } catch(e) { /* skip bad image */ }
           xOff += imgW + GAP;
         });
         y += imgH + 4;
