@@ -4885,7 +4885,7 @@ async function exportPDF() {
     const photoPromises = locs.map(async loc => {
       if (loc.photos?.length) {
         const urls = loc.photos.slice(0, 4);
-        const fetched = await Promise.all(urls.map(u => _fetchImgDataUrl(u, 6000)));
+        const fetched = await Promise.all(urls.map(u => _fetchImgDataUrl(u, 10000)));
         const valid = fetched.filter(Boolean);
         if (valid.length) photoMap[loc.id] = valid;
       }
@@ -4893,6 +4893,8 @@ async function exportPDF() {
     await Promise.all(photoPromises);
 
     // ── Build HTML content ──
+    // Container width = A4 printable area (210mm − 10mm left − 10mm right = 190mm)
+    // At ~3.78 px/mm ≈ 718px. Use 710px for safety with box-sizing.
     const fontFamily = "'Noto Sans KR', 'Noto Sans JP', 'Inter', Arial, sans-serif";
     const now = new Date();
     const dateTimeStr = now.toLocaleDateString(LANG === 'ko' ? 'ko-KR' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' })
@@ -4902,33 +4904,33 @@ async function exportPDF() {
     // ═══════════════════════════════════════════
     // PAGE 1 — COVER + SUMMARY TABLE
     // ═══════════════════════════════════════════
-    html += `<div style="font-family:${fontFamily};padding:40px 20px 20px;text-align:center;">`;
-    html += `<div style="font-size:32px;font-weight:700;color:rgb(0,0,255);margin-bottom:8px;">ArchWander<sup style="font-size:11px;vertical-align:super;color:rgb(0,0,255);">\u2122</sup></div>`;
-    html += `<div style="font-size:16px;font-weight:700;color:#333;margin-bottom:6px;">${_esc(cityLabel)}</div>`;
-    html += `<div style="font-size:10px;color:#888;margin-bottom:4px;">${locs.length} ${_esc(t('pdf_locations'))}  \u00b7  ${walkMin} min ${_esc(t('pdf_walking'))}</div>`;
-    html += `<div style="font-size:9px;color:#aaa;margin-bottom:4px;">${_esc(pinAddress)}</div>`;
-    html += `<div style="font-size:9px;color:#aaa;margin-bottom:16px;">${_esc(dateTimeStr)}</div>`;
-    html += `<hr style="border:none;border-top:1px solid #ccc;margin:0 0 14px;">`;
-    html += `<div style="text-align:left;font-size:12px;font-weight:700;color:#222;margin-bottom:8px;">${_esc(t('pdf_summary'))}</div>`;
+    html += `<div style="font-family:${fontFamily};padding:30px 0 10px;text-align:center;box-sizing:border-box;">`;
+    html += `<div style="font-size:30px;font-weight:700;color:rgb(0,0,255);margin-bottom:8px;">ArchWander<sup style="font-size:10px;vertical-align:super;color:rgb(0,0,255);">\u2122</sup></div>`;
+    html += `<div style="font-size:15px;font-weight:700;color:#000;margin-bottom:6px;">${_esc(cityLabel)}</div>`;
+    html += `<div style="font-size:10px;color:#000;margin-bottom:4px;">${locs.length} ${_esc(t('pdf_locations'))}  \u00b7  ${walkMin} min ${_esc(t('pdf_walking'))}</div>`;
+    html += `<div style="font-size:9px;color:#555;margin-bottom:4px;">${_esc(pinAddress)}</div>`;
+    html += `<div style="font-size:9px;color:#555;margin-bottom:14px;">${_esc(dateTimeStr)}</div>`;
+    html += `<hr style="border:none;border-top:1px solid #ccc;margin:0 0 12px;">`;
+    html += `<div style="text-align:left;font-size:12px;font-weight:700;color:#000;margin-bottom:8px;">${_esc(t('pdf_summary'))}</div>`;
 
     // Summary table — Style column replaced with Category
-    html += `<table style="width:100%;border-collapse:collapse;font-size:8.5px;text-align:left;">`;
+    html += `<table style="width:100%;border-collapse:collapse;font-size:8.5px;text-align:left;table-layout:fixed;">`;
     html += `<thead><tr style="background:rgb(0,0,255);color:white;">`;
-    html += `<th style="padding:5px 4px;width:6%;">#</th>`;
-    html += `<th style="padding:5px 4px;width:30%;">${_esc(t('pdf_name'))}</th>`;
-    html += `<th style="padding:5px 4px;width:28%;">${_esc(t('pdf_architect'))}</th>`;
-    html += `<th style="padding:5px 4px;width:10%;text-align:center;">${_esc(t('pdf_year'))}</th>`;
-    html += `<th style="padding:5px 4px;width:26%;">${_esc(t('pdf_category'))}</th>`;
+    html += `<th style="padding:5px 3px;width:6%;">#</th>`;
+    html += `<th style="padding:5px 3px;width:32%;">${_esc(t('pdf_name'))}</th>`;
+    html += `<th style="padding:5px 3px;width:26%;">${_esc(t('pdf_architect'))}</th>`;
+    html += `<th style="padding:5px 3px;width:8%;text-align:center;">${_esc(t('pdf_year'))}</th>`;
+    html += `<th style="padding:5px 3px;width:28%;">${_esc(t('pdf_category'))}</th>`;
     html += `</tr></thead><tbody>`;
     locs.forEach((loc, i) => {
       const bg = i % 2 === 1 ? 'background:#f5f5ff;' : '';
       const summaryName = _bilingualName(loc, i);
       html += `<tr style="${bg}">`;
-      html += `<td style="padding:4px;">${i + 1}</td>`;
-      html += `<td style="padding:4px;font-weight:700;">${_esc(summaryName.replace(/^\d+\.\s/, ''))}</td>`;
-      html += `<td style="padding:4px;">${_esc(loc.arch || '')}</td>`;
-      html += `<td style="padding:4px;text-align:center;">${loc.yr || ''}</td>`;
-      html += `<td style="padding:4px;">${_esc(_allCats(loc).join(', '))}</td>`;
+      html += `<td style="padding:4px 3px;color:#000;">${i + 1}</td>`;
+      html += `<td style="padding:4px 3px;font-weight:700;color:#000;word-break:break-word;">${_esc(summaryName.replace(/^\d+\.\s/, ''))}</td>`;
+      html += `<td style="padding:4px 3px;color:#000;word-break:break-word;">${_esc(loc.arch || '')}</td>`;
+      html += `<td style="padding:4px 3px;text-align:center;color:#000;">${loc.yr || ''}</td>`;
+      html += `<td style="padding:4px 3px;color:#000;word-break:break-word;">${_esc(_allCats(loc).join(', '))}</td>`;
       html += `</tr>`;
     });
     html += `</tbody></table></div>`;
@@ -4942,24 +4944,25 @@ async function exportPDF() {
       const desc = _tf(loc, 'desc');
       const cats = _allCats(loc).join(', ');
 
-      html += `<div style="font-family:${fontFamily};padding:20px;page-break-before:always;">`;
+      html += `<div style="font-family:${fontFamily};padding:14px 0;page-break-before:always;box-sizing:border-box;">`;
 
-      // Photos — all (up to 4) in a single row with fixed height
+      // Photos — up to 4, using inline-block for html2canvas compatibility
+      // (html2canvas poorly supports flexbox + object-fit)
       if (photoMap[loc.id]?.length) {
         const photos = photoMap[loc.id];
-        html += `<div style="display:flex;gap:4px;margin-bottom:10px;height:160px;overflow:hidden;">`;
-        photos.forEach(du => {
-          html += `<img src="${du}" style="height:160px;width:${Math.floor(100 / photos.length)}%;object-fit:cover;border-radius:3px;flex-shrink:0;">`;
+        const imgW = Math.floor(100 / photos.length) - 1;
+        html += `<div style="margin-bottom:10px;height:150px;overflow:hidden;white-space:nowrap;font-size:0;">`;
+        photos.forEach((du, pi) => {
+          html += `<img src="${du}" style="display:inline-block;height:150px;width:${imgW}%;vertical-align:top;border-radius:3px;${pi > 0 ? 'margin-left:4px;' : ''}">`;
         });
         html += `</div>`;
       }
 
       // Name (numbered + bilingual) + Architect/Year
-      html += `<div style="font-size:17px;font-weight:700;color:#111;margin-bottom:3px;">${_esc(displayName)}</div>`;
+      html += `<div style="font-size:16px;font-weight:700;color:#000;margin-bottom:3px;">${_esc(displayName)}</div>`;
 
-      // Bilingual info fields for EN mode — local language for key info
       let archLine = _esc(loc.arch || '');
-      html += `<div style="font-size:10px;color:#666;margin-bottom:10px;">${archLine}  \u00b7  ${loc.yr || ''}</div>`;
+      html += `<div style="font-size:10px;color:#333;margin-bottom:8px;">${archLine}  \u00b7  ${loc.yr || ''}</div>`;
 
       // Info table
       const fields = [];
@@ -4983,15 +4986,14 @@ async function exportPDF() {
       }
       if (hours)     fields.push([t('pdf_hours'), hours]);
       if (admission) fields.push([t('pdf_admission'), admission]);
-      // Transit — render with Unicode-safe escaping (arrows/dots preserved via _esc)
       if (transit)   fields.push([t('pdf_transit'), transit]);
 
       if (fields.length) {
-        html += `<table style="width:100%;border-collapse:collapse;font-size:9px;margin-bottom:10px;">`;
+        html += `<table style="width:100%;border-collapse:collapse;font-size:9px;margin-bottom:8px;table-layout:fixed;">`;
         fields.forEach(([k, v]) => {
-          html += `<tr style="border-bottom:1px solid #e8e8e8;">`;
-          html += `<td style="padding:4px 6px;width:25%;font-weight:700;color:#666;vertical-align:top;">${_esc(k)}</td>`;
-          html += `<td style="padding:4px 6px;color:#222;">${_esc(v)}</td>`;
+          html += `<tr style="border-bottom:1px solid #ddd;">`;
+          html += `<td style="padding:4px 4px;width:22%;font-weight:700;color:#000;vertical-align:top;word-break:break-word;">${_esc(k)}</td>`;
+          html += `<td style="padding:4px 4px;color:#000;word-break:break-word;">${_esc(v)}</td>`;
           html += `</tr>`;
         });
         html += `</table>`;
@@ -4999,15 +5001,15 @@ async function exportPDF() {
 
       // Description
       if (desc) {
-        html += `<div style="font-size:9px;color:#444;line-height:1.6;margin-bottom:6px;">${_esc(desc)}</div>`;
+        html += `<div style="font-size:9px;color:#000;line-height:1.6;margin-bottom:6px;">${_esc(desc)}</div>`;
       }
 
       // Audio Script (if available) — appended below description
       if (audioData && audioData[loc.id]?.script) {
         const script = audioData[loc.id].script;
-        html += `<div style="margin-top:8px;padding:8px 10px;background:#f8f8f6;border-left:3px solid rgb(0,0,255);border-radius:2px;">`;
+        html += `<div style="margin-top:6px;padding:8px 10px;background:#f5f5ff;border-left:3px solid rgb(0,0,255);border-radius:2px;">`;
         html += `<div style="font-size:8px;font-weight:700;color:rgb(0,0,255);margin-bottom:4px;">\ud83c\udfa7 ${LANG === 'ko' ? '\uc624\ub514\uc624 \uac00\uc774\ub4dc' : 'Audio Guide'}</div>`;
-        html += `<div style="font-size:8px;color:#555;line-height:1.55;">${_esc(script)}</div>`;
+        html += `<div style="font-size:8px;color:#000;line-height:1.55;">${_esc(script)}</div>`;
         html += `</div>`;
       }
 
@@ -5015,9 +5017,8 @@ async function exportPDF() {
     }
 
     // ── Create visible container with overlay ──
-    // IMPORTANT: html2canvas cannot capture position:fixed elements reliably
-    // (clips to viewport height). Use a regular in-flow element instead.
-    // The overlay (position:fixed) visually hides the raw HTML from the user.
+    // html2canvas cannot capture position:fixed elements reliably.
+    // Use a regular in-flow element; overlay hides it visually.
     const overlay = document.createElement('div');
     overlay.id = 'pdf-overlay';
     overlay.style.cssText = 'position:fixed;inset:0;z-index:99998;background:white;display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif;font-size:15px;color:#555;';
@@ -5026,24 +5027,27 @@ async function exportPDF() {
 
     const container = document.createElement('div');
     container.id = 'pdf-render-container';
-    // Regular in-flow element — NOT position:fixed (which causes blank PDF)
-    container.style.cssText = 'width:794px;background:white;position:relative;';
+    // Width = A4 printable area (190mm ≈ 718px). NOT 794px (full A4).
+    // This prevents right-side cropping when html2pdf adds margins.
+    container.style.cssText = 'width:710px;background:white;position:relative;overflow:hidden;box-sizing:border-box;';
     container.innerHTML = html;
     document.body.appendChild(container);
 
     // Scroll to top so html2canvas starts from the right position
     window.scrollTo(0, 0);
 
-    // Wait for images and font rendering
-    await new Promise(r => setTimeout(r, 600));
+    // Wait for images to decode and font to render
+    const imgs = container.querySelectorAll('img');
+    await Promise.all([...imgs].map(img => img.decode ? img.decode().catch(() => {}) : Promise.resolve()));
+    await new Promise(r => setTimeout(r, 400));
 
     // ── Generate PDF with page numbers ──
     const filename = `ArchWander_${cityLabel.replace(/\s+/g, '_')}_${new Date().toISOString().slice(0, 10)}.pdf`;
     await html2pdf().set({
-      margin: [10, 10, 16, 10], // extra bottom margin for page number
+      margin: [10, 10, 14, 10],
       filename: filename,
-      image: { type: 'jpeg', quality: 0.92 },
-      html2canvas: { scale: 2, useCORS: true, logging: false, scrollY: 0 },
+      image: { type: 'jpeg', quality: 0.95 },
+      html2canvas: { scale: 2, useCORS: true, logging: false, scrollY: 0, windowWidth: 710 },
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
       pagebreak: { mode: ['css', 'legacy'], avoid: ['tr', 'td'] }
     }).from(container).toPdf().get('pdf').then(pdf => {
@@ -5052,8 +5056,8 @@ async function exportPDF() {
       for (let p = 1; p <= totalPages; p++) {
         pdf.setPage(p);
         pdf.setFontSize(8);
-        pdf.setTextColor(160);
-        pdf.text(`${p} / ${totalPages}`, 105, 290, { align: 'center' });
+        pdf.setTextColor(150);
+        pdf.text(`${p} / ${totalPages}`, 105, 291, { align: 'center' });
       }
     }).save();
 
