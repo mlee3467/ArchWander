@@ -2831,6 +2831,9 @@ function openLoc(loc) {
       img.dataset.src = photoUrl(src, isMob, 'gallery');
       img.loading = 'lazy';
     }
+    img.onload = function() {
+      if (this.crossOrigin && this.naturalWidth > 0) _cachePhoto(src, this);
+    };
     img.onerror = function() {
       // If CORS load fails, retry without crossOrigin for display only
       if (this.crossOrigin) { this.crossOrigin = ''; this.src = this.src; return; }
@@ -4819,6 +4822,20 @@ function _loadScript(src) {
   });
 }
 
+// Photo cache: gallery images captured as base64 for PDF reuse
+// Key = original Wikimedia URL (loc.photos entry), Value = { dataUrl, w, h, fmt }
+const _photoCache = new Map();
+function _cachePhoto(origUrl, imgEl) {
+  if (_photoCache.has(origUrl)) return;
+  try {
+    const c = document.createElement('canvas');
+    c.width = imgEl.naturalWidth; c.height = imgEl.naturalHeight;
+    c.getContext('2d').drawImage(imgEl, 0, 0);
+    const dataUrl = c.toDataURL('image/jpeg', 0.85);
+    _photoCache.set(origUrl, { dataUrl, w: c.width, h: c.height, fmt: 'JPEG' });
+  } catch(e) { /* CORS tainted — skip */ }
+}
+
 async function _loadPdfLibs() {
   if (_pdfLibReady) return;
   // AutoTable must load AFTER jsPDF so it can patch the prototype
@@ -4841,62 +4858,39 @@ async function _loadKoreanFont() {
   _koreanFontB64 = btoa(parts.join(''));
 }
 
-// Returns { dataUrl, w, h, fmt } or null.
-// Strategy A: <img crossOrigin> → canvas  (instant if CORS-cached from gallery)
-// Strategy B: fetch → ArrayBuffer → parse JPEG/PNG header → base64  (no canvas, no taint)
-// Retries with backoff for Wikimedia 429 rate-limits.
-async function _fetchImgForPdf(url, timeout) {
-  // ── Strategy A: try <img crossOrigin> from browser CORS-cache ──
-  const cached = await new Promise(resolve => {
-    const img = new Image();
-    img.crossOrigin = 'anonymous';
-    const tm = setTimeout(() => { img.src = ''; resolve(null); }, 4000);
-    img.onload = () => {
-      clearTimeout(tm);
-      try {
-        const c = document.createElement('canvas');
-        c.width = img.naturalWidth; c.height = img.naturalHeight;
-        c.getContext('2d').drawImage(img, 0, 0);
-        resolve({ dataUrl: c.toDataURL('image/jpeg', 0.85), w: c.width, h: c.height, fmt: 'JPEG' });
-      } catch { resolve(null); }
-    };
-    img.onerror = () => { clearTimeout(tm); resolve(null); };
-    img.src = url;
-  });
-  if (cached) return cached;
+// Load image via <img> tag with timeout. Returns { dataUrl, w, h, fmt } or null.
+// Uses crossOrigin='anonymous' for CORS canvas access.
+// If CORS load fails, retries without CORS (display-only) and captures via offscreen trick.
+async function _fetchImgForPdf(origUrl, timeout) {
+  const tmout = timeout || 12000;
+  // Use same gallery-size URL so browser HTTP cache is a hit
+  const loadUrl = photoUrl(origUrl, window.innerWidth < 768, 'gallery');
 
-  // ── Strategy B: fetch → ArrayBuffer → header parse → base64 (bypasses canvas) ──
-  for (let att = 0; att < 3; att++) {
-    try {
-      const ctl = new AbortController();
-      const tm = setTimeout(() => ctl.abort(), timeout || 12000);
-      const resp = await fetch(url, { mode: 'cors', credentials: 'omit', signal: ctl.signal });
-      clearTimeout(tm);
-      if (resp.status === 429) { await new Promise(r => setTimeout(r, 2000 * (att + 1))); continue; }
-      if (!resp.ok) return null;
-      const ct = resp.headers.get('content-type') || '';
-      if (!ct.startsWith('image/')) return null;
-      const buf = await resp.arrayBuffer();
-      let w = 0, h = 0, fmt = 'JPEG';
-      const dv = new DataView(buf);
-      if (ct.includes('png') && buf.byteLength > 24) {
-        w = dv.getUint32(16); h = dv.getUint32(20); fmt = 'PNG';
-      } else {
-        let off = 2;
-        while (off < dv.byteLength - 9) {
-          const mk = dv.getUint16(off); off += 2;
-          if (mk >= 0xFFC0 && mk <= 0xFFC3) { h = dv.getUint16(off + 3); w = dv.getUint16(off + 5); break; }
-          off += dv.getUint16(off);
-        }
-      }
-      if (!w || !h) return null;
-      const bytes = new Uint8Array(buf), CHK = 65536, parts = [];
-      for (let i = 0; i < bytes.length; i += CHK)
-        parts.push(String.fromCharCode.apply(null, bytes.subarray(i, i + CHK)));
-      return { dataUrl: `data:${ct};base64,${btoa(parts.join(''))}`, w, h, fmt };
-    } catch {
-      if (att < 2) await new Promise(r => setTimeout(r, 1500 * (att + 1)));
+  // ── <img crossOrigin='anonymous'> → canvas, with retry ──
+  for (let att = 0; att < 2; att++) {
+    const result = await new Promise(resolve => {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      const tm = setTimeout(() => { img.src = ''; resolve(null); }, att === 0 ? 6000 : tmout);
+      img.onload = () => {
+        clearTimeout(tm);
+        try {
+          const c = document.createElement('canvas');
+          c.width = img.naturalWidth; c.height = img.naturalHeight;
+          c.getContext('2d').drawImage(img, 0, 0);
+          const dataUrl = c.toDataURL('image/jpeg', 0.85);
+          resolve({ dataUrl, w: c.width, h: c.height, fmt: 'JPEG' });
+        } catch { resolve(null); }
+      };
+      img.onerror = () => { clearTimeout(tm); resolve(null); };
+      img.src = loadUrl;
+    });
+    if (result) {
+      _photoCache.set(origUrl, result);  // cache by original URL key
+      return result;
     }
+    // Brief delay before retry
+    if (att === 0) await new Promise(r => setTimeout(r, 1500));
   }
   return null;
 }
@@ -4925,10 +4919,31 @@ async function exportPDF() {
 
   const overlay = document.createElement('div');
   overlay.id = 'pdf-overlay';
-  overlay.style.cssText = 'position:fixed;inset:0;z-index:99998;background:white;display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif;font-size:15px;color:#555;';
-  overlay.innerHTML = '<div style="text-align:center"><div style="font-size:28px;margin-bottom:12px">\ud83d\udcc4</div><div id="pdf-progress">Loading\u2026</div></div>';
+  overlay.style.cssText = 'position:fixed;inset:0;z-index:99998;background:rgba(255,255,255,0.97);display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif;';
+  overlay.innerHTML = `
+    <div style="text-align:center;width:320px;max-width:85vw">
+      <div style="font-size:36px;margin-bottom:16px;animation:pdfPulse 1.8s ease-in-out infinite">📄</div>
+      <div id="pdf-stage" style="font-size:15px;font-weight:600;color:#222;margin-bottom:8px">${LANG==='ko'?'PDF 준비 중…':'Preparing PDF…'}</div>
+      <div id="pdf-detail" style="font-size:12px;color:#888;margin-bottom:16px;min-height:18px"></div>
+      <div style="width:100%;height:6px;background:#e8e8e4;border-radius:3px;overflow:hidden">
+        <div id="pdf-bar" style="width:0%;height:100%;background:linear-gradient(90deg,#3b82f6,#2563eb);border-radius:3px;transition:width 0.4s ease"></div>
+      </div>
+      <div id="pdf-pct" style="font-size:11px;color:#aaa;margin-top:8px">0%</div>
+    </div>
+    <style>@keyframes pdfPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}</style>
+  `;
   document.body.appendChild(overlay);
-  const progressEl = document.getElementById('pdf-progress');
+  const _pdfBar = document.getElementById('pdf-bar');
+  const _pdfStage = document.getElementById('pdf-stage');
+  const _pdfDetail = document.getElementById('pdf-detail');
+  const _pdfPct = document.getElementById('pdf-pct');
+  function _pdfProgress(pct, stage, detail) {
+    const p = Math.min(100, Math.round(pct));
+    _pdfBar.style.width = p + '%';
+    _pdfPct.textContent = p + '%';
+    if (stage) _pdfStage.textContent = stage;
+    _pdfDetail.textContent = detail || '';
+  }
 
   try {
     // ── Load libs + font + reverse-geocode in parallel ──
@@ -4937,6 +4952,7 @@ async function exportPDF() {
       _loadKoreanFont(),
       _reverseGeocode(walkOrigin.lat, walkOrigin.lng)
     ]);
+    _pdfProgress(5, LANG==='ko'?'데이터 준비 중…':'Loading data…');
 
     // ── Load audio data ──
     const audioCityKey = CITY_META[activeCity]?.key;
@@ -4956,14 +4972,23 @@ async function exportPDF() {
       return `${idx + 1}. ${_displayName(loc)}`;
     }
 
-    // ── Pre-fetch photos (sequential to avoid Wikimedia 429 rate-limit) ──
+    // ── Collect photos: use gallery cache first, fetch only uncached ──
     const photoMap = {};
     for (let li = 0; li < locs.length; li++) {
       const loc = locs[li];
       if (!loc.photos?.length) continue;
-      progressEl.textContent = `${LANG==='ko'?'\uc0ac\uc9c4':'Photos'} ${li+1}/${locs.length}\u2026`;
+      const cached = loc.photos.slice(0, 4).filter(u => _photoCache.has(u)).length;
+      const total  = Math.min(loc.photos.length, 4);
+      const detail = cached === total
+        ? `${li+1} / ${locs.length} (${LANG==='ko'?'캐시':'cached'})`
+        : `${li+1} / ${locs.length}`;
+      _pdfProgress(5 + (li / locs.length) * 55, LANG==='ko'?'사진 준비 중…':'Preparing photos…', detail);
       const results = [];
       for (const url of loc.photos.slice(0, 4)) {
+        // 1) Gallery cache hit — instant
+        const c = _photoCache.get(url);
+        if (c) { results.push(c); continue; }
+        // 2) Fallback — fetch with retry
         const r = await _fetchImgForPdf(url, 12000);
         if (r) results.push(r);
       }
@@ -5001,7 +5026,7 @@ async function exportPDF() {
     // ══════════════════════════════════════════
     // COVER PAGE
     // ══════════════════════════════════════════
-    progressEl.textContent = LANG==='ko' ? '\ud45c\uc9c0 \uc0dd\uc131 \uc911\u2026' : 'Generating cover\u2026';
+    _pdfProgress(62, LANG==='ko'?'표지 생성 중…':'Generating cover…');
     let y = MT;
 
     // ArchWander™
@@ -5081,7 +5106,7 @@ async function exportPDF() {
     // ══════════════════════════════════════════
     for (let i = 0; i < locs.length; i++) {
       const loc = locs[i];
-      progressEl.textContent = `${LANG==='ko'?'\ud398\uc774\uc9c0':'Page'} ${i+1} / ${locs.length}\u2026`;
+      _pdfProgress(65 + (i / locs.length) * 33, LANG==='ko'?'페이지 생성 중…':'Building pages…', `${i+1} / ${locs.length}`);
 
       doc.addPage();
       y = MT;
@@ -5211,8 +5236,11 @@ async function exportPDF() {
       doc.text(`${p} / ${totalPages}`, 105, 291, { align: 'center' });
     }
 
+    _pdfProgress(99, LANG==='ko'?'파일 저장 중…':'Saving file…');
     const filename = `ArchWander_${cityLabel.replace(/\s+/g,'_')}_${new Date().toISOString().slice(0,10)}.pdf`;
     doc.save(filename);
+    _pdfProgress(100, LANG==='ko'?'완료!':'Done!');
+    await new Promise(r => setTimeout(r, 400));
 
   } catch (err) {
     console.error('PDF export failed:', err);
