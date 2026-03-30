@@ -4796,19 +4796,25 @@ async function _loadKoreanFont() {
   _koreanFontB64 = btoa(parts.join(''));
 }
 
-async function _fetchImgDataUrl(url, timeout) {
+// Returns { dataUrl, w, h } or null. Uses <img> + canvas for reliable CORS + jsPDF compat.
+async function _fetchImgForPdf(url, timeout) {
   try {
-    const ctl = new AbortController();
-    const tm = setTimeout(() => ctl.abort(), timeout || 8000);
-    const resp = await fetch(url, { mode: 'cors', signal: ctl.signal });
-    clearTimeout(tm);
-    if (!resp.ok) return null;
-    const blob = await resp.blob();
-    return await new Promise(resolve => {
-      const r = new FileReader();
-      r.onloadend = () => resolve(r.result);
-      r.onerror   = () => resolve(null);
-      r.readAsDataURL(blob);
+    return await new Promise((resolve) => {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      const tm = setTimeout(() => { img.src = ''; resolve(null); }, timeout || 10000);
+      img.onload = () => {
+        clearTimeout(tm);
+        try {
+          const c = document.createElement('canvas');
+          c.width  = img.naturalWidth;
+          c.height = img.naturalHeight;
+          c.getContext('2d').drawImage(img, 0, 0);
+          resolve({ dataUrl: c.toDataURL('image/jpeg', 0.85), w: c.width, h: c.height });
+        } catch(e) { resolve(null); }
+      };
+      img.onerror = () => { clearTimeout(tm); resolve(null); };
+      img.src = url;
     });
   } catch { return null; }
 }
@@ -4876,21 +4882,12 @@ async function exportPDF() {
       return `${idx + 1}. ${title}`;
     }
 
-    // ── Pre-fetch photos with natural dimensions ──
+    // ── Pre-fetch photos (img + canvas → dataUrl with dimensions) ──
     progressEl.textContent = LANG === 'ko' ? '\uc0ac\uc9c4 \ub85c\ub529 \uc911\u2026' : 'Loading photos\u2026';
     const photoMap = {};
     await Promise.all(locs.map(async loc => {
       if (!loc.photos?.length) return;
-      const results = await Promise.all(loc.photos.slice(0, 4).map(async url => {
-        const dataUrl = await _fetchImgDataUrl(url, 10000);
-        if (!dataUrl) return null;
-        return new Promise(res => {
-          const img = new Image();
-          img.onload  = () => res({ dataUrl, w: img.naturalWidth, h: img.naturalHeight });
-          img.onerror = () => res(null);
-          img.src = dataUrl;
-        });
-      }));
+      const results = await Promise.all(loc.photos.slice(0, 4).map(url => _fetchImgForPdf(url, 12000)));
       const valid = results.filter(Boolean);
       if (valid.length) photoMap[loc.id] = valid;
     }));
@@ -5055,11 +5052,11 @@ async function exportPDF() {
       const addr = _tf(loc,'addr'), hood = _tf(loc,'hood'),
             hours = _tf(loc,'hours'), admission = _tf(loc,'admission'), transit = _tf(loc,'transit');
       if (addr) {
-        const la = (LANG==='en' && typeof LOCS_KO!=='undefined' && LOCS_KO[loc.id]?.addr) ? LOCS_KO[loc.id].addr : '';
+        const la = (LANG==='en' && loc.city==='seoul' && typeof LOCS_KO!=='undefined' && LOCS_KO[loc.id]?.addr) ? LOCS_KO[loc.id].addr : '';
         fields.push([t('pdf_address'), la && la !== addr ? `${addr} / ${la}` : addr]);
       }
       if (hood) {
-        const lh = (LANG==='en' && typeof LOCS_KO!=='undefined' && LOCS_KO[loc.id]?.hood) ? LOCS_KO[loc.id].hood : '';
+        const lh = (LANG==='en' && loc.city==='seoul' && typeof LOCS_KO!=='undefined' && LOCS_KO[loc.id]?.hood) ? LOCS_KO[loc.id].hood : '';
         fields.push([t('pdf_neighborhood'), lh && lh !== hood ? `${hood} / ${lh}` : hood]);
       }
       if (hours)     fields.push([t('pdf_hours'),     hours]);
