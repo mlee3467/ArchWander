@@ -905,18 +905,6 @@
     }
     .sb-list-wrap { display: flex; flex-direction: column; flex: 1; overflow: hidden; min-height: 80px; }
 
-    /* ── CITY SELECTOR BAR ───────────────────────────────── */
-    .city-bar { display: none; } /* merged into header */
-    .city-bar-label { display: none; }
-    .city-divider { display: none; }
-    .header-city-row { display: none; } /* replaced by dropdown */
-    .city-tab { display: none; }
-    .city-soon-badge {
-      font-size: 9px; font-weight: 600; padding: 1px 5px;
-      background: #aaa; color: white; border-radius: 8px; letter-spacing: 0.2px;
-    }
-    .city-tab.active .city-soon-badge { background: rgba(255,255,255,0.3); }
-
     /* ── MOBILE ─────────────────────────────────────────── */
     #city-select-mobile {
       display: block;
@@ -1048,7 +1036,6 @@
       /* ── Hide desktop-only elements ── */
       .map-toggle { display: none; }
       .logo-sub { display: none; }
-      .header-city-row { display: none; }
 
       /* ── Sidebar backdrop ── */
       #sidebar-backdrop { display: none; position: fixed; top: calc(var(--mob-header-h) + var(--safe-top)); left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 350; }
@@ -1091,7 +1078,6 @@
     @media (max-width: 480px) {
       header { padding: env(safe-area-inset-top, 0px) 8px 0; }
       .header-row1, .header-row2 { gap: 4px; }
-      #gps-btn span { display: none; }
       .tabs { padding: 0; gap: 0; overflow: hidden; }
       .tabs .tab { padding: 8px 3px; font-size: 11px; }
       .tab-report-btn { padding: 8px 5px; font-size: 10.5px; }
@@ -1431,11 +1417,6 @@
       <option value="lon">London</option>
       <option value="tky">Tokyo</option>
     </select>
-    <div class="header-city-row">
-      <button class="city-tab active" id="city-nyc" onclick="selectCity('nyc')">🗽 New York</button>
-      <button class="city-tab" id="city-sel" onclick="selectCity('sel')">🏙 Seoul</button>
-      <button class="city-tab" id="city-lon" onclick="selectCity('lon')">🎡 London</button>
-      <button class="city-tab" id="city-tky" onclick="selectCity('tky')">🏯 Tokyo</button>
     </div>
     <div id="lang-overlay" class="lang-overlay" onclick="closeLangMenu()"></div>
     <div class="lang-dropdown" id="lang-dropdown">
@@ -2187,8 +2168,6 @@ function applyLang() {
   // Header buttons
   const btnS = document.getElementById('btn-street');  if (btnS) btnS.textContent = t('street');
   const btnSat = document.getElementById('btn-sat');   if (btnSat) btnSat.textContent = t('satellite');
-  const gpsSpan = document.querySelector('#gps-btn span');
-  if (gpsSpan) gpsSpan.textContent = t('my_location');
   // Sidebar filter header
   const sbLabel = document.querySelector('.sb-top-label');
   if (sbLabel) {
@@ -4200,10 +4179,7 @@ function _drawWalkOverlay() {
     dashArray: '7, 9'
   }).addTo(map);
 
-  // ③ Location count badge — centered below the person marker dot
-  // (lines removed — not needed)
-
-  // ④ Location count badge — centered below the person marker dot
+  // Location count badge — centered below the person marker dot
   const n    = nearby.length;
   const lbl  = LANG === 'ko' ? `${n}곳` : `${n} spot${n !== 1 ? 's' : ''}`;
   const zero = n === 0;
@@ -4584,9 +4560,6 @@ function selectCity(city) {
   if (!cityLocs.length) return; // no data yet — tab stays disabled
   activeCity    = city;
   activeCityKey = meta.key;
-  document.querySelectorAll('.city-tab').forEach(t => t.classList.remove('active'));
-  const btn = document.getElementById(`city-${city}`);
-  if (btn) btn.classList.add('active');
   // Clear walk filter when switching cities
   if (walkActive) clearWalkFilter();
   // Fly map to city center
