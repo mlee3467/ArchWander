@@ -97,14 +97,14 @@
     /* ── Favorites button (header) ───────────────────── */
     #fav-btn {
       height: 34px; padding: 0 13px;
-      border: 1px solid #f5905d; border-radius: 8px;
+      border: 1px solid #FF5F00; border-radius: 8px;
       font-size: 12px; font-family: inherit; background: white;
       cursor: pointer; display: flex; align-items: center; gap: 5px;
       white-space: nowrap; flex-shrink: 0; transition: all 0.2s;
-      color: #d4724a; font-weight: 600;
+      color: #CC4C00; font-weight: 600;
     }
-    #fav-btn:hover { border-color: #d97a4a; background: #fff7ed; }
-    #fav-btn.active { background: #f5905d; border-color: #f5905d; color: white; }
+    #fav-btn:hover { border-color: #CC4C00; background: #FFF3EB; }
+    #fav-btn.active { background: #FF5F00; border-color: #FF5F00; color: white; }
     /* ── Fav/Visited action buttons inside panel header ── */
     .p-action-row { display: flex; gap: 7px; margin-top: 7px; }
     .p-action-btn {
@@ -115,8 +115,8 @@
     }
     .p-action-btn:hover { background: #e5e5e5; }
     .p-action-btn .act-icon { font-size: 15px; line-height: 1; }
-    .p-action-btn.fav-active { background: #f5905d; color: #fff; }
-    .p-action-btn.fav-active:hover { background: #d97a4a; }
+    .p-action-btn.fav-active { background: #FF5F00; color: #fff; }
+    .p-action-btn.fav-active:hover { background: #CC4C00; }
     .p-action-btn.vis-active { background: #10b981; color: #fff; }
     .p-action-btn.vis-active:hover { background: #059669; }
     @keyframes pulse-border { 0%,100%{opacity:1} 50%{opacity:0.5} }
@@ -163,7 +163,7 @@
       background: white; font-size: 12px; font-family: inherit; font-weight: 600;
       cursor: pointer; transition: all 0.15s; color: #333;
     }
-    .fav-import-opt:hover { border-color: #f5905d; background: #FFF7ED; color: #c2410c; }
+    .fav-import-opt:hover { border-color: #FF5F00; background: #FFF7ED; color: #c2410c; }
     .fav-import-cancel {
       margin-top: 14px; font-size: 11px; color: #999; background: none; border: none;
       cursor: pointer; font-family: inherit;
@@ -289,10 +289,10 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 9px 14px 8px;
       border-bottom: 1px solid var(--border);
-      background: rgb(0,0,255);
+      background: #111;
     }
-    .sb-top-label { font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: #ffffff; }
-    .sb-clear { font-size: 11px; color: #aab4ff; background: none; border: none; cursor: pointer; padding: 2px 6px; border-radius: 4px; display: none; }
+    .sb-top-label { font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: #fff; display: flex; align-items: center; gap: 5px; }
+    .sb-clear { font-size: 11px; color: #9db4ff; background: none; border: none; cursor: pointer; padding: 2px 6px; border-radius: 4px; display: none; }
     .sb-clear.show { display: block; }
     .sb-clear:hover { background: rgba(255,255,255,0.15); }
 
@@ -370,7 +370,7 @@
       font-family: inherit; cursor: pointer;
       background: white; color: var(--text-secondary); transition: all 0.15s;
     }
-    .chip.active { background: #111; border-color: #111; color: white; }
+    .chip.active { background: rgb(0,0,255); border-color: rgb(0,0,255); color: white; }
 
     /* Sort + results bar */
     .list-bar {
@@ -1564,7 +1564,7 @@
 
       <!-- Top bar -->
       <div class="sb-top">
-        <span class="sb-top-label">Filters</span>
+        <span class="sb-top-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="flex-shrink:0"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg> Filters</span>
         <button class="sb-clear" id="sb-clear" onclick="clearAllFilters()">✕ Clear all</button>
       </div>
 
@@ -1780,7 +1780,8 @@ function _loadLocsFromStorage() {
 }
 let LOCS = _loadLocsFromStorage() || LOCS_DEFAULT.map(l => ({...l}));
 
-const state = { cat:'All', style:'All', era:'All', access:'All', arch:'All', fav:'All', sort:'default', query:'' };
+const state = { cat:[], style:[], era:[], access:[], arch:'All', fav:'All', sort:'default', query:'' };
+const _MULTI_KEYS = new Set(['cat','style','era','access']);
 
 // ══════════════════════════════════════════════════════════════════
 // WIKIMEDIA LICENSE UTILITIES
@@ -2516,22 +2517,41 @@ function buildChipGroup(containerId, items, key, labelFn, valueFn) {
 // FILTER LOGIC
 // ══════════════════════════════════════════════════════════════════
 function setFilter(key, val) {
-  state[key] = val;
+  if (_MULTI_KEYS.has(key)) {
+    if (val === 'All') {
+      state[key] = [];
+    } else {
+      const arr = state[key];
+      const idx = arr.indexOf(val);
+      if (idx >= 0) arr.splice(idx, 1); else arr.push(val);
+    }
+  } else {
+    state[key] = val;
+  }
 
   // Update chip/item highlight
   const bodyId = key === 'arch' ? 'body-arch' : `body-${key}`;
   const selector = key === 'arch' ? '.arch-item' : '.chip';
-  document.getElementById(bodyId).querySelectorAll(selector).forEach(b => {
-    b.classList.toggle('active', b.title === val);
-  });
+  if (_MULTI_KEYS.has(key)) {
+    const isAll = state[key].length === 0;
+    document.getElementById(bodyId).querySelectorAll(selector).forEach(b => {
+      if (b.title === 'All') b.classList.toggle('active', isAll);
+      else b.classList.toggle('active', state[key].includes(b.title));
+    });
+  } else {
+    document.getElementById(bodyId).querySelectorAll(selector).forEach(b => {
+      b.classList.toggle('active', b.title === val);
+    });
+  }
 
   // Dot indicator
   const dot = document.getElementById(`dot-${key}`);
-  if (dot) dot.classList.toggle('show', val !== 'All');
+  const hasFilter = _MULTI_KEYS.has(key) ? state[key].length > 0 : state[key] !== 'All';
+  if (dot) dot.classList.toggle('show', hasFilter);
 
   // Per-section reset badge
   const resetBtn = document.getElementById(`reset-${key}`);
-  if (resetBtn) resetBtn.classList.toggle('show', val !== 'All');
+  if (resetBtn) resetBtn.classList.toggle('show', hasFilter);
 
   updateClearBtn();
   renderList();
@@ -2542,7 +2562,7 @@ function setSort(val) { state.sort = val; renderList(); }
 
 function clearAllFilters() {
   ['cat','style','era','access','arch','fav'].forEach(k => {
-    state[k] = 'All';
+    state[k] = _MULTI_KEYS.has(k) ? [] : 'All';
     const bodyId = k === 'arch' ? 'body-arch' : `body-${k}`;
     const sel = k === 'arch' ? '.arch-item' : '.chip';
     document.getElementById(bodyId).querySelectorAll(sel).forEach(b =>
@@ -2559,7 +2579,9 @@ function clearAllFilters() {
 }
 
 function updateClearBtn() {
-  const active = ['cat','style','era','access','arch','fav'].some(k => state[k] !== 'All');
+  const active = ['cat','style','era','access','arch','fav'].some(k =>
+    _MULTI_KEYS.has(k) ? state[k].length > 0 : state[k] !== 'All'
+  );
   document.getElementById('sb-clear').classList.toggle('show', active);
 }
 
@@ -2651,13 +2673,12 @@ function _awTrackSearchDebounced(locIds) {
 // ══════════════════════════════════════════════════════════════════
 function getFiltered() {
   let list = LOCS.filter(l => l.city === activeCityKey);
-  if (state.cat   !== 'All') list = list.filter(l => _allCats(l).includes(state.cat));
-  if (state.style !== 'All') list = list.filter(l => _allSGs(l).includes(state.style));
-  if (state.era   !== 'All') {
-    const [mn, mx] = ERA_RANGE[state.era];
-    list = list.filter(l => l.yr >= mn && l.yr < mx);
+  if (state.cat.length)    list = list.filter(l => state.cat.some(c => _allCats(l).includes(c)));
+  if (state.style.length)  list = list.filter(l => state.style.some(s => _allSGs(l).includes(s)));
+  if (state.era.length) {
+    list = list.filter(l => state.era.some(e => { const [mn, mx] = ERA_RANGE[e]; return l.yr >= mn && l.yr < mx; }));
   }
-  if (state.access !== 'All') list = list.filter(l => l.access === state.access);
+  if (state.access.length) list = list.filter(l => state.access.includes(l.access));
   if (state.arch  !== 'All') list = list.filter(l => (l.archs || [l.arch]).includes(state.arch));
   if (state.fav === '★ Favorites') list = list.filter(l => _favSet.has(l.id));
   if (state.fav === '✓ Visited')   list = list.filter(l => _visSet.has(l.id));
@@ -4525,7 +4546,7 @@ function _buildLocIcon(loc) {
   const vis = isVisited(loc.id);
   // Star overlay — same size for fav and fav+vis, with white outline
   const starOverlay = fav
-    ? `<span style="position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;font-size:28px;color:#f5905d;-webkit-text-stroke:2px white;paint-order:stroke fill;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.4));transform:rotate(45deg);line-height:1">★</span>`
+    ? `<span style="position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;font-size:28px;color:#FF5F00;-webkit-text-stroke:2px white;paint-order:stroke fill;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.4));transform:rotate(45deg);line-height:1">★</span>`
     : '';
   if (vis) {
     // Visited (or fav+vis): hollow — white fill, black outline
@@ -4576,11 +4597,17 @@ function favExportJSON() {
     alert(t('fav_exp_empty'));
     return;
   }
+  // Build simple array: { id, fav: "Y"/"N", visited: "Y"/"N" }
+  const allIds = new Set([..._favSet, ..._visSet]);
+  const entries = [...allIds].map(id => ({
+    id,
+    fav:     _favSet.has(id) ? 'Y' : 'N',
+    visited: _visSet.has(id) ? 'Y' : 'N'
+  }));
   const data = {
-    _format: 'archwander-favs-v1',
+    _format: 'archwander-favs-v2',
     exported: new Date().toISOString(),
-    favorites: [..._favSet],
-    visited:   [..._visSet]
+    data: entries
   };
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
   const url  = URL.createObjectURL(blob);
@@ -4620,17 +4647,29 @@ function _handleFavFileSelected(event) {
   reader.onload = function(e) {
     try {
       const data = JSON.parse(e.target.result);
-      if (data._format !== 'archwander-favs-v1' || !Array.isArray(data.favorites) || !Array.isArray(data.visited)) {
+      let importFavs = [], importVis = [];
+
+      if (data._format === 'archwander-favs-v2' && Array.isArray(data.data)) {
+        // v2: array of { id, fav:"Y"/"N", visited:"Y"/"N" }
+        data.data.forEach(entry => {
+          if (entry.fav === 'Y')     importFavs.push(entry.id);
+          if (entry.visited === 'Y') importVis.push(entry.id);
+        });
+      } else if (data._format === 'archwander-favs-v1' && Array.isArray(data.favorites)) {
+        // v1 backward compat
+        importFavs = data.favorites;
+        importVis  = data.visited || [];
+      } else {
         alert(t('fav_imp_invalid'));
         return;
       }
+
       if (_favImportMode === 'overwrite') {
-        _favSet = new Set(data.favorites);
-        _visSet = new Set(data.visited);
+        _favSet = new Set(importFavs);
+        _visSet = new Set(importVis);
       } else {
-        // append
-        data.favorites.forEach(id => _favSet.add(id));
-        data.visited.forEach(id   => _visSet.add(id));
+        importFavs.forEach(id => _favSet.add(id));
+        importVis.forEach(id  => _visSet.add(id));
       }
       // Persist to localStorage
       localStorage.setItem(_FAV_KEY, JSON.stringify([..._favSet]));
