@@ -14,7 +14,7 @@
 
 window.AUDIO_EN_LON = {
 
-  'gherkin': {
+  'lon-0001': {
     title: '30 St Mary Axe (The Gherkin)',
     script: `You are standing before the building that redefined the London skyline at the start of the twenty-first century — 30 St Mary Axe, universally known as the Gherkin.
 
@@ -31,7 +31,7 @@ At the crown, a glass-domed lens room caps the building with a 360-degree view o
 The Gherkin was the first London skyscraper to be widely loved by the public almost from the day it opened. Its nickname — given by taxi drivers and construction workers before the building was even finished — has become the most affectionate name for any modern building in the city. In a skyline shaped by centuries of church spires and Victorian domes, this bullet-shaped glass tower somehow felt right from the start.`
   },
 
-  'bloomberg-hq-london': {
+  'lon-0002': {
     title: 'Bloomberg European HQ',
     script: `The Bloomberg European Headquarters, completed in 2017, received the highest BREEAM sustainability score ever awarded to a major office building at the time — 98.5 percent Outstanding. Foster + Partners designed it not merely as a sustainable building but as an argument that sustainability and architectural ambition are the same thing.
 
@@ -46,7 +46,7 @@ At the entrance, the Bloomberg Vortex — a curved, spiraling ramp that descends
 The building's total energy consumption is approximately 35 percent less than a typical UK office, achieved through the integration of all these systems — the bronze fins, the petal ceiling, the chilled-water cooling, the natural ventilation — into a single coordinated environmental strategy. Michael Bloomberg reportedly told Foster that he wanted "the world's most sustainable office." Whether it holds that title or not, it remains the most comprehensive attempt to make a corporate headquarters genuinely answer that question.`
   },
 
-  'great-court-british-museum': {
+  'lon-0003': {
     title: 'Great Court, British Museum',
     script: `You are standing beneath one of the great structural achievements of modern engineering — the Queen Elizabeth II Great Court, completed in 2000 by Foster + Partners with structural engineering by Buro Happold.
 
@@ -61,7 +61,7 @@ The Reading Room below the roof was restored to its original 1857 appearance —
 The Great Court transformed the museum's circulation. Before 2000, visitors had to navigate a confusing sequence of galleries to cross from one wing to another. The courtyard now functions as a central orientation hall — a single legible space from which every wing of the museum is directly accessible. The roof admits daylight that changes with the weather and season, and the stone floor reflects it upward, giving the entire space a luminous, almost outdoor quality that makes the British Museum feel, for the first time in its history, like a building with a center.`
   },
 
-  'leadenhall-building': {
+  'lon-0010': {
     title: 'Leadenhall Building (Cheesegrater)',
     script: `The Leadenhall Building, completed in 2014 by Rogers Stirk Harbour + Partners, is one of the few tall buildings in London whose form was determined entirely by what it needed not to be.
 
@@ -76,7 +76,7 @@ The floor plates above are clear-span office space, each approximately 1,500 squ
 The building's service core — elevators, stairs, mechanical systems — is pushed to the north face, the vertical side, freeing the south-facing office floors for uninterrupted views across the Thames. This separation of served and servant spaces is another Rogers hallmark, borrowed directly from Louis Kahn and refined through four decades of practice.`
   },
 
-  'the-shard': {
+  'lon-0018': {
     title: 'The Shard',
     script: `The Shard, completed in 2012, is the tallest building in the United Kingdom and was, at the time of its completion, the tallest in Western Europe — 309.6 meters to the tip of its steel-and-glass spire. But Renzo Piano, who designed it, has always insisted that the height is the least interesting thing about it.
 
@@ -91,7 +91,7 @@ The program is deliberately mixed: offices on the lower floors, a Shangri-La hot
 From London Bridge station below, look up and watch the glass shift. The building is never the same color twice.`
   },
 
-  'coal-drops-yard': {
+  'lon-0019': {
     title: 'Coal Drops Yard',
     script: `Coal Drops Yard, completed in 2018, is Thomas Heatherwick's most structurally daring London project — a design in which two Victorian industrial buildings are made to touch.
 
@@ -106,7 +106,7 @@ Below the new roof, the original cast-iron columns and brick arches have been pr
 The project sits within a broader King's Cross transformation that has reshaped this former railway wasteland into one of London's densest cultural and commercial districts. Coal Drops Yard is its most architecturally memorable moment — a building that finds a way to honor the past without imitating it, by taking the existing structure and literally reshaping it into something its Victorian builders could never have imagined but might, on seeing it, have recognized as their own.`
   },
 
-  'city-hall-london': {
+  'lon-0005': {
     title: 'City Hall (GLA Building)',
     script: `City Hall, completed in 2002, was Foster + Partners' attempt to design a building whose form was derived entirely from environmental performance — and to make that derivation legible.
 
@@ -121,7 +121,7 @@ The building's energy systems extended beneath the Thames. Groundwater drawn fro
 In 2022, the Greater London Authority relocated to a new headquarters in the Royal Docks, and City Hall's future use remains under discussion. But the building's contribution to the argument that form and sustainability can be identical — that a building can look the way it does because of the energy it saves — remains one of Foster's most persuasive demonstrations.`
   },
 
-  'millennium-bridge-london': {
+  'lon-0006': {
     title: 'Millennium Bridge',
     script: `The Millennium Bridge, completed in 2000 and reopened in 2002, is a study in both structural innovation and structural humility — a bridge that had to fail spectacularly before it could succeed.
 
@@ -138,7 +138,7 @@ Arup's solution was to retrofit 37 viscous fluid dampers beneath the deck and 52
 Walk to the center and look east, toward the dome of St Paul's. Then turn west, toward the Tate Modern's power station chimney. The bridge frames both, holding them in a single visual axis. The blade of light that Foster imagined is exactly what you are standing on — a line drawn between two worlds, thin enough to see through.`
   },
 
-  'heathrow-terminal-5': {
+  'lon-0012': {
     title: 'Heathrow Terminal 5',
     script: `Heathrow Terminal 5, completed in 2008 by Rogers Stirk Harbour + Partners, took eighteen years from initial planning application to opening — the longest planning process in British architectural history. What emerged from that process is one of the finest airport buildings in the world.
 
@@ -153,7 +153,7 @@ Inside, Rogers applied the same servant-and-served logic that defines all his ma
 The building was designed for adaptability. The interior partitions and installations are demountable rather than permanent, so that the terminal can be reconfigured as airline operations change without altering the primary structure. Rogers has always believed that the best buildings are the ones that can accommodate futures their designers cannot predict. Terminal 5 was built to prove it.`
   },
 
-  'o2-arena': {
+  'lon-0011': {
     title: 'The O2 Arena (Millennium Dome)',
     script: `The O2 — originally the Millennium Dome — is the largest dome structure in the world by enclosed area. Completed in 1999 by the Richard Rogers Partnership with structural engineering by Buro Happold, it covers 100,000 square meters under a single roof, with a circumference of over one kilometer.
 

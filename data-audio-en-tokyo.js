@@ -18,7 +18,7 @@
 
 window.AUDIO_EN_TKY = {
 
-  'yoyogi-national-gymnasium': {
+  'tok-0001': {
     title: 'Yoyogi National Gymnasium',
     script: `You are standing before one of the most daring structural achievements of the twentieth century — the Yoyogi National Gymnasium, designed by Kenzo Tange for the 1964 Tokyo Olympics.
 
@@ -35,7 +35,7 @@ Walk around to the entrance side and look at how the roof meets the ground. The 
 UNESCO designated Yoyogi National Gymnasium a World Heritage Site in 2021 — one of the youngest buildings ever to receive that distinction.`
   },
 
-  'tokyo-metropolitan-government': {
+  'tok-0002': {
     title: 'Tokyo Metropolitan Government Building',
     script: `The Tokyo Metropolitan Government Building, completed in 1991, is Kenzo Tange's largest built work and one of the most polarizing buildings in the city. Standing 243 meters tall with 48 stories above ground, it was Japan's tallest building at the time of its completion.
 
@@ -52,7 +52,7 @@ The free observation decks on the 45th floor of both North and South towers offe
 The building cost approximately 157 billion yen — about one billion dollars at the time — and remains the seat of Tokyo's government.`
   },
 
-  'st-marys-cathedral-tokyo': {
+  'tok-0003': {
     title: "St. Mary's Cathedral Tokyo",
     script: `St. Mary's Cathedral, completed in 1964, is one of Kenzo Tange's most spatially powerful works — a building in which structure, light, and sacred geometry are fused into a single unbroken experience.
 
@@ -67,7 +67,7 @@ The interior volume holds 3,941 cubic meters. Seating capacity is 600, with stan
 The cathedral was built to commemorate the hundredth anniversary of the reintroduction of Catholicism to Japan. Tange, who was not Catholic himself, approached the commission as a problem of space and light rather than doctrine — and produced one of the most moving sacred interiors of the modern era.`
   },
 
-  'tods-omotesando': {
+  'tok-0004': {
     title: "Tod's Omotesando",
     script: `Tod's Omotesando, completed in 2004, is one of Toyo Ito's most important works — a building in which the facade is not a skin applied to a structure, but the structure itself.
 
@@ -84,7 +84,7 @@ Ito's structural engineer on this project was Mutsuro Sasaki, who developed the 
 Stand across the street and look at the building through the actual zelkova trees. The concrete branches and the living branches overlap, and for a moment the distinction between architecture and nature dissolves.`
   },
 
-  'mikimoto-ginza-2': {
+  'tok-0005': {
     title: 'Mikimoto Ginza 2',
     script: `Mikimoto Ginza 2, completed in 2005, is a building that asks a radical structural question: what if the facade were the entire load-bearing system, and the openings in it were not weaknesses but integral parts of the structure's strength?
 
@@ -101,7 +101,7 @@ The interior spaces benefit directly from the structural logic. Without columns,
 Ito has said that his goal was to make a building in which "the skin thinks" — where the exterior is not a passive enclosure but an active, intelligent participant in the building's structural and spatial life.`
   },
 
-  'dior-omotesando': {
+  'tok-0006': {
     title: 'Dior Omotesando',
     script: `Dior Omotesando, completed in 2003, is SANAA's most precise exercise in the dissolution of architectural boundaries — a building that appears, depending on the light, to be made of fabric, glass, air, or nothing at all.
 
@@ -116,7 +116,7 @@ The building occupies a narrow site on Omotesando, between Toyo Ito's Tod's buil
 At night, with interior lighting, Dior Omotesando glows from within — a soft, even luminosity that makes the entire building read as a single lantern. The effect is not dramatic. It is quiet, precise, and almost impossibly refined — which is what SANAA has always done better than anyone.`
   },
 
-  'curtain-wall-house-tokyo': {
+  'tok-0007': {
     title: 'Curtain Wall House',
     script: `The Curtain Wall House, completed in 1995, is one of the most radical private residences in modern architecture — a house in which the exterior walls are, literally, curtains.
 
@@ -131,7 +131,7 @@ The ground floor is enclosed in concrete — a solid, opaque base that contains 
 Ban went on to become one of the most celebrated architects of his generation, winning the Pritzker Prize in 2014 largely for his humanitarian work with emergency shelters made from paper tubes and fabric. The Curtain Wall House was an early experiment in the same direction — an architecture of minimum means and maximum spatial generosity.`
   },
 
-  'nezu-museum': {
+  'tok-0009': {
     title: 'Nezu Museum',
     script: `The Nezu Museum, completed in 2009, is Kengo Kuma's masterwork of threshold architecture — a building designed to transform your state of mind before you even enter the galleries.
 
@@ -146,7 +146,7 @@ The garden itself is a 17,000-square-meter landscape that descends from the muse
 The structural system is steel and concrete, but Kuma has gone to extraordinary lengths to make the structure visually quiet. The columns are thin, the connections concealed, the material palette limited to bamboo, stone, tile, and steel — all in muted tones. Kuma's stated philosophy here is that architecture should "erase" itself, becoming a medium through which nature and art communicate directly. Whether it erases itself or simply redefines what visibility means is a question the building leaves open.`
   },
 
-  'japan-national-stadium': {
+  'tok-0011': {
     title: 'Japan National Stadium',
     script: `The Japan National Stadium, completed in 2019 for the Tokyo 2020 Olympics, is the largest timber-and-steel hybrid structure in Japan — a 68,000-seat arena that breathes without air conditioning.
 
@@ -161,7 +161,7 @@ The building's height was carefully controlled. Kuma held the roofline to approx
 The material palette speaks to Kuma's long-standing interest in what he calls "anti-object" architecture. Where a conventional stadium asserts itself as a singular monument, the National Stadium disperses its presence into layers of wood, foliage, and open air. Whether this approach succeeds as spectacle is debatable. That it represents a fundamentally different relationship between a building and its environment is not.`
   },
 
-  'nakagin-capsule-tower': {
+  'tok-0020': {
     title: 'Nakagin Capsule Tower',
     script: `The Nakagin Capsule Tower no longer exists. It was demolished in 2022 after five decades of architectural celebrity and physical neglect. But its ideas remain among the most provocative in postwar architecture, and its location in Ginza — where it stood from 1972 — is worth visiting to understand what was attempted here.
 
@@ -176,7 +176,7 @@ What the tower demonstrated, in both its ambition and its failure, was the funda
 Several capsules were preserved after demolition and are now held in museum collections, including at the Museum of Modern Art in New York. They remain the purest physical artifacts of the Metabolist dream: that a city could be a living thing, and a building could grow.`
   },
 
-  'national-art-center-tokyo': {
+  'tok-0021': {
     title: 'National Art Center Tokyo',
     script: `The National Art Center Tokyo, completed in 2007, was the last major building designed by Kisho Kurokawa — and the one in which his lifelong philosophy of "symbiosis" found its most transparent expression. Literally.
 
@@ -206,7 +206,7 @@ The concrete is poured to Ando's exacting standards — the formwork joints prec
 The relationship between the folded steel roof and the concrete body below is one of counterpoint. The roof is light, thin, angular, and exposed to the sky. The body is heavy, thick, rectilinear, and buried. One material folds; the other is poured. The building holds both conditions — the ephemeral and the permanent, the cloth and the stone — in a single composition.`
   },
 
-  'omotesando-hills': {
+  'tok-0017': {
     title: 'Omotesando Hills',
     script: `Omotesando Hills, completed in 2006, is Tadao Ando's answer to a problem that has defeated most architects: how to build a large commercial development without destroying the character of the street it occupies.
 
@@ -221,7 +221,7 @@ The sunken courtyard at the building's eastern end introduces daylight deep into
 Ando once described Omotesando Hills as an attempt to make "absence as powerful as presence." The building's restraint — its refusal to rise above the trees, its burial of the majority of its program, its insistence on a single material — is itself the design. What you do not see is as important as what you do.`
   },
 
-  'tokyo-international-forum': {
+  'tok-0040': {
     title: 'Tokyo International Forum',
     script: `The Tokyo International Forum, completed in 1996, contains one of the most extraordinary interior spaces built in the late twentieth century — the Glass Hall, a ship-hull-shaped atrium of steel and glass that spans 210 meters in length and rises 60 meters from floor to roof.
 
@@ -236,7 +236,7 @@ The complex includes four enclosed performance halls seating up to 5,000 people,
 The building received the AIA Twenty-Five Year Award in 2024, recognizing its enduring significance. But the most telling measure of its success is behavioral: tens of thousands of people pass through the Glass Hall every day, most of them simply crossing from one side of the site to the other. Viñoly designed a building that works as infrastructure — and in doing so, created one of Tokyo's most beloved public spaces almost by accident.`
   },
 
-  'house-na-tokyo': {
+  'tok-0012': {
     title: 'House NA',
     script: `House NA, completed in 2011, is among the most extreme private residences ever built — a house with no walls, no rooms in the conventional sense, and almost no privacy whatsoever.
 
@@ -251,7 +251,7 @@ The question the house raises most insistently is about privacy. The entire inte
 Whether you find this argument persuasive or not, the spatial experience of the interior is undeniable. Standing inside, you are aware of every level simultaneously — you can see the kitchen from the bedroom, the study from the bath, the street from the roof terrace. The house has the quality of a diagram made habitable, and it remains one of the clearest built expressions of Fujimoto's belief that architecture should feel less like shelter and more like landscape.`
   },
 
-  'spiral-building-tokyo': {
+  'tok-0014': {
     title: 'Spiral (Wacoal Art Center)',
     script: `The Spiral Building, completed in 1985, is Fumihiko Maki's most recognizable work in Tokyo — a building whose name comes from the helical ramp inside it and whose facade is a deliberate collision of geometric systems.
 
@@ -266,7 +266,7 @@ Maki's theoretical framework — which he calls "group form" — proposes that b
 The building has hosted thousands of exhibitions, performances, and cultural events over four decades. Its survival as a functioning cultural venue — in a city that routinely demolishes buildings far younger — is itself a testament to the flexibility that Maki's collage approach provides.`
   },
 
-  'horyuji-treasures-gallery': {
+  'tok-0016': {
     title: 'Gallery of Hōryū-ji Treasures',
     script: `The Gallery of Hōryū-ji Treasures, completed in 1999, is Yoshio Taniguchi's most concise demonstration of his governing principle: that the highest achievement of architecture is to disappear.
 
@@ -283,7 +283,7 @@ The ceiling height is deliberately low — Taniguchi wanted visitors to feel clo
 Taniguchi later designed the renovation and expansion of the Museum of Modern Art in New York, applying the same philosophy of self-effacement at a much larger scale. But this small building in Ueno remains his purest statement: that architecture, when it works perfectly, makes you forget you are inside a building at all.`
   },
 
-  'kait-workshop': {
+  'tok-0029': {
     title: 'KAIT Workshop',
     script: `The KAIT Workshop, completed in 2008 at the Kanagawa Institute of Technology, is one of the most quietly radical buildings of the twenty-first century — a single room containing 305 steel columns, no two of which are alike.
 
@@ -300,7 +300,7 @@ Natural light enters through the full-height glass perimeter and is filtered by 
 Ishigami has said that he wanted to make "architecture as slight as possible" — a building in which the structure approaches the condition of weather, something you feel and move through rather than see and identify. The KAIT Workshop achieves this. It is the gentlest building you may ever enter, and the most disorienting.`
   },
 
-  'daikanyama-t-site': {
+  'tok-0027': {
     title: 'Daikanyama T-Site',
     script: `Daikanyama T-Site, completed in 2011, is a bookstore designed to feel like the opposite of a building — low, green, open, and hidden.
 
@@ -317,7 +317,7 @@ Inside, the arrangement is organized by subject rather than by format. Books, ma
 The project's influence has been enormous. Daikanyama T-Site is widely credited with redefining what a bookstore can be in the digital age, and its low-rise, garden-centered model has been replicated in Tsutaya branches across Japan.`
   },
 
-  'azabudai-hills': {
+  'tok-0044': {
     title: 'Azabudai Hills',
     script: `Azabudai Hills, completed in 2023, is Tokyo's most ambitious attempt to answer a question that has haunted megadevelopment for decades: can a project of this scale feel human?
 

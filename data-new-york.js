@@ -7,7 +7,7 @@
 const LOCS_NEW_YORK = [
   
   {
-    id:'empire-state', name:'Empire State Building',
+    id:'nyc-0001', name:'Empire State Building',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks', 'Commercial'], cc:'c-sky', styleGroup:'Art Deco', styleGroups:['Art Deco'], era:'1930–1969',
     arch:'Shreve, Lamb & Harmon',
     archs:['Shreve, Lamb & Harmon'], yr:1931, access:'Paid Ticket', city:'new-york', style:'Art Deco',
@@ -35,7 +35,7 @@ const LOCS_NEW_YORK = [
     ]
   },
   {
-    id:'chrysler', name:'Chrysler Building',
+    id:'nyc-0002', name:'Chrysler Building',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks', 'Commercial'], cc:'c-sky', styleGroup:'Art Deco', styleGroups:['Art Deco'], era:'1930–1969',
     arch:'William Van Alen', yr:1930, access:'Open to Public', city:'new-york', style:'Art Deco',
     lat:40.7516676, lng:-73.9755644,
@@ -60,7 +60,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'one-wtc', name:'One World Trade Center',
+    id:'nyc-0003', name:'One World Trade Center',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks', 'Commercial'], cc:'c-sky', styleGroup:'Contemporary', styleGroups:['Contemporary'], era:'2000–Present',
     arch:'SOM (Skidmore, Owings & Merrill)',
     archs:['SOM (Skidmore, Owings & Merrill)'], yr:2014, access:'Paid Ticket', city:'new-york', style:'Contemporary',
@@ -86,7 +86,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'flatiron', name:'Flatiron Building',
+    id:'nyc-0004', name:'Flatiron Building',
     cat:'Historic', cats:['Historic', 'Landmarks', 'Commercial'], cc:'c-his', styleGroup:'Beaux-Arts', styleGroups:['Beaux-Arts'], era:'Pre-1930',
     arch:'Daniel H. Burnham', yr:1902, access:'Open to Public', city:'new-york', style:'Beaux-Arts / Chicago School',
     lat:40.7410592, lng:-73.9896416,
@@ -111,7 +111,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'grand-central', name:'Grand Central Terminal',
+    id:'nyc-0005', name:'Grand Central Terminal',
     cat:'Historic', cats:['Historic', 'Infrastructure', 'Landmarks'], cc:'c-his', styleGroup:'Beaux-Arts', styleGroups:['Beaux-Arts'], era:'Pre-1930',
     arch:'Reed & Stem / Warren & Wetmore',
     archs:['Reed & Stem', 'Warren & Wetmore'], yr:1913, access:'Open to Public', city:'new-york', style:'Beaux-Arts',
@@ -139,7 +139,7 @@ const LOCS_NEW_YORK = [
     ]
   },
   {
-    id:'brooklyn-bridge', name:'Brooklyn Bridge',
+    id:'nyc-0006', name:'Brooklyn Bridge',
     cat:'Infrastructure', cats:['Infrastructure', 'Landmarks'], cc:'c-inf', styleGroup:'Gothic Revival', styleGroups:['Gothic Revival'], era:'Pre-1900',
     arch:'John A. Roebling / Washington Roebling',
     archs:['John A. Roebling', 'Washington Roebling'], yr:1883, access:'Open to Public', city:'new-york', style:'Gothic Revival Suspension',
@@ -167,7 +167,7 @@ const LOCS_NEW_YORK = [
     ]
   },
   {
-    id:'guggenheim', name:'Solomon R. Guggenheim Museum',
+    id:'nyc-0007', name:'Solomon R. Guggenheim Museum',
     cat:'Cultural', cats:['Cultural', 'Landmarks'], cc:'c-cul', styleGroup:'Modernist', styleGroups:['Modernist'], era:'1930–1969',
     arch:'Frank Lloyd Wright', yr:1959, access:'Paid Ticket', city:'new-york', style:'Organic Modernism',
     lat:40.7829932, lng:-73.958925,
@@ -196,7 +196,7 @@ const LOCS_NEW_YORK = [
     ]
   },
   {
-    id:'whitney', name:'Whitney Museum of American Art',
+    id:'nyc-0008', name:'Whitney Museum of American Art',
     cat:'Cultural', cats:['Cultural', 'Landmarks'], cc:'c-cul', styleGroup:'Contemporary', styleGroups:['Contemporary'], era:'2000–Present',
     arch:'Renzo Piano', yr:2015, access:'Paid Ticket', city:'new-york', style:'Contemporary',
     lat:40.7396451, lng:-74.008921,
@@ -223,7 +223,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'high-line', name:'The High Line',
+    id:'nyc-0009', name:'The High Line',
     cat:'Parks', cats:['Parks', 'Landmarks'], cc:'c-park', styleGroup:'Landscape', styleGroups:['Contemporary', 'Adaptive Reuse'], era:'2000–Present',
     arch:'James Corner Field Operations + Diller Scofidio + Renfro',
     archs:['James Corner Field Operations', 'Diller Scofidio + Renfro'], yr:2009, access:'Open to Public', city:'new-york', style:'Urban Landscape',
@@ -252,7 +252,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'vessel', name:'Vessel',
+    id:'nyc-0010', name:'Vessel',
     cat:'Landmarks', cats:['Landmarks', 'Public'], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:['Contemporary', 'Parametric Design'], era:'2000–Present',
     arch:'Thomas Heatherwick', yr:2019, access:'Open to Public', city:'new-york', style:'Sculptural / Contemporary',
     lat:40.7559064, lng:-74.0005322,
@@ -277,7 +277,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'oculus', name:'WTC Transportation Hub (Oculus)',
+    id:'nyc-0011', name:'WTC Transportation Hub (Oculus)',
     cat:'Infrastructure', cats:['Commercial', 'Landmarks'], cc:'c-inf', styleGroup:'Contemporary', styleGroups:['Contemporary'], era:'2000–Present',
     arch:'Santiago Calatrava', yr:2016, access:'Open to Public', city:'new-york', style:'Neo-Expressionism',
     lat:40.7115549, lng:-74.0114199,
@@ -302,7 +302,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'st-patricks', name:"St. Patrick's Cathedral",
+    id:'nyc-0012', name:"St. Patrick's Cathedral",
     cat:'Religious', cats:['Religious', 'Historic', 'Landmarks'], cc:'c-rel', styleGroup:'Gothic Revival', styleGroups:['Gothic Revival'], era:'Pre-1900',
     arch:'James Renwick Jr.', yr:1878, access:'Open to Public', city:'new-york', style:'Gothic Revival',
     lat:40.75845, lng:-73.97620,
@@ -327,7 +327,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'nypl', name:'New York Public Library',
+    id:'nyc-0013', name:'New York Public Library',
     cat:'Cultural', cats:['Cultural', 'Landmarks'], cc:'c-cul', styleGroup:'Beaux-Arts', styleGroups:['Beaux-Arts'], era:'Pre-1930',
     arch:'Carrère and Hastings', yr:1911, access:'Open to Public', city:'new-york', style:'Beaux-Arts',
     lat:40.75316, lng:-73.98198,
@@ -353,7 +353,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'cooper-union', name:'Cooper Union (41 Cooper Square)',
+    id:'nyc-0014', name:'Cooper Union (41 Cooper Square)',
     cat:'Academic / Institution', cats:['Academic / Institution'], cc:'c-aca', styleGroup:'Contemporary', styleGroups:['Contemporary'], era:'2000–Present',
     arch:'Morphosis / Thom Mayne',
     archs:['Carrère and Hastings'], yr:2009, access:'Open to Public', city:'new-york', style:'Deconstructivist',
@@ -379,7 +379,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'central-park', name:'Central Park',
+    id:'nyc-0015', name:'Central Park',
     cat:'Parks', cats:['Parks', 'Landmarks'], cc:'c-park', styleGroup:'Landscape', styleGroups:['Landscape'], era:'Pre-1900',
     arch:'Frederick Law Olmsted & Calvert Vaux',
     archs:['Frederick Law Olmsted', 'Calvert Vaux'], yr:1876, access:'Open to Public', city:'new-york', style:'English Landscape Garden',
@@ -407,7 +407,7 @@ const LOCS_NEW_YORK = [
     ]
   },
   {
-    id:'rockefeller', name:'30 Rockefeller Plaza & Top of the Rock',
+    id:'nyc-0016', name:'30 Rockefeller Plaza & Top of the Rock',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'], cc:'c-sky', styleGroup:'Art Deco', styleGroups:['Art Deco'], era:'1930–1969',
     arch:'Raymond Hood / Harrison & Fouilhoux',
     archs:['Raymond Hood', 'Harrison & Fouilhoux'], yr:1933, access:'Paid Ticket', city:'new-york', style:'Art Deco',
@@ -433,7 +433,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'seagram', name:'Seagram Building',
+    id:'nyc-0017', name:'Seagram Building',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'], cc:'c-sky', styleGroup:'Modernist', styleGroups:['Modernist'], era:'1930–1969',
     arch:'Mies van der Rohe / Philip Johnson',
     archs:['Mies van der Rohe', 'Philip Johnson'], yr:1958, access:'Open to Public', city:'new-york', style:'International Style',
@@ -459,7 +459,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'lever-house', name:'Lever House',
+    id:'nyc-0018', name:'Lever House',
     cat:'Historic', cats:['Skyscrapers', 'Commercial'], cc:'c-his', styleGroup:'Modernist', styleGroups:['Modernist'], era:'1930–1969',
     arch:'SOM (Skidmore, Owings & Merrill)', yr:1952, access:'Open to Public', city:'new-york', style:'International Style',
     lat:40.7595773, lng:-73.972688,
@@ -484,7 +484,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'hearst-tower', name:'Hearst Tower',
+    id:'nyc-0019', name:'Hearst Tower',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Commercial'], cc:'c-sky', styleGroup:'Contemporary', styleGroups:['High-Tech'], era:'2000–Present',
     arch:'Foster + Partners',
     archs:['Foster + Partners'], yr:2006, access:'Open to Public', city:'new-york', style:'Deconstructivist / High-Tech',
@@ -510,7 +510,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'new-museum', name:'New Museum',
+    id:'nyc-0020', name:'New Museum',
     cat:'Cultural', cats:['Cultural', 'Landmarks'], cc:'c-cul', styleGroup:'Contemporary', styleGroups:['Contemporary'], era:'2000–Present',
     arch:'SANAA (Sejima + Nishizawa)',
     archs:['SANAA'], yr:2007, access:'Paid Ticket', city:'new-york', style:'Contemporary',
@@ -534,7 +534,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'iac-building', name:'IAC Building',
+    id:'nyc-0021', name:'IAC Building',
     cat:'Landmarks', cats:['Landmarks'], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:['Contemporary'], era:'2000–Present',
     arch:'Frank Gehry', yr:2007, access:'Private', city:'new-york', style:'Deconstructivist',
     lat:40.7453786, lng:-74.0077332,
@@ -557,7 +557,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'56-leonard', name:'56 Leonard Street',
+    id:'nyc-0022', name:'56 Leonard Street',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Residential'], cc:'c-sky', styleGroup:'Contemporary', styleGroups:['Postmodern'], era:'2000–Present',
     arch:'Herzog & de Meuron', yr:2016, access:'Private', city:'new-york', style:'Contemporary / Sculptural',
     lat:40.7176412, lng:-74.006259,
@@ -581,7 +581,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'432-park', name:'432 Park Avenue',
+    id:'nyc-0023', name:'432 Park Avenue',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'], cc:'c-sky', styleGroup:'Contemporary', styleGroups:['Contemporary'], era:'2000–Present',
     arch:'Rafael Viñoly', yr:2015, access:'Private', city:'new-york', style:'Minimalist / Supertall',
     lat:40.7616833, lng:-73.9718584,
@@ -606,7 +606,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'9-11-memorial', name:'9/11 Memorial & Museum',
+    id:'nyc-0024', name:'9/11 Memorial & Museum',
     cat:'Cultural', cats:['Cultural', 'Landmarks'], cc:'c-cul', styleGroup:'Contemporary', styleGroups:['Contemporary'], era:'2000–Present',
     arch:'Michael Arad + Peter Walker',
     archs:['Michael Arad', 'Peter Walker'], yr:2011, access:'Open to Public', city:'new-york', style:'Memorial Landscape',
@@ -633,7 +633,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'nyt-building', name:'New York Times Building',
+    id:'nyc-0025', name:'New York Times Building',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'], cc:'c-sky', styleGroup:'Contemporary', styleGroups:['Contemporary'], era:'2000–Present',
     arch:'Renzo Piano', yr:2007, access:'Open to Public', city:'new-york', style:'High-Tech / Contemporary',
     lat:40.7558946, lng:-73.9896743,
@@ -657,7 +657,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'met-museum', name:'Metropolitan Museum of Art',
+    id:'nyc-0026', name:'Metropolitan Museum of Art',
     cat:'Cultural', cats:['Cultural', 'Landmarks'], cc:'c-cul', styleGroup:'Beaux-Arts', styleGroups:['Beaux-Arts'], era:'Pre-1930',
     arch:'Calvert Vaux & Jacob Wrey Mould / Richard Morris Hunt',
     archs:['Calvert Vaux', 'Richard Morris Hunt'], yr:1902, access:'Paid Ticket', city:'new-york', style:'Beaux-Arts',
@@ -682,7 +682,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'moma', name:'Museum of Modern Art (MoMA)',
+    id:'nyc-0027', name:'Museum of Modern Art (MoMA)',
     cat:'Cultural', cats:['Cultural', 'Landmarks'], cc:'c-cul', styleGroup:'Contemporary', styleGroups:['Contemporary'], era:'2000–Present',
     arch:'Yoshio Taniguchi', yr:2004, access:'Paid Ticket', city:'new-york', style:'Contemporary / Minimalist',
     lat:40.7616124, lng:-73.9774992,
@@ -707,7 +707,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'woolworth', name:'Woolworth Building',
+    id:'nyc-0028', name:'Woolworth Building',
     cat:'Historic', cats:['Historic', 'Landmarks'], cc:'c-his', styleGroup:'Gothic Revival', styleGroups:['Gothic Revival'], era:'Pre-1930',
     arch:'Cass Gilbert', yr:1913, access:'Paid Ticket', city:'new-york', style:'Gothic Revival / Neo-Gothic',
     lat:40.7124499, lng:-74.0079539,
@@ -732,7 +732,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'united-nations', name:'United Nations Headquarters',
+    id:'nyc-0029', name:'United Nations Headquarters',
     cat:'Public', cats:['Public'], cc:'c-pub', styleGroup:'Modernist', styleGroups:['Modernist'], era:'1930–1969',
     arch:'Le Corbusier / Oscar Niemeyer / Wallace Harrison',
     archs:['Le Corbusier', 'Oscar Niemeyer', 'Wallace Harrison'], yr:1952, access:'Paid Ticket', city:'new-york', style:'International Style',
@@ -758,7 +758,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'lincoln-center', name:'Lincoln Center for the Performing Arts',
+    id:'nyc-0030', name:'Lincoln Center for the Performing Arts',
     cat:'Cultural', cats:['Cultural', 'Public'], cc:'c-cul', styleGroup:'Modernist', styleGroups:['Modernist'], era:'1930–1969',
     arch:'Philip Johnson / Eero Saarinen / SOM (Skidmore, Owings & Merrill) et al.',
     archs:['Philip Johnson', 'Eero Saarinen', 'SOM (Skidmore, Owings & Merrill)'], yr:1969, access:'Open to Public', city:'new-york', style:'New Formalism',
@@ -784,7 +784,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'ford-foundation', name:'Ford Foundation Building',
+    id:'nyc-0031', name:'Ford Foundation Building',
     cat:'Landmarks', cats:['Landmarks'], cc:'c-lmk', styleGroup:'Modernist', styleGroups:['Modernist'], era:'1930–1969',
     arch:'Kevin Roche John Dinkeloo', yr:1968, access:'Open to Public', city:'new-york', style:'Brutalist / Modernist',
     lat:40.7498787, lng:-73.9711586,
@@ -808,7 +808,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'citicorp-center', name:'Citicorp Center (601 Lexington)',
+    id:'nyc-0032', name:'Citicorp Center (601 Lexington)',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Commercial'], cc:'c-sky', styleGroup:'Contemporary', styleGroups:['Postmodern'], era:'1970–1999',
     arch:'Hugh Stubbins & Associates',
     archs:['Hugh Stubbins'], yr:1977, access:'Open to Public', city:'new-york', style:'High-Tech / Late Modernist',
@@ -834,7 +834,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'one-vanderbilt', name:'One Vanderbilt',
+    id:'nyc-0033', name:'One Vanderbilt',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'], cc:'c-sky', styleGroup:'Contemporary', styleGroups:['Contemporary'], era:'2000–Present',
     arch:'KPF (Kohn Pedersen Fox)', yr:2020, access:'Paid Ticket', city:'new-york', style:'Contemporary / Supertall',
     lat:40.7529739, lng:-73.9785396,
@@ -859,7 +859,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'the-shed', name:'The Shed',
+    id:'nyc-0034', name:'The Shed',
     cat:'Cultural', cats:['Cultural', 'Landmarks'], cc:'c-cul', styleGroup:'Contemporary', styleGroups:['Contemporary'], era:'2000–Present',
     arch:'Diller Scofidio + Renfro / Rockwell Group',
     archs:['Diller Scofidio + Renfro', 'Rockwell Group'], yr:2019, access:'Paid Ticket', city:'new-york', style:'Contemporary / High-Tech',
@@ -884,7 +884,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'prospect-park', name:'Prospect Park',
+    id:'nyc-0035', name:'Prospect Park',
     cat:'Parks', cats:['Parks'], cc:'c-park', styleGroup:'Landscape', styleGroups:['Landscape'], era:'Pre-1900',
     arch:'Frederick Law Olmsted & Calvert Vaux',
     archs:['Frederick Law Olmsted', 'Calvert Vaux'], yr:1867, access:'Open to Public', city:'new-york', style:'English Landscape Garden',
@@ -910,7 +910,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'twa-hotel',
+    id:'nyc-0036',
     name:'TWA Hotel (TWA Flight Center)',
     cat:'Historic', cats:['Historic', 'Landmarks'],
     cc:'c-his',
@@ -956,7 +956,7 @@ const LOCS_NEW_YORK = [
       ]
   },
   {
-    id:'apple-store-5th-ave',
+    id:'nyc-0037',
     name:'Apple Store Fifth Avenue',
     cat:'Retail', cats:['Retail'],
     cc:'c-ret',
@@ -1001,7 +1001,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'via-57-west',
+    id:'nyc-0038',
     name:'VIA 57 West',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -1044,7 +1044,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'spring-studios',
+    id:'nyc-0039',
     name:'Spring Studios (Printing Trades Building)',
     cat:'Historic', cats:['Historic', 'Landmarks'],
     cc:'c-his',
@@ -1086,7 +1086,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'standard-highline',
+    id:'nyc-0040',
     name:'The Standard, High Line',
     cat:'Landmarks', cats:['Landmarks'],
     cc:'c-lmk',
@@ -1128,7 +1128,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'barclays-center',
+    id:'nyc-0041',
     name:'Barclays Center',
     cat:'Public', cats:['Public'],
     cc:'c-pub',
@@ -1172,7 +1172,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'domino-park',
+    id:'nyc-0042',
     name:'Domino Sugar Refinery / Domino Park',
     cat:'Parks', cats:['Parks'],
     cc:'c-park',
@@ -1215,7 +1215,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'cornell-tech',
+    id:'nyc-0043',
     name:'Cornell Tech Campus',
     cat:'Academic / Institution', cats:['Academic / Institution'],
     cc:'c-aca',
@@ -1260,7 +1260,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'30-hudson-yards',
+    id:'nyc-0044',
     name:'30 Hudson Yards',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -1303,7 +1303,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'the-spiral',
+    id:'nyc-0045',
     name:'The Spiral',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -1346,7 +1346,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'hudson-yards',
+    id:'nyc-0046',
     name:'Hudson Yards Masterplan',
     cat:'Landmarks', cats:['Landmarks'],
     cc:'c-lmk',
@@ -1391,7 +1391,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'nyc-city-hall',
+    id:'nyc-0047',
     name:'New York City Hall',
     cat:'Public', cats:['Public'],
     cc:'c-pub',
@@ -1435,7 +1435,7 @@ const LOCS_NEW_YORK = [
     ]
   },
   {
-    id:'manhattan-municipal',
+    id:'nyc-0048',
     name:'Manhattan Municipal Building',
     cat:'Public', cats:['Public'],
     cc:'c-pub',
@@ -1476,7 +1476,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'brookfield-place',
+    id:'nyc-0049',
     name:'Brookfield Place (Winter Garden Atrium)',
     cat:'Retail', cats:['Retail'],
     cc:'c-ret',
@@ -1520,7 +1520,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'battery-park',
+    id:'nyc-0050',
     name:'Battery Park',
     cat:'Parks', cats:['Parks'],
     cc:'c-park',
@@ -1560,7 +1560,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'castle-clinton',
+    id:'nyc-0051',
     name:'Castle Clinton National Monument',
     cat:'Historic', cats:['Historic', 'Landmarks'],
     cc:'c-his',
@@ -1601,7 +1601,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'stone-street',
+    id:'nyc-0052',
     name:'Stone Street Historic District',
     cat:'Historic', cats:['Historic', 'Commercial'],
     cc:'c-his',
@@ -1641,7 +1641,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'washington-square-arch',
+    id:'nyc-0053',
     name:'Washington Square Arch',
     cat:'Landmarks', cats:['Landmarks'],
     cc:'c-lmk',
@@ -1683,7 +1683,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'judson-memorial',
+    id:'nyc-0054',
     name:'Judson Memorial Church',
     cat:'Religious', cats:['Religious'],
     cc:'c-rel',
@@ -1723,7 +1723,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'jefferson-market-library',
+    id:'nyc-0055',
     name:'Jefferson Market Library',
     cat:'Historic', cats:['Historic', 'Landmarks'],
     cc:'c-his',
@@ -1765,7 +1765,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'new-school-university-center',
+    id:'nyc-0056',
     name:'The New School University Center',
     cat:'Academic / Institution', cats:['Academic / Institution'],
     cc:'c-aca',
@@ -1807,7 +1807,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'astor-place-alamo',
+    id:'nyc-0057',
     name:'Astor Place / Alamo Cube',
     cat:'Landmarks', cats:['Landmarks'],
     cc:'c-lmk',
@@ -1848,7 +1848,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'st-marks-church',
+    id:'nyc-0058',
     name:'St. Mark\'s Church in-the-Bowery',
     cat:'Religious', cats:['Religious'],
     cc:'c-rel',
@@ -1889,7 +1889,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'100-eleventh-ave',
+    id:'nyc-0059',
     name:'100 Eleventh Avenue',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -1930,7 +1930,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'hl23',
+    id:'nyc-0060',
     name:'HL23',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -1971,7 +1971,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'paley-park',
+    id:'nyc-0061',
     name:'Paley Park',
     cat:'Parks', cats:['Parks'],
     cc:'c-park',
@@ -2012,7 +2012,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'brooklyn-bridge-park',
+    id:'nyc-0062',
     name:'Brooklyn Bridge Park',
     cat:'Parks', cats:['Parks'],
     cc:'c-park',
@@ -2053,7 +2053,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'dumbo-historic',
+    id:'nyc-0063',
     name:'DUMBO Historic District',
     cat:'Historic', cats:['Historic', 'Landmarks'],
     cc:'c-his',
@@ -2094,7 +2094,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'janes-carousel',
+    id:'nyc-0064',
     name:'Jane\'s Carousel Pavilion',
     cat:'Landmarks', cats:['Landmarks'],
     cc:'c-lmk',
@@ -2135,7 +2135,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'queens-museum',
+    id:'nyc-0065',
     name:'Queens Museum',
     cat:'Cultural', cats:['Cultural', 'Landmarks'],
     cc:'c-cul',
@@ -2176,7 +2176,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'unisphere',
+    id:'nyc-0066',
     name:'Unisphere',
     cat:'Landmarks', cats:['Landmarks'],
     cc:'c-lmk',
@@ -2217,7 +2217,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'yankee-stadium',
+    id:'nyc-0067',
     name:'Yankee Stadium',
     cat:'Public', cats:['Public', 'Landmarks'],
     cc:'c-pub',
@@ -2259,7 +2259,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'bronx-county-courthouse',
+    id:'nyc-0068',
     name:'Bronx County Courthouse',
     cat:'Public', cats:['Public'],
     cc:'c-pub',
@@ -2300,7 +2300,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'wave-hill',
+    id:'nyc-0069',
     name:'Wave Hill',
     cat:'Parks', cats:['Parks'],
     cc:'c-park',
@@ -2342,7 +2342,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'grand-concourse',
+    id:'nyc-0070',
     name:'Grand Concourse Historic District',
     cat:'Historic', cats:['Historic', 'Landmarks'],
     cc:'c-his',
@@ -2383,7 +2383,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'40-bond-street',
+    id:'nyc-0071',
     name:'40 Bond Street',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -2424,7 +2424,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'160-leroy-street',
+    id:'nyc-0072',
     name:'160 Leroy Street',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -2464,7 +2464,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'public-hotel',
+    id:'nyc-0073',
     name:'PUBLIC Hotel',
     cat:'Landmarks', cats:['Landmarks'],
     cc:'c-lmk',
@@ -2505,7 +2505,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'15-cpw',
+    id:'nyc-0074',
     name:'15 Central Park West',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -2546,7 +2546,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'30-park-place',
+    id:'nyc-0075',
     name:'30 Park Place (Four Seasons Residences)',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -2587,7 +2587,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'220-central-park-south',
+    id:'nyc-0076',
     name:'220 Central Park South',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -2628,7 +2628,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'520-park-avenue',
+    id:'nyc-0077',
     name:'520 Park Avenue',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -2669,7 +2669,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'20-east-end-ave',
+    id:'nyc-0078',
     name:'20 East End Avenue',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -2710,7 +2710,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'70-vestry',
+    id:'nyc-0079',
     name:'70 Vestry Street',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -2751,7 +2751,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'255-east-77th',
+    id:'nyc-0080',
     name:'255 East 77th Street',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -2791,7 +2791,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'200-east-83rd',
+    id:'nyc-0081',
     name:'200 East 83rd Street',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -2831,7 +2831,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'150-east-78th',
+    id:'nyc-0082',
     name:'150 East 78th Street',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -2871,7 +2871,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'bellemont',
+    id:'nyc-0083',
     name:'The Bellemont (1165 Madison Ave)',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -2911,7 +2911,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'1228-madison',
+    id:'nyc-0084',
     name:'1228 Madison Avenue',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -2951,7 +2951,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'chatham-65th',
+    id:'nyc-0085',
     name:'The Chatham (181 E 65th St)',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -2991,7 +2991,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'brompton',
+    id:'nyc-0086',
     name:'The Brompton (205 E 85th St)',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -3031,7 +3031,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'superior-ink',
+    id:'nyc-0087',
     name:'Superior Ink (West Village)',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -3072,7 +3072,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'att-building',
+    id:'nyc-0088',
     name:'AT&T Building (550 Madison Ave)',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -3117,7 +3117,7 @@ const LOCS_NEW_YORK = [
     ]
   },
   {
-    id:'urban-glass-house',
+    id:'nyc-0089',
     name:'Urban Glass House',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -3159,7 +3159,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'kips-bay-towers',
+    id:'nyc-0090',
     name:'Kips Bay Towers',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -3201,7 +3201,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'silver-towers',
+    id:'nyc-0091',
     name:'Silver Towers (University Village)',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -3243,7 +3243,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'perry-street-towers',
+    id:'nyc-0092',
     name:'Perry Street Towers',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -3285,7 +3285,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'8-spruce-street',
+    id:'nyc-0093',
     name:'8 Spruce Street (New York by Gehry)',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -3327,7 +3327,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'morgan-library',
+    id:'nyc-0094',
     name:'Morgan Library & Museum',
     cat:'Cultural', cats:['Cultural', 'Historic'],
     cc:'c-cul',
@@ -3370,7 +3370,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'3-wtc',
+    id:'nyc-0095',
     name:'3 World Trade Center',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -3412,7 +3412,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'520-west-28th',
+    id:'nyc-0096',
     name:'520 West 28th Street',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -3453,7 +3453,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'53w53',
+    id:'nyc-0097',
     name:'53W53 (MoMA Tower)',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -3494,7 +3494,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'prada-epicenter',
+    id:'nyc-0098',
     name:'Prada Epicenter SoHo',
     cat:'Retail', cats:['Retail'],
     cc:'c-ret',
@@ -3536,7 +3536,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'152-elizabeth',
+    id:'nyc-0099',
     name:'152 Elizabeth Street',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -3578,7 +3578,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'611-west-56th',
+    id:'nyc-0100',
     name:'611 West 56th Street',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -3618,7 +3618,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'lvmh-tower',
+    id:'nyc-0101',
     name:'LVMH Tower',
     cat:'Landmarks', cats:['Landmarks'],
     cc:'c-lmk',
@@ -3660,7 +3660,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'4-wtc',
+    id:'nyc-0102',
     name:'4 World Trade Center',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -3700,7 +3700,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'metal-shutter-houses',
+    id:'nyc-0103',
     name:'Metal Shutter Houses',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -3741,7 +3741,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'130-william',
+    id:'nyc-0104',
     name:'130 William Street',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -3782,7 +3782,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'sugar-hill-museum',
+    id:'nyc-0105',
     name:'Sugar Hill Children\'s Museum of Art & Storytelling',
     cat:'Cultural', cats:['Cultural', 'Landmarks'],
     cc:'c-cul',
@@ -3823,7 +3823,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'hunters-point-library',
+    id:'nyc-0106',
     name:'Hunters Point Community Library',
     cat:'Cultural', cats:['Cultural', 'Landmarks'],
     cc:'c-cul',
@@ -3865,7 +3865,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'campbell-sports-center',
+    id:'nyc-0107',
     name:'Campbell Sports Center',
     cat:'Academic / Institution', cats:['Academic / Institution'],
     cc:'c-aca',
@@ -3906,7 +3906,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'storefront-art-arch',
+    id:'nyc-0108',
     name:'Storefront for Art and Architecture',
     cat:'Cultural', cats:['Cultural', 'Landmarks'],
     cc:'c-cul',
@@ -3948,7 +3948,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'higgins-hall',
+    id:'nyc-0109',
     name:'Higgins Hall (Pratt Institute)',
     cat:'Academic / Institution', cats:['Academic / Institution'],
     cc:'c-aca',
@@ -3989,7 +3989,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'frederic-malle',
+    id:'nyc-0110',
     name:'Editions de Parfums Frédéric Malle',
     cat:'Retail', cats:['Retail'],
     cc:'c-ret',
@@ -4030,7 +4030,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'porter-house',
+    id:'nyc-0111',
     name:'The Porter House',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -4063,7 +4063,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'mulberry-house',
+    id:'nyc-0112',
     name:'290 Mulberry Street',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -4096,7 +4096,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'american-copper-buildings',
+    id:'nyc-0113',
     name:'American Copper Buildings',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -4129,7 +4129,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'pier-17-seaport',
+    id:'nyc-0114',
     name:'Pier 17 \u2013 South Street Seaport',
     cat:'Retail', cats:['Retail'],
     cc:'c-ret',
@@ -4162,7 +4162,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'325-kent-williamsburg',
+    id:'nyc-0115',
     name:'325 Kent \u2013 Domino Waterfront',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -4195,7 +4195,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'steinway-tower',
+    id:'nyc-0116',
     name:'Steinway Tower (111 W 57th St)',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -4228,7 +4228,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'brooklyn-tower',
+    id:'nyc-0117',
     name:'The Brooklyn Tower (9 DeKalb Ave)',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -4261,7 +4261,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'242-broome-essex-crossing',
+    id:'nyc-0118',
     name:'242 Broome \u2013 Essex Crossing',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -4294,7 +4294,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'fit-joyce-brown-building',
+    id:'nyc-0119',
     name:'Joyce F. Brown Academic Building \u2013 FIT',
     cat:'Academic / Institution', cats:['Academic / Institution'],
     cc:'c-aca',
@@ -4327,7 +4327,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'7-world-trade-center',
+    id:'nyc-0120',
     name:'7 World Trade Center',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -4362,7 +4362,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'28-liberty',
+    id:'nyc-0121',
     name:'28 Liberty Street (One Chase Manhattan Plaza)',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -4397,7 +4397,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'moynihan-train-hall',
+    id:'nyc-0122',
     name:'Moynihan Train Hall',
     cat:'Infrastructure', cats:['Infrastructure', 'Landmarks'],
     cc:'c-inf',
@@ -4432,7 +4432,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'one-manhattan-west',
+    id:'nyc-0123',
     name:'One Manhattan West',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -4465,7 +4465,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'35-hudson-yards',
+    id:'nyc-0124',
     name:'35 Hudson Yards',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -4498,7 +4498,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'383-madison-avenue',
+    id:'nyc-0125',
     name:'383 Madison Avenue (Bear Stearns / JPMorgan HQ)',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -4531,7 +4531,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'10-hudson-yards',
+    id:'nyc-0126',
     name:'10 Hudson Yards',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -4564,7 +4564,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'55-hudson-yards',
+    id:'nyc-0127',
     name:'55 Hudson Yards',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -4597,7 +4597,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'madison-square-park-tower',
+    id:'nyc-0128',
     name:'Madison Square Park Tower (45 E 22nd St)',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -4630,7 +4630,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'brooklyn-point',
+    id:'nyc-0129',
     name:'Brooklyn Point (138 Willoughby St)',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -4663,7 +4663,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'two-waterline-square',
+    id:'nyc-0130',
     name:'Two Waterline Square',
     cat:'Residential', cats:['Residential'],
     cc:'c-res',
@@ -4696,7 +4696,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'sperone-westwater',
+    id:'nyc-0131',
     name:'Sperone Westwater Gallery',
     cat:'Cultural', cats:['Cultural', 'Landmarks'],
     cc:'c-cul',
@@ -4729,7 +4729,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'50-hudson-yards',
+    id:'nyc-0132',
     name:'50 Hudson Yards',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -4762,7 +4762,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'425-park-avenue',
+    id:'nyc-0133',
     name:'425 Park Avenue',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -4795,7 +4795,7 @@ const LOCS_NEW_YORK = [
     drawings:[]
   },
   {
-    id:'270-park-avenue',
+    id:'nyc-0134',
     name:'270 Park Avenue (JPMorgan Chase HQ)',
     cat:'Skyscrapers', cats:['Skyscrapers', 'Landmarks'],
     cc:'c-sky',
@@ -4834,7 +4834,7 @@ const LOCS_NEW_YORK = [
 // Alice Tully Hall (DS+R renovation, 2009)
 LOCS_NEW_YORK.push(
   {
-    id:'alice-tully-hall',
+    id:'nyc-0135',
     name:'Alice Tully Hall',
     cat:'Cultural', cats:['Cultural','Landmarks'], cc:'c-cul', styleGroup:'Contemporary', styleGroups:['Contemporary','Adaptive Reuse'],
     era:'2000–Present', city:'new-york',
@@ -4862,7 +4862,7 @@ LOCS_NEW_YORK.push(
   // ── GRIMSHAW ARCHITECTS ─────────────────────────────────────
 
   {
-    id:'via-verde',
+    id:'nyc-0136',
     name:'Via Verde',
     cat:'Residential', cats:['Residential'], cc:'c-res', styleGroup:'Contemporary', styleGroups:['Contemporary'],
     era:'2000–Present', city:'new-york',
@@ -4890,7 +4890,7 @@ LOCS_NEW_YORK.push(
   // ── SNØHETTA ────────────────────────────────────────────────
 
   {
-    id:'sept-11-museum-pavilion',
+    id:'nyc-0137',
     name:'9/11 Memorial Museum Pavilion',
     cat:'Cultural', cats:['Cultural','Landmarks'], cc:'c-cul', styleGroup:'Contemporary', styleGroups:['Contemporary'],
     era:'2000–Present', city:'new-york',
@@ -4919,7 +4919,7 @@ LOCS_NEW_YORK.push(
   // ── SHOP ARCHITECTS ─────────────────────────────────────────
 
   {
-    id:'american-copper-buildings',
+    id:'nyc-0138',
     name:'American Copper Buildings',
     cat:'Residential', cats:['Residential','Skyscrapers','Landmarks'], cc:'c-res', styleGroup:'Contemporary', styleGroups:['Contemporary'],
     era:'2000–Present', city:'new-york',
@@ -4947,139 +4947,11 @@ LOCS_NEW_YORK.push(
   // ── LOUIS KAHN ───────────────────────────────────────────────
 
   {
-    id:'fdr-four-freedoms-park',
+    id:'nyc-0139',
     name:'FDR Four Freedoms Park',
     cat:'Parks', cats:['Parks','Landmarks','Public'], cc:'c-park', styleGroup:'Modernist', styleGroups:['Modernist'],
     era:'2000–Present', city:'new-york',
     arch:'Louis Kahn', archs:['Louis Kahn'],
     yr:2012, access:'Open to Public', style:'Modernist',
     lat:40.7506707, lng:-73.9604974,
-    addr:'1 FDR Four Freedoms Park, Roosevelt Island, NY 10044', hood:'Roosevelt Island',
-    desc:'FDR Four Freedoms Park is the only built work of Louis Kahn in New York City — and one of his most poignant. Kahn designed the memorial in 1973 for the southern tip of Roosevelt Island, dedicating it to President Franklin D. Roosevelt and the Four Freedoms he proclaimed in 1941. Kahn died in 1974, three months after completing the drawings, and the project lay unrealised for nearly four decades. It was finally built to his original plans and opened on 17 October 2012. The park is composed of a long grass allée flanked by linden trees that terminates in a granite "room" open to the sky — a minimal, monumental enclosure framing the East River and the Manhattan skyline. At the centre of the room stands a bronze bust of FDR by Jo Davidson. The project is a rare example of a posthumous realisation of a complete architectural vision, executed with the same materials and dimensions Kahn specified.',
-    hours:'Wed–Sun 9:00 AM – 7:00 PM (May–Oct) · 9:00 AM – 5:00 PM (Nov–Apr)', lastEntry:'30 min before closing',
-    admission:'Free',
-    tourOk:true, tourInfo:'Free guided tours on weekends. Accessible via Roosevelt Island tram (from 59th St & 2nd Ave) or subway F train to Roosevelt Island.',
-    web:'https://fdrfourfreedomspark.org',
-    transit:'F → Roosevelt Island · Tram from 59 St & 2 Ave',
-    walkFrom:'Roosevelt Island Tram: 10 min walk south along waterfront',
-    gmaps:'https://maps.google.com/?q=FDR+Four+Freedoms+Park+Roosevelt+Island+New+York',
-    archdaily:'https://www.archdaily.com/286816/four-freedoms-park-louis-i-kahn',
-    wiki:'https://en.wikipedia.org/wiki/FDR_Four_Freedoms_Park',
-    tags:['Louis Kahn','Memorial','FDR','Roosevelt Island','Modernism','East River','Posthumous'],
-    photos:[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/FDR_Four_Freedoms_Park_room.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/FDR_Four_Freedoms_Park_aerial.jpg?width=800'
-    ],
-    drawings:[]
-  },
-
-  // ── TADAO ANDO — NEW YORK ────────────────────────────────────
-
-  {
-    id:'152-elizabeth-street',
-    name:'152 Elizabeth Street',
-    cat:'Residential', cats:['Residential','Landmarks'], cc:'c-res', styleGroup:'Contemporary', styleGroups:['Contemporary'],
-    era:'2000–Present', city:'new-york',
-    arch:'Tadao Ando', archs:['Tadao Ando'],
-    yr:2018, access:'Open to Public', style:'Contemporary',
-    lat:40.7196, lng:-73.9949,
-    addr:'152 Elizabeth St, New York, NY 10012', hood:'Nolita',
-    desc:'152 Elizabeth Street is Tadao Ando\'s first residential building in New York City, completed in 2018. The 7-story, 7-unit boutique condominium occupies a narrow lot in Nolita and is clad entirely in Ando\'s signature board-formed exposed concrete — a material almost entirely absent from Manhattan\'s residential architecture. The building\'s facade is articulated by deep horizontal shadow lines created by the plank formwork, and the street-level planting softens its monolithic presence. Each floor houses a single full-floor unit with interiors finished in concrete, stone, and warm timber, bringing Ando\'s characteristic spatial discipline and tactile austerity to the New York market. The project reflects Ando\'s consistent philosophy: geometry, natural light, and the poetic use of concrete regardless of programme or scale.',
-    hours:'Private residential building · Exterior viewable 24/7', lastEntry:'',
-    admission:'Private building',
-    tourOk:false, tourInfo:'',
-    web:'https://152elizabethnyc.com',
-    transit:'6 → Spring St · J Z → Bowery · B D → Grand St',
-    walkFrom:'New Museum: 5 min · SoHo: 5 min',
-    gmaps:'https://maps.google.com/?q=152+Elizabeth+Street+New+York+NY',
-    archdaily:'https://www.archdaily.com/tag/152-elizabeth-street',
-    wiki:'https://en.wikipedia.org/wiki/152_Elizabeth_Street',
-    tags:['Tadao Ando','Concrete','Residential','Nolita','Boutique Condo'],
-    photos:[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/152_Elizabeth_Street_NYC_Tadao_Ando.jpg?width=800'
-    ],
-    drawings:[]
-  },
-
-  {
-    id:'565-broome-soho',
-    name:'The Residences at 565 Broome SoHo',
-    cat:'Residential', cats:['Residential','Landmarks'], cc:'c-res', styleGroup:'Contemporary', styleGroups:['Contemporary'],
-    era:'2000–Present', city:'new-york',
-    arch:'Tadao Ando', archs:['Tadao Ando'],
-    yr:2019, access:'Open to Public', style:'Contemporary',
-    lat:40.7237, lng:-74.0041,
-    addr:'565 Broome St, New York, NY 10013', hood:'SoHo / Hudson Square',
-    desc:'The Residences at 565 Broome SoHo, completed in 2019, is Tadao Ando\'s second New York City project and his largest residential commission in the city. The 30-story, 115-unit luxury condominium tower rises above the low cast-iron roofscape of SoHo with two curved, convex forms of poured concrete and glass that taper toward each other as they rise. The curved facades maximise natural light and view angles while the cantilevered base — supported on a minimal ground-floor column grid — creates a covered public arcade and reveals a double-height lobby of Ando\'s trademark rough-shuttered concrete. The tower\'s curvature is unusual within Ando\'s typically rectilinear vocabulary, yet the material palette and spatial rigour are unmistakably his. The project marks his most prominent contribution to the New York skyline.',
-    hours:'Private residential building · Public lobby atrium visible from street', lastEntry:'',
-    admission:'Private building',
-    tourOk:false, tourInfo:'',
-    web:'https://565broome.com',
-    transit:'1 → Houston St · C E → Spring St',
-    walkFrom:'SoHo Cast Iron District: 3 min · Hudson River Park: 5 min',
-    gmaps:'https://maps.google.com/?q=565+Broome+Street+New+York+NY',
-    archdaily:'https://www.archdaily.com/tag/565-broome',
-    wiki:'https://en.wikipedia.org/wiki/565_Broome_SoHo',
-    tags:['Tadao Ando','Concrete','Residential','SoHo','Luxury','Curved Facade'],
-    photos:[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/565_Broome_SoHo_Ando.jpg?width=800'
-    ],
-    drawings:[]
-  },
-
-  // ── THOMAS HEATHERWICK — NEW YORK ───────────────────────────
-
-  {
-    id:'vessel-hudson-yards',
-    name:'Vessel',
-    cat:'Landmarks', cats:['Landmarks','Public'], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:['Contemporary','Parametric Design'],
-    era:'2000–Present', city:'new-york',
-    arch:'Heatherwick Studio', archs:['Heatherwick Studio'],
-    yr:2019, access:'Open to Public', style:'Contemporary',
-    lat:40.7540, lng:-74.0019,
-    addr:'Hudson Yards, New York, NY 10001', hood:'Hudson Yards, West Side',
-    desc:'Vessel is a 16-story public climbable structure at the centre of Hudson Yards, designed by Thomas Heatherwick and completed in March 2019. The structure comprises 154 interlocking staircases — 2,500 steps and 80 landings — arranged around a central atrium to create a honeycomb-like lattice of weathering steel that rises 46 meters from the ground. No two levels are the same; the geometry shifts as the form tapers inward and outward, creating a three-dimensional network that allows visitors to observe each other from multiple angles simultaneously. Heatherwick described the design as "a different kind of public space" — more interactive than a sculpture, more architectural than a monument. The structure has become one of New York\'s most recognisable new landmarks and a focal point of the Hudson Yards public square.',
-    hours:'Daily 10:00 AM – 8:00 PM (last entry 7:15 PM)', lastEntry:'7:15 PM',
-    admission:'Free reservation required (timed entry tickets)',
-    tourOk:false, tourInfo:'Free timed-entry tickets must be reserved in advance at hudsonyardsnewyork.com. Stroller and wheelchair accessible.',
-    web:'https://www.hudsonyardsnewyork.com/discover/vessel',
-    transit:'7 → 34 St–Hudson Yards',
-    walkFrom:'High Line (south end): 5 min · The Edge observation deck: 2 min',
-    gmaps:'https://maps.google.com/?q=Vessel+Hudson+Yards+New+York',
-    archdaily:'https://www.archdaily.com/914093/vessel-heatherwick-studio',
-    wiki:'https://en.wikipedia.org/wiki/Vessel_(structure)',
-    tags:['Heatherwick Studio','Thomas Heatherwick','Hudson Yards','Landmark','Interactive','Weathering Steel'],
-    photos:[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Vessel_2019.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Hudson_Yards_New_York_City_-_Vessel.jpg?width=800'
-    ],
-    drawings:[]
-  },
-
-  {
-    id:'little-island',
-    name:'Little Island',
-    cat:'Parks', cats:['Parks','Landmarks'], cc:'c-park', styleGroup:'Contemporary', styleGroups:['Contemporary','Landscape'],
-    era:'2000–Present', city:'new-york',
-    arch:'Heatherwick Studio', archs:['Heatherwick Studio','MNLA (Mathews Nielsen Landscape Architects)'],
-    yr:2021, access:'Open to Public', style:'Contemporary',
-    lat:40.7468, lng:-74.0106,
-    addr:'Pier 55 at Hudson River Park, New York, NY 10014', hood:'Meatpacking District / West Village',
-    desc:'Little Island is a 2.4-acre public park floating on the Hudson River at the site of the former Pier 55, designed by Heatherwick Studio with landscape architects MNLA and completed in May 2021. The park rests on 132 tulip-shaped concrete piers of varying heights and widths — each one different — that rise from the river and support a gently undulating planted landscape above. From the waterfront, the park reads as an island of rolling topography; from within, the varied terrain creates a series of distinct gardens, lawns, and an open-air amphitheatre seating 700. The park was funded by the Diller-von Furstenberg Family Foundation and replaced a deteriorated 19th-century pier structure. It has become one of New York\'s most popular public spaces and a landmark of contemporary park design.',
-    hours:'Daily 6:00 AM – 11:00 PM (seasonal variations)', lastEntry:'',
-    admission:'Free · Timed-entry tickets required on weekends in peak season',
-    tourOk:false, tourInfo:'Walk-in entry available on weekdays. Weekend and holiday timed-entry tickets bookable at littleisland.org.',
-    web:'https://littleisland.org',
-    transit:'A C E L → 14 St (8 Ave or 8 St) · Path → 14 St',
-    walkFrom:'High Line (north end): 5 min · Whitney Museum: 8 min · The Standard Hotel: 4 min',
-    gmaps:'https://maps.google.com/?q=Little+Island+New+York',
-    archdaily:'https://www.archdaily.com/961830/little-island-heatherwick-studio',
-    wiki:'https://en.wikipedia.org/wiki/Little_Island_(park)',
-    tags:['Heatherwick Studio','Thomas Heatherwick','Public Park','Hudson River','Pier 55','Meatpacking District','Landscape'],
-    photos:[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Little_Island_NYC_aerial.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Little_Island_park_Hudson_River.jpg?width=800'
-    ],
-    drawings:[]
-  }
-);
+    addr:'1 FDR Four 

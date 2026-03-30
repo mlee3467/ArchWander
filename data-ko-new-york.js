@@ -2,7 +2,7 @@
 // Auto-translated by Claude. Re-run translate-tool to update.
 
 const LOCS_KO_NEW_YORK = {
-  'empire-state': {
+  'nyc-0001': {
     name: '엠파이어 스테이트 빌딩',    desc: '거의 40년 동안 세계에서 가장 높은 건물로 서 있었던 102층 아르데코 걸작입니다. 상징적인 계단식 외형과 조명이 켜진 안테나는 뉴욕시의 대명사입니다. 대공황 중 단 410일 만에 지어졌으며 1986년 국립 역사 랜드마크로 지정되었고 연간 거의 400만 명의 방문객을 끌어 모으고 있습니다.',
     hood: '미드타운 맨해튼',
     hours: '매일 오전 10:00 – 자정',
@@ -12,7 +12,7 @@ const LOCS_KO_NEW_YORK = {
     transit: 'B D F M N Q R W → 34 St–Herald Sq\n1 2 3 → 34 St–Penn Station',
     walkFrom: '타임스퀘어: 10분 · 그랜드 센트럴: 8분',
   },
-  'chrysler': {
+  'nyc-0002': {
     name: '크라이슬러 빌딩',    desc: '종종 지어진 가장 아름다운 마천루로 인용되며 11개월간 세계에서 가장 높은 건축물로서의 지위를 유지했습니다. 스테인리스 스틸 독수리 개집과 태양 광선 왕관은 미국 건축 역사에서 가장 잘 알려진 건축 세부사항 중 하나입니다. 아르데코 로비는 오닉스, 대리석, 목재 베니어로 장식되어 있으며 평일에 대중에게 개방됩니다.',
     hood: '미드타운 이스트',
     hours: '로비: 월–금 오전 8:00 – 오후 6:00',
@@ -22,7 +22,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '4 5 6 7 → Grand Central–42 St\nS → Times Sq–42 St',
     walkFrom: '그랜드 센트럴 터미널: 3분 · 타임스퀘어: 12분',
   },
-  'one-wtc': {
+  'nyc-0003': {
     name: '원 월드 트레이드 센터',    desc: '정확히 1,776피트 높이로 서 있으며 미국 독립을 상징합니다. One WTC는 서반구에서 가장 높은 건물입니다. 원래 트윈 타워 부지에 지어진 이 건물의 반짝이는 유리 외관은 하루 종일 하늘과 도시를 반사합니다. One World Observatory (100-102층)는 뉴욕 역사에 대한 감동적인 멀티미디어 경험을 제공합니다.',
     hood: '로어 맨해튼',
     hours: '전망대: 매일 오전 9:00 – 오후 9:00',
@@ -32,7 +32,7 @@ const LOCS_KO_NEW_YORK = {
     transit: 'E → World Trade Center\n2 3 → Park Pl\nA C → Fulton St',
     walkFrom: 'The Oculus: 2분 · 브루클린 브릿지: 12분',
   },
-  'flatiron': {
+  'nyc-0004': {
     name: '플래티언 빌딩',    desc: '뉴욕시에서 가장 많이 촬영된 건물 중 하나입니다. 플래티언 빌딩의 삼각형 모양은 5번가, Broadway, 22번가의 특이한 3방향 교차점에 의해 결정되었습니다. Daniel Burnham이 설계한 22층 타워는 1902년 완성 당시 마천루로 간주되었으며 전 세계의 건축가 세대를 영감주었습니다.',
     hood: '플래티언 디스트릭트',
     hours: '외부는 24/7 볼 수 있습니다',
@@ -42,7 +42,7 @@ const LOCS_KO_NEW_YORK = {
     transit: 'N R W → 23 St\n1 → 23 St',
     walkFrom: '유니언 스퀘어: 8분 · Empire State Bldg: 10분',
   },
-  'grand-central': {
+  'nyc-0005': {
     name: '그랜드 센트럴 터미널',    desc: '그랜드 센트럴 터미널은 세계의 위대한 건물 중 하나입니다. 2,500개의 별이 그려진 청록색 천장의 메인 콩코스는 뉴욕에서 가장 광대한 실내 공간 중 하나입니다. 터미널은 매일 750,000명 이상의 방문객을 처리하며 1994년과 1998년 사이에 극적으로 복원되었습니다. 아래 레벨의 위스퍼링 갤러리의 음향 현상은 반드시 방문해야 할 장소입니다.',
     hood: '미드타운 이스트',
     hours: '매일 오전 5:30 – 오전 2:00',
@@ -52,7 +52,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '4 5 6 7 → Grand Central–42 St\nS → Times Sq–42 St',
     walkFrom: '타임스퀘어: 10분 · Chrysler Building: 3분',
   },
-  'brooklyn-bridge': {
+  'nyc-0006': {
     name: '브루클린 다리',    desc: '1883년 완성 당시 세계에서 가장 긴 현수교였습니다. John Roebling은 설계를 구상했지만 건설 시작 전에 사망했으며, 그의 아들 Washington이 수년간의 감압병으로 고생한 후 프로젝트를 완성했습니다. 고딕 화강암 탑은 이스트 리버 위로 276피트 높이로 서 있으며, 보행자 통로는 맨해튼 스카이라인의 웅장한 전망을 제공합니다. DUMBO 워터프론트에서 가장 잘 촬영됩니다.',
     hood: '로어 맨해튼 / DUMBO',
     hours: '보행로: 24/7 개방',
@@ -62,7 +62,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '4 5 6 → Brooklyn Bridge–City Hall\nA C → High St (Brooklyn)',
     walkFrom: 'City Hall: 5분 · One WTC: 10분',
   },
-  'guggenheim': {
+  'nyc-0007': {
     name: '솔로몬 R 구겐하임 미술관',    desc: 'Frank Lloyd Wright의 뉴욕시 유일의 주요 건물로서 20세기 건축의 가장 중요한 작품 중 하나입니다. 역 지구라트 형태의 계속된 나선형 경사로는 1959년 완성 당시 획기적이었습니다. Wright는 16년간 설계했으며 건물은 그의 사망 6개월 후 개관했습니다. 소장품은 인상주의, 후기 인상주의, 초대 현대미술, 그리고 동시대 미술을 아우릅니다.',
     hood: '어퍼 이스트 사이드',
     hours: '일 월 수 목 금: 오전 11:00–오후 6:00\n토: 오전 11:00–오후 8:00 · 화요일 휴무',
@@ -72,7 +72,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '4 5 6 → 86 St\nQ → 86 St',
     walkFrom: 'The Met: 10분 · Central Park: 2분',
   },
-  'whitney': {
+  'nyc-0008': {
     name: '휘트니 미국 미술관',    desc: 'Renzo Piano의 Whitney 다운타운 건물은 High Line의 남쪽 끝에 위치합니다. 파란-회색 철판으로 덮인 비대칭 적층 볼륨은 산업용 Meatpacking District에 민감하게 대응하면서 여러 개의 캔틸레버형 테라스를 통해 Hudson River로 개방됩니다. 20세기 및 21세기 미국 미술의 가장 훌륭한 소장품을 보유하고 있습니다.',
     hood: '미트패킹 디스트릭트',
     hours: '일 월 수 목: 오전 10:30–오후 6:00\n금 토: 오전 10:30–오후 10:00 · 화요일 휴무',
@@ -82,7 +82,7 @@ const LOCS_KO_NEW_YORK = {
     transit: 'A C E → 14 St\nL → 8 Av',
     walkFrom: 'High Line (남쪽 끝): 2분 · Chelsea Market: 5분',
   },
-  'high-line': {
+  'nyc-0009': {
     name: '더 하이 라인',    desc: 'High Line은 맨해튼 West Side의 폐기된 화물 철로 위에 지어진 고가 선형 공원입니다. 1.45마일에 걸쳐 있는 이것은 조경 건축학에서 세계에서 가장 유명한 적응형 재사용의 예입니다. 설계는 버려진 선로를 식민지화한 야생 자가 파종 경관을 보존하며 500종 이상의 식물종을 포함합니다. 개장 이후 전 세계적으로 유사한 레일 트레일 프로젝트에 영감을 주었습니다.',
     hood: '첼시 / 미트패킹',
     hours: '매일 오전 7:00 – 오후 10:00',
@@ -92,7 +92,7 @@ const LOCS_KO_NEW_YORK = {
     transit: 'A C E → 14 St, 23 St, 또는 34 St\nL → 8 Av',
     walkFrom: 'Whitney Museum (남쪽 끝): 2분 · Vessel (북쪽): 5분',
   },
-  'vessel': {
+  'nyc-0010': {
     name: '베셀',    desc: 'Thomas Heatherwick이 설계한 Vessel은 Hudson Yards 중심부의 150피트 높이 대화형 공개 조각품입니다. 154개의 상호 연결된 계단 비행과 2,500개의 계단이 중앙 공간을 둘러싸고 있습니다. 구리로 덮인 격자 구조는 인도의 스텝 웰에서 영감을 받았습니다. Heatherwick은 이를 민주적 예술 작품으로 설명하며, 단순히 관찰하기보다는 올라가서 경험하도록 설계되었습니다.',
     hood: '허드슨 야드',
     hours: '매일 오전 10:00 – 오후 8:00',
@@ -102,7 +102,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '7 → 34 St–Hudson Yards',
     walkFrom: 'High Line (북쪽 끝): 5분 · Javits Center: 8분',
   },
-  'oculus': {
+  'nyc-0011': {
     name: '오큘러스 (WTC 교통 허브)',    desc: 'Santiago Calatrava의 World Trade Center Transportation Hub인 Oculus는 지어진 가장 극적인 환승역 중 하나입니다. 105개의 흰색 철강 갈비뼈가 중앙 척추에서 새가 날아가는 것처럼 올라옵니다. 메인 홀은 365피트 길이이며 매년 9월 11일에 완전히 개방되는 수축식 천창이 있습니다. 거의 40억 달러의 비용으로 세계에서 가장 비싼 역이며 PATH 열차를 10개의 지하철 노선과 연결합니다.',
     hood: '로어 맨해튼',
     hours: '허브: 24/7 · Westfield 소매: 월–토 오전 10–오후 9, 일 오전 11–오후 7',
@@ -112,7 +112,7 @@ const LOCS_KO_NEW_YORK = {
     transit: 'E → World Trade Center\n2 3 → Park Pl\nR W → Cortlandt St\nPATH 열차',
     walkFrom: 'One WTC: 2분 · 브루클린 브릿지: 12분',
   },
-  'st-patricks': {
+  'nyc-0012': {
     name: '성 패트릭 대성당',    desc: '북미에서 가장 큰 고딕 부흥 가톨릭 대성당은 5번가 건너편 Rockefeller Center와 극적인 대조를 이룹니다. 뉴욕에서 가장 강력한 도시 대조 중 하나입니다. James Renwick Jr.가 설계하고 1879년에 헌당했으며, 쌍둥이 첨탑은 5번가 위로 330피트 높이로 솟아있습니다. 내부는 웅장한 스테인드글라스, 26피트 장미창, 각각 9,200파운드 무게의 청동 문을 특징으로 합니다. 2015년에 완전히 복원되었습니다.',
     hood: '미드타운 이스트',
     hours: '매일 오전 6:30 – 오후 8:45',
@@ -122,7 +122,7 @@ const LOCS_KO_NEW_YORK = {
     transit: 'B D F M → 47-50 Sts–Rockefeller Ctr\nE M → 5 Av/53 St',
     walkFrom: 'Rockefeller Center: 2분 · MoMA: 5분',
   },
-  'nypl': {
+  'nyc-0013': {
     name: '뉴욕 공립 도서관',    desc: 'Stephen A. Schwarzman 빌딩은 대리석 사자 "Patience"와 "Fortitude"로 옆에 있으며 미국의 가장 훌륭한 Beaux-Arts 구조 중 하나입니다. Rose Main Reading Room은 297피트 길이이고 52피트 천장이 있으며 뉴욕에서 가장 웅장한 내부 중 하나입니다. 많은 기념비적 공공 건물과 달리 이것은 완전히 기능하는 공개 연구 도서관이며 모두에게 개방되어 있으며 새로 설계된 Bryant Park에 인접해 있습니다.',
     hood: '미드타운 맨해튼',
     hours: '월 목 금 토: 오전 10–오후 6\n화 수: 오전 10–오후 8 · 일: 오후 1–5',
@@ -132,7 +132,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '7 → 5 Av\nB D F M → 42 St–Bryant Pk',
     walkFrom: 'Grand Central: 5분 · Bryant Park: 인접',
   },
-  'cooper-union': {
+  'nyc-0014': {
     name: '쿠퍼 유니온',    desc: 'Pritzker Prize 수상 건축가 Morphosis의 Thom Mayne이 설계한 Cooper Union Academic Building은 수십 년 만에 뉴욕에 건설된 가장 중요한 학문 건물 중 하나입니다. 천공된 스테인리스 스틸 외부 외관은 끊임없이 변하는 시각 효과를 만듭니다. 이 건물은 LEED Gold 인증을 받았으며 중앙에 수동 환기 굴뚝이 있습니다. 불규칙한 계단과 다리로 정의된 내부 아트리움은 유명한 공개 모임 공간이 되었습니다.',
     hood: '이스트 빌리지 / NoHo',
     hours: '외부 24/7 · 학업 시간 중 로비',
@@ -142,7 +142,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '6 → Astor Pl\nN R W → 8 St–NYU\nF → 2 Av',
     walkFrom: 'Union Square: 8분 · NYU 캠퍼스: 5분',
   },
-  'central-park': {
+  'nyc-0015': {
     name: '센트럴 파크',    desc: 'Central Park는 Olmsted와 Vaux의 19세기 조경 설계의 걸작이자 미국 조경 건축학의 가장 중요한 작품 중 하나입니다. 843에이커는 바위가 많은 습지 지형에서 맨해튼 그리드의 목가적인 대조로 조각되었습니다. 주요 랜드마크는 Bethesda Terrace, the Ramble, the Great Lawn, Strawberry Fields, and Belvedere Castle을 포함합니다. 1980년대부터 Central Park Conservancy에 의해 복원되었습니다.',
     hood: '맨해튼 (59번가–110번가)',
     hours: '매일 오전 6:00 – 오전 1:00',
@@ -152,7 +152,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '여러 노선 (1 2 3 A B C D N Q R)이 59번가에서 110번가의 역을 제공',
     walkFrom: 'Guggenheim Museum: 2분 · The Met: 공원 가장자리',
   },
-  'rockefeller': {
+  'nyc-0016': {
     name: '30 록펠러 플라자',    desc: 'Rockefeller Center의 중심인 30 Rock은 20세기 도시 계획의 위대한 성과 중 하나이며 NBC Studios와 Top of the Rock 전망대를 포함합니다. Raymond Hood의 아르데코 타워는 850피트 높이입니다. 19개 건물 복합체는 유명한 침하된 아이스 링크, Channel Gardens, 그리고 Radio City Music Hall을 포함합니다. Top of the Rock (67–70층)은 맨해튼에서 Empire State Building의 최고 경험을 제공합니다.',
     hood: '미드타운 맨해튼',
     hours: '전망대: 매일 오전 9:00 – 자정',
@@ -162,7 +162,7 @@ const LOCS_KO_NEW_YORK = {
     transit: 'B D F M → 47-50 Sts–Rockefeller Ctr',
     walkFrom: "St. Patrick's Cathedral: 2분 · MoMA: 5분",
   },
-  'seagram': {
+  'nyc-0017': {
     name: '시그램 빌딩',    desc: 'Seagram Building은 국제 스타일 마천루의 가장 훌륭한 예이자 20세기 가장 영향력 있는 건물 중 하나로 널리 간주됩니다. Mies van der Rohe의 청동-유리 타워가 Park Avenue에서 물러나 travertine plaza로 설정되었으며 기업 건축에 새로운 표준을 설정했고 뉴욕시가 plaza를 격려하도록 구역 정책을 수정하도록 영감을 주었습니다. 내부의 Four Seasons Restaurant는 자체로 랜드마크로 지정되었습니다.',
     hood: '미드타운 이스트',
     hours: '외부 24/7 · 업무 시간 중 로비',
@@ -172,7 +172,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '4 5 6 → 51 St\nE M → Lexington Av/53 St',
     walkFrom: 'Grand Central: 8분 · St. Patrick\'s Cathedral: 5분',
   },
-  'lever-house': {
+  'nyc-0018': {
     name: '레버 하우스',    desc: 'SOM (Skidmore, Owings & Merrill)의 Lever House는 1952년 개관했을 때 Park Avenue의 돌 외관 건물에서 혁명적인 출발이었습니다. 수평 슬래브 및 타워 구성에 설정된 파란-녹색 유리의 경량 커튼 월은 유리 커튼 월 마천루를 뉴욕시에 소개했으며 전 세계 전후 기업 타워에 대한 템플릿을 설정했습니다. 이 건물은 Seagram Building 맞은편에 직접 있으며 도시 역사에서 위대한 건축 대면 중 하나를 형성합니다.',
     hood: '미드타운 이스트',
     hours: '외부 24/7 · 업무 시간 중 로비',
@@ -182,7 +182,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '4 5 6 → 51 St\nE M → Lexington Av/53 St',
     walkFrom: 'Seagram Building: 1분 · Grand Central: 8분',
   },
-  'hearst-tower': {
+  'nyc-0019': {
     name: '허스트 타워',    desc: 'Norman Foster의 Hearst Tower는 뉴욕시의 첫 번째 녹색 마천루이며 LEED Gold 인증을 획득했습니다. 46층 diagrid 강철 탑은 보존된 1928년 아르데코 베이스에서 상승합니다. 자체로도 랜드마크입니다. 이는 시대의 놀라운 대조를 만듭니다. 삼각형 강철 프레임은 기존 구조보다 20% 적은 강철을 사용하며, 아트리움의 "Icefall" 수 기능에서 빗물 수집은 건물을 냉각합니다.',
     hood: '미드타운 웨스트',
     hours: '외부 24/7 · 업무 시간 중 로비',
@@ -192,7 +192,7 @@ const LOCS_KO_NEW_YORK = {
     transit: 'A B C D → 59 St–Columbus Circle\nN Q R W → 57 St–7 Av',
     walkFrom: 'Columbus Circle: 5분 · Carnegie Hall: 3분',
   },
-  'new-museum': {
+  'nyc-0020': {
     name: '뉴 뮤지엄',    desc: 'SANAA (Kazuyo Sejima and Ryue Nishizawa)의 New Museum 건물은 Bowery에서 상승하는 7개의 흰색 알루미늄 메시 상자의 스택입니다. 일견 불안정한 이동하는 볼륨은 이전에 산업 회랑이었던 지역을 되살린 상징적인 실루엣을 만들었습니다. 건물의 메시 외관은 갤러리에 빛을 거르면서 거리에서 엿볼 수 있게 하여 도시 맥락과 지속적인 대화를 하는 미술 장소로 자신을 알립니다.',
     hood: '로어 이스트 사이드',
     hours: '수 목 금 토 일: 오전 11–오후 6 · 목 늦은 시간: 오전 11–오후 9 · 월 화 휴무',
@@ -212,7 +212,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '4 5 6 → 86 St\n6 → 77 St',
     walkFrom: 'Guggenheim Museum: 10분 · Central Park: 인접',
   },
-  'moma': {
+  'nyc-0027': {
     name: '현대미술관 (MoMA)',    desc: 'Museum of Modern Art는 현대 및 동시대 미술의 세계에서 가장 중요한 소장품을 보유하고 있습니다. 현재 건물은 2019년 Tod Williams Billie Tsien Architects에 의해 복원되고 확장되었습니다. MoMA는 Monet, Picasso, Van Gogh, Warhol, 및 기타 거대 작품들을 소유하고 있습니다.',
     hood: '미드타운 맨해튼',
     hours: '일–목 오전 10:00–오후 7:00 · 금 오전 10:00–오후 9:00 · 토 오전 10:00–오후 7:00 · 월 휴무',
@@ -272,7 +272,7 @@ const LOCS_KO_NEW_YORK = {
     transit: 'A C E B D F M → W 4 St–Washington Sq',
     walkFrom: 'Washington Square Arch: 2분 · NYU: 인접',
   },
-  'jefferson-market-library': {
+  'nyc-0055': {
     name: '제퍼슨 마켓 라이브러리',    desc: 'A Victorian Gothic 랜드마크로 Central Park의 공동 창조자인 Calvert Vaux와 Frederick Withers이 설계했으며 원래 뉴욕의 Third Judicial Courthouse였습니다. 다색 적벽돌, 급경사 지붕선, 장미창, 그리고 특징적인 시계탑은 1885년 건축가 투표에서 미국에서 가장 아름다운 건물로 선정되었습니다. 수십 년의 방치 후 e.e. cummings와 Edna St. Vincent Millay이 주도한 커뮤니티 캠페인이 건물을 구했으며, 1967년에 공개 도서관으로 전환되었습니다. 뉴욕의 위대한 용도 변경 이야기 중 하나입니다.',
     hood: '그리니치 빌리지',
     hours: '월 오전 10–오후 8 · 화–목 오전 10–오후 6 · 금–토 오전 10–오후 5',
@@ -282,7 +282,7 @@ const LOCS_KO_NEW_YORK = {
     transit: 'A C E B D F M → W 4 St–Washington Sq · 1 → Christopher St',
     walkFrom: 'Washington Square: 5분 · Christopher St: 3분',
   },
-  'new-school-university-center': {
+  'nyc-0056': {
     name: '더 뉴 스쿨 대학 센터',    desc: '2014년 완성된 SOM의 16층 학문 건물입니다. 투명한 유리 파사드는 상호 연결된 공간을 표현합니다. 캔틸레버된 학생회관, 도서관, 스튜디오, 식당을 포함합니다. Diagrid 구조 시스템은 외부 유리 커튼 월 보강 부재로 표현되어 동적인 기하학적 패턴을 만듭니다. 건물은 블록의 세 개 역사적 구조를 통합하고 LEED Gold 인증을 획득했습니다. 이것은 21세기에 뉴욕에 지어진 최고의 대학 건물 중 하나로 널리 간주됩니다.',
     hood: '그리니치 빌리지 / 플래티언',
     hours: '학문 건물: 일반적으로 월–금 오전 8–오후 10',
@@ -292,7 +292,7 @@ const LOCS_KO_NEW_YORK = {
     transit: 'N R W F M → 23 St · 6 → 23 St',
     walkFrom: 'Flatiron Building: 5분 · Union Square: 8분',
   },
-  'astor-place-alamo': {
+  'nyc-0057': {
     name: '애스터 플레이스 알라모',    desc: 'Astor Place는 뉴욕의 위대한 도시 교차로 중 하나입니다. 중심에 Alamo (1967)가 서 있습니다. Tony Rosenthal 조각가의 15피트 Cor-Ten 강철 큐브이며 중앙 축에서 회전할 수 있도록 설정되었습니다. 원래 도시의 Art in Public Places 프로그램의 임시 설치였으며, 사랑받게 되어 영구적으로 만들어졌습니다. 광장은 여러 지역의 교차점에 앉아 있습니다 - East Village, NoHo, and Greenwich Village - 그리고 거리 생활, 시위, 그리고 뉴욕시의 일상적인 드라마의 모임 장소로 남아 있습니다.',
     hood: 'Astor Place / NoHo',
     hours: '광장: 24/7',
@@ -302,7 +302,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '6 → Astor Pl · N R W → 8 St–NYU',
     walkFrom: 'Cooper Union: 인접 · East Village: 2분',
   },
-  'st-marks-church': {
+  'nyc-0058': {
     name: '성 마크 교회',    desc: '맨해튼에서 두 번째로 오래된 교회이며 1799년에 건설되었으며 Peter Stuyvesant의 개인 예배당 부지에 있습니다. Stuyvesant 자신은 교회묘지에 매장되어 있습니다. 건물은 세 세기의 건축 추가 층을 결합합니다: Federal 석조 베이스 (1799), Greek Revival Ionic 현관 (1828), and cast-iron Italianate 종탑 (1858). 20세기에 St. Mark\'s는 전위 예술의 중심이 되었습니다. Poetry Project (1966년 설립)는 Allen Ginsberg, Frank O\'Hara, and Patti Smith의 초기 작품을 호스팅했습니다; Isadora Duncan은 여기서 춤을 추었습니다.',
     hood: '이스트 빌리지',
     hours: '교회: 일 오전 11:00 · 방문 시간은 다양함',
@@ -322,7 +322,7 @@ const LOCS_KO_NEW_YORK = {
     transit: 'A C E → 14 St · L → 8 Av',
     walkFrom: 'High Line: 인접 · Chelsea Piers: 5분',
   },
-  'hl23': {
+  'nyc-0060': {
     name: 'HL23',    desc: 'Neil M. Denari이 High Line에서 West 23번가에서 극적으로 캔틸레버하는 14층 주거 건물입니다. "외골격"은 노출된 대각선 강철 부재의 포장이며 외부를 표현하고 캔틸레버의 구조적 논리를 제공하며 건물의 기계적이고 산업적인 미학을 만듭니다. 도시의 다른 주거 건물과 다릅니다. 어두운 유리와 각도 기하학은 아래의 식재된 High Line 공원과 날카로운 대조를 만듭니다. HL23은 2000년대에 뉴욕에서 지어진 가장 기술적으로 복잡한 작은 주거 건물 중 하나입니다.',
     hood: '웨스트 첼시',
     hours: '외부: 24/7',
@@ -342,7 +342,7 @@ const LOCS_KO_NEW_YORK = {
     transit: 'A C E L → 14 St',
     walkFrom: 'High Line: 5분 · Vessel: 10분',
   },
-  'barclays-center': {
+  'nyc-0041': {
     name: '바클레이 센터',    desc: 'SHoP Architects가 설계한 19,000석 경기장으로 브루클린의 Pacific Park 복합 개발의 중심입니다. 가장 특징적인 요소는 12,000개의 독특하게 형태가 다른 내후강(Cor-Ten) 패널로 덮인 외장입니다. 녹슬어가는 패널들이 마치 모자이크처럼 조합되어 브루클린의 산업 유산을 암시합니다. 상징적인 오큘러스 입구 캐노피는 물결 모양의 강철 파라솔 형태로, Atlantic과 Flatbush Avenues의 교차점에 공개 광장으로 개방됩니다. 이 프로젝트는 스포츠 경기장이 교외의 창고식 건물이 아니라 건축학적으로 진지한 도시 건물이 될 수 있음을 입증했습니다.',
     hood: '프로스펙트 하이츠, 브루클린',
     hours: '이벤트 일: 개막 2시간 전 · Box office: 월–금 정오–오후 6',
@@ -352,7 +352,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '2 3 4 5 B D N Q R → Atlantic Av–Barclays Ctr · B Q → 7 Av',
     walkFrom: 'Atlantic Terminal: 3분',
   },
-  'domino-park': {
+  'nyc-0042': {
     name: '도미노 파크',    desc: 'Williamsburg의 former Domino Sugar Refinery는 뉴욕의 가장 중요한 용도 변경 프로젝트 중 하나입니다. 1884년 정제소는 한때 세계에서 가장 큰 설탕 정제소였으며 문화 앵커로 보존되었습니다. James Corner Field Operations (High Line의 설계자)가 설계한 5에이커 수변 공원입니다. Domino Park (2018)은 원래의 산업 기계 - vacuum pans, centrifugal separators, and rail tracks - 를 기념비적인 공개 조각품과 해석적 요소로 변환합니다. SHoP Architects는 주변의 복합 용도 주거 타워를 설계했습니다. 프로젝트는 커뮤니티 중심의 유산 보존 수변 재개발의 모델입니다.',
     hood: '윌리엄스버그, 브루클린',
     hours: 'Domino Park: 매일 오전 6 – 오전 1',
@@ -362,7 +362,7 @@ const LOCS_KO_NEW_YORK = {
     transit: 'L → Bedford Av (10분 보행) · J M Z → Marcy Av (15분 보행)',
     walkFrom: 'Bedford Ave L train: 10분 · Williamsburg Bridge: 15분',
   },
-  'cornell-tech': {
+  'nyc-0043': {
     name: '코넬 테크 캠퍼스',    desc: 'Cornell Tech는 Roosevelt Island의 대학원 연구 캠퍼스이며 Cornell이 2011 뉴욕시 경쟁에서 응용 과학 캠퍼스를 위해 우승한 후 설립되었습니다. Bloomberg Center (Morphosis, 2017)은 핵심 건물입니다. 1,000개의 태양광 패널로 덮인 남쪽 파사드 전체를 포함하여 가장 큰 건물 통합 태양광 배열 중 하나를 가진 LEED Platinum 건물입니다. Weiss/Manfredi는 Tata Innovation Center를 설계했고 Snøhetta는 The Bridge (Related Companies와 함께)를 설계했습니다. 건물은 중앙 잔디밭 주변에 배열되어 있으며 극적인 맨해튼 스카이라인 경관을 담으며, 캠퍼스는 21세기 도시 연구 교육을 위한 모델이 되었습니다.',
     hood: '루즈벨트 아일랜드',
     hours: '캠퍼스: 일간 · 건물: 일반적으로 업무 시간 중 이용 가능',
@@ -382,7 +382,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '7 → 34 St–Hudson Yards · A C E → 34 St–Penn Station',
     walkFrom: 'High Line terminus: 5분 · Penn Station: 12분',
   },
-  'the-spiral': {
+  'nyc-0045': {
     name: '더 스파이럴',    desc: 'The Spiral는 BIG (Bjarke Ingels Group)이 완성한 1,031피트 66층 사무실 타워이며 2022년 완성되었으며 BIG의 가장 높은 완성 건물입니다. 그 특징적인 요소는 외부 주변에 상승하는 경사진 테라스의 연속적인 캐스케이드입니다. BIG의 "수직 공원" 개념은 보도에서 하늘까지 녹지를 가져옵니다. 각 테라스는 나무와 계절 개화 식물로 심어져 있으며 동적인 파사드를 만듭니다. 건물은 LEED Platinum 인증을 받았으며 Pfizer의 글로벌 본사를 수용합니다. 이것은 뉴욕에서 지난 수십 년간 지어진 건축학적으로 야심찬 사무실 타워 중 하나로 널리 간주됩니다.',
     hood: '허드슨 야드',
     hours: '로비는 업무 시간 중 관찰 가능 · 공개 전망대 없음',
@@ -392,7 +392,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '7 → 34 St–Hudson Yards · A C E → 34 St–Penn Station',
     walkFrom: 'High Line: 3분 · Vessel: 5분',
   },
-  'hudson-yards': {
+  'nyc-0046': {
     name: '허드슨 야드 마스터플랜',    desc: 'Hudson Yards는 미국 역사에서 가장 큰 사적 부동산 개발이며 Long Island Rail Road의 활동 중인 West Side Yard 위에 지어진 28에이크 콘크리트 플랫폼 위에 건설되었습니다. KPF (Kohn Pedersen Fox)와 Related Companies의 마스터플랜은 중앙 공개 광장 주변에 사무실, 주거, 호텔, 소매, 그리고 문화 공간의 1,800만 제곱피트 이상을 조직합니다. 주요 건물은 30 Hudson Yards (KPF), The Spiral (BIG), 35 Hudson Yards (David Childs/SOM), The Shed (Diller Scofidio + Renfro), and Vessel (Heatherwick Studio)을 포함합니다. Phase 1은 2019년 3월에 개관했으며 Midtown Manhattan의 서부 가장자리를 재정의했습니다.',
     hood: '허드슨 야드',
     hours: '공개 공간: 매일 오전 7–오후 11',
@@ -402,7 +402,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '7 → 34 St–Hudson Yards · A C E → 34 St–Penn Station',
     walkFrom: 'High Line terminus: 5분 · Penn Station: 12분',
   },
-  'nyc-city-hall': {
+  'nyc-0047': {
     name: '뉴욕 시청',    desc: 'New York City Hall는 계속 사용 중인 미국에서 가장 오래된 시청이자 초대 19세기 미국 civic architecture의 가장 훌륭한 예 중 하나입니다. Joseph-François Mangin과 John McComb Jr.가 Federal과 French Renaissance 스타일의 혼합으로 설계했으며 설계 경쟁을 우승한 후 1812년 완성되었습니다. 흰 대리석 외관, 우아한 중앙 돔, 그리고 우아하게 캔틸레버된 계단은 젊은 공화국의 포부를 반영합니다. 후부 외관은 원래 갈색 사암이었습니다. 도시가 Chambers Street 너머로 북쪽으로 확장될 것이라는 가정에 기반한 비용 절감 조치였습니다.',
     hood: '시빅 센터',
     hours: '월–금 오전 10–오후 4 (로비 관찰 가능) · 외부: 24/7',
@@ -412,7 +412,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '4 5 6 J Z → Brooklyn Bridge–City Hall · N R W → City Hall',
     walkFrom: '브루클린 브릿지: 5분 · World Trade Center: 10분',
   },
-  'manhattan-municipal': {
+  'nyc-0048': {
     name: '맨해튼 시청 빌딩',    desc: 'McKim, Mead & White가 설계하고 1914년 완성된 맨해튼 시청 빌딩은 당시 세계에서 가장 큰 사무실 건물이었습니다. Chambers Street 지하철이 건물을 통과합니다. Beaux-Arts 타워는 Adolph Weinman의 도금된 "Civic Fame" 동상으로 왕관이 씌워져 있습니다. 세트백과 고전 장식의 웨딩 케이크 실루엣은 Moscow의 Stalinist "Seven Sisters" 마천루의 직접적인 영감이 되었습니다. 로비의 Marriage Bureau는 백만 쌍을 섬겼습니다.',
     hood: '시빅 센터',
     hours: '로비: 월–금 오전 9–오후 5 · 외부: 24/7',
@@ -422,7 +422,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '4 5 6 J Z → Chambers St · N R W → City Hall',
     walkFrom: 'City Hall: 3분 · 브루클린 브릿지: 5분',
   },
-  'brookfield-place': {
+  'nyc-0049': {
     name: '브룩필드 플레이스',    desc: '원래 World Financial Center였던 Brookfield Place는 Cesar Pelli가 1985–1988년에 단계적으로 완성한 복합 용도 복합입니다. 중심점은 Winter Garden Atrium입니다. 200피트 길이이고 120피트 높이의 웅장한 유리 및 강철 배럴 볼트이며 16개의 완전히 성장한 Washingtonia 야자수를 수용합니다. 뉴욕의 위대한 공개 실내 공간 중 하나이며, Winter Garden은 2001년 9월 11일에 심각하게 손상되었으나 세심하게 복원되고 2002년 재개장했습니다. 복합은 2014년에 Brookfield Place로 이름이 변경되고 럭셔리 소매 파빌리온으로 확장되었습니다.',
     hood: '배터리 파크 시티',
     hours: 'Winter Garden: 월–금 오전 7–오후 11 · 토–일 오전 8–오후 11',
@@ -432,7 +432,7 @@ const LOCS_KO_NEW_YORK = {
     transit: 'E → World Trade Center · 1 2 3 → Chambers St · A C → Fulton St',
     walkFrom: 'One WTC: 5분 · Battery Park City Esplanade: 2분',
   },
-  'battery-park': {
+  'nyc-0050': {
     name: '배터리 파크',    desc: '맨해튼의 남단의 25에이크 공개 공원이며 주로 Hudson River에서 회수된 토지를 차지합니다. Harbor를 방어하기 위해 배치된 포병대를 위해 명명되었습니다. 공원은 Castle Clinton National Monument, the East Coast Memorial, the Korean War Veterans Memorial, 그리고 수십 개의 다른 기념물을 포함합니다. Statue of Liberty와 Ellis Island에 대한 페리의 출발점입니다. 공원의 광활한 New York Harbor 경관은 도시의 가장 역사적으로 중요한 공개 공간 중 하나를 만듭니다.',
     hood: '배터리 파크',
     hours: '매일 오전 6–오전 1',
@@ -442,7 +442,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '1 → South Ferry · R W → Whitehall St · 4 5 → Bowling Green',
     walkFrom: 'Bowling Green: 3분 · Fulton Center: 10분',
   },
-  'castle-clinton': {
+  'nyc-0051': {
     name: '캐슬 클린턴 국립 기념비',    desc: '1808–1811년에 지어진 원형 사암 요새는 New York Harbor를 방어하기 위한 것이었습니다 - 절대 도래하지 않은 위협. 2세기에 걸쳐 이것은 요새, 콘서트홀 (Jenny Lind가 공연함), 이민국 (Ellis Island가 1855–1890 열리기 전에 8백만 이민자를 처리함), 수족관, 그리고 현재 NPS National Monument로 기능했습니다. 초기 미국 공화국의 생존하는 구조 중 하나이며 Battery의 여층 civic and social history를 대표합니다.',
     hood: '배터리 파크',
     hours: '매일 오전 9–오후 5',
@@ -452,7 +452,7 @@ const LOCS_KO_NEW_YORK = {
     transit: '1 → South Ferry · R W → Whitehall St · 4 5 → Bowling Green',
     walkFrom: 'Battery Park: 인접 · Bowling Green: 3분',
   },
-  'stone-street': {
+  'nyc-0052': {
     name: '스톤 스트릿 역사 지구',    desc: '맨해튼의 가장 오래된 자갈돌 거리이며 도시의 가장 분위기 있는 역사적 회랑 중 하나입니다. 1658년 뉴욕 암스테르담에서 자갈돌로 포장된 첫 번째 거리인 Stone Street로 명명되었습니다. 현재 Greek Revival and Italianate 상업 건물은 1835년의 Great Fire 후 1836년에 재건되었습니다. 1999년에 restaurant row로 변환되었으며 야외 자갈돌 좌석이 있어 전Civil War counting houses로 둘러싸인 벽이 있는 협곡은 19세기 금융 지구의 놀라운 개요를 제공합니다.',
     hood: '파이낸셜 디스트릭트',
     hours: '거리: 24/7 · 레스토랑: 점심부터 일간',
@@ -462,7 +462,7 @@ const LOCS_KO_NEW_YORK = {
     transit: 'R W → Whitehall St · J Z → Broad St · 4 5 → Bowling Green',
     walkFrom: 'Bowling Green: 4분 · WTC: 8분',
   },
-  'washington-square-arch': {
+  'nyc-0053': {
     name: '워싱턴 스퀘어 아치',    desc: 'Stanford White이 설계한 77피트 승리 대리석 아치이며 George Washington의 취임식의 100주년을 기념하기 위해 세워졌습니다. Henry James가 조직한 지역 구독으로 자금이 조성된 임시 나무 아치는 그러한 애정을 영감시켜 영구적인 대리석 교체가 의뢰되었습니다. 아치는 Washington Square Park를 정의하며 그리니치 빌리지의 상징적인 이미지 중 하나입니다. 1917년에 Marcel Duchamp를 포함한 예술가 그룹은 내부를 확장하고 "Free and Independent Republic of Washington Square"를 선포했습니다.',
     hood: '그리니치 빌리지',
     hours: '공원: 오전 6–자정 · 아치: 외부 24/7',
@@ -601,7 +601,7 @@ const LOCS_KO_NEW_YORK = {
     admission: '주거 건물 · 외관 24시간 관찰 가능',
   },
 
-  'alice-tully-hall': {
+  'nyc-0135': {
     name: '앨리스 툴리 홀',
     desc: 'Diller Scofidio + Renfro가 2009년 실행한 1969년 Pietro Belluschi의 닫혀있던 창문 없는 콘서트홀의 개조입니다. 건물의 파사드를 벗겨내고 moabi 목재와 유리의 외피로 감싸 Broadway 위에 캔틸레버되어 내부를 거리에 드러내고 새로운 유리와 목재 로비를 창조했습니다.',
     hood: 'Lincoln Center, Upper West Side',
@@ -610,7 +610,7 @@ const LOCS_KO_NEW_YORK = {
     admission: '공연 관람료 · 로비 무료',
   },
 
-  'american-copper-buildings': {
+  'nyc-0138': {
     name: '어메리칸 코퍼 빌딩',
     desc: 'SHoP Architects가 설계하고 2017년 완공한 First Avenue의 41층 및 48층 주거 타워 쌍입니다. 가장 특징적인 요소는 29층부터 31층 사이의 3층 높이 스카이 브릿지로 뉴욕시 주거 마천루 사이 최초의 스카이 브릿지입니다.',
     hood: 'Kips Bay / Murray Hill',
@@ -618,7 +618,7 @@ const LOCS_KO_NEW_YORK = {
     admission: '주거 건물 · 공개 로비 관찰 가능',
   },
 
-  'att-building': {
+  'nyc-0088': {
     name: 'AT&T 빌딩',
     desc: 'Philip Johnson과 John Burgee가 설계하고 1984년 완공한 AT&T Building(현재 550 Madison)은 포스트모더니즘을 건축 지도에 올린 건물입니다. 특유의 오목한 정상 왕관과 핑크 화강암 파사드가 Manhattan 기업 건축에 새로운 아이콘적 형태를 수립했습니다.',
     hood: 'Midtown East',
@@ -626,35 +626,35 @@ const LOCS_KO_NEW_YORK = {
     admission: '상업용 사무 건물 · 로비 관찰 가능',
   },
 
-  'bellemont': {
+  'nyc-0083': {
     name: '더 벨레몬트',
     desc: 'Robert A.M. Stern Architects(RAMSA)가 2022년 완공한 1165 Madison Avenue의 혼합용도 건물로 럭셔리 주거와 1층 소매점 및 문화 공간을 결합합니다. 석회석 파사드와 세심한 세트백이 Upper East Side 역사적 맥락에 대응합니다.',
     hood: 'Upper East Side / Carnegie Hill',
     transit: '4,5,6번 → 86 St',
   },
 
-  'brompton': {
+  'nyc-0086': {
     name: '더 브롬튼',
     desc: 'Robert A.M. Stern Architects(RAMSA)가 2005년 완공한 24층 럭셔리 주거 건물로, 적색 벽돌과 석회석 디테일이 Upper East Side의 세련된 주거 구성을 이룹니다.',
     hood: 'Upper East Side',
     transit: '4,5,6번 → 86 St',
   },
 
-  'brooklyn-point': {
+  'nyc-0129': {
     name: '더 브루클린 포인트',
     desc: 'Kohn Pedersen Fox(KPF)가 설계한 68층 720피트 주거 마천루로 2021년 완공되었습니다. 우아한 매스감과 세트백, 테라스가 Downtown Brooklyn에서 구별되는 존재감을 드러냅니다.',
     hood: 'Downtown Brooklyn',
     transit: 'A,C,F,R번 → Jay St–MetroTech',
   },
 
-  'brooklyn-tower': {
+  'nyc-0117': {
     name: '더 브루클린 타워',
     desc: 'SHoP Architects가 설계한 93층 1,066피트 주거 타워로 2020년 완공되어 Brooklyn 최초의 슈퍼톨 마천루입니다. 특유의 아치형 왕관과 결정형 유리 파사드가 Downtown Brooklyn 스카이라인에 아이콘적 존재감을 드러냅니다.',
     hood: 'Downtown Brooklyn',
     transit: 'A,C,F,R번 → Jay St–MetroTech',
   },
 
-  'campbell-sports-center': {
+  'nyc-0107': {
     name: '캠벨 스포츠 센터',
     desc: 'Steven Holl이 2022년 완공한 Columbia University Baker Athletics Complex의 Inwood 캠퍼스의 Campbell Sports Center입니다. 흰색 콘크리트의 폴딩 형태 파사드가 Holl의 프로그램과 부지 맥락에 대한 특성 있는 접근을 반영합니다.',
     hood: 'Inwood, Manhattan',
@@ -662,14 +662,14 @@ const LOCS_KO_NEW_YORK = {
     admission: 'Columbia University 운동 시설',
   },
 
-  'chatham-65th': {
+  'nyc-0085': {
     name: '더 챗뜸',
     desc: 'Robert A.M. Stern Architects(RAMSA)의 초기 주요 럭셔리 주거 건물 중 하나로 2001년 완공되었습니다. 석회석 파사드와 세심한 비율이 Upper East Side 역사적 특성을 존중하면서 현대적 주거 프로그램을 도입합니다.',
     hood: 'Upper East Side',
     transit: '6번 → 68 St–Hunter College',
   },
 
-  'fit-joyce-brown-building': {
+  'nyc-0119': {
     name: '조이스 F 브라운 학술 빌딩',
     desc: 'Skidmore, Owings & Merrill(SOM)이 2021년 완공한 Fashion Institute of Technology의 종합 신규 학사 건물입니다. 유리와 스틸 파사드가 Fashion District에서 현대적 존재감을 드러냅니다.',
     hood: 'Chelsea / Fashion District',
@@ -677,7 +677,7 @@ const LOCS_KO_NEW_YORK = {
     admission: '학사 건물 · 제한된 공개 접근',
   },
 
-  'frederic-malle': {
+  'nyc-0110': {
     name: '에디션 드 파퓨 프레데릭 말',
     desc: 'Steven Holl이 2008년 완공한 SoHo West Broadway의 Frédéric Malle 부티크입니다. 스토어프론트의 미니멀 유리와 대리석 구성이 거리와 내부 갤러리 공간 사이 절묘한 인터페이스를 창조합니다.',
     hood: 'SoHo',
@@ -685,7 +685,7 @@ const LOCS_KO_NEW_YORK = {
     admission: '소매 부티크 · 업무 시간 중 개방',
   },
 
-  'grand-concourse': {
+  'nyc-0070': {
     name: '그랜드 콩코스 역사 지구',
     desc: 'Champs-Élysées를 모델로 한 Bronx의 4.5마일 대로로 국내에서 손꼽히는 Art Deco 건물 집중지가 있습니다. Louis J. Heintz의 비전으로 1909년에서 1950년 사이에 완공되었으며, 나무가 심어진 중앙 분리대와 주거 타워가 20세기 초 도시 계획의 주요 성취를 나타냅니다.',
     hood: 'Grand Concourse, Bronx',
@@ -693,7 +693,7 @@ const LOCS_KO_NEW_YORK = {
     admission: '공개 역사지구 · 외관 관찰 가능',
   },
 
-  'higgins-hall': {
+  'nyc-0109': {
     name: '히긴스 홀',
     desc: 'Steven Holl Architects이 2021년 완공한 Pratt Institute의 역사적 Higgins Hall 내부 삽입입니다. 하얀색 콘크리트와 유리 파사드가 역사적 브루탈리즘 구조와 대화를 이루면서 새로운 스튜디오와 강의실 공간을 제공합니다.',
     hood: 'Clinton Hill, Brooklyn',
@@ -701,7 +701,7 @@ const LOCS_KO_NEW_YORK = {
     admission: '학사 건물 · 외관 관찰 가능',
   },
 
-  'hunters-point-library': {
+  'nyc-0106': {
     name: '헌터스 포인트 커뮤니티 라이브러리',
     desc: 'Steven Holl이 2019년 완공한 Long Island City의 Hunters Point의 공개 도서관입니다. 구리 클래딩 파사드와 내부 공간 특성에 따라 변하는 개구부가 수변에서 아이콘적 존재감을 드러냅니다.',
     hood: 'Hunters Point, Long Island City, Queens',
@@ -709,7 +709,7 @@ const LOCS_KO_NEW_YORK = {
     admission: '공개 도서관 · 무료',
   },
 
-  'kips-bay-towers': {
+  'nyc-0090': {
     name: '킵스 베이 타워',
     desc: 'I.M. Pei와 S. Ogden이 설계하고 1965년 완공한 21층 철근 콘크리트 주거 슬래브 쌍입니다. 특유의 캔틸레버 요소가 East River 수변에서 랜드마크 구성을 드러냅니다.',
     hood: 'Kips Bay',
@@ -726,7 +726,7 @@ const LOCS_KO_NEW_YORK = {
     admission: '무료 · 성수기 주말에는 시간 예약권 필요',
   },
 
-  'lvmh-tower': {
+  'nyc-0101': {
     name: 'LVMH 타워',
     desc: 'Peter Marino가 설계하고 2012년 완공한 19 East 57번가의 LVMH 타워입니다. Louis Vuitton 뉴욕 플래그십과 럭셔리 소매, 사무, 주거 공간을 혼합합니다. 극적인 유리 파사드와 건축 규모가 57번가에서 강력한 존재감을 드러냅니다.',
     hood: 'Midtown Manhattan',
@@ -734,21 +734,21 @@ const LOCS_KO_NEW_YORK = {
     admission: '소매 및 상업 건물',
   },
 
-  'madison-square-park-tower': {
+  'nyc-0128': {
     name: '매디슨 스퀘어 파크 타워',
     desc: 'Rafael Viñoly가 설계한 65층 777피트 주거 마천루로 2021년 완공되었습니다. 우아한 비율과 특유의 삼각형 형태가 Madison Square Park 근처에서 세련된 존재감을 드러냅니다.',
     hood: 'Flatiron / Gramercy',
     transit: 'N,R,W번 → 23 St',
   },
 
-  'metal-shutter-houses': {
+  'nyc-0103': {
     name: '메탈 셔터 하우스',
     desc: 'Herzog & de Meuron이 2012년 완공한 150 Eleventh Avenue의 12층 럭셔리 주거 건물입니다. 특유의 금속 셔터 파사드가 West Chelsea의 High Line을 따라 동적 시각 존재감을 창조합니다.',
     hood: 'West Chelsea',
     transit: 'A,C,E,L번 → 14 St',
   },
 
-  'morgan-library': {
+  'nyc-0094': {
     name: '모건 라이브러리 & 뮤지엄',
     desc: '은행가 J.P. Morgan을 위해 1902년에 지어진 희귀 도서, 원고, 구거장 그림의 세계적 저장소입니다. 2006년에 Renzo Piano가 새로운 현대 유리 파빌리온과 경사로로 확장하여 역사적 건물과 현대 요소의 무결한 통합을 이룹니다.',
     hood: 'Murray Hill / Midtown',
@@ -757,7 +757,7 @@ const LOCS_KO_NEW_YORK = {
     admission: '권장 기부 $20(성인)',
   },
 
-  'moynihan-train-hall': {
+  'nyc-0122': {
     name: '모이니핸 트레인 홀',
     desc: 'Skidmore, Owings & Merrill(SOM)이 2021년 완공한 James A. Farley Post Office의 현대 교통 허브 개조입니다. 역사적 McKim, Mead & White 파사드를 보존하면서 현대적 내부와 웅장한 채광 및 개조된 선로 수준을 도입했습니다.',
     hood: 'Midtown West / Hudson Yards',
@@ -765,14 +765,14 @@ const LOCS_KO_NEW_YORK = {
     admission: '공개 교통 시설 · 무료 접근',
   },
 
-  'mulberry-house': {
+  'nyc-0112': {
     name: '290 멀베리 스트릿',
     desc: 'SHoP Architects가 2019년 완공한 NoLita의 290 Mulberry Street의 12층 렌탈 타워입니다. 벽돌과 테라코타 파사드가 동네의 역사적 특성을 참고하면서 현대적 주거 설계를 구현합니다.',
     hood: 'NoLita',
     transit: '6번 → Spring St',
   },
 
-  'one-manhattan-west': {
+  'nyc-0123': {
     name: '원 맨해튼 웨스트',
     desc: 'Skidmore, Owings & Merrill(SOM)이 설계한 67층 995피트 사무용 슈퍼톨로 2020년 완공되었습니다. 날렵한 비율과 혁신적 파사드 시스템이 Hudson Yards로의 관문에서 강력한 존재감을 드러냅니다.',
     hood: 'Hudson Yards / Midtown West',
@@ -780,14 +780,14 @@ const LOCS_KO_NEW_YORK = {
     admission: '상업용 사무 건물',
   },
 
-  'perry-street-towers': {
+  'nyc-0092': {
     name: '페리 스트릿 타워',
     desc: 'Herzog & de Meuron이 2002년에서 2014년 사이 West Village에 설계한 일련의 모든 유리와 하얀색 패널 주거 건물입니다. 미니멀한 미학과 세심한 비율이 Hudson River 수변을 따라 세련된 구성을 이룹니다.',
     hood: 'West Village',
     transit: '1번 → Christopher St–Sheridan Sq',
   },
 
-  'pier-17-seaport': {
+  'nyc-0114': {
     name: 'Pier 17 시포트',
     desc: 'SHoP Architects가 2019년 완공한 South Street Seaport의 역사적 Pier 17을 혼합용도 공개 마켓과 엔터테인먼트 장소로 개조했습니다. 역사적 부두 구조를 보존하고 현대적 소매, 식음료, 문화 프로그래밍을 도입했습니다.',
     hood: 'South Street Seaport / Financial District',
@@ -795,14 +795,14 @@ const LOCS_KO_NEW_YORK = {
     admission: '공개 마켓 · 무료 접근 · 개별 상인 요금',
   },
 
-  'porter-house': {
+  'nyc-0111': {
     name: 'Porter House',
     desc: 'SHoP Architects가 2003년 완공한 Meatpacking District의 former 육류 포장 창고의 칭찬받는 주거 개조입니다. 산업 로프트 구조의 적응적 재사용이 lower Manhattan 주거 보전의 모델을 수립했습니다.',
     hood: 'Meatpacking District / West Village',
     transit: 'A,C,E번 → 14 St',
   },
 
-  'prada-epicenter': {
+  'nyc-0098': {
     name: '프라다 에피센터 소호',
     desc: 'OMA(Rem Koolhaas)가 설계하고 2001년 개장한 SoHo의 Prada Epicenter입니다. 럭셔리 소매와 브랜드 플래그십 공간을 위한 새로운 원형을 수립했습니다. 스토어프론트의 파동 유리 파사드와 극적 이층 높이 내부가 Koolhaas의 상업 설계에 대한 급진적 접근을 대표합니다.',
     hood: 'SoHo',
@@ -810,7 +810,7 @@ const LOCS_KO_NEW_YORK = {
     admission: '소매 부티크 · 업무 시간 중 개방',
   },
 
-  'public-hotel': {
+  'nyc-0073': {
     name: 'PUBLIC 호텔',
     desc: 'Herzog & de Meuron이 Ian Schrager를 위해 Lower East Side에 설계한 367실 호텔로 2020년 완공되었습니다. 특유의 유리와 황동 파사드와 혁신적 내부 공간이 현대 호스피탈리티 설계의 새로운 모델을 수립합니다.',
     hood: 'Lower East Side',
@@ -818,7 +818,7 @@ const LOCS_KO_NEW_YORK = {
     admission: '호텔 · 객실 및 1층 다이닝/소매',
   },
 
-  'silver-towers': {
+  'nyc-0091': {
     name: '실버 타워',
     desc: 'Richard Meier가 설계한 Silver Towers는 Lower Manhattan의 주거 개발입니다. 흰색 철근 콘크리트 타워는 현대 주거 건축의 아이콘입니다.',
     hood: 'Lower Manhattan',
@@ -826,7 +826,7 @@ const LOCS_KO_NEW_YORK = {
     admission: '개인 주거 건물',
   },
 
-  'iac-building': {
+  'nyc-0021': {
     name: 'IAC 빌딩',
     desc: 'Frank Gehry의 IAC/InterActiveCorp 본사로, 맨해튼에 완공된 그의 첫 번째 건물입니다. 10층 높이의 물결치는 흰색 유리 판넬이 돛을 펼친 듯한 형상을 이루어 맨해튼의 직각 그리드에서 의도적으로 벗어납니다. High Line 회랑 남쪽 끝에 위치한 이 건물은 웨스트 첼시가 세계 수준의 예술과 건축 목적지로 변모하는 촉매제가 되었습니다.',
     hood: '웨스트 첼시',
@@ -870,7 +870,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Battery Park: 10분 · Federal Hall: 5분',
   },
 
-  'nyt-building': {
+  'nyc-0025': {
     name: 'New York Times Building',
     desc: 'Renzo Piano가 설계한 New York Times Building은 2007년 Times Square에 완공된 52층 높이 건물입니다. 외층 유리 스크린은 건물의 열 성능을 최적화하면서 도시의 역동성을 필터링합니다. 내부의 거대한 열린 공간은 신문 업무의 투명성과 협업을 상징합니다. 녹색 건축의 초기 주요 예시입니다.',
     hood: 'Midtown West / Times Square',
@@ -881,7 +881,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Times Square: 2분 · Bryant Park: 3분',
   },
 
-  'met-museum': {
+  'nyc-0026': {
     name: 'Metropolitan Museum of Art',
     desc: 'Richard Morris Hunt, Arthur Curtiss James 등 여러 건축가가 설계하여 1880년부터 건설된 Metropolitan Museum of Art는 이집트 고전주의 박물관 건축의 상징입니다. 대계단, 큰 중앙 홀, 갤러리의 폐쇄 건축은 예술 관상을 위한 장엄한 환경을 창조합니다. 전 세계 미술 컬렉션의 건축적 표현입니다.',
     hood: 'Upper East Side',
@@ -892,7 +892,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Central Park: 인접 · Upper East Side 갤러리: 도보 접근',
   },
 
-  'woolworth': {
+  'nyc-0028': {
     name: 'Woolworth Building',
     desc: 'Cass Gilbert가 설계한 Woolworth Building은 1913년 완공되었으며 당시 세계에서 가장 높은 건물이었습니다. 아이보리색 테라코타 외장과 네오고딕 조각은 맨해튼 금융 중심지의 수직 교회로서의 지위를 강화합니다. 하늘로 뻗은 꼭대기와 스테인드글라스 로비는 상업적 건축이 도시 정체성을 어떻게 형성하는지를 보여줍니다.',
     hood: 'Lower Manhattan / Civic Center',
@@ -903,7 +903,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'City Hall: 3분 · South Street Seaport: 8분',
   },
 
-  'united-nations': {
+  'nyc-0029': {
     name: 'United Nations Headquarters',
     desc: 'Le Corbusier, Oscar Niemeyer, Wallace K. Harrison 등이 함께 설계한 United Nations Headquarters는 1952년 완공되었으며 국제 건축 협력의 기념비입니다. 32층 높이의 녹색 대리석 사무실 빌딩은 이상적인 현대 행정 건축을 구현하며, Secretary General의 공중 보행로는 도시 내 외교의 상징입니다.',
     hood: 'Midtown East',
@@ -914,7 +914,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Grand Central Terminal: 5분 · Roosevelt Island: 3분',
   },
 
-  'lincoln-center': {
+  'nyc-0030': {
     name: 'Lincoln Center for the Performing Arts',
     desc: 'Max Abramovitz, Philip Johnson, Eero Saarinen 등이 조율한 Lincoln Center는 1960년대 뉴욕의 도시 재생 사업으로 완성된 주요 문화 복합 건축입니다. 대칭적인 광장과 음악홀, 오페라 하우스, 도서관이 공공 문화 중심지를 형성합니다. 현대 미국 문화 기관 건축의 전형적 례시입니다.',
     hood: 'Upper West Side',
@@ -925,7 +925,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Central Park: 인접 · American Museum of Natural History: 5분',
   },
 
-  'ford-foundation': {
+  'nyc-0031': {
     name: 'Ford Foundation Building',
     desc: 'Kevin Roche와 John Dinkeloo가 설계한 Ford Foundation Building은 1968년 완공된 현대 사무실 건축의 선례입니다. 10층 높이의 쌍둥이 유리 타워는 중앙 정원을 향해 열려 있어 사무실 공간에 자연과 빛을 도입합니다. 기업 사회 책임의 건축적 표현으로 간주됩니다.',
     hood: 'Midtown East',
@@ -936,7 +936,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Rockefeller Center: 2분 · Grand Central Terminal: 5분',
   },
 
-  'citicorp-center': {
+  'nyc-0032': {
     name: 'Citicorp Center',
     desc: 'Hugh Stubbins가 설계한 Citicorp Center는 1978년 완공된 59층 높이 건물로, 45도 각도의 특이한 지붕과 삼각형 단면으로 스카이라인에 독특한 수치가 됩니다. 자동 질량 감쇠 시스템은 초기 구조 혁신입니다. 타워 아래의 대사관 수프 핸의 건설은 도시 설계에서 공공 공간의 중요성을 시범 보입니다.',
     hood: 'Midtown East',
@@ -947,7 +947,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Rockefeller Center: 2분 · St. Patrick\'s Cathedral: 3분',
   },
 
-  'one-vanderbilt': {
+  'nyc-0033': {
     name: 'One Vanderbilt',
     desc: 'Kohn Pedersen Fox가 설계한 One Vanderbilt는 2020년 완공된 1,401피트 높이의 현대 초고층 건물입니다. 사다리꼴 형태의 4개 기울어진 면은 하늘로 수렴하는 듯한 역동적 실루엣을 만들며, 꼭대기의 유리 관측대는 뉴욕 도시의 새로운 조망점입니다. 초현대 아키텍처와 도시 정체성의 상징입니다.',
     hood: 'Midtown East / Vanderbilt Ave',
@@ -958,7 +958,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Grand Central Terminal: 인접 · Chrysler Building: 2분',
   },
 
-  'the-shed': {
+  'nyc-0034': {
     name: 'The Shed',
     desc: 'Diller Scofidio + Renfro와 Rockwell Group이 설계한 The Shed는 2019년 Hudson Yards에 완공된 융통적인 문화 공간입니다. 거대한 이동식 지붕 구조는 열린 광장과 밀폐된 공간 사이를 변환할 수 있어 비전통적 공공 문화 프로그래밍을 수용합니다. 현대 도시 문화 기관 건축의 새로운 형태입니다.',
     hood: 'Midtown West / Hudson Yards',
@@ -969,7 +969,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Hudson Yards: 인접 · High Line: 5분',
   },
 
-  'prospect-park': {
+  'nyc-0035': {
     name: 'Prospect Park',
     desc: 'Frederick Law Olmsted와 Calvert Vaux가 설계한 Prospect Park는 1873년 개장한 Brooklyn의 526에이커 공원입니다. Central Park 이후의 그들의 두 번째 주요 공원 설계로, 구릉지, 숲, 호수, 초원의 자연 풍경을 조율하여 도시 내 자연 경험을 창조합니다. 미국 조경 설계의 고전적 범례입니다.',
     hood: 'Brooklyn / Prospect Heights',
@@ -980,7 +980,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Brooklyn Museum: 인접 · Botanical Garden: 인접',
   },
 
-  'twa-hotel': {
+  'nyc-0036': {
     name: 'TWA Hotel at JFK',
     desc: 'Eero Saarinen이 1962년 설계한 TWA Flight Center는 JFK 공항의 상징입니다. 우아한 흰색 콘크리트 쉘 형태는 날개 펴는 새의 듯하며, 1960년대 항공 여행의 낭만을 구현합니다. 2019년 The Jet Suite이 개관하면서 헤리티지 호텔로 부활했습니다.',
     hood: 'Jamaica Queens / JFK Airport',
@@ -991,7 +991,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'JFK 공항 터미널 5 근처',
   },
 
-  'apple-store-5th-ave': {
+  'nyc-0037': {
     name: 'Apple Store 5th Avenue',
     desc: 'Norman Foster가 설계한 Apple Store 5th Avenue는 2006년 개장한 뉴욕 5번가의 상징적 디지털 소매 공간입니다. 40피트 높이의 완전 투명 유리 정육면체는 건축의 투명성과 제품 자신감을 표현합니다. 야간 조명은 거리를 환히 밝히는 도시 랜턴입니다.',
     hood: 'Midtown / 5th Avenue',
@@ -1002,7 +1002,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Central Park: 인접 · Bergdorf Goodman: 인접',
   },
 
-  'via-57-west': {
+  'nyc-0038': {
     name: 'Via 57 West',
     desc: 'Bjarke Ingels Group이 설계한 Via 57 West는 2016년 완공된 혁신적 주거 건축입니다. 역 사다리꼴 형태는 전체 건물의 상부를 "열어" 남쪽을 향해 경사지게 하여 모든 단위가 햇빛을 받도록 합니다. 이 기울어진 형태의 혁신적 주거 설계는 뉴욕 건축의 새로운 패러다임입니다.',
     hood: 'Hell\'s Kitchen',
@@ -1013,7 +1013,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Hudson River Greenway: 인접 · Theater District: 5분',
   },
 
-  'spring-studios': {
+  'nyc-0039': {
     name: 'Spring Studios',
     desc: 'OMA / Rem Koolhaas가 설계한 Spring Studios는 2017년 완공된 Tribeca의 현대 예술 시설입니다. 용도 변경된 제조 건물의 거대한 두 층 높이 스튜디오와 전시 공간은 대규모 미술관 같은 환경을 만들어냅니다. 현대 미술 제도와 건축의 모범입니다.',
     hood: 'Tribeca',
@@ -1024,7 +1024,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'City Hall: 5분 · Tribeca Lofts: 인접',
   },
 
-  'standard-highline': {
+  'nyc-0040': {
     name: 'The Standard High Line',
     desc: 'Shim-Sutcliffe Architects가 설계한 The Standard High Line은 2009년 완공된 도시 호텔로, High Line 선형 공원 위에 직접 위치합니다. 14층 높이의 노출 레드 브릭과 세로 루버 외관은 주변 산업 건축을 존중하면서 현대성을 표현합니다. 도시 공원과 호텔 건축의 혁신적 통합입니다.',
     hood: 'Meatpacking District / West Chelsea',
@@ -1035,7 +1035,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'High Line (14 St): 직접 접근 · Whitney Museum: 5분',
   },
 
-  'judson-memorial': {
+  'nyc-0054': {
     name: 'Judson Memorial Church',
     desc: 'Stanford White가 1892년 설계한 Judson Memorial Church는 Washington Square 남쪽의 신로마네스크 건축입니다. 이탈리아식 테라코타 정면과 아치형 입구는 도시 촌락의 예술적 자유를 상징합니다. 현대 미술 실험과 사회 정의 활동의 중심이 되어 왔습니다.',
     hood: 'Greenwich Village',
@@ -1046,7 +1046,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Washington Square Park: 인접 · NYU: 인접',
   },
 
-  'paley-park': {
+  'nyc-0061': {
     name: 'Paley Park',
     desc: 'Zvi Hecker가 1967년 설계한 Paley Park는 미드타운의 6,000평방피트 작은 공중 공원입니다. 폭포의 백색 소음과 식생은 도시의 번잡함 속에 조용한 도피처를 만들어냅니다. 작은 공간 설계로 도시 삶의 질을 향상시킬 수 있음을 증명합니다.',
     hood: 'Midtown East',
@@ -1057,7 +1057,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Rockefeller Center: 1분 · St. Patrick\'s Cathedral: 2분',
   },
 
-  'brooklyn-bridge-park': {
+  'nyc-0062': {
     name: 'Brooklyn Bridge Park',
     desc: 'Michael Van Valkenburgh Associates가 마스터플래닝한 Brooklyn Bridge Park는 Brooklyn의 1.3마일 길이의 워터프론트 공원입니다. 폐기된 화물 터미널의 용도 변경은 공중 접근성과 도시 회생을 강조합니다. 맨해튼 스카이라인 전망과 함께 Brooklyn 워터프론트의 재탄생을 상징합니다.',
     hood: 'DUMBO / Brooklyn Heights',
@@ -1068,7 +1068,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Brooklyn Bridge: 인접 · Jane\'s Carousel: 인접',
   },
 
-  'dumbo-historic': {
+  'nyc-0063': {
     name: 'DUMBO Historic District',
     desc: 'Down Under the Manhattan Bridge Overpass의 DUMBO 역사 지구는 19세기 후반 산업 건축의 집합입니다. 19층 높이의 철근 강화 콘크리트와 벽돌 창고는 Brooklyn의 산업 유산을 증거합니다. 현재 미술가 스튜디오와 문화 기관이 이 공간을 도시 창의성의 중심으로 변모시켰습니다.',
     hood: 'DUMBO / Brooklyn',
@@ -1079,7 +1079,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Jane\'s Carousel: 인접 · Brooklyn Bridge Park: 2분',
   },
 
-  'janes-carousel': {
+  'nyc-0064': {
     name: 'Jane\'s Carousel',
     desc: 'Jean Nouvel이 2008년 설계한 Jane\'s Carousel은 Brooklyn Bridge Park 내 1922년의 Stein & Goldstein Carousel을 하우징합니다. 반투명 유리와 철강 구조는 회전목마와 공원 전망을 프레이밍하면서 건축적으로 상승시킵니다. 문화 유산 보존과 현대 설계의 아름다운 조화입니다.',
     hood: 'DUMBO / Brooklyn',
@@ -1090,7 +1090,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Brooklyn Bridge Park: 인접 · DUMBO 갤러리: 2분',
   },
 
-  'queens-museum': {
+  'nyc-0065': {
     name: 'Queens Museum',
     desc: '1964년 New York World\'s Fair의 부지에 위치한 Queens Museum은 뉴욕 도시와 세계의 역사를 전시합니다. Beyer Blinder Belle가 2013년 복구하고 확장한 건물은 공평한 박물관 설계의 모범입니다. 유명한 Panorama of the City of New York는 1만 5천개의 건물 미니어처로 도시를 재현합니다.',
     hood: 'Flushing / Queens',
@@ -1101,7 +1101,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Flushing Meadows Park: 인접 · Unisphere: 5분',
   },
 
-  'unisphere': {
+  'nyc-0066': {
     name: 'Unisphere',
     desc: '1964년 New York World\'s Fair를 위해 설계된 Unisphere는 140피트 높이의 강철 조각품으로 세계와 인류의 일체성을 상징합니다. Buckminster Fuller의 지오데식 설계 철학에서 영감을 받았으며, 뉴욕 아이콘이 되어 영화와 뉴욕 브랜딩에 자주 나타납니다.',
     hood: 'Flushing / Queens',
@@ -1112,7 +1112,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Queens Museum: 5분 · Flushing Meadows Park: 인접',
   },
 
-  'yankee-stadium': {
+  'nyc-0067': {
     name: 'Yankee Stadium',
     desc: '2009년 Populous 건축 회사가 설계한 새로운 Yankee Stadium은 1923년 원본 스타디움의 아이콘적 세로 그리드 구조를 재현합니다. 65,000석의 다목적 경기장은 현대 스포츠 건축의 첨단 기술을 갖추면서 역사적 정체성을 존중합니다.',
     hood: 'South Bronx / The Bronx',
@@ -1123,7 +1123,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Grand Concourse: 5분 · Bronx Museum: 10분',
   },
 
-  'bronx-county-courthouse': {
+  'nyc-0068': {
     name: 'Bronx County Courthouse',
     desc: 'Joseph H. Freedlander와 Max Lederman이 1934년 설계한 Bronx County Courthouse는 아르 데코 공공 건축의 뛰어난 예입니다. 대리석과 화강암 외장, 거대한 중앙 돔, 영웅적 조각은 법률과 정의를 상징합니다. 미국 20세기 초 공공 건축의 장엄함을 드러냅니다.',
     hood: 'South Bronx / The Bronx',
@@ -1134,7 +1134,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Grand Concourse: 2분 · Yankee Stadium: 5분',
   },
 
-  'wave-hill': {
+  'nyc-0069': {
     name: 'Wave Hill',
     desc: 'Wave Hill은 Bronx의 28에이크 강변 저택과 정원입니다. 1843년 건설된 빅토리아식 별장은 Theodore Roosevelt와 George Bernard Shaw의 거주지였습니다. 최근 건축 추가물은 정원과 건축의 대화를 강화합니다. 도시 내 자연 경험과 문화의 통합입니다.',
     hood: 'Riverdale / The Bronx',
@@ -1233,7 +1233,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Madison Avenue shops: 인접 · Museum Mile: 5분',
   },
 
-  'superior-ink': {
+  'nyc-0087': {
     name: 'Superior Ink Building',
     desc: 'SHoP Architects가 복원한 Superior Ink Building은 Williamsburg의 역사적 산업 건축입니다. 모더니스트 용도 변경은 건축 유산과 현대 프로그래밍의 균형을 유지합니다.',
     hood: 'Williamsburg / Brooklyn',
@@ -1244,7 +1244,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'East River State Park: 5분 · Williamsburg 갤러리: 인접',
   },
 
-  'urban-glass-house': {
+  'nyc-0089': {
     name: 'Urban Glass House (Williamsburg)',
     desc: 'Williamsburg의 Urban Glass 커뮤니티 센터는 유리 공예와 현대 건축의 통합을 표현합니다. 대형 유리 워크숍 공간과 공공 갤러리가 장인 정신을 축하합니다.',
     hood: 'Williamsburg / Brooklyn',
@@ -1288,7 +1288,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'New York Stock Exchange: 3분 · Federal Hall: 2분',
   },
 
-  'sugar-hill-museum': {
+  'nyc-0105': {
     name: 'Studio Museum in Harlem (Sugar Hill)',
     desc: 'David Adjaye OAA가 설계한 Studio Museum in Harlem은 2021년 개관한 Harlem의 현대 미술 기관입니다. 주홍색 벽돌 파사드와 계층적 설계는 Harlem의 문화 유산을 경축합니다.',
     hood: 'Harlem / Sugar Hill',
@@ -1299,7 +1299,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: '125 St 문화 지구: 인접 · Harlem brownstones: 5분',
   },
 
-  'storefront-art-arch': {
+  'nyc-0108': {
     name: 'Storefront for Art and Architecture',
     desc: 'Shim-Sutcliffe Architects가 복원한 Storefront for Art and Architecture는 Lower East Side의 미니멀리스트 갤러리 공간입니다. 변환 가능한 거리 파사드는 미술과 건축의 투명성을 표현합니다.',
     hood: 'Lower East Side / Nolita',
@@ -1310,7 +1310,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Nolita 갤러리: 인접 · SoHo: 5분',
   },
 
-  'steinway-tower': {
+  'nyc-0116': {
     name: 'Steinway Tower',
     desc: 'Jeanne Gang / Studio Gang이 설계한 Steinway Tower는 2020년 완공된 Tribeca의 럭셔리 주거 타워입니다. 스튜디오의 특징인 유선형 외관과 Steinway Hall의 유산을 통합합니다.',
     hood: 'Tribeca',
@@ -1354,7 +1354,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'The Shed: 인접 · High Line: 5분',
   },
 
-  'two-waterline-square': {
+  'nyc-0130': {
     name: 'Two Waterline Square',
     desc: '2 Waterline Square는 Upper West Side의 친환경 럭셔리 주거 복합입니다. 에너지 효율과 공중 녹지 접근이 통합된 설계입니다.',
     hood: 'Upper West Side',
@@ -1365,7 +1365,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Hudson River Greenway: 인접 · Boat Basin: 5분',
   },
 
-  'sperone-westwater': {
+  'nyc-0131': {
     name: 'Sperone Westwater Gallery',
     desc: 'David Chipperfield이 설계한 Sperone Westwater Gallery는 Lower East Side의 현대 미술 갤러리입니다. 건축이 미술 전시 공간과 차별되지 않는 미니멀리스트 접근입니다.',
     hood: 'Lower East Side / Nolita',
@@ -1387,7 +1387,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Federal Hall: 2분 · Wall Street: 5분',
   },
 
-  'via-verde': {
+  'nyc-0136': {
     name: 'Via Verde',
     desc: 'Dattner Architects와 Shim-Sutcliffe Architects가 설계한 Via Verde는 Bronx의 지속 가능하고 공동체 중심의 주거 개발입니다. 녹색 공간 통합과 이웃 활성화가 특징입니다.',
     hood: 'South Bronx / The Bronx',
@@ -1398,7 +1398,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Grand Concourse: 5분 · Bronx County Courthouse: 10분',
   },
 
-  'sept-11-museum-pavilion': {
+  'nyc-0137': {
     name: '9/11 Memorial Museum Pavilion',
     desc: 'Henry N. Cobb / Pei Cobb Freed & Partners가 설계한 박물관 파빌리온은 9/11 기억과 치유의 건축적 선언입니다. 침잠된 위치와 빛의 사용은 슬픔과 회복의 감정을 표현합니다.',
     hood: 'Lower Manhattan',
@@ -1409,7 +1409,7 @@ const LOCS_KO_NEW_YORK = {
     walkFrom: 'Federal Hall: 5분 · South Street Seaport: 10분',
   },
 
-  'fdr-four-freedoms-park': {
+  'nyc-0139': {
     name: 'FDR Four Freedoms Park',
     desc: 'Louis I. Kahn이 1973년 설계하고 Gluck+ Architects가 2012년 완성한 FDR Four Freedoms Park는 Roosevelt Island의 조각 공원입니다. Kahn의 미니멀리스트 설계와 조각적 석재 구조는 자유의 선언을 건축화합니다.',
     hood: 'Roosevelt Island / Midtown East',

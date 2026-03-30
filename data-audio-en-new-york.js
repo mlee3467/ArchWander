@@ -21,7 +21,7 @@
 // inside the script and NOT accessible on window after load.
 window.AUDIO_EN_NYC = {
 
-  'empire-state': {
+  'nyc-0001': {
     title: 'Empire State Building',
     script: `You are standing before the Empire State Building — a structure whose every dimension was a calculated act of ambition.
 
@@ -38,7 +38,7 @@ Step inside the lobby, and the ambition turns intimate. Floors and lower walls a
 The 86th-floor observation deck offers 360 degrees of the city on a clear day. But first, linger in this lobby, and understand that the architects considered it the building's true threshold — not merely a passage, but a statement about what steel, stone, and human determination could accomplish together.`
   },
 
-  'chrysler': {
+  'nyc-0002': {
     title: 'Chrysler Building',
     script: `You are looking at a building designed by an architect who understood that the sky itself could be used as a material.
 
@@ -53,7 +53,7 @@ Inside the lobby — open to the public — the walls are clad in red Moroccan m
 Van Alen's secret weapon was the 185-foot steel "Vertex" spire, assembled inside the fire shaft while his rival at 40 Wall Street celebrated victory. Raised through the dome in 90 minutes, it instantly added 185 feet to the building's height. The architectural world, briefly, was speechless. Few buildings since have managed to be so thoroughly theatrical and so thoroughly beautiful at the same time.`
   },
 
-  'guggenheim': {
+  'nyc-0007': {
     title: 'Solomon R. Guggenheim Museum',
     script: `Frank Lloyd Wright received this commission in 1943, spent sixteen years revising the design through 700 drawings and 6 different versions, died six months before the building opened in 1959, and never saw the work finished. What he left behind is one of the most debated buildings of the twentieth century.
 
@@ -68,7 +68,7 @@ Wright called this approach "organic architecture" — the idea that a building 
 The institution's critics have never quieted. When the Guggenheim opened, the New York Times wrote that it was "a war between architecture and painting in which both come out badly wounded." Artists protested that the tilting walls and constant curvature made their work impossible to view correctly. But when you stand at the base of the rotunda and look up through the full height of the spiral — light falling from the oculus, the ramp unwinding above you, other visitors suspended in space above and below — the argument of the building becomes immediate and undeniable. It is one of the most powerful interior spaces in American architecture.`
   },
 
-  'seagram': {
+  'nyc-0017': {
     title: 'Seagram Building',
     script: `To understand why the Seagram Building matters, you need to understand what it chose not to do.
 
@@ -85,7 +85,7 @@ The plaza Mies created was so admired that New York City codified it into law. T
 Stand here long enough and you begin to feel it: that specific quality of calm amid the noise of the city. Mies described his ambition as "less is more." Standing in this plaza, you understand it is not a reduction. It is a concentration.`
   },
 
-  'flatiron': {
+  'nyc-0004': {
     title: 'Flatiron Building',
     script: `The Flatiron Building stands at one of the most accident-prone intersections in Manhattan's history — where Broadway crosses Fifth Avenue at 23rd Street at an acute angle, creating a triangular block with a northern tip just 6.5 feet wide. Daniel Burnham, the Chicago architect who had defined the American skyscraper in the previous decade, took the commission in 1901 and built something the city had never encountered.
 
@@ -100,7 +100,7 @@ Alfred Stieglitz photographed the building from Madison Square Park in 1902 and 
 Stand now at the northern tip, where the building narrows to its point. Then walk back across the park to where Stieglitz stood. From here the building reads as a ship's prow, cutting through the grid of the city, still moving.`
   },
 
-  'high-line': {
+  'nyc-0009': {
     title: 'The High Line',
     script: `What you are walking on was built in 1934 as part of the West Side Improvement Project — New York City's solution to "Death Avenue," the nickname for the freight rail lines that ran at street level through Manhattan's Meatpacking and Chelsea districts and had killed more than 500 pedestrians by 1910.
 
@@ -115,7 +115,7 @@ Specific zones reward close attention. The Chelsea Thicket winds through a minia
 What the designers understood is that the best urban park does not replace the city. It reframes it — giving you the same streets and buildings from a perspective that is slightly above, slightly apart, and completely unlike anything you can find at grade.`
   },
 
-  'one-wtc': {
+  'nyc-0003': {
     title: 'One World Trade Center',
     script: `Every dimension of this building carries a number that means something.
 
@@ -130,7 +130,7 @@ Below the tower, at the level of the original street grid, the Memorial pools de
 Stand at the edge of a pool and look down. The architecture asks no more of you than that.`
   },
 
-  'rockefeller': {
+  'nyc-0016': {
     title: '30 Rockefeller Plaza',
     script: `In 1929, John D. Rockefeller Jr. signed a lease on 12 acres of midtown Manhattan to build a new home for the Metropolitan Opera. Within months, the stock market collapsed, the Met withdrew, and Rockefeller was left holding one of the most expensive leases in American real estate — in the worst economy in the nation's history. Rather than surrender it, he commissioned architect Raymond Hood to design something the city had never built: a complete urban district, self-financing, self-contained, and built through the Depression.
 
@@ -143,7 +143,7 @@ Inside, the main lobby holds José María Sert's mural "American Progress," a 16
 Beneath your feet, Hood's most invisible achievement: a subterranean network of passages, shopping corridors, and subway connections extending beneath the entire complex. He envisioned a city beneath the city — one in which pedestrians could move from building to building, from midtown to transit, without ever emerging into the weather. That network has been in continuous operation for nearly ninety years.`
   },
 
-  'whitney': {
+  'nyc-0008': {
     title: 'Whitney Museum of American Art',
     script: `Renzo Piano described his ambition for the Whitney Museum as building something "anti-iconic" — a building that does not seek to be admired from a distance, but instead engages, serves, and frames the city around it. Standing here, at the southern foot of the High Line, you can test that claim.
 
@@ -160,7 +160,7 @@ In the lobby, look at the four passenger elevators. Each is an artwork in itself
 This building wants to be useful. That is the hardest thing for architecture to be.`
   },
 
-  'brooklyn-bridge': {
+  'nyc-0006': {
     title: 'Brooklyn Bridge',
     script: `When the Brooklyn Bridge opened on May 24, 1883, it was the longest suspension bridge in the world and the first bridge ever built using steel — not iron — for its main cables. Those two facts together define its historical position: it arrived at the precise moment when engineering crossed from one era into the next.
 

@@ -1669,7 +1669,9 @@
 // merge in any new entries so newly added locations always appear.
 function _loadLocsFromStorage() {
   try {
-    const d = localStorage.getItem('archwander_locs_v1');
+    // v2: IDs migrated to city-prefix format (nyc-NNNN / sel-NNNN / lon-NNNN / tok-NNNN)
+    //     v1 data (old kebab IDs) intentionally ignored — clean break.
+    const d = localStorage.getItem('archwander_locs_v2');
     if (!d) return null;
     const stored = JSON.parse(d);
     if (LOCS_DEFAULT.length > stored.length) {
@@ -4644,7 +4646,7 @@ function _admPopulateCities() {
 
 function renderAdminTable() {
   _admPopulateCities();
-  const saved = localStorage.getItem('archwander_locs_v1');
+  const saved = localStorage.getItem('archwander_locs_v2');
   document.getElementById('adm-reset-storage').style.display = saved ? 'block' : 'none';
 
   // ── filter ──
@@ -4764,6 +4766,23 @@ function _fillAdmForm(loc) {
   document.getElementById('af-city').value   = loc.city   || 'new-york';
 }
 
+// ── ID Generation ─────────────────────────────────────────────────────────
+// Format: {city-prefix}-{4-digit sequential}  e.g. nyc-0140, sel-0047, lon-0023, tok-0045
+// Numbers are NEVER reused after deletion.
+const CITY_ID_PREFIX = { 'new-york':'nyc', 'seoul':'sel', 'london':'lon', 'tokyo':'tok' };
+
+function generateLocationId(cityValue) {
+  const prefix = CITY_ID_PREFIX[cityValue] || cityValue.replace(/[^a-z]/g,'').slice(0,3);
+  const pattern = new RegExp('^' + prefix + '-(\\d{4})$');
+  let maxNum = 0;
+  for (const loc of LOCS) {
+    const m = loc.id && loc.id.match(pattern);
+    if (m) maxNum = Math.max(maxNum, parseInt(m[1], 10));
+  }
+  return prefix + '-' + String(maxNum + 1).padStart(4, '0');
+}
+// ──────────────────────────────────────────────────────────────────────────
+
 function saveAdmForm() {
   const fv = id => (document.getElementById(id)?.value || '').trim();
   const name = fv('af-name');
@@ -4778,7 +4797,7 @@ function saveAdmForm() {
   const sgsRaw = fv('af-styleGroup') || 'Contemporary';
   const styleGroups = sgsRaw.split(',').map(s => s.trim()).filter(Boolean);
   const loc = {
-    id:         _admEditId || name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') + '-' + Date.now(),
+    id:         _admEditId || generateLocationId(fv('af-city') || 'new-york'),
     name,       arch:       fv('af-arch') || 'Unknown',
     yr:         parseInt(fv('af-yr')) || new Date().getFullYear(),
     cats,       cc:         CAT_CC_MAP[pCat] || 'c-lmk',
@@ -4808,7 +4827,7 @@ function saveAdmForm() {
   } else {
     LOCS.push(loc);
   }
-  try { localStorage.setItem('archwander_locs_v1', JSON.stringify(LOCS)); } catch(e) {}
+  try { localStorage.setItem('archwander_locs_v2', JSON.stringify(LOCS)); } catch(e) {}
   refreshApp();
   closeAdmModal();
   renderAdminTable();
@@ -4818,14 +4837,14 @@ function confirmDeleteLoc(id) {
   const loc = LOCS.find(l => l.id === id);
   if (!loc || !confirm(`"${loc.name}"을(를) 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.`)) return;
   LOCS.splice(LOCS.findIndex(l => l.id === id), 1);
-  try { localStorage.setItem('archwander_locs_v1', JSON.stringify(LOCS)); } catch(e) {}
+  try { localStorage.setItem('archwander_locs_v2', JSON.stringify(LOCS)); } catch(e) {}
   refreshApp();
   renderAdminTable();
 }
 
 function confirmResetStorage() {
   if (!confirm('모든 변경사항을 삭제하고 기본 데이터로 초기화하시겠습니까?')) return;
-  localStorage.removeItem('archwander_locs_v1');
+  localStorage.removeItem('archwander_locs_v2');
   LOCS = LOCS_DEFAULT.map(l => ({...l}));
   refreshApp();
   renderAdminTable();

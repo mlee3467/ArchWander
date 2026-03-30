@@ -6,7 +6,7 @@
 
 const LOCS_SEOUL = [
   {
-    id:'dongdaemun-design-plaza',
+    id:'sel-0001',
     name:'Dongdaemun Design Plaza (DDP)',
     cat:'Cultural', cats:["Cultural","Landmarks","Parks","Retail"], cc:'c-cul', styleGroup:'Parametric Design', styleGroups:["Parametric Design"],
     era:'2000–Present', city:'seoul',
@@ -30,7 +30,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'seoul-city-hall',
+    id:'sel-0002',
     name:'Seoul City Hall (New)',
     cat:'Public', cats:["Public","Parks"], cc:'c-pub', styleGroup:'Contemporary', styleGroups:["Contemporary","Landscape"],
     era:'2000–Present', city:'seoul',
@@ -54,7 +54,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'lotte-world-tower',
+    id:'sel-0003',
     name:'Lotte World Tower',
     cat:'Skyscrapers', cats:["Skyscrapers","Commercial"], cc:'c-sky', styleGroup:'Contemporary', styleGroups:["Contemporary","Traditional Korean"],
     era:'2000–Present', city:'seoul',
@@ -78,7 +78,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'mmca-seoul',
+    id:'sel-0004',
     name:'MMCA Seoul (국립현대미술관 서울관)',
     cat:'Cultural', cats:["Cultural"], cc:'c-cul', styleGroup:'Contemporary', styleGroups:["Contemporary","Traditional Korean"],
     era:'2000–Present', city:'seoul',
@@ -102,7 +102,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'ewha-campus-complex',
+    id:'sel-0005',
     name:'Ewha Womans University Campus Complex',
     cat:'Academic / Institution', cats:["Academic / Institution","Landmarks","Parks","Retail"], cc:'c-aca', styleGroup:'Contemporary', styleGroups:["Contemporary","Landscape"],
     era:'2000–Present', city:'seoul',
@@ -126,7 +126,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'dayangsanghoi',
+    id:'sel-0006',
     name:'Dayangsanghoi',
     cat:'Cultural', cats:["Cultural","Residential","Retail"], cc:'c-cul', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'seoul',
@@ -150,7 +150,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'saemoonan-church',
+    id:'sel-0007',
     name:'Saemoonan Church',
     cat:'Religious', cats:["Religious","Skyscrapers","Retail"], cc:'c-rel', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'seoul',
@@ -174,7 +174,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'seoul-floating-islands',
+    id:'sel-0008',
     name:'Seoul Floating Islands (Some Sevit)',
     cat:'Landmarks', cats:["Landmarks","Infrastructure"], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'seoul',
@@ -198,7 +198,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'kring-kumho',
+    id:'sel-0009',
     name:'KRING Kumho Cultural Complex',
     cat:'Cultural', cats:["Cultural","Commercial"], cc:'c-cul', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'seoul',
@@ -222,7 +222,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'su-o-jae',
+    id:'sel-0010',
     name:'Su-o-jae (Eunpyeong)',
     cat:'Residential', cats:["Residential"], cc:'c-res', styleGroup:'Contemporary', styleGroups:["Contemporary","Traditional Korean"],
     era:'2000–Present', city:'seoul',
@@ -246,7 +246,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'shinhan-expace',
+    id:'sel-0011',
     name:'Shinhan EX:PACE',
     cat:'Retail', cats:["Retail","Commercial"], cc:'c-ret', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'seoul',
@@ -270,7 +270,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'communique-hq',
+    id:'sel-0012',
     name:'Communique Headquarters',
     cat:'Landmarks', cats:["Landmarks","Skyscrapers","Parks","Commercial"], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:["Contemporary","Adaptive Reuse"],
     era:'2000–Present', city:'seoul',
@@ -294,7 +294,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'hankook-technoplex',
+    id:'sel-0013',
     name:'Hankook Technoplex',
     cat:'Academic / Institution', cats:["Academic / Institution","Skyscrapers","Parks","Commercial"], cc:'c-aca', styleGroup:'High-Tech', styleGroups:["High-Tech","Landscape"],
     era:'2000–Present', city:'seoul',
@@ -318,7 +318,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'la-cucina',
+    id:'sel-0014',
     name:'La Cucina (Myeongborang)',
     cat:'Retail', cats:["Retail","Skyscrapers","Cultural"], cc:'c-ret', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'seoul',
@@ -342,7 +342,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'pino-familia',
+    id:'sel-0015',
     name:'Pino Familia',
     cat:'Cultural', cats:["Cultural","Parks"], cc:'c-cul', styleGroup:'Expressive', styleGroups:["Expressive","Traditional Korean"],
     era:'2000–Present', city:'seoul',
@@ -366,7 +366,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'dance-of-light',
+    id:'sel-0016',
     name:'Dance of Light Installation',
     cat:'Cultural', cats:["Cultural","Skyscrapers","Parks"], cc:'c-cul', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'seoul',
@@ -390,7 +390,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'juunj-flagship',
+    id:'sel-0017',
     name:'Juun.J Flagship Store',
     cat:'Retail', cats:["Retail","Parks"], cc:'c-ret', styleGroup:'Contemporary', styleGroups:["Contemporary","Traditional Korean"],
     era:'2000–Present', city:'seoul',
@@ -414,7 +414,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'dr-jart-flagship',
+    id:'sel-0018',
     name:'Dr. Jart+ Filter Space',
     cat:'Retail', cats:["Retail"], cc:'c-ret', styleGroup:'Contemporary', styleGroups:["Contemporary","Traditional Korean"],
     era:'2000–Present', city:'seoul',
@@ -438,7 +438,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'hicc-hq',
+    id:'sel-0019',
     name:'HiCC Entertainment HQ',
     cat:'Landmarks', cats:["Landmarks","Commercial"], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'seoul',
@@ -462,7 +462,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'kolon-one-only-tower',
+    id:'sel-0020',
     name:'Kolon One & Only Tower',
     cat:'Skyscrapers', cats:["Skyscrapers","Parks","Retail","Commercial"], cc:'c-sky', styleGroup:'High-Tech', styleGroups:["High-Tech","Parametric Design"],
     era:'2000–Present', city:'seoul',
@@ -486,7 +486,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'wap-art-space',
+    id:'sel-0021',
     name:'WAP Art Space',
     cat:'Cultural', cats:["Cultural","Retail"], cc:'c-cul', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'seoul',
@@ -510,7 +510,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'mc-building',
+    id:'sel-0022',
     name:'M.C. Building',
     cat:'Landmarks', cats:["Landmarks","Commercial"], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'seoul',
@@ -534,7 +534,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'samsung-seocho',
+    id:'sel-0023',
     name:'Samsung Seocho Building',
     cat:'Skyscrapers', cats:["Skyscrapers","Residential","Commercial"], cc:'c-sky', styleGroup:'Contemporary', styleGroups:["Contemporary","Landscape","Traditional Korean"],
     era:'2000–Present', city:'seoul',
@@ -558,7 +558,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'seoul-coffee',
+    id:'sel-0024',
     name:'Seoul Coffee',
     cat:'Retail', cats:["Retail"], cc:'c-ret', styleGroup:'Contemporary', styleGroups:["Contemporary","Adaptive Reuse"],
     era:'2000–Present', city:'seoul',
@@ -582,7 +582,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'yuhan-technos-hq',
+    id:'sel-0025',
     name:'Yuhan Technos HQ',
     cat:'Landmarks', cats:["Landmarks","Commercial"], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:["Contemporary","Landscape"],
     era:'2000–Present', city:'seoul',
@@ -606,7 +606,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'925-building',
+    id:'sel-0026',
     name:'925 Building',
     cat:'Landmarks', cats:["Landmarks","Residential","Commercial"], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'seoul',
@@ -630,7 +630,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'atelier-chaeyeon',
+    id:'sel-0027',
     name:'Atelier Chaeyeon',
     cat:'Cultural', cats:["Cultural","Retail"], cc:'c-cul', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'seoul',
@@ -654,7 +654,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'micro-cosmos-soyul',
+    id:'sel-0028',
     name:'Micro-Cosmos Soyul',
     cat:'Cultural', cats:["Cultural","Academic / Institution","Residential","Retail"], cc:'c-cul', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'seoul',
@@ -678,7 +678,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'seoullo-7017',
+    id:'sel-0029',
     name:'SEOULLO 7017 Skygarden',
     cat:'Infrastructure', cats:["Infrastructure","Parks"], cc:'c-inf', styleGroup:'Contemporary', styleGroups:["Contemporary","Adaptive Reuse","Landscape"],
     era:'2000–Present', city:'seoul',
@@ -702,7 +702,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'xyz-formula',
+    id:'sel-0030',
     name:'XYZ Formula',
     cat:'Retail', cats:["Retail","Parks","Commercial"], cc:'c-ret', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'seoul',
@@ -726,7 +726,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'leeum-museum',
+    id:'sel-0031',
     name:'Leeum Samsung Museum of Art',
     cat:'Cultural', cats:["Cultural"], cc:'c-cul', styleGroup:'Contemporary', styleGroups:["Contemporary","Traditional Korean"],
     era:'2000–Present', city:'seoul',
@@ -750,7 +750,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'ssamziegil',
+    id:'sel-0032',
     name:'Ssamziegil',
     cat:'Retail', cats:["Retail","Commercial"], cc:'c-ret', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'seoul',
@@ -774,7 +774,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'jongno-tower',
+    id:'sel-0033',
     name:'Jongno Tower',
     cat:'Skyscrapers', cats:["Skyscrapers","Retail","Commercial"], cc:'c-sky', styleGroup:'High-Tech', styleGroups:["High-Tech","Modernist"],
     era:'1970–1999', city:'seoul',
@@ -798,7 +798,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'kukje-gallery-k3',
+    id:'sel-0034',
     name:'Kukje Gallery K3',
     cat:'Cultural', cats:["Cultural","Retail"], cc:'c-cul', styleGroup:'Contemporary', styleGroups:["Contemporary","Traditional Korean"],
     era:'2000–Present', city:'seoul',
@@ -822,7 +822,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'chungha-building',
+    id:'sel-0035',
     name:'Chungha Building',
     cat:'Landmarks', cats:["Landmarks","Retail","Commercial"], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'seoul',
@@ -846,7 +846,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'boutique-monaco',
+    id:'sel-0036',
     name:'Boutique Monaco',
     cat:'Residential', cats:["Residential","Skyscrapers","Parks","Retail"], cc:'c-res', styleGroup:'Contemporary', styleGroups:["Contemporary","Traditional Korean"],
     era:'2000–Present', city:'seoul',
@@ -870,7 +870,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'63-building',
+    id:'sel-0037',
     name:'63 Building',
     cat:'Skyscrapers', cats:["Skyscrapers","Residential"], cc:'c-sky', styleGroup:'Modernist', styleGroups:["Modernist"],
     era:'1970–1999', city:'seoul',
@@ -894,7 +894,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'s-trenue-tower',
+    id:'sel-0038',
     name:'S-Trenue Tower',
     cat:'Skyscrapers', cats:["Skyscrapers","Retail","Commercial"], cc:'c-sky', styleGroup:'Contemporary', styleGroups:["Contemporary","Traditional Korean"],
     era:'2000–Present', city:'seoul',
@@ -918,7 +918,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'seongdong-cultural-center',
+    id:'sel-0039',
     name:'Seongdong Cultural & Welfare Center',
     cat:'Cultural', cats:["Cultural","Retail","Commercial"], cc:'c-cul', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'seoul',
@@ -942,7 +942,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'amorepacific-hq',
+    id:'sel-0040',
     name:'Amorepacific Headquarters',
     cat:'Skyscrapers', cats:["Skyscrapers","Parks","Cultural","Retail","Commercial"], cc:'c-sky', styleGroup:'Contemporary', styleGroups:["Contemporary","Landscape"],
     era:'2000–Present', city:'seoul',
@@ -966,7 +966,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'gyeongbokgung-palace',
+    id:'sel-0041',
     name:'Gyeongbokgung Palace',
     cat:'Historic', cats:["Historic","Parks"], cc:'c-his', styleGroup:'Traditional Korean', styleGroups:["Traditional Korean","Landscape"],
     era:'Pre-1900', city:'seoul',
@@ -990,7 +990,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'changdeokgung-palace',
+    id:'sel-0042',
     name:'Changdeokgung Palace',
     cat:'Historic', cats:["Historic","Parks"], cc:'c-his', styleGroup:'Traditional Korean', styleGroups:["Traditional Korean","Landscape"],
     era:'Pre-1900', city:'seoul',
@@ -1014,7 +1014,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'jongmyo-shrine',
+    id:'sel-0043',
     name:'Jongmyo Shrine',
     cat:'Historic', cats:["Historic","Religious"], cc:'c-his', styleGroup:'Traditional Korean', styleGroups:["Traditional Korean"],
     era:'Pre-1900', city:'seoul',
@@ -1038,7 +1038,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'bukchon-hanok-village',
+    id:'sel-0044',
     name:'Bukchon Hanok Village',
     cat:'Historic', cats:["Historic","Residential","Retail"], cc:'c-his', styleGroup:'Traditional Korean', styleGroups:["Traditional Korean"],
     era:'Pre-1930', city:'seoul',
@@ -1062,7 +1062,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'jogyesa-temple',
+    id:'sel-0045',
     name:'Jogyesa Temple',
     cat:'Religious', cats:["Religious"], cc:'c-rel', styleGroup:'Traditional Korean', styleGroups:["Traditional Korean"],
     era:'1930–1969', city:'seoul',
@@ -1086,7 +1086,7 @@ const LOCS_SEOUL = [
     drawings:[]
   },
   {
-    id:'n-seoul-tower',
+    id:'sel-0046',
     name:'N Seoul Tower',
     cat:'Landmarks', cats:["Landmarks","Skyscrapers","Infrastructure"], cc:'c-lmk', styleGroup:'Modernist', styleGroups:["Modernist"],
     era:'1970–1999', city:'seoul',
@@ -1094,43 +1094,4 @@ const LOCS_SEOUL = [
     yr:1975, access:'Paid Admission (Observatory)', style:'Modernist',
     lat:37.5512, lng:126.9882,
     addr:'105 Namsangongwon-gil, Yongsan-gu, Seoul', hood:'Namsan Mountain',
-    desc:'N Seoul Tower (officially YTN Seoul Tower, known popularly as Namsan Tower) is a 236-metre communication and observation tower built on the summit of Namsan Mountain, a forested hill at the geographic centre of Seoul. Construction began in 1969 for broadcasting purposes and the tower opened to the public in 1975, becoming the first general-use observation tower in Korea. The tower rises from the mountain summit at 243 metres above sea level, giving its observation decks — at 236 metres — a total height of 479 metres above sea level, with views extending on clear days to the Han River estuary and the surrounding mountain ranges. The architecture of the tower itself is a functional exercise in Modernist infrastructure design, but its setting on Namsan — accessible via cable car, forest hiking trails, and a switchback road — makes the approach experience as remarkable as the destination. The tradition of “love locks” attached to the observation fences has become one of Seoul’s most recognisable popular cultural traditions.',
-    hours:'Sun–Thu 10:00 AM – 11:00 PM · Fri–Sat 10:00 AM – Midnight',
-    lastEntry:'30 min before closing',
-    admission:'Observatory: 21,000 KRW (adults)',
-    tourOk:false, tourInfo:'',
-    web:'https://www.nseoultower.com',
-    transit:'Cable car from Myeongdong: 3 min · 3 → Chungmuro (Exit 2, 20-min walk + cable car)',
-    walkFrom:'Myeongdong: 15 min walk + cable car · Namsan Park: 5 min walk from tower',
-    gmaps:'https://maps.google.com/?q=N+Seoul+Tower+Namsan',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/N_Seoul_Tower',
-    tags:["Namsan","Observation Tower","Broadcasting","City View","Cable Car","Love Locks"],
-    photos:["https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/N_Seoul_Tower_2.jpg/800px-N_Seoul_Tower_2.jpg"],
-    drawings:[]
-  },
-  {
-    id:'national-museum-korea',
-    name:'National Museum of Korea',
-    cat:'Cultural', cats:["Cultural","Skyscrapers","Parks"], cc:'c-cul', styleGroup:'Contemporary', styleGroups:["Contemporary","Landscape","Traditional Korean"],
-    era:'2000–Present', city:'seoul',
-    arch:'Samoo Architects + Junglim Architecture', archs:["Samoo Architects","Junglim Architecture"],
-    yr:2005, access:'Free Admission', style:'Contemporary',
-    lat:37.523899, lng:126.9801897,
-    addr:'137 Seobinggo-ro, Yongsan-gu, Seoul', hood:'Yongsan / Ichon-dong',
-    desc:'The National Museum of Korea in Yongsan-gu, designed by Samoo Architects and Junglim Architecture and opened in 2005, is the largest museum in South Korea and one of the largest in Asia, with a collection of over 400,000 artefacts spanning Korean history from the Paleolithic period to the 19th century. The building occupies an 18-hectare site adjacent to Yongsan Family Park (the former US military recreational grounds), and its massing — a long, low horizontal block punctuated by three vertical stone towers — is designed to read as a modern interpretation of the traditional Korean palace typology. The main axis of the building extends 404 metres from the entrance gate to the rear garden, with the great hall at its centre opening to views of the park and Namsan beyond. Unlike many national museum buildings that use architecture to signal cultural prestige through grandeur, the NMK’s designers chose a quieter, more contemplative tone — using natural stone, open courtyards, and restrained interior volumes to focus attention on the artefacts themselves.',
-    hours:'Mon–Thu–Fri–Sun 10:00 AM – 6:00 PM · Wed–Sat 10:00 AM – 9:00 PM',
-    lastEntry:'1 hr before closing',
-    admission:'Permanent collection free · Special exhibitions ticketed',
-    tourOk:true, tourInfo:'Free guided tours of the permanent collection in Korean, English, Chinese, and Japanese. English tours: Tue–Fri 10:30 AM and 2:30 PM.',
-    web:'https://www.museum.go.kr/site/eng/home',
-    transit:'4 → Ichon (Exit 2, 3-min walk)',
-    walkFrom:'Yongsan Family Park: adjacent · Amorepacific HQ: 12 min',
-    gmaps:'https://maps.google.com/?q=National+Museum+of+Korea+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/National_Museum_of_Korea',
-    tags:["Museum","Free","Yongsan","National Museum","History","Korean Heritage","Permanent Collection"],
-    photos:["https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/National_Museum_of_Korea_at_night.jpg/800px-National_Museum_of_Korea_at_night.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/National_Museum_of_Korea_2.jpg/800px-National_Museum_of_Korea_2.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/National_Museum_of_Korea_-_panoramio.jpg/800px-National_Museum_of_Korea_-_panoramio.jpg"],
-    drawings:[]
-  }
-];
+    desc:'N Seoul Tower (officially YTN Seoul Tower, known popularly as Namsan Tower) is a 236-metre communication and observation tower built on the summit of Namsan Mountain, a forested hill at the geographic centre of Seoul. Construction began in 1969 for broadcasting purposes and the tower opened to the public in 1975, becoming the first general-use observation tower in Korea. The tower rises from the mountain summit at 243 metres above sea level, giving its obse

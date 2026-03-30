@@ -11,7 +11,7 @@ const LOCS_TOKYO = [
   // ── KENZO TANGE ───────────────────────────────────────────────
 
   {
-    id:'yoyogi-national-gymnasium',
+    id:'tok-0001',
     name:'Yoyogi National Gymnasium',
     cat:'Cultural', cc:'c-cul', styleGroup:'Modernist',
     cats:['Cultural'],
@@ -40,7 +40,7 @@ const LOCS_TOKYO = [
   },
 
   {
-    id:'tokyo-metropolitan-government',
+    id:'tok-0002',
     name:'Tokyo Metropolitan Government Building',
     cat:'Landmarks', cc:'c-lmk', styleGroup:'Contemporary',
     cats:['Landmarks'],
@@ -69,7 +69,7 @@ const LOCS_TOKYO = [
   },
 
   {
-    id:'st-marys-cathedral-tokyo',
+    id:'tok-0003',
     name:'St. Mary\'s Cathedral Tokyo',
     cat:'Religious', cc:'c-rel', styleGroup:'Modernist',
     cats:['Religious'],
@@ -100,7 +100,7 @@ const LOCS_TOKYO = [
   // ── TOYO ITO ──────────────────────────────────────────────────
 
   {
-    id:'tods-omotesando',
+    id:'tok-0004',
     name:'Tod\'s Omotesando Building',
     cat:'Landmarks', cc:'c-lmk', styleGroup:'Contemporary',
     cats:['Landmarks','Retail'],
@@ -129,7 +129,7 @@ const LOCS_TOKYO = [
   },
 
   {
-    id:'mikimoto-ginza-2',
+    id:'tok-0005',
     name:'Mikimoto Ginza 2',
     cat:'Landmarks', cc:'c-lmk', styleGroup:'Contemporary',
     cats:['Landmarks'],
@@ -159,7 +159,7 @@ const LOCS_TOKYO = [
   // ── SANAA ─────────────────────────────────────────────────────
 
   {
-    id:'dior-omotesando',
+    id:'tok-0006',
     name:'Dior Omotesando',
     cat:'Landmarks', cc:'c-lmk', styleGroup:'Contemporary',
     cats:['Landmarks','Residential'],
@@ -190,7 +190,7 @@ const LOCS_TOKYO = [
   // ── SHIGERU BAN ───────────────────────────────────────────────
 
   {
-    id:'curtain-wall-house-tokyo',
+    id:'tok-0007',
     name:'Curtain Wall House',
     cat:'Residential', cc:'c-res', styleGroup:'Contemporary',
     cats:['Residential','Retail'],
@@ -218,7 +218,7 @@ const LOCS_TOKYO = [
   },
 
   {
-    id:'nicolas-hayek-center',
+    id:'tok-0008',
     name:'Nicolas G. Hayek Center',
     cat:'Landmarks', cc:'c-lmk', styleGroup:'Contemporary',
     cats:['Landmarks','Cultural'],
@@ -248,7 +248,7 @@ const LOCS_TOKYO = [
   // ── KENGO KUMA ────────────────────────────────────────────────
 
   {
-    id:'nezu-museum',
+    id:'tok-0009',
     name:'Nezu Museum',
     cat:'Cultural', cc:'c-cul', styleGroup:'Contemporary',
     cats:['Cultural'],
@@ -277,7 +277,7 @@ const LOCS_TOKYO = [
   },
 
   {
-    id:'asakusa-culture-tourist-info',
+    id:'tok-0010',
     name:'Asakusa Culture Tourist Information Center',
     cat:'Cultural', cc:'c-cul', styleGroup:'Contemporary',
     cats:['Cultural'],
@@ -306,7 +306,7 @@ const LOCS_TOKYO = [
   },
 
   {
-    id:'japan-national-stadium',
+    id:'tok-0011',
     name:'Japan National Stadium (Olympic Stadium)',
     cat:'Cultural', cc:'c-cul', styleGroup:'Contemporary',
     cats:['Cultural','Residential'],
@@ -337,7 +337,7 @@ const LOCS_TOKYO = [
   // ── SOU FUJIMOTO ──────────────────────────────────────────────
 
   {
-    id:'house-na-tokyo',
+    id:'tok-0012',
     name:'House NA',
     cat:'Residential', cc:'c-res', styleGroup:'Contemporary',
     cats:['Residential','Cultural'],
@@ -365,7 +365,7 @@ const LOCS_TOKYO = [
   },
 
   {
-    id:'musashino-art-university-library',
+    id:'tok-0013',
     name:'Musashino Art University Museum & Library',
     cat:'Cultural', cc:'c-cul', styleGroup:'Contemporary',
     cats:['Cultural'],
@@ -396,7 +396,7 @@ const LOCS_TOKYO = [
   // ── FUMIHIKO MAKI ─────────────────────────────────────────────
 
   {
-    id:'spiral-building-tokyo',
+    id:'tok-0014',
     name:'Spiral (Wacoal Art Center)',
     cat:'Cultural', cc:'c-cul', styleGroup:'Contemporary',
     cats:['Cultural'],
@@ -424,7 +424,7 @@ const LOCS_TOKYO = [
   },
 
   {
-    id:'hillside-terrace-tokyo',
+    id:'tok-0015',
     name:'Hillside Terrace',
     cat:'Landmarks', cc:'c-lmk', styleGroup:'Contemporary',
     cats:['Landmarks','Cultural'],
@@ -454,7 +454,7 @@ const LOCS_TOKYO = [
   // ── YOSHIO TANIGUCHI ──────────────────────────────────────────
 
   {
-    id:'horyuji-treasures-gallery',
+    id:'tok-0016',
     name:'Gallery of Hōryū-ji Treasures',
     cat:'Cultural', cc:'c-cul', styleGroup:'Contemporary',
     cats:['Cultural'],
@@ -485,7 +485,7 @@ const LOCS_TOKYO = [
   // ── TADAO ANDO — TOKYO ────────────────────────────────────────
 
   {
-    id:'omotesando-hills',
+    id:'tok-0017',
     name:'Omotesando Hills',
     cat:'Landmarks', cc:'c-lmk', styleGroup:'Contemporary',
     cats:['Landmarks','Cultural'],
@@ -514,7 +514,7 @@ const LOCS_TOKYO = [
   },
 
   {
-    id:'21-21-design-sight',
+    id:'tok-0018',
     name:'21_21 Design Sight',
     cat:'Cultural', cc:'c-cul', styleGroup:'Contemporary',
     cats:['Cultural','Residential'],
@@ -543,7 +543,7 @@ const LOCS_TOKYO = [
   },
 
   {
-    id:'collezione-tokyo',
+    id:'tok-0019',
     name:'Collezione',
     cat:'Landmarks', cc:'c-lmk', styleGroup:'Contemporary',
     cats:['Landmarks','Skyscrapers'],
@@ -573,7 +573,7 @@ const LOCS_TOKYO = [
   // ── KISHO KUROKAWA ─────────────────────────────────────────────
 
   {
-    id:'nakagin-capsule-tower',
+    id:'tok-0020',
     name:'Nakagin Capsule Tower',
     cat:'Historic', cc:'c-his', styleGroup:'Modernist',
     cats:['Historic'],
@@ -601,7 +601,7 @@ const LOCS_TOKYO = [
   },
 
   {
-    id:'national-art-center-tokyo',
+    id:'tok-0021',
     name:'National Art Center Tokyo',
     cat:'Cultural', cc:'c-cul', styleGroup:'Contemporary',
     cats:['Cultural'],
@@ -631,7 +631,7 @@ const LOCS_TOKYO = [
   // ── KUNIO MAEKAWA ───────────────────────────────────────────────
 
   {
-    id:'tokyo-bunka-kaikan',
+    id:'tok-0022',
     name:'Tokyo Bunka Kaikan',
     cat:'Cultural', cc:'c-cul', styleGroup:'Modernist',
     cats:['Cultural','Residential'],
@@ -661,7 +661,7 @@ const LOCS_TOKYO = [
   // ── JUNZO SAKAKURA ──────────────────────────────────────────────
 
   {
-    id:'harumi-apartments',
+    id:'tok-0023',
     name:'Harumi Apartment Complex',
     cat:'Historic', cc:'c-his', styleGroup:'Modernist',
     cats:['Historic','Residential'],
@@ -691,7 +691,7 @@ const LOCS_TOKYO = [
   // ── JUNZO YOSHIMURA ─────────────────────────────────────────────
 
   {
-    id:'international-house-of-japan',
+    id:'tok-0024',
     name:'International House of Japan',
     cat:'Cultural', cc:'c-cul', styleGroup:'Modernist',
     cats:['Cultural'],
@@ -721,7 +721,7 @@ const LOCS_TOKYO = [
   // ── ARAKAWA + MADELINE GINS ─────────────────────────────────────
 
   {
-    id:'reversible-destiny-lofts-mitaka',
+    id:'tok-0025',
     name:'Reversible Destiny Lofts Mitaka',
     cat:'Residential', cc:'c-res', styleGroup:'Contemporary',
     cats:['Residential','Skyscrapers','Retail'],
@@ -751,7 +751,7 @@ const LOCS_TOKYO = [
   // ── WONDERWALL (MASAMICHI KATAYAMA) ─────────────────────────────
 
   {
-    id:'uniqlo-ginza-flagship',
+    id:'tok-0026',
     name:'Uniqlo Ginza Flagship',
     cat:'Retail', cc:'c-ret', styleGroup:'Contemporary',
     cats:['Retail'],
@@ -779,7 +779,7 @@ const LOCS_TOKYO = [
   // ── KLEIN DYTHAM ARCHITECTURE ───────────────────────────────────
 
   {
-    id:'daikanyama-t-site',
+    id:'tok-0027',
     name:'Daikanyama T-Site',
     cat:'Cultural', cc:'c-cul', styleGroup:'Contemporary',
     cats:['Cultural','Skyscrapers'],
@@ -809,7 +809,7 @@ const LOCS_TOKYO = [
   // ── ATELIER BOW-WOW ─────────────────────────────────────────────
 
   {
-    id:'atelier-bow-wow-tower-machiya',
+    id:'tok-0028',
     name:'Tower Machiya',
     cat:'Residential', cc:'c-res', styleGroup:'Contemporary',
     cats:['Residential','Retail'],
@@ -837,7 +837,7 @@ const LOCS_TOKYO = [
   // ── JUNYA ISHIGAMI ──────────────────────────────────────────────
 
   {
-    id:'kait-workshop',
+    id:'tok-0029',
     name:'KAIT Workshop',
     cat:'Academic / Institution', cc:'c-edu', styleGroup:'Contemporary',
     cats:['Academic / Institution'],
@@ -867,7 +867,7 @@ const LOCS_TOKYO = [
   // ── HIROSHI NAKAMURA & NAP ──────────────────────────────────────
 
   {
-    id:'nakamura-nap-dance-trees',
+    id:'tok-0030',
     name:'Dancing Trees, Singing Birds',
     cat:'Cultural', cc:'c-cul', styleGroup:'Contemporary',
     cats:['Cultural','Residential'],
@@ -897,7 +897,7 @@ const LOCS_TOKYO = [
   // ── YOSHIHIRO SATO ──────────────────────────────────────────────
 
   {
-    id:'yoshihiro-sato-sakuradai-court',
+    id:'tok-0031',
     name:'Sakuradai Court Village',
     cat:'Residential', cc:'c-res', styleGroup:'Contemporary',
     cats:['Residential','Cultural'],
@@ -925,7 +925,7 @@ const LOCS_TOKYO = [
   // ── TAKASHI YAMAGUCHI ───────────────────────────────────────────
 
   {
-    id:'takashi-yamaguchi-gallery',
+    id:'tok-0032',
     name:'Mujin-to Production Gallery',
     cat:'Cultural', cc:'c-cul', styleGroup:'Contemporary',
     cats:['Cultural','Residential'],
@@ -953,7 +953,7 @@ const LOCS_TOKYO = [
   // ── YUICHIRO HIGUCHI ────────────────────────────────────────────
 
   {
-    id:'yuichiro-higuchi-residence',
+    id:'tok-0033',
     name:'House in Komazawa',
     cat:'Residential', cc:'c-res', styleGroup:'Contemporary',
     cats:['Residential'],
@@ -981,7 +981,7 @@ const LOCS_TOKYO = [
   // ── NIKKEN SEKKEI ──────────────────────────────────────────────
 
   {
-    id:'tokyu-plaza-ginza',
+    id:'tok-0034',
     name:'Tokyu Plaza Ginza',
     cat:'Retail', cats:['Retail','Landmarks','Commercial'], cc:'c-ret', styleGroup:'Contemporary', styleGroups:['Contemporary'],
     era:'2000–Present', city:'tokyo',
@@ -1007,7 +1007,7 @@ const LOCS_TOKYO = [
   },
 
   {
-    id:'yamaha-ginza',
+    id:'tok-0035',
     name:'Yamaha Ginza Building',
     cat:'Retail', cats:['Retail','Cultural','Commercial'], cc:'c-ret', styleGroup:'Contemporary', styleGroups:['Contemporary'],
     era:'2000–Present', city:'tokyo',
@@ -1035,7 +1035,7 @@ const LOCS_TOKYO = [
   // ── JUN AOKI & ASSOCIATES ─────────────────────────────────────
 
   {
-    id:'lv-matsuya-ginza',
+    id:'tok-0036',
     name:'Louis Vuitton Matsuya Ginza',
     cat:'Retail', cats:['Retail','Landmarks'], cc:'c-ret', styleGroup:'Contemporary', styleGroups:['Contemporary'],
     era:'2000–Present', city:'tokyo',
@@ -1061,7 +1061,7 @@ const LOCS_TOKYO = [
   },
 
   {
-    id:'lv-ginza-flagship',
+    id:'tok-0037',
     name:'Louis Vuitton Ginza Namiki',
     cat:'Retail', cats:['Retail','Landmarks'], cc:'c-ret', styleGroup:'Contemporary', styleGroups:['Contemporary'],
     era:'2000–Present', city:'tokyo',
@@ -1089,7 +1089,7 @@ const LOCS_TOKYO = [
   // ── JUN MITSUI & ASSOCIATES ───────────────────────────────────
 
   {
-    id:'de-beers-ginza',
+    id:'tok-0038',
     name:'De Beers Ginza Building',
     cat:'Retail', cats:['Retail','Landmarks'], cc:'c-ret', styleGroup:'Contemporary', styleGroups:['Contemporary'],
     era:'2000–Present', city:'tokyo',
@@ -1117,7 +1117,7 @@ const LOCS_TOKYO = [
   // ── KENZO TANGE / METABOLIST ──────────────────────────────────
 
   {
-    id:'shizuoka-press-building',
+    id:'tok-0039',
     name:'Shizuoka Press and Broadcasting Center',
     cat:'Historic', cats:['Historic','Landmarks','Commercial'], cc:'c-his', styleGroup:'Modernist', styleGroups:['Modernist'],
     era:'1930–1969', city:'tokyo',
@@ -1145,7 +1145,7 @@ const LOCS_TOKYO = [
   // ── RAFAEL VIÑOLY ─────────────────────────────────────────────
 
   {
-    id:'tokyo-international-forum',
+    id:'tok-0040',
     name:'Tokyo International Forum',
     cat:'Cultural', cats:['Cultural','Public','Landmarks'], cc:'c-cul', styleGroup:'Contemporary', styleGroups:['Contemporary'],
     era:'1970–1999', city:'tokyo',
@@ -1174,7 +1174,7 @@ const LOCS_TOKYO = [
   // ── HERZOG & DE MEURON ────────────────────────────────────────
 
   {
-    id:'miu-miu-aoyama',
+    id:'tok-0041',
     name:'Miu Miu Aoyama',
     cat:'Retail', cats:['Retail','Landmarks'], cc:'c-ret', styleGroup:'Contemporary', styleGroups:['Contemporary'],
     era:'2000–Present', city:'tokyo',
@@ -1202,7 +1202,7 @@ const LOCS_TOKYO = [
   // ── NORIHIKO DAN AND ASSOCIATES ───────────────────────────────
 
   {
-    id:'keyaki-building-omotesando',
+    id:'tok-0042',
     name:'Keyaki Building',
     cat:'Retail', cats:['Retail','Landmarks'], cc:'c-ret', styleGroup:'Contemporary', styleGroups:['Contemporary'],
     era:'2000–Present', city:'tokyo',
@@ -1230,7 +1230,7 @@ const LOCS_TOKYO = [
   // ── OMA ───────────────────────────────────────────────────────
 
   {
-    id:'coach-omotesando',
+    id:'tok-0043',
     name:'Coach Omotesando Flagship',
     cat:'Retail', cats:['Retail','Landmarks'], cc:'c-ret', styleGroup:'Contemporary', styleGroups:['Contemporary'],
     era:'2000–Present', city:'tokyo',
@@ -1258,7 +1258,7 @@ const LOCS_TOKYO = [
   // ── HEATHERWICK STUDIO ────────────────────────────────────────
 
   {
-    id:'azabudai-hills',
+    id:'tok-0044',
     name:'Azabudai Hills',
     cat:'Landmarks', cats:['Landmarks','Commercial','Cultural','Public'], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:['Contemporary','Landscape'],
     era:'2000–Present', city:'tokyo',

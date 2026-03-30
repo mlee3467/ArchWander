@@ -9,7 +9,7 @@ const LOCS_LONDON = [
   // ── FOSTER + PARTNERS ──────────────────────────────────────
 
   {
-    id:'gherkin',
+    id:'lon-0001',
     name:'30 St Mary Axe (Gherkin)',
     cat:'Skyscrapers', cats:["Skyscrapers","Landmarks","Commercial"], cc:'c-sky', styleGroup:'High-Tech', styleGroups:["High-Tech","Contemporary"],
     era:'2000–Present', city:'london',
@@ -39,7 +39,7 @@ const LOCS_LONDON = [
   },
 
   {
-    id:'bloomberg-hq-london',
+    id:'lon-0002',
     name:'Bloomberg European HQ',
     cat:'Landmarks', cats:["Landmarks","Commercial"], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:["Contemporary","High-Tech"],
     era:'2000–Present', city:'london',
@@ -69,7 +69,7 @@ const LOCS_LONDON = [
   },
 
   {
-    id:'great-court-british-museum',
+    id:'lon-0003',
     name:'Great Court, British Museum',
     cat:'Cultural', cats:["Cultural","Landmarks","Public"], cc:'c-cul', styleGroup:'Contemporary', styleGroups:["Contemporary","High-Tech"],
     era:'2000–Present', city:'london',
@@ -99,7 +99,7 @@ const LOCS_LONDON = [
   },
 
   {
-    id:'canary-wharf-station',
+    id:'lon-0004',
     name:'Canary Wharf Underground Station',
     cat:'Infrastructure', cats:["Infrastructure","Commercial"], cc:'c-inf', styleGroup:'High-Tech', styleGroups:["High-Tech","Contemporary"],
     era:'1970–1999', city:'london',
@@ -129,7 +129,7 @@ const LOCS_LONDON = [
   },
 
   {
-    id:'city-hall-london',
+    id:'lon-0005',
     name:'City Hall (GLA Building)',
     cat:'Public', cats:["Public","Landmarks","Commercial"], cc:'c-pub', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'london',
@@ -159,7 +159,7 @@ const LOCS_LONDON = [
   },
 
   {
-    id:'millennium-bridge-london',
+    id:'lon-0006',
     name:'Millennium Bridge',
     cat:'Infrastructure', cats:["Infrastructure","Landmarks","Public"], cc:'c-inf', styleGroup:'Contemporary', styleGroups:["Contemporary","High-Tech"],
     era:'2000–Present', city:'london',
@@ -189,7 +189,7 @@ const LOCS_LONDON = [
   },
 
   {
-    id:'hsbc-8-canada-square',
+    id:'lon-0007',
     name:'HSBC UK HQ (8 Canada Square)',
     cat:'Skyscrapers', cats:["Skyscrapers","Commercial","Landmarks"], cc:'c-sky', styleGroup:'High-Tech', styleGroups:["High-Tech","Contemporary"],
     era:'2000–Present', city:'london',
@@ -216,7 +216,7 @@ const LOCS_LONDON = [
   },
 
   {
-    id:'wembley-stadium',
+    id:'lon-0008',
     name:'Wembley Stadium',
     cat:'Public', cats:["Public","Landmarks"], cc:'c-pub', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'london',
@@ -248,7 +248,7 @@ const LOCS_LONDON = [
   // ── RICHARD ROGERS / ROGERS STIRK HARBOUR + PARTNERS ───────
 
   {
-    id:'lloyds-of-london',
+    id:'lon-0009',
     name:"Lloyd's of London",
     cat:'Historic', cats:["Historic","Commercial","Landmarks"], cc:'c-his', styleGroup:'High-Tech', styleGroups:["High-Tech"],
     era:'1970–1999', city:'london',
@@ -278,7 +278,7 @@ const LOCS_LONDON = [
   },
 
   {
-    id:'leadenhall-building',
+    id:'lon-0010',
     name:'Leadenhall Building (Cheesegrater)',
     cat:'Skyscrapers', cats:["Skyscrapers","Commercial","Landmarks"], cc:'c-sky', styleGroup:'High-Tech', styleGroups:["High-Tech"],
     era:'2000–Present', city:'london',
@@ -308,7 +308,7 @@ const LOCS_LONDON = [
   },
 
   {
-    id:'o2-arena',
+    id:'lon-0011',
     name:'The O2 Arena (Millennium Dome)',
     cat:'Public', cats:["Public","Landmarks"], cc:'c-pub', styleGroup:'High-Tech', styleGroups:["High-Tech","Contemporary"],
     era:'2000–Present', city:'london',
@@ -338,7 +338,7 @@ const LOCS_LONDON = [
   },
 
   {
-    id:'heathrow-terminal-5',
+    id:'lon-0012',
     name:'Heathrow Terminal 5',
     cat:'Infrastructure', cats:["Infrastructure","Commercial"], cc:'c-inf', styleGroup:'Contemporary', styleGroups:["Contemporary","High-Tech"],
     era:'2000–Present', city:'london',
@@ -365,7 +365,7 @@ const LOCS_LONDON = [
   },
 
   {
-    id:'one-hyde-park',
+    id:'lon-0013',
     name:'One Hyde Park',
     cat:'Residential', cats:["Residential","Landmarks"], cc:'c-res', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'london',
@@ -395,7 +395,7 @@ const LOCS_LONDON = [
   },
 
   {
-    id:'88-wood-street',
+    id:'lon-0014',
     name:'88 Wood Street',
     cat:'Landmarks', cats:["Landmarks","Commercial"], cc:'c-lmk', styleGroup:'High-Tech', styleGroups:["High-Tech","Contemporary"],
     era:'2000–Present', city:'london',
@@ -425,7 +425,7 @@ const LOCS_LONDON = [
   },
 
   {
-    id:'neo-bankside',
+    id:'lon-0015',
     name:'Neo Bankside',
     cat:'Residential', cats:["Residential"], cc:'c-res', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'london',
@@ -455,7 +455,7 @@ const LOCS_LONDON = [
   },
 
   {
-    id:'montevetro',
+    id:'lon-0016',
     name:'Montevetro',
     cat:'Residential', cats:["Residential","Landmarks"], cc:'c-res', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'1970–1999', city:'london',
@@ -480,7 +480,7 @@ const LOCS_LONDON = [
   },
 
   {
-    id:'chiswick-business-park',
+    id:'lon-0017',
     name:'Chiswick Business Park',
     cat:'Landmarks', cats:["Commercial","Landmarks"], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'london',
@@ -512,7 +512,7 @@ LOCS_LONDON.push(
   // ── RENZO PIANO — THE SHARD (completed entry) ──────────────
 
   {
-    id:'the-shard',
+    id:'lon-0018',
     name:'The Shard',
     cat:'Skyscrapers', cats:["Skyscrapers","Landmarks","Commercial"], cc:'c-sky', styleGroup:'Contemporary', styleGroups:["Contemporary","High-Tech"],
     era:'2000–Present', city:'london',
@@ -541,7 +541,7 @@ LOCS_LONDON.push(
   // ── THOMAS HEATHERWICK — LONDON ──────────────────────────────
 
   {
-    id:'coal-drops-yard',
+    id:'lon-0019',
     name:'Coal Drops Yard',
     cat:'Landmarks', cats:["Landmarks","Retail"], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:["Contemporary","Adaptive Reuse"],
     era:'2000–Present', city:'london',
@@ -568,7 +568,7 @@ LOCS_LONDON.push(
   },
 
   {
-    id:'rolling-bridge',
+    id:'lon-0020',
     name:'Rolling Bridge',
     cat:'Landmarks', cats:["Landmarks","Public","Infrastructure"], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:["Contemporary","High-Tech"],
     era:'2000–Present', city:'london',
@@ -594,7 +594,7 @@ LOCS_LONDON.push(
   },
 
   {
-    id:'google-hq-kings-cross',
+    id:'lon-0021',
     name:'Google UK HQ (King\'s Cross)',
     cat:'Landmarks', cats:["Commercial","Landmarks"], cc:'c-lmk', styleGroup:'Contemporary', styleGroups:["Contemporary","High-Tech"],
     era:'2000–Present', city:'london',
@@ -622,7 +622,7 @@ LOCS_LONDON.push(
   // ── TADAO ANDO — LONDON ──────────────────────────────────────
 
   {
-    id:'lisson-gallery-london',
+    id:'lon-0022',
     name:'Lisson Gallery Bell Street',
     cat:'Cultural', cats:["Cultural","Commercial"], cc:'c-cul', styleGroup:'Contemporary', styleGroups:["Contemporary"],
     era:'2000–Present', city:'london',
@@ -648,3 +648,4 @@ LOCS_LONDON.push(
   }
 
 );
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
