@@ -1488,8 +1488,14 @@ const LOCS_TOKYO = [
     wiki:'https://en.wikipedia.org/wiki/Azabudai_Hills',
     tags:['Heatherwick Studio','Pelli Clarke','Diller Scofidio Renfro','DS+R','Azabudai','Mixed-Use','Landscape','2023','teamLab','Tallest Japan','Minato-ku'],
     photos:[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Azabudai_Hills_Tokyo_2023.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Azabudai_Hills_aerial.jpg?width=800'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/2024_Azabudai_Hills_Mori_JP_Tower_%282%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Azabudai_Hills_%28Garden_Plaza_B%2C_towers%2C_and_sign%3B_2025-11-06%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Azabudai_Hills_202307.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Azabudai_Hills_Gallery_courtyard_2024.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Azabudai_Hills_Garden_Plaza_A_and_B_20241021.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Azabudai_Hills_Garden_Plaza_A_and_B_20241021_%28II%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Azabudai_Hills_Garden_Plaza_B_B1_2024.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Azabudai_Hills_Market_2024.jpg?width=800'
     ],
     drawings:[]
   }
