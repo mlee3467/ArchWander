@@ -393,7 +393,7 @@ function confirmDeleteLoc(id) {
 function confirmResetStorage() {
   if (!confirm('모든 변경사항을 삭제하고 기본 데이터로 초기화하시겠습니까?')) return;
   localStorage.removeItem('archwander_locs_v2');
-  // Reload from source: clear LOCS, reset loaded state, re-fetch all city data
+  // Re-merge from already-loaded globals (no script reload — const cannot be re-declared)
   LOCS.length = 0;
   Object.keys(CITY_META).forEach(function(code) {
     var meta = CITY_META[code];

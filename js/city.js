@@ -221,12 +221,12 @@ function _loadScript(src, force) {
   });
 }
 
-// Try to read a global variable by name (works for both var and const declarations)
+// Try to read a global variable by name (works for both var and const)
 function _getGlobal(name) {
   try { return (0, eval)(name); } catch(e) { return undefined; }
 }
 
-// Merge a city's location data into LOCS
+// Merge city location data into LOCS
 function _mergeCityLocs(cityCode, meta) {
   var cityLocs = _getGlobal(meta.dataVar);
   if (!cityLocs) { console.warn('[lazy] No data var:', meta.dataVar); return; }
@@ -251,25 +251,23 @@ function _mergeKO(meta) {
   }
 }
 
-// Load city data file on demand -> merge into LOCS
-// Strategy: if global var already exists (script previously loaded), just merge.
-// Otherwise load the script first, then merge. Never force-reload (const cannot be re-declared).
+// Load city data on demand. If global var already exists, merge directly.
+// Never force-reload scripts because const cannot be re-declared.
 function loadCityData(cityCode) {
   if (_loadedCities[cityCode]) return Promise.resolve();
   var meta = CITY_META[cityCode];
   if (!meta) return Promise.reject(new Error('Unknown city: ' + cityCode));
 
-  // If the global variable already exists, merge immediately (no script load needed)
+  // Global var already exists -> merge immediately, no script load
   if (_getGlobal(meta.dataVar)) {
     _mergeCityLocs(cityCode, meta);
     _mergeKO(meta);
     return Promise.resolve();
   }
 
-  // Otherwise, load the script dynamically
+  // Otherwise load script dynamically
   var dataFile = 'data-' + meta.key + '.js';
   var koFile   = 'data-ko-' + meta.key + '.js';
-
   return _loadScript(dataFile).then(function() {
     _mergeCityLocs(cityCode, meta);
     return _loadScript(koFile).then(function() {
@@ -277,6 +275,7 @@ function loadCityData(cityCode) {
     }).catch(function() { /* ko file optional */ });
   });
 }
+
 // Preload remaining cities in background after initial load
 function _preloadOtherCities() {
   Object.keys(CITY_META).forEach(function(code) {
