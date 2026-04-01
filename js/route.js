@@ -12,17 +12,26 @@ var routeData      = null; // { distance, duration, steps: [...] }
 
 // ── Route Panel UI ───────────────────────────────────────────────
 
+function _getRouteLocs() {
+  // When walk filter is active (GPS or pin), only show nearby locations
+  if (walkActive && walkOrigin) return getFiltered();
+  return LOCS.filter(function(l) { return l.city === activeCityKey; });
+}
+
+function refreshRouteList() {
+  if (!routeActive) return;
+  var locs = _getRouteLocs();
+  var hoods = _groupByHood(locs);
+  _renderRouteHoods(hoods, locs);
+}
+
 function openRoutePanel() {
   routeActive = true;
   var panel = document.getElementById('route-panel');
   if (!panel) _createRoutePanel();
   panel = document.getElementById('route-panel');
   panel.classList.add('visible');
-
-  // Build neighborhood groups from current city
-  var cityLocs = LOCS.filter(function(l) { return l.city === activeCityKey; });
-  var hoods = _groupByHood(cityLocs);
-  _renderRouteHoods(hoods);
+  refreshRouteList();
 }
 
 function closeRoutePanel() {
@@ -74,11 +83,21 @@ function _groupByHood(locs) {
   });
 }
 
-function _renderRouteHoods(hoods) {
+function _renderRouteHoods(hoods, locs) {
   var container = document.getElementById('route-hood-list');
   if (!container) return;
 
-  container.innerHTML = '<div class="route-section-label">' +
+  var walkInfo = '';
+  if (walkActive && walkOrigin) {
+    var mins = parseInt(document.getElementById('walk-slider').value, 10);
+    var count = locs ? locs.length : 0;
+    walkInfo = '<div class="route-walk-badge">' +
+      '📍 ' + (LANG === 'ko' ? mins + '분 도보 범위 · ' + count + '개 장소' : mins + ' min walk · ' + count + ' places') +
+      '</div>';
+  }
+
+  container.innerHTML = walkInfo +
+    '<div class="route-section-label">' +
     (LANG === 'ko' ? '동네별 건축물' : 'Architecture by Neighborhood') + '</div>' +
     hoods.map(function(h) {
       var isExpanded = h.locs.length <= 8;
@@ -134,7 +153,7 @@ function toggleRouteLocation(locId) {
 }
 
 function addHoodToRoute(hoodName) {
-  var cityLocs = LOCS.filter(function(l) { return l.city === activeCityKey; });
+  var cityLocs = _getRouteLocs();
   var hoodLocs = cityLocs.filter(function(l) {
     return (l.hood || (LANG === 'ko' ? '기타' : 'Other')) === hoodName;
   });

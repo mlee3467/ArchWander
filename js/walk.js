@@ -147,6 +147,8 @@ function _fullDeactivate() {
   document.getElementById('walk-pin-btn').classList.remove('active', 'locating');
   renderList();
   syncMarkers();
+  // Refresh route planner to show all locations again
+  if (typeof refreshRouteList === 'function') refreshRouteList();
 }
 
 // Alias kept so selectCity() still works unchanged
@@ -255,6 +257,8 @@ function _runWalkFilter() {
   renderList();
   syncMarkers();
   _drawWalkOverlay();
+  // Update route planner if open
+  if (typeof refreshRouteList === 'function') refreshRouteList();
   // Fit map to nearby locations + origin
   const nearby = getFiltered();
   if (nearby.length > 0) {
