@@ -642,4 +642,9 @@ LOCS_LONDON.push(
     wiki:'https://en.wikipedia.org/wiki/Lisson_Gallery',
     tags:['Tadao Ando','Gallery','Concrete','Marylebone','Adaptive Reuse','Contemporary Art'],
     photos:[
-      'https://commons.wikimedia
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Lisson_Gallery_London_Ando.jpg?width=800'
+    ],
+    drawings:[]
+  }
+
+);
