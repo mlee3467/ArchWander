@@ -221,47 +221,62 @@ function _loadScript(src, force) {
   });
 }
 
-// Load city data file on demand → merge into LOCS
+// Try to read a global variable by name (works for both var and const declarations)
+function _getGlobal(name) {
+  try { return (0, eval)(name); } catch(e) { return undefined; }
+}
+
+// Merge a city's location data into LOCS
+function _mergeCityLocs(cityCode, meta) {
+  var cityLocs = _getGlobal(meta.dataVar);
+  if (!cityLocs) { console.warn('[lazy] No data var:', meta.dataVar); return; }
+  var freshLocs = Array.isArray(cityLocs) ? cityLocs : [];
+  var merged = _mergeLocsFromStorage(freshLocs);
+  var cityIds = new Set(freshLocs.map(function(l) { return l.id; }));
+  var cityMerged = merged.filter(function(l) { return cityIds.has(l.id); });
+  var existingIds = new Set(LOCS.map(function(l) { return l.id; }));
+  cityMerged.forEach(function(l) {
+    if (!existingIds.has(l.id)) LOCS.push(l);
+  });
+  _loadedCities[cityCode] = true;
+  console.log('[lazy] Loaded ' + meta.key + ': ' + freshLocs.length + ' locations');
+}
+
+// Merge Korean translations for a city into LOCS_KO
+function _mergeKO(meta) {
+  var koData = _getGlobal(meta.koVar);
+  if (koData && typeof LOCS_KO !== 'undefined') {
+    Object.assign(LOCS_KO, koData);
+    console.log('[lazy] Merged KO translations for ' + meta.key);
+  }
+}
+
+// Load city data file on demand -> merge into LOCS
+// Strategy: if global var already exists (script previously loaded), just merge.
+// Otherwise load the script first, then merge. Never force-reload (const cannot be re-declared).
 function loadCityData(cityCode) {
   if (_loadedCities[cityCode]) return Promise.resolve();
   var meta = CITY_META[cityCode];
   if (!meta) return Promise.reject(new Error('Unknown city: ' + cityCode));
 
+  // If the global variable already exists, merge immediately (no script load needed)
+  if (_getGlobal(meta.dataVar)) {
+    _mergeCityLocs(cityCode, meta);
+    _mergeKO(meta);
+    return Promise.resolve();
+  }
+
+  // Otherwise, load the script dynamically
   var dataFile = 'data-' + meta.key + '.js';
   var koFile   = 'data-ko-' + meta.key + '.js';
-  // Force reload if script was previously loaded but _loadedCities was cleared
-  var needsForce = !!document.querySelector('script[src="' + dataFile + '"]');
 
-  return _loadScript(dataFile, needsForce).then(function() {
-    // The data file defines a global variable (e.g. LOCS_NEW_YORK)
-    var cityLocs = (0, eval)(meta.dataVar);
-    if (!cityLocs) { console.warn('[lazy] No data var:', meta.dataVar); return; }
-    // Handle .push() pattern (London, NY) — data is already in the array
-    var freshLocs = Array.isArray(cityLocs) ? cityLocs : [];
-    // Merge with localStorage edits
-    var merged = _mergeLocsFromStorage(freshLocs);
-    // Filter: only this city's entries from merged data
-    var cityIds = new Set(freshLocs.map(function(l) { return l.id; }));
-    var cityMerged = merged.filter(function(l) { return cityIds.has(l.id); });
-    // Add to LOCS (avoid duplicates)
-    var existingIds = new Set(LOCS.map(function(l) { return l.id; }));
-    cityMerged.forEach(function(l) {
-      if (!existingIds.has(l.id)) LOCS.push(l);
-    });
-    _loadedCities[cityCode] = true;
-    console.log('[lazy] Loaded ' + dataFile + ': ' + freshLocs.length + ' locations');
-    // Also load Korean translation file and merge into LOCS_KO
-    var koForce = !!document.querySelector('script[src="' + koFile + '"]');
-    return _loadScript(koFile, koForce).then(function() {
-      var koData = (0, eval)(meta.koVar);
-      if (koData && typeof LOCS_KO !== 'undefined') {
-        Object.assign(LOCS_KO, koData);
-        console.log('[lazy] Merged KO translations for ' + meta.key);
-      }
+  return _loadScript(dataFile).then(function() {
+    _mergeCityLocs(cityCode, meta);
+    return _loadScript(koFile).then(function() {
+      _mergeKO(meta);
     }).catch(function() { /* ko file optional */ });
   });
 }
-
 // Preload remaining cities in background after initial load
 function _preloadOtherCities() {
   Object.keys(CITY_META).forEach(function(code) {
