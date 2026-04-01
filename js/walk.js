@@ -296,6 +296,7 @@ function _drawWalkOverlay() {
   }).addTo(map);
 
   // Location count badge — centered below the person marker dot
+  const nearby = getFiltered();
   const n    = nearby.length;
   const lbl  = LANG === 'ko' ? `${n}곳` : `${n} spot${n !== 1 ? 's' : ''}`;
   const zero = n === 0;

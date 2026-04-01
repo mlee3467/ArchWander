@@ -395,9 +395,21 @@ function confirmResetStorage() {
   localStorage.removeItem('archwander_locs_v2');
   // Reload from source: clear LOCS, reset loaded state, re-fetch all city data
   LOCS.length = 0;
-  _loadedCities = {};
-  Promise.all(Object.keys(CITY_META).map(function(code) { return loadCityData(code); }))
-    .then(function() { refreshApp(); renderAdminTable(); });
+  Object.keys(CITY_META).forEach(function(code) {
+    var meta = CITY_META[code];
+    try {
+      var cityLocs = (0, eval)(meta.dataVar);
+      if (Array.isArray(cityLocs)) {
+        cityLocs.forEach(function(l) { LOCS.push(l); });
+      }
+    } catch(e) { /* city not yet loaded */ }
+    try {
+      var koData = (0, eval)(meta.koVar);
+      if (koData) Object.assign(LOCS_KO, koData);
+    } catch(e) { /* ko not yet loaded */ }
+  });
+  refreshApp();
+  renderAdminTable();
 }
 
 function exportDataJS() {

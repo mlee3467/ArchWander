@@ -234,7 +234,7 @@ function loadCityData(cityCode) {
 
   return _loadScript(dataFile, needsForce).then(function() {
     // The data file defines a global variable (e.g. LOCS_NEW_YORK)
-    var cityLocs = window[meta.dataVar];
+    var cityLocs = (0, eval)(meta.dataVar);
     if (!cityLocs) { console.warn('[lazy] No data var:', meta.dataVar); return; }
     // Handle .push() pattern (London, NY) — data is already in the array
     var freshLocs = Array.isArray(cityLocs) ? cityLocs : [];
@@ -253,7 +253,7 @@ function loadCityData(cityCode) {
     // Also load Korean translation file and merge into LOCS_KO
     var koForce = !!document.querySelector('script[src="' + koFile + '"]');
     return _loadScript(koFile, koForce).then(function() {
-      var koData = window[meta.koVar];
+      var koData = (0, eval)(meta.koVar);
       if (koData && typeof LOCS_KO !== 'undefined') {
         Object.assign(LOCS_KO, koData);
         console.log('[lazy] Merged KO translations for ' + meta.key);

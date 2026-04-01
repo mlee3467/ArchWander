@@ -64,7 +64,9 @@ function _makeStreetLayer() {
 }
 
 function initMap() {
-  map = L.map('map', { center:[40.745,-73.990], zoom:13, zoomControl:false });
+  // Use activeCity coordinates (set by GPS detection before initMap is called)
+  var cityMeta = CITY_META[activeCity] || CITY_META['nyc'];
+  map = L.map('map', { center:[cityMeta.lat, cityMeta.lng], zoom: cityMeta.zoom, zoomControl:false });
   streetLayer = _makeStreetLayer().addTo(map);
   satLayer = L.tileLayer(
     'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
