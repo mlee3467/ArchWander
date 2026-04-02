@@ -523,4 +523,23 @@ function pwaInstall() {
   if (_pwaEvent) {
     _pwaEvent.prompt();
     _pwaEvent.userChoice.then(function(choice) {
-      if (choice.outcome === 'accept
+      if (choice.outcome === 'accepted') {
+        console.log('[ArchWander] PWA installed');
+      }
+      _pwaEvent = null;
+    });
+  }
+  pwaDismiss();
+}
+
+function pwaDismiss() {
+  var prompt = document.getElementById('pwa-prompt');
+  if (prompt) prompt.classList.remove('visible');
+  localStorage.setItem('aw_pwa_dismiss', Date.now().toString());
+}
+
+function pwaDismissToday() {
+  var prompt = document.getElementById('pwa-prompt');
+  if (prompt) prompt.classList.remove('visible');
+  localStorage.setItem('aw_pwa_dismiss_today', Date.now().toString());
+}
