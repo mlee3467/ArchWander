@@ -61,10 +61,6 @@ function _createRoutePanel() {
       '<div class="route-selected" id="route-selected">' +
         '<div class="route-sel-title" id="route-sel-title">Selected Stops (0)</div>' +
         '<div class="route-sel-list" id="route-sel-list"></div>' +
-        '<div class="route-actions" id="route-actions" style="display:none">' +
-          '<button class="route-btn route-btn-calc" onclick="calcRoute()">🚶 <span class="rt-calc-text">' + (LANG === 'ko' ? '경로 계산' : 'Calculate Route') + '</span></button>' +
-          '<button class="route-btn route-btn-clear" onclick="clearRouteSelection()">✕ <span class="rt-clear-text">' + (LANG === 'ko' ? '전체 삭제' : 'Clear Route') + '</span></button>' +
-        '</div>' +
       '</div>' +
       '<div class="route-result" id="route-result" style="display:none"></div>' +
     '</div>';
