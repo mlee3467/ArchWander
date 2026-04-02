@@ -1072,6 +1072,13 @@
         box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       }
       #mobile-action-bar.open { display: flex; }
+      /* When action bar is open, push sidebar & backdrop below it */
+      #mobile-action-bar.open ~ .app .sidebar {
+        top: calc(var(--mob-header-h) + var(--safe-top) + 44px);
+      }
+      #mobile-action-bar.open ~ #sidebar-backdrop {
+        top: calc(var(--mob-header-h) + var(--safe-top) + 44px);
+      }
       .mob-action-btn {
         display: flex; align-items: center; gap: 5px;
         padding: 7px 14px; border: none; border-radius: 8px;
