@@ -197,10 +197,10 @@ function _handleFavFileSelected(event) {
 // CITY SELECTOR + LAZY LOADING
 // ══════════════════════════════════════════════════════════════════
 var CITY_META = {
-  nyc: { key: 'new-york', label: '🗽 New York', localLang: 'en', lat: 40.7549, lng: -73.9840, zoom: 13, dataVar: 'LOCS_NEW_YORK', koVar: 'LOCS_KO_NEW_YORK' },
-  sel: { key: 'seoul',    label: '🏙 Seoul',    localLang: 'ko', lat: 37.5665, lng: 126.9780, zoom: 13, dataVar: 'LOCS_SEOUL',    koVar: 'LOCS_KO_SEOUL' },
-  lon: { key: 'london',   label: '🎡 London',   localLang: 'en', lat: 51.5074, lng: -0.1278,  zoom: 13, dataVar: 'LOCS_LONDON',   koVar: 'LOCS_KO_LONDON' },
-  tky: { key: 'tokyo',    label: '🗼 Tokyo',    localLang: 'ja', lat: 35.6762, lng: 139.6503, zoom: 13, dataVar: 'LOCS_TOKYO',    koVar: 'LOCS_KO_TOKYO' }
+  nyc: { key: 'new-york', label: '🗽 New York', localLang: 'en', lat: 40.7128, lng: -74.0060, zoom: 13, dataVar: 'LOCS_NEW_YORK', koVar: 'LOCS_KO_NEW_YORK' },
+  sel: { key: 'seoul',    label: '🏙 Seoul',    localLang: 'ko', lat: 37.5663, lng: 126.9779, zoom: 13, dataVar: 'LOCS_SEOUL',    koVar: 'LOCS_KO_SEOUL' },
+  lon: { key: 'london',   label: '🎡 London',   localLang: 'en', lat: 51.5101, lng: -0.0763,  zoom: 13, dataVar: 'LOCS_LONDON',   koVar: 'LOCS_KO_LONDON' },
+  tky: { key: 'tokyo',    label: '🗼 Tokyo',    localLang: 'ja', lat: 35.6895, lng: 139.6917, zoom: 13, dataVar: 'LOCS_TOKYO',    koVar: 'LOCS_KO_TOKYO' }
 };
 
 // Track which city data files have been loaded
@@ -372,12 +372,19 @@ function _nearestCity(lat, lng) {
 }
 
 function _initCityByGPS() {
-  return new Promise(resolve => {
-    if (!navigator.geolocation) { resolve('nyc'); return; }
+  return new Promise(function(resolve) {
+    if (!navigator.geolocation) { console.log('[GPS] geolocation not available'); resolve('nyc'); return; }
     navigator.geolocation.getCurrentPosition(
-      pos => resolve(_nearestCity(pos.coords.latitude, pos.coords.longitude)),
-      () => resolve('nyc'),
-      { timeout: 4000, maximumAge: 300000 }
+      function(pos) {
+        var city = _nearestCity(pos.coords.latitude, pos.coords.longitude);
+        console.log('[GPS] detected', pos.coords.latitude.toFixed(4), pos.coords.longitude.toFixed(4), '→', city);
+        resolve(city);
+      },
+      function(err) {
+        console.log('[GPS] error:', err.code, err.message, '→ fallback nyc');
+        resolve('nyc');
+      },
+      { timeout: 5000, maximumAge: 300000 }
     );
   });
 }
