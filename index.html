@@ -13,6 +13,7 @@
   <meta name="apple-mobile-web-app-title" content="ArchWander">
   <link rel="apple-touch-icon" href="img/logo_large.png">
   <meta name="theme-color" content="#111111">
+  <meta name="color-scheme" content="light only">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"/>
@@ -486,6 +487,17 @@
   </div>
 
   <div class="pilot-badge" id="pilot-badge">🗺 ArchWander · Pilot v0.2</div>
+</div>
+
+<!-- PWA install prompt -->
+<div id="pwa-prompt" class="pwa-prompt">
+  <img src="img/Logo_favicon.png" alt="ArchWander" class="pwa-icon">
+  <div class="pwa-text">
+    <strong>ArchWander</strong>
+    <span id="pwa-desc">Install the app for a better experience</span>
+  </div>
+  <button id="pwa-install-btn" class="pwa-install-btn" onclick="pwaInstall()">Install</button>
+  <button class="pwa-close-btn" onclick="pwaDismiss()">✕</button>
 </div>
 
 <script src="js/config.js"></script>

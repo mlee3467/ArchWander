@@ -451,3 +451,73 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
+
+// ── PWA install prompt ────────────────────────────────────────────
+var _pwaEvent = null;
+
+// Chrome / Edge / Samsung / etc. — beforeinstallprompt
+window.addEventListener('beforeinstallprompt', function(e) {
+  e.preventDefault();
+  _pwaEvent = e;
+  _showPwaPrompt();
+});
+
+// iOS Safari — no beforeinstallprompt, detect manually
+window.addEventListener('load', function() {
+  var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  var isSafari = /safari/i.test(navigator.userAgent) && !/chrome|crios|fxios/i.test(navigator.userAgent);
+  var isStandalone = window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches;
+  if (isIOS && isSafari && !isStandalone) {
+    setTimeout(function() { _showPwaPrompt(true); }, 3000);
+  }
+});
+
+function _showPwaPrompt(isIOS) {
+  // Don't show if already installed (standalone) or dismissed recently
+  if (window.matchMedia('(display-mode: standalone)').matches) return;
+  if (window.navigator.standalone === true) return;
+  var dismissed = localStorage.getItem('aw_pwa_dismiss');
+  if (dismissed) {
+    var diff = Date.now() - parseInt(dismissed, 10);
+    if (diff < 7 * 24 * 60 * 60 * 1000) return; // 7일간 재표시 안 함
+  }
+  var prompt = document.getElementById('pwa-prompt');
+  if (!prompt) return;
+  var desc = document.getElementById('pwa-desc');
+  var btn = document.getElementById('pwa-install-btn');
+  if (isIOS) {
+    // iOS: guide to manual add
+    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'en';
+    if (desc) desc.textContent = lang === 'ko'
+      ? '공유 버튼 → "홈 화면에 추가"를 눌러주세요'
+      : 'Tap Share → "Add to Home Screen"';
+    if (btn) btn.textContent = lang === 'ko' ? '확인' : 'OK';
+    btn.onclick = function() { pwaDismiss(); };
+  } else {
+    var lang = (typeof currentLang !== 'undefined') ? currentLang : 'en';
+    if (desc) desc.textContent = lang === 'ko'
+      ? '앱을 설치하면 더 편리하게 이용할 수 있어요'
+      : 'Install the app for a better experience';
+    if (btn) btn.textContent = lang === 'ko' ? '설치' : 'Install';
+  }
+  prompt.classList.add('visible');
+}
+
+function pwaInstall() {
+  if (_pwaEvent) {
+    _pwaEvent.prompt();
+    _pwaEvent.userChoice.then(function(choice) {
+      if (choice.outcome === 'accepted') {
+        console.log('[ArchWander] PWA installed');
+      }
+      _pwaEvent = null;
+    });
+  }
+  pwaDismiss();
+}
+
+function pwaDismiss() {
+  var prompt = document.getElementById('pwa-prompt');
+  if (prompt) prompt.classList.remove('visible');
+  localStorage.setItem('aw_pwa_dismiss', Date.now().toString());
+}
