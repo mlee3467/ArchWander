@@ -455,27 +455,33 @@ if ('serviceWorker' in navigator) {
 // ── PWA install prompt ────────────────────────────────────────────
 var _pwaEvent = null;
 
+// Detect if running as installed PWA (standalone mode)
+function _isStandalone() {
+  return window.navigator.standalone === true ||
+    window.matchMedia('(display-mode: standalone)').matches;
+}
+
 // Chrome / Edge / Samsung / etc. — beforeinstallprompt
 window.addEventListener('beforeinstallprompt', function(e) {
   e.preventDefault();
+  if (_isStandalone()) return;  // Already installed — don't show prompt
   _pwaEvent = e;
   _showPwaPrompt();
 });
 
 // iOS Safari — no beforeinstallprompt, detect manually
 window.addEventListener('load', function() {
+  if (_isStandalone()) return;  // Already installed — don't show prompt
   var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
   var isSafari = /safari/i.test(navigator.userAgent) && !/chrome|crios|fxios/i.test(navigator.userAgent);
-  var isStandalone = window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches;
-  if (isIOS && isSafari && !isStandalone) {
+  if (isIOS && isSafari) {
     setTimeout(function() { _showPwaPrompt(true); }, 3000);
   }
 });
 
 function _showPwaPrompt(isIOS) {
   // Don't show if already installed (standalone) or dismissed recently
-  if (window.matchMedia('(display-mode: standalone)').matches) return;
-  if (window.navigator.standalone === true) return;
+  if (_isStandalone()) return;
   var dismissed = localStorage.getItem('aw_pwa_dismiss');
   if (dismissed) {
     var diff = Date.now() - parseInt(dismissed, 10);

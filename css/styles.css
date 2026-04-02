@@ -61,6 +61,37 @@
       color: var(--text-secondary); transition: all 0.15s; white-space: nowrap;
     }
     .map-toggle button.active { background: #111; color: #fff; }
+    /* ── PWA Install Prompt ─────────────────────────────── */
+    .pwa-prompt {
+      display: none;
+      position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%);
+      z-index: 9000;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      padding: 6px 10px;
+      align-items: center; gap: 8px;
+      font-family: Inter, -apple-system, sans-serif;
+      max-width: 340px; width: auto;
+    }
+    .pwa-prompt.visible { display: flex; }
+    .pwa-icon { width: 28px; height: 28px; border-radius: 6px; flex-shrink: 0; }
+    .pwa-text { flex: 1; min-width: 0; }
+    .pwa-text strong { font-size: 11px; display: block; line-height: 1.2; }
+    .pwa-text span { font-size: 10px; color: var(--text-secondary); line-height: 1.2; }
+    .pwa-install-btn {
+      padding: 4px 10px; border: none; border-radius: 6px;
+      background: #111; color: white; font-size: 11px; font-weight: 600;
+      cursor: pointer; white-space: nowrap; font-family: inherit;
+    }
+    .pwa-install-btn:hover { background: #333; }
+    .pwa-close-btn {
+      background: none; border: none; font-size: 14px;
+      color: #999; cursor: pointer; padding: 2px 4px; line-height: 1;
+    }
+    .pwa-close-btn:hover { color: #333; }
+
     /* ── Mobile Action Bar (hidden on desktop) ──────────── */
     #mobile-action-bar { display: none; }
 
