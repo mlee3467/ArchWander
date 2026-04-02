@@ -428,6 +428,21 @@
       background-blend-mode: multiply;
     }
     .card-body { flex: 1; min-width: 0; }
+    .card-fav-btns {
+      display: flex; flex-direction: column; gap: 4px;
+      flex-shrink: 0; align-self: center;
+    }
+    .card-fav-btn, .card-vis-btn {
+      width: 26px; height: 26px; border-radius: 50%;
+      border: 1px solid var(--border); background: transparent;
+      cursor: pointer; font-size: 13px; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      color: #bbb; transition: all 0.15s; padding: 0;
+    }
+    .card-fav-btn:hover { color: #FF5F00; border-color: #FF5F00; }
+    .card-vis-btn:hover { color: #10b981; border-color: #10b981; }
+    .card-fav-btn.active { color: #FF5F00; border-color: #FF5F00; background: #FFF7ED; }
+    .card-vis-btn.active { color: #10b981; border-color: #10b981; background: #ECFDF5; }
     .card-name {
       font-size: 13px; font-weight: 500;
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 2px;
