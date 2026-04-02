@@ -466,8 +466,8 @@ window.addEventListener('beforeinstallprompt', function(e) {
   e.preventDefault();
   if (_isStandalone()) return;
   _pwaEvent = e;
-  // Delay 3 minutes from first use
-  setTimeout(function() { _showPwaPrompt(); }, 3 * 60 * 1000);
+  // Delay 30 seconds from first use
+  setTimeout(function() { _showPwaPrompt(); }, 30 * 1000);
 });
 
 // iOS Safari — no beforeinstallprompt, detect manually
@@ -476,7 +476,7 @@ window.addEventListener('load', function() {
   var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
   var isSafari = /safari/i.test(navigator.userAgent) && !/chrome|crios|fxios/i.test(navigator.userAgent);
   if (isIOS && isSafari) {
-    setTimeout(function() { _showPwaPrompt(true); }, 3 * 60 * 1000);
+    setTimeout(function() { _showPwaPrompt(true); }, 30 * 1000);
   }
 });
 

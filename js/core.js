@@ -219,27 +219,55 @@ function openLoc(loc) {
   const gallery = document.getElementById('gallery');
   const isMob = window.innerWidth < 768;
   gallery.querySelectorAll('img').forEach(i => i.remove());
+  // Remove any previous Street View iframe
+  var oldSvIframe = gallery.querySelector('.sv-fallback');
+  if (oldSvIframe) oldSvIframe.remove();
+  gallery.classList.remove('sv-mode');
   // Reset single attribution overlay
   const gAttrib = document.getElementById('g-attrib');
   if (gAttrib) { gAttrib.textContent = ''; gAttrib.style.display = 'none'; }
-  loc.photos.forEach((src, i) => {
-    const img = document.createElement('img');
-    img.alt = loc.name;
-    img.dataset.photoUrl = src;
-    if (i === 0) {
-      img.src = photoUrl(src, isMob, 'gallery');
-      img.classList.add('active');
-    } else {
-      img.dataset.src = photoUrl(src, isMob, 'gallery');
-      img.loading = 'lazy';
-    }
-    img.onerror = function() { this.style.display = 'none'; };
-    gallery.insertBefore(img, gallery.querySelector('.g-btn'));
-  });
-  document.getElementById('g-dots').innerHTML =
-    loc.photos.map((_, i) => `<div class="g-dot${i===0?' active':''}" onclick="gotoPhoto(${i})"></div>`).join('');
-  updateGLabel();
-  applyPhotoAttribution(gallery, loc.photos);
+
+  var hasPhotos = loc.photos && loc.photos.length > 0;
+
+  if (hasPhotos) {
+    // Normal photo gallery
+    loc.photos.forEach((src, i) => {
+      const img = document.createElement('img');
+      img.alt = loc.name;
+      img.dataset.photoUrl = src;
+      if (i === 0) {
+        img.src = photoUrl(src, isMob, 'gallery');
+        img.classList.add('active');
+      } else {
+        img.dataset.src = photoUrl(src, isMob, 'gallery');
+        img.loading = 'lazy';
+      }
+      img.onerror = function() { this.style.display = 'none'; };
+      gallery.insertBefore(img, gallery.querySelector('.g-btn'));
+    });
+    document.getElementById('g-dots').innerHTML =
+      loc.photos.map((_, i) => `<div class="g-dot${i===0?' active':''}" onclick="gotoPhoto(${i})"></div>`).join('');
+    updateGLabel();
+    applyPhotoAttribution(gallery, loc.photos);
+  } else if (typeof GOOGLE_MAPS_API_KEY === 'string' && GOOGLE_MAPS_API_KEY) {
+    // Street View fallback for locations without photos
+    gallery.classList.add('sv-mode');
+    var svIframe = document.createElement('iframe');
+    svIframe.className = 'sv-fallback';
+    svIframe.setAttribute('loading', 'lazy');
+    svIframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+    svIframe.setAttribute('allowfullscreen', '');
+    svIframe.src = 'https://www.google.com/maps/embed/v1/streetview?key=' +
+      GOOGLE_MAPS_API_KEY + '&location=' + loc.lat + ',' + loc.lng +
+      '&heading=210&pitch=10&fov=90';
+    gallery.insertBefore(svIframe, gallery.querySelector('.g-btn'));
+    document.getElementById('g-dots').innerHTML = '';
+    document.getElementById('g-label').textContent = 'Street View';
+  } else {
+    // No photos and no API key — show empty state
+    document.getElementById('g-dots').innerHTML = '';
+    document.getElementById('g-label').textContent = '0 / 0';
+  }
 
   // Header
   const color = CAT_COLORS[_pCat(loc)] || '#111';
