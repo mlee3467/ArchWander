@@ -30,6 +30,7 @@ function openRoutePanel() {
   var panel = document.getElementById('route-panel');
   if (!panel) _createRoutePanel();
   panel = document.getElementById('route-panel');
+  panel.classList.remove('minimized');
   panel.classList.add('visible');
   refreshRouteList();
 }
@@ -37,7 +38,7 @@ function openRoutePanel() {
 function closeRoutePanel() {
   routeActive = false;
   var panel = document.getElementById('route-panel');
-  if (panel) panel.classList.remove('visible');
+  if (panel) { panel.classList.remove('visible'); panel.classList.remove('minimized'); }
   clearRoute();
 }
 
@@ -51,9 +52,10 @@ function _createRoutePanel() {
       '<button class="route-panel-close" onclick="closeRoutePanel()">✕</button>' +
     '</div>' +
     '<div class="route-panel-body">' +
-      '<div class="route-top-actions" id="route-top-actions" style="display:none">' +
-        '<button class="route-btn route-btn-calc" onclick="calcRoute()">🚶 <span class="rt-calc-text">' + (LANG === 'ko' ? '경로 계산' : 'Calculate Route') + '</span></button>' +
-        '<button class="route-btn route-btn-clear" onclick="clearRouteSelection()">✕ <span class="rt-clear-text">' + (LANG === 'ko' ? '전체 삭제' : 'Clear Route') + '</span></button>' +
+      '<div class="route-top-actions" id="route-top-actions">' +
+        '<button class="route-btn route-btn-calc" id="route-top-calc" onclick="calcRoute()" style="display:none">🚶 <span class="rt-calc-text">' + (LANG === 'ko' ? '경로 계산' : 'Calculate Route') + '</span></button>' +
+        '<button class="route-btn route-btn-clear" id="route-top-clear" onclick="clearRouteSelection()" style="display:none">✕ <span class="rt-clear-text">' + (LANG === 'ko' ? '전체 삭제' : 'Clear Route') + '</span></button>' +
+        '<button class="route-btn route-btn-pdf" id="route-top-pdf" onclick="exportRoutePDF()" style="display:none">📄 <span class="rt-pdf-text">' + (LANG === 'ko' ? 'PDF' : 'PDF') + '</span></button>' +
       '</div>' +
       '<div class="route-hood-list" id="route-hood-list"></div>' +
       '<div class="route-selected" id="route-selected">' +
@@ -100,7 +102,11 @@ function _renderRouteHoods(hoods, locs) {
       '</div>';
   }
 
-  container.innerHTML = walkInfo +
+  var addAllBtn = '<button class="route-addall-list" onclick="addAllFilteredToRoute()">+ ' +
+    (LANG === 'ko' ? '리스트 전체 추가' : 'Add All from List') +
+    ' (' + (locs ? locs.length : 0) + ')</button>';
+
+  container.innerHTML = walkInfo + addAllBtn +
     '<div class="route-section-label">' +
     (LANG === 'ko' ? '동네별 건축물' : 'Architecture by Neighborhood') + '</div>' +
     hoods.map(function(h) {
@@ -175,6 +181,15 @@ function addHoodToRoute(hoodName) {
   _refreshRouteUI();
 }
 
+function addAllFilteredToRoute() {
+  var locs = _getRouteLocs();
+  var existingIds = new Set(routeLocations.map(function(l) { return l.id; }));
+  locs.forEach(function(loc) {
+    if (!existingIds.has(loc.id)) routeLocations.push(loc);
+  });
+  _refreshRouteUI();
+}
+
 function clearRouteSelection() {
   routeLocations = [];
   clearRoute();
@@ -211,8 +226,14 @@ function _refreshRouteUI() {
   }
 
   if (actions) actions.style.display = routeLocations.length >= 2 ? 'flex' : 'none';
-  var topActions = document.getElementById('route-top-actions');
-  if (topActions) topActions.style.display = routeLocations.length >= 1 ? 'flex' : 'none';
+
+  // Top action buttons: show calc when ≥2, clear when ≥1
+  var topCalc = document.getElementById('route-top-calc');
+  var topClear = document.getElementById('route-top-clear');
+  var topPdf = document.getElementById('route-top-pdf');
+  if (topCalc) topCalc.style.display = routeLocations.length >= 2 ? 'inline-flex' : 'none';
+  if (topClear) topClear.style.display = routeLocations.length >= 1 ? 'inline-flex' : 'none';
+  if (topPdf) topPdf.style.display = routeData ? 'inline-flex' : 'none';
 
   // Update hood list item states
   var items = document.querySelectorAll('.route-loc-item');
@@ -269,7 +290,24 @@ function calcRoute() {
 function _minimizeRoutePanelMobile() {
   if (window.innerWidth > 900) return;
   var panel = document.getElementById('route-panel');
-  if (panel) panel.classList.remove('visible');
+  if (panel) {
+    panel.classList.add('minimized');
+    // Ensure peek handle exists
+    if (!document.getElementById('route-peek-handle')) {
+      var handle = document.createElement('div');
+      handle.id = 'route-peek-handle';
+      handle.className = 'route-peek-handle';
+      handle.innerHTML = '<div class="route-peek-bar"></div>' +
+        '<span class="route-peek-label">' + (LANG === 'ko' ? '루트 플래너' : 'Route Planner') + '</span>';
+      handle.onclick = function() { _restoreRoutePanel(); };
+      panel.appendChild(handle);
+    }
+  }
+}
+
+function _restoreRoutePanel() {
+  var panel = document.getElementById('route-panel');
+  if (panel) panel.classList.remove('minimized');
 }
 
 function _optimizeOrder(locs) {
@@ -435,6 +473,10 @@ function _renderRouteResult(data, ordered) {
 
   resultDiv.style.display = 'block';
   resultDiv.innerHTML = html;
+
+  // Show top PDF button
+  var topPdf = document.getElementById('route-top-pdf');
+  if (topPdf) topPdf.style.display = 'inline-flex';
 }
 
 function clearRoute() {
@@ -444,6 +486,8 @@ function clearRoute() {
   routeData = null;
   var resultDiv = document.getElementById('route-result');
   if (resultDiv) { resultDiv.style.display = 'none'; resultDiv.innerHTML = ''; }
+  var topPdf = document.getElementById('route-top-pdf');
+  if (topPdf) topPdf.style.display = 'none';
 }
 
 // ══════════════════════════════════════════════════════════════════
