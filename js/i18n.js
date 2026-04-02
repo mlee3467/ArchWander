@@ -36,6 +36,9 @@ var T = {
     vis_label:    'Visited',
     near_me:      'Find Near Me',
     favorites:    'Favorites',
+    mob_near:     'Find Near',
+    mob_fav:      'Fav',
+    mob_route:    'Route',
     export_pdf:   'PDF',
     pdf_need_pin: 'Place a pin first using "Find Near Me" to export the nearby locations as PDF.',
     pdf_generating:'Generating…',
@@ -100,6 +103,9 @@ var T = {
     vis_label:    '방문함',
     near_me:      '내위치 근처 검색',
     favorites:    '즐겨찾기',
+    mob_near:     '내위치',
+    mob_fav:      '즐겨찾기',
+    mob_route:    '루트',
     export_pdf:   'PDF',
     pdf_need_pin: '"내위치 근처 검색"에서 핀을 먼저 설정해야 주변 장소를 PDF로 내보낼 수 있습니다.',
     pdf_generating:'생성 중…',
@@ -398,6 +404,13 @@ function applyLang() {
   if (nearText) nearText.textContent = t('near_me');
   const favText = document.querySelector('#fav-btn .fav-text');
   if (favText) favText.textContent = t('favorites');
+  // Mobile action bar buttons
+  const mobNear = document.querySelector('.mob-near-text');
+  if (mobNear) mobNear.textContent = t('mob_near');
+  const mobFav = document.querySelector('.mob-fav-text');
+  if (mobFav) mobFav.textContent = t('mob_fav');
+  const mobRoute = document.querySelector('.mob-route-text');
+  if (mobRoute) mobRoute.textContent = t('mob_route');
   updateReportBtnLabel();
   // Fav export/import bar + modal
   const fioLbl = document.getElementById('fav-io-label');       if (fioLbl) fioLbl.textContent = t('fav_io_label');

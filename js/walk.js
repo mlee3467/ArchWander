@@ -428,4 +428,15 @@ function closeSidebar() {
   if (bd) bd.classList.remove('visible');
 }
 
+// ── Mobile action bar toggle ──────────────────────────────────────
+function toggleMobileActions() {
+  var bar = document.getElementById('mobile-action-bar');
+  if (!bar || window.innerWidth > 900) return toggleSidebar();
+  bar.classList.toggle('open');
+}
+function closeMobileActions() {
+  var bar = document.getElementById('mobile-action-bar');
+  if (bar) bar.classList.remove('open');
+}
+
 // ══════════════════════════════════════════════════════════════════

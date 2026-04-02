@@ -8,7 +8,7 @@
       --sidebar-w: 300px;
       --panel-w: 420px;
       --header-h: 80px;
-      --mob-header-h: 70px;
+      --mob-header-h: 75px;
       --safe-top: env(safe-area-inset-top, 0px);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -261,6 +261,9 @@
       background: white; cursor: pointer; align-items: center;
       justify-content: center; flex-shrink: 0; font-size: 16px;
     }
+    /* Mobile action bar: hidden on desktop */
+    #mobile-action-bar { display: none; }
+
     /* ── LAYOUT ─────────────────────────────────────────── */
     .app { display: flex; flex: 1; overflow: hidden; position: relative; }
 
@@ -954,12 +957,10 @@
         min-width: 0;
       }
       .search-wrap { max-width: none; flex: 1; min-width: 0; }
-      #near-me-btn .near-text { display: none; }
-      #near-me-btn { padding: 0 8px; height: 28px; font-size: 11px; }
-      #fav-btn .fav-text { display: none; }
-      #fav-btn { padding: 0 8px; height: 28px; font-size: 13px; }
-      #route-btn .route-text { display: none; }
-      #route-btn { padding: 0 8px; height: 28px; font-size: 11px; }
+      /* Hide Near Me, Fav, Route from header on mobile — moved to action bar */
+      #near-me-btn { display: none; }
+      #fav-btn { display: none; }
+      #route-btn { display: none; }
       #fav-io-bar.visible { display: flex; font-size: 11px; padding: 0 10px; min-height: 36px; gap: 6px; }
       #fav-io-bar .fav-io-label { font-size: 10px; }
       #fav-io-bar .fav-io-btn { height: 24px; padding: 0 8px; font-size: 10px; }
@@ -967,6 +968,33 @@
       #city-select-mobile { max-width: 110px; font-size: 11px; height: 28px; }
       #lang-btn { height: 28px; font-size: 11px; padding: 0 8px; }
       #search { height: 30px; font-size: 12px; }
+
+      /* ── Mobile action bar (toggled by menu btn) ── */
+      #mobile-action-bar {
+        display: none;
+        position: fixed;
+        top: calc(var(--mob-header-h) + var(--safe-top));
+        left: 0; right: 0;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        padding: 6px 10px;
+        gap: 8px;
+        z-index: 999;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        justify-content: center;
+      }
+      #mobile-action-bar.open { display: flex; }
+      .mob-action-btn {
+        height: 30px;
+        padding: 0 12px;
+        border: 1px solid var(--border); border-radius: 8px;
+        background: white; cursor: pointer;
+        display: flex; align-items: center; gap: 5px;
+        font-size: 12px; font-family: inherit; font-weight: 500;
+        color: var(--text-primary);
+        white-space: nowrap;
+      }
+      .mob-action-btn:active { background: #f0f0f0; }
 
       /* ── Sidebar overlay ── */
       .app { overflow: visible; }

@@ -193,7 +193,7 @@
     <img src="img/Logo_small.png" alt="ArchWander" class="logo-img">
   </div>
   <div class="header-row1">
-    <button id="menu-btn" onclick="toggleSidebar()">&#9776;</button>
+    <button id="menu-btn" onclick="toggleMobileActions()">&#9776;</button>
     <div class="search-wrap">
       <svg class="search-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2.2">
         <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
@@ -242,6 +242,22 @@
     </div>
   </div>
 </header>
+
+<!-- Mobile action bar — toggled by menu button -->
+<div id="mobile-action-bar">
+  <button class="mob-action-btn" id="mob-near-btn" onclick="toggleNearMe(); closeMobileActions();">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+    <span class="mob-near-text">Find Near</span>
+  </button>
+  <button class="mob-action-btn" id="mob-fav-btn" onclick="toggleFavFilter(); closeMobileActions();">
+    <span style="font-size:13px;line-height:1">&#9734;</span>
+    <span class="mob-fav-text">Fav</span>
+  </button>
+  <button class="mob-action-btn" id="mob-route-btn" onclick="openRoutePanel(); closeMobileActions();">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg>
+    <span class="mob-route-text">Route</span>
+  </button>
+</div>
 
 <!-- Near Me bar — slides in below header when Find Near Me is active -->
 <div id="walk-bar">
