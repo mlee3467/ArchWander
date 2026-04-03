@@ -233,6 +233,7 @@ function openLoc(loc) {
   var totalSlides = photoCount + (hasSV ? 1 : 0);
 
   // Add photo images
+  var _photoFails = 0;
   if (hasPhotos) {
     loc.photos.forEach((src, i) => {
       const img = document.createElement('img');
@@ -245,7 +246,17 @@ function openLoc(loc) {
         img.dataset.src = photoUrl(src, isMob, 'gallery');
         img.loading = 'lazy';
       }
-      img.onerror = function() { this.style.display = 'none'; };
+      img.onerror = function() {
+        this.style.display = 'none';
+        _photoFails++;
+        // All photos failed → auto-switch to Street View
+        if (_photoFails >= photoCount && hasSV) {
+          gallery.classList.add('sv-mode');
+          var sv = gallery.querySelector('.sv-fallback');
+          if (sv) sv.style.display = '';
+          gotoPhoto(photoCount);
+        }
+      };
       gallery.insertBefore(img, gallery.querySelector('.g-btn'));
     });
     applyPhotoAttribution(gallery, loc.photos);
