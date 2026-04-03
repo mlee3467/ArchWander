@@ -502,14 +502,9 @@ var LOCS_LONDON = [
     tags:['Richard Rogers','Business Park','Chiswick','Campus','Landscape','Lake','West London'],
     photos:[],
     drawings:[]
-  }
-];
+  },
 
-// ── ADDITIONS ─────────────────────────────────────────────────
-
-LOCS_LONDON.push(
-
-  // ── RENZO PIANO — THE SHARD (completed entry) ──────────────
+  // ── RENZO PIANO — THE SHARD ──────────────────────────────────
 
   {
     id:'lon-0018',
@@ -647,4 +642,4 @@ LOCS_LONDON.push(
     drawings:[]
   }
 
-);
+];
