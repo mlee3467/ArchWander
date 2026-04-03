@@ -120,7 +120,7 @@ var LOCS_TOKYO = [
 
   {
     id:'tok-0004',
-    name:'Tod Omotesando's Omotesando Building',
+    name:'Tod\'s Omotesando Building',
     cat:'Landmarks', cc:'c-lmk', styleGroup:'Contemporary',
     cats:['Landmarks','Retail'],
     styleGroups:['Contemporary'],
