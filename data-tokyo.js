@@ -1023,7 +1023,7 @@ var LOCS_TOKYO = [
     era:'2000–Present', city:'tokyo',
     arch:'Hiroshi Nakamura & NAP', archs:['Hiroshi Nakamura'],
     yr:2009, access:'Open to Public', style:'Organic Contemporary',
-    lat:35.6763976, lng:139.6993259,
+    lat:35.6754399, lng:139.71826679999998,
     addr:'1-1 Yoyogikamizonochō, Shibuya, Tokyo', hood:'Fujisawa / Shonan',
     localName:'アップルストア表参道',
     localAddr:'東京都港区南青山1-13-18',
