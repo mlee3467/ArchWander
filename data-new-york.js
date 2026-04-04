@@ -18,9 +18,7 @@ var LOCS_NEW_YORK = [
     ],
     era:'1930–1969',
     arch:'Shreve, Lamb & Harmon',
-    archs:[
-      'Shreve, Lamb & Harmon'
-    ],
+    archs:[],
     yr:1931,
     access:'Paid Ticket',
     city:'new-york',
@@ -105,9 +103,7 @@ var LOCS_NEW_YORK = [
     ],
     era:'2000–Present',
     arch:'SOM (Skidmore, Owings & Merrill)',
-    archs:[
-      'SOM (Skidmore, Owings & Merrill)'
-    ],
+    archs:[],
     yr:2014,
     access:'Paid Ticket',
     city:'new-york',
@@ -447,7 +443,10 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Vessel_%28top-down_view%29%2C_Hudson_Yards%2C_New_York_City%2C_July_2019.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Vessel%2C_Hudson_Yards%2C_New_York_City%2C_June_2019.jpg?width=800'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7533912, lng:-74.0014093 }
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7533912, lng:-74.0014093 },
+    archs:[
+      'Thomas Heartherwick'
+    ]
   },
   {
     id:'nyc-0011',
@@ -593,9 +592,8 @@ var LOCS_NEW_YORK = [
       'Deconstructivist'
     ],
     era:'2000–Present',
-    arch:'Morphosis / Thom Mayne',
+    arch:'Morphosis',
     archs:[
-      'Morphosis',
       'Thom Mayne'
     ],
     yr:2009,
@@ -808,8 +806,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Lever_House_Courtyard.JPG?width=800'
     ],
     archs:[
-      'Gordon Bunshaft',
-      'SOM (Skidmore, Owings & Merrill)'
+      'Gordon Bunshaft'
     ],
     sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7595882, lng:-73.9725806 }
   },
@@ -828,7 +825,6 @@ var LOCS_NEW_YORK = [
     era:'2000–Present',
     arch:'Foster + Partners',
     archs:[
-      'Foster + Partners',
       'Norman Foster'
     ],
     yr:2006,
@@ -874,7 +870,6 @@ var LOCS_NEW_YORK = [
     era:'2000–Present',
     arch:'SANAA (Sejima + Nishizawa)',
     archs:[
-      'SANAA',
       'Kazuyo Sejima',
       'Ryue Nishizawa'
     ],
@@ -943,8 +938,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/IAC_night_jeh.jpg?width=800'
     ],
     archs:[
-      'Frank Gehry',
-      'Gehry Partners'
+      'Frank Gehry'
     ]
   },
   {
@@ -987,16 +981,14 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/56_Leonard_Street_012.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/56_Leonard_Street_October_2024_004.jpg?width=800'
     ],
-    archs:[
-      'Herzog & de Meuron'
-    ]
+    archs:[]
   },
   {
     id:'nyc-0023',
     name:'432 Park Avenue',
     cats:[
       'Skyscrapers',
-      'Landmarks'
+      'Residential'
     ],
     cc:'c-sky',
     styleGroups:[
@@ -1030,16 +1022,18 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/432ParkNov2017.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Park_Av_Nov_2021_13.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/432_Park_Avenue_from_Top_of_the_Rock.jpg?width=800'
-    ]
+    ],
+    archs:[]
   },
   {
     id:'nyc-0024',
-    name:'9/11 Memorial & Museum',
+    name:'9/11 Memorial',
     cats:[
-      'Cultural',
-      'Landmarks'
+      'Landmarks',
+      'Parks',
+      'Public Space'
     ],
-    cc:'c-cul',
+    cc:'c-park',
     styleGroups:[
       'Contemporary'
     ],
@@ -1075,26 +1069,29 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/12.6.11BerryBerensonPanelN-76ByLuigiNovi4.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/One_WTC_From_W_Hotel_7-28-10.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/11_Memorial_Museum_-_steel_beams_in_foundation.jpg?width=800'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7119837, lng:-74.013565 }
   },
   {
     id:'nyc-0025',
     name:'New York Times Building',
     cats:[
       'Skyscrapers',
-      'Landmarks'
+      'Landmarks',
+      'Commercial'
     ],
     cc:'c-sky',
     styleGroups:[
-      'Contemporary'
+      'Contemporary',
+      'High-Tech'
     ],
     era:'2000–Present',
     arch:'Renzo Piano',
     yr:2007,
     access:'Open to Public',
     city:'new-york',
-    lat:40.7559312,
-    lng:-73.98915939999999,
+    lat:40.7560713,
+    lng:-73.990109,
     addr:'620 8th Ave, New York, NY 10018',
     hood:'Midtown West / Hell\'s Kitchen',
     desc:'Renzo Piano\'s New York Times Building is one of the most technically sophisticated skyscrapers in New York. Its distinctive exterior is wrapped in a second skin of ceramic tubes that modulate light, reduce glare, and give the tower a luminous, ethereal quality that changes with the light of day. The 52-story tower achieves LEED Silver certification and includes a publicly accessible lobby garden. The building exemplifies Piano\'s philosophy of transparency and light in architecture.',
@@ -1115,7 +1112,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/New_york_times_building.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/New_York_Times_Building_-_Bottom_Portion_%2848193462432%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_New_York_Times_Building_-_Manhattan_-_New_York_City_-_USA_%2824894121662%29.jpg?width=800'
-    ]
+    ],
+    archs:[]
   },
   {
     id:'nyc-0026',
@@ -1159,18 +1157,18 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Metropolitan_Museum_of_Art_%28The_Met%29_-_Central_Park%2C_NYC.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Metropolitan_Museum_of_Art%2C_New_York_City_NY%2C_entrance.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/People_in_the_rooftop_bar_of_the_Metropolitan_Museum_of_Art%2C_New_York%2C_2007.jpg?width=800'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7790161, lng:-73.9624606 }
   },
   {
     id:'nyc-0027',
     name:'Museum of Modern Art (MoMA)',
     cats:[
-      'Cultural',
-      'Landmarks'
+      'Cultural'
     ],
     cc:'c-cul',
     styleGroups:[
-      'Contemporary'
+      'Modernist'
     ],
     era:'2000–Present',
     arch:'Yoshio Taniguchi',
@@ -1200,7 +1198,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/MoMA_Museum_shop_%281%29_2021_jeh.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Museum_of_Modern_Art_%28MoMA%29_%2851395759113%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Paul_Gauguin_-_Te_aa_no_areois_-_Google_Art_Project.jpg?width=800'
-    ]
+    ],
+    archs:[]
   },
   {
     id:'nyc-0028',
@@ -1286,7 +1285,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Shore_of_the_East_River_with_Headquarters_of_the_United_Nations%2C_New_York_City%2C_20231005_1132_2230.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/2003-03-New-York-United-Nations-Secretariat-Building.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/United_Nations_Headquarters_-_Security_Council_chamber%2C_angled_view.jpg?width=800'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7494762, lng:-73.9692635 }
   },
   {
     id:'nyc-0030',
