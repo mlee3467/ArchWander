@@ -387,4 +387,8 @@ function buildDirectionsTab(loc, trans = {}) {
     <div class="info-row" style="margin-top:${showWalkBtn ? '12' : '0'}px"><span class="info-label">${t('subway')}</span><span class="info-val">${transit}</span></div>
     ${loc.walkFrom ? `<div class="info-row"><span class="info-label">${t('nearby')}</span><span class="info-val">${walkFrom}</span></div>` : ''}
     <div class="btns" style="margin-top:18px">
-      <a href="${loc.gmaps}" target="_blank" rel="noopener" class="btn-p">${t('open_
+      <a href="${loc.gmaps}" target="_blank" rel="noopener" class="btn-p">${t('open_gmaps')}</a>
+      <a href="https://maps.google.com/?q=${encodeURIComponent(loc.addr)}&layer=c" target="_blank" rel="noopener" class="btn-s">${t('sv_gmaps')}</a>
+    </div>
+  `;
+}
