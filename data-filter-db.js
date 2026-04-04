@@ -61,7 +61,8 @@ const FILTER_DB = {
     'Residential',
     'Retail',
     'Shopping',
-    'Skyscrapers'
+    'Skyscrapers',
+    'Urban'
   ],
 
   styleGroups: [
@@ -1481,6 +1482,7 @@ const FILTER_DB = {
     'Unknown',
     'VOID Architects',
     'Various',
+    'Various (NYC Parks Dept.)',
     'Vito Acconci',
     'WGNB',
     'Wallace Harrison',
