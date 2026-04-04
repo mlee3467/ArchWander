@@ -1369,9 +1369,11 @@
   width: 100px;
 }
 .route-btn-now {
-  height: 28px; padding: 0 10px; font-size: 11px;
+  height: 28px; line-height: 26px; padding: 0 10px; font-size: 11px;
   background: #f0f0ee; border: 1px solid #ddd; border-radius: 6px;
   cursor: pointer; font-family: inherit; white-space: nowrap;
+  display: inline-flex; align-items: center; justify-content: center;
+  box-sizing: border-box;
 }
 .route-btn-now:hover { background: #e4e4e0; }
 
