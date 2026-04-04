@@ -486,7 +486,8 @@ var LOCS_TOKYO = [
     wiki:'https://en.wikipedia.org/wiki/Spiral_(building)',
     tags:['Fumihiko Maki','Art Center','Gallery','Minami-Aoyama','Collage Facade','Urban','Free'],
     photos:[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Spiral_Building_Aoyama_Maki.jpg?width=800'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Spiral_Building_interior_2024.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Spiral_house_Tokyo.jpg?width=800'
     ],
     drawings:[]
   },
@@ -665,7 +666,8 @@ var LOCS_TOKYO = [
     wiki:'https://en.wikipedia.org/wiki/Collezione_(building)',
     tags:['Tadao Ando','Concrete','Minami-Aoyama','Retail','Cylindrical','Atrium','1989'],
     photos:[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Collezione_Aoyama_Ando.jpg?width=800'
+      'https://commons.wikimedia.org/wiki/Special:FilePath/La_Collezione_1.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/La_Collezione_3.jpg?width=800'
     ],
     drawings:[]
   },
@@ -911,7 +913,9 @@ var LOCS_TOKYO = [
     archdaily:'https://www.archdaily.com/tag/atelier-bow-wow',
     wiki:'https://en.wikipedia.org/wiki/Atelier_Bow-Wow',
     tags:['Atelier Bow-Wow','Pet Architecture','Machiya','Residential','Tokyo','Narrow Lot','2005'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Atelier_bow-wow%2C_sectional_model_of_house_tower%2C_tokyo_2006.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -1287,7 +1291,11 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Jiyu_Gakuen_Myonichikan',
     tags:['Frank Lloyd Wright','Prairie Style','Important Cultural Property','Ikebukuro','1921','School','Oya Stone'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Jiyu_gakuen_myonichikan.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Jiyugakuen_Myonichikan.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Auditorium%2C_Jiyu_Gakuen_Myonichikan%2C_Ikebukuro%2C_Tokyo._Photographed_2018-06-16.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -1318,7 +1326,14 @@ var LOCS_TOKYO = [
     archdaily:'https://www.archdaily.com/tag/prada-aoyama',
     wiki:'https://en.wikipedia.org/wiki/Prada_Aoyama',
     tags:['Herzog & de Meuron','Pritzker','Prada','Omotesando','Flagship Store','Glass Facade','2003'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/PRADA_BOUTIQUE_AOYAMA.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Prada_Boutique_Aoyama.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/PRADA_Building_-_panoramio.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/PRADA_-_panoramio.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/PRADA_Building%2C_Inside_-_panoramio.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Prada_Aoyama.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -1349,7 +1364,14 @@ var LOCS_TOKYO = [
     archdaily:'https://www.archdaily.com/tag/maison-hermes',
     wiki:'https://en.wikipedia.org/wiki/Maison_Herm%C3%A8s',
     tags:['Renzo Piano','Pritzker','Hermès','Ginza','Glass Block','Gallery','Free','2001'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/2018_Hermes_Ginza_2.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/HermesBuildingTokyo.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Colourful_intersection_at_Ginza_-_Tokyo_Japan.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Hermes_Ginza.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/MaisonHerm%C3%A8s-Tokyo-RenzoPiano-2.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Hermes%2C_Ginza%2C_Tokyo_-_DSC09661.JPG?width=800'
+    ],
     drawings:[]
   },
 
@@ -1380,7 +1402,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Dentsu_Headquarters_Building',
     tags:['Jean Nouvel','Pritzker','Shiodome','Office Tower','Curved Glass','2002','Dentsu'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Dentsu_Building-20060317.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Dentsu_Headquarters_Building_-_panoramio.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/%E9%9B%BB%E9%80%9A%E6%9C%AC%E7%A4%BE%E3%83%93%E3%83%AB_Dentsu_Building_-_panoramio.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Dentsu_Headquarters_Building_in_Tokyo%2C_2019_-_322.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Bunkyodo_Group_Bookstore_in_Dentsu_Building_2015.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Dentsu_Headquarters_Building%2C_SIO-SITE_%282010-05-08_17.29.36%29.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -1411,7 +1440,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Century_Tower_(Tokyo)',
     tags:['Norman Foster','Pritzker','High-Tech','Diagrid','Ochanomizu','1991','Structural Expression'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Century_Tower_at_Japan.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Century_Tower_Juntendo.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Chuo-Sobu_Line_Ichigaya_2022-11-24_4.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/JR_Minami-Shinjuku_building_from_Hotel_Century_Southern_Tower.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/JR_Tokyo_General_Hospital_from_Hotel_Century_Southern_Tower.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Marunouchi_%26_Tokyo_Station_2.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -1442,7 +1478,14 @@ var LOCS_TOKYO = [
     archdaily:'https://www.archdaily.com/tag/roppongi-hills',
     wiki:'https://en.wikipedia.org/wiki/Roppongi_Hills_Mori_Tower',
     tags:['KPF','Roppongi','Observation Deck','Mori Art Museum','Mixed-Use','2003','Maman','Louise Bourgeois'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Mori_Tower_-_Roppongi%2C_Tokyo%2C_Japan_-_DSC06760.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Roppongi_Hills_Mori_Tower_from_Tokyo_Tower_Day_cropped.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Mori_Tower_Tokyo_City_View_before_renovation_2013.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/%E6%A3%AE%E3%82%BF%E3%83%AF%E3%83%BC%E5%9B%9E%E8%BB%A2%E3%83%89%E3%82%A2.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Mori_Art_Museum_Entrance_2013.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Tower_%28Roppongi_Hills_Mori_Tower_-_TOKYO_CITY_VIEW%29.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -1502,7 +1545,9 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'',
     tags:['SOM','Otemachi','Office Tower','Four Seasons','Public Garden','2020'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/%C5%8Ctemachitemachi_One_Tower.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -1533,7 +1578,14 @@ var LOCS_TOKYO = [
     archdaily:'https://www.archdaily.com/tag/toranomon-hills',
     wiki:'https://en.wikipedia.org/wiki/Toranomon_Hills',
     tags:['OMA','Shohei Shigematsu','Toranomon','Mori Building','Station Tower','2023','A-Frame'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/2018_Toranomon_Hills_2.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Toranomon_Hills_3_towers.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Toranomon_Hills_Atrium_2015.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Toranomon_Hills_Glass_Rock_%2831834%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Toranomon_Hills_Office_Lobby_2015.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Toranomon_Hills_Oval_Plaza_dusk_view_2015.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -1593,7 +1645,14 @@ var LOCS_TOKYO = [
     archdaily:'https://www.archdaily.com/tag/tokyo-skytree',
     wiki:'https://en.wikipedia.org/wiki/Tokyo_Skytree',
     tags:['Nikken Sekkei','Tallest Tower','634m','Observation Deck','Sumida','2012','Broadcasting','Solamachi'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/2012%E5%B9%B4%E9%9A%85%E7%94%B0%E5%B7%9D%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Aerial_view_of_tokyo_skytree.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Interior_of_Tokyo_Skytree_1.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Mt.Fuji_%26_Tokyo_SkyTree_%286906783193%29b.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_%2C_%E6%9D%B1%E4%BA%AC_-_Flickr_-_Melvin_Loi_%281%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Skytree_at_night_%28Miyabi%29.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -1624,7 +1683,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Tokyo_Metropolitan_Art_Museum',
     tags:['Kunio Maekawa','Brutalist','Ueno','Museum','Le Corbusier Disciple','1975','Brick'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_metropolitan_art_museum01_1920.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_metropolitan_art_museum02s4s2010.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Metropolitan_Art_Museum_02_%2815133033203%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Metropolitan_Art_Museum_01_%2815133033473%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Metropolitan_Teien_Art_Museum_PB292377.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Metropolitan_Teien_Art_Museum_PB292392.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -1655,7 +1721,10 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Ath%C3%A9n%C3%A9e_Fran%C3%A7ais',
     tags:['Takamasa Yoshizaka','Le Corbusier Disciple','Brutalist','Ochanomizu','Language School','1962','Mural'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Athenee_Francais.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Ath%C3%A9n%C3%A9e_Fran%C3%A7ais_-_Tokyo_-_DSC04852.JPG?width=800'
+    ],
     drawings:[]
   },
 
@@ -1686,7 +1755,10 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'',
     tags:['Antonin Raymond','Church','Concrete','Meguro','1954','Modernism','Czech-American'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/St._Anselm%27s_Catholic_Church_1.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/St._Anselm%27s_Catholic_Church_2.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -1715,7 +1787,10 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Tokyo_Woman%27s_Christian_University',
     tags:['Antonin Raymond','University','Chapel','Pre-War','Suginami','1938','Campus'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tonjo0156.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tonjo0159.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -1837,7 +1912,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Sens%C5%8D-ji',
     tags:['Temple','Traditional','Asakusa','Kaminarimon','Buddhist','645 AD','Oldest Tokyo','Pagoda'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Asakusa_during_snowfall_-_Flickr_-_Manish_Prabhune.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Asakusa_-_Senso-ji_35_%2815576702197%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/100_views_edo_039.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Hozomon_Gate%28left%29%E3%83%BBFive-storied_Pagoda%28center%29%E3%83%BBFortune_Slip_Shop%28right%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Hozomon_on_an_overcast_day_dllu.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Hozomon_sensoji_back.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -1866,7 +1948,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Meiji_Shrine',
     tags:['Shinto','Traditional','Harajuku','Forest','Meiji Emperor','1920','Sacred','Kengo Kuma Museum'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/2018_Meiji_Shrine.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Emperor-Meiji-Empress-Shoken-Meiji-Shrine-c1926.png?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Meiji_Jingu_2023-3.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Meiji_Shrine%2C_Barrels_of_sake.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Meiji_Shrine-2.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Meiji_Shrine-4.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -1895,7 +1984,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Z%C5%8Dj%C5%8D-ji',
     tags:['Temple','Buddhist','Traditional','Tokugawa','Tokyo Tower View','Sangedatsumon','1622 Gate','Shiba'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/20110405-TokyoTower-Sakura01.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/100_views_edo_049.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/100_views_edo_079.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kawase_Z%C3%B4j%C3%B4ji.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Mausoleum_of_Sugenin.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Mausoleum_of_Taitokuin.JPG?width=800'
+    ],
     drawings:[]
   },
 
@@ -1924,7 +2020,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Nezu_Shrine',
     tags:['Shinto','Traditional','Edo Period','1706','Torii Tunnel','Azalea','Important Cultural Property','Nezu'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Nezu_Shrine_2010.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Nezu-jinja-4.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Nezu_jinja_-_Honden_1.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Nezu_jinja_-_Honden_11.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Nezu_jinja_-_Honden_12.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Nezu_jinja_-_Sukibei_2.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -1953,7 +2056,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/East_Gardens_of_the_Imperial_Palace',
     tags:['Imperial Palace','Garden','Edo Castle','Traditional','Free','Marunouchi','Stone Walls','Landscape'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Imperial_Palace_Tokyo_East_Garden_View.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/The_East_Gardens_of_the_Imperial_Palace_%28Edo_Castle_Ruin%29_entrance_by_Don_Ramey_Logan.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Imperial_Palace_East_Gardens_%283800901533%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Imperial_Palace_East_Garden_Japan_1989_air.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Street_light%2C_East_Gardens_of_the_Imperial_Palace_-_Tokyo%2C_Japan_-_DSC09018.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Imperial_Palace_East_Gardens_%289000324274%29.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -1982,7 +2092,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Rikugien',
     tags:['Garden','Edo Period','1702','Strolling Garden','Cherry Blossom','Autumn Leaves','Illumination','Komagome'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/View_from_Fujishiro-toge_Hill_at_Rikugi-en_Garden%2C_Tokyo_%28Detail%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Rikugi-en_20181124-2.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Rikugi-en_20181124-1.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Rikugi-en_20181124-3.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Rikugi-en_Gardens%2C_Tokyo%3B_November_2012_%2801%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Rikugi-en_Gardens%2C_Tokyo%3B_November_2012_%2806%29.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -2011,7 +2128,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Koishikawa_K%C5%8Drakuen',
     tags:['Garden','Edo Period','1629','Oldest Tokyo Garden','Chinese Influence','Full-Moon Bridge','Special Historic Site'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Koishikawa_Korakuen_-_Bunky%C5%8D-ku%2C_Tokyo%2C_Japan_-_DSC09183.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Koishikawa_Korakuen_-_Benzai-Tenno-Miya.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Koishikawa_Korakuen_Garden_%40_Tokyo_%289114156093%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Koishikawa_Korakuen_-_Naitei_and_Tokyo_Dome.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Koishikawa_Korakuen_%282008.09%29.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Koishikawa_Korakuen_Garden%2C_Tokyo.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -2040,7 +2164,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Asakusa_Shrine',
     tags:['Shinto','Traditional','Edo Period','1649','Important Cultural Property','Sanja Matsuri','Asakusa'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Asakusa_Shrine_2024.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Asakusa_shrine_2012.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Japan_-_Tokyo_%28Asakusa%29_%2810005265814%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tori-no-Ichi_2011%2C_Asakusa%2C_Tokyo%2C_Japan.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Asakusa%2C_Tokyo%2C_Japan_%286936222869%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Asakusa_-_Senso-ji_82_%2815163996964%29.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -2069,7 +2200,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Kanda_Shrine',
     tags:['Shinto','Traditional','730 AD','Concrete Reconstruction','Akihabara','Kanda Matsuri','1934'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kanda-Myojin_torii.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kanda-Myojin_2012.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/KandaMyojin8816.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/100_views_edo_010.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/KandaMyojinGate8837.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/KandaMyojinLanterns8758.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -2100,7 +2238,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Hama-riky%C5%AB_Gardens',
     tags:['Garden','Edo Period','1654','Tidal Garden','Teahouse','Tokugawa','Shiodome Skyline','Water Bus'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/2018_Hama-riky%C5%AB_Garden_02.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/France_Loiret_La_Bussiere_Potager_05.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Bjh42_Yedo_TycoonGarden.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/HamaRikyuAutumn.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Hamarikyu_Garden_as_seen_from_Shiodome.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Hamarikyu_Gardens.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -2129,7 +2274,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Kiyosumi_Garden',
     tags:['Garden','Meiji Era','Mitsubishi','Stepping Stones','Kiyosumi-Shirakawa','1878','Strolling Garden'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kiyosumi_Teien_-_Japanese_gardern_1.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kiyosumi-1.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kiyosumi-2.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kiyosumi-3.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kiyosumi-4.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kiyosumi-7.JPG?width=800'
+    ],
     drawings:[]
   },
 
@@ -2158,7 +2310,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Hie_Shrine',
     tags:['Shinto','Traditional','Torii Tunnel','Nagatacho','Sanno Matsuri','1478','Government District'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Hie_Shrine_Big_Torii_with_escalators_in_the_background.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Hie_Shrine_Tokyo.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Hie_Shrine_Torii.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Hie_Shrine_Torii_row.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Escalator_at_Hie_Shrine.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Hie_Shrine_big_Torii.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -2187,7 +2346,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Kyu-Furukawa_Gardens',
     tags:['Josiah Conder','Western Mansion','Japanese Garden','Rose Garden','Meiji Era','1917','Ogawa Jihei'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Western-style_garden_%40_Kyu-Furukawa_Gardens_%289105373412%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kyu-Furukawa_Gardens_%289103145153%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kyu-Furukawa_Gardens_%289105383586%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kyu-Furukawa_Gardens_%289103154003%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Lantern_%40_Kyu-Furukawa_Gardens_%289103155039%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Lantern_%40_Kyu-Furukawa_Gardens_%289105387190%29.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -2216,7 +2382,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Former_Iwasaki_House_Garden',
     tags:['Josiah Conder','Meiji Era','Mitsubishi','Western Mansion','Important Cultural Property','1896','Jacobean'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Former_Iwasaki_Family_House_and_Garden_2010.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kyu_Iwasaki_Tei_Garden_%28180139793%29.jpeg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kyu-Iwasaki-tei_Gardens_%40_Ueno_%2811096196424%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kyu-Iwasaki-tei_Gardens_%40_Ueno_%2811096171256%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kyu-Iwasaki-tei_Gardens_%40_Ueno_%2811096197174%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Kyu-Iwasaki-tei_Gardens_%40_Ueno_%2811096199244%29.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -2247,7 +2420,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Edo-Tokyo_Open_Air_Architectural_Museum',
     tags:['Open Air Museum','Edo Period','Meiji','Taisho','Relocated Buildings','Spirited Away','Maekawa House','Koganei'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Bar-Kagiya.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Edo-Tokyo_Open_Air_Architectural_Museum_PB252276.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Edo-tokyo-tatemono_okawa.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Edo-tokyo-tatemono_toden.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Edotokyo-tatemonoen.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Farmhouse-of-Tsunashima-Family-00.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -2278,7 +2458,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Tokyo_Tower',
     tags:['Tokyo Tower','Landmark','1958','333m','Observation Deck','Tachū Naitō','Broadcasting','Icon'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Tower_Afterglow.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/2011_Japan_Earthquake_Tokyo_Tower.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/20101225-tokyotower-tarotokyo.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/BaseofTokyoTower.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Shiba-koen%2C_aerial_view_on_Tokyo_Tower_at_dusk_%28Unsplash%29.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Tower_1961.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -2309,7 +2496,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Holy_Resurrection_Cathedral',
     tags:['Josiah Conder','Byzantine','Orthodox','Cathedral','1891','Important Cultural Property','Dome','Ochanomizu'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Resurrection_Cathedral_March_2019.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Nikolai-do.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Nikolai_do_Alex_K_01.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Nicholai-Do_after_Great_Kanto_earthquake.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Nikolai-do_1409.JPG?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/MatsumotoShunsuke_Nikolai_Cathedral_March_1941.png?width=800'
+    ],
     drawings:[]
   },
 
@@ -2338,7 +2532,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Akasaka_Palace',
     tags:['Neo-Baroque','National Treasure','State Guest House','1909','Katayama Tokuma','Palace','Diplomatic'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/2019_Akasaka_Palace_02.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Akasaka_Palace-1.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Akasaka_Palace_3.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Akasaka_Palace_5.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Akasaka_Palace_6.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/10sen_Stamp_of_Akasaka_Palace.JPG?width=800'
+    ],
     drawings:[]
   },
 
@@ -2396,7 +2597,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'',
     tags:['Katayama Tokuma','Baroque','1908','Museum','Ueno','Crown Prince Wedding','Dome'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Hyokeikan_of_Tokyo_National_Museum_2010.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Hyoukeikan.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_National_Museum_Hyokeikan_and_the_Tulip_Tree_P1022617.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_National_Museum_Hyokeikan_Entrance_Hall_Dome_P3303409.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_National_Museum_Hyokeikan_Staircase_P3303404.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Koizumi_Ueno.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -2425,7 +2633,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'',
     tags:['Concert Hall','Victorian','1890','Oldest Concert Hall','Organ','Important Cultural Property','Ueno','Music'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Sogakudo01s2048.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Sogakudo02s2010.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Sogakudo03s2048.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Sogakudo04s2010.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Sogakudo05s2040.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Sogakudo06s2000.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -2454,7 +2669,14 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Meiji_Seimei_Kan',
     tags:['Shinichiro Okada','Neoclassical','1934','Marunouchi','GHQ','Important Cultural Property','Insurance','Columns'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Meiji-Life-Insurance-Building-01.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/%E6%98%8E%E6%B2%BB%E5%AE%89%E7%94%B0%E7%94%9F%E5%91%BD%E4%BF%9D%E9%99%BA%E7%9B%B8%E7%8E%8B%E4%BC%9A%E7%A4%BE.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Meiji_life_insurance_building_2.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Meijiseimeikan1.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Meiji-Life-Insurance-Building-02.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Meiji-Life-Insurance-Building-03.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -2512,7 +2734,12 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'https://en.wikipedia.org/wiki/Tokyo_Metropolitan_Teien_Art_Museum',
     tags:['Art Deco','1933','Lalique','Henri Rapin','Prince Asaka','Museum','Garden','Shirokanedai'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Metropolitan_Teien_Art_Museum_02.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Teien_Museum_Garden.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Teien_Annex.jpg?width=800',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Prince_Asaka_residence.jpg?width=800'
+    ],
     drawings:[]
   },
 
@@ -2628,7 +2855,9 @@ var LOCS_TOKYO = [
     archdaily:'',
     wiki:'',
     tags:['Industrial','Brick','1922','Sewerage','Important Cultural Property','Arakawa','Infrastructure'],
-    photos:[],
+    photos:[
+      'https://commons.wikimedia.org/wiki/Special:FilePath/The_Old_Mikawashima_Sanitary_Sewage_Disposal_Plant_%283%29.JPG?width=800'
+    ],
     drawings:[]
   },
 
