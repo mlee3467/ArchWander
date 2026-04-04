@@ -22,15 +22,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Lobby and exterior: Free',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'4 → Myeongdong (Exit 6, 3-min walk)',
     walkFrom:'Namdaemun Market: 8 min · Seoul City Hall: 10 min',
-    gmaps:'https://maps.google.com/?q=Shinhan+Myeongdong+EX:PACE+Seoul',
-    archdaily:'https://www.archdaily.com/963909/shinhan-ex-pace-atelier-ki-jun-kim-plus-studio-in-loco',
-    wiki:'',
     tags:["Atelier KI JUN KIM","Facade","Renovation","Myeongdong","Parametric","Contemporary"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0012',
@@ -49,15 +44,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Private',
     tourOk:false, tourInfo:'',
-    web:'https://daewha.com/portfolio/communique-headquarters/',
     transit:'6 → Noksapyeong (Exit 1, 10-min walk)',
     walkFrom:'Itaewon: 12 min',
-    gmaps:'https://maps.google.com/?q=Communique+Headquarters+Yongsan+Seoul',
-    archdaily:'https://www.archdaily.com/780596/communique-headquarters-daewha-kang-design',
-    wiki:'',
     tags:["DaeWha Kang Design","Adaptive Reuse","Yongsan","Steel Facade","Award"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0013',
@@ -76,15 +66,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Private',
     tourOk:false, tourInfo:'',
-    web:'https://www.fosterandpartners.com/projects/hankook-technoplex/',
     transit:'Sinbundang Line → Pangyo Station (15-min taxi)',
     walkFrom:'Pangyo Techno Valley: 5 min',
-    gmaps:'https://maps.google.com/?q=Hankook+Technoplex+Pangyo',
-    archdaily:'https://www.archdaily.com/948211/hankook-technoplex-foster-plus-partners',
-    wiki:'',
     tags:["Foster + Partners","High-Tech","Pangyo","R&D","Biophilic","Corporate"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },{
     id:'sel-0017',
     name:'Juun.J Flagship Store',
@@ -102,15 +87,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'',
-    web:'https://www.juunj.com',
     transit:'3 → Sinsa (Exit 8, 10-min walk)',
     walkFrom:'Dosan Park: 3 min · Garosu-gil: 7 min',
-    gmaps:'https://maps.google.com/?q=Juun.J+Flagship+Store+Sinsa-dong+Seoul',
-    archdaily:'https://www.archdaily.com/920562/juu-flagship-store-wgnb',
-    wiki:'',
     tags:["WGNB","Fashion","Flagship Store","Sinsa-dong","All-Black","Dosan Park"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },{
     id:'sel-0019',
     name:'HiCC Entertainment HQ',
@@ -128,15 +108,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Private',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'2 5 → Yeongdeungpo-gu Office (5-min walk)',
     walkFrom:'Yeouido: 15 min · 63 Building: 15 min',
-    gmaps:'https://maps.google.com/?q=HiCC+Entertainment+Seoul',
-    archdaily:'https://www.archdaily.com/895964/hicc-ent-headquarter-less',
-    wiki:'',
     tags:["LESS Architects","Entertainment","K-Pop","Contemporary","Corporate"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0020',
@@ -155,15 +130,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Private',
     tourOk:false, tourInfo:'',
-    web:'https://www.morphosis.com/architecture/261/',
     transit:'5 9 → Magok Naru (Exit 4, 10-min walk)',
     walkFrom:'Magok Techno Valley: 8 min',
-    gmaps:'https://maps.google.com/?q=Kolon+One+Only+Tower+Magok+Seoul',
-    archdaily:'https://www.archdaily.com/900774/kolon-one-and-only-tower-morphosis-architects',
-    wiki:'',
     tags:["Morphosis","Thom Mayne","High-Tech","Magok","Composite Fibre","Research","Campus"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0021',
@@ -182,15 +152,10 @@ var LOCS_SEOUL = [
     lastEntry:'5:30 PM',
     admission:'Free',
     tourOk:false, tourInfo:'',
-    web:'http://www.wapartspace.com',
     transit:'3 → Sinsa (Exit 8, 8-min walk)',
     walkFrom:'Dosan Park: 5 min',
-    gmaps:'https://maps.google.com/?q=WAP+Art+Space+Gangnam+Seoul',
-    archdaily:'https://www.archdaily.com/899414/wap-art-space-davide-macullo-architects',
-    wiki:'',
     tags:["Davide Macullo","Art Foundation","Gallery","Gangnam","Concrete","Swiss"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0022',
@@ -209,15 +174,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Commercial',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'3 → Daechi (Exit 3, 5-min walk)',
     walkFrom:'Daechi Station: 5 min · KRING Kumho: 5 min',
-    gmaps:'https://maps.google.com/?q=895-13+Daechi-dong+Gangnam-gu+Seoul',
-    archdaily:'https://www.archdaily.com/895788/mc-building-urcode-architecture',
-    wiki:'',
     tags:["URCODE Architecture","Mixed-Use","Daechi-dong","Gangnam","Commercial"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0023',
@@ -236,15 +196,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Private',
     tourOk:false, tourInfo:'',
-    web:'https://www.samsung.com',
     transit:'2 → Seocho (Exit 6, 5-min walk) · 9 → Sinnonhyeon (10-min walk)',
     walkFrom:'Seocho Station: 5 min',
-    gmaps:'https://maps.google.com/?q=Samsung+Seocho+Town+Seoul',
-    archdaily:'https://www.archdaily.com/898210/samsung-seocho-kpf',
-    wiki:'https://en.wikipedia.org/wiki/Samsung_Town',
     tags:["KPF","Samsung","Corporate Campus","Seocho","High-Rise","Samoo"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0024',
@@ -263,15 +218,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Café',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'1 3 5 → Jongno 3-ga (Exit 6, 5-min walk)',
     walkFrom:'Ikseon-dong alley: directly adjacent · Tapgol Park: 5 min',
-    gmaps:'https://maps.google.com/?q=Seoul+Coffee+Ikseon-dong',
-    archdaily:'https://www.archdaily.com/894606/seoul-coffee-labotory',
-    wiki:'',
     tags:["LABOTORY","Café","Ikseon-dong","Adaptive Reuse","Hanok","Glass Roof"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0025',
@@ -290,15 +240,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Private',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'5 9 → Magok Naru (Exit 4, 8-min walk)',
     walkFrom:'Kolon One & Only Tower: 5 min · Magok Central Park: 5 min',
-    gmaps:'https://maps.google.com/?q=Yuhan+Technos+Magok+Seoul',
-    archdaily:'https://www.arch2o.com/yuhantechnos-headquarter-mmkm-associates/',
-    wiki:'',
     tags:["MMKM Associates","Magok","Corporate","Origami","Facade","Contemporary"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0026',
@@ -317,15 +262,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Commercial',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'7 → Cheongdam (Exit 13, 5-min walk)',
     walkFrom:'Dosan Park: 8 min · Galleria Department Store: 10 min',
-    gmaps:'https://maps.google.com/?q=925+Building+Seoul',
-    archdaily:'https://www.archdaily.com/889595/925-building-jhw-iroje-architects-and-planners',
-    wiki:'',
     tags:["IROJE","Mixed-Use","Contemporary","Small Scale","Commercial"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0027',
@@ -344,15 +284,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Private',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'3 → Sinsa (Exit 8, 8-min walk)',
     walkFrom:'Dosan Park: 6 min · XYZ Formula: 3 min',
-    gmaps:'https://maps.google.com/?q=Atelier+Chaeyeon+Seoul',
-    archdaily:'https://www.archdaily.com/889413/atelier-chaeyeon-leau-design-plus-dongjin-kim',
-    wiki:'',
     tags:["L'eau Design","Atelier","Studio","Contemporary","Small Scale"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0028',
@@ -371,15 +306,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'6 → Noksapyeong (Exit 2, 10-min walk)',
     walkFrom:'Namsan: 10 min · Itaewon: 12 min',
-    gmaps:'https://maps.google.com/?q=Huam-dong+Yongsan-gu+Seoul',
-    archdaily:'https://www.archdaily.com/885425/micro-cosmos-soyul-kywc-architects',
-    wiki:'',
     tags:["KYWC Architects","Cultural Space","Huam-dong","Namsan","Small Scale","Free"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0029',
@@ -398,15 +328,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Self-guided maps available at the visitor center near Seoul Station. Guided walks on weekends.',
-    web:'https://seoullo7017.co.kr/eng',
     transit:'1 4 → Seoul Station (Exit 2, 5-min walk) · AREX → Seoul Station',
     walkFrom:'Seoul Station: 5 min · Namdaemun Market: 10 min',
-    gmaps:'https://maps.google.com/?q=SEOULLO+7017+Skygarden+Seoul',
-    archdaily:'https://www.archdaily.com/tag/seoullo-7017',
-    wiki:'https://en.wikipedia.org/wiki/Seoullo_7017',
     tags:["MVRDV","Elevated Park","Adaptive Reuse","Free","Seoul Station","Landscape","High Line"],
-    photos:["https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Seoullo_7017%2C_Seoul%2C_Korea.jpg/800px-Seoullo_7017%2C_Seoul%2C_Korea.jpg"],
-    drawings:[]
+    photos:["https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Seoullo_7017%2C_Seoul%2C_Korea.jpg/800px-Seoullo_7017%2C_Seoul%2C_Korea.jpg"]
   },
   {
     id:'sel-0030',
@@ -425,15 +350,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Commercial',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'3 → Sinsa (Exit 8, 10-min walk)',
     walkFrom:'Dosan Park: 5 min · Juun.J Flagship: 3 min',
-    gmaps:'https://maps.google.com/?q=XYZ+Formula+Sinsa-dong+Seoul',
-    archdaily:'https://www.archdaily.com/875995/xyz-formula-wgnb',
-    wiki:'',
     tags:["WGNB","Sinsa-dong","Mixed-Use","Contemporary","Dosan Park","Small Scale"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0031',
@@ -452,15 +372,10 @@ var LOCS_SEOUL = [
     lastEntry:'5:00 PM',
     admission:'Free (permanent collection) · Special exhibitions ticketed',
     tourOk:true, tourInfo:'Guided tours on weekends. Audio guides available in Korean, English, and Japanese.',
-    web:'https://www.leeum.org/eng',
     transit:'6 → Hangangjin (Exit 1, 10-min walk uphill)',
     walkFrom:'Itaewon: 10 min · La Cucina Myeongborang: 7 min · Noksapyeong: 12 min',
-    gmaps:'https://maps.google.com/?q=Leeum+Samsung+Museum+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Leeum_Samsung_Museum_of_Art',
     tags:["Mario Botta","Jean Nouvel","Rem Koolhaas","Museum","Free","Hannam-dong","Samsung"],
-    photos:["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Leeum_Samsung_Museum_of_Art.jpg/800px-Leeum_Samsung_Museum_of_Art.jpg"],
-    drawings:[]
+    photos:["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Leeum_Samsung_Museum_of_Art.jpg/800px-Leeum_Samsung_Museum_of_Art.jpg"]
   },
   {
     id:'sel-0032',
@@ -479,15 +394,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free (commercial)',
     tourOk:false, tourInfo:'',
-    web:'https://www.ssamziegil.com',
     transit:'3 → Anguk (Exit 6, 8-min walk) · 1 → Jonggak (Exit 3, 5-min walk)',
     walkFrom:'Jogyesa Temple: 8 min · Changdeokgung Palace: 12 min · Bukchon Hanok Village: 15 min',
-    gmaps:'https://maps.google.com/?q=Ssamziegil+Insadong+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Ssamziegil',
     tags:["GA.A Architects","Insadong","Commercial","Spiral Ramp","Cultural","Free"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0033',
@@ -506,18 +416,13 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Lobby free',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'1 → Jonggak (Exit 3, directly adjacent)',
     walkFrom:'Cheonggyecheon Stream: 5 min · Jogyesa Temple: 8 min · Gwanghwamun: 10 min',
-    gmaps:'https://maps.google.com/?q=Jongno+Tower+Seoul',
-    archdaily:'https://hiddenarchitecture.net/samsung-jong-no-tower/',
-    wiki:'https://en.wikipedia.org/wiki/Jongno_Tower',
     tags:["Rafael Viñoly","SAMOO","Office Tower","High-Tech","CBD","Cantilever"],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Jongno_Tower_Seoul_-_panoramio.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/WeWork_Jongno_Tower_-_Seoul%2C_South_Korea_07.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
   {
     id:'sel-0034',
@@ -536,15 +441,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'',
-    web:'https://www.kukjegallery.com',
     transit:'3 → Anguk (Exit 1, 10-min walk)',
     walkFrom:'Gyeongbokgung Palace: 10 min · Bukchon Hanok Village: 8 min · Changdeokgung: 15 min',
-    gmaps:'https://maps.google.com/?q=Kukje+Gallery+K3+Samcheong-ro+Seoul',
-    archdaily:'https://www.archdaily.com/237697/kukje-gallery-so-il',
-    wiki:'',
     tags:["SO–IL","Gallery","Chainmail","Samcheong-dong","Free","Florian Idenburg"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0035',
@@ -563,15 +463,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Commercial',
     tourOk:false, tourInfo:'',
-    web:'https://www.mvrdv.com/projects/26/chungha-building',
     transit:'3 → Apgujeong (Exit 2, 5-min walk)',
     walkFrom:'Dosan Park: 10 min · Galleria Department Store: 5 min',
-    gmaps:'https://maps.google.com/?q=Chungha+Building+Apgujeong+Seoul',
-    archdaily:'https://www.archdaily.com/388669/chungha-building-mvrdv',
-    wiki:'',
     tags:["MVRDV","Apgujeong","Renovation","Facade","Commercial","Gangnam"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0036',
@@ -590,15 +485,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Private',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'2 → Gangnam-gu Office (Exit 3, 10-min walk)',
     walkFrom:'Gangnam-daero: 5 min',
-    gmaps:'https://maps.google.com/?q=Boutique+Monaco+Seocho+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Boutique_Monaco',
     tags:["Mass Studies","Minsuk Cho","Residential","Seocho-gu","Voids","FAR"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0037',
@@ -617,18 +507,13 @@ var LOCS_SEOUL = [
     lastEntry:'9:30 PM',
     admission:'Observatory ticketed · Aquarium ticketed',
     tourOk:false, tourInfo:'',
-    web:'https://www.63.co.kr',
     transit:'5 9 → Yeouinaru (Exit 4, 8-min walk)',
     walkFrom:'Hangang Park Yeouido: 10 min · S-Trenue Tower: 12 min',
-    gmaps:'https://maps.google.com/?q=63+Building+Yeouido+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/63_Building',
     tags:["SOM","Yeouido","Skyscraper","Gold Glass","Han River","Olympics","1988"],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Cityscape_of_Yeouido_skyscrapers_and_Hangang_Railway_Bridge_20240501113854.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/63Building_Yeouido-dong_Seoul.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
   {
     id:'sel-0038',
@@ -647,15 +532,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Private',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'5 9 → Yeouido (Exit 5, 10-min walk)',
     walkFrom:'63 Building: 10 min · Hangang Park Yeouido: 8 min',
-    gmaps:'https://maps.google.com/?q=S-Trenue+Tower+Yeouido+Seoul',
-    archdaily:'https://www.archdaily.com/55868/s-trenue-tower-mass-studies',
-    wiki:'',
     tags:["Mass Studies","Minsuk Cho","Yeouido","Bundle Matrix","Mixed-Use","Officetel"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0039',
@@ -674,15 +554,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'2 → Seongsu (Exit 3, 8-min walk)',
     walkFrom:'Seongsu-dong cafe street: 5 min · Ttukseom Hangang Park: 15 min',
-    gmaps:'https://maps.google.com/?q=Seongdong+Cultural+Welfare+Center+Seoul',
-    archdaily:'https://www.archdaily.com/551478/seongdong-cultural-and-welfare-center-unsangdong-architects',
-    wiki:'',
     tags:["UnSangDong","Seongsu-dong","Civic","Community","Free","Jang Yoon Gyoo"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0040',
@@ -701,15 +576,10 @@ var LOCS_SEOUL = [
     lastEntry:'5:30 PM (museum)',
     admission:'Museum free',
     tourOk:false, tourInfo:'',
-    web:'https://www.amorepacific.com',
     transit:'1 4 → Sinyongsan (Exit 1, 5-min walk)',
     walkFrom:'Yongsan Station: 8 min · National Museum of Korea: 15 min · Leeum Museum: 12 min',
-    gmaps:'https://maps.google.com/?q=Amorepacific+Headquarters+Yongsan+Seoul',
-    archdaily:'https://www.archdaily.com/915298/amorepacific-headquarters-david-chipperfield-architects',
-    wiki:'',
     tags:["David Chipperfield","Yongsan","Corporate","Hanging Gardens","Museum","Free","Facade"],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
   {
     id:'sel-0041',
@@ -728,12 +598,8 @@ var LOCS_SEOUL = [
     lastEntry:'1 hr before closing',
     admission:'3,000 KRW (adults) · Free on certain national holidays',
     tourOk:true, tourInfo:'Free guided tours in English available at 11:00 AM and 2:00 PM daily (Tuesday–Sunday).',
-    web:'https://www.royalpalace.go.kr',
     transit:'3 → Gyeongbokgung (Exit 5, 5-min walk)',
     walkFrom:'Gwanghwamun Square: 5 min · Bukchon Hanok Village: 15 min · National Folk Museum: on-site',
-    gmaps:'https://maps.google.com/?q=Gyeongbokgung+Palace+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Gyeongbokgung',
     tags:["Joseon","Palace","Historic","UNESCO nominee","Hanok","Traditional","Free Tour"],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Front_view_of_the_Imperial_Throne_Hall_Geunjeongjeon_at_Gyeongbokgung_Palace_with_blue_sky_in_Seoul.jpg?width=800',
@@ -742,8 +608,7 @@ var LOCS_SEOUL = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Gyeongbokgung_Mar_2025_131.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Gyeongbokgung_Mar_2025_138.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hyangwonjeong_Pavilion_and_Chwihyanggyo_Bridge_at_Gyeongbokgung_Palace_with_blue_sky_in_Seoul.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
   {
     id:'sel-0042',
@@ -762,12 +627,8 @@ var LOCS_SEOUL = [
     lastEntry:'1 hr before closing',
     admission:'3,000 KRW (palace) · Secret Garden: 5,000 KRW (guided tour only)',
     tourOk:true, tourInfo:'Secret Garden tours are guided-only and must be booked in advance. English tours available at 11:30 AM and 2:30 PM (Tue–Sun).',
-    web:'https://www.cdg.go.kr',
     transit:'3 → Anguk (Exit 3, 5-min walk)',
     walkFrom:'Bukchon Hanok Village: 8 min · Jongmyo Shrine: 12 min · Insadong: 15 min',
-    gmaps:'https://maps.google.com/?q=Changdeokgung+Palace+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Changdeokgung',
     tags:["Joseon","Palace","UNESCO","Secret Garden","Huwon","Historic","Traditional"],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Changdeokgung_Seoul_3.jpg?width=800',
@@ -776,8 +637,7 @@ var LOCS_SEOUL = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Exterior_front_view_of_the_pavilion_Samsamwa_with_blue_sky_at_Changdeokgung_Palace_in_Seoul.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Korean_art-Donggwoldo-Changdeokgung_and_Changgyeonggung-Dong-A_University-01.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Changdeokgung_Palace%2C_Seoul%2C_constructd_in_1405_%2852%29_%2839306722020%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
   {
     id:'sel-0043',
@@ -796,12 +656,8 @@ var LOCS_SEOUL = [
     lastEntry:'1 hr before closing',
     admission:'1,000 KRW (adults)',
     tourOk:true, tourInfo:'Free guided tours available on weekdays at 10:00 AM, 12:00 PM, 2:00 PM, 4:00 PM. Free entry on Saturday.',
-    web:'https://jm.cha.go.kr',
     transit:'1 3 5 → Jongno 3-ga (Exit 11, 5-min walk)',
     walkFrom:'Insadong: 8 min · Changdeokgung Palace: 12 min · Bukchon: 15 min',
-    gmaps:'https://maps.google.com/?q=Jongmyo+Shrine+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Jongmyo',
     tags:["Joseon","UNESCO","Confucian","Shrine","Ritual","Historic","Traditional","Intangible Heritage"],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Jeongjeon%2C_Jongmyo_%28Summer%2C_2013%29.jpg?width=800',
@@ -810,8 +666,7 @@ var LOCS_SEOUL = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Jongmyo_Shrine%2C_Seoul_IMG_20160922_032238.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Jongmyo_Square_Park.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Jongmyo_Shrine_02.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
   {
     id:'sel-0044',
@@ -830,12 +685,8 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'',
-    web:'https://bukchon.seoul.go.kr',
     transit:'3 → Anguk (Exit 2, 10-min walk)',
     walkFrom:'Gyeongbokgung Palace: 12 min · Changdeokgung Palace: 8 min · Kukje Gallery K3: 8 min',
-    gmaps:'https://maps.google.com/?q=Bukchon+Hanok+Village+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Bukchon_Hanok_Village',
     tags:["Hanok","Traditional","Conservation","Joseon","Residential","Free","UNESCO candidate"],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Bukchon-ro_11-gil_street_with_hanok_houses_at_sunrise_in_Bukchon_Hanok_Village_Seoul.jpg?width=800',
@@ -844,8 +695,7 @@ var LOCS_SEOUL = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Traditional_hanok_house_with_wooden_doors_along_a_steeply_sloping_street_in_Bukchon_Hanok_Village_Seoul.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Wooden_gate_and_flowerpots_in_Bukchon_Hanok_Village_in_Seoul.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Traditional_hanok_houses_at_golden_hour_in_Bukchon_Hanok_Village_in_Seoul.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
   {
     id:'sel-0045',
@@ -864,19 +714,14 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'',
-    web:'https://www.jogyesa.kr',
     transit:'3 → Anguk (Exit 6, 10-min walk) · 1 → Jonggak (Exit 2, 8-min walk)',
     walkFrom:'Insadong: 5 min · Gyeongbokgung: 12 min · Jongno Tower: 8 min',
-    gmaps:'https://maps.google.com/?q=Jogyesa+Temple+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Jogyesa',
     tags:["Buddhist","Temple","Traditional","Free","Insadong","Lantern Festival","National Treasure"],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Korea-Seoul-Jogyesa_Main_Hall_2188-06.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Jogyesa_Tempel_temple_S%C3%BCdkorea_South_Korea_Seoul_%2839852838105%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Korea-Seoul-Jogyesa_Brahma_Bell_Pavilion_2193-06.JPG?width=800'
-    ],
-    drawings:[]
+    ]
   },
   {
     id:'sel-0046',
@@ -895,12 +740,8 @@ var LOCS_SEOUL = [
     lastEntry:'30 min before closing',
     admission:'Observatory: 21,000 KRW (adults)',
     tourOk:false, tourInfo:'',
-    web:'https://www.nseoultower.com',
     transit:'Cable car from Myeongdong: 3 min · 3 → Chungmuro (Exit 2, 20-min walk + cable car)',
     walkFrom:'Myeongdong: 15 min walk + cable car · Namsan Park: 5 min walk from tower',
-    gmaps:'https://maps.google.com/?q=N+Seoul+Tower+Namsan',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/N_Seoul_Tower',
     tags:["Namsan","Observation Tower","Broadcasting","City View","Cable Car","Love Locks"],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Seoul_Aerial_Shot_08.jpg?width=800',
@@ -910,8 +751,7 @@ var LOCS_SEOUL = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/N_Seoul_Tower_view_south_wide.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Seoul_Wall_with_the_N_Seoul_Tower_in_the_Background.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/View_from_N_Seoul_Tower_at_night.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
   {
     id:'sel-0047',
@@ -930,12 +770,8 @@ var LOCS_SEOUL = [
     lastEntry:'1 hr before closing',
     admission:'Permanent collection free · Special exhibitions ticketed',
     tourOk:true, tourInfo:'Free guided tours of the permanent collection in Korean, English, Chinese, and Japanese. English tours: Tue–Fri 10:30 AM and 2:30 PM.',
-    web:'https://www.museum.go.kr/site/eng/home',
     transit:'4 → Ichon (Exit 2, 3-min walk)',
     walkFrom:'Yongsan Family Park: adjacent · Amorepacific HQ: 12 min',
-    gmaps:'https://maps.google.com/?q=National+Museum+of+Korea+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/National_Museum_of_Korea',
     tags:["Museum","Free","Yongsan","National Museum","History","Korean Heritage","Permanent Collection"],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Front_view_of_national_museum_of_korea.jpg?width=800',
@@ -943,8 +779,7 @@ var LOCS_SEOUL = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Korea_National_Museum_of_Korea.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Entrance_Hall_at_the_National_Museum_of_Korea.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/National_Museum_of_Korea%2C_Seoul_%281%29_%2841131659881%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
 // ── ZAHA HADID ────────────────────────────────────────────────
@@ -970,15 +805,10 @@ var LOCS_SEOUL = [
     hours:'Design Museum: Tue–Sun 10:00 AM – 7:00 PM · Design Market: daily 24 hrs', lastEntry:'',
     admission:'Free (public areas) · Exhibitions: ₩5,000–₩12,000',
     tourOk:true, tourInfo:'The rooftop park and exterior walkways are freely accessible 24/7. The LED Rose Garden (25,550 LED roses) illuminates nightly. Design exhibitions require tickets.',
-    web:'https://www.ddp.or.kr/',
     transit:'2 4 5 → Dongdaemun History & Culture Park (Exit 1)',
     walkFrom:'Dongdaemun Gate: 3 min · Cheonggyecheon Stream: 5 min',
-    gmaps:'https://maps.google.com/?q=Dongdaemun+Design+Plaza+Seoul',
-    archdaily:'https://www.archdaily.com/tag/dongdaemun-design-plaza',
-    wiki:'https://en.wikipedia.org/wiki/Dongdaemun_Design_Plaza',
     tags:['Zaha Hadid','Pritzker','DDP','Neofuturistic','Dongdaemun','Landmark','LED Rose Garden','24hr'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   // ── MARIO BOTTA ───────────────────────────────────────────────
@@ -1004,15 +834,10 @@ var LOCS_SEOUL = [
     hours:'Bookstore: daily 9:30 AM – 10:00 PM · Tower: business hours', lastEntry:'',
     admission:'Free (bookstore and public areas)',
     tourOk:false, tourInfo:'The Kyobo Book Centre in the basement is one of Korea\'s largest bookstores and freely accessible.',
-    web:'',
     transit:'2 → Gangnam (Exit 6, 5 min walk)',
     walkFrom:'Gangnam Station: 5 min',
-    gmaps:'https://maps.google.com/?q=Kyobo+Tower+Gangnam+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Mario Botta','Kyobo','Gangnam','Office Tower','Bookstore','2003'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1036,15 +861,10 @@ var LOCS_SEOUL = [
     hours:'Daily 9:00 AM – 6:00 PM', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Freely accessible pilgrimage site approximately 60 km south of central Seoul. Combine with a visit to Hwaseong Fortress (UNESCO) in Suwon.',
-    web:'https://www.namyangmaria.org/',
     transit:'Seoul Station → Suwon (KTX/ITX) → Bus to Namyang',
     walkFrom:'Accessible by car or bus from Suwon (approx. 30 min)',
-    gmaps:'https://maps.google.com/?q=Namyang+Holy+Land+Hwaseong',
-    archdaily:'',
-    wiki:'',
     tags:['Mario Botta','Catholic','Pilgrimage','Hwaseong','Gyeonggi-do','Sacred Architecture','2015'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   // ── ALVARO SIZA ───────────────────────────────────────────────
@@ -1070,15 +890,10 @@ var LOCS_SEOUL = [
     hours:'Mon–Sun 9:00 AM – 6:00 PM', lastEntry:'5:30 PM',
     admission:'₩5,000–₩8,000 (varies by exhibition)',
     tourOk:true, tourInfo:'Located in Paju Book City, approximately 40 km northwest of Seoul. Combine with visits to other Paju Book City architecture.',
-    web:'https://www.mimesisartmuseum.com/',
     transit:'Seoul → Paju (bus from Hapjeong Station)',
     walkFrom:'Paju Book City area',
-    gmaps:'https://maps.google.com/?q=Mimesis+Art+Museum+Paju',
-    archdaily:'https://www.archdaily.com/tag/mimesis-art-museum',
-    wiki:'https://en.wikipedia.org/wiki/Mimesis_Art_Museum',
     tags:['Alvaro Siza','Pritzker','Paju','Museum','Minimalist','Concrete','2010','Book City'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   // ── RAMSA ─────────────────────────────────────────────────────
@@ -1104,15 +919,10 @@ var LOCS_SEOUL = [
     hours:'By reservation / event-based', lastEntry:'',
     admission:'Limited public access (corporate facility with event spaces)',
     tourOk:false, tourInfo:'Primarily a private corporate facility. The exterior and surrounding streetscape are the main architectural experience.',
-    web:'',
     transit:'3 → Dongguk Univ. (5 min walk) · 4 → Chungmuro (8 min)',
     walkFrom:'Namsan Cable Car: 10 min · Myeongdong: 8 min',
-    gmaps:'https://maps.google.com/?q=Shinsegae+Namsan+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['RAMSA','Robert A.M. Stern','Shinsegae','Namsan','Brick','Contextual','2024'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   // ── NORMAN FOSTER ─────────────────────────────────────────────
@@ -1138,15 +948,10 @@ var LOCS_SEOUL = [
     hours:'Daily 10:00 AM – 10:00 PM', lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'Operating Apple Store. The ground-floor glass pavilion and its relationship to the streetscape are the architectural highlights.',
-    web:'https://www.apple.com/kr/retail/myeongdong/',
     transit:'4 → Myeongdong (Exit 6, 2 min walk)',
     walkFrom:'Myeongdong Station: 2 min · Myeongdong Cathedral: 3 min',
-    gmaps:'https://maps.google.com/?q=Apple+Myeongdong+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Norman Foster','Pritzker','Apple','Myeongdong','Flagship','Glass','2022'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   // ── TADAO ANDO ────────────────────────────────────────────────
@@ -1172,15 +977,10 @@ var LOCS_SEOUL = [
     hours:'Performance-dependent (typically opens 1 hr before showtime)', lastEntry:'',
     admission:'By performance ticket (₩50,000–₩150,000+)',
     tourOk:false, tourInfo:'Ticketed performances only. The exterior and lobby spaces are accessible to ticket holders.',
-    web:'https://www.lgart.com/',
     transit:'9 → Magok (Exit 3, 5 min walk)',
     walkFrom:'Magok Station: 5 min · Seoul Botanical Garden: 8 min',
-    gmaps:'https://maps.google.com/?q=LG+Arts+Center+Seoul+Magok',
-    archdaily:'',
-    wiki:'',
     tags:['Tadao Ando','Pritzker','Concert Hall','Performing Arts','Magok','Concrete','2022'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1204,15 +1004,10 @@ var LOCS_SEOUL = [
     hours:'Varies by exhibition and performance', lastEntry:'',
     admission:'Varies by exhibition/performance',
     tourOk:true, tourInfo:'The building and its public spaces are accessible during exhibition hours. Located near Changgyeonggung Palace and Daehangno theatre district.',
-    web:'https://www.jcc.or.kr/',
     transit:'4 → Hyehwa (Exit 2, 5 min walk)',
     walkFrom:'Hyehwa Station: 5 min · Changgyeonggung Palace: 8 min · SNUH: 3 min',
-    gmaps:'https://maps.google.com/?q=JCC+Art+Center+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Jaeneung_Culture_Center',
     tags:['Tadao Ando','Pritzker','Concert Hall','Gallery','Hyehwa','Concrete','2009'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   // ── SANAA ─────────────────────────────────────────────────────
@@ -1238,15 +1033,10 @@ var LOCS_SEOUL = [
     hours:'Library: Tue–Sun 10:00 AM – 10:00 PM · Understage: performance-dependent', lastEntry:'',
     admission:'Library: free · Concerts: ticketed',
     tourOk:true, tourInfo:'The library is freely accessible and worth visiting for its architectural interior and vinyl collection. Understage hosts live performances.',
-    web:'https://dive.hyundaicard.com/web/musiclibrary/main.hdc',
     transit:'6 → Itaewon (Exit 3, 8 min walk)',
     walkFrom:'Itaewon Station: 8 min · Leeum Museum: 3 min',
-    gmaps:'https://maps.google.com/?q=Hyundai+Card+Music+Library+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Hyundai Card','Music','Vinyl','Library','Itaewon','Understage','Concert','Free'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   // ── MASS STUDIES ──────────────────────────────────────────────
@@ -1272,15 +1062,10 @@ var LOCS_SEOUL = [
     hours:'Daily 10:00 AM – 6:00 PM', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'The seven alleys are publicly accessible. The temple welcomes respectful visitors.',
-    web:'',
     transit:'4 → Hyehwa (Exit 2) · 3 → Anguk (Exit 4)',
     walkFrom:'Changgyeonggung Palace: 5 min · JCC Art Center: 3 min',
-    gmaps:'https://maps.google.com/?q=Won+Buddhist+Wonnam+Temple+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Mass Studies','Minsuk Cho','Won Buddhism','Temple','Concrete','Jongno','2023'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   // ── SYSTEM LAB ────────────────────────────────────────────────
@@ -1306,15 +1091,10 @@ var LOCS_SEOUL = [
     hours:'Daily 11:00 AM – 9:00 PM', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Five public floors with rotating art installations and retail. The building\'s exterior is best appreciated from the Ttukseom-ro approach.',
-    web:'https://www.gentlemonster.com/',
     transit:'2 → Seongsu (Exit 3, 10 min walk)',
     walkFrom:'Seongsu Station: 10 min · Seoul Forest: 8 min',
-    gmaps:'https://maps.google.com/?q=Gentle+Monster+HAUS+NOWHERE+Seongsu',
-    archdaily:'',
-    wiki:'',
     tags:['THE_SYSTEM LAB','Kim Chanjoong','Gentle Monster','Seongsu','Experimental','Flagship','2025'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1338,15 +1118,10 @@ var LOCS_SEOUL = [
     hours:'Exterior: 24/7 · Interior: private offices', lastEntry:'',
     admission:'Exterior only',
     tourOk:false, tourInfo:'Private office building. Best viewed from the Hannam-daero sidewalk.',
-    web:'',
     transit:'6 → Hangang-jin (Exit 3, 5 min walk)',
     walkFrom:'Hangang-jin Station: 5 min · Leeum Museum: 8 min',
-    gmaps:'https://maps.google.com/?q=HANDS+Corporation+Hannam+Seoul',
-    archdaily:'https://www.archdaily.com/610002/hannam-dong-hands-corporation-headquarters-the_system-lab',
-    wiki:'',
     tags:['THE_SYSTEM LAB','Kim Chanjoong','Hannam-dong','Office','Facade','2014'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   // ── KIM CHUNG-UP ──────────────────────────────────────────────
@@ -1372,15 +1147,10 @@ var LOCS_SEOUL = [
     hours:'Exterior: 24/7 · Interior: by diplomatic appointment only', lastEntry:'',
     admission:'Exterior only (diplomatic facility)',
     tourOk:false, tourInfo:'Active diplomatic facility. The exterior and the relationship between the curved roof forms are the primary experience. Occasionally opened for heritage events.',
-    web:'https://www.ambafrance-kr.org/',
     transit:'2 5 → Chungjeongno (Exit 4, 5 min walk)',
     walkFrom:'Chungjeongno Station: 5 min · Seodaemun: 8 min',
-    gmaps:'https://maps.google.com/?q=Embassy+of+France+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Kim Chung-up','Le Corbusier','Modernist','French Embassy','Exposed Concrete','1962','Cheoma'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1401,15 +1171,10 @@ var LOCS_SEOUL = [
     hours:'Lobby: business hours · Exterior: 24/7', lastEntry:'',
     admission:'Lobby accessible during business hours',
     tourOk:false, tourInfo:'Office building with publicly accessible lobby. The tower is best appreciated from Cheonggyecheon Stream or Jongno intersection.',
-    web:'',
     transit:'1 → Jonggak (Exit 4, 3 min walk) · 1 3 5 → Jongno 3-ga (5 min)',
     walkFrom:'Jonggak Station: 3 min · Cheonggyecheon Stream: 1 min · Tapgol Park: 3 min',
-    gmaps:'https://maps.google.com/?q=Samil+Building+31+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/31_Building',
     tags:['Kim Chung-up','First High-Rise','Curtain Wall','1970','Jongno','Modernist','Seoul Heritage'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1430,15 +1195,10 @@ var LOCS_SEOUL = [
     hours:'Olympic Park: daily 5:00 AM – 10:00 PM', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Freely accessible within Olympic Park. The gate is most dramatic when viewed from the central axis approach.',
-    web:'https://www.olympicpark.co.kr/',
     transit:'8 → Olympic Park (Exit 3, 5 min walk) · 5 → Olympic Park (Exit 3)',
     walkFrom:'Olympic Park Station: 5 min',
-    gmaps:'https://maps.google.com/?q=World+Peace+Gate+Olympic+Park+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Kim Chung-up','1988 Olympics','Monument','Gate','Songpa','Sculptural','Peace'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   // ── OTHER INTERNATIONAL ───────────────────────────────────────
@@ -1461,15 +1221,10 @@ var LOCS_SEOUL = [
     hours:'Exterior: 24/7 · Interior: by diplomatic appointment', lastEntry:'',
     admission:'Exterior only (diplomatic facility)',
     tourOk:false, tourInfo:'Active diplomatic facility. The exterior composition and courtyard concept are visible from Songwol-gil.',
-    web:'https://www.eda.admin.ch/seoul',
     transit:'3 → Gyeongbokgung (Exit 4, 8 min walk)',
     walkFrom:'Gyeongbokgung Palace: 10 min · Seochon Village: 5 min',
-    gmaps:'https://maps.google.com/?q=Swiss+Embassy+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Burckhardt+Partner','Swiss Embassy','Hanok Reinterpretation','Courtyard','Award','2019','Jongno'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1490,15 +1245,10 @@ var LOCS_SEOUL = [
     hours:'Daily 11:00 AM – 9:00 PM (varies by tenant)', lastEntry:'',
     admission:'Free entry · Individual venues may charge',
     tourOk:true, tourInfo:'Freely accessible cultural complex. The terraced levels and rooftop with Namsan views are highlights.',
-    web:'https://www.piknic.kr/',
     transit:'4 → Myeongdong (Exit 3, 8 min walk) · 3 4 → Chungmuro (Exit 2, 5 min)',
     walkFrom:'Chungmuro Station: 5 min · Namsan Cable Car: 8 min · Myeongdong Cathedral: 5 min',
-    gmaps:'https://maps.google.com/?q=Piknic+Seoul+Namsan',
-    archdaily:'https://www.archdaily.com/987735/piknic-2020-cultural-center-indiesalon',
-    wiki:'',
     tags:['Indiesalon','Adaptive Reuse','Namsan','Cultural Complex','Red Brick','Terrace','2020'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
 // ── HISTORIC RELIGIOUS ────────────────────────────────────────
@@ -1521,15 +1271,10 @@ var LOCS_SEOUL = [
     hours:'Weekdays 11:00 AM – 4:00 PM · Sun 1:00 PM – 3:00 PM', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Active parish. Visitors welcome during open hours. No food or photography inside. English Mass: Sundays 9:00 AM.',
-    web:'https://www.myeongdong.org/',
     transit:'4 → Myeongdong (Exit 8, 3 min walk)',
     walkFrom:'Myeongdong Station: 3 min · Apple Myeongdong: 3 min · Piknic: 5 min',
-    gmaps:'https://maps.google.com/?q=Myeongdong+Cathedral+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Myeongdong_Cathedral',
     tags:['Catholic','Gothic','1898','First Brick Church','Myeongdong','Landmark','Democracy'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1550,15 +1295,10 @@ var LOCS_SEOUL = [
     hours:'Church: daily during daylight · Museum: 9:00 AM – 6:00 PM', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Active parish. The hilltop setting is visible from Seoullo 7017 skygarden. Combine with a walk along Seoullo 7017.',
-    web:'',
     transit:'2 5 → Chungjeongno (Exit 5, 8 min walk)',
     walkFrom:'Seoul Station: 10 min · Seoullo 7017: 5 min',
-    gmaps:'https://maps.google.com/?q=Yakhyeon+Catholic+Church+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Catholic','Romanesque','1892','Oldest Church','Jungnim-dong','Red Brick'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1579,15 +1319,10 @@ var LOCS_SEOUL = [
     hours:'Mon–Sun 9:00 AM – 5:00 PM · English services: Sun 9:30 AM & 2:00 PM', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'The Jeongdong-gil historic quarter is one of Seoul\'s best walking areas. Combine with Deoksugung Palace and Culture Station Seoul 284.',
-    web:'https://www.chungdongfmc.com/',
     transit:'1 2 → City Hall (Exit 2, 5 min walk)',
     walkFrom:'City Hall Station: 5 min · Deoksugung Palace: 2 min',
-    gmaps:'https://maps.google.com/?q=Jeongdong+First+Methodist+Church+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Methodist','Protestant','1897','First Protestant Church','Jeongdong','Gothic','Red Brick'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1608,15 +1343,10 @@ var LOCS_SEOUL = [
     hours:'Mon–Sat 11:00 AM – 4:00 PM · Closed Sun (services only)', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Active cathedral. The granite exterior and hilltop position are best appreciated from Sejong-daero.',
-    web:'',
     transit:'1 2 → City Hall (Exit 3, 3 min walk)',
     walkFrom:'City Hall Station: 3 min · Deoksugung Palace: 3 min · Seoul Library: 2 min',
-    gmaps:'https://maps.google.com/?q=Seoul+Anglican+Cathedral',
-    archdaily:'',
-    wiki:'',
     tags:['Anglican','Romanesque','1926','Granite','Arthur Dixon','City Hall','Deoksugung'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1637,15 +1367,10 @@ var LOCS_SEOUL = [
     hours:'By arrangement · Sunday services', lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'Active Presbyterian church. The building\'s historic significance relates to the 1919 Independence Movement. Located on Insadong-gil.',
-    web:'',
     transit:'1 → Jonggak (Exit 3, 3 min walk)',
     walkFrom:'Jonggak Station: 3 min · Insadong main street: 1 min',
-    gmaps:'https://maps.google.com/?q=Seungdong+Church+Insadong+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Presbyterian','Protestant','1904','March 1st Movement','Independence','Insadong','Heritage'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   // ── COLONIAL-ERA WESTERN BUILDINGS ────────────────────────────
@@ -1668,15 +1393,10 @@ var LOCS_SEOUL = [
     hours:'Tue–Sun 10:00 AM – 5:00 PM · Closed Mon', lastEntry:'4:30 PM',
     admission:'Free',
     tourOk:true, tourInfo:'Freely accessible museum with English signage. The banking hall interior is the architectural highlight.',
-    web:'https://www.bok.or.kr/museum/',
     transit:'4 → Myeongdong (Exit 6, 3 min walk) · 4 → Hoehyeon (Exit 7, 3 min)',
     walkFrom:'Myeongdong Station: 3 min · Namdaemun Market: 3 min · Shinhan EX:PACE: 2 min',
-    gmaps:'https://maps.google.com/?q=Bank+of+Korea+Museum+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Museum','1912','Renaissance Revival','Banking','Heritage','Free','Namdaemun'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1697,15 +1417,10 @@ var LOCS_SEOUL = [
     hours:'Tue–Sun 10:00 AM – 7:00 PM (last Wed monthly until 9:00 PM) · Closed Mon', lastEntry:'6:00 PM',
     admission:'Free (some exhibitions may charge)',
     tourOk:true, tourInfo:'Freely accessible cultural venue. The grand hall interior is the architectural highlight. Located immediately adjacent to the current Seoul Station.',
-    web:'https://www.seoul284.org/',
     transit:'1 4 → Seoul Station (Exit 2, 2 min walk)',
     walkFrom:'Seoul Station: 2 min · Seoullo 7017: 1 min · Namdaemun Market: 8 min',
-    gmaps:'https://maps.google.com/?q=Culture+Station+Seoul+284',
-    archdaily:'',
-    wiki:'',
     tags:['Railway Station','1925','Byzantine','Cultural Venue','Restoration','Seoul Station','Free'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1726,15 +1441,10 @@ var LOCS_SEOUL = [
     hours:'Tue–Fri 9:00 AM – 9:00 PM · Sat–Sun 9:00 AM – 6:00 PM · Closed Mon', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Freely accessible public library. The historic reading rooms and grand staircase are the architectural highlights. Faces Seoul Plaza.',
-    web:'https://lib.seoul.go.kr/',
     transit:'1 2 → City Hall (Exit 5, 1 min walk)',
     walkFrom:'City Hall Station: 1 min · Deoksugung Palace: 3 min · Seoul Anglican Cathedral: 2 min',
-    gmaps:'https://maps.google.com/?q=Seoul+Metropolitan+Library',
-    archdaily:'',
-    wiki:'',
     tags:['Library','1926','Neoclassical','City Hall','Colonial','Restoration','Free','Reading Room'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1755,15 +1465,10 @@ var LOCS_SEOUL = [
     hours:'Mon–Fri 9:00 AM – 6:00 PM · Sat 10:00 AM – 3:00 PM · Closed Sun', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Free museum on the SNU Hospital campus. English signage available.',
-    web:'',
     transit:'4 → Hyehwa (Exit 3, 5 min walk)',
     walkFrom:'Hyehwa Station: 5 min · JCC Art Center: 5 min · Marronnier Park: 3 min',
-    gmaps:'https://maps.google.com/?q=Seoul+National+University+Hospital+Medical+Museum',
-    archdaily:'',
-    wiki:'',
     tags:['Museum','Medical','1908','Western Architecture','Hyehwa','Free','SNU Hospital'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   // ── TRADITIONAL PALACES & HISTORIC SITES ──────────────────────
@@ -1786,15 +1491,10 @@ var LOCS_SEOUL = [
     hours:'Tue–Sun 9:00 AM – 7:00 PM (Nov–Mar until 6:00 PM) · Closed Mon', lastEntry:'30 min before closing',
     admission:'Free',
     tourOk:true, tourInfo:'Free admission. Traditional costume experience available. Located between Anguk and Jongno 3-ga stations.',
-    web:'',
     transit:'3 → Anguk (Exit 4, 3 min walk) · 1 3 5 → Jongno 3-ga (Exit 5, 5 min)',
     walkFrom:'Anguk Station: 3 min · Insadong: 5 min · Bukchon: 8 min',
-    gmaps:'https://maps.google.com/?q=Unhyeongung+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Unhyeongung',
     tags:['Palace','Traditional','1866','Daewongun','Joseon','Jongno','Free'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1815,15 +1515,10 @@ var LOCS_SEOUL = [
     hours:'Mar–Oct: 9:30 AM – 6:00 PM · Nov–Feb: 9:30 AM – 5:00 PM · Closed Mon', lastEntry:'30 min before closing',
     admission:'₩3,000 (adults) · ₩1,500 (teens) · Seniors & children: free',
     tourOk:true, tourInfo:'Allow 1–2 hours. English signage throughout. Emotionally intense visit. Adjacent to Independence Park.',
-    web:'',
     transit:'3 → Dongnimmun (Exit 5, 1 min walk)',
     walkFrom:'Dongnimmun Station: 1 min · Seodaemun Independence Gate: 3 min',
-    gmaps:'https://maps.google.com/?q=Seodaemun+Prison+History+Hall+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Seodaemun_Prison',
     tags:['Prison','Colonial','1908','Independence','History Museum','Seodaemun','Brick'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1844,15 +1539,10 @@ var LOCS_SEOUL = [
     hours:'Tue–Sun 9:30 AM – 6:00 PM · Closed Mon', lastEntry:'5:00 PM',
     admission:'Free',
     tourOk:true, tourInfo:'Free admission. Allow 2–3 hours. The outdoor vehicle exhibition is accessible without entering the main building.',
-    web:'https://www.warmemo.or.kr/',
     transit:'4 6 → Samgakji (Exit 12, 2 min walk)',
     walkFrom:'Samgakji Station: 2 min · National Museum of Korea: taxi 10 min',
-    gmaps:'https://maps.google.com/?q=War+Memorial+of+Korea+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/War_Memorial_of_Korea',
     tags:['Museum','Memorial','Military','Korean War','Free','Yongsan','Outdoor Exhibition'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1873,15 +1563,10 @@ var LOCS_SEOUL = [
     hours:'Tue–Sun 9:00 AM – 8:00 PM (Apr–Oct until 9:00 PM) · Closed Mon', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Free admission. Traditional culture programs (hanbok experience, crafts) available. Combine with Namsan hiking.',
-    web:'',
     transit:'3 4 → Chungmuro (Exit 3, 3 min walk)',
     walkFrom:'Chungmuro Station: 3 min · Myeongdong: 10 min · Namsan Cable Car: 10 min',
-    gmaps:'https://maps.google.com/?q=Namsangol+Hanok+Village+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Namsangol_Hanok_Village',
     tags:['Hanok','Traditional','Village','Namsan','Free','Cultural Experience','Lee Seung-eop'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
 // ── HISTORIC HOUSES & VILLAS ──────────────────────────────────
@@ -1904,15 +1589,10 @@ var LOCS_SEOUL = [
     hours:'Tue–Sun 9:00 AM – 6:00 PM · Closed Mon', lastEntry:'5:30 PM',
     admission:'Free (guided tours available — English on Fri 4:00 PM)',
     tourOk:true, tourInfo:'Free guided tours in multiple languages. One of the best-preserved hanok interiors open to the public in Bukchon.',
-    web:'',
     transit:'3 → Anguk (Exit 1, 10 min walk)',
     walkFrom:'Anguk Station: 10 min · Bukchon Hanok Village: 3 min',
-    gmaps:'https://maps.google.com/?q=Baek+Inje+House+Bukchon+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Hanok','1913','Bukchon','Heritage','Free','Guided Tour','Colonial Period'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1933,15 +1613,10 @@ var LOCS_SEOUL = [
     hours:'Tue–Fri 9:00 AM – 6:00 PM · Wed until 8:00 PM · Sat–Sun 9:00 AM – 5:00 PM · Closed Mon', lastEntry:'',
     admission:'Free (experience programs may charge)',
     tourOk:true, tourInfo:'Free entry. Good starting point for a Bukchon walking tour. English information available.',
-    web:'https://hanok.seoul.go.kr/',
     transit:'3 → Anguk (Exit 1, 8 min walk)',
     walkFrom:'Anguk Station: 8 min · Changdeokgung: 5 min',
-    gmaps:'https://maps.google.com/?q=Bukchon+Culture+Center+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Bukchon','Hanok','Culture Center','Free','Tea Ceremony','Traditional','Gye-dong'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1962,15 +1637,10 @@ var LOCS_SEOUL = [
     hours:'Wed–Sun 10:00 AM – 6:00 PM · Closed Mon–Tue', lastEntry:'5:00 PM',
     admission:'Museum admission applies',
     tourOk:true, tourInfo:'Part of Seoul Museum annex. The setting among Inwangsan pines is especially atmospheric. Combine with Buam-dong cafes.',
-    web:'https://museum.seoul.go.kr/',
     transit:'3 → Gyeongbokgung (Exit 3) → Bus 1711/7016 to Jahamun Tunnel',
     walkFrom:'Buam-dong village: 5 min · Jahamun Gate: 8 min',
-    gmaps:'https://maps.google.com/?q=Seokpajeong+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Villa','Daewongun','Traditional','Inwangsan','Garden','Pavilion','Buam-dong'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1991,15 +1661,10 @@ var LOCS_SEOUL = [
     hours:'Check website for current schedule', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Small museum in a residential setting. English materials available. Located on the hillside near Inwangsan.',
-    web:'',
     transit:'3 → Gyeongbokgung (Exit 2, 15 min walk) · 3 → Dongnimmun (10 min)',
     walkFrom:'Sajik Park: 8 min · Gyeongbokgung Palace: 15 min',
-    gmaps:'https://maps.google.com/?q=Dilkusha+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Dilkusha',
     tags:['Western House','1924','Albert Taylor','Independence','Red Brick','Museum','Sajik'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2020,15 +1685,10 @@ var LOCS_SEOUL = [
     hours:'Tue–Sun 10:00 AM – 6:00 PM · Closed Mon', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Small heritage house. Combine with Changdeokgung Palace visit.',
-    web:'',
     transit:'3 → Anguk (Exit 1, 12 min walk)',
     walkFrom:'Changdeokgung Palace: 3 min · Bukchon: 5 min',
-    gmaps:'https://maps.google.com/?q=Go+Huidong+House+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Hanok','Heritage','Go Huidong','Painter','Bukchon','Free'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2049,15 +1709,10 @@ var LOCS_SEOUL = [
     hours:'Check for current schedule (may be temporarily closed)', lastEntry:'',
     admission:'Free when open',
     tourOk:true, tourInfo:'Small presidential memorial. May require advance booking. Located in the hilly Ihwa-dong neighbourhood.',
-    web:'',
     transit:'4 → Hyehwa (Exit 2, 8 min walk)',
     walkFrom:'Hyehwa Station: 8 min · Naksan Park: 5 min',
-    gmaps:'https://maps.google.com/?q=Ihwajang+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Presidential','Syngman Rhee','Hanok','Heritage','Memorial','Hyehwa'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2078,15 +1733,10 @@ var LOCS_SEOUL = [
     hours:'By event schedule', lastEntry:'',
     admission:'Varies by event',
     tourOk:false, tourInfo:'Primarily open during cultural events. The exterior is viewable from the street.',
-    web:'',
     transit:'5 → Seodaemun (Exit 4, 10 min walk)',
     walkFrom:'Swiss Embassy: 5 min',
-    gmaps:'https://maps.google.com/?q=Hong+Nanpa+House+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Western House','1930s','Hong Nanpa','Composer','Heritage','Brick','Songwol-dong'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2107,15 +1757,10 @@ var LOCS_SEOUL = [
     hours:'Tue–Sun (check current schedule)', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Free public library with mountain views. Combine with Inwangsan hiking trail.',
-    web:'',
     transit:'3 → Gyeongbokgung (Exit 3) → Bus to Cheongun-dong',
     walkFrom:'Inwangsan trail entrance: 5 min',
-    gmaps:'https://maps.google.com/?q=Cheongwun+Literature+Library+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Library','Hanok','Literature','Inwangsan','Mountain View','Free','2018'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2136,15 +1781,10 @@ var LOCS_SEOUL = [
     hours:'By reservation · Programs throughout the week', lastEntry:'',
     admission:'Free (space rental available by reservation)',
     tourOk:true, tourInfo:'Public hanok space. Reservations recommended for interior access.',
-    web:'',
     transit:'3 → Gyeongbokgung (Exit 2, 8 min walk)',
     walkFrom:'Gyeongbokgung Palace: 8 min · Seochon Village: 3 min',
-    gmaps:'https://maps.google.com/?q=Hong+Geonik+House+Seochon+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Hanok','1930s','Public Space','Seochon','Heritage','Reservation'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2165,15 +1805,10 @@ var LOCS_SEOUL = [
     hours:'Occasional public events only', lastEntry:'',
     admission:'Free during public events',
     tourOk:false, tourInfo:'Private residence. Exterior viewable from Bukchon walking routes.',
-    web:'',
     transit:'3 → Anguk (Exit 1, 10 min walk)',
     walkFrom:'Bukchon Hanok Village: 2 min',
-    gmaps:'https://maps.google.com/?q=Bukchon+Gahoe-dong+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Hanok','Private','Bukchon','Yangban','Heritage','Gahoe-dong'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2194,15 +1829,10 @@ var LOCS_SEOUL = [
     hours:'Exterior only', lastEntry:'',
     admission:'Exterior viewing',
     tourOk:false, tourInfo:'Part of Bukchon heritage district. Exterior viewable from walking routes.',
-    web:'',
     transit:'3 → Anguk (Exit 1, 10 min walk)',
     walkFrom:'Bukchon Hanok Village: 2 min',
-    gmaps:'https://maps.google.com/?q=Bukchon+Gahoe-dong+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Hanok','Heritage','Bukchon','Gahoe-dong','Traditional'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2223,15 +1853,10 @@ var LOCS_SEOUL = [
     hours:'Restaurant hours (lunch and dinner)', lastEntry:'',
     admission:'Dining menu pricing',
     tourOk:false, tourInfo:'Operating restaurant. The architectural interior can be experienced while dining.',
-    web:'',
     transit:'1 → Jonggak (Exit 3, 5 min walk)',
     walkFrom:'Insadong: 1 min · Jonggak Station: 5 min',
-    gmaps:'https://maps.google.com/?q=Insadong-gil+23+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Hanok','Reformed','1930s','Park Gil-ryong','Restaurant','Insadong','Heritage'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2252,15 +1877,10 @@ var LOCS_SEOUL = [
     hours:'Limited access · Check for special events', lastEntry:'',
     admission:'Exterior viewing',
     tourOk:false, tourInfo:'Heritage house in Seochon. Exterior viewable from Jahamun-ro alley.',
-    web:'',
     transit:'3 → Gyeongbokgung (Exit 2, 10 min walk)',
     walkFrom:'Seochon Village: 2 min · Gyeongbokgung: 10 min',
-    gmaps:'https://maps.google.com/?q=Chebu-dong+Jahamun-ro+5-gil+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Hanok','Heritage','1915','Seochon','Chebu-dong','Folk Heritage'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2281,15 +1901,10 @@ var LOCS_SEOUL = [
     hours:'Daily 11:00 AM – 9:00 PM', lastEntry:'',
     admission:'Cafe menu pricing (no entry fee)',
     tourOk:true, tourInfo:'Popular photo spot especially during ginkgo season (November). Combine with Bukhansan hiking.',
-    web:'',
     transit:'4 → Suyu (then bus/taxi to Ui-dong)',
     walkFrom:'Ui-dong area · Near Bukhansan National Park entrance',
-    gmaps:'https://maps.google.com/?q=Seonungak+Ui-dong+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Cafe','Ginkgo','Bukhansan','Autumn','Photo Spot','Ui-dong','Mountain View'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2310,15 +1925,10 @@ var LOCS_SEOUL = [
     hours:'By appointment through Kookmin University', lastEntry:'',
     admission:'By arrangement',
     tourOk:false, tourInfo:'Located on university campus. Contact Kookmin University for visiting arrangements.',
-    web:'',
     transit:'4 → Kookmin Univ. (Exit 3)',
     walkFrom:'Kookmin University Station: 5 min',
-    gmaps:'https://maps.google.com/?q=Kookmin+University+Jeongneung+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Hanok','Heritage','Relocated','University','Independence Activist','1890s'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2339,15 +1949,10 @@ var LOCS_SEOUL = [
     hours:'Exterior only', lastEntry:'',
     admission:'Exterior viewing',
     tourOk:false, tourInfo:'Part of Bukchon heritage district. Viewable during Bukchon walking tours.',
-    web:'',
     transit:'3 → Anguk (Exit 1, 10 min walk)',
     walkFrom:'Bukchon scenic viewpoints: 2 min',
-    gmaps:'https://maps.google.com/?q=Bukchon+Gahoe-dong+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Hanok','Heritage','Bukchon','Gahoe-dong','Traditional'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2368,15 +1973,10 @@ var LOCS_SEOUL = [
     hours:'Private / limited access', lastEntry:'',
     admission:'Exterior viewing',
     tourOk:false, tourInfo:'Primarily private. The Buam-dong neighbourhood itself is worth exploring for its artist studios, cafes, and mountain trails.',
-    web:'',
     transit:'3 → Gyeongbokgung (Exit 3) → Bus 1711 to Buam-dong',
     walkFrom:'Buam-dong village: 3 min · Seokpajeong: 8 min',
-    gmaps:'https://maps.google.com/?q=Buam-dong+Jongno+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Hanok','Heritage','Buam-dong','Traditional','Inwangsan'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2397,15 +1997,10 @@ var LOCS_SEOUL = [
     hours:'Exterior only', lastEntry:'',
     admission:'Exterior viewing',
     tourOk:false, tourInfo:'Near Changdeokgung Palace. Viewable during walks in the Wonseo-dong area.',
-    web:'',
     transit:'3 → Anguk (Exit 1, 8 min walk)',
     walkFrom:'Changdeokgung Palace: 3 min · Bukchon: 5 min',
-    gmaps:'https://maps.google.com/?q=Wonseo-dong+Changdeokgung+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Hanok','Heritage','Wonseo-dong','Changdeokgung','Folk Heritage'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2426,15 +2021,10 @@ var LOCS_SEOUL = [
     hours:'Exterior only', lastEntry:'',
     admission:'Exterior viewing',
     tourOk:false, tourInfo:'Viewable along Bukchon walking routes near scenic viewpoint 4.',
-    web:'',
     transit:'3 → Anguk (Exit 1, 10 min walk)',
     walkFrom:'Bukchon scenic viewpoint 4: 1 min',
-    gmaps:'https://maps.google.com/?q=Bukchon+Gahoe-dong+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:['Western Style','1938','Two-Storey','Bukchon','Heritage','Colonial Period'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
 // ── KENGO KUMA ────────────────────────────────────────────────
@@ -2459,14 +2049,10 @@ var LOCS_SEOUL = [
     lastEntry:'16:00',
     admission:'Free (reservation required)',
     tourOk:false, tourInfo:'',
-    web:'https://audeum-museum.com',
     transit:'3 → Yangjae (Exit 8, 15-min walk)',
     walkFrom:'Seocho area',
-    gmaps:'https://maps.google.com/?q=Audeum+Seoul',
-    archdaily:'https://www.archdaily.com/1021588/the-audeum-kengo-kuma-and-associates',
-    wiki:'',
     tags:["Museum","Kengo Kuma","Audio","Contemporary","Seocho","By Appointment"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -2489,14 +2075,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'',
-    web:'https://www.whitestone-gallery.com',
     transit:'6 → Bogwang (Exit 1, 10-min walk)',
     walkFrom:'Itaewon: 15 min',
-    gmaps:'https://maps.google.com/?q=Whitestone+Gallery+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:["Gallery","Kengo Kuma","Art","Contemporary","Yongsan","Free"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   // ── SOM ────────────────────────────────────────────────────────
@@ -2521,14 +2103,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Varies',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'2 → Yeoksam (Exit 7, 3-min walk)',
     walkFrom:'Gangnam Station: 10 min',
-    gmaps:'https://maps.google.com/?q=GS+Tower+Seoul+Gangnam',
-    archdaily:'',
-    wiki:'',
     tags:["Office","SOM","Skyscraper","Gangnam","Modern","Corporate"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   // ── KPF ────────────────────────────────────────────────────────
@@ -2553,14 +2131,10 @@ var LOCS_SEOUL = [
     lastEntry:'1 hr before closing',
     admission:'Seoul Sky: ₩31,000 adults · Fast Pass ₩62,000',
     tourOk:true, tourInfo:'Observation deck tours and audio guides available',
-    web:'https://seoulsky.lotteworld.com',
     transit:'2·8 → Jamsil (Exit 1, direct connection)',
     walkFrom:'Seokchon Lake: 5 min',
-    gmaps:'https://maps.google.com/?q=Lotte+World+Tower+Seoul',
-    archdaily:'https://www.archdaily.com/868602/seouls-lotte-world-tower-completes-as-worlds-5th-tallest-building',
-    wiki:'https://en.wikipedia.org/wiki/Lotte_World_Tower',
     tags:["Supertall","KPF","Observation","Hotel","Office","Retail","Jamsil","Landmark","Songpa"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   // ── HERZOG & DE MEURON ─────────────────────────────────────────
@@ -2585,14 +2159,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Check website',
     tourOk:true, tourInfo:'Docent tours available for exhibitions',
-    web:'https://www.songeunartspace.org',
     transit:'7 → Cheongdam (Exit 9, 8-min walk)',
     walkFrom:'Dosan Park: 5 min',
-    gmaps:'https://maps.google.com/?q=SONGEUN+Art+Space+Seoul',
-    archdaily:'https://www.archdaily.com/970273/st-international-hq-and-songeun-art-space-herzog-and-de-meuron',
-    wiki:'',
     tags:["Art Space","Herzog & de Meuron","Contemporary","Concrete","Cheongdam","Gangnam"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   // ── OMA ────────────────────────────────────────────────────────
@@ -2617,14 +2187,10 @@ var LOCS_SEOUL = [
     lastEntry:'17:30',
     admission:'Check website',
     tourOk:true, tourInfo:'Regular exhibitions and guided tours',
-    web:'http://www.snumoa.org',
     transit:'2 → Seoul National Univ. (Exit 3, shuttle bus)',
     walkFrom:'SNU Gwanak Campus',
-    gmaps:'https://maps.google.com/?q=Seoul+National+University+Museum+of+Art',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Seoul_National_University_Museum_of_Art',
     tags:["Museum","OMA","Rem Koolhaas","University","Art","Contemporary","Gwanak"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   // ── FHHH FRIENDS ──────────────────────────────────────────────
@@ -2649,14 +2215,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'N/A',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'2·경의중앙 → Hongik Univ. (Exit 3, 10-min walk)',
     walkFrom:'Yeonnam-dong: 5 min',
-    gmaps:'https://maps.google.com/?q=Around+Magazine+Yeonnam-dong+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:["Office","FHHH Friends","Yeonnam-dong","Contemporary","Mapo"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   // ── SEOUL MUNICIPAL MUSEUMS ────────────────────────────────────
@@ -2681,14 +2243,10 @@ var LOCS_SEOUL = [
     lastEntry:'1 hr before closing',
     admission:'Free (special exhibitions may be ticketed)',
     tourOk:true, tourInfo:'Docent-led tours available',
-    web:'https://sema.seoul.go.kr',
     transit:'1·2 → City Hall (Exit 1, 5-min walk)',
     walkFrom:'Deoksugung Palace: adjacent · Seoul Library: 3 min',
-    gmaps:'https://maps.google.com/?q=Seoul+Museum+of+Art+SeMA',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Seoul_Museum_of_Art',
     tags:["Museum","Art","Free","Neoclassical","Colonial Era","Jung-gu","SeMA"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -2711,14 +2269,10 @@ var LOCS_SEOUL = [
     lastEntry:'1 hr before closing',
     admission:'Ticketed',
     tourOk:false, tourInfo:'',
-    web:'https://sema.seoul.go.kr',
     transit:'1·7 → Dobongsan (Exit 1, 5-min walk)',
     walkFrom:'Chang-dong area',
-    gmaps:'https://maps.google.com/?q=Seoul+Museum+of+Photography',
-    archdaily:'https://www.archdaily.com/930480/jadric-architektur-plus-1990uao-selected-to-create-the-seoul-photographic-art-museum',
-    wiki:'',
     tags:["Museum","Photography","Contemporary","Parametric","Dobong","Chang-dong"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -2741,14 +2295,10 @@ var LOCS_SEOUL = [
     lastEntry:'1 hr before closing',
     admission:'Ticketed',
     tourOk:false, tourInfo:'',
-    web:'https://sema.seoul.go.kr',
     transit:'1 → Geumcheon-gu Office (Exit 1, 10-min walk)',
     walkFrom:'Geumcheon area',
-    gmaps:'https://maps.google.com/?q=Seo+Seoul+Museum+of+Art',
-    archdaily:'',
-    wiki:'',
     tags:["Museum","New Media Art","Contemporary","Geumcheon","THE_SYSTEM LAB"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   // ── RIKEN YAMAMOTO ─────────────────────────────────────────────
@@ -2773,14 +2323,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'N/A',
     tourOk:false, tourInfo:'Private residential community',
-    web:'',
     transit:'신분당 → Pangyo (15-min walk)',
     walkFrom:'Pangyo Techno Valley: 10 min',
-    gmaps:'https://maps.google.com/?q=Pangyo+Housing+Riken+Yamamoto',
-    archdaily:'https://www.archdaily.com/1014039/pangyo-housing-riken-yamamoto',
-    wiki:'',
     tags:["Housing","Riken Yamamoto","Pritzker","Residential","Pangyo","Community"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   // ── INDIVIDUAL LOCATIONS ───────────────────────────────────────
@@ -2805,14 +2351,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Museum tours and letterpress workshops available',
-    web:'https://www.bookmuseum.go.kr',
     transit:'8 → Songpanaru (Exit 3, 5-min walk)',
     walkFrom:'Seokchon Lake: 10 min',
-    gmaps:'https://maps.google.com/?q=Songpa+Book+Museum+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:["Museum","Books","Free","Songpa","Contemporary","Library"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -2835,14 +2377,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Varies',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'3 → Gyeongbokgung (Exit 2, 8-min walk)',
     walkFrom:'Gyeongbokgung Palace: 5 min · Cheongwadae: 10 min',
-    gmaps:'https://maps.google.com/?q=Brickwell+Tongui-dong+Seoul',
-    archdaily:'https://www.archdaily.com/992441/brickwell-mixed-use-building-society-of-architecture',
-    wiki:'',
     tags:["Mixed-use","Brick","Award","Seochon","Jongno","Contemporary"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -2865,14 +2403,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Guided tours of the tanks available',
-    web:'https://parks.seoul.go.kr/culturetank',
     transit:'6 → World Cup Stadium (Exit 1, 5-min walk)',
     walkFrom:'Seoul World Cup Stadium: adjacent',
-    gmaps:'https://maps.google.com/?q=Oil+Tank+Culture+Park+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Oil_Tank_Culture_Park',
     tags:["Park","Cultural","Adaptive Reuse","Industrial Heritage","Free","Mapo","World Cup"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -2895,14 +2429,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Self-guided ecological trails',
-    web:'',
     transit:'9 → Seonyudo (Exit 1, 5-min walk)',
     walkFrom:'Dangsan: 15 min via Seonyudo Bridge',
-    gmaps:'https://maps.google.com/?q=Seonyudo+Park+Seoul',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Seonyudo_Park',
     tags:["Park","Ecological","Island","Han River","Free","Yeongdeungpo","Adaptive Reuse"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -2925,14 +2455,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Private',
     tourOk:false, tourInfo:'By appointment only',
-    web:'',
     transit:'4 → Hansung Univ. (Exit 6, 15-min walk)',
     walkFrom:'Seongbuk-dong area',
-    gmaps:'https://maps.google.com/?q=Daeyang+Gallery+House+Seoul',
-    archdaily:'https://www.archdaily.com/234478/daeyang-gallery-and-house-steven-holl-architects',
-    wiki:'https://en.wikipedia.org/wiki/Daeyang_Gallery_and_House',
     tags:["Gallery","Steven Holl","Private","Seongbuk","Contemporary","By Appointment"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -2955,14 +2481,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'N/A',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'수인분당 → Suseo area',
     walkFrom:'Bundang area',
-    gmaps:'https://maps.google.com/?q=HD+Hyundai+Global+RD+Center+Bundang',
-    archdaily:'https://www.archdaily.com/1005023/hd-hyundai-global-r-and-d-center-nikken-sekkei',
-    wiki:'',
     tags:["Office","R&D","HD Hyundai","Corporate","Bundang","Nikken Sekkei","Contemporary"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -2985,14 +2507,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'N/A',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'에버라인 → Giheung area',
     walkFrom:'Yongin area',
-    gmaps:'https://maps.google.com/?q=Amorepacific+R%26I+Center+Yongin',
-    archdaily:'https://www.archdaily.com/954574/amore-pacific-research-and-design-center-alvaro-siza-vieira-plus-carlos-castanheira-plus-kim-jang-kyu',
-    wiki:'',
     tags:["R&D","Alvaro Siza","Amorepacific","Corporate","Yongin","Pritzker"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -3015,14 +2533,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'5 → Omokgyo (Exit 3, 3-min walk)',
     walkFrom:'Mokdong area',
-    gmaps:'https://maps.google.com/?q=Omok+Park+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:["Park","Free","Yangcheon","Colonnade","Design Award","Public Space"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -3045,14 +2559,10 @@ var LOCS_SEOUL = [
     lastEntry:'23:00',
     admission:'Free entry (cafe purchases)',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'4·9 → Dongjak (Exit 2, bridge access)',
     walkFrom:'National Cemetery: 5 min',
-    gmaps:'https://maps.google.com/?q=Noeul+Cafe+Dongjak+Bridge+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:["Cafe","Observation","Sunset","Han River","Dongjak","Bridge","Free Entry"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -3075,14 +2585,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Exhibition tours available',
-    web:'',
     transit:'1·7 → Dobongsan (Exit 2, 5-min walk)',
     walkFrom:'Dobongsan hiking trail: adjacent',
-    gmaps:'https://maps.google.com/?q=Peace+Culture+Bunker+Dobong+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:["Cultural","Military Heritage","Adaptive Reuse","Free","Dobong","Cold War","Bunker"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -3105,14 +2611,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'',
-    web:'https://www.spacek.co.kr',
     transit:'5 → Magoknaru (Exit 3, 5-min walk)',
     walkFrom:'Seoul Botanic Park: 5 min',
-    gmaps:'https://maps.google.com/?q=Space+K+Seoul+Magok',
-    archdaily:'',
-    wiki:'',
     tags:["Gallery","Mass Studies","Free","Magok","Contemporary","Kolon"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -3135,14 +2637,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'5·9 → Yeouido (Exit 1, 5-min walk)',
     walkFrom:'Yeouido Hangang Park: adjacent',
-    gmaps:'https://maps.google.com/?q=Yeouido+Saetgang+Ecological+Park',
-    archdaily:'',
-    wiki:'',
     tags:["Park","Ecological","Free","Han River","Yeouido","Wetland","Nature"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -3165,14 +2663,10 @@ var LOCS_SEOUL = [
     lastEntry:'1 hr before closing',
     admission:'₩5,000 adults · ₩3,000 teens · ₩2,000 children · Free under 6 & over 65',
     tourOk:true, tourInfo:'Guided tours available',
-    web:'https://botanicpark.seoul.go.kr',
     transit:'5 → Magoknaru (Exit 3, 10-min walk)',
     walkFrom:'Space K Seoul: 5 min',
-    gmaps:'https://maps.google.com/?q=Seoul+Botanic+Park',
-    archdaily:'',
-    wiki:'',
     tags:["Botanical Garden","Greenhouse","Magok","Glass","Park","Nature"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -3195,14 +2689,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Architecture exhibitions and urban model tours',
-    web:'https://sca.seoul.go.kr',
     transit:'1·2 → City Hall (Exit 3, 3-min walk)',
     walkFrom:'Deoksugung Palace: 2 min · SeMA: 3 min',
-    gmaps:'https://maps.google.com/?q=Seoul+Hall+of+Urbanism+Architecture',
-    archdaily:'',
-    wiki:'',
     tags:["Museum","Architecture","Urbanism","Free","Jung-gu","Exhibition","Sejong-daero"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -3225,14 +2715,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'',
-    web:'https://sema.seoul.go.kr',
     transit:'1·4 → Dongdaemun (Exit 8, 10-min walk uphill)',
     walkFrom:'Dongdaemun Market: 10 min',
-    gmaps:'https://maps.google.com/?q=Nam+June+Paik+Memorial+House+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:["Memorial","Nam June Paik","Hanok","Free","Changsin-dong","Heritage","Art"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -3255,14 +2741,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Guided memorial tours available',
-    web:'https://seosomun.org',
     transit:'2 → Chungjeongno (Exit 4, 5-min walk)',
     walkFrom:'Seoul Station: 10 min',
-    gmaps:'https://maps.google.com/?q=Seosomun+Shrine+History+Museum+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:["Museum","Memorial","Underground","Religious Heritage","Free","Jung-gu","Catholic"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -3285,14 +2767,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free (public market)',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'6 → Noksapyeong (Exit 2, 10-min walk)',
     walkFrom:'Itaewon: 10 min · Namsan: 15 min',
-    gmaps:'https://maps.google.com/?q=Sinheung+Market+Haebangchon+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:["Market","Public Space","Canopy","Award","Haebangchon","Yongsan","Contemporary"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -3315,14 +2793,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'3 → Gyeongbokgung (Exit 4, hike up Inwangsan trail)',
     walkFrom:'Cheongwadae: 20 min via trail',
-    gmaps:'https://maps.google.com/?q=Inwangsan+Forest+Shelter+Seoul',
-    archdaily:'https://www.archdaily.com/1012025/inwang-guard-post-forest-retreat-soltozibin-architects-plus-sn-architecture',
-    wiki:'',
     tags:["Pavilion","Forest","Military Heritage","Adaptive Reuse","Free","Inwangsan","Jongno"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -3345,14 +2819,10 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'N/A',
     tourOk:false, tourInfo:'',
-    web:'',
     transit:'1 → Yongsan (Exit 3, 10-min walk)',
     walkFrom:'Yongsan Station area',
-    gmaps:'https://maps.google.com/?q=The+Nature+Holdings+Yongsan+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:["Office","Corporate","Yongsan","Contemporary"],
-    photos:[], drawings:[]
+    photos:[]
   },
 
   {
@@ -3375,14 +2845,8 @@ var LOCS_SEOUL = [
     lastEntry:'',
     admission:'N/A',
     tourOk:false, tourInfo:'',
-    web:'https://epsd.co.kr',
     transit:'1 → Sinyongsan (Exit 4, 5-min walk)',
     walkFrom:'Yongsan Station: 10 min',
-    gmaps:'https://maps.google.com/?q=Episode+Yongsan+241+Seoul',
-    archdaily:'',
-    wiki:'',
     tags:["Residential","Co-living","Yongsan","Contemporary","Mixed-use"],
-    photos:[], drawings:[]
-  },
-
-];
+    photos:[]
+  }];

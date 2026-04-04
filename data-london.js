@@ -22,20 +22,15 @@ var LOCS_LONDON = [
     lastEntry:'',
     admission:'Free (lobby only) · Upper floors private',
     tourOk:true, tourInfo:'Open House London (September) grants public access to upper floors. The private dining room at the apex occasionally hosts corporate events visible through the glazed dome.',
-    web:'https://www.30stmaryaxe.com',
     transit:'Circle District → Aldgate · Central Waterloo & City → Bank (5 min walk)',
     walkFrom:'Liverpool Street: 6 min · Lloyd\'s of London: 3 min · Leadenhall Market: 4 min',
-    gmaps:'https://maps.google.com/?q=30+St+Mary+Axe+London',
-    archdaily:'https://www.archdaily.com/tag/30-st-mary-axe',
-    wiki:'https://en.wikipedia.org/wiki/30_St_Mary_Axe',
     tags:['Foster + Partners','Norman Foster','High-Tech','Diagrid','Swiss Re','Gherkin','Skyscraper','City of London','RIBA Stirling Prize'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/30_St_Mary_Axe_from_Leadenhall_Street.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/30_St_Mary_Axe%2C_%27Gherkin%27.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/30_St_Mary_Axe_-_The_Gherkin_from_Leadenhall_St_-_Nov_2006.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/London_MMB_41_30_St_Mary_Ax.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -52,20 +47,15 @@ var LOCS_LONDON = [
     lastEntry:'',
     admission:'Free (arcade and Mithraeum museum)',
     tourOk:true, tourInfo:'The London Mithraeum in the basement is free to visit and open to the public. The building interior can be visited during Open House London.',
-    web:'https://www.londonmithraeum.com',
     transit:'Central → Bank (2 min) · Circle District → Mansion House (3 min)',
     walkFrom:'St Paul\'s Cathedral: 5 min · Tate Modern: 10 min · Bank: 3 min',
-    gmaps:'https://maps.google.com/?q=Bloomberg+European+HQ+London',
-    archdaily:'https://www.archdaily.com/880369/bloomberg-london-foster-and-partners',
-    wiki:'https://en.wikipedia.org/wiki/Bloomberg_London',
     tags:['Foster + Partners','Bloomberg','BREEAM','Sustainable','Mithraeum','Roman','City of London','RIBA Stirling Prize 2018'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Bloomberg_London_exterior_-_Cannon_Street%2C_Walbrook.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Bloomberg_London_central_ramp_-_2.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Bloomberg_London_central_ramp_-_3.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Bloomberg_London_lobby_-_3.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -82,20 +72,15 @@ var LOCS_LONDON = [
     lastEntry:'5:00 PM',
     admission:'Free (Great Court and permanent collection) · Paid for special exhibitions',
     tourOk:true, tourInfo:'Free highlights tours of the permanent collection depart from the Great Court regularly. The Reading Room is open to the public on selected dates.',
-    web:'https://www.britishmuseum.org',
     transit:'Central Piccadilly → Holborn (3 min) · Northern → Tottenham Court Road (5 min)',
     walkFrom:'Tottenham Court Road: 5 min · Covent Garden: 10 min · Oxford Street: 8 min',
-    gmaps:'https://maps.google.com/?q=British+Museum+London',
-    archdaily:'https://www.archdaily.com/tag/british-museum',
-    wiki:'https://en.wikipedia.org/wiki/Queen_Elizabeth_II_Great_Court',
     tags:['Foster + Partners','Gridshell','Glass Roof','British Museum','Free','Bloomsbury','Parametric','Reading Room'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/British_Museum_Dome.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/British_Museum_Great_Court_roof.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/London_-_Great_Russell_Street_-_British_Museum_-_Great_Court_-_View_NNW_II.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Britmuseum.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -112,20 +97,15 @@ var LOCS_LONDON = [
     lastEntry:'',
     admission:'Oyster/contactless or valid ticket required',
     tourOk:false, tourInfo:'The station is a working transport hub. The dramatic concourse and escalator hall are visible to all passengers.',
-    web:'https://tfl.gov.uk',
     transit:'Jubilee → Canary Wharf · Elizabeth line → Canary Wharf',
     walkFrom:'One Canada Square: 3 min · Museum of London Docklands: 8 min',
-    gmaps:'https://maps.google.com/?q=Canary+Wharf+Underground+Station',
-    archdaily:'https://www.archdaily.com/tag/canary-wharf-station',
-    wiki:'https://en.wikipedia.org/wiki/Canary_Wharf_tube_station',
     tags:['Foster + Partners','Jubilee Line','Infrastructure','Underground','Canary Wharf','Concrete','1999'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Canary_Wharf_Wide_View%2C_London_-_July_2009.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Canary_Wharf_Tube_Station_-_July_2009.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_elevators_leaving_-_entering_Canary_Wharf_Underground_Station_-_geograph.org.uk_-_1128533.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/CanaryWharfTubeA.JPG?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -142,20 +122,15 @@ var LOCS_LONDON = [
     lastEntry:'',
     admission:'Free (exterior)',
     tourOk:true, tourInfo:'The building is visible from the riverside walk and the interior ramp was historically open during business hours. Check current access with the current operator.',
-    web:'https://www.london.gov.uk',
     transit:'Jubilee → London Bridge (5 min) · Northern → London Bridge (5 min)',
     walkFrom:'Tower Bridge: 4 min · Tate Modern: 15 min · Borough Market: 8 min',
-    gmaps:'https://maps.google.com/?q=City+Hall+London+Queens+Walk',
-    archdaily:'https://www.archdaily.com/tag/city-hall-london',
-    wiki:'https://en.wikipedia.org/wiki/City_Hall,_London',
     tags:['Foster + Partners','GLA','South Bank','Sustainable','Globe','Spiral Ramp','Thames'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/London_-_City_Hall_%284%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/City_Hall%2C_South_Bank_-_geograph.org.uk_-_1281903.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/London_-_City_Hall_%283%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/GLA_Chamber.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -172,20 +147,15 @@ var LOCS_LONDON = [
     lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'The bridge is a public pedestrian route open at all times. The views of St Paul\'s from the South Bank end are among London\'s finest.',
-    web:'https://en.wikipedia.org/wiki/Millennium_Bridge,_London',
     transit:'Central → St Paul\'s (5 min) · Jubilee Northern → Southwark (5 min)',
     walkFrom:'St Paul\'s Cathedral: 5 min · Tate Modern: 3 min · Shakespeare\'s Globe: 7 min',
-    gmaps:'https://maps.google.com/?q=Millennium+Bridge+London',
-    archdaily:'https://www.archdaily.com/tag/millennium-bridge',
-    wiki:'https://en.wikipedia.org/wiki/Millennium_Bridge,_London',
     tags:['Foster + Partners','Arup','Bridge','Pedestrian','Thames','Millennium','Wobbly Bridge','Free','St Paul\'s'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/London_Millenium_Bridge.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Under_the_Millennium_Bridge%2C_London_%28geograph_4907090%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Bridge_horiz_mode_shock.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Bridge_vert_mode_shock.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -202,17 +172,12 @@ var LOCS_LONDON = [
     lastEntry:'',
     admission:'Private (office building)',
     tourOk:false, tourInfo:'The building is closed to the public. The Canary Wharf estate and its public spaces surrounding the tower are accessible to all.',
-    web:'https://www.canarywharf.com',
     transit:'Jubilee → Canary Wharf · Elizabeth line → Canary Wharf (3 min)',
     walkFrom:'Canary Wharf Station: 3 min · One Canada Square: 5 min · Museum of London Docklands: 8 min',
-    gmaps:'https://maps.google.com/?q=8+Canada+Square+Canary+Wharf',
-    archdaily:'https://www.archdaily.com/tag/hsbc-canary-wharf',
-    wiki:'https://en.wikipedia.org/wiki/HSBC_UK_Building,_London',
     tags:['Foster + Partners','HSBC','Canary Wharf','Skyscraper','High-Tech','Office','Docklands'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/HSBC_HQ.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -229,20 +194,15 @@ var LOCS_LONDON = [
     lastEntry:'',
     admission:'Stadium tours: £25 adults · Match tickets vary',
     tourOk:true, tourInfo:'Behind-the-scenes stadium tours run daily on non-event days, including access to changing rooms, players\' tunnel, and the pitch-side view.',
-    web:'https://www.wembleystadium.com',
     transit:'Metropolitan → Wembley Park (10 min walk) · Jubilee → Wembley Park',
     walkFrom:'Wembley Park Station: 10 min · Wembley Arena: 8 min',
-    gmaps:'https://maps.google.com/?q=Wembley+Stadium',
-    archdaily:'https://www.archdaily.com/tag/wembley-stadium',
-    wiki:'https://en.wikipedia.org/wiki/Wembley_Stadium',
     tags:['Foster + Partners','HOK Sport','Stadium','Arch','Football','National Stadium','Wembley'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/London_Wembley.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/London_2012_Olympic_Stadium_%2813_July_2012%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/%22Wemberley.......Wemberley%22_-_geograph.org.uk_-_1770078.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/BVB-Fans_in_Wembley.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── RICHARD ROGERS / ROGERS STIRK HARBOUR + PARTNERS ───────
@@ -261,20 +221,15 @@ var LOCS_LONDON = [
     lastEntry:'',
     admission:'Private (working insurance market)',
     tourOk:false, tourInfo:'The building is a working insurance market and not open to the public. Open House London sometimes grants access. The exterior is best viewed from Lime Street.',
-    web:'https://www.lloyds.com',
     transit:'Circle District Hammersmith → Monument (5 min) · Central → Bank (5 min)',
     walkFrom:'Leadenhall Market: 3 min · Gherkin: 3 min · Bank: 8 min',
-    gmaps:'https://maps.google.com/?q=Lloyd%27s+of+London',
-    archdaily:'https://www.archdaily.com/tag/lloyds-of-london',
-    wiki:"https://en.wikipedia.org/wiki/Lloyd%27s_of_London_(building)",
     tags:['Richard Rogers','High-Tech','Inside-Out','Insurance','City of London','Grade I Listed','1986','Stainless Steel'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Lloyd%27s_insurance_exterior_at_night.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Lloyd%27s_Building_-_Atrium_11th_floor_looking_at_the_Walkie-Talkie.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Lloyd%27s_Building_-_Atrium_roof.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Lloyd%27s_Building_-_Escalators_fisheye.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -291,20 +246,15 @@ var LOCS_LONDON = [
     lastEntry:'',
     admission:'Free (ground floor atrium)',
     tourOk:true, tourInfo:'The public atrium with its dramatic exposed steel frame is open during business hours. Sky garden access is private.',
-    web:'https://www.theleadenhallbuilding.com',
     transit:'Circle District → Aldgate (5 min) · Central Waterloo & City → Bank (7 min)',
     walkFrom:'Lloyd\'s of London: 1 min · Gherkin: 3 min · Leadenhall Market: 2 min',
-    gmaps:'https://maps.google.com/?q=Leadenhall+Building+London',
-    archdaily:'https://www.archdaily.com/tag/leadenhall-building',
-    wiki:'https://en.wikipedia.org/wiki/Leadenhall_Building',
     tags:['Rogers Stirk Harbour + Partners','Richard Rogers','Cheesegrater','Skyscraper','High-Tech','Megaframe','City of London','St Paul\'s View'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Cheesegrater_and_Gherkin.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/122_Leadenhall_Street_-_geograph-3968154-by-Julian-Osley.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/London_-_Leadenhall_Building_%281%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Gherkin_Cheesegrater_Abstract.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -321,20 +271,15 @@ var LOCS_LONDON = [
     lastEntry:'',
     admission:'Entry to The O2 varies by event · Up at The O2: from £30',
     tourOk:true, tourInfo:'The Up at The O2 roof walk is open daily and provides panoramic views of London. The entertainment complex is accessible to the public.',
-    web:'https://www.theo2.co.uk',
     transit:'Jubilee → North Greenwich (adjacent)',
     walkFrom:'North Greenwich Station: 5 min',
-    gmaps:'https://maps.google.com/?q=The+O2+Arena+London',
-    archdaily:'https://www.archdaily.com/tag/millennium-dome',
-    wiki:'https://en.wikipedia.org/wiki/The_O2_Arena',
     tags:['Richard Rogers','Millennium Dome','O2','Tensile Structure','High-Tech','Greenwich','Masts','Entertainment'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/London_MMB_V9_Millennium_Dome.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/London_MMB_W7_Millennium_Dome.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Basket_Ball_at_the_O2_Arena.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/London_2012_Olympic_Stadium_%2813_July_2012%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -351,17 +296,12 @@ var LOCS_LONDON = [
     lastEntry:'',
     admission:'Access for passengers with valid tickets only',
     tourOk:false, tourInfo:'Terminal 5 is restricted to departing passengers and those with arriving passengers. The building\'s most dramatic spaces — the departure hall and its roof — are visible only from airside.',
-    web:'https://www.heathrow.com/terminals/terminal-5',
     transit:'Elizabeth line → Heathrow Terminal 5 (direct) · Heathrow Express → Paddington (21 min)',
     walkFrom:'Terminal 5 Station: adjacent',
-    gmaps:'https://maps.google.com/?q=Heathrow+Terminal+5',
-    archdaily:'https://www.archdaily.com/tag/heathrow-terminal-5',
-    wiki:'https://en.wikipedia.org/wiki/Heathrow_Terminal_5',
     tags:['Rogers Stirk Harbour + Partners','Richard Rogers','Heathrow','Airport','Infrastructure','Single Span Roof','Terminal'],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/T5A_interior.jpg/800px-T5A_interior.jpg'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -378,20 +318,15 @@ var LOCS_LONDON = [
     lastEntry:'',
     admission:'Private',
     tourOk:false, tourInfo:'One Hyde Park is a private residential development. The adjacent Hyde Park and the Serpentine Gallery are open to the public.',
-    web:'https://www.onehydepark.com',
     transit:'Piccadilly → Knightsbridge (3 min)',
     walkFrom:'Hyde Park: 1 min · Harrods: 5 min · Serpentine Gallery: 10 min',
-    gmaps:'https://maps.google.com/?q=One+Hyde+Park+London',
-    archdaily:'https://www.archdaily.com/tag/one-hyde-park',
-    wiki:'https://en.wikipedia.org/wiki/One_Hyde_Park',
     tags:['Rogers Stirk Harbour + Partners','Richard Rogers','Luxury Residential','Knightsbridge','Hyde Park','World\'s Most Expensive'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/No_1_Hyde_Park%2C_London.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/One_Hyde_Park_under_construction_in_May_2010.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/One_Hyde_Park_-_Edinburgh_Gate%2C_Knightsbridge_-_liftshaft.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/One_Hyde_Park_%2843969329645%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -408,20 +343,15 @@ var LOCS_LONDON = [
     lastEntry:'',
     admission:'Private',
     tourOk:false, tourInfo:'The building is a private office building. The exterior is fully viewable from Wood Street and Fore Street.',
-    web:'https://www.rshp.com',
     transit:'Central → St Paul\'s (5 min) · Metropolitan Circle District → Barbican (5 min)',
     walkFrom:'Barbican: 7 min · St Paul\'s: 7 min · Museum of London: 5 min',
-    gmaps:'https://maps.google.com/?q=88+Wood+Street+London',
-    archdaily:'https://www.archdaily.com/tag/88-wood-street',
-    wiki:'https://en.wikipedia.org/wiki/88_Wood_Street',
     tags:['Rogers Stirk Harbour + Partners','Richard Rogers','High-Tech','City of London','Office','Cylindrical Tower'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/88_Wood_St%2C_London.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Vents_88_London_Wall_Richard_Rogers.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/88_Wood_Street%2C_London.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Lift_at_London_Wall_-_geograph.org.uk_-_643165.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -438,20 +368,15 @@ var LOCS_LONDON = [
     lastEntry:'',
     admission:'Private',
     tourOk:false, tourInfo:'Neo Bankside is private. The adjacent Tate Modern, Shakespeare\'s Globe, and Bankside riverside walk are all public.',
-    web:'https://www.rshp.com',
     transit:'Jubilee Northern → Southwark (7 min) · District Circle → Blackfriars (8 min)',
     walkFrom:'Tate Modern: 2 min · Shakespeare\'s Globe: 4 min · Millennium Bridge: 5 min',
-    gmaps:'https://maps.google.com/?q=Neo+Bankside+London',
-    archdaily:'https://www.archdaily.com/tag/neo-bankside',
-    wiki:'https://en.wikipedia.org/wiki/Neo_Bankside',
     tags:['Rogers Stirk Harbour + Partners','Richard Rogers','Residential','Bankside','South Bank','Transparency','Tate Modern'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/NEO_Bankside%2C_London.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Neo_Bankside.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Neo_Bankside_apartment_buildings%2C_London.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Neo_Bankside_apartment_buildings%2C_London_%28side_view%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -468,15 +393,10 @@ var LOCS_LONDON = [
     lastEntry:'',
     admission:'Private',
     tourOk:false, tourInfo:'The building is private residential. The Thames Path alongside provides good views of the facade from the riverside.',
-    web:'https://www.rshp.com',
     transit:'Overground → Clapham Junction (15 min walk) · Bus 344 → Battersea Church Road',
     walkFrom:'Battersea Power Station: 12 min · Chelsea Bridge: 10 min',
-    gmaps:'https://maps.google.com/?q=Montevetro+Battersea+London',
-    archdaily:'https://www.archdaily.com/tag/montevetro',
-    wiki:'https://en.wikipedia.org/wiki/Montevetro',
     tags:['Richard Rogers','Residential','Battersea','Thames','Glass','1999'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -493,15 +413,10 @@ var LOCS_LONDON = [
     lastEntry:'',
     admission:'Free (public grounds)',
     tourOk:true, tourInfo:'The public gardens, lake and outdoor seating areas are accessible to all. Individual buildings are private offices.',
-    web:'https://www.chiswickpark.com',
     transit:'District → Gunnersbury or Chiswick Park (10–15 min walk)',
     walkFrom:'Gunnersbury Station: 12 min · Kew Bridge: 15 min',
-    gmaps:'https://maps.google.com/?q=Chiswick+Business+Park+London',
-    archdaily:'https://www.archdaily.com/tag/chiswick-business-park',
-    wiki:'https://en.wikipedia.org/wiki/Chiswick_Business_Park',
     tags:['Richard Rogers','Business Park','Chiswick','Campus','Landscape','Lake','West London'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   // ── RENZO PIANO — THE SHARD ──────────────────────────────────
@@ -519,18 +434,13 @@ var LOCS_LONDON = [
     hours:'Viewing Gallery: daily 10:00 AM – 10:00 PM (Fri–Sat to 11:00 PM)', lastEntry:'1 hour before closing',
     admission:'Viewing Gallery: from £32 adults · Combined tickets available',
     tourOk:true, tourInfo:'The View from The Shard on levels 68–72 is open to the public. The Sky Deck at level 72 is open-air. Booking in advance strongly recommended.',
-    web:'https://www.theviewfromtheshard.com',
     transit:'Jubilee Northern → London Bridge (adjacent)',
     walkFrom:'London Bridge Station: 2 min · Borough Market: 4 min · Tate Modern: 12 min',
-    gmaps:'https://maps.google.com/?q=The+Shard+London',
-    archdaily:'https://www.archdaily.com/tag/the-shard',
-    wiki:'https://en.wikipedia.org/wiki/The_Shard',
     tags:['Renzo Piano','Supertall','London Bridge','South Bank','Viewing Gallery','Mixed-Use'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Shard_from_the_south.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Shard_-_Nov_2012.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── THOMAS HEATHERWICK — LONDON ──────────────────────────────
@@ -548,18 +458,13 @@ var LOCS_LONDON = [
     hours:'Daily — retail and dining hours vary by vendor', lastEntry:'',
     admission:'Free (public space) · Individual venue charges apply',
     tourOk:false, tourInfo:'Freely accessible as a public space. Part of the wider King\'s Cross regeneration. The adjacent Granary Square, Gasholders, and Lewis Cubitt Park are all within walking distance.',
-    web:'https://coaldropsyard.com',
     transit:'Victoria Metropolitan Northern Piccadilly Circle Hammersmith → King\'s Cross St Pancras',
     walkFrom:'King\'s Cross Station: 8 min · St Pancras International: 8 min · Granary Square: 2 min',
-    gmaps:'https://maps.google.com/?q=Coal+Drops+Yard+London',
-    archdaily:'https://www.archdaily.com/903793/coal-drops-yard-heatherwick-studio',
-    wiki:'https://en.wikipedia.org/wiki/Coal_Drops_Yard',
     tags:['Heatherwick Studio','Thomas Heatherwick','Adaptive Reuse','King\'s Cross','Retail','Victorian Heritage','Roof'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Coal_Drops_Yard_London_2018.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Coal_Drops_Yard_interior.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -575,17 +480,12 @@ var LOCS_LONDON = [
     hours:'Open permanently for pedestrians · Rolling mechanism: Fridays at noon (approx)', lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'The bridge rolls up every Friday at approximately 12:00 PM. Paddington Basin is a pleasant waterside walk accessible from Paddington Station.',
-    web:'https://heatherwick.com/projects/rolling-bridge',
     transit:'Bakerloo Circle District Hammersmith → Paddington',
     walkFrom:'Paddington Station: 5 min',
-    gmaps:'https://maps.google.com/?q=Rolling+Bridge+Paddington+Basin+London',
-    archdaily:'https://www.archdaily.com/tag/rolling-bridge',
-    wiki:'https://en.wikipedia.org/wiki/Rolling_Bridge',
     tags:['Heatherwick Studio','Thomas Heatherwick','Bridge','Kinetic','Paddington','Public Art','Engineering'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Rolling_Bridge_Paddington.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -601,17 +501,12 @@ var LOCS_LONDON = [
     hours:'Ground-floor public space: daily · Offices: private', lastEntry:'',
     admission:'Public ground floor only · Office building',
     tourOk:false, tourInfo:'',
-    web:'https://heatherwick.com/projects/google-hq',
     transit:'Victoria Metropolitan Northern Piccadilly Circle Hammersmith → King\'s Cross St Pancras',
     walkFrom:'King\'s Cross Station: 7 min · Coal Drops Yard: 3 min · Granary Square: 4 min',
-    gmaps:'https://maps.google.com/?q=Google+HQ+Kings+Cross+London',
-    archdaily:'https://www.archdaily.com/tag/google-hq-kings-cross',
-    wiki:'https://en.wikipedia.org/wiki/Google_UK_headquarters',
     tags:['Heatherwick Studio','BIG','Google','King\'s Cross','Aluminium Fins','Rooftop Garden'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Google_Kings_Cross_HQ.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── TADAO ANDO — LONDON ──────────────────────────────────────
@@ -629,17 +524,12 @@ var LOCS_LONDON = [
     hours:'Mon–Fri 10:00 AM – 6:00 PM · Sat 11:00 AM – 5:00 PM', lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'',
-    web:'https://www.lissongallery.com',
     transit:'Bakerloo → Marylebone · Jubilee → Baker Street',
     walkFrom:'Marylebone Station: 8 min · Baker Street: 10 min',
-    gmaps:'https://maps.google.com/?q=Lisson+Gallery+52+Bell+Street+London',
-    archdaily:'https://www.archdaily.com/tag/lisson-gallery',
-    wiki:'https://en.wikipedia.org/wiki/Lisson_Gallery',
     tags:['Tadao Ando','Gallery','Concrete','Marylebone','Adaptive Reuse','Contemporary Art'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Lisson_Gallery_London_Ando.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   }
 
 ];

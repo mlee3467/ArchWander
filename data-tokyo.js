@@ -28,12 +28,8 @@ var LOCS_TOKYO = [
     hours:'Exterior: 24/7 · Interior only during events', lastEntry:'',
     admission:'Free (exterior) · Event tickets for interior',
     tourOk:false, tourInfo:'The gymnasiums are operational sports facilities. The exterior and surrounding Yoyogi Park are freely accessible. Interior access during public sporting events.',
-    web:'https://www.naash.go.jp/yoyogi',
     transit:'Chiyoda → Harajuku (1 min walk)',
     walkFrom:'Harajuku Station: 2 min · Meiji Shrine: 5 min · Omotesando: 12 min',
-    gmaps:'https://maps.google.com/?q=Yoyogi+National+Gymnasium+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/yoyogi-national-gymnasium',
-    wiki:'https://en.wikipedia.org/wiki/Yoyogi_National_Gymnasium',
     tags:['Kenzo Tange','1964 Olympics','Metabolism','Suspended Roof','Shibuya','National Monument'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Yoyogi_National_Gymnasium_2013.jpg?width=800',
@@ -41,8 +37,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Da-iCE_MUSi-aM_10th_anniversary_arena_tour_2024%2C_at_Yoyogi_National_Stadium.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Found_Photo_-_Japan_-_Tokyo_-_Yoyogi_National_Stadium.tif_%2834176173641%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Aerial_view_of_Yoyogi_National_Gymnasium.20191101.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -63,20 +58,15 @@ var LOCS_TOKYO = [
     hours:'North Observatory: Tue–Sun 9AM–10:30PM · South Observatory: daily 9AM–10:30PM', lastEntry:'10:30 PM',
     admission:'Free',
     tourOk:true, tourInfo:'Both observatories are free to access. The North Tower has evening views until 10:30PM. Guided tours of the Metropolitan Assembly Hall available (Japanese only).',
-    web:'https://www.metro.tokyo.lg.jp/english/offices/observat.html',
     transit:'Oedo Marunouchi → Tochomae (3 min)',
     walkFrom:'Shinjuku Station West Exit: 10 min · Shinjuku Park Tower (Gehry): 5 min',
-    gmaps:'https://maps.google.com/?q=Tokyo+Metropolitan+Government+Building',
-    archdaily:'https://www.archdaily.com/tag/tokyo-metropolitan-government-building',
-    wiki:'https://en.wikipedia.org/wiki/Tokyo_Metropolitan_Government_Building',
     tags:['Kenzo Tange','Observatory','Free','Government','Shinjuku','Twin Tower','Panoramic View'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Metropolitan_Government_Building_Morning1.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Metropolitan_Government_Building_2012.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Projection_show_at_the_Tokyo_Metropolitan_Government_Building.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Westward_view_from_Tokyo_Metropolitan_Government_Building_2024-09-05.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -97,12 +87,8 @@ var LOCS_TOKYO = [
     hours:'Mon–Sat 10AM–6PM · Sun 1PM–4PM', lastEntry:'',
     admission:'Free · Donations welcome',
     tourOk:false, tourInfo:'Visitors are welcome during opening hours. Organ concerts and services held regularly.',
-    web:'https://cathedral.catholic.ne.jp',
     transit:'Yurakucho → Edogawabashi (7 min walk)',
     walkFrom:'Edogawabashi Station: 7 min',
-    gmaps:'https://maps.google.com/?q=St+Mary+Cathedral+Tokyo+Bunkyo',
-    archdaily:'https://www.archdaily.com/tag/st-mary-s-cathedral-tokyo',
-    wiki:'https://en.wikipedia.org/wiki/Tokyo_Cathedral',
     tags:['Kenzo Tange','Cathedral','Hyperbolic Paraboloid','Stainless Steel','Bunkyo','Religious'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/20030702_2_July_2003_Tokyo_Cathedorale_1_Tange_Kenzou_Sekiguchi_Tokyo_Japan_b.jpg?width=800',
@@ -112,8 +98,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/20030702_2_July_2003_Tokyo_Cathedorale_door_Tange_Kenzou_Sekiguchi_Tokyo_Japan.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/20030702_2_July_2003_Tokyo_Cathedorale_Metal_1_Tange_Kenzou_Sekiguchi_Tokyo_Japan.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/StMary%27sCathedral-Tokyo-01.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── TOYO ITO ──────────────────────────────────────────────────
@@ -136,18 +121,13 @@ var LOCS_TOKYO = [
     hours:'Mon–Sun 11:00 AM – 8:00 PM', lastEntry:'',
     admission:'Free (retail)',
     tourOk:false, tourInfo:'Freely accessible as a luxury retail store. The building exterior and ground floor are viewable at all times. Interior is the Tod\'s boutique.',
-    web:'https://www.tods.com',
     transit:'Ginza Hanzomon → Omotesando (Exit A2, 3 min)',
     walkFrom:'Prada Omotesando (Herzog & de Meuron): 3 min · Omotesando Hills (Ando): 2 min',
-    gmaps:'https://maps.google.com/?q=Tod%27s+Omotesando+Building+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/tod-s-omotesando-building',
-    wiki:'https://en.wikipedia.org/wiki/Tod%27s_Omotesando_Building',
     tags:['Toyo Ito','Omotesando','Concrete Tree Structure','Retail','Facade','Shibuya'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/%E3%83%92%E3%83%A5%E3%83%BC%E3%82%B4%E3%83%9C%E3%82%B9%E8%A1%A8%E5%8F%82%E9%81%93%E5%BA%97_May_30%2C_2019.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tod%27s_at_Omotesando.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -168,19 +148,14 @@ var LOCS_TOKYO = [
     hours:'Mon–Sun 11:00 AM – 7:00 PM', lastEntry:'',
     admission:'Free (retail)',
     tourOk:false, tourInfo:'Freely accessible as a Mikimoto jewellery boutique.',
-    web:'https://www.mikimoto.com',
     transit:'Ginza Marunouchi Hibiya → Ginza (Exit B4, 2 min)',
     walkFrom:'Ginza Six: 3 min · Chanel Ginza (Peter Marino): 3 min',
-    gmaps:'https://maps.google.com/?q=Mikimoto+Ginza+2+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/mikimoto-ginza-2',
-    wiki:'https://en.wikipedia.org/wiki/Mikimoto_Ginza_2',
     tags:['Toyo Ito','Ginza','Perforated Steel','Retail','Structural Facade','Pink'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Mikimoto_Ginza2.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Japan_2010_1000000379_1_%285372872502%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Le_magasin_Mikimoto_Ginza_2_%28Tokyo%2C_Japon%29_%2841990094114%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── SANAA ─────────────────────────────────────────────────────
@@ -203,19 +178,14 @@ var LOCS_TOKYO = [
     hours:'Mon–Sun 11:00 AM – 8:00 PM', lastEntry:'',
     admission:'Free (retail)',
     tourOk:false, tourInfo:'Freely accessible as a Dior flagship boutique.',
-    web:'https://www.dior.com',
     transit:'Ginza Hanzomon → Omotesando (Exit A5)',
     walkFrom:'Tod\'s Omotesando: 5 min · Prada Aoyama: 2 min',
-    gmaps:'https://maps.google.com/?q=Dior+Omotesando+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/dior-omotesando',
-    wiki:'https://en.wikipedia.org/wiki/Dior_building,_Omotesando',
     tags:['SANAA','Kazuyo Sejima','Ryue Nishizawa','Omotesando','Acrylic Curtain Wall','Retail','Transparent'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Christian_Dior_Omotesando_Tokyo_2016.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Le_magasin_Dior_Omotesando_%28Tokyo%29_%2842066222724%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Christian_Dior_Omotesando_Tokyo_2015.JPG?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
 
@@ -239,17 +209,12 @@ var LOCS_TOKYO = [
     hours:'Private residence · Exterior viewable from street', lastEntry:'',
     admission:'Private residential building',
     tourOk:false, tourInfo:'Private residence, not open to visitors. Exterior viewable from the street.',
-    web:'https://shigerubanarchitects.com',
     transit:'Multiple lines → Itabashi-ku area',
     walkFrom:'',
-    gmaps:'https://maps.google.com/?q=Curtain+Wall+House+Shigeru+Ban+Itabashi+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/curtain-wall-house',
-    wiki:'https://en.wikipedia.org/wiki/Curtain_Wall_House',
     tags:['Shigeru Ban','Curtain Wall','Residential','Transparent','Itabashi','Fabric Facade'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Shigeru_Ban_Curtain_Wall_House.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -270,20 +235,15 @@ var LOCS_TOKYO = [
     hours:'Mon–Sun 11:00 AM – 8:00 PM', lastEntry:'',
     admission:'Free (retail)',
     tourOk:false, tourInfo:'Freely accessible as a Swatch Group multi-brand boutique.',
-    web:'https://www.swatchgroup.com',
     transit:'Ginza Marunouchi Hibiya → Ginza (Exit C2)',
     walkFrom:'Mikimoto Ginza 2 (Ito): 2 min · Chanel Ginza: 3 min',
-    gmaps:'https://maps.google.com/?q=Nicolas+Hayek+Center+Ginza+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/nicolas-g-hayek-center',
-    wiki:'https://en.wikipedia.org/wiki/Nicolas_G._Hayek_Center',
     tags:['Shigeru Ban','Ginza','Sliding Facade','Green Wall','Retail','Swatch','Transparency'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Nicolas_G._Hayek_Center_2.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Nicolas_G._Hayek_Center_1.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Le_%22Nicolas_G._Hayek_Center%22_%28Tokyo%2C_Japon%29_%2828825954958%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Le_centre_Nicolas_G._Hayek_%28Tokyo%2C_Japon%29_%2842700044401%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── KENGO KUMA ────────────────────────────────────────────────
@@ -306,12 +266,8 @@ var LOCS_TOKYO = [
     hours:'Tue–Sun 10:00 AM – 5:00 PM · Closed Monday', lastEntry:'4:30 PM',
     admission:'Adults ¥1,300 · University students ¥1,000 · Under 15 free',
     tourOk:true, tourInfo:'Museum audio guides available (Japanese and English). The garden and tea houses are open to all ticket holders. The café with garden views is popular.',
-    web:'https://www.nezu-muse.or.jp/en',
     transit:'Ginza Hanzomon → Omotesando (Exit A5, 8 min)',
     walkFrom:'Dior Omotesando (SANAA): 3 min · Prada Aoyama: 5 min',
-    gmaps:'https://maps.google.com/?q=Nezu+Museum+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/nezu-museum',
-    wiki:'https://en.wikipedia.org/wiki/Nezu_Museum',
     tags:['Kengo Kuma','Museum','Japanese Art','Bamboo Roof','Garden','Minami-Aoyama','Tea House'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Nezu_museum_entrance_tokyo_2014.jpg?width=800',
@@ -320,8 +276,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Nezu_Museum_Garten-20091020-RM-115433.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Nezu_Museum_Garten-20091020-RM-113550.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Nezu_Museum_P5091729.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -342,20 +297,15 @@ var LOCS_TOKYO = [
     hours:'Daily 9:00 AM – 8:00 PM', lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'The center has free maps, guides, and multilingual tourism information. The rooftop terrace offers direct views of the Kaminarimon Gate and Sensoji.',
-    web:'https://www.city.taito.lg.jp/kanko/asakusainfo.html',
     transit:'Ginza → Asakusa (2 min walk)',
     walkFrom:'Kaminarimon Gate: 1 min · Sensoji Temple: 3 min · Nakamise Shopping Street: 2 min',
-    gmaps:'https://maps.google.com/?q=Asakusa+Culture+Tourist+Information+Center+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/asakusa-culture-tourist-information-center',
-    wiki:'https://en.wikipedia.org/wiki/Asakusa_Culture_Tourist_Information_Center',
     tags:['Kengo Kuma','Asakusa','Stacked Roofs','Tourist Center','Traditional','Wood','Free'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Asakusa_Culture_Tourist_Information_Center_dllu.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Asakusa_Culture_Tourist_Information_Center_%40_Asakusa_%2811752068094%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Asakusa_Culture_Tourism_Center.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Asakusa_Culture_Tourist_Information_Center_%2853081289999%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -376,12 +326,8 @@ var LOCS_TOKYO = [
     hours:'Stadium tours: daily 10AM–4PM (tours depart hourly) · Event hours vary', lastEntry:'',
     admission:'Stadium tour: Adults ¥1,000 · Under 6 free',
     tourOk:true, tourInfo:'Guided stadium tours available in Japanese and English. Tours include the field, locker rooms, and VIP areas. Event tickets sold separately.',
-    web:'https://www.jpnsport.go.jp/kokuritu/english',
     transit:'Ginza Hanzomon → Gaienmae (10 min walk)',
     walkFrom:'Meiji Jingu Gaien: 3 min · Yoyogi National Gymnasium (Tange): 10 min',
-    gmaps:'https://maps.google.com/?q=Japan+National+Stadium+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/japan-national-stadium',
-    wiki:'https://en.wikipedia.org/wiki/Japan_National_Stadium',
     tags:['Kengo Kuma','Olympic Stadium','Wood Louvres','2020 Olympics','Shinjuku','National Stadium'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/View_of_the_new_National_Stadium_for_the_Olympics_%2849376747462%29.jpg?width=800',
@@ -389,8 +335,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Japan_National_Stadium_Tokyo_2020_Olympics_%2851481561365%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/National_Olympic_Stadium_%2814151170157%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Japan_National_Stadium_2024_1.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── SOU FUJIMOTO ──────────────────────────────────────────────
@@ -413,17 +358,12 @@ var LOCS_TOKYO = [
     hours:'Private residence · Exterior viewable from street', lastEntry:'',
     admission:'Private residential building',
     tourOk:false, tourInfo:'Private home, not open to visitors.',
-    web:'https://sou-fujimoto.net',
     transit:'Seibu Ikebukuro Line → Nerima area',
     walkFrom:'',
-    gmaps:'https://maps.google.com/?q=House+NA+Sou+Fujimoto+Nerima+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/house-na',
-    wiki:'https://en.wikipedia.org/wiki/House_NA',
     tags:['Sou Fujimoto','Residential','Glass','Transparent','Platforms','Nerima','Radical'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/House_NA_Sou_Fujimoto.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -444,18 +384,13 @@ var LOCS_TOKYO = [
     hours:'Mon–Sat 10:00 AM – 6:00 PM · Closed Sunday', lastEntry:'5:30 PM',
     admission:'Free',
     tourOk:false, tourInfo:'Open to the public during university opening hours.',
-    web:'https://mauml.musabi.ac.jp/museum/en',
     transit:'JR Chuo Line → Kokubunji or Higashi-Koganei (15 min bus)',
     walkFrom:'',
-    gmaps:'https://maps.google.com/?q=Musashino+Art+University+Library+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/musashino-art-university-library',
-    wiki:'https://en.wikipedia.org/wiki/Musashino_Art_University_Museum_%26_Library',
     tags:['Sou Fujimoto','Library','Museum','Spiral Bookshelves','University','Kodaira','Free'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Musashino_Art_University_Library.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Musashino_library_interior.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── FUMIHIKO MAKI ─────────────────────────────────────────────
@@ -478,18 +413,13 @@ var LOCS_TOKYO = [
     hours:'Daily 11:00 AM – 8:00 PM', lastEntry:'',
     admission:'Free (gallery and café) · Event spaces ticketed',
     tourOk:false, tourInfo:'The ground-floor gallery, café, and atrium spiral ramp are freely accessible. Upper-floor events ticketed separately.',
-    web:'https://www.spiral.co.jp',
     transit:'Ginza Hanzomon → Omotesando (Exit B1, 3 min)',
     walkFrom:'Nezu Museum (Kuma): 2 min · Omotesando Hills (Ando): 5 min',
-    gmaps:'https://maps.google.com/?q=Spiral+Building+Wacoal+Art+Center+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/spiral-building',
-    wiki:'https://en.wikipedia.org/wiki/Spiral_(building)',
     tags:['Fumihiko Maki','Art Center','Gallery','Minami-Aoyama','Collage Facade','Urban','Free'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Spiral_Building_interior_2024.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Spiral_house_Tokyo.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -510,12 +440,8 @@ var LOCS_TOKYO = [
     hours:'Shops and gallery: daily 11AM–7PM · Public spaces 24/7', lastEntry:'',
     admission:'Free (public spaces and galleries)',
     tourOk:false, tourInfo:'The complex is freely walkable and mixed-use. Daikanyama as a neighbourhood is best explored on foot. The Tsutaya Books (Klein Dytham) nearby is also worth visiting.',
-    web:'https://www.hillsideterrace.com',
     transit:'Tokyu Toyoko → Daikanyama (3 min walk)',
     walkFrom:'Daikanyama T-Site (Tsutaya): 3 min · Log Road Daikanyama: 5 min',
-    gmaps:'https://maps.google.com/?q=Hillside+Terrace+Daikanyama+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/hillside-terrace',
-    wiki:'https://en.wikipedia.org/wiki/Hillside_Terrace',
     tags:['Fumihiko Maki','Daikanyama','Mixed-Use','Urban Quarter','Incremental','Shibuya','Low-rise'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hillside_Terrace_C_2010.jpg?width=800',
@@ -525,8 +451,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hillside_Terrace_D_2010.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hillside_Terrace_A_B_2010.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hillside_Terrace_C.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── YOSHIO TANIGUCHI ──────────────────────────────────────────
@@ -549,20 +474,15 @@ var LOCS_TOKYO = [
     hours:'Tue–Sun 9:30 AM – 5:00 PM (Fri–Sat to 9:00 PM) · Closed Monday', lastEntry:'30 min before closing',
     admission:'General: ¥1,000 (includes all Tokyo National Museum galleries)',
     tourOk:true, tourInfo:'Free English audio guides. The building is part of the Tokyo National Museum campus — also visit the main Honkan building and the Heiseikan.',
-    web:'https://www.tnm.jp/modules/r_free_page/index.php?id=104',
     transit:'Multiple → Ueno (10 min walk through park)',
     walkFrom:'Tokyo National Museum main entrance: 5 min · Ueno Zoo: 5 min',
-    gmaps:'https://maps.google.com/?q=Gallery+of+Horyuji+Treasures+Ueno+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/gallery-of-horyuji-treasures',
-    wiki:'https://en.wikipedia.org/wiki/Gallery_of_H%C5%8Dry%C5%AB-ji_Treasures',
     tags:['Yoshio Taniguchi','Museum','Buddhist Art','Hōryū-ji','Ueno','Minimalism','Reflecting Pool'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/2018_The_Gallery_of_Horyuji_Treasures_02.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/2018_The_Gallery_of_Horyuji_Treasures_03.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/2018_The_Gallery_of_Horyuji_Treasures_04.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_National_Museum_The_Gallery_of_Horyuji_Treasures_%2852504277325%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── TADAO ANDO — TOKYO ────────────────────────────────────────
@@ -585,12 +505,8 @@ var LOCS_TOKYO = [
     hours:'Shopping: Mon–Sun 11:00 AM – 11:00 PM · Restaurants: 11AM–11:30PM', lastEntry:'',
     admission:'Free (retail)',
     tourOk:false, tourInfo:'Freely accessible. The interior spiral ramp atrium is the main spatial experience. The preserved Dojunkai Apartment wing at the west end is worth observing.',
-    web:'https://www.omotesandohills.com',
     transit:'Ginza Hanzomon → Omotesando (Exit A2, 1 min)',
     walkFrom:'Tod\'s Omotesando (Ito): 2 min · Prada Aoyama (Herzog & de Meuron): 5 min · Dior (SANAA): 5 min',
-    gmaps:'https://maps.google.com/?q=Omotesando+Hills+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/omotesando-hills',
-    wiki:'https://en.wikipedia.org/wiki/Omotesando_Hills',
     tags:['Tadao Ando','Omotesando','Concrete','Spiral Atrium','Retail','Mixed-Use','Shibuya'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Omotesando_Hills_2012.JPG?width=800',
@@ -600,8 +516,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Omotesando-Tokyo---2024-07-05_04.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Omotesando_Hills_Disney_Dream_Christmas_Illumination_2012_%288317268953%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/%E8%A1%A8%E5%8F%83%E9%81%93%E4%B9%8B%E4%B8%98_%2816201488181%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -622,12 +537,8 @@ var LOCS_TOKYO = [
     hours:'Tue–Sun 10:00 AM – 7:00 PM · Closed Monday (Tue if Mon is public holiday)', lastEntry:'6:30 PM',
     admission:'Adults ¥1,400 · Students ¥800 · Under 15 free',
     tourOk:true, tourInfo:'Curated temporary design exhibitions rotate 2–3 times per year. The garden and exterior are freely accessible in the Midtown park. The annual "design sight" programme features talks and events.',
-    web:'https://www.2121designsight.jp/en',
     transit:'Hibiya Oedo → Roppongi (Exit 8, 5 min)',
     walkFrom:'National Art Center (Kurokawa): 5 min · Mori Art Museum: 5 min · Suntory Museum of Art: 2 min',
-    gmaps:'https://maps.google.com/?q=21_21+Design+Sight+Tokyo+Midtown',
-    archdaily:'https://www.archdaily.com/tag/21-21-design-sight',
-    wiki:'https://en.wikipedia.org/wiki/21_21_Design_Sight',
     tags:['Tadao Ando','Design Museum','Roppongi','Tokyo Midtown','Steel Roof','Underground','Issey Miyake'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Site2121.jpg?width=800',
@@ -636,8 +547,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/21_21_DESIGN_SIGHT_Interior_2015.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/21_21_DESIGN_SIGHT_Gift_shop_2018.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/21_21_DESIGN_SIGHT%E6%A8%A1%E5%9E%8B.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -658,18 +568,13 @@ var LOCS_TOKYO = [
     hours:'Daily 11:00 AM – 8:00 PM (retail/restaurant hours)', lastEntry:'',
     admission:'Free (retail)',
     tourOk:false, tourInfo:'Freely accessible as a retail and dining complex.',
-    web:'https://www.andotadao.org',
     transit:'Ginza Hanzomon → Omotesando (Exit B1, 5 min)',
     walkFrom:'Nezu Museum (Kuma): 3 min · Spiral (Maki): 5 min',
-    gmaps:'https://maps.google.com/?q=Collezione+Minami-Aoyama+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/collezione',
-    wiki:'https://en.wikipedia.org/wiki/Collezione_(building)',
     tags:['Tadao Ando','Concrete','Minami-Aoyama','Retail','Cylindrical','Atrium','1989'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/La_Collezione_1.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/La_Collezione_3.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── KISHO KUROKAWA ─────────────────────────────────────────────
@@ -692,12 +597,8 @@ var LOCS_TOKYO = [
     hours:'Site demolished (April 2022). Preserved capsules on display at various museums worldwide.', lastEntry:'',
     admission:'N/A (site only)',
     tourOk:false, tourInfo:'The building was demolished in 2022. The site is accessible. Preserved capsules are exhibited at MoMA (New York), M+ (Hong Kong), and Japanese venues.',
-    web:'https://nakagincapsuletower.com',
     transit:'JR Yamanote / Tokaido → Shimbashi (5 min walk); Ginza Line → Shimbashi (4 min walk)',
     walkFrom:'Shiodome (Nihon TV Tower): 5 min · Ginza district: 8 min',
-    gmaps:'https://maps.google.com/?q=35.6659,139.7594',
-    archdaily:'https://www.archdaily.com/tag/nakagin-capsule-tower',
-    wiki:'https://en.wikipedia.org/wiki/Nakagin_Capsule_Tower',
     tags:['Kisho Kurokawa','Metabolism','Capsule','Prefab','Demolished','Shimbashi','Icon','1972'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Nakagin.jpg?width=800',
@@ -707,8 +608,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Nakagin_Capsule_Tower_03.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Nakagin_Capsule_Tower_%2851473893286%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Nakagin_Capsule_Tower_%2851473917286%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -729,20 +629,15 @@ var LOCS_TOKYO = [
     hours:'Wed–Mon 10:00–18:00 (Fri–Sat until 20:00). Closed Tue.', lastEntry:'30 min before closing',
     admission:'Free (galleries may charge for exhibitions)',
     tourOk:false, tourInfo:'The building is freely accessible. Individual exhibitions may require tickets.',
-    web:'https://www.nact.jp',
     transit:'Chiyoda → Nogizaka (Exit 6, directly connected); Hibiya / Oedo → Roppongi (7 min walk)',
     walkFrom:'21_21 Design Sight (Ando): 8 min · Mori Art Museum: 10 min',
-    gmaps:'https://maps.google.com/?q=National+Art+Center+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/national-art-center-tokyo',
-    wiki:'https://en.wikipedia.org/wiki/National_Art_Center,_Tokyo',
     tags:['Kisho Kurokawa','Roppongi','Glass Facade','Exhibition','Museum','2007','National'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/2018_National_Art_Center%2C_Tokyo_2.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_National_Art_Center_%2C_Tokyo_-_panoramio_%281%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/National_Art_Center%2C_Tokyo_-_DSC06720.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/National_Art_Center_%40_Tokyo_%2811495419793%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── KUNIO MAEKAWA ───────────────────────────────────────────────
@@ -765,12 +660,8 @@ var LOCS_TOKYO = [
     hours:'Lobby: open on performance days. Box office: 10:00–18:00 (closed Mon unless event).', lastEntry:'',
     admission:'Varies by event',
     tourOk:false, tourInfo:'The lobby and exterior are freely accessible on performance days. Interior tours not regularly offered.',
-    web:'https://www.t-bunka.jp',
     transit:'JR Yamanote / Keihin-Tohoku → Ueno (Park Exit, 5 min walk)',
     walkFrom:'Tokyo National Museum: 5 min · Shinobazu Pond: 8 min',
-    gmaps:'https://maps.google.com/?q=Tokyo+Bunka+Kaikan+Ueno',
-    archdaily:'https://www.archdaily.com/tag/tokyo-bunka-kaikan',
-    wiki:'https://en.wikipedia.org/wiki/Tokyo_Bunka_Kaikan',
     tags:['Kunio Maekawa','Ueno','Concert Hall','Brutalism','Japanese Modernism','Le Corbusier','1961','Important Cultural Property'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Wongwt_%E4%B8%8A%E9%87%8E%E5%85%AC%E5%9C%92_%2817284237285%29.jpg?width=800',
@@ -779,8 +670,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Ueno_20241013_171445.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyu_Bunka_Kaikan_2006_Tokyo.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/View_of_Shibuya_circa_1960.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── JUNZO SAKAKURA ──────────────────────────────────────────────
@@ -805,17 +695,12 @@ var LOCS_TOKYO = [
     hours:'Garden open to members and guests. Café/restaurant open to public: 11:00–22:00.', lastEntry:'',
     admission:'Café/restaurant: open to public (free entry). Events: varies.',
     tourOk:false, tourInfo:'The garden is primarily for members. The café, restaurant, and ground floor public areas are accessible to all.',
-    web:'https://www.i-house.or.jp',
     transit:'Tokyo Metro Namboku → Roppongi-itchome (Exit 1, 3 min walk)',
     walkFrom:'Ark Hills: 5 min · Roppongi Hills: 10 min',
-    gmaps:'https://maps.google.com/?q=International+House+of+Japan+Roppongi',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/International_House_of_Japan',
     tags:['Junzo Yoshimura','Junzo Sakakura','Kunio Maekawa','Roppongi','Japanese Modernism','Garden','1955','Cultural Exchange'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/International_House_of_Japan.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── ARAKAWA + MADELINE GINS ─────────────────────────────────────
@@ -838,17 +723,12 @@ var LOCS_TOKYO = [
     hours:'Tours: Sat–Sun 11:00–16:00 (reservation required). Overnight stays: bookable.', lastEntry:'',
     admission:'Guided tour: ¥1,500. Overnight stay: from ¥5,000/person.',
     tourOk:true, tourInfo:'Weekend guided tours available by reservation. The lofts can be rented overnight for a full sensory experience.',
-    web:'https://www.rdloftsmitaka.com',
     transit:'JR Chuo Line → Mitaka (20 min walk or bus to Osawa 3-chome)',
     walkFrom:'Ghibli Museum: 20 min on foot',
-    gmaps:'https://maps.google.com/?q=Reversible+Destiny+Lofts+Mitaka',
-    archdaily:'https://www.archdaily.com/tag/reversible-destiny-lofts',
-    wiki:'https://en.wikipedia.org/wiki/Reversible_Destiny_Lofts',
     tags:['Arakawa','Madeline Gins','Experimental','Mitaka','Residential','Philosophy','Anti-Gravity','2005'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Reversible_Destiny_Lofts.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── WONDERWALL (MASAMICHI KATAYAMA) ─────────────────────────────
@@ -873,17 +753,12 @@ var LOCS_TOKYO = [
     hours:'7:00–26:00 (2 AM) daily', lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'Freely accessible during opening hours. Lounge membership available for the second-floor Anjin magazine library.',
-    web:'https://store.tsite.jp/daikanyama/',
     transit:'Tokyu Toyoko Line → Daikanyama (5 min walk)',
     walkFrom:'Log Road Daikanyama: 3 min · Hillside Terrace (Maki): 5 min',
-    gmaps:'https://maps.google.com/?q=Daikanyama+T-Site+Tokyo',
-    archdaily:'https://www.archdaily.com/285103/daikanyama-t-site-klein-dytham-architecture',
-    wiki:'https://en.wikipedia.org/wiki/Daikanyama_T-Site',
     tags:['Klein Dytham','Daikanyama','Tsutaya','Bookstore','Retail','Forest','2011','Lifestyle'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Daikanyama_Tsutaya_Books.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── ATELIER BOW-WOW ─────────────────────────────────────────────
@@ -906,17 +781,12 @@ var LOCS_TOKYO = [
     hours:'Private residence. Exterior view only.', lastEntry:'',
     admission:'N/A',
     tourOk:false, tourInfo:'Private residential building. Exterior visible from the street.',
-    web:'https://bow-wow.jp',
     transit:'Tokyu Meguro / Oimachi Lines → Ookayama',
     walkFrom:'Tokyo Institute of Technology campus: 5 min',
-    gmaps:'https://maps.google.com/?q=Ookayama+Meguro+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/atelier-bow-wow',
-    wiki:'https://en.wikipedia.org/wiki/Atelier_Bow-Wow',
     tags:['Atelier Bow-Wow','Pet Architecture','Machiya','Residential','Tokyo','Narrow Lot','2005'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Atelier_bow-wow%2C_sectional_model_of_house_tower%2C_tokyo_2006.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── JUNYA ISHIGAMI ──────────────────────────────────────────────
@@ -945,15 +815,10 @@ var LOCS_TOKYO = [
     hours:'Tue–Sat 12:00–19:00. Closed Sun–Mon.', lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'Gallery open to public during exhibition periods.',
-    web:'',
     transit:'JR Chuo / Sobu Line → Koenji (North Exit, 5 min walk)',
     walkFrom:'Koenji shopping streets: 5 min',
-    gmaps:'https://maps.google.com/?q=Koenji+Suginami+Tokyo',
-    archdaily:'',
-    wiki:'',
     tags:['Takashi Yamaguchi','Minimalism','Gallery','White','Koenji','Tokyo','Spatial'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   // ── YUICHIRO HIGUCHI ────────────────────────────────────────────
@@ -976,12 +841,8 @@ var LOCS_TOKYO = [
     hours:'Shops: daily 11:00 AM – 9:00 PM · KIRIKO TERRACE (roof garden): 11:00 AM – 11:00 PM', lastEntry:'',
     admission:'Free access · Individual shops may charge',
     tourOk:false, tourInfo:'The building\'s rooftop garden is freely accessible to the public during opening hours. A good vantage point for viewing the Ginza streetscape and Tokyo skyline.',
-    web:'https://ginza.tokyu-plaza.com',
     transit:'Ginza/Hibiya/Marunouchi → Ginza (C2/C3 exit, 1 min) · Yurakucho → Yurakucho (3 min)',
     walkFrom:'Ginza Six: 5 min · Shibuya: 15 min by metro',
-    gmaps:'https://maps.google.com/?q=Tokyu+Plaza+Ginza+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/tokyu-plaza-ginza',
-    wiki:'https://en.wikipedia.org/wiki/Tokyu_Plaza_Ginza',
     tags:['Nikken Sekkei','Edo Kiriko','Ginza','Retail','Rooftop Garden','Facade','2016'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyu_Plaza_Ginza_20241021.jpg?width=800',
@@ -990,8 +851,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyu_Plaza_Ginza4.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyu_Plaza_Ginza_at_night%2C_Tokyo_2016-10-17_1.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyu_Plaza_in_Ginza.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── JUN AOKI & ASSOCIATES ─────────────────────────────────────
@@ -1012,18 +872,13 @@ var LOCS_TOKYO = [
     hours:'Mon–Sun 11:00 AM – 8:00 PM', lastEntry:'',
     admission:'Free access (retail)',
     tourOk:false, tourInfo:'Louis Vuitton boutique within the Matsuya Ginza department store. The facade is best viewed from Chuo Dori at dusk when the LED illumination is active.',
-    web:'https://jp.louisvuitton.com',
     transit:'Ginza/Hibiya/Marunouchi → Ginza (A13 exit, 1 min)',
     walkFrom:'Mikimoto Ginza 2 (Toyo Ito): 3 min · Tokyo International Forum: 10 min',
-    gmaps:'https://maps.google.com/?q=Louis+Vuitton+Matsuya+Ginza',
-    archdaily:'https://www.archdaily.com/tag/louis-vuitton-matsuya-ginza',
-    wiki:'',
     tags:['Jun Aoki','Louis Vuitton','Matsuya','Ginza','Facade','LED','Monogram','Retail','2004'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Le_magasin_Louis_Vuitton_Matsuya_Ginza_%28Tokyo%29_%2828834352748%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Buildings_around_Ginza_%2866652%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -1042,17 +897,12 @@ var LOCS_TOKYO = [
     hours:'Mon–Sun 11:00 AM – 8:00 PM', lastEntry:'',
     admission:'Free access (retail)',
     tourOk:false, tourInfo:'Louis Vuitton flagship boutique on Namiki Dori. The facade\'s illuminated Damier pattern is most visible after dark. Namiki Dori (Tree-Lined Street) is one of Ginza\'s most architecturally concentrated retail streets.',
-    web:'https://jp.louisvuitton.com',
     transit:'Ginza/Hibiya/Marunouchi → Ginza (B5 exit, 3 min)',
     walkFrom:'LV Matsuya Ginza (Jun Aoki): 5 min · De Beers Ginza: 4 min',
-    gmaps:'https://maps.google.com/?q=Louis+Vuitton+Ginza+Namiki+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/louis-vuitton-ginza',
-    wiki:'',
     tags:['Jun Aoki','Peter Marino','Louis Vuitton','Ginza','Damier','Retail','Facade','Namiki Dori','2004'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Louis_Vuitton_Ginza_Namiki_20241021.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── JUN MITSUI & ASSOCIATES ───────────────────────────────────
@@ -1073,19 +923,14 @@ var LOCS_TOKYO = [
     hours:'Mon–Sun 11:00 AM – 7:00 PM', lastEntry:'',
     admission:'Free access (retail)',
     tourOk:false, tourInfo:'De Beers jewellery boutique. The facade\'s crystal-facet geometry is best appreciated from the opposite side of Chuo Dori, particularly in afternoon light.',
-    web:'https://www.debeers.com/en-jp',
     transit:'Ginza/Hibiya/Marunouchi → Ginza (A2 exit, 3 min)',
     walkFrom:'LV Matsuya Ginza (Jun Aoki): 2 min · Mikimoto Ginza 2 (Toyo Ito): 4 min',
-    gmaps:'https://maps.google.com/?q=De+Beers+Ginza+Building+Tokyo',
-    archdaily:'',
-    wiki:'',
     tags:['Jun Mitsui','De Beers','Ginza','Diamond','Faceted Glass','Retail','Jewelry','2005'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/De_Beers_Ginza_Building_20241021.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/De_Beers_Diamond_Jewellers%2C_De_Beers_Ginza_Building_%282016-09-01_by_naobim_%40Pixabay_1648310%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/De_Beers_Ginza_Building%2C_Tokyo_-_Mar_22%2C_2015_%281%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── KENZO TANGE / METABOLIST ──────────────────────────────────
@@ -1106,20 +951,15 @@ var LOCS_TOKYO = [
     hours:'Office building · Exterior viewable 24/7', lastEntry:'',
     admission:'Private office building · Exterior freely visible',
     tourOk:false, tourInfo:'The building is a functioning office tower for the Shizuoka Broadcasting System Tokyo bureau. The exterior — best seen from across the elevated expressway — is accessible 24/7. A registered Important Cultural Property candidate.',
-    web:'',
     transit:'Ginza/Hibiya/Marunouchi → Ginza (A4 exit, 8 min) · JR → Shimbashi (5 min)',
     walkFrom:'Ginza Six: 8 min · Yamaha Ginza (Nikken Sekkei): 2 min',
-    gmaps:'https://maps.google.com/?q=Shizuoka+Press+Building+Ginza+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/shizuoka-press-and-broadcasting-center',
-    wiki:'https://en.wikipedia.org/wiki/Shizuoka_Press_and_Broadcasting_Center',
     tags:['Kenzo Tange','Metabolism','Metabolist','Ginza','1967','Cantilever','Cylindrical Core','Historic','Important Cultural Property'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/GINZA_SKY_WALK_2024_Shizuoka_Press_and_Broadcasting_Center_%2854534529867%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Shizuoka_Press_and_Broadcasting_Center_in_Tokyo3.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Shizuoka_Press_and_Broadcasting_Center%2C_Ginza%2C_Tokyo_-_Jan_19%2C_2023_%284%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Shizuoka_press_broadcasting_building_June_27_2019_details_etc_15_27_03_962000.jpeg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── RAFAEL VIÑOLY ─────────────────────────────────────────────
@@ -1140,12 +980,8 @@ var LOCS_TOKYO = [
     hours:'Atrium: 24/7 (free) · Halls: event hours vary', lastEntry:'',
     admission:'Atrium free · Hall events ticketed',
     tourOk:true, tourInfo:'The glass atrium is freely open to the public 24/7. Tours of the building\'s engineering and architecture are available. The Tokyo Antique Market is held on alternate months in the outdoor plaza.',
-    web:'https://www.t-i-forum.co.jp/en',
     transit:'JR Yamanote/Keihin-Tohoku → Yurakucho (1 min) · Yurakucho → Yurakucho (B5 exit, 1 min)',
     walkFrom:'Tokyo Station Marunouchi: 5 min · Imperial Palace East Garden: 10 min',
-    gmaps:'https://maps.google.com/?q=Tokyo+International+Forum',
-    archdaily:'https://www.archdaily.com/tag/tokyo-international-forum',
-    wiki:'https://en.wikipedia.org/wiki/Tokyo_International_Forum',
     tags:['Rafael Viñoly','Marunouchi','Convention','Glass Atrium','Ship Hull','Public','Yurakucho','1997'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo-International-Forum_Glass-Building_Outside.jpg?width=800',
@@ -1156,8 +992,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Interior_of_the_Tokyo_International_Forum_glass_building_with_roller_shades_in_Japan.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_International_Forum%2C_Tokyo%3B_April_2021_%2804%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_International_Forum_10.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── HERZOG & DE MEURON ────────────────────────────────────────
@@ -1178,17 +1013,12 @@ var LOCS_TOKYO = [
     hours:'Mon–Sun 11:00 AM – 8:00 PM', lastEntry:'',
     admission:'Free access (retail)',
     tourOk:false, tourInfo:'Miu Miu boutique, freely accessible. The concrete shelf facade is best appreciated from across the narrow side street; the moss and seasonal vegetation on the shelves varies throughout the year.',
-    web:'https://www.miumiu.com',
     transit:'Ginza/Hanzomon/Chiyoda → Omotesando (A5 exit, 5 min)',
     walkFrom:'Omotesando Hills (Tadao Ando): 3 min · Prada Omotesando (Herzog & de Meuron): 5 min',
-    gmaps:'https://maps.google.com/?q=Miu+Miu+Aoyama+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/miu-miu-aoyama',
-    wiki:'',
     tags:['Herzog & de Meuron','Miu Miu','Aoyama','Omotesando','Concrete','Retail','Stacked Shelves','2015','Vegetation'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Miu_Miu_Aoyama_Herzog_de_Meuron_Tokyo.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── NORIHIKO DAN AND ASSOCIATES ───────────────────────────────
@@ -1213,12 +1043,8 @@ var LOCS_TOKYO = [
     hours:'Garden and public areas: daily 24/7 · Retail: 11:00 AM – 9:00 PM · Gallery: 10:00 AM – 7:00 PM', lastEntry:'',
     admission:'Garden and public areas: free · Gallery: ticketed (from ¥3,200)',
     tourOk:true, tourInfo:'The central garden and public walkways are freely accessible at all times. The Azabudai Hills Gallery (teamLab) requires timed entry tickets booked in advance. The development also contains a Mori Art Museum satellite space.',
-    web:'https://www.azabudaihills.com',
     transit:'Hibiya Line → Kamiyacho (3 min) · Namboku → Roppongi-Itchome (5 min)',
     walkFrom:'Roppongi Hills: 10 min · Tokyo Tower: 10 min · Toranomon Hills: 7 min',
-    gmaps:'https://maps.google.com/?q=Azabudai+Hills+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/azabudai-hills',
-    wiki:'https://en.wikipedia.org/wiki/Azabudai_Hills',
     tags:['Heatherwick Studio','Pelli Clarke','Diller Scofidio Renfro','DS+R','Azabudai','Mixed-Use','Landscape','2023','teamLab','Tallest Japan','Minato-ku'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/2024_Azabudai_Hills_Mori_JP_Tower_%282%29.jpg?width=800',
@@ -1229,8 +1055,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Azabudai_Hills_Garden_Plaza_A_and_B_20241021_%28II%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Azabudai_Hills_Garden_Plaza_B_B1_2024.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Azabudai_Hills_Market_2024.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── LE CORBUSIER ──────────────────────────────────────────────
@@ -1253,15 +1078,10 @@ var LOCS_TOKYO = [
     hours:'Tue–Sun 9:30 AM – 5:30 PM (Fri until 8 PM) · Closed Mon', lastEntry:'30 min before closing',
     admission:'Permanent collection: ¥500 · Special exhibitions vary',
     tourOk:true, tourInfo:'The building exterior and pilotis ground floor are freely accessible during museum hours. Photography permitted in permanent collection galleries.',
-    web:'https://www.nmwa.go.jp/en/',
     transit:'JR → Ueno (1 min walk)',
     walkFrom:'Ueno Station Park Exit: 1 min · Tokyo Bunka Kaikan: 2 min · Tokyo National Museum: 5 min',
-    gmaps:'https://maps.google.com/?q=National+Museum+of+Western+Art+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/national-museum-of-western-art',
-    wiki:'https://en.wikipedia.org/wiki/National_Museum_of_Western_Art',
     tags:['Le Corbusier','UNESCO','World Heritage','Ueno','Museum','Modernism','Pilotis','1959'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   // ── FRANK LLOYD WRIGHT ────────────────────────────────────────
@@ -1284,19 +1104,14 @@ var LOCS_TOKYO = [
     hours:'Tue–Sun 10:00 AM – 4:00 PM · Closed Mon', lastEntry:'3:30 PM',
     admission:'¥500 (viewing) · ¥800 (with tea)',
     tourOk:true, tourInfo:'Self-guided viewing of the main hall and lecture rooms. English pamphlet available. The building hosts weddings on weekends, so some areas may be restricted.',
-    web:'https://www.jiyu.jp/',
     transit:'JR → Ikebukuro (5 min walk) · Seibu → Ikebukuro (5 min)',
     walkFrom:'Ikebukuro Station Metropolitan Exit: 5 min',
-    gmaps:'https://maps.google.com/?q=Jiyu+Gakuen+Myonichikan+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Jiyu_Gakuen_Myonichikan',
     tags:['Frank Lloyd Wright','Prairie Style','Important Cultural Property','Ikebukuro','1921','School','Oya Stone'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Jiyu_gakuen_myonichikan.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Jiyugakuen_Myonichikan.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Auditorium%2C_Jiyu_Gakuen_Myonichikan%2C_Ikebukuro%2C_Tokyo._Photographed_2018-06-16.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── HERZOG & DE MEURON ────────────────────────────────────────
@@ -1319,12 +1134,8 @@ var LOCS_TOKYO = [
     hours:'Daily 11:00 AM – 8:00 PM', lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'Operating luxury retail store. The exterior and ground floor are the primary architectural experience. Photography of the facade freely permitted.',
-    web:'https://www.prada.com',
     transit:'Ginza Hanzomon Chiyoda → Omotesando (5 min walk)',
     walkFrom:'Omotesando Station A5 Exit: 3 min · Dior Omotesando: 2 min · Nezu Museum: 4 min',
-    gmaps:'https://maps.google.com/?q=Prada+Aoyama+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/prada-aoyama',
-    wiki:'https://en.wikipedia.org/wiki/Prada_Aoyama',
     tags:['Herzog & de Meuron','Pritzker','Prada','Omotesando','Flagship Store','Glass Facade','2003'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/PRADA_BOUTIQUE_AOYAMA.jpg?width=800',
@@ -1333,8 +1144,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/PRADA_-_panoramio.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/PRADA_Building%2C_Inside_-_panoramio.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Prada_Aoyama.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── RENZO PIANO ───────────────────────────────────────────────
@@ -1357,12 +1167,8 @@ var LOCS_TOKYO = [
     hours:'Store: daily 11:00 AM – 8:00 PM · Gallery: Mon–Sat 11:00 AM – 8:00 PM, Sun until 7:00 PM', lastEntry:'',
     admission:'Store and gallery: free',
     tourOk:true, tourInfo:'The 8th-floor Le Forum gallery hosts rotating contemporary art exhibitions, free to enter. The ground-floor atrium and retail spaces are also architecturally notable.',
-    web:'https://www.hermes.com/jp/en/',
     transit:'Ginza Marunouchi Hibiya → Ginza (2 min walk)',
     walkFrom:'Ginza Station A7 Exit: 1 min · Tokyu Plaza Ginza: 3 min · De Beers Ginza: 2 min',
-    gmaps:'https://maps.google.com/?q=Maison+Hermes+Ginza+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/maison-hermes',
-    wiki:'https://en.wikipedia.org/wiki/Maison_Herm%C3%A8s',
     tags:['Renzo Piano','Pritzker','Hermès','Ginza','Glass Block','Gallery','Free','2001'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/2018_Hermes_Ginza_2.jpg?width=800',
@@ -1371,8 +1177,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hermes_Ginza.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/MaisonHerm%C3%A8s-Tokyo-RenzoPiano-2.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hermes%2C_Ginza%2C_Tokyo_-_DSC09661.JPG?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── JEAN NOUVEL ───────────────────────────────────────────────
@@ -1395,12 +1200,8 @@ var LOCS_TOKYO = [
     hours:'Exterior: 24/7 · Interior: private office building', lastEntry:'',
     admission:'Exterior only (lobby occasionally accessible)',
     tourOk:false, tourInfo:'Private office building. The exterior and Shiodome public plazas offer the best views. The curved east facade is best appreciated from Hamarikyu Gardens.',
-    web:'',
     transit:'Oedo Yurikamome → Shiodome (1 min walk)',
     walkFrom:'Shiodome Station: 1 min · Hamarikyu Gardens: 3 min · Ginza: 10 min',
-    gmaps:'https://maps.google.com/?q=Dentsu+Building+Shiodome+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Dentsu_Headquarters_Building',
     tags:['Jean Nouvel','Pritzker','Shiodome','Office Tower','Curved Glass','2002','Dentsu'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Dentsu_Building-20060317.jpg?width=800',
@@ -1409,8 +1210,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Dentsu_Headquarters_Building_in_Tokyo%2C_2019_-_322.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Bunkyodo_Group_Bookstore_in_Dentsu_Building_2015.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Dentsu_Headquarters_Building%2C_SIO-SITE_%282010-05-08_17.29.36%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── NORMAN FOSTER ─────────────────────────────────────────────
@@ -1433,12 +1233,8 @@ var LOCS_TOKYO = [
     hours:'Exterior: 24/7 · Interior: private', lastEntry:'',
     admission:'Exterior only',
     tourOk:false, tourInfo:'Private office building. Best viewed from the Ochanomizu Bridge or Hijiri-bashi Bridge over the Kanda River.',
-    web:'',
     transit:'JR Marunouchi → Ochanomizu (3 min walk)',
     walkFrom:'Ochanomizu Station: 3 min · Nikolai Cathedral: 5 min',
-    gmaps:'https://maps.google.com/?q=Century+Tower+Ochanomizu+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Century_Tower_(Tokyo)',
     tags:['Norman Foster','Pritzker','High-Tech','Diagrid','Ochanomizu','1991','Structural Expression'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Century_Tower_at_Japan.jpg?width=800',
@@ -1447,8 +1243,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/JR_Minami-Shinjuku_building_from_Hotel_Century_Southern_Tower.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/JR_Tokyo_General_Hospital_from_Hotel_Century_Southern_Tower.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Marunouchi_%26_Tokyo_Station_2.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── KPF ───────────────────────────────────────────────────────
@@ -1471,12 +1266,8 @@ var LOCS_TOKYO = [
     hours:'Tower: varies by tenant · Observation Deck: 10:00 AM – 11:00 PM · Mori Art Museum: 10:00 AM – 10:00 PM', lastEntry:'30 min before closing',
     admission:'Tokyo City View + Mori Art Museum: ¥2,000 · Sky Deck (rooftop): +¥500',
     tourOk:true, tourInfo:'The Mori Art Museum and Tokyo City View observation deck offer combined tickets. The rooftop Sky Deck is weather-dependent. The surrounding public spaces, garden, and arena are free.',
-    web:'https://www.roppongihills.com/en/',
     transit:'Hibiya Oedo → Roppongi (3 min walk)',
     walkFrom:'Roppongi Station: 3 min · National Art Center: 8 min · Azabudai Hills: 10 min',
-    gmaps:'https://maps.google.com/?q=Roppongi+Hills+Mori+Tower+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/roppongi-hills',
-    wiki:'https://en.wikipedia.org/wiki/Roppongi_Hills_Mori_Tower',
     tags:['KPF','Roppongi','Observation Deck','Mori Art Museum','Mixed-Use','2003','Maman','Louise Bourgeois'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Mori_Tower_-_Roppongi%2C_Tokyo%2C_Japan_-_DSC06760.JPG?width=800',
@@ -1485,8 +1276,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/%E6%A3%AE%E3%82%BF%E3%83%AF%E3%83%BC%E5%9B%9E%E8%BB%A2%E3%83%89%E3%82%A2.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Mori_Art_Museum_Entrance_2013.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Tower_%28Roppongi_Hills_Mori_Tower_-_TOKYO_CITY_VIEW%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── SOM ───────────────────────────────────────────────────────
@@ -1509,15 +1299,10 @@ var LOCS_TOKYO = [
     hours:'Shops: 11:00 AM – 9:00 PM · Restaurants: 11:00 AM – 11:00 PM · Garden: 24/7', lastEntry:'',
     admission:'Public areas and garden: free · Museums: ticketed',
     tourOk:true, tourInfo:'The public garden and ground-level retail are freely accessible. The Suntory Museum of Art and 21_21 Design Sight require separate tickets.',
-    web:'https://www.tokyo-midtown.com/en/',
     transit:'Hibiya Oedo → Roppongi (5 min walk) · Chiyoda → Nogizaka (3 min)',
     walkFrom:'Roppongi Station: 5 min · National Art Center: 3 min · 21_21 Design Sight: 1 min',
-    gmaps:'https://maps.google.com/?q=Tokyo+Midtown+Roppongi',
-    archdaily:'https://www.archdaily.com/tag/tokyo-midtown',
-    wiki:'https://en.wikipedia.org/wiki/Tokyo_Midtown',
     tags:['SOM','Nikken Sekkei','Roppongi','Mixed-Use','Tallest Tokyo','Suntory Museum','Ritz-Carlton','2007'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1538,17 +1323,12 @@ var LOCS_TOKYO = [
     hours:'Public spaces and garden: daily · Tower: private offices', lastEntry:'',
     admission:'Public areas: free',
     tourOk:false, tourInfo:'The public garden and ground-floor retail areas are accessible. The tower floors are private offices.',
-    web:'',
     transit:'Marunouchi Tozai Chiyoda Hanzomon → Otemachi (1 min walk)',
     walkFrom:'Otemachi Station: 1 min · Imperial Palace East Gardens: 5 min · Tokyo Station: 8 min',
-    gmaps:'https://maps.google.com/?q=Otemachi+One+Tower+Tokyo',
-    archdaily:'',
-    wiki:'',
     tags:['SOM','Otemachi','Office Tower','Four Seasons','Public Garden','2020'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/%C5%8Ctemachitemachi_One_Tower.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── OMA ───────────────────────────────────────────────────────
@@ -1571,12 +1351,8 @@ var LOCS_TOKYO = [
     hours:'Public areas: 7:00 AM – 11:00 PM · Retail: 11:00 AM – 9:00 PM', lastEntry:'',
     admission:'Public areas: free',
     tourOk:true, tourInfo:'Ground-level public spaces and retail floors are accessible. The station integration means visitors naturally pass through the building\'s architectural spaces.',
-    web:'https://www.toranomonhills.com/en/',
     transit:'Hibiya → Toranomon Hills (direct connection)',
     walkFrom:'Toranomon Hills Station: 0 min · Azabudai Hills: 7 min · Kamiyacho: 5 min',
-    gmaps:'https://maps.google.com/?q=Toranomon+Hills+Station+Tower+Tokyo',
-    archdaily:'https://www.archdaily.com/tag/toranomon-hills',
-    wiki:'https://en.wikipedia.org/wiki/Toranomon_Hills',
     tags:['OMA','Shohei Shigematsu','Toranomon','Mori Building','Station Tower','2023','A-Frame'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/2018_Toranomon_Hills_2.jpg?width=800',
@@ -1585,8 +1361,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Toranomon_Hills_Glass_Rock_%2831834%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Toranomon_Hills_Office_Lobby_2015.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Toranomon_Hills_Oval_Plaza_dusk_view_2015.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -1607,15 +1382,10 @@ var LOCS_TOKYO = [
     hours:'Daily 11:00 AM – 9:00 PM (varies by tenant)', lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'Commercial complex with freely accessible public floors, terraces, and food halls.',
-    web:'',
     transit:'JR → Harajuku (2 min walk) · Chiyoda Fukutoshin → Meiji-jingumae (1 min)',
     walkFrom:'Harajuku Station: 2 min · Takeshita Street: 0 min · Omotesando Hills: 8 min',
-    gmaps:'https://maps.google.com/?q=Harajuku+Quest+Harakado+Tokyo',
-    archdaily:'',
-    wiki:'',
     tags:['OMA','Shohei Shigematsu','Harajuku','Mixed-Use','Retail','2025','Takeshita'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   // ── NIKKEN SEKKEI ─────────────────────────────────────────────
@@ -1638,12 +1408,8 @@ var LOCS_TOKYO = [
     hours:'Observation Decks: 10:00 AM – 9:00 PM (last entry 8:00 PM)', lastEntry:'8:00 PM',
     admission:'Tembo Deck (350m): ¥2,100 · Tembo Deck + Galleria (450m): ¥3,100',
     tourOk:true, tourInfo:'Timed entry tickets recommended, especially on weekends. Fast Tickets available for premium pricing. The Solamachi shopping complex at the base is free to access.',
-    web:'https://www.tokyo-skytree.jp/en/',
     transit:'Tobu Skytree → Tokyo Skytree (0 min) · Hanzomon Asakusa → Oshiage (0 min)',
     walkFrom:'Oshiage Station: 1 min · Asakusa/Sensō-ji: 15 min',
-    gmaps:'https://maps.google.com/?q=Tokyo+Skytree',
-    archdaily:'https://www.archdaily.com/tag/tokyo-skytree',
-    wiki:'https://en.wikipedia.org/wiki/Tokyo_Skytree',
     tags:['Nikken Sekkei','Tallest Tower','634m','Observation Deck','Sumida','2012','Broadcasting','Solamachi'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/2012%E5%B9%B4%E9%9A%85%E7%94%B0%E5%B7%9D%E8%8A%B1%E7%81%AB%E5%A4%A7%E4%BC%9A.jpg?width=800',
@@ -1652,8 +1418,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Mt.Fuji_%26_Tokyo_SkyTree_%286906783193%29b.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_%2C_%E6%9D%B1%E4%BA%AC_-_Flickr_-_Melvin_Loi_%281%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Skytree_at_night_%28Miyabi%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── KUNIO MAEKAWA ─────────────────────────────────────────────
@@ -1676,12 +1441,8 @@ var LOCS_TOKYO = [
     hours:'Tue–Sun 9:30 AM – 5:30 PM (Fri until 8:00 PM) · Closed Mon', lastEntry:'30 min before closing',
     admission:'Free (lobby galleries) · Special exhibitions: ¥800–¥2,000',
     tourOk:true, tourInfo:'The lobby galleries and public spaces are free. The building\'s exterior relationship to Ueno Park is best appreciated from the sunken entrance plaza.',
-    web:'https://www.tobikan.jp/en/',
     transit:'JR → Ueno (7 min walk)',
     walkFrom:'Ueno Station Park Exit: 7 min · National Museum of Western Art: 3 min · Tokyo National Museum: 5 min',
-    gmaps:'https://maps.google.com/?q=Tokyo+Metropolitan+Art+Museum',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Tokyo_Metropolitan_Art_Museum',
     tags:['Kunio Maekawa','Brutalist','Ueno','Museum','Le Corbusier Disciple','1975','Brick'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_metropolitan_art_museum01_1920.jpg?width=800',
@@ -1690,8 +1451,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Metropolitan_Art_Museum_01_%2815133033473%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Metropolitan_Teien_Art_Museum_PB292377.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Metropolitan_Teien_Art_Museum_PB292392.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── TAKAMASA YOSHIZAKA ────────────────────────────────────────
@@ -1714,18 +1474,13 @@ var LOCS_TOKYO = [
     hours:'Exterior: 24/7 · Interior: students only', lastEntry:'',
     admission:'Exterior only',
     tourOk:false, tourInfo:'Operating language school, not open to casual visitors. The facade is the primary experience — best viewed from the street.',
-    web:'https://www.athenee.jp/',
     transit:'JR → Ochanomizu (3 min walk) · Marunouchi → Ochanomizu (3 min)',
     walkFrom:'Ochanomizu Station: 3 min · Century Tower (Foster): 2 min · Nikolai Cathedral: 3 min',
-    gmaps:'https://maps.google.com/?q=Athenee+Francais+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Ath%C3%A9n%C3%A9e_Fran%C3%A7ais',
     tags:['Takamasa Yoshizaka','Le Corbusier Disciple','Brutalist','Ochanomizu','Language School','1962','Mural'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Athenee_Francais.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Ath%C3%A9n%C3%A9e_Fran%C3%A7ais_-_Tokyo_-_DSC04852.JPG?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── ANTONIN RAYMOND ───────────────────────────────────────────
@@ -1748,18 +1503,13 @@ var LOCS_TOKYO = [
     hours:'Daily 9:00 AM – 5:00 PM · Mass times vary', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Active Catholic parish. Visitors welcome during open hours. Please be respectful during services.',
-    web:'',
     transit:'JR Namboku Mita → Meguro (5 min walk)',
     walkFrom:'Meguro Station: 5 min',
-    gmaps:'https://maps.google.com/?q=St+Anselm+Catholic+Church+Meguro+Tokyo',
-    archdaily:'',
-    wiki:'',
     tags:['Antonin Raymond','Church','Concrete','Meguro','1954','Modernism','Czech-American'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/St._Anselm%27s_Catholic_Church_1.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/St._Anselm%27s_Catholic_Church_2.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -1780,18 +1530,13 @@ var LOCS_TOKYO = [
     hours:'Campus: Mon–Sat daytime · Chapel: limited access', lastEntry:'',
     admission:'Campus exterior: free (public can walk grounds)',
     tourOk:false, tourInfo:'Active university campus. The grounds are accessible but buildings are generally restricted to students and staff. Best visited during open campus days.',
-    web:'https://www.twcu.ac.jp/',
     transit:'JR → Nishi-Ogikubo (12 min walk) · JR → Kichijoji (bus)',
     walkFrom:'Nishi-Ogikubo Station: 12 min',
-    gmaps:'https://maps.google.com/?q=Tokyo+Women\'s+Christian+University+Suginami',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Tokyo_Woman%27s_Christian_University',
     tags:['Antonin Raymond','University','Chapel','Pre-War','Suginami','1938','Campus'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tonjo0156.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tonjo0159.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── DAVID CHIPPERFIELD ────────────────────────────────────────
@@ -1814,15 +1559,10 @@ var LOCS_TOKYO = [
     hours:'Lobby: 24/7 (hotel guests and visitors) · Restaurant reservations recommended', lastEntry:'',
     admission:'Lobby: free to visit',
     tourOk:true, tourInfo:'The Heritage Wing lobby is freely accessible and worth visiting specifically for its architecture. No reservation needed to view the lobby.',
-    web:'https://theokuratokyo.jp/en/',
     transit:'Hibiya → Kamiyacho (5 min walk) · Namboku → Tameike-Sanno (5 min)',
     walkFrom:'Kamiyacho Station: 5 min · US Embassy: 2 min · Azabudai Hills: 8 min',
-    gmaps:'https://maps.google.com/?q=The+Okura+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Hotel_Okura_Tokyo',
     tags:['Yoshio Taniguchi','Hotel Okura','Heritage','Lobby','Toranomon','2019','Reconstruction','Lantern'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -1843,15 +1583,10 @@ var LOCS_TOKYO = [
     hours:'Daily 11:00 AM – 8:00 PM', lastEntry:'',
     admission:'Free',
     tourOk:false, tourInfo:'Operating luxury retail store. The facade and ground floor are the primary architectural experience.',
-    web:'https://www.valentino.com',
     transit:'Ginza Marunouchi Hibiya → Ginza (3 min walk)',
     walkFrom:'Ginza Station: 3 min · Maison Hermès: 2 min · Tokyu Plaza Ginza: 4 min',
-    gmaps:'https://maps.google.com/?q=Valentino+Ginza+Tokyo',
-    archdaily:'',
-    wiki:'',
     tags:['David Chipperfield','Pritzker','Valentino','Ginza','Flagship Store','2007'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   // ── STEVEN HOLL ───────────────────────────────────────────────
@@ -1874,15 +1609,10 @@ var LOCS_TOKYO = [
     hours:'Exterior: 24/7 · Interior: private residences', lastEntry:'',
     admission:'Exterior only',
     tourOk:false, tourInfo:'Private residential complex. The courtyards and facades can be viewed from public pathways around the complex.',
-    web:'',
     transit:'JR Keiyo → Kaihin-Makuhari (10 min walk)',
     walkFrom:'Kaihin-Makuhari Station: 10 min',
-    gmaps:'https://maps.google.com/?q=Makuhari+Baytown+Patios+Chiba',
-    archdaily:'',
-    wiki:'',
     tags:['Steven Holl','Housing','Makuhari','Chiba','Courtyard','1996','Residential'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   // ── TRADITIONAL & HISTORIC — TEMPLES & SHRINES ────────────────
@@ -1905,12 +1635,8 @@ var LOCS_TOKYO = [
     hours:'Temple grounds: 24/7 · Main Hall: 6:00 AM – 5:00 PM (Oct–Mar from 6:30)', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Freely accessible at all times. The grounds are especially atmospheric at night when the gates are illuminated. Nakamise shopping street shops close by early evening.',
-    web:'https://www.senso-ji.jp/english/',
     transit:'Ginza Asakusa Tobu → Asakusa (5 min walk)',
     walkFrom:'Asakusa Station: 5 min · Asakusa Culture Tourist Info Center: 1 min · Tokyo Skytree: 15 min',
-    gmaps:'https://maps.google.com/?q=Senso-ji+Temple+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Sens%C5%8D-ji',
     tags:['Temple','Traditional','Asakusa','Kaminarimon','Buddhist','645 AD','Oldest Tokyo','Pagoda'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Asakusa_during_snowfall_-_Flickr_-_Manish_Prabhune.jpg?width=800',
@@ -1919,8 +1645,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hozomon_Gate%28left%29%E3%83%BBFive-storied_Pagoda%28center%29%E3%83%BBFortune_Slip_Shop%28right%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hozomon_on_an_overcast_day_dllu.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hozomon_sensoji_back.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -1941,12 +1666,8 @@ var LOCS_TOKYO = [
     hours:'Sunrise to sunset (varies seasonally, approx. 5:00 AM – 6:30 PM)', lastEntry:'',
     admission:'Free (shrine) · Museum: ¥1,000',
     tourOk:true, tourInfo:'Freely accessible during daylight hours. The inner garden (Gyoen, ¥500) features an iris garden and is especially beautiful in June. Arrive early to avoid crowds.',
-    web:'https://www.meijijingu.or.jp/en/',
     transit:'JR → Harajuku (1 min walk) · Chiyoda Fukutoshin → Meiji-jingumae (5 min)',
     walkFrom:'Harajuku Station: 1 min · Yoyogi National Gymnasium: 5 min · Omotesando: 10 min',
-    gmaps:'https://maps.google.com/?q=Meiji+Shrine+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Meiji_Shrine',
     tags:['Shinto','Traditional','Harajuku','Forest','Meiji Emperor','1920','Sacred','Kengo Kuma Museum'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/2018_Meiji_Shrine.jpg?width=800',
@@ -1955,8 +1676,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Meiji_Shrine%2C_Barrels_of_sake.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Meiji_Shrine-2.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Meiji_Shrine-4.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -1977,12 +1697,8 @@ var LOCS_TOKYO = [
     hours:'Temple grounds: daily 6:00 AM – 5:30 PM · Treasure Gallery: 10:00 AM – 4:00 PM', lastEntry:'',
     admission:'Temple grounds: free · Treasure Gallery: ¥700',
     tourOk:true, tourInfo:'Freely accessible. The Tokugawa mausoleum area requires a separate ticket. The Sangedatsumon gate is the architectural highlight. Famous view: Tokyo Tower framed behind the main hall.',
-    web:'https://www.zojoji.or.jp/en/',
     transit:'Mita → Onarimon (3 min walk) · Oedo → Daimon (5 min)',
     walkFrom:'Onarimon Station: 3 min · Tokyo Tower: 5 min · Hamamatsucho Station: 8 min',
-    gmaps:'https://maps.google.com/?q=Zojoji+Temple+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Z%C5%8Dj%C5%8D-ji',
     tags:['Temple','Buddhist','Traditional','Tokugawa','Tokyo Tower View','Sangedatsumon','1622 Gate','Shiba'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/20110405-TokyoTower-Sakura01.jpg?width=800',
@@ -1991,8 +1707,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Kawase_Z%C3%B4j%C3%B4ji.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Mausoleum_of_Sugenin.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Mausoleum_of_Taitokuin.JPG?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -2013,12 +1728,8 @@ var LOCS_TOKYO = [
     hours:'Grounds: daily 6:00 AM – 5:00 PM · Azalea Festival: April', lastEntry:'',
     admission:'Free (Azalea garden: ¥300 during festival)',
     tourOk:true, tourInfo:'Freely accessible. The azalea festival in April draws large crowds. The torii tunnel on the hillside is photogenic year-round. Combine with a walk through the Yanaka/Nezu/Sendagi historic district.',
-    web:'https://www.nedujinja.or.jp/',
     transit:'Chiyoda → Nezu (5 min walk) · Namboku → Todaimae (5 min)',
     walkFrom:'Nezu Station: 5 min · University of Tokyo: 10 min · Ueno Park: 15 min',
-    gmaps:'https://maps.google.com/?q=Nezu+Shrine+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Nezu_Shrine',
     tags:['Shinto','Traditional','Edo Period','1706','Torii Tunnel','Azalea','Important Cultural Property','Nezu'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Nezu_Shrine_2010.jpg?width=800',
@@ -2027,8 +1738,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Nezu_jinja_-_Honden_11.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Nezu_jinja_-_Honden_12.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Nezu_jinja_-_Sukibei_2.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -2049,12 +1759,8 @@ var LOCS_TOKYO = [
     hours:'Tue–Sun 9:00 AM – varies seasonally (4:00 PM Nov–Feb, 5:00 PM Mar/Sep/Oct, 6:00 PM Apr–Aug) · Closed Mon & Fri', lastEntry:'30 min before closing',
     admission:'Free',
     tourOk:true, tourInfo:'Free admission through the Otemon Gate. Bag check at entrance. The Ninomaru Garden is the primary landscape destination; the castle keep foundations offer city views.',
-    web:'https://www.kunaicho.go.jp/e-event/higashigyoen01.html',
     transit:'Marunouchi Tozai Chiyoda → Otemachi (5 min walk)',
     walkFrom:'Otemachi Station: 5 min · Tokyo Station: 10 min · Otemachi One: 5 min',
-    gmaps:'https://maps.google.com/?q=Imperial+Palace+East+Gardens+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/East_Gardens_of_the_Imperial_Palace',
     tags:['Imperial Palace','Garden','Edo Castle','Traditional','Free','Marunouchi','Stone Walls','Landscape'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Imperial_Palace_Tokyo_East_Garden_View.JPG?width=800',
@@ -2063,8 +1769,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Imperial_Palace_East_Garden_Japan_1989_air.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Street_light%2C_East_Gardens_of_the_Imperial_Palace_-_Tokyo%2C_Japan_-_DSC09018.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Imperial_Palace_East_Gardens_%289000324274%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -2085,12 +1790,8 @@ var LOCS_TOKYO = [
     hours:'Daily 9:00 AM – 5:00 PM (last entry 4:30 PM) · Extended hours during illumination events', lastEntry:'4:30 PM',
     admission:'¥300',
     tourOk:true, tourInfo:'English pamphlet available. Spring cherry blossom and autumn maple illumination events (evening) are particularly popular and may require queuing.',
-    web:'https://www.tokyo-park.or.jp/park/rikugien/',
     transit:'JR Namboku → Komagome (2 min walk)',
     walkFrom:'Komagome Station: 2 min',
-    gmaps:'https://maps.google.com/?q=Rikugien+Garden+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Rikugien',
     tags:['Garden','Edo Period','1702','Strolling Garden','Cherry Blossom','Autumn Leaves','Illumination','Komagome'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/View_from_Fujishiro-toge_Hill_at_Rikugi-en_Garden%2C_Tokyo_%28Detail%29.jpg?width=800',
@@ -2099,8 +1800,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Rikugi-en_20181124-3.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Rikugi-en_Gardens%2C_Tokyo%3B_November_2012_%2801%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Rikugi-en_Gardens%2C_Tokyo%3B_November_2012_%2806%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -2121,12 +1821,8 @@ var LOCS_TOKYO = [
     hours:'Daily 9:00 AM – 5:00 PM (last entry 4:30 PM)', lastEntry:'4:30 PM',
     admission:'¥300',
     tourOk:true, tourInfo:'English pamphlet available. Less crowded than Rikugi-en. The full-moon bridge and plum grove (February) are highlights.',
-    web:'https://www.tokyo-park.or.jp/park/koishikawa-korakuen/',
     transit:'Oedo Tozai Namboku → Iidabashi (3 min walk) · JR → Suidobashi (5 min)',
     walkFrom:'Iidabashi Station: 3 min · Tokyo Dome: 2 min',
-    gmaps:'https://maps.google.com/?q=Koishikawa+Korakuen+Garden+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Koishikawa_K%C5%8Drakuen',
     tags:['Garden','Edo Period','1629','Oldest Tokyo Garden','Chinese Influence','Full-Moon Bridge','Special Historic Site'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Koishikawa_Korakuen_-_Bunky%C5%8D-ku%2C_Tokyo%2C_Japan_-_DSC09183.JPG?width=800',
@@ -2135,8 +1831,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Koishikawa_Korakuen_-_Naitei_and_Tokyo_Dome.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Koishikawa_Korakuen_%282008.09%29.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Koishikawa_Korakuen_Garden%2C_Tokyo.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -2157,12 +1852,8 @@ var LOCS_TOKYO = [
     hours:'Grounds: 24/7 · Main hall: 9:00 AM – 4:30 PM', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Adjacent to Sensō-ji — visit both together. The Sanja Matsuri (third weekend of May) is one of Tokyo\'s largest festivals.',
-    web:'https://www.asakusajinja.jp/',
     transit:'Ginza Asakusa → Asakusa (5 min walk)',
     walkFrom:'Sensō-ji Main Hall: 1 min · Asakusa Station: 5 min',
-    gmaps:'https://maps.google.com/?q=Asakusa+Shrine+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Asakusa_Shrine',
     tags:['Shinto','Traditional','Edo Period','1649','Important Cultural Property','Sanja Matsuri','Asakusa'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Asakusa_Shrine_2024.jpg?width=800',
@@ -2171,8 +1862,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tori-no-Ichi_2011%2C_Asakusa%2C_Tokyo%2C_Japan.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Asakusa%2C_Tokyo%2C_Japan_%286936222869%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Asakusa_-_Senso-ji_82_%2815163996964%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -2193,12 +1883,8 @@ var LOCS_TOKYO = [
     hours:'Grounds: 24/7 · Main hall: 9:00 AM – 4:00 PM', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Freely accessible. The Kanda Matsuri (mid-May, odd years) is one of Tokyo\'s three great festivals. Combine with a visit to nearby Akihabara.',
-    web:'https://www.kandamyoujin.or.jp/en/',
     transit:'JR → Ochanomizu (5 min walk) · Ginza Marunouchi → Suehirocho (5 min)',
     walkFrom:'Ochanomizu Station: 5 min · Akihabara Station: 7 min · Athénée Français: 5 min',
-    gmaps:'https://maps.google.com/?q=Kanda+Shrine+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Kanda_Shrine',
     tags:['Shinto','Traditional','730 AD','Concrete Reconstruction','Akihabara','Kanda Matsuri','1934'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Kanda-Myojin_torii.JPG?width=800',
@@ -2207,8 +1893,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/100_views_edo_010.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/KandaMyojinGate8837.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/KandaMyojinLanterns8758.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── MJ'S SPECIFIC ADDITIONS — GARDENS & SHRINES ───────────────
@@ -2231,12 +1916,8 @@ var LOCS_TOKYO = [
     hours:'Daily 9:00 AM – 5:00 PM (last entry 4:30 PM)', lastEntry:'4:30 PM',
     admission:'¥300',
     tourOk:true, tourInfo:'English pamphlet available. The teahouse on the pond serves matcha (¥510). Water bus service connects Hamarikyu to Asakusa — a scenic way to arrive. Combine with a visit to Tsukiji Outer Market.',
-    web:'https://www.tokyo-park.or.jp/park/hamarikyu/',
     transit:'Oedo Yurikamome → Shiodome (5 min walk) · Oedo → Tsukijishijo (7 min)',
     walkFrom:'Shiodome Station: 5 min · Dentsu Building (Nouvel): 3 min · Tsukiji Outer Market: 8 min',
-    gmaps:'https://maps.google.com/?q=Hamarikyu+Gardens+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Hama-riky%C5%AB_Gardens',
     tags:['Garden','Edo Period','1654','Tidal Garden','Teahouse','Tokugawa','Shiodome Skyline','Water Bus'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/2018_Hama-riky%C5%AB_Garden_02.jpg?width=800',
@@ -2245,8 +1926,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/HamaRikyuAutumn.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hamarikyu_Garden_as_seen_from_Shiodome.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hamarikyu_Gardens.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -2267,12 +1947,8 @@ var LOCS_TOKYO = [
     hours:'Daily 9:00 AM – 5:00 PM (last entry 4:30 PM)', lastEntry:'4:30 PM',
     admission:'¥150',
     tourOk:true, tourInfo:'Compact garden ideal for a focused 30–45 minute visit. Combine with the surrounding Kiyosumi-Shirakawa coffee shops. Less crowded than central Tokyo gardens.',
-    web:'https://www.tokyo-park.or.jp/park/kiyosumi/',
     transit:'Hanzomon Oedo → Kiyosumi-Shirakawa (3 min walk)',
     walkFrom:'Kiyosumi-Shirakawa Station: 3 min · Museum of Contemporary Art Tokyo: 10 min',
-    gmaps:'https://maps.google.com/?q=Kiyosumi+Garden+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Kiyosumi_Garden',
     tags:['Garden','Meiji Era','Mitsubishi','Stepping Stones','Kiyosumi-Shirakawa','1878','Strolling Garden'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Kiyosumi_Teien_-_Japanese_gardern_1.JPG?width=800',
@@ -2281,8 +1957,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Kiyosumi-3.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Kiyosumi-4.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Kiyosumi-7.JPG?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -2303,12 +1978,8 @@ var LOCS_TOKYO = [
     hours:'Daily 5:00 AM – 6:00 PM (Oct–Mar until 5:00 PM)', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'Freely accessible. The torii gate tunnel on the south (Akasaka) side is the most photogenic approach. Escalator available for less mobile visitors. Combine with nearby Akasaka dining.',
-    web:'https://www.hiejinja.net/',
     transit:'Ginza Namboku → Tameike-Sanno (3 min walk) · Chiyoda → Akasaka (3 min)',
     walkFrom:'Tameike-Sanno Station: 3 min · National Diet Building: 5 min',
-    gmaps:'https://maps.google.com/?q=Hie+Shrine+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Hie_Shrine',
     tags:['Shinto','Traditional','Torii Tunnel','Nagatacho','Sanno Matsuri','1478','Government District'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hie_Shrine_Big_Torii_with_escalators_in_the_background.jpg?width=800',
@@ -2317,8 +1988,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hie_Shrine_Torii_row.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Escalator_at_Hie_Shrine.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hie_Shrine_big_Torii.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -2339,12 +2009,8 @@ var LOCS_TOKYO = [
     hours:'Daily 9:00 AM – 5:00 PM (last entry 4:30 PM)', lastEntry:'4:30 PM',
     admission:'¥150',
     tourOk:true, tourInfo:'The rose garden is at its peak in May and October. The Japanese garden is especially beautiful in autumn. Interior mansion tours are available on limited dates (check website).',
-    web:'https://www.tokyo-park.or.jp/park/kyufurukawa/',
     transit:'JR → Komagome (12 min walk) · Namboku → Nishigahara (7 min)',
     walkFrom:'Nishigahara Station: 7 min · Rikugi-en: 10 min',
-    gmaps:'https://maps.google.com/?q=Kyu+Furukawa+Gardens+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Kyu-Furukawa_Gardens',
     tags:['Josiah Conder','Western Mansion','Japanese Garden','Rose Garden','Meiji Era','1917','Ogawa Jihei'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Western-style_garden_%40_Kyu-Furukawa_Gardens_%289105373412%29.jpg?width=800',
@@ -2353,8 +2019,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Kyu-Furukawa_Gardens_%289103154003%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Lantern_%40_Kyu-Furukawa_Gardens_%289103155039%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Lantern_%40_Kyu-Furukawa_Gardens_%289105387190%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -2375,12 +2040,8 @@ var LOCS_TOKYO = [
     hours:'Daily 9:00 AM – 5:00 PM (last entry 4:30 PM)', lastEntry:'4:30 PM',
     admission:'¥400',
     tourOk:true, tourInfo:'Interior of the Western mansion is accessible (shoe removal required). Audio guide available. Photography restricted in some interior rooms. English signage throughout.',
-    web:'https://www.tokyo-park.or.jp/park/kyuiwasaki/',
     transit:'Chiyoda → Yushima (3 min walk) · Ginza → Ueno-hirokoji (5 min)',
     walkFrom:'Yushima Station: 3 min · Ueno Station: 10 min · National Museum of Western Art: 12 min',
-    gmaps:'https://maps.google.com/?q=Kyu+Iwasaki+tei+Garden+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Former_Iwasaki_House_Garden',
     tags:['Josiah Conder','Meiji Era','Mitsubishi','Western Mansion','Important Cultural Property','1896','Jacobean'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Former_Iwasaki_Family_House_and_Garden_2010.jpg?width=800',
@@ -2389,8 +2050,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Kyu-Iwasaki-tei_Gardens_%40_Ueno_%2811096171256%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Kyu-Iwasaki-tei_Gardens_%40_Ueno_%2811096197174%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Kyu-Iwasaki-tei_Gardens_%40_Ueno_%2811096199244%29.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── EDO-TOKYO OPEN AIR MUSEUM ─────────────────────────────────
@@ -2413,12 +2073,8 @@ var LOCS_TOKYO = [
     hours:'Tue–Sun 9:30 AM – 5:30 PM (Oct–Mar until 4:30 PM) · Closed Mon', lastEntry:'30 min before closing',
     admission:'¥400',
     tourOk:true, tourInfo:'Allow 2–3 hours minimum. The Shitamachi commercial street and the Maekawa residence are highlights. The museum shop sells architectural books. Studio Ghibli fans should visit the Kodakara-yu bathhouse.',
-    web:'https://www.tatemonoen.jp/english/',
     transit:'JR → Musashi-Koganei (bus 5 min) · Seibu → Hanakoganei (walk 5 min)',
     walkFrom:'Musashi-Koganei Station: 25 min (or bus) · Hanakoganei Station: 5 min',
-    gmaps:'https://maps.google.com/?q=Edo+Tokyo+Open+Air+Architectural+Museum',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Edo-Tokyo_Open_Air_Architectural_Museum',
     tags:['Open Air Museum','Edo Period','Meiji','Taisho','Relocated Buildings','Spirited Away','Maekawa House','Koganei'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Bar-Kagiya.jpg?width=800',
@@ -2427,8 +2083,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Edo-tokyo-tatemono_toden.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Edotokyo-tatemonoen.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Farmhouse-of-Tsunashima-Family-00.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   // ── TOKYO TOWER ───────────────────────────────────────────────
@@ -2451,12 +2106,8 @@ var LOCS_TOKYO = [
     hours:'Main Deck: 9:00 AM – 11:00 PM · Top Deck Tour: 9:00 AM – 10:45 PM', lastEntry:'10:30 PM (Main), 10:15 PM (Top)',
     admission:'Main Deck: ¥1,200 · Top Deck Tour: ¥2,800',
     tourOk:true, tourInfo:'The Top Deck Tour includes a guided experience with projection mapping. An outdoor staircase walk (600 steps) to the Main Deck is available on weekends and holidays. Night views are particularly popular.',
-    web:'https://www.tokyotower.co.jp/en/',
     transit:'Oedo → Akabanebashi (5 min walk) · Mita → Onarimon (6 min)',
     walkFrom:'Onarimon Station: 6 min · Zōjō-ji: 3 min · Azabudai Hills: 10 min · Roppongi Hills: 15 min',
-    gmaps:'https://maps.google.com/?q=Tokyo+Tower',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Tokyo_Tower',
     tags:['Tokyo Tower','Landmark','1958','333m','Observation Deck','Tachū Naitō','Broadcasting','Icon'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Tower_Afterglow.JPG?width=800',
@@ -2465,8 +2116,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/BaseofTokyoTower.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Shiba-koen%2C_aerial_view_on_Tokyo_Tower_at_dusk_%28Unsplash%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Tower_1961.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
 // ── MEIJI-ERA HISTORIC BUILDINGS ──────────────────────────────
@@ -2489,12 +2139,8 @@ var LOCS_TOKYO = [
     hours:'Oct–Mar: 1:00 PM – 3:30 PM · Apr–Sep: 1:00 PM – 4:00 PM', lastEntry:'',
     admission:'¥300 (photography not permitted inside)',
     tourOk:true, tourInfo:'Brief visiting hours. The dome exterior is best viewed from Hijiribashi Bridge. Located near Century Tower (Foster) and Athénée Français (Yoshizaka).',
-    web:'',
     transit:'Chiyoda → Shin-Ochanomizu (1 min walk) · JR → Ochanomizu (4 min)',
     walkFrom:'Shin-Ochanomizu Station: 1 min · Century Tower: 3 min · Athénée Français: 3 min',
-    gmaps:'https://maps.google.com/?q=Nikolai+Cathedral+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Holy_Resurrection_Cathedral',
     tags:['Josiah Conder','Byzantine','Orthodox','Cathedral','1891','Important Cultural Property','Dome','Ochanomizu'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Resurrection_Cathedral_March_2019.jpg?width=800',
@@ -2503,8 +2149,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Nicholai-Do_after_Great_Kanto_earthquake.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Nikolai-do_1409.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/MatsumotoShunsuke_Nikolai_Cathedral_March_1941.png?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -2525,12 +2170,8 @@ var LOCS_TOKYO = [
     hours:'Daily 10:00 AM – 5:00 PM (closed during state functions)', lastEntry:'4:00 PM',
     admission:'Main building + garden: ¥1,500 · Including Japanese Annex: ¥2,000',
     tourOk:true, tourInfo:'Timed entry; check website for closure days during state events. The Japanese-style annex by Taniguchi Yoshiro (1974) is also accessible.',
-    web:'https://www.geihinkan.go.jp/en/akasaka/',
     transit:'Ginza Marunouchi → Aoyama-itchome (7 min walk)',
     walkFrom:'Aoyama-itchome Station: 7 min · Meiji Memorial Picture Gallery: 10 min',
-    gmaps:'https://maps.google.com/?q=Akasaka+Palace+State+Guest+House+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Akasaka_Palace',
     tags:['Neo-Baroque','National Treasure','State Guest House','1909','Katayama Tokuma','Palace','Diplomatic'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/2019_Akasaka_Palace_02.jpg?width=800',
@@ -2539,8 +2180,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Akasaka_Palace_5.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Akasaka_Palace_6.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/10sen_Stamp_of_Akasaka_Palace.JPG?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -2561,15 +2201,10 @@ var LOCS_TOKYO = [
     hours:'Station: 24/7 · Tokyo Station Gallery: 10:00 AM – 6:00 PM (Fri until 8:00 PM)', lastEntry:'',
     admission:'Station: free · Gallery: varies by exhibition',
     tourOk:true, tourInfo:'The restored domes and facade are best viewed from the Marunouchi side plaza (KITTE rooftop garden offers an elevated view). The Tokyo Station Hotel occupies part of the building.',
-    web:'https://www.tokyostationcity.com/',
     transit:'JR Marunouchi Chiyoda → Tokyo Station',
     walkFrom:'Imperial Palace: 10 min · Meiji Seimei Kan: 5 min · Otemachi One: 8 min',
-    gmaps:'https://maps.google.com/?q=Tokyo+Station+Marunouchi+Building',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Tokyo_Station',
     tags:['Kingo Tatsuno','Red Brick','1914','Restoration','Queen Anne','Important Cultural Property','Railway','Dome'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2590,12 +2225,8 @@ var LOCS_TOKYO = [
     hours:'Only during special exhibitions · Typically 9:30 AM – 5:00 PM', lastEntry:'',
     admission:'Varies by exhibition',
     tourOk:true, tourInfo:'Not always open. Check TNM website for exhibition schedule. The exterior is viewable from the museum grounds during regular hours.',
-    web:'https://www.tnm.jp/',
     transit:'JR → Ueno Park Exit (6 min walk)',
     walkFrom:'TNM Honkan: 2 min · National Museum of Western Art: 4 min · Tokyo Bunka Kaikan: 3 min',
-    gmaps:'https://maps.google.com/?q=Tokyo+National+Museum+Hyokeikan',
-    archdaily:'',
-    wiki:'',
     tags:['Katayama Tokuma','Baroque','1908','Museum','Ueno','Crown Prince Wedding','Dome'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hyokeikan_of_Tokyo_National_Museum_2010.jpg?width=800',
@@ -2604,8 +2235,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_National_Museum_Hyokeikan_Entrance_Hall_Dome_P3303409.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_National_Museum_Hyokeikan_Staircase_P3303404.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Koizumi_Ueno.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -2626,12 +2256,8 @@ var LOCS_TOKYO = [
     hours:'Tue–Sun 9:30 AM – 4:30 PM (check for closures)', lastEntry:'',
     admission:'¥300',
     tourOk:true, tourInfo:'Small, intimate concert hall. Occasional performances on the historic organ. Located within Ueno Park near the Tokyo National Museum.',
-    web:'',
     transit:'JR → Ueno Park Exit (10 min walk)',
     walkFrom:'TNM Honkan: 3 min · National Museum of Western Art: 5 min',
-    gmaps:'https://maps.google.com/?q=Sogakudo+Concert+Hall+Ueno+Tokyo',
-    archdaily:'',
-    wiki:'',
     tags:['Concert Hall','Victorian','1890','Oldest Concert Hall','Organ','Important Cultural Property','Ueno','Music'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Sogakudo01s2048.jpg?width=800',
@@ -2640,8 +2266,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Sogakudo04s2010.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Sogakudo05s2040.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Sogakudo06s2000.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -2662,12 +2287,8 @@ var LOCS_TOKYO = [
     hours:'Exterior: 24/7 · Interior: limited public access (weekend ground floor)', lastEntry:'',
     admission:'Free (exterior)',
     tourOk:true, tourInfo:'Weekend ground-floor viewing may be available. The facade is best appreciated from the Marunouchi Naka-dori approach. Adjacent to the Mitsubishi Ichigokan Museum (Conder replica).',
-    web:'',
     transit:'JR → Tokyo Station Marunouchi South Exit (5 min walk) · Yurakucho → Yurakucho (5 min)',
     walkFrom:'Tokyo Station: 5 min · Tokyo International Forum: 3 min',
-    gmaps:'https://maps.google.com/?q=Meiji+Seimei+Kan+Marunouchi+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Meiji_Seimei_Kan',
     tags:['Shinichiro Okada','Neoclassical','1934','Marunouchi','GHQ','Important Cultural Property','Insurance','Columns'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Meiji-Life-Insurance-Building-01.jpg?width=800',
@@ -2676,8 +2297,7 @@ var LOCS_TOKYO = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Meijiseimeikan1.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Meiji-Life-Insurance-Building-02.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Meiji-Life-Insurance-Building-03.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -2698,15 +2318,10 @@ var LOCS_TOKYO = [
     hours:'Tue–Sun 9:30 AM – 5:00 PM (Fri–Sat until 9:00 PM)', lastEntry:'30 min before closing',
     admission:'¥1,000',
     tourOk:true, tourInfo:'Japan\'s premier art museum. Allow 2+ hours. The Hyokeikan and Gallery of Horyuji Treasures (Taniguchi) are on the same grounds.',
-    web:'https://www.tnm.jp/',
     transit:'JR → Ueno Park Exit (6 min walk)',
     walkFrom:'Ueno Station Park Exit: 6 min · National Museum of Western Art: 3 min · Keisei Ueno: 8 min',
-    gmaps:'https://maps.google.com/?q=Tokyo+National+Museum+Honkan',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Tokyo_National_Museum',
     tags:['Watanabe Jin','Imperial Crown','Teikan','Museum','Ueno','1937','Japanese Art','National Treasure'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2727,20 +2342,15 @@ var LOCS_TOKYO = [
     hours:'Daily 10:00 AM – 6:00 PM · Closed between exhibitions', lastEntry:'5:30 PM',
     admission:'¥1,200 (varies by exhibition)',
     tourOk:true, tourInfo:'The building interior is the main attraction. The garden (accessible separately, ¥200) is a peaceful bonus. Check website for exhibition schedule — closed between shows.',
-    web:'https://www.teien-art-museum.ne.jp/en/',
     transit:'JR → Meguro (7 min walk) · Namboku Mita → Shirokanedai (6 min walk)',
     walkFrom:'Meguro Station: 7 min · Happo-en Garden: 10 min',
-    gmaps:'https://maps.google.com/?q=Tokyo+Metropolitan+Teien+Art+Museum',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Tokyo_Metropolitan_Teien_Art_Museum',
     tags:['Art Deco','1933','Lalique','Henri Rapin','Prince Asaka','Museum','Garden','Shirokanedai'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Metropolitan_Teien_Art_Museum_02.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Teien_Museum_Garden.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Teien_Annex.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Prince_Asaka_residence.jpg?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -2761,15 +2371,10 @@ var LOCS_TOKYO = [
     hours:'Tue–Sun 9:00 AM – 5:00 PM (Fri–Sat until 8:00 PM) · Closed Mon', lastEntry:'30 min before closing',
     admission:'¥630 (adults)',
     tourOk:true, tourInfo:'Major museum — allow 2+ hours. The original 1931 building (Japan Gallery) is the architectural highlight. A blue whale model marks the entrance.',
-    web:'https://www.kahaku.go.jp/english/',
     transit:'JR → Ueno Park Exit (4 min walk)',
     walkFrom:'Ueno Station: 4 min · National Museum of Western Art: 2 min',
-    gmaps:'https://maps.google.com/?q=National+Museum+of+Nature+and+Science+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/National_Museum_of_Nature_and_Science',
     tags:['Neo-Renaissance','1931','Museum','Science','Ueno','Important Cultural Property','Airplane Plan'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2790,15 +2395,10 @@ var LOCS_TOKYO = [
     hours:'Daily 9:00 AM – 5:00 PM', lastEntry:'4:30 PM',
     admission:'¥500',
     tourOk:true, tourInfo:'The ginkgo avenue (best in late November) creates one of Tokyo\'s most photographed autumn scenes. Located near the new National Stadium (Kengo Kuma).',
-    web:'https://www.meijijingugaien.jp/',
     transit:'JR → Shinanomachi (5 min walk) · Oedo → Kokuritsu-Kyogijo (5 min)',
     walkFrom:'Shinanomachi Station: 5 min · National Stadium: 5 min · Akasaka Palace: 10 min',
-    gmaps:'https://maps.google.com/?q=Meiji+Memorial+Picture+Gallery+Tokyo',
-    archdaily:'',
-    wiki:'https://en.wikipedia.org/wiki/Meiji_Memorial_Picture_Gallery',
     tags:['Gallery','1926','Meiji Emperor','Ginkgo Avenue','Granite','Important Cultural Property','Gaien'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2819,15 +2419,10 @@ var LOCS_TOKYO = [
     hours:'Tue–Sun 10:00 AM – 5:00 PM · Closed Mon', lastEntry:'4:30 PM',
     admission:'¥300',
     tourOk:true, tourInfo:'The Bankoro cottage interior is occasionally viewable. Combine with the adjacent Asukayama Museum and Paper Museum.',
-    web:'https://www.shibusawa.or.jp/museum/',
     transit:'JR → Oji (3 min walk) · Toden Arakawa → Asukayama',
     walkFrom:'Oji Station: 3 min · Asukayama Park: inside',
-    gmaps:'https://maps.google.com/?q=Shibusawa+Memorial+Museum+Oji+Tokyo',
-    archdaily:'',
-    wiki:'',
     tags:['Shibusawa Eiichi','Memorial','1917','Asukayama','Important Cultural Property','Meiji','¥10000 Note'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2848,17 +2443,12 @@ var LOCS_TOKYO = [
     hours:'9:00 AM – 5:00 PM (advance reservation required)', lastEntry:'',
     admission:'Free (reservation required by phone)',
     tourOk:true, tourInfo:'Must reserve in advance via phone (03-6458-3940). Guided tours explain the history of Tokyo\'s sewage system.',
-    web:'',
     transit:'Toden Arakawa → Arakawa-nichome (3 min walk) · Chiyoda → Machiya (13 min)',
     walkFrom:'Arakawa-nichome Stop: 3 min',
-    gmaps:'https://maps.google.com/?q=Old+Mikawashima+Sewage+Pumping+Station+Tokyo',
-    archdaily:'',
-    wiki:'',
     tags:['Industrial','Brick','1922','Sewerage','Important Cultural Property','Arakawa','Infrastructure'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Old_Mikawashima_Sanitary_Sewage_Disposal_Plant_%283%29.JPG?width=800'
-    ],
-    drawings:[]
+    ]
   },
 
   {
@@ -2879,15 +2469,10 @@ var LOCS_TOKYO = [
     hours:'Open 2nd and 4th Saturday of each month, 10:00 AM – 3:00 PM', lastEntry:'',
     admission:'Free with Shinjuku Gyoen admission (¥500)',
     tourOk:true, tourInfo:'Very limited opening hours — only two Saturdays per month. Check Shinjuku Gyoen website. The garden itself is worth the visit regardless.',
-    web:'https://www.env.go.jp/garden/shinjukugyoen/',
     transit:'Marunouchi → Shinjuku-gyoenmae (5 min walk)',
     walkFrom:'Shinjuku-gyoenmae Station: 5 min · Shinjuku Station: 15 min',
-    gmaps:'https://maps.google.com/?q=Shinjuku+Gyoen+Old+Rest+House+Tokyo',
-    archdaily:'',
-    wiki:'',
     tags:['Victorian','Stick Style','1896','Imperial','Important Cultural Property','Shinjuku Gyoen','Wooden'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   {
@@ -2908,15 +2493,10 @@ var LOCS_TOKYO = [
     hours:'Limited public access (university building)', lastEntry:'',
     admission:'Generally exterior only (open during special events)',
     tourOk:false, tourInfo:'Active university building with limited public access. Open campus days and concerts offer interior access.',
-    web:'https://www.hit-u.ac.jp/',
     transit:'JR Chuo → Kunitachi (South Exit, 6 min walk)',
     walkFrom:'Kunitachi Station: 6 min',
-    gmaps:'https://maps.google.com/?q=Hitotsubashi+University+Kanematu+Auditorium',
-    archdaily:'',
-    wiki:'',
     tags:['Ito Chuta','Neo-Romanesque','University','1927','Kunitachi','Tangible Cultural Property','Auditorium'],
-    photos:[],
-    drawings:[]
+    photos:[]
   },
 
   // ── YOKOHAMA ──────────────────────────────────────────────────
@@ -2939,15 +2519,10 @@ var LOCS_TOKYO = [
     hours:'Rooftop deck: 24/7 · Interior/lobby: 9:00 AM – 9:30 PM', lastEntry:'',
     admission:'Free',
     tourOk:true, tourInfo:'The rooftop "Osanbashi Deck" is freely accessible 24/7 with panoramic views of Yokohama Bay, Minato Mirai skyline, and (on clear days) Mount Fuji. Best visited at sunset.',
-    web:'https://www.osanbashi.jp/en/',
     transit:'Minato Mirai → Nihon-Odori (7 min walk) · JR → Sakuragicho (15 min walk)',
     walkFrom:'Nihon-Odori Station: 7 min · Yokohama Red Brick Warehouse: 10 min · Chinatown: 8 min',
-    gmaps:'https://maps.google.com/?q=Yokohama+International+Passenger+Terminal+Osanbashi',
-    archdaily:'https://www.archdaily.com/tag/yokohama-international-passenger-terminal',
-    wiki:'https://en.wikipedia.org/wiki/Yokohama_International_Passenger_Terminal',
     tags:['FOA','Farshid Moussavi','Zaera-Polo','Yokohama','Terminal','Continuous Surface','Rooftop Park','Free','2002'],
-    photos:[],
-    drawings:[]
+    photos:[]
   }
 
 ];

@@ -269,9 +269,13 @@ function openLoc(loc) {
     svIframe.setAttribute('loading', 'lazy');
     svIframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
     svIframe.setAttribute('allowfullscreen', '');
+    var svH = (loc.sv && loc.sv.heading != null) ? loc.sv.heading : 210;
+    var svP = (loc.sv && loc.sv.pitch != null) ? loc.sv.pitch : 10;
+    var svF = (loc.sv && loc.sv.fov != null) ? loc.sv.fov : 90;
+    var svS = (loc.sv && loc.sv.source) ? loc.sv.source : 'outdoor';
     svIframe.src = 'https://www.google.com/maps/embed/v1/streetview?key=' +
       GOOGLE_MAPS_API_KEY + '&location=' + loc.lat + ',' + loc.lng +
-      '&heading=210&pitch=10&fov=90&source=outdoor';
+      '&heading=' + svH + '&pitch=' + svP + '&fov=' + svF + '&source=' + svS;
     if (hasPhotos) svIframe.style.display = 'none';
     gallery.insertBefore(svIframe, gallery.querySelector('.g-btn'));
     if (!hasPhotos) gallery.classList.add('sv-mode');
@@ -381,10 +385,4 @@ function buildDirectionsTab(loc, trans = {}) {
     <div class="info-row" style="margin-top:${showWalkBtn ? '12' : '0'}px"><span class="info-label">${t('subway')}</span><span class="info-val">${transit}</span></div>
     ${loc.walkFrom ? `<div class="info-row"><span class="info-label">${t('nearby')}</span><span class="info-val">${walkFrom}</span></div>` : ''}
     <div class="btns" style="margin-top:18px">
-      <a href="${loc.gmaps}" target="_blank" rel="noopener" class="btn-p">${t('open_gmaps')}</a>
-      <a href="https://maps.google.com/?q=${encodeURIComponent(loc.addr)}&layer=c" target="_blank" rel="noopener" class="btn-s">${t('sv_gmaps')}</a>
-    </div>
-  `;
-}
-
-// ══════════════════════════════════════════════════════════════════
+      <a href="${loc.gmaps}" target="_blank" rel="noopener" class="btn-p">${t('open_
