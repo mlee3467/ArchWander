@@ -1971,9 +1971,10 @@ var LOCS_NEW_YORK = [
     id:'nyc-0047',
     name:'New York City Hall',
     cats:[
-      'Public'
+      'Public',
+      'Historic'
     ],
-    cc:'c-pub',
+    cc:'c-his',
     styleGroups:[
       'Neoclassical'
     ],
@@ -2008,15 +2009,17 @@ var LOCS_NEW_YORK = [
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/NYC_-_City_Hall.jpg/800px-NYC_-_City_Hall.jpg',
       'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/NYC_City_Hall_interior.jpg/800px-NYC_City_Hall_interior.jpg'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7125004, lng:-74.006256 }
   },
   {
     id:'nyc-0048',
     name:'Manhattan Municipal Building',
     cats:[
-      'Public'
+      'Public',
+      'Historic'
     ],
-    cc:'c-pub',
+    cc:'c-his',
     styleGroups:[
       'Beaux-Arts'
     ],
@@ -2028,8 +2031,8 @@ var LOCS_NEW_YORK = [
     ],
     yr:1914,
     access:'Open to Public',
-    lat:40.712528,
-    lng:-74.0037083,
+    lat:40.7128905,
+    lng:-74.0035844,
     addr:'1 Centre St, New York, NY 10007',
     hood:'Civic Center',
     desc:'One of the first skyscrapers to incorporate a subway station within its base — the Chambers Street subway passes directly through its archway. Designed by McKim, Mead & White and completed in 1914, it was then the world\'s largest office building. The Beaux-Arts tower is crowned by Adolph Weinman\'s gilded \'Civic Fame\' copper statue. Its wedding-cake silhouette of setbacks and classical ornament became a direct inspiration for Moscow\'s Stalinist \'Seven Sisters\' skyscrapers. The Marriage Bureau in the lobby has served millions of couples.',
@@ -2049,7 +2052,8 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Manhattan_Municipal_Building.jpg/800px-Manhattan_Municipal_Building.jpg'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7131751, lng:-74.0040995 }
   },
   {
     id:'nyc-0049',
@@ -2093,7 +2097,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/World_Financial_Center_Winter_Garden_200706.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/3_World_Financial_Center.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/World_Financial_Center_from_the_Windows_on_the_World_restaurant.jpg?width=800'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7124249, lng:-74.0158636 }
   },
   {
     id:'nyc-0050',
@@ -2131,7 +2136,8 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Battery_Park_New_York.jpg/800px-Battery_Park_New_York.jpg'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7037823, lng:-74.014989 }
   },
   {
     id:'nyc-0051',
@@ -2178,19 +2184,20 @@ var LOCS_NEW_YORK = [
     name:'Stone Street Historic District',
     cats:[
       'Historic',
-      'Commercial'
+      'Retail',
+      'Urban'
     ],
     cc:'c-his',
     styleGroups:[
-      'Beaux-Arts'
+      'Heritage'
     ],
     era:'Pre-1900',
     city:'new-york',
     arch:'Various',
     yr:1836,
     access:'Open to Public',
-    lat:40.723144,
-    lng:-74.0006181,
+    lat:40.7044323,
+    lng:-74.0102041,
     addr:'Stone Street, New York, NY 10004',
     hood:'Financial District',
     desc:'Manhattan\'s oldest cobblestone street and one of the city\'s most atmospheric historic corridors. Named for being the first street paved with stones in New Amsterdam (1658), the current Greek Revival and Italianate commercial buildings date from 1836, rebuilt after the Great Fire of 1835. Transformed in 1999 into a restaurant row with outdoor cobblestone seating, the walled-in canyon flanked by pre-Civil War counting houses offers a remarkable glimpse into the texture of the 19th-century financial district.',
@@ -2210,13 +2217,15 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Stone_St_jeh.jpg/800px-Stone_St_jeh.jpg'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7043334, lng:-74.0103444 }
   },
   {
     id:'nyc-0053',
     name:'Washington Square Arch',
     cats:[
-      'Landmarks'
+      'Landmarks',
+      'Historic'
     ],
     cc:'c-lmk',
     styleGroups:[
@@ -2224,9 +2233,10 @@ var LOCS_NEW_YORK = [
     ],
     era:'Pre-1900',
     city:'new-york',
-    arch:'Stanford White (McKim, Mead & White)',
+    arch:'McKim, Mead & White',
     archs:[
-      'Stanford White'
+      'Stanford White',
+      'McKim, Mead & White'
     ],
     yr:1892,
     access:'Open to Public',
@@ -2258,7 +2268,8 @@ var LOCS_NEW_YORK = [
     id:'nyc-0054',
     name:'Judson Memorial Church',
     cats:[
-      'Religious'
+      'Religious',
+      'Historic'
     ],
     cc:'c-rel',
     styleGroups:[
@@ -2266,7 +2277,7 @@ var LOCS_NEW_YORK = [
     ],
     era:'Pre-1900',
     city:'new-york',
-    arch:'Stanford White (McKim, Mead & White)',
+    arch:'McKim, Mead & White',
     yr:1892,
     access:'Open to Public',
     lat:40.7302192,
@@ -2297,7 +2308,8 @@ var LOCS_NEW_YORK = [
     name:'Jefferson Market Library',
     cats:[
       'Historic',
-      'Landmarks'
+      'Landmarks',
+      'Public'
     ],
     cc:'c-his',
     styleGroups:[
@@ -2306,9 +2318,7 @@ var LOCS_NEW_YORK = [
     era:'Pre-1900',
     city:'new-york',
     arch:'Calvert Vaux & Frederick Clarke Withers',
-    archs:[
-      'Stanford White'
-    ],
+    archs:[],
     yr:1877,
     access:'Open to Public',
     lat:40.734588,
