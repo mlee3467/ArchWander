@@ -146,22 +146,22 @@ function t(key) {
 
 // Korean translations for category, access, and common style terms
 var _KO_CAT = {
-  'Academic / Institution':'학술/기관', 'Commercial':'상업', 'Cultural':'문화',
-  'Historic':'역사', 'Infrastructure':'인프라', 'Landmarks':'랜드마크',
-  'Parks':'공원', 'Public':'공공', 'Religious':'종교',
-  'Residential':'주거', 'Retail':'소매/상업', 'Skyscrapers':'초고층'
+  'academic / institution':'학술/기관', 'commercial':'상업', 'cultural':'문화',
+  'historic':'역사', 'infrastructure':'인프라', 'landmarks':'랜드마크',
+  'parks':'공원', 'public':'공공', 'religious':'종교',
+  'residential':'주거', 'retail':'소매/상업', 'skyscrapers':'초고층'
 };
 var _KO_ACCESS = {
-  'Free Admission':'무료 입장', 'Paid Admission':'유료 입장', 'Paid Ticket':'유료 입장권',
-  'Paid Admission (Observatory)':'유료 (전망대)', 'Ticketed':'유료',
-  'Open to Public':'일반 공개', 'Open to Public (Ground Floor)':'일반 공개 (1층)',
-  'Open to Public (Lobby)':'일반 공개 (로비)', 'Open to Public (Plaza)':'일반 공개 (광장)',
-  'Open to Public (ICP Museum)':'일반 공개 (ICP 미술관)',
-  'Lobby & Atrium (Free)':'로비 & 아트리움 (무료)', 'Lobby Viewable':'로비 관람 가능',
-  'Private':'비공개', 'Private (Exterior Viewable)':'비공개 (외부 관람 가능)',
-  'Private (Lobby Viewable)':'비공개 (로비 관람 가능)',
-  'Exterior Only':'외부만 관람 가능', 'Campus Access (Exterior Viewable)':'캠퍼스 접근 (외부 관람)',
-  'Restaurant / Commercial':'레스토랑 / 상업시설'
+  'free admission':'무료 입장', 'paid admission':'유료 입장', 'paid ticket':'유료 입장권',
+  'paid admission (observatory)':'유료 (전망대)', 'ticketed':'유료',
+  'open to public':'일반 공개', 'open to public (ground floor)':'일반 공개 (1층)',
+  'open to public (lobby)':'일반 공개 (로비)', 'open to public (plaza)':'일반 공개 (광장)',
+  'open to public (icp museum)':'일반 공개 (ICP 미술관)',
+  'lobby & atrium (free)':'로비 & 아트리움 (무료)', 'lobby viewable':'로비 관람 가능',
+  'private':'비공개', 'private (exterior viewable)':'비공개 (외부 관람 가능)',
+  'private (lobby viewable)':'비공개 (로비 관람 가능)',
+  'exterior only':'외부만 관람 가능', 'campus access (exterior viewable)':'캠퍼스 접근 (외부 관람)',
+  'restaurant / commercial':'레스토랑 / 상업시설'
 };
 function _tCat(cat) { return LANG === 'ko' ? (_KO_CAT[cat] || cat) : cat; }
 function _tAccess(acc) { return LANG === 'ko' ? (_KO_ACCESS[acc] || acc) : acc; }

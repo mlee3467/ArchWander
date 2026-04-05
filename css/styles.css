@@ -385,6 +385,7 @@
       border: 1px solid var(--border); font-size: 11px;
       font-family: inherit; cursor: pointer;
       background: white; color: var(--text-secondary); transition: all 0.15s;
+      text-transform: capitalize;
     }
     .chip.active { background: rgb(0,0,255); border-color: rgb(0,0,255); color: white; }
 
@@ -452,7 +453,7 @@
     }
     .card-meta { font-size: 11px; color: var(--text-secondary); margin-bottom: 5px; }
     .card-row { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
-    .cat-badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 10px; }
+    .cat-badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 10px; text-transform: capitalize; }
     .year-badge { font-size: 10px; color: var(--text-secondary); }
     /* Access badges */
     .access-badge {

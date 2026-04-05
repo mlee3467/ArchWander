@@ -63,66 +63,66 @@ async function fetchWikiLicense(url) {
 // CONFIG
 // ══════════════════════════════════════════════════════════════════
 var CAT_COLORS = {
-  'Skyscrapers':           '#4338CA',
-  'Historic':              '#C2410C',
-  'Infrastructure':        '#475569',
-  'Cultural':              '#9333EA',
-  'Parks':                 '#166534',
-  'Religious':             '#B45309',
-  'Academic / Institution':'#1D4ED8',
-  'Residential':           '#0F766E',
-  'Landmarks':             '#0369A1',
-  'Public':                '#6B7280',
-  'Retail':                '#BE185D',
-  'Commercial':            '#92400E',
-  'Mixed-use':             '#92400E',
-  'Public Space':          '#166534',
+  'skyscrapers':           '#4338CA',
+  'historic':              '#C2410C',
+  'infrastructure':        '#475569',
+  'cultural':              '#9333EA',
+  'parks':                 '#166534',
+  'religious':             '#B45309',
+  'academic / institution':'#1D4ED8',
+  'residential':           '#0F766E',
+  'landmarks':             '#0369A1',
+  'public':                '#6B7280',
+  'retail':                '#BE185D',
+  'commercial':            '#92400E',
+  'mixed-use':             '#92400E',
+  'public space':          '#166534',
 };
 var CAT_ICON = {
-  'Skyscrapers':            'img/icon_skyscraper.png',
-  'Historic':               'img/icon_historic.png',
-  'Infrastructure':         'img/icon_infra.png',
-  'Cultural':               'img/icon_cultural.png',
-  'Parks':                  'img/icon_park.png',
-  'Religious':              'img/icon_religious.png',
-  'Academic / Institution': 'img/icon_academic.png',
-  'Residential':            'img/icon_resi.png',
-  'Landmarks':              'img/icon_landmark.png',
-  'Public':                 'img/icon_public.png',
-  'Retail':                 'img/icon_retail.png',
-  'Commercial':             'img/icon_commercial.png',
-  'Mixed-use':              'img/icon_commercial.png',
-  'Public Space':           'img/icon_park.png',
+  'skyscrapers':            'img/icon_skyscraper.png',
+  'historic':               'img/icon_historic.png',
+  'infrastructure':         'img/icon_infra.png',
+  'cultural':               'img/icon_cultural.png',
+  'parks':                  'img/icon_park.png',
+  'religious':              'img/icon_religious.png',
+  'academic / institution': 'img/icon_academic.png',
+  'residential':            'img/icon_resi.png',
+  'landmarks':              'img/icon_landmark.png',
+  'public':                 'img/icon_public.png',
+  'retail':                 'img/icon_retail.png',
+  'commercial':             'img/icon_commercial.png',
+  'mixed-use':              'img/icon_commercial.png',
+  'public space':           'img/icon_park.png',
 };
 var CAT_BG = {
-  'Skyscrapers':            '#EEF2FF',
-  'Historic':               '#FFF7ED',
-  'Infrastructure':         '#F8FAFC',
-  'Cultural':               '#FDF4FF',
-  'Parks':                  '#F0FDF4',
-  'Religious':              '#FFFBEB',
-  'Academic / Institution': '#EFF6FF',
-  'Residential':            '#F0FDFA',
-  'Landmarks':              '#F0F9FF',
-  'Public':                 '#F9FAFB',
-  'Retail':                 '#FFF1F2',
-  'Commercial':             '#FFFBEB',
-  'Mixed-use':              '#FEF3C7',
-  'Public Space':           '#ECFDF5',
+  'skyscrapers':            '#EEF2FF',
+  'historic':               '#FFF7ED',
+  'infrastructure':         '#F8FAFC',
+  'cultural':               '#FDF4FF',
+  'parks':                  '#F0FDF4',
+  'religious':              '#FFFBEB',
+  'academic / institution': '#EFF6FF',
+  'residential':            '#F0FDFA',
+  'landmarks':              '#F0F9FF',
+  'public':                 '#F9FAFB',
+  'retail':                 '#FFF1F2',
+  'commercial':             '#FFFBEB',
+  'mixed-use':              '#FEF3C7',
+  'public space':           '#ECFDF5',
 };
-var STYLES = ['Art Deco','Beaux-Arts','Neoclassical','Gothic Revival','Modernist','Expressionist Modernism','Postmodern','Contemporary','Adaptive Reuse','Landscape','High-Tech','Parametric Design','Traditional Korean'];
+var STYLES = ['art deco','beaux-arts','neoclassical','gothic revival','modernist','expressionist modernism','postmodern','contemporary','adaptive reuse','landscape','high-tech','parametric design','traditional korean'];
 var ERAS   = ['Pre-1900','Pre-1930','1930–1969','1970–1999','2000–Present'];
-var ACCESS = ['All', 'Open to Public', 'Paid Ticket', 'Private'];
+var ACCESS = ['All', 'open to public', 'paid ticket', 'private'];
 var ACCESS_META = {
-  'Open to Public': { cls:'access-open', icon:'🔓' },
-  'Paid Ticket':    { cls:'access-paid', icon:'🎫' },
-  'Private':        { cls:'access-priv', icon:'🔒' },
+  'open to public': { cls:'access-open', icon:'🔓' },
+  'paid ticket':    { cls:'access-paid', icon:'🎫' },
+  'private':        { cls:'access-priv', icon:'🔒' },
 };
 var ERA_RANGE = { 'Pre-1900':[0,1900], 'Pre-1930':[1900,1930], '1930–1969':[1930,1970], '1970–1999':[1970,2000], '2000–Present':[2000,9999] };
 
 // ── Multi-tag helpers ──────────────────────────────────────────
 // Primary category / style (first element) for color, icon, badge
-function _pCat(loc)   { return (loc.cats || [])[0] || 'Landmarks'; }
+function _pCat(loc)   { return (loc.cats || [])[0] || 'landmarks'; }
 function _allCats(loc) { return loc.cats || []; }
 function _allSGs(loc)  { return loc.styleGroups || []; }
 function _pCC(loc)     { return CAT_CC_MAP[_pCat(loc)] || 'c-lmk'; }
