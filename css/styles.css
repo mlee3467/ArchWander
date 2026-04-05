@@ -760,18 +760,18 @@
     .ext-link:hover { border-color: #999; background: var(--bg); }
 
     /* ── CATEGORY COLORS ─────────────────────── */
-    .c-sky  { background: #E8EEFB; color: #1746A2; }  /* Skyscrapers     — deep blue    */
-    .c-his  { background: #FEF3E2; color: #B44D12; }  /* Historic         — burnt orange */
-    .c-inf  { background: #F0F2F5; color: #5A6577; }  /* Infrastructure   — cool gray    */
-    .c-cul  { background: #F5EAFA; color: #7B2D8E; }  /* Cultural         — purple       */
-    .c-park { background: #E6F7EC; color: #1A7D37; }  /* Parks            — green        */
-    .c-rel  { background: #FAF3DE; color: #8B6914; }  /* Religious        — gold         */
-    .c-aca  { background: #E2F6F8; color: #0C7C8A; }  /* Academic / Inst. — cyan         */
-    .c-res  { background: #EAF6EA; color: #2D882D; }  /* Residential      — olive green  */
-    .c-lmk  { background: #FCEDEF; color: #C63E50; }  /* Landmarks        — crimson      */
-    .c-pub  { background: #F3F4F6; color: #6B7280; }  /* Public           — neutral gray */
-    .c-ret  { background: #FBE8F3; color: #C4197D; }  /* Retail           — magenta      */
-    .c-com  { background: #F9F0E6; color: #8B5E34; }  /* Commercial       — brown        */
+    .c-sky  { background: #DDE6FF; color: #3366FF; }  /* Skyscrapers     — vivid blue   */
+    .c-his  { background: #FFF0DB; color: #FF8C00; }  /* Historic         — orange       */
+    .c-inf  { background: #EDF1F4; color: #708899; }  /* Infrastructure   — slate gray   */
+    .c-cul  { background: #F3E5FC; color: #AA44DD; }  /* Cultural         — purple       */
+    .c-park { background: #DCFCE8; color: #22BB55; }  /* Parks            — green        */
+    .c-rel  { background: #FDF8D8; color: #CCAA00; }  /* Religious        — gold         */
+    .c-aca  { background: #D8F7FA; color: #11AABB; }  /* Academic / Inst. — cyan         */
+    .c-res  { background: #F0F6DC; color: #88AA22; }  /* Residential      — lime-olive   */
+    .c-lmk  { background: #FFE3E5; color: #EE3344; }  /* Landmarks        — red          */
+    .c-pub  { background: #F5ECE5; color: #BB7755; }  /* Public           — warm brown   */
+    .c-ret  { background: #FFE0F0; color: #EE2299; }  /* Retail           — hot pink     */
+    .c-com  { background: #F2EADD; color: #886633; }  /* Commercial       — brown        */
 
     /* ── REVIEWS ─────────────────────────────────────────── */
     .star-selector { display: flex; gap: 2px; }
