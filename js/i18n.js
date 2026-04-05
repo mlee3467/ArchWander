@@ -146,10 +146,16 @@ function t(key) {
 
 // Korean translations for category, access, and common style terms
 var _KO_CAT = {
-  'academic / institution':'학술/기관', 'commercial':'상업', 'cultural':'문화',
+  'academic / institution':'학술/기관', 'academic':'학술', 'educational':'교육',
+  'institution':'기관', 'commercial':'상업', 'cultural':'문화',
   'historic':'역사', 'infrastructure':'인프라', 'landmarks':'랜드마크',
-  'parks':'공원', 'public':'공공', 'religious':'종교',
-  'residential':'주거', 'retail':'소매/상업', 'skyscrapers':'초고층'
+  'landmark':'랜드마크', 'parks':'공원', 'park':'공원',
+  'public':'공공', 'civic':'시민시설', 'government':'정부',
+  'religious':'종교', 'residential':'주거', 'housing':'주거',
+  'retail':'소매/상업', 'skyscrapers':'초고층',
+  'museum':'박물관', 'gallery':'갤러리', 'observatory':'전망대',
+  'memorial':'기념관', 'hospitality':'숙박', 'office':'오피스',
+  'mixed-use':'복합용도', 'public space':'공공공간', 'sports':'체육'
 };
 var _KO_ACCESS = {
   'free admission':'무료 입장', 'paid admission':'유료 입장', 'paid ticket':'유료 입장권',
