@@ -1,6 +1,6 @@
 /* ============================================================
    ArchWander — New York Location Data
-   141 locations
+   142 locations
    ============================================================ */
 
 var LOCS_NEW_YORK = [
@@ -1696,50 +1696,6 @@ var LOCS_NEW_YORK = [
     ]
   },
   {
-    id:'nyc-0039',
-    name:'Spring Studios (Printing Trades Building)',
-    cats:[
-      'Historic',
-      'Landmarks'
-    ],
-    cc:'c-his',
-    styleGroups:[
-      'Art Deco'
-    ],
-    era:'1930–1969',
-    city:'new-york',
-    arch:'Ely Jacques Kahn / Beyer Blinder Belle (renovation)',
-    archs:[
-      'Ely Jacques Kahn',
-      'Beyer Blinder Belle'
-    ],
-    yr:1938,
-    access:'Private',
-    lat:40.7210372,
-    lng:-74.00613,
-    addr:'50 Varick St, New York, NY 10013',
-    hood:'Tribeca',
-    desc:'The Printing Trades Building at 50 Varick Street is a 1938 Art Deco tower designed by Ely Jacques Kahn for New York\'s printing industry. Its richly detailed facade features polychrome glazed terra cotta ornament, brickwork patterns, and Art Deco metalwork — characteristic of Kahn\'s sophisticated commercial style. Beyer Blinder Belle oversaw its conversion into Spring Studios, now the premier creative events venue and New York Fashion Week headquarters. The project exemplifies the adaptive reuse of landmark Tribeca industrial architecture.',
-    hours:'Private event venue — not open to general public',
-    lastEntry:'',
-    admission:'Private. Exterior viewable from Varick St.',
-    tourOk:false,
-    tourInfo:'Private events venue. Interior by invitation only. Exterior architecture freely viewable.',
-    transit:'1 → Canal St · A C E → Canal St',
-    walkFrom:'Canal Street station: 3 min · Hudson Square: 2 min',
-    tags:[
-      'Art Deco',
-      'Ely Jacques Kahn',
-      'Adaptive Reuse',
-      'Tribeca',
-      'NYFW',
-      'Fashion Week'
-    ],
-    photos:[
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/50_Varick_Street_from_Canal_Street.jpg/800px-50_Varick_Street_from_Canal_Street.jpg'
-    ]
-  },
-  {
     id:'nyc-0040',
     name:'The Standard, High Line',
     cats:[
@@ -2545,15 +2501,18 @@ var LOCS_NEW_YORK = [
     id:'nyc-0058',
     name:'St. Mark\'s Church in-the-Bowery',
     cats:[
-      'Religious'
+      'Religious',
+      'Historic'
     ],
     cc:'c-rel',
     styleGroups:[
-      'Neoclassical'
+      'Neoclassical',
+      'Greek Revival',
+      'Italianate steeple'
     ],
     era:'Pre-1900',
     city:'new-york',
-    arch:'Various (Federal 1799, Greek Revival 1828, Italianate steeple 1858)',
+    arch:'Various',
     yr:1799,
     access:'Open to Public',
     lat:40.7305475,
@@ -2574,7 +2533,9 @@ var LOCS_NEW_YORK = [
       'Historic Church',
       'Poetry Project',
       'East Village',
-      'Stuyvesant'
+      'Stuyvesant',
+      'Italianate steeple',
+      'Bowery'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/St_Mark%27s_Church_-_New_York_City.jpg?width=800',
@@ -2614,7 +2575,6 @@ var LOCS_NEW_YORK = [
     tags:[
       'Jean Nouvel',
       'Curtain Wall',
-      'High Line',
       'West Chelsea',
       'Residential',
       'Pixelated Facade'
@@ -2624,7 +2584,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/100_Eleventh_Avenue_%2824234%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/100_11th_Avenue_002.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/100_11th_Avenue.jpg?width=800'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7460946, lng:-74.0079351 }
   },
   {
     id:'nyc-0060',
@@ -2667,13 +2628,17 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Highline_519_and_HL23.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/High_Line%2C_New_York_2012_21.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Neil_Denari%27s_HL23_Neil_Denari%27s_HL23_High_Line_Views_NY_5374.jpg?width=800'
+    ],
+    archs:[
+      'Neil M. Denari'
     ]
   },
   {
     id:'nyc-0061',
     name:'Paley Park',
     cats:[
-      'Parks'
+      'Parks',
+      'Public Space'
     ],
     cc:'c-park',
     styleGroups:[
@@ -2684,8 +2649,8 @@ var LOCS_NEW_YORK = [
     arch:'Zion & Breen Associates (landscape)',
     yr:1967,
     access:'Open to Public',
-    lat:40.7602575,
-    lng:-73.9750532,
+    lat:40.7603155,
+    lng:-73.9750966,
     addr:'3 E 53rd St, New York, NY 10022',
     hood:'Midtown Manhattan',
     desc:'The paradigmatic example of the urban \'vest-pocket park\' — a 42-by-100-foot slice of calm between Midtown skyscrapers. Designed by Zion & Breen Associates in 1967 on the site of the demolished Stork Club (funded by CBS founder William S. Paley), the park\'s defining feature is a 20-foot waterfall wall generating enough white noise to mask surrounding traffic. A canopy of honey locust trees and movable chairs create a remarkably effective urban refuge. The park became one of the most influential models for urban park design in the 20th century and continues to be cited as a touchstone of urban design.',
@@ -2708,13 +2673,15 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/W_53_St_May_2022_15.jpg?width=800',
       'https://live.staticflickr.com/558/31969570440_59e06fed79_b.jpg',
       'https://live.staticflickr.com/2586/4130651435_111d2ece84_b.jpg'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7603602, lng:-73.9750564 }
   },
   {
     id:'nyc-0062',
     name:'Brooklyn Bridge Park',
     cats:[
-      'Parks'
+      'Parks',
+      'Public Space'
     ],
     cc:'c-park',
     styleGroups:[
@@ -2749,14 +2716,16 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Brooklyn_Bridge_Park_and_Manhattan.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Brooklyn_Bridge_Park_at_Sunset..jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Brooklyn_Bridge_Park_-_overpass.jpg?width=800'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7018866, lng:-73.9968149 }
   },
   {
     id:'nyc-0063',
     name:'DUMBO Historic District',
     cats:[
       'Historic',
-      'Landmarks'
+      'Retail',
+      'Public'
     ],
     cc:'c-his',
     styleGroups:[
@@ -2764,7 +2733,7 @@ var LOCS_NEW_YORK = [
     ],
     era:'Pre-1900',
     city:'new-york',
-    arch:'Various (industrial, converted)',
+    arch:'Various',
     yr:1885,
     access:'Open to Public',
     lat:40.7033164,
