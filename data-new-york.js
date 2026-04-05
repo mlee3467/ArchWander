@@ -1418,7 +1418,8 @@ var LOCS_NEW_YORK = [
       'interior atrium',
       'biophilic',
       'midtown east',
-      'indoor garden'
+      'indoor garden',
+      'pritzker prize'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Ford_Foundation_Building_%2851921997207%29.jpg?width=800',
@@ -1695,7 +1696,8 @@ var LOCS_NEW_YORK = [
       'underground',
       'midtown',
       'norman foster',
-      'touristic'
+      'touristic',
+      'pritzker prize'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Apple_Store_-_Fifth_Avenue_%287181848534%29.jpg?width=800',
@@ -1925,7 +1927,8 @@ var LOCS_NEW_YORK = [
       'sustainable',
       'university',
       'weiss/manfredi',
-      'solar'
+      'solar',
+      'pritzker prize'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tata_Innovation_Center_with_Lights_Inside.jpg?width=800',
@@ -2642,7 +2645,8 @@ var LOCS_NEW_YORK = [
       'digital architecture',
       'parametric',
       'facade design',
-      'exterior'
+      'exterior',
+      'pritzker prize'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/NY_Chelsea_Pier_60_IMG_2189_nouvel_chelsea_100_11th_Av_luxury_condominium.JPG?width=800',
@@ -2865,7 +2869,8 @@ var LOCS_NEW_YORK = [
       'dumbo',
       'brooklyn bridge park',
       'victorian',
-      'renovation'
+      'renovation',
+      'pritzker prize'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Janes_Carousel_Pavilion_2011.jpg/800px-Janes_Carousel_Pavilion_2011.jpg'
@@ -3038,7 +3043,8 @@ var LOCS_NEW_YORK = [
       'courthouse',
       'bronx',
       'grand concourse',
-      'landmark'
+      'landmark',
+      'civic'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Supreme_Civil_Court_of_the_Bronx_30_June_2012.jpeg?width=800',
@@ -3080,7 +3086,8 @@ var LOCS_NEW_YORK = [
       'hudson river',
       'mark twain',
       'theodore roosevelt',
-      'landscape'
+      'landscape',
+      'park'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Wave_Hill_greenhouse.jpg/800px-Wave_Hill_greenhouse.jpg'
@@ -3121,7 +3128,8 @@ var LOCS_NEW_YORK = [
       'bronx',
       'landmark district',
       'champs-élysées inspired',
-      '1930s'
+      '1930s',
+      'urban design'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Grand_Concourse_Bronx.jpg/800px-Grand_Concourse_Bronx.jpg'
@@ -3160,8 +3168,11 @@ var LOCS_NEW_YORK = [
       'cast glass',
       'noho',
       'ian schrager',
+      'graffiti',
       'luxury residential',
-      'graffiti'
+      'facade design',
+      'exterior',
+      'pritzker prize'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/40_Bond_Street.jpg?width=800',
@@ -3207,7 +3218,8 @@ var LOCS_NEW_YORK = [
       'exposed concrete',
       'west village',
       'ian schrager',
-      'curved facade'
+      'curved facade',
+      'pritzker prize'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hudson_River_Park_td_%282019-04-24%29_005_-_One_Morton_Square%2C_160_Leroy_Street.jpg?width=800',
@@ -3249,7 +3261,8 @@ var LOCS_NEW_YORK = [
       'ian schrager',
       'lower east side',
       'perforated metal',
-      'rooftop bar'
+      'rooftop bar',
+      'pritzker prize'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Escalator%2C_Public_Hotel_New_York_%282024%29-L1005609.jpg?width=800'
@@ -3334,7 +3347,8 @@ var LOCS_NEW_YORK = [
       'neoclassical',
       'four seasons',
       'tribeca',
-      'limestone'
+      'limestone',
+      'luxury residential'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/30_Park_Place_2016.jpg/800px-30_Park_Place_2016.jpg'
@@ -3377,7 +3391,8 @@ var LOCS_NEW_YORK = [
       'neoclassical',
       'billionaires row',
       'limestone',
-      'record sale'
+      'record sale',
+      'luxury residential'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/220_Central_Park_South_2019.jpg/800px-220_Central_Park_South_2019.jpg'
@@ -3796,7 +3811,9 @@ var LOCS_NEW_YORK = [
       'philip johnson',
       'chippendale top',
       'midtown east',
-      'granite'
+      'granite',
+      'legendary',
+      'pritzker prize'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/550_Madison_Avenue_from_south.jpg/800px-550_Madison_Avenue_from_south.jpg',
@@ -3841,7 +3858,8 @@ var LOCS_NEW_YORK = [
       'posthumous',
       'hudson square',
       'curtain wall',
-      'final work'
+      'final work',
+      'pritzker prize'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Urban_Glass_House_NYC.jpg/800px-Urban_Glass_House_NYC.jpg'
@@ -3884,7 +3902,8 @@ var LOCS_NEW_YORK = [
       'precast concrete',
       'kips bay',
       'urban renewal',
-      'modernism'
+      'modernism',
+      'pritzker prize'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Kips_Bay_Towers_jeh.jpg/800px-Kips_Bay_Towers_jeh.jpg'
@@ -3927,7 +3946,8 @@ var LOCS_NEW_YORK = [
       'picasso',
       'university village',
       'nyu',
-      'urban renewal'
+      'urban renewal',
+      'pritzker prize'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Silver_Towers_NYC.jpg/800px-Silver_Towers_NYC.jpg'
@@ -3970,7 +3990,8 @@ var LOCS_NEW_YORK = [
       'west village',
       'glass',
       'minimalist',
-      'hudson river'
+      'hudson river',
+      'pritzker prize'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/173_Perry_St_by_David_Shankbone.jpg/800px-173_Perry_St_by_David_Shankbone.jpg'
@@ -4011,7 +4032,10 @@ var LOCS_NEW_YORK = [
       'deconstructivist',
       'financial district',
       'supertall',
-      'undulating'
+      'undulating',
+      'facade design',
+      'exterior',
+      'pritzker prize'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/8_Spruce_Street_2012_crop.jpg/800px-8_Spruce_Street_2012_crop.jpg',
@@ -4061,7 +4085,11 @@ var LOCS_NEW_YORK = [
       'museum',
       'rare books',
       'manuscripts',
-      'adaptive reuse'
+      'adaptive reuse',
+      'expansion',
+      'renovation',
+      'gallery',
+      'pritzker prize'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Morgan_Library_%26_Museum_Exterior.jpg/800px-Morgan_Library_%26_Museum_Exterior.jpg',
@@ -4106,7 +4134,9 @@ var LOCS_NEW_YORK = [
       'world trade center',
       'supertall',
       'glass',
-      'lower manhattan'
+      'lower manhattan',
+      'post-9/11',
+      'pritzker prize'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/3_World_Trade_Center_2018.jpg/800px-3_World_Trade_Center_2018.jpg'
@@ -4146,7 +4176,9 @@ var LOCS_NEW_YORK = [
       'deconstructivist',
       'high line',
       'west chelsea',
-      'stainless steel'
+      'stainless steel',
+      'luxury residential',
+      'pritzker prize'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/520_West_28th_Street_Zaha_Hadid.jpg/800px-520_West_28th_Street_Zaha_Hadid.jpg'
@@ -4231,9 +4263,7 @@ var LOCS_NEW_YORK = [
       'rem koolhaas',
       'prada',
       'retail',
-      'wave',
-      'soho',
-      'public space'
+      'soho'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Prada_Epicenter_NYC_OMA.jpg/800px-Prada_Epicenter_NYC_OMA.jpg'
@@ -4276,7 +4306,9 @@ var LOCS_NEW_YORK = [
       'nolita',
       'minimalist',
       'luxury residential',
-      'first nyc work'
+      'first nyc work',
+      'japanese',
+      'pritzker prize'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/152_Elizabeth_Street_Ando.jpg/800px-152_Elizabeth_Street_Ando.jpg'
@@ -4312,9 +4344,9 @@ var LOCS_NEW_YORK = [
     tags:[
       'álvaro siza',
       'pritzker prize',
-      'first nyc work',
       'hell\'s kitchen',
-      'residential'
+      'residential',
+      'first nyc work'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/611_West_56th_Street.jpg/800px-611_West_56th_Street.jpg'
@@ -4394,7 +4426,8 @@ var LOCS_NEW_YORK = [
       'pritzker prize',
       'world trade center',
       'minimalist',
-      'glass curtain wall'
+      'glass curtain wall',
+      'post-9/11'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/4_World_Trade_Center_2013.jpg/800px-4_World_Trade_Center_2013.jpg'
@@ -4433,7 +4466,9 @@ var LOCS_NEW_YORK = [
       'high line',
       'west chelsea',
       'kinetic facade',
-      'residential'
+      'residential',
+      'japanese',
+      'pritzker prize'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Metal_Shutter_Houses_NYC.jpg/800px-Metal_Shutter_Houses_NYC.jpg'
