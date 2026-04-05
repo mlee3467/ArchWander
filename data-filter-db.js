@@ -1461,6 +1461,7 @@ const FILTER_DB = {
     'DaeWha Kang Design',
     'Dattner Architects',
     'Dattner Architects & WXY Architecture',
+    'David Adjaye',
     'David Chipperfield Architects',
     'Davide Macullo Architects',
     'Davis Brody Bond',
