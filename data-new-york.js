@@ -1,6 +1,6 @@
 /* ============================================================
    ArchWander — New York Location Data
-   213 locations
+   211 locations
    ============================================================ */
 
 var LOCS_NEW_YORK = [
@@ -2904,9 +2904,10 @@ var LOCS_NEW_YORK = [
     ],
     era:'2000–Present',
     city:'new-york',
-    arch:'Populous (HOK Sport + Venue + Event)',
+    arch:'Gilmore D. Clarke / Populous + HOK',
     archs:[
-      'Gilmore D. Clarke'
+      'Gilmore D. Clarke',
+      'Populous'
     ],
     yr:2009,
     access:'Paid Ticket',
@@ -2933,7 +2934,8 @@ var LOCS_NEW_YORK = [
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Yankee_Stadium%2C_New_York_-_panoramio.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Yankee_Stadium_upper_deck_2010.jpg?width=800'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'default', lat:40.8293429, lng:-73.9277479 }
   },
   {
     id:'nyc-0068',
@@ -2988,7 +2990,7 @@ var LOCS_NEW_YORK = [
     ],
     era:'Pre-1900',
     city:'new-york',
-    arch:'Various (estate landscape)',
+    arch:'Various',
     yr:1843,
     access:'Paid Ticket',
     lat:40.8977607,
@@ -3014,7 +3016,8 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Wave_Hill_greenhouse.jpg/800px-Wave_Hill_greenhouse.jpg'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.8975301, lng:-73.9122718 }
   },
   {
     id:'nyc-0070',
@@ -3032,8 +3035,8 @@ var LOCS_NEW_YORK = [
     arch:'Various (Art Deco apartment buildings, 1920s–1940s)',
     yr:1930,
     access:'Open to Public',
-    lat:40.8260948,
-    lng:-73.9231492,
+    lat:40.826053,
+    lng:-73.9229035,
     addr:'Grand Concourse, Bronx, NY 10451',
     hood:'Grand Concourse, Bronx',
     desc:'A 4.5-mile Bronx boulevard modeled on the Champs-Élysées, lined with one of the greatest concentrations of Art Deco apartment buildings in the world. Designed by Louis Risse (1909), the Concourse was flanked throughout the 1920s–1930s by buildings by Emery Roth, Horace Ginsbern, and Jacob Felson for the upwardly mobile Jewish and Italian communities of the Bronx — featuring terra cotta ornament, curved corners, \'tapestry brick\' facades, and elaborate sunburst lobbies. The district was designated a NYC Landmark in 2011 and has seen significant revival through preservation efforts.',
@@ -3054,7 +3057,8 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Grand_Concourse_Bronx.jpg/800px-Grand_Concourse_Bronx.jpg'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.8260442, lng:-73.9228605 }
   },
   {
     id:'nyc-0071',
@@ -3147,9 +3151,10 @@ var LOCS_NEW_YORK = [
     id:'nyc-0073',
     name:'PUBLIC Hotel',
     cats:[
-      'Landmarks'
+      'Hospitality',
+      'Commercial'
     ],
-    cc:'c-lmk',
+    cc:'c-com',
     styleGroups:[
       'Contemporary'
     ],
@@ -3180,16 +3185,17 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Escalator%2C_Public_Hotel_New_York_%282024%29-L1005609.jpg?width=800'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7228336, lng:-73.9918872 }
   },
   {
     id:'nyc-0074',
     name:'15 Central Park West',
     cats:[
       'Skyscrapers',
-      'Landmarks'
+      'Residential'
     ],
-    cc:'c-sky',
+    cc:'c-res',
     styleGroups:[
       'Neoclassical'
     ],
@@ -3220,6 +3226,10 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/15CPW.jpg/800px-15CPW.jpg'
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7700971, lng:-73.9820089 },
+    archs:[
+      'Robert A.M Stern'
     ]
   },
   {
@@ -3227,9 +3237,9 @@ var LOCS_NEW_YORK = [
     name:'30 Park Place (Four Seasons Residences)',
     cats:[
       'Skyscrapers',
-      'Landmarks'
+      'Residential'
     ],
-    cc:'c-sky',
+    cc:'c-res',
     styleGroups:[
       'Neoclassical'
     ],
@@ -3260,6 +3270,9 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/30_Park_Place_2016.jpg/800px-30_Park_Place_2016.jpg'
+    ],
+    archs:[
+      'Robert A.M Stern'
     ]
   },
   {
@@ -3267,9 +3280,9 @@ var LOCS_NEW_YORK = [
     name:'220 Central Park South',
     cats:[
       'Skyscrapers',
-      'Landmarks'
+      'Residential'
     ],
-    cc:'c-sky',
+    cc:'c-res',
     styleGroups:[
       'Neoclassical'
     ],
@@ -3300,6 +3313,9 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/220_Central_Park_South_2019.jpg/800px-220_Central_Park_South_2019.jpg'
+    ],
+    archs:[
+      'Robert A.M Stern'
     ]
   },
   {
@@ -3307,9 +3323,9 @@ var LOCS_NEW_YORK = [
     name:'520 Park Avenue',
     cats:[
       'Skyscrapers',
-      'Landmarks'
+      'Residential'
     ],
-    cc:'c-sky',
+    cc:'c-res',
     styleGroups:[
       'Neoclassical'
     ],
@@ -3340,6 +3356,9 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/520_Park_Avenue_2019.jpg/800px-520_Park_Avenue_2019.jpg'
+    ],
+    archs:[
+      'Robert A.M Stern'
     ]
   },
   {
@@ -3379,6 +3398,9 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/20_East_End_Avenue.jpg/800px-20_East_End_Avenue.jpg'
+    ],
+    archs:[
+      'Robert A.M Stern'
     ]
   },
   {
@@ -3418,45 +3440,8 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/70_Vestry_Street.jpg/800px-70_Vestry_Street.jpg'
-    ]
-  },
-  {
-    id:'nyc-0080',
-    name:'255 East 77th Street',
-    cats:[
-      'Residential'
     ],
-    cc:'c-res',
-    styleGroups:[
-      'Neoclassical'
-    ],
-    era:'2000–Present',
-    city:'new-york',
-    arch:'Robert A.M. Stern Architects (RAMSA)',
-    yr:2020,
-    access:'Private',
-    lat:40.77234139999999,
-    lng:-73.9561954,
-    addr:'255 E 77th St, New York, NY 10075',
-    hood:'Upper East Side',
-    desc:'An 18-story luxury residential building on the Upper East Side by RAMSA (2020). The red brick and limestone facade — stepped setbacks, classical window surrounds, refined cornice — is designed to appear as if it has always belonged to the 77th Street streetscape. RAMSA\'s mastery of contextual residential design is apparent in the careful calibration of scale, material, and detail to the surrounding pre-war apartment buildings of the Upper East Side.',
-    hours:'Exterior: 24/7',
-    lastEntry:'',
-    admission:'Private residential',
-    tourOk:false,
-    tourInfo:'Private residential. Viewable from E 77th St.',
-    transit:'6 → 77 St · Q → 72 St',
-    walkFrom:'Metropolitan Museum: 10 min · Park Avenue: 5 min',
-    tags:[
-      'RAMSA',
-      'Neoclassical',
-      'Upper East Side',
-      'Red Brick',
-      'Limestone'
-    ],
-    photos:[
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/255_East_77th_Street.jpg/800px-255_East_77th_Street.jpg'
-    ]
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7232624, lng:-74.011422 }
   },
   {
     id:'nyc-0081',
@@ -3494,44 +3479,9 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/200_East_83rd_Street.jpg/800px-200_East_83rd_Street.jpg'
-    ]
-  },
-  {
-    id:'nyc-0082',
-    name:'150 East 78th Street',
-    cats:[
-      'Residential'
     ],
-    cc:'c-res',
-    styleGroups:[
-      'Neoclassical'
-    ],
-    era:'2000–Present',
-    city:'new-york',
-    arch:'Robert A.M. Stern Architects (RAMSA)',
-    yr:2020,
-    access:'Private',
-    lat:40.7740629,
-    lng:-73.9591915,
-    addr:'150 E 78th St, New York, NY 10075',
-    hood:'Upper East Side',
-    desc:'A 22-story boutique limestone residential building by RAMSA (2020). Combining brick base with limestone shaft and classical metalwork, the building occupies a mid-block site on East 78th Street with careful massing decisions to maintain scale with neighbors while maximizing light and views. RAMSA\'s quiet contextual quality earns more appreciation from neighborhood residents than from architectural press — which tends to prefer buildings that announce their difference. Completed the same year as 255 East 77th St as part of RAMSA\'s continued Upper East Side output.',
-    hours:'Exterior: 24/7',
-    lastEntry:'',
-    admission:'Private residential',
-    tourOk:false,
-    tourInfo:'Private residential. Viewable from E 78th St.',
-    transit:'6 → 77 St',
-    walkFrom:'Metropolitan Museum: 12 min · Lexington Ave: 2 min',
-    tags:[
-      'RAMSA',
-      'Neoclassical',
-      'Upper East Side',
-      'Boutique Residential',
-      'Limestone'
-    ],
-    photos:[
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/150_East_78th_Street.jpg/800px-150_East_78th_Street.jpg'
+    archs:[
+      'Robert A.M Stern'
     ]
   },
   {
@@ -3570,6 +3520,9 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/The_Bellemont_1165_Madison.jpg/800px-The_Bellemont_1165_Madison.jpg'
+    ],
+    archs:[
+      'Robert A.M Stern'
     ]
   },
   {
@@ -3608,6 +3561,9 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/1228_Madison_Avenue.jpg/800px-1228_Madison_Avenue.jpg'
+    ],
+    archs:[
+      'Robert A.M Stern'
     ]
   },
   {
@@ -3646,6 +3602,9 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Chatham_NYC.jpg/800px-The_Chatham_NYC.jpg'
+    ],
+    archs:[
+      'Robert A.M Stern'
     ]
   },
   {
@@ -3684,6 +3643,9 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/The_Brompton_NYC.jpg/800px-The_Brompton_NYC.jpg'
+    ],
+    archs:[
+      'Robert A.M Stern'
     ]
   },
   {
@@ -3723,6 +3685,10 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Superior_Ink_NYC.jpg/800px-Superior_Ink_NYC.jpg'
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7369658, lng:-74.0098127 },
+    archs:[
+      'Robert A.M Stern'
     ]
   },
   {
@@ -3730,11 +3696,12 @@ var LOCS_NEW_YORK = [
     name:'AT&T Building (550 Madison Ave)',
     cats:[
       'Skyscrapers',
-      'Landmarks'
+      'Landmarks',
+      'Commercial'
     ],
     cc:'c-sky',
     styleGroups:[
-      'Postmodern'
+      'Modernist'
     ],
     era:'1970–1999',
     city:'new-york',
@@ -3759,16 +3726,15 @@ var LOCS_NEW_YORK = [
     walkFrom:'MoMA: 5 min · Seagram Building: 8 min',
     tags:[
       'Philip Johnson',
-      'Postmodern',
       'Chippendale Top',
       'Midtown East',
-      'Granite',
-      'Controversial'
+      'Granite'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/550_Madison_Avenue_from_south.jpg/800px-550_Madison_Avenue_from_south.jpg',
       'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/AT%26T_Building_from_street_level.jpg/800px-AT%26T_Building_from_street_level.jpg'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7612055, lng:-73.973168 }
   },
   {
     id:'nyc-0089',
@@ -3811,7 +3777,8 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Urban_Glass_House_NYC.jpg/800px-Urban_Glass_House_NYC.jpg'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7260147, lng:-74.0099735 }
   },
   {
     id:'nyc-0090',
@@ -3831,8 +3798,8 @@ var LOCS_NEW_YORK = [
     ],
     yr:1963,
     access:'Private',
-    lat:40.7419755,
-    lng:-73.97654159999999,
+    lat:40.7421035,
+    lng:-73.9758074,
     addr:'First Ave between E 30th & E 33rd Streets, New York, NY 10016',
     hood:'Kips Bay',
     desc:'Kips Bay Towers consists of two 21-story reinforced concrete residential slabs by I.M. Pei, completed in 1963 (Phase 1) and 1965 (Phase 2), commissioned by real estate developer William Zeckendorf as part of his urban renewal program. The towers are notable for their pioneering use of precast concrete grid facades — deeply recessed openings that eliminate the conventional window in favor of a continuously textured surface that reads as pure geometry. At the time they were among the most technically ambitious concrete structures in New York. The project was an early demonstration of Pei\'s ability to combine rigorous structural thinking with aesthetic refinement, and influenced a generation of Brutalist residential design.',
@@ -3853,7 +3820,8 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Kips_Bay_Towers_jeh.jpg/800px-Kips_Bay_Towers_jeh.jpg'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7416768, lng:-73.9761372 }
   },
   {
     id:'nyc-0091',
@@ -3873,8 +3841,8 @@ var LOCS_NEW_YORK = [
     ],
     yr:1966,
     access:'Open to Public',
-    lat:40.72693,
-    lng:-73.996854,
+    lat:40.7267953,
+    lng:-73.9982736,
     addr:'100 Bleecker St, New York, NY 10012',
     hood:'Greenwich Village / NoHo',
     desc:'Silver Towers (also known as University Village) is a complex of three 30-story concrete towers by I.M. Pei, completed in 1966, developed by NYU on the site of cleared tenements in the South Village. The towers\' exposed concrete facades, raised on pilotis over a public plaza, brought the aesthetic of Le Corbusier\'s Unité d\'Habitation to lower Manhattan. The central plaza features a monumental bronze sculpture, \'Bust of Sylvette\' (1968), an enlargement by Carl Nesjar of a Picasso portrait, executed under Picasso\'s direct supervision — one of only a handful of monumental Picasso works installed in an urban setting. The complex remains a landmark of New York\'s urban renewal era and of Pei\'s early New York practice.',
@@ -3895,7 +3863,8 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Silver_Towers_NYC.jpg/800px-Silver_Towers_NYC.jpg'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7601657, lng:-73.99895 }
   },
   {
     id:'nyc-0092',
