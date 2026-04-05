@@ -1324,7 +1324,9 @@ var LOCS_NEW_YORK = [
       'le corbusier',
       'niemeyer',
       'curtain wall',
-      'international territory'
+      'international territory',
+      'legendary',
+      'wonder'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Headquarters_of_the_United_Nations%2C_New_York_City%2C_20231001_1103_1007.jpg?width=800',
@@ -1371,7 +1373,8 @@ var LOCS_NEW_YORK = [
       'philip johnson',
       'new formalism',
       'performing arts',
-      'travertine plaza'
+      'travertine plaza',
+      'legendary'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Lincoln_Center_Overview_%2848047495362%29.jpg?width=800',
