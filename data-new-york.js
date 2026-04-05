@@ -2364,7 +2364,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/New_York_University%2C_Judson_Memorial_Baptist_Church_02.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Rose_Window_at_Judson_Memorial_Church.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/%28King1893NYC%29_pg384_JUDSON_MEMORIAL_BAPTIST_CHURCH%2C_WASHINGTON_SQUARE_AND_THOMPSON_STREET.jpg?width=800'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7302731, lng:-73.9980294 }
   },
   {
     id:'nyc-0055',
@@ -2455,7 +2456,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/New_School_University_Center_-_the-groundview.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_New_School_-_University_Center_Reflections.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_New_School_-_University_Center%2C_Interior.jpg?width=800'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7359823, lng:-73.9935127 }
   },
   {
     id:'nyc-0057',
@@ -2544,7 +2546,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/St.-Marks-In-The-Bowery_at_Night.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/New_York%2C_St_Marks-in-the-Bowery_1840s.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/St._Mark%27s_Church%2C_Stuyvesant_Street%2C_New_YorkCity.jpg?width=800'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7300737, lng:-73.9870647 }
   },
   {
     id:'nyc-0059',
@@ -2675,7 +2678,7 @@ var LOCS_NEW_YORK = [
       'https://live.staticflickr.com/558/31969570440_59e06fed79_b.jpg',
       'https://live.staticflickr.com/2586/4130651435_111d2ece84_b.jpg'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7603602, lng:-73.9750564 }
+    sv:{ heading:210, pitch:10, fov:90, source:'default', lat:40.7603735, lng:-73.975051 }
   },
   {
     id:'nyc-0062',
@@ -2761,7 +2764,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/DUMBO_Historic_and_Industrial_District.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/DUMBO_from_Bridge.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/DUMBO_Industrial_District_168.JPG?width=800'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7032612, lng:-73.9895779 }
   },
   {
     id:'nyc-0064',
