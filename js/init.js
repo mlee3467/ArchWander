@@ -1,3 +1,20 @@
+// ── Hard refresh: purge SW caches, keep localStorage (favs/visits) ──
+function hardRefresh() {
+  if (!confirm('캐시를 삭제하고 새로고침합니다.\n즐겨찾기/방문 데이터는 유지됩니다.\n\nClear cache and reload?\nFavorites & visits will be kept.')) return;
+  if ('caches' in window) {
+    caches.keys().then(function(names) {
+      return Promise.all(names.map(function(n) { return caches.delete(n); }));
+    }).then(function() {
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistration().then(function(r) {
+          if (r) r.unregister().then(function() { location.reload(true); });
+          else location.reload(true);
+        });
+      } else { location.reload(true); }
+    });
+  } else { location.reload(true); }
+}
+
 // ── Post-init: map + panes + listeners (called after initMap) ──
 function _postInitMap() {
   initMap();
