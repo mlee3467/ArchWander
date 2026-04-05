@@ -4450,7 +4450,10 @@ var LOCS_NEW_YORK = [
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Sugar_Hill_Museum_Adjaye.jpg/800px-Sugar_Hill_Museum_Adjaye.jpg'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.8307982, lng:-73.9411801 }
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.8307982, lng:-73.9411801 },
+    archs:[
+      'David Adjaye'
+    ]
   },
   {
     id:'nyc-0106',
