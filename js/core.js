@@ -90,8 +90,8 @@ function getFiltered() {
   if (state.query) {
     const q = state.query.toLowerCase();
     list = list.filter(l =>
-      l.name.toLowerCase().includes(q) || l.arch.toLowerCase().includes(q) ||
-      l.style.toLowerCase().includes(q) || l.hood.toLowerCase().includes(q) ||
+      l.name.toLowerCase().includes(q) || (l.arch||'').toLowerCase().includes(q) ||
+      (l.style||'').toLowerCase().includes(q) || (l.hood||'').toLowerCase().includes(q) ||
       _allSGs(l).some(s => s.toLowerCase().includes(q)) ||
       _allCats(l).some(c => c.toLowerCase().includes(q)) ||
       l.tags.some(t => t.toLowerCase().includes(q))
