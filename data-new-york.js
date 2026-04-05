@@ -1466,7 +1466,8 @@ var LOCS_NEW_YORK = [
       'hugh stubbins',
       'corner stilts',
       'engineering crisis',
-      'high-tech'
+      'high-tech',
+      'structural engineering'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/53rd_St_Lex_Av_td_08_-_Citigroup_Center.jpg?width=800',
@@ -1508,8 +1509,8 @@ var LOCS_NEW_YORK = [
     tags:[
       'kpf',
       'supertall',
-      'summit observatory',
-      'grand central'
+      'grand central',
+      'observatory'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/One_Vanderbilt_April_2023.jpg?width=800',
@@ -1554,7 +1555,11 @@ var LOCS_NEW_YORK = [
       'ds+r',
       'retractable shell',
       'hudson yards',
-      'cultural venue'
+      'cultural venue',
+      'kinetic',
+      'etfe facade',
+      'facade design',
+      'exterior'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Shed_-_Complete_%2848206488176%29.jpg?width=800',
@@ -1640,10 +1645,10 @@ var LOCS_NEW_YORK = [
     tags:[
       'eero saarinen',
       'expressionist',
-      'adaptive reuse',
       'jfk',
       'hotel',
-      'queens'
+      'queens',
+      'renovation'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/JFK_T5_May_2019_06.jpg?width=800',
@@ -1685,12 +1690,12 @@ var LOCS_NEW_YORK = [
     transit:'N R W → 5 Av/59 St · 4 5 6 → 59 St',
     walkFrom:'Central Park South: 2 min · Plaza Hotel: adjacent',
     tags:[
-      'foster + partners',
       'glass cube',
       'retail',
       'underground',
       'midtown',
-      '24/7'
+      'norman foster',
+      'touristic'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Apple_Store_-_Fifth_Avenue_%287181848534%29.jpg?width=800',
@@ -1732,7 +1737,9 @@ var LOCS_NEW_YORK = [
       'residential',
       'hell\'s kitchen',
       'hybrid typology',
-      'bjarke ingels'
+      'bjarke ingels',
+      'parametric',
+      'digital architecture'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/VIA_57_West_-_exterior.jpg?width=800',
@@ -1774,7 +1781,8 @@ var LOCS_NEW_YORK = [
       'high line',
       'meatpacking',
       'pilotis',
-      'straddle'
+      'straddle',
+      'polshek'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Standard_High_Line_%2824245%29.jpg?width=800',
@@ -1790,7 +1798,8 @@ var LOCS_NEW_YORK = [
     name:'Barclays Center',
     cats:[
       'public',
-      'commercial'
+      'commercial',
+      'sports'
     ],
     cc:'c-com',
     styleGroups:[
@@ -1821,7 +1830,9 @@ var LOCS_NEW_YORK = [
       'brooklyn',
       'sports',
       'pacific park',
-      'parametric'
+      'parametric',
+      'digital architecture',
+      'sports stadium'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Barclays_Center_western_side.jpg?width=800',
@@ -1956,10 +1967,10 @@ var LOCS_NEW_YORK = [
     walkFrom:'High Line terminus: 5 min · Penn Station: 12 min',
     tags:[
       'kpf',
-      'edge observatory',
       'hudson yards',
       'supertall',
-      'observation deck'
+      'edge',
+      'observatory'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hudson_Yards_from_Hudson_Commons_%2895131p%29.jpg?width=800',
@@ -2094,8 +2105,7 @@ var LOCS_NEW_YORK = [
       'federal',
       'french renaissance',
       'civic',
-      'landmark',
-      'oldest city hall'
+      'landmark'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/New_York_City_Hall.jpg?width=800',
@@ -2226,7 +2236,8 @@ var LOCS_NEW_YORK = [
       'statue of liberty ferry',
       'historic',
       'public space',
-      'waterfront'
+      'waterfront',
+      'battery park city'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Battery_Park.JPG?width=800',
@@ -2537,7 +2548,8 @@ var LOCS_NEW_YORK = [
       'spinning cube',
       'tony rosenthal',
       'east village',
-      'noho'
+      'noho',
+      'sculpture'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/WSTM_Team_Dustizeff_0108.jpg?width=800',
@@ -2626,7 +2638,11 @@ var LOCS_NEW_YORK = [
       'curtain wall',
       'west chelsea',
       'residential',
-      'pixelated facade'
+      'pixelated facade',
+      'digital architecture',
+      'parametric',
+      'facade design',
+      'exterior'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/NY_Chelsea_Pier_60_IMG_2189_nouvel_chelsea_100_11th_Av_luxury_condominium.JPG?width=800',
@@ -2716,7 +2732,8 @@ var LOCS_NEW_YORK = [
       'midtown',
       'zion & breen',
       'urban design',
-      'william paley'
+      'william paley',
+      'public space'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/W_53_St_May_2022_15.jpg?width=800',
@@ -2759,7 +2776,8 @@ var LOCS_NEW_YORK = [
       'dumbo',
       'brooklyn',
       'piers',
-      'landscape'
+      'landscape',
+      'mvva'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Brooklyn_Bridge_Park_and_Manhattan.jpg?width=800',
@@ -2798,12 +2816,13 @@ var LOCS_NEW_YORK = [
     transit:'A C → High St · F → York St',
     walkFrom:'Brooklyn Bridge Park: 5 min · Brooklyn Heights Promenade: 10 min',
     tags:[
-      'adaptive reuse',
       'industrial loft',
       'cobblestone',
       'brooklyn',
       'manhattan bridge',
-      'art district'
+      'art district',
+      'renovation',
+      'touristic'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/DUMBO_Historic_and_Industrial_District.jpg?width=800',
@@ -2845,7 +2864,8 @@ var LOCS_NEW_YORK = [
       'glass pavilion',
       'dumbo',
       'brooklyn bridge park',
-      'victorian'
+      'victorian',
+      'renovation'
     ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Janes_Carousel_Pavilion_2011.jpg/800px-Janes_Carousel_Pavilion_2011.jpg'
@@ -2884,8 +2904,8 @@ var LOCS_NEW_YORK = [
       'panorama',
       'world\'s fair',
       'flushing meadows',
-      'adaptive reuse',
-      'queens'
+      'queens',
+      'renovation'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Queens_Museum_%2848613534751%29.jpg?width=800',
@@ -2941,7 +2961,8 @@ var LOCS_NEW_YORK = [
     name:'Yankee Stadium',
     cats:[
       'public',
-      'landmarks'
+      'landmarks',
+      'sports'
     ],
     cc:'c-pub',
     styleGroups:[
@@ -2952,7 +2973,8 @@ var LOCS_NEW_YORK = [
     arch:'Gilmore D. Clarke / Populous + HOK',
     archs:[
       'Gilmore D. Clarke',
-      'Populous'
+      'Populous',
+      'HOK'
     ],
     yr:2009,
     access:'paid ticket',
@@ -2974,7 +2996,8 @@ var LOCS_NEW_YORK = [
       'bronx',
       'sports',
       'monument park',
-      'great hall'
+      'great hall',
+      'renovation'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Yankee_Stadium%2C_New_York_-_panoramio.jpg?width=800',
