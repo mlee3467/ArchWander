@@ -964,16 +964,6 @@ var LOCS_KO_NEW_YORK = {
     transit: "A C E → 42 St / Port Authority",
     walkFrom: "Hudson River Greenway: 인접 · Theater District: 5분"
   },
-  "nyc-0039": {
-    name: "Spring Studios",
-    desc: "OMA / Rem Koolhaas가 설계한 Spring Studios는 2017년 완공된 Tribeca의 현대 예술 시설입니다. 용도 변경된 제조 건물의 거대한 두 층 높이 스튜디오와 전시 공간은 대규모 미술관 같은 환경을 만들어냅니다. 현대 미술 제도와 건축의 모범입니다.",
-    hood: "Tribeca",
-    hours: "전시: 화~일 10am~6pm · 월요일 휴무",
-    admission: "전시: 요금 기반",
-    tourInfo: "현대 미술 설치와 건축 공간이 통합된 경험입니다.",
-    transit: "A C E → Chambers St\n1 2 3 → Chambers St",
-    walkFrom: "City Hall: 5분 · Tribeca Lofts: 인접"
-  },
   "nyc-0040": {
     name: "The Standard High Line",
     desc: "Shim-Sutcliffe Architects가 설계한 The Standard High Line은 2009년 완공된 도시 호텔로, High Line 선형 공원 위에 직접 위치합니다. 14층 높이의 노출 레드 브릭과 세로 루버 외관은 주변 산업 건축을 존중하면서 현대성을 표현합니다. 도시 공원과 호텔 건축의 혁신적 통합입니다.",
