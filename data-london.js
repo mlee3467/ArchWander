@@ -8,14 +8,14 @@ var LOCS_LONDON = [
     "id": "lon-0001",
     "name": "30 St Mary Axe (Gherkin)",
     "cats": [
-      "Skyscrapers",
-      "Landmarks",
-      "Commercial"
+      "skyscrapers",
+      "landmarks",
+      "commercial"
     ],
     "cc": "c-sky",
     "styleGroups": [
-      "High-Tech",
-      "Contemporary"
+      "high-tech",
+      "contemporary"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -24,7 +24,7 @@ var LOCS_LONDON = [
       "Foster + Partners"
     ],
     "yr": 2003,
-    "access": "Free Admission",
+    "access": "free admission",
     "lat": 51.5145,
     "lng": -0.0803,
     "addr": "30 St Mary Axe, City of London EC3A 8EP",
@@ -38,15 +38,15 @@ var LOCS_LONDON = [
     "transit": "Circle District → Aldgate · Central Waterloo & City → Bank (5 min walk)",
     "walkFrom": "Liverpool Street: 6 min · Lloyd's of London: 3 min · Leadenhall Market: 4 min",
     "tags": [
-      "Foster + Partners",
-      "Norman Foster",
-      "High-Tech",
-      "Diagrid",
-      "Swiss Re",
-      "Gherkin",
-      "Skyscraper",
-      "City of London",
-      "RIBA Stirling Prize"
+      "foster + partners",
+      "norman foster",
+      "high-tech",
+      "diagrid",
+      "swiss re",
+      "gherkin",
+      "skyscraper",
+      "city of london",
+      "riba stirling prize"
     ],
     "photos": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/30_St_Mary_Axe_from_Leadenhall_Street.jpg?width=800",
@@ -59,13 +59,13 @@ var LOCS_LONDON = [
     "id": "lon-0002",
     "name": "Bloomberg European HQ",
     "cats": [
-      "Landmarks",
-      "Commercial"
+      "landmarks",
+      "commercial"
     ],
     "cc": "c-lmk",
     "styleGroups": [
-      "Contemporary",
-      "High-Tech"
+      "contemporary",
+      "high-tech"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -74,7 +74,7 @@ var LOCS_LONDON = [
       "Foster + Partners"
     ],
     "yr": 2017,
-    "access": "Free Admission",
+    "access": "free admission",
     "lat": 51.51247189999999,
     "lng": -0.0909128,
     "addr": "3 Queen Victoria St, London EC4N 4TQ",
@@ -88,14 +88,14 @@ var LOCS_LONDON = [
     "transit": "Central → Bank (2 min) · Circle District → Mansion House (3 min)",
     "walkFrom": "St Paul's Cathedral: 5 min · Tate Modern: 10 min · Bank: 3 min",
     "tags": [
-      "Foster + Partners",
-      "Bloomberg",
-      "BREEAM",
-      "Sustainable",
-      "Mithraeum",
-      "Roman",
-      "City of London",
-      "RIBA Stirling Prize 2018"
+      "foster + partners",
+      "bloomberg",
+      "breeam",
+      "sustainable",
+      "mithraeum",
+      "roman",
+      "city of london",
+      "riba stirling prize 2018"
     ],
     "photos": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/Bloomberg_London_exterior_-_Cannon_Street%2C_Walbrook.jpg?width=800",
@@ -108,14 +108,14 @@ var LOCS_LONDON = [
     "id": "lon-0003",
     "name": "Great Court, British Museum",
     "cats": [
-      "Cultural",
-      "Landmarks",
-      "Public"
+      "cultural",
+      "landmarks",
+      "public"
     ],
     "cc": "c-cul",
     "styleGroups": [
-      "Contemporary",
-      "High-Tech"
+      "contemporary",
+      "high-tech"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -124,7 +124,7 @@ var LOCS_LONDON = [
       "Foster + Partners"
     ],
     "yr": 2000,
-    "access": "Free Admission",
+    "access": "free admission",
     "lat": 51.5194133,
     "lng": -0.1269566,
     "addr": "Great Russell St, London WC1B 3DG",
@@ -138,14 +138,14 @@ var LOCS_LONDON = [
     "transit": "Central Piccadilly → Holborn (3 min) · Northern → Tottenham Court Road (5 min)",
     "walkFrom": "Tottenham Court Road: 5 min · Covent Garden: 10 min · Oxford Street: 8 min",
     "tags": [
-      "Foster + Partners",
-      "Gridshell",
-      "Glass Roof",
-      "British Museum",
-      "Free",
-      "Bloomsbury",
-      "Parametric",
-      "Reading Room"
+      "foster + partners",
+      "gridshell",
+      "glass roof",
+      "british museum",
+      "free",
+      "bloomsbury",
+      "parametric",
+      "reading room"
     ],
     "photos": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/British_Museum_Dome.jpg?width=800",
@@ -158,13 +158,13 @@ var LOCS_LONDON = [
     "id": "lon-0004",
     "name": "Canary Wharf Underground Station",
     "cats": [
-      "Infrastructure",
-      "Commercial"
+      "infrastructure",
+      "commercial"
     ],
     "cc": "c-inf",
     "styleGroups": [
-      "High-Tech",
-      "Contemporary"
+      "high-tech",
+      "contemporary"
     ],
     "era": "1970–1999",
     "city": "london",
@@ -173,7 +173,7 @@ var LOCS_LONDON = [
       "Foster + Partners"
     ],
     "yr": 1999,
-    "access": "Free Admission",
+    "access": "free admission",
     "lat": 51.5036499,
     "lng": -0.019624,
     "addr": "Underground Ltd, Heron Quays Rd, Canary Wharf Estate, London E14 4HJ",
@@ -187,12 +187,12 @@ var LOCS_LONDON = [
     "transit": "Jubilee → Canary Wharf · Elizabeth line → Canary Wharf",
     "walkFrom": "One Canada Square: 3 min · Museum of London Docklands: 8 min",
     "tags": [
-      "Foster + Partners",
-      "Jubilee Line",
-      "Infrastructure",
-      "Underground",
-      "Canary Wharf",
-      "Concrete",
+      "foster + partners",
+      "jubilee line",
+      "infrastructure",
+      "underground",
+      "canary wharf",
+      "concrete",
       "1999"
     ],
     "photos": [
@@ -206,13 +206,13 @@ var LOCS_LONDON = [
     "id": "lon-0005",
     "name": "City Hall (GLA Building)",
     "cats": [
-      "Public",
-      "Landmarks",
-      "Commercial"
+      "public",
+      "landmarks",
+      "commercial"
     ],
     "cc": "c-pub",
     "styleGroups": [
-      "Contemporary"
+      "contemporary"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -221,7 +221,7 @@ var LOCS_LONDON = [
       "Foster + Partners"
     ],
     "yr": 2002,
-    "access": "Free Admission",
+    "access": "free admission",
     "lat": 51.5073119,
     "lng": 0.016255200000000004,
     "addr": "Kamal Chunchie Way, London E16 1ZE",
@@ -235,13 +235,13 @@ var LOCS_LONDON = [
     "transit": "Jubilee → London Bridge (5 min) · Northern → London Bridge (5 min)",
     "walkFrom": "Tower Bridge: 4 min · Tate Modern: 15 min · Borough Market: 8 min",
     "tags": [
-      "Foster + Partners",
-      "GLA",
-      "South Bank",
-      "Sustainable",
-      "Globe",
-      "Spiral Ramp",
-      "Thames"
+      "foster + partners",
+      "gla",
+      "south bank",
+      "sustainable",
+      "globe",
+      "spiral ramp",
+      "thames"
     ],
     "photos": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/London_-_City_Hall_%284%29.jpg?width=800",
@@ -254,14 +254,14 @@ var LOCS_LONDON = [
     "id": "lon-0006",
     "name": "Millennium Bridge",
     "cats": [
-      "Infrastructure",
-      "Landmarks",
-      "Public"
+      "infrastructure",
+      "landmarks",
+      "public"
     ],
     "cc": "c-inf",
     "styleGroups": [
-      "Contemporary",
-      "High-Tech"
+      "contemporary",
+      "high-tech"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -272,7 +272,7 @@ var LOCS_LONDON = [
       "Anthony Caro"
     ],
     "yr": 2002,
-    "access": "Free Admission",
+    "access": "free admission",
     "lat": 51.509529099999995,
     "lng": -0.0985425,
     "addr": "Thames Embankment, London EC4V 3QH",
@@ -286,15 +286,15 @@ var LOCS_LONDON = [
     "transit": "Central → St Paul's (5 min) · Jubilee Northern → Southwark (5 min)",
     "walkFrom": "St Paul's Cathedral: 5 min · Tate Modern: 3 min · Shakespeare's Globe: 7 min",
     "tags": [
-      "Foster + Partners",
-      "Arup",
-      "Bridge",
-      "Pedestrian",
-      "Thames",
-      "Millennium",
-      "Wobbly Bridge",
-      "Free",
-      "St Paul's"
+      "foster + partners",
+      "arup",
+      "bridge",
+      "pedestrian",
+      "thames",
+      "millennium",
+      "wobbly bridge",
+      "free",
+      "st paul's"
     ],
     "photos": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/London_Millenium_Bridge.jpg?width=800",
@@ -307,14 +307,14 @@ var LOCS_LONDON = [
     "id": "lon-0007",
     "name": "HSBC UK HQ (8 Canada Square)",
     "cats": [
-      "Skyscrapers",
-      "Commercial",
-      "Landmarks"
+      "skyscrapers",
+      "commercial",
+      "landmarks"
     ],
     "cc": "c-sky",
     "styleGroups": [
-      "High-Tech",
-      "Contemporary"
+      "high-tech",
+      "contemporary"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -323,7 +323,7 @@ var LOCS_LONDON = [
       "Foster + Partners"
     ],
     "yr": 2002,
-    "access": "Private",
+    "access": "private",
     "lat": 51.50564379999999,
     "lng": -0.0185088,
     "addr": "Unit 8, Canada Square, Canary Wharf Estate, Retail E14 5AH",
@@ -337,13 +337,13 @@ var LOCS_LONDON = [
     "transit": "Jubilee → Canary Wharf · Elizabeth line → Canary Wharf (3 min)",
     "walkFrom": "Canary Wharf Station: 3 min · One Canada Square: 5 min · Museum of London Docklands: 8 min",
     "tags": [
-      "Foster + Partners",
-      "HSBC",
-      "Canary Wharf",
-      "Skyscraper",
-      "High-Tech",
-      "Office",
-      "Docklands"
+      "foster + partners",
+      "hsbc",
+      "canary wharf",
+      "skyscraper",
+      "high-tech",
+      "office",
+      "docklands"
     ],
     "photos": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/HSBC_HQ.jpg?width=800"
@@ -353,12 +353,12 @@ var LOCS_LONDON = [
     "id": "lon-0008",
     "name": "Wembley Stadium",
     "cats": [
-      "Public",
-      "Landmarks"
+      "public",
+      "landmarks"
     ],
     "cc": "c-pub",
     "styleGroups": [
-      "Contemporary"
+      "contemporary"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -368,7 +368,7 @@ var LOCS_LONDON = [
       "HOK Sport"
     ],
     "yr": 2007,
-    "access": "Paid Ticket",
+    "access": "paid ticket",
     "lat": 51.5566919,
     "lng": -0.2796658,
     "addr": "Wembley HA9 0WS",
@@ -382,13 +382,13 @@ var LOCS_LONDON = [
     "transit": "Metropolitan → Wembley Park (10 min walk) · Jubilee → Wembley Park",
     "walkFrom": "Wembley Park Station: 10 min · Wembley Arena: 8 min",
     "tags": [
-      "Foster + Partners",
-      "HOK Sport",
-      "Stadium",
-      "Arch",
-      "Football",
-      "National Stadium",
-      "Wembley"
+      "foster + partners",
+      "hok sport",
+      "stadium",
+      "arch",
+      "football",
+      "national stadium",
+      "wembley"
     ],
     "photos": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/London_Wembley.jpg?width=800",
@@ -401,13 +401,13 @@ var LOCS_LONDON = [
     "id": "lon-0009",
     "name": "Lloyd's of London",
     "cats": [
-      "Historic",
-      "Commercial",
-      "Landmarks"
+      "historic",
+      "commercial",
+      "landmarks"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "High-Tech"
+      "high-tech"
     ],
     "era": "1970–1999",
     "city": "london",
@@ -416,7 +416,7 @@ var LOCS_LONDON = [
       "Richard Rogers Partnership"
     ],
     "yr": 1986,
-    "access": "Private",
+    "access": "private",
     "lat": 51.5130826,
     "lng": -0.0825109,
     "addr": "1 Lime St, London EC3M 7HA",
@@ -430,14 +430,14 @@ var LOCS_LONDON = [
     "transit": "Circle District Hammersmith → Monument (5 min) · Central → Bank (5 min)",
     "walkFrom": "Leadenhall Market: 3 min · Gherkin: 3 min · Bank: 8 min",
     "tags": [
-      "Richard Rogers",
-      "High-Tech",
-      "Inside-Out",
-      "Insurance",
-      "City of London",
-      "Grade I Listed",
+      "richard rogers",
+      "high-tech",
+      "inside-out",
+      "insurance",
+      "city of london",
+      "grade i listed",
       "1986",
-      "Stainless Steel"
+      "stainless steel"
     ],
     "photos": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/Lloyd%27s_insurance_exterior_at_night.jpg?width=800",
@@ -450,13 +450,13 @@ var LOCS_LONDON = [
     "id": "lon-0010",
     "name": "Leadenhall Building (Cheesegrater)",
     "cats": [
-      "Skyscrapers",
-      "Commercial",
-      "Landmarks"
+      "skyscrapers",
+      "commercial",
+      "landmarks"
     ],
     "cc": "c-sky",
     "styleGroups": [
-      "High-Tech"
+      "high-tech"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -465,7 +465,7 @@ var LOCS_LONDON = [
       "Rogers Stirk Harbour + Partners"
     ],
     "yr": 2014,
-    "access": "Free Admission",
+    "access": "free admission",
     "lat": 51.5142591,
     "lng": -0.0821317,
     "addr": "122 Leadenhall St, London EC3V 4AB",
@@ -479,14 +479,14 @@ var LOCS_LONDON = [
     "transit": "Circle District → Aldgate (5 min) · Central Waterloo & City → Bank (7 min)",
     "walkFrom": "Lloyd's of London: 1 min · Gherkin: 3 min · Leadenhall Market: 2 min",
     "tags": [
-      "Rogers Stirk Harbour + Partners",
-      "Richard Rogers",
-      "Cheesegrater",
-      "Skyscraper",
-      "High-Tech",
-      "Megaframe",
-      "City of London",
-      "St Paul's View"
+      "rogers stirk harbour + partners",
+      "richard rogers",
+      "cheesegrater",
+      "skyscraper",
+      "high-tech",
+      "megaframe",
+      "city of london",
+      "st paul's view"
     ],
     "photos": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/Cheesegrater_and_Gherkin.jpg?width=800",
@@ -499,13 +499,13 @@ var LOCS_LONDON = [
     "id": "lon-0011",
     "name": "The O2 Arena (Millennium Dome)",
     "cats": [
-      "Public",
-      "Landmarks"
+      "public",
+      "landmarks"
     ],
     "cc": "c-pub",
     "styleGroups": [
-      "High-Tech",
-      "Contemporary"
+      "high-tech",
+      "contemporary"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -515,7 +515,7 @@ var LOCS_LONDON = [
       "Buro Happold"
     ],
     "yr": 2000,
-    "access": "Paid Ticket",
+    "access": "paid ticket",
     "lat": 51.503,
     "lng": 0.0032,
     "addr": "Peninsula Square, London SE10 0DX",
@@ -529,14 +529,14 @@ var LOCS_LONDON = [
     "transit": "Jubilee → North Greenwich (adjacent)",
     "walkFrom": "North Greenwich Station: 5 min",
     "tags": [
-      "Richard Rogers",
-      "Millennium Dome",
-      "O2",
-      "Tensile Structure",
-      "High-Tech",
-      "Greenwich",
-      "Masts",
-      "Entertainment"
+      "richard rogers",
+      "millennium dome",
+      "o2",
+      "tensile structure",
+      "high-tech",
+      "greenwich",
+      "masts",
+      "entertainment"
     ],
     "photos": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/London_MMB_V9_Millennium_Dome.jpg?width=800",
@@ -549,13 +549,13 @@ var LOCS_LONDON = [
     "id": "lon-0012",
     "name": "Heathrow Terminal 5",
     "cats": [
-      "Infrastructure",
-      "Commercial"
+      "infrastructure",
+      "commercial"
     ],
     "cc": "c-inf",
     "styleGroups": [
-      "Contemporary",
-      "High-Tech"
+      "contemporary",
+      "high-tech"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -564,7 +564,7 @@ var LOCS_LONDON = [
       "Rogers Stirk Harbour + Partners"
     ],
     "yr": 2008,
-    "access": "Paid Ticket",
+    "access": "paid ticket",
     "lat": 51.471952,
     "lng": -0.490105,
     "addr": "Terminal 5, Wallis Rd, Longford, Hounslow TW6 2GA",
@@ -578,13 +578,13 @@ var LOCS_LONDON = [
     "transit": "Elizabeth line → Heathrow Terminal 5 (direct) · Heathrow Express → Paddington (21 min)",
     "walkFrom": "Terminal 5 Station: adjacent",
     "tags": [
-      "Rogers Stirk Harbour + Partners",
-      "Richard Rogers",
-      "Heathrow",
-      "Airport",
-      "Infrastructure",
-      "Single Span Roof",
-      "Terminal"
+      "rogers stirk harbour + partners",
+      "richard rogers",
+      "heathrow",
+      "airport",
+      "infrastructure",
+      "single span roof",
+      "terminal"
     ],
     "photos": [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/T5A_interior.jpg/800px-T5A_interior.jpg"
@@ -594,12 +594,12 @@ var LOCS_LONDON = [
     "id": "lon-0013",
     "name": "One Hyde Park",
     "cats": [
-      "Residential",
-      "Landmarks"
+      "residential",
+      "landmarks"
     ],
     "cc": "c-res",
     "styleGroups": [
-      "Contemporary"
+      "contemporary"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -608,7 +608,7 @@ var LOCS_LONDON = [
       "Rogers Stirk Harbour + Partners"
     ],
     "yr": 2011,
-    "access": "Private",
+    "access": "private",
     "lat": 51.5073638,
     "lng": -0.1641135,
     "addr": "London",
@@ -622,12 +622,12 @@ var LOCS_LONDON = [
     "transit": "Piccadilly → Knightsbridge (3 min)",
     "walkFrom": "Hyde Park: 1 min · Harrods: 5 min · Serpentine Gallery: 10 min",
     "tags": [
-      "Rogers Stirk Harbour + Partners",
-      "Richard Rogers",
-      "Luxury Residential",
-      "Knightsbridge",
-      "Hyde Park",
-      "World's Most Expensive"
+      "rogers stirk harbour + partners",
+      "richard rogers",
+      "luxury residential",
+      "knightsbridge",
+      "hyde park",
+      "world's most expensive"
     ],
     "photos": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/No_1_Hyde_Park%2C_London.jpg?width=800",
@@ -640,13 +640,13 @@ var LOCS_LONDON = [
     "id": "lon-0014",
     "name": "88 Wood Street",
     "cats": [
-      "Landmarks",
-      "Commercial"
+      "landmarks",
+      "commercial"
     ],
     "cc": "c-lmk",
     "styleGroups": [
-      "High-Tech",
-      "Contemporary"
+      "high-tech",
+      "contemporary"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -655,7 +655,7 @@ var LOCS_LONDON = [
       "Rogers Stirk Harbour + Partners"
     ],
     "yr": 2000,
-    "access": "Private",
+    "access": "private",
     "lat": 51.5172264,
     "lng": -0.0939888,
     "addr": "88 Wood St, Barbican, London EC2V 7QR",
@@ -669,12 +669,12 @@ var LOCS_LONDON = [
     "transit": "Central → St Paul's (5 min) · Metropolitan Circle District → Barbican (5 min)",
     "walkFrom": "Barbican: 7 min · St Paul's: 7 min · Museum of London: 5 min",
     "tags": [
-      "Rogers Stirk Harbour + Partners",
-      "Richard Rogers",
-      "High-Tech",
-      "City of London",
-      "Office",
-      "Cylindrical Tower"
+      "rogers stirk harbour + partners",
+      "richard rogers",
+      "high-tech",
+      "city of london",
+      "office",
+      "cylindrical tower"
     ],
     "photos": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/88_Wood_St%2C_London.jpg?width=800",
@@ -687,11 +687,11 @@ var LOCS_LONDON = [
     "id": "lon-0015",
     "name": "Neo Bankside",
     "cats": [
-      "Residential"
+      "residential"
     ],
     "cc": "c-res",
     "styleGroups": [
-      "Contemporary"
+      "contemporary"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -700,7 +700,7 @@ var LOCS_LONDON = [
       "Rogers Stirk Harbour + Partners"
     ],
     "yr": 2012,
-    "access": "Private",
+    "access": "private",
     "lat": 51.5071626,
     "lng": -0.1013352,
     "addr": "Unit A, 52 Holland St, London SE1 9NX",
@@ -714,13 +714,13 @@ var LOCS_LONDON = [
     "transit": "Jubilee Northern → Southwark (7 min) · District Circle → Blackfriars (8 min)",
     "walkFrom": "Tate Modern: 2 min · Shakespeare's Globe: 4 min · Millennium Bridge: 5 min",
     "tags": [
-      "Rogers Stirk Harbour + Partners",
-      "Richard Rogers",
-      "Residential",
-      "Bankside",
-      "South Bank",
-      "Transparency",
-      "Tate Modern"
+      "rogers stirk harbour + partners",
+      "richard rogers",
+      "residential",
+      "bankside",
+      "south bank",
+      "transparency",
+      "tate modern"
     ],
     "photos": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/NEO_Bankside%2C_London.jpg?width=800",
@@ -733,12 +733,12 @@ var LOCS_LONDON = [
     "id": "lon-0016",
     "name": "Montevetro",
     "cats": [
-      "Residential",
-      "Landmarks"
+      "residential",
+      "landmarks"
     ],
     "cc": "c-res",
     "styleGroups": [
-      "Contemporary"
+      "contemporary"
     ],
     "era": "1970–1999",
     "city": "london",
@@ -747,7 +747,7 @@ var LOCS_LONDON = [
       "Richard Rogers Partnership"
     ],
     "yr": 1999,
-    "access": "Private",
+    "access": "private",
     "lat": 51.4783406,
     "lng": -0.146702,
     "addr": "12 Palmer Rd, Nine Elms, London SW11 4FQ",
@@ -761,11 +761,11 @@ var LOCS_LONDON = [
     "transit": "Overground → Clapham Junction (15 min walk) · Bus 344 → Battersea Church Road",
     "walkFrom": "Battersea Power Station: 12 min · Chelsea Bridge: 10 min",
     "tags": [
-      "Richard Rogers",
-      "Residential",
-      "Battersea",
-      "Thames",
-      "Glass",
+      "richard rogers",
+      "residential",
+      "battersea",
+      "thames",
+      "glass",
       "1999"
     ],
     "photos": []
@@ -774,12 +774,12 @@ var LOCS_LONDON = [
     "id": "lon-0017",
     "name": "Chiswick Business Park",
     "cats": [
-      "Commercial",
-      "Landmarks"
+      "commercial",
+      "landmarks"
     ],
     "cc": "c-lmk",
     "styleGroups": [
-      "Contemporary"
+      "contemporary"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -788,7 +788,7 @@ var LOCS_LONDON = [
       "Richard Rogers Partnership"
     ],
     "yr": 2000,
-    "access": "Free Admission",
+    "access": "free admission",
     "lat": 51.49325570000001,
     "lng": -0.2739302,
     "addr": "566 Chiswick High Rd., Chiswick, London W4 5AN",
@@ -802,13 +802,13 @@ var LOCS_LONDON = [
     "transit": "District → Gunnersbury or Chiswick Park (10–15 min walk)",
     "walkFrom": "Gunnersbury Station: 12 min · Kew Bridge: 15 min",
     "tags": [
-      "Richard Rogers",
-      "Business Park",
-      "Chiswick",
-      "Campus",
-      "Landscape",
-      "Lake",
-      "West London"
+      "richard rogers",
+      "business park",
+      "chiswick",
+      "campus",
+      "landscape",
+      "lake",
+      "west london"
     ],
     "photos": []
   },
@@ -816,14 +816,14 @@ var LOCS_LONDON = [
     "id": "lon-0018",
     "name": "The Shard",
     "cats": [
-      "Skyscrapers",
-      "Landmarks",
-      "Commercial"
+      "skyscrapers",
+      "landmarks",
+      "commercial"
     ],
     "cc": "c-sky",
     "styleGroups": [
-      "Contemporary",
-      "High-Tech"
+      "contemporary",
+      "high-tech"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -832,7 +832,7 @@ var LOCS_LONDON = [
       "Renzo Piano Building Workshop"
     ],
     "yr": 2012,
-    "access": "Paid Ticket",
+    "access": "paid ticket",
     "lat": 51.5048337,
     "lng": -0.08725809999999999,
     "addr": "32 London Bridge St, London SE1 9SG",
@@ -846,12 +846,12 @@ var LOCS_LONDON = [
     "transit": "Jubilee Northern → London Bridge (adjacent)",
     "walkFrom": "London Bridge Station: 2 min · Borough Market: 4 min · Tate Modern: 12 min",
     "tags": [
-      "Renzo Piano",
-      "Supertall",
-      "London Bridge",
-      "South Bank",
-      "Viewing Gallery",
-      "Mixed-Use"
+      "renzo piano",
+      "supertall",
+      "london bridge",
+      "south bank",
+      "viewing gallery",
+      "mixed-use"
     ],
     "photos": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/The_Shard_from_the_south.jpg?width=800",
@@ -862,13 +862,13 @@ var LOCS_LONDON = [
     "id": "lon-0019",
     "name": "Coal Drops Yard",
     "cats": [
-      "Landmarks",
-      "Retail"
+      "landmarks",
+      "retail"
     ],
     "cc": "c-lmk",
     "styleGroups": [
-      "Contemporary",
-      "Adaptive Reuse"
+      "contemporary",
+      "adaptive reuse"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -877,7 +877,7 @@ var LOCS_LONDON = [
       "Heatherwick Studio"
     ],
     "yr": 2018,
-    "access": "Open to Public",
+    "access": "open to public",
     "lat": 51.5360313,
     "lng": -0.12655239999999998,
     "addr": "Stable St, London N1C 4LW",
@@ -891,13 +891,13 @@ var LOCS_LONDON = [
     "transit": "Victoria Metropolitan Northern Piccadilly Circle Hammersmith → King's Cross St Pancras",
     "walkFrom": "King's Cross Station: 8 min · St Pancras International: 8 min · Granary Square: 2 min",
     "tags": [
-      "Heatherwick Studio",
-      "Thomas Heatherwick",
-      "Adaptive Reuse",
-      "King's Cross",
-      "Retail",
-      "Victorian Heritage",
-      "Roof"
+      "heatherwick studio",
+      "thomas heatherwick",
+      "adaptive reuse",
+      "king's cross",
+      "retail",
+      "victorian heritage",
+      "roof"
     ],
     "photos": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/Coal_Drops_Yard_London_2018.jpg?width=800",
@@ -908,14 +908,14 @@ var LOCS_LONDON = [
     "id": "lon-0020",
     "name": "Rolling Bridge",
     "cats": [
-      "Landmarks",
-      "Public",
-      "Infrastructure"
+      "landmarks",
+      "public",
+      "infrastructure"
     ],
     "cc": "c-lmk",
     "styleGroups": [
-      "Contemporary",
-      "High-Tech"
+      "contemporary",
+      "high-tech"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -924,7 +924,7 @@ var LOCS_LONDON = [
       "Heatherwick Studio"
     ],
     "yr": 2004,
-    "access": "Open to Public",
+    "access": "open to public",
     "lat": 51.518407,
     "lng": -0.1746882,
     "addr": "S Wharf Rd, London W2 1NW",
@@ -938,13 +938,13 @@ var LOCS_LONDON = [
     "transit": "Bakerloo Circle District Hammersmith → Paddington",
     "walkFrom": "Paddington Station: 5 min",
     "tags": [
-      "Heatherwick Studio",
-      "Thomas Heatherwick",
-      "Bridge",
-      "Kinetic",
-      "Paddington",
-      "Public Art",
-      "Engineering"
+      "heatherwick studio",
+      "thomas heatherwick",
+      "bridge",
+      "kinetic",
+      "paddington",
+      "public art",
+      "engineering"
     ],
     "photos": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/Rolling_Bridge_Paddington.jpg?width=800"
@@ -954,13 +954,13 @@ var LOCS_LONDON = [
     "id": "lon-0021",
     "name": "Google UK HQ (King's Cross)",
     "cats": [
-      "Commercial",
-      "Landmarks"
+      "commercial",
+      "landmarks"
     ],
     "cc": "c-lmk",
     "styleGroups": [
-      "Contemporary",
-      "High-Tech"
+      "contemporary",
+      "high-tech"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -970,7 +970,7 @@ var LOCS_LONDON = [
       "BIG (Bjarke Ingels Group)"
     ],
     "yr": 2024,
-    "access": "Open to Public",
+    "access": "open to public",
     "lat": 51.53326089999999,
     "lng": -0.1260032,
     "addr": "6 Pancras Sq, London N1C 4AG",
@@ -984,12 +984,12 @@ var LOCS_LONDON = [
     "transit": "Victoria Metropolitan Northern Piccadilly Circle Hammersmith → King's Cross St Pancras",
     "walkFrom": "King's Cross Station: 7 min · Coal Drops Yard: 3 min · Granary Square: 4 min",
     "tags": [
-      "Heatherwick Studio",
-      "BIG",
-      "Google",
-      "King's Cross",
-      "Aluminium Fins",
-      "Rooftop Garden"
+      "heatherwick studio",
+      "big",
+      "google",
+      "king's cross",
+      "aluminium fins",
+      "rooftop garden"
     ],
     "photos": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/Google_Kings_Cross_HQ.jpg?width=800"
@@ -999,12 +999,12 @@ var LOCS_LONDON = [
     "id": "lon-0022",
     "name": "Lisson Gallery Bell Street",
     "cats": [
-      "Cultural",
-      "Commercial"
+      "cultural",
+      "commercial"
     ],
     "cc": "c-cul",
     "styleGroups": [
-      "Contemporary"
+      "contemporary"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -1013,7 +1013,7 @@ var LOCS_LONDON = [
       "Tadao Ando"
     ],
     "yr": 1992,
-    "access": "Free Admission",
+    "access": "free admission",
     "lat": 51.5209753,
     "lng": -0.1695168,
     "addr": "27 Bell St, London NW1 5BY",
@@ -1027,12 +1027,12 @@ var LOCS_LONDON = [
     "transit": "Bakerloo → Marylebone · Jubilee → Baker Street",
     "walkFrom": "Marylebone Station: 8 min · Baker Street: 10 min",
     "tags": [
-      "Tadao Ando",
-      "Gallery",
-      "Concrete",
-      "Marylebone",
-      "Adaptive Reuse",
-      "Contemporary Art"
+      "tadao ando",
+      "gallery",
+      "concrete",
+      "marylebone",
+      "adaptive reuse",
+      "contemporary art"
     ],
     "photos": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/Lisson_Gallery_London_Ando.jpg?width=800"
@@ -1042,14 +1042,14 @@ var LOCS_LONDON = [
     "id": "lon-0023",
     "name": "Tower of London",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "Cultural"
+      "historic",
+      "landmarks",
+      "cultural"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Medieval",
-      "Norman"
+      "medieval",
+      "norman"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1060,7 +1060,7 @@ var LOCS_LONDON = [
       "Tudor"
     ],
     "yr": 1078,
-    "access": "Paid Admission",
+    "access": "paid admission",
     "lat": 51.5081,
     "lng": -0.0759,
     "addr": "Tower of London, London EC3N 4AB",
@@ -1074,16 +1074,16 @@ var LOCS_LONDON = [
     "transit": "Tower Hill (Circle, District, DLR lines); riverside access via Thames Path",
     "walkFrom": "St Katharine Docks (5 min), London Bridge (15 min), Bank (15 min)",
     "tags": [
-      "Norman",
-      "William the Conqueror",
-      "Medieval",
-      "Royal",
-      "Crown Jewels",
-      "UNESCO WHS",
-      "Grade I",
-      "White Tower",
-      "Historic England",
-      "City of London"
+      "norman",
+      "william the conqueror",
+      "medieval",
+      "royal",
+      "crown jewels",
+      "unesco whs",
+      "grade i",
+      "white tower",
+      "historic england",
+      "city of london"
     ],
     "photos": []
   },
@@ -1091,13 +1091,13 @@ var LOCS_LONDON = [
     "id": "lon-0024",
     "name": "Palace of Westminster",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "Government"
+      "historic",
+      "landmarks",
+      "government"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Gothic Revival"
+      "gothic revival"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1107,7 +1107,7 @@ var LOCS_LONDON = [
       "Victorian"
     ],
     "yr": 1870,
-    "access": "Guided Tours / Parliament in Session",
+    "access": "guided tours / parliament in session",
     "lat": 51.4995,
     "lng": -0.1248,
     "addr": "Palace of Westminster, Westminster, London SW1A 0AA",
@@ -1121,16 +1121,16 @@ var LOCS_LONDON = [
     "transit": "Westminster (Circle, District, Jubilee lines); Embankment (District, Northern, Circle, Bakerloo)",
     "walkFrom": "Westminster Abbey (2 min), Big Ben (adjacent), St James's Park (5 min)",
     "tags": [
-      "Victorian",
-      "Gothic Revival",
-      "Charles Barry",
-      "Augustus Pugin",
-      "Big Ben",
-      "Elizabeth Tower",
-      "UNESCO WHS",
-      "Grade I",
-      "Government",
-      "Westminster"
+      "victorian",
+      "gothic revival",
+      "charles barry",
+      "augustus pugin",
+      "big ben",
+      "elizabeth tower",
+      "unesco whs",
+      "grade i",
+      "government",
+      "westminster"
     ],
     "photos": []
   },
@@ -1138,14 +1138,14 @@ var LOCS_LONDON = [
     "id": "lon-0025",
     "name": "Westminster Abbey",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "Religious"
+      "historic",
+      "landmarks",
+      "religious"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Gothic",
-      "Medieval"
+      "gothic",
+      "medieval"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1155,7 +1155,7 @@ var LOCS_LONDON = [
       "Medieval"
     ],
     "yr": 1245,
-    "access": "Paid Admission",
+    "access": "paid admission",
     "lat": 51.4993,
     "lng": -0.1273,
     "addr": "Westminster Abbey, London SW1P 3PA",
@@ -1169,16 +1169,16 @@ var LOCS_LONDON = [
     "transit": "Westminster (Circle, District, Jubilee lines); St James's Park (District, Circle lines)",
     "walkFrom": "Palace of Westminster (2 min), St James's Park (5 min), Victoria Street (2 min)",
     "tags": [
-      "Gothic",
-      "Medieval",
-      "Henry III",
-      "Perpendicular Gothic",
-      "Royal tombs",
-      "UNESCO WHS",
-      "Grade I",
-      "Westminster",
-      "Nicholas Hawksmoor",
-      "Church"
+      "gothic",
+      "medieval",
+      "henry iii",
+      "perpendicular gothic",
+      "royal tombs",
+      "unesco whs",
+      "grade i",
+      "westminster",
+      "nicholas hawksmoor",
+      "church"
     ],
     "photos": []
   },
@@ -1186,14 +1186,14 @@ var LOCS_LONDON = [
     "id": "lon-0026",
     "name": "Old Royal Naval College, Greenwich",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "Naval"
+      "historic",
+      "landmarks",
+      "naval"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Baroque",
-      "English Baroque"
+      "baroque",
+      "english baroque"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1203,7 +1203,7 @@ var LOCS_LONDON = [
       "English Baroque"
     ],
     "yr": 1712,
-    "access": "Free & Paid Tours",
+    "access": "free & paid tours",
     "lat": 51.4834,
     "lng": -0.0064,
     "addr": "Old Royal Naval College, Park Row, Greenwich, London SE10 9NN",
@@ -1217,15 +1217,15 @@ var LOCS_LONDON = [
     "transit": "Cutty Sark DLR or Greenwich (Jubilee line extension via London Bridge)",
     "walkFrom": "Greenwich Park (uphill 10 min), Cutty Sark (5 min), Greenwich Market (5 min)",
     "tags": [
-      "Baroque",
-      "Christopher Wren",
-      "Nicholas Hawksmoor",
-      "Painted Hall",
-      "Naval",
-      "UNESCO WHS",
-      "Grade I",
-      "Thames",
-      "Maritime Greenwich"
+      "baroque",
+      "christopher wren",
+      "nicholas hawksmoor",
+      "painted hall",
+      "naval",
+      "unesco whs",
+      "grade i",
+      "thames",
+      "maritime greenwich"
     ],
     "photos": []
   },
@@ -1233,14 +1233,14 @@ var LOCS_LONDON = [
     "id": "lon-0027",
     "name": "Queen's House, Greenwich",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "Royal"
+      "historic",
+      "landmarks",
+      "royal"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Palladian",
-      "Renaissance"
+      "palladian",
+      "renaissance"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1250,7 +1250,7 @@ var LOCS_LONDON = [
       "Renaissance"
     ],
     "yr": 1616,
-    "access": "Free Entry (National Maritime Museum)",
+    "access": "free entry (national maritime museum)",
     "lat": 51.481,
     "lng": -0.0038,
     "addr": "Queen's House, Greenwich, London SE10 9NF",
@@ -1264,16 +1264,16 @@ var LOCS_LONDON = [
     "transit": "Cutty Sark DLR or Greenwich (Jubilee line extension)",
     "walkFrom": "Greenwich Park (uphill 5 min), Cutty Sark (2 min), Old Royal Naval College (2 min)",
     "tags": [
-      "Palladian",
-      "Inigo Jones",
-      "Renaissance",
-      "Stuart",
-      "Caroline",
-      "Royal",
-      "Grade I",
-      "Tulip Staircase",
-      "Greenwich",
-      "Neoclassical"
+      "palladian",
+      "inigo jones",
+      "renaissance",
+      "stuart",
+      "caroline",
+      "royal",
+      "grade i",
+      "tulip staircase",
+      "greenwich",
+      "neoclassical"
     ],
     "photos": []
   },
@@ -1281,14 +1281,14 @@ var LOCS_LONDON = [
     "id": "lon-0028",
     "name": "Royal Botanic Gardens, Kew",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "Gardens"
+      "historic",
+      "landmarks",
+      "gardens"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Victorian",
-      "Glass Architecture"
+      "victorian",
+      "glass architecture"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1298,7 +1298,7 @@ var LOCS_LONDON = [
       "Iron & Glass"
     ],
     "yr": 1848,
-    "access": "Paid Admission",
+    "access": "paid admission",
     "lat": 51.4787,
     "lng": -0.2956,
     "addr": "Royal Botanic Gardens, Kew, Richmond, London TW9 3AE",
@@ -1312,16 +1312,16 @@ var LOCS_LONDON = [
     "transit": "Kew Bridge (District line, London Overground); Kew Gardens (District line)",
     "walkFrom": "Kew Bridge (5 min walk), Richmond (riverside path 30 min)",
     "tags": [
-      "Victorian",
-      "Decimus Burton",
-      "Glass architecture",
-      "Palm House",
-      "Temperate House",
-      "UNESCO WHS",
-      "Grade I",
-      "Botanical",
-      "Gardens",
-      "Richmond"
+      "victorian",
+      "decimus burton",
+      "glass architecture",
+      "palm house",
+      "temperate house",
+      "unesco whs",
+      "grade i",
+      "botanical",
+      "gardens",
+      "richmond"
     ],
     "photos": []
   },
@@ -1329,14 +1329,14 @@ var LOCS_LONDON = [
     "id": "lon-0029",
     "name": "St Paul's Cathedral",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "Religious"
+      "historic",
+      "landmarks",
+      "religious"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Baroque",
-      "English Baroque"
+      "baroque",
+      "english baroque"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1346,7 +1346,7 @@ var LOCS_LONDON = [
       "English Baroque"
     ],
     "yr": 1675,
-    "access": "Paid Admission",
+    "access": "paid admission",
     "lat": 51.5138,
     "lng": -0.0984,
     "addr": "St Paul's Cathedral, London EC4M 8AD",
@@ -1360,15 +1360,15 @@ var LOCS_LONDON = [
     "transit": "St Paul's (Circle, Metropolitan lines); Bank (Circle, Northern, District lines)",
     "walkFrom": "Museum of London (2 min), Millennium Bridge (2 min), Bank of England (5 min)",
     "tags": [
-      "Baroque",
-      "Christopher Wren",
-      "English Baroque",
-      "Dome",
-      "Great Fire",
-      "Grade I",
-      "City of London",
-      "Religious",
-      "Grinling Gibbons"
+      "baroque",
+      "christopher wren",
+      "english baroque",
+      "dome",
+      "great fire",
+      "grade i",
+      "city of london",
+      "religious",
+      "grinling gibbons"
     ],
     "photos": []
   },
@@ -1376,14 +1376,14 @@ var LOCS_LONDON = [
     "id": "lon-0030",
     "name": "Buckingham Palace",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "Royal"
+      "historic",
+      "landmarks",
+      "royal"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Neoclassical",
-      "Georgian"
+      "neoclassical",
+      "georgian"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1394,7 +1394,7 @@ var LOCS_LONDON = [
       "Edwardian"
     ],
     "yr": 1825,
-    "access": "Summer Tours / Limited Access",
+    "access": "summer tours / limited access",
     "lat": 51.5014,
     "lng": -0.1419,
     "addr": "Buckingham Palace, London SW1A 1AA",
@@ -1408,16 +1408,16 @@ var LOCS_LONDON = [
     "transit": "Victoria (District, Circle, Northern, Hammersmith & City lines); Green Park (Jubilee, Victoria, Piccadilly)",
     "walkFrom": "St James's Park (adjacent), Green Park (2 min), Westminster (10 min)",
     "tags": [
-      "Neoclassical",
-      "Georgian",
-      "John Nash",
-      "Edward Blore",
-      "Aston Webb",
-      "Royal",
-      "Grade I",
-      "Westminster",
-      "Monarchy",
-      "State Rooms"
+      "neoclassical",
+      "georgian",
+      "john nash",
+      "edward blore",
+      "aston webb",
+      "royal",
+      "grade i",
+      "westminster",
+      "monarchy",
+      "state rooms"
     ],
     "photos": []
   },
@@ -1425,14 +1425,14 @@ var LOCS_LONDON = [
     "id": "lon-0031",
     "name": "Banqueting House",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "Royal"
+      "historic",
+      "landmarks",
+      "royal"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Palladian",
-      "Renaissance"
+      "palladian",
+      "renaissance"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1442,7 +1442,7 @@ var LOCS_LONDON = [
       "Renaissance"
     ],
     "yr": 1622,
-    "access": "Paid Admission",
+    "access": "paid admission",
     "lat": 51.5041,
     "lng": -0.126,
     "addr": "Banqueting House, Whitehall, London SW1A 2ER",
@@ -1456,16 +1456,16 @@ var LOCS_LONDON = [
     "transit": "Embankment (District, Circle, Bakerloo lines); Westminster (Circle, District, Jubilee)",
     "walkFrom": "Palace of Westminster (5 min), Trafalgar Square (3 min), Thames (2 min)",
     "tags": [
-      "Palladian",
-      "Inigo Jones",
-      "Renaissance",
-      "Stuart",
-      "Rubens ceiling",
-      "Grade I",
-      "Whitehall",
-      "Royal",
-      "Charles I",
-      "Historic England"
+      "palladian",
+      "inigo jones",
+      "renaissance",
+      "stuart",
+      "rubens ceiling",
+      "grade i",
+      "whitehall",
+      "royal",
+      "charles i",
+      "historic england"
     ],
     "photos": []
   },
@@ -1473,14 +1473,14 @@ var LOCS_LONDON = [
     "id": "lon-0032",
     "name": "Tower Bridge",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "Engineering"
+      "historic",
+      "landmarks",
+      "engineering"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Victorian Gothic",
-      "Victorian Engineering"
+      "victorian gothic",
+      "victorian engineering"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1490,7 +1490,7 @@ var LOCS_LONDON = [
       "Engineering"
     ],
     "yr": 1886,
-    "access": "Paid Admission",
+    "access": "paid admission",
     "lat": 51.5055,
     "lng": -0.0754,
     "addr": "Tower Bridge, London SE1 2UP",
@@ -1504,16 +1504,16 @@ var LOCS_LONDON = [
     "transit": "Tower Hill (Circle, District, DLR lines); London Bridge (District, Jubilee, Northern lines)",
     "walkFrom": "Tower of London (adjacent), London Bridge (1 min), St Katharine Docks (5 min)",
     "tags": [
-      "Victorian Gothic",
-      "Horace Jones",
-      "John Wolfe Barry",
-      "Hydraulic engineering",
-      "Bascule bridge",
-      "Grade I",
-      "Thames",
-      "Iconic",
-      "Engineering",
-      "Tower Hill"
+      "victorian gothic",
+      "horace jones",
+      "john wolfe barry",
+      "hydraulic engineering",
+      "bascule bridge",
+      "grade i",
+      "thames",
+      "iconic",
+      "engineering",
+      "tower hill"
     ],
     "photos": []
   },
@@ -1521,14 +1521,14 @@ var LOCS_LONDON = [
     "id": "lon-0033",
     "name": "Eltham Palace",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "Royal"
+      "historic",
+      "landmarks",
+      "royal"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Medieval",
-      "Art Deco"
+      "medieval",
+      "art deco"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1538,7 +1538,7 @@ var LOCS_LONDON = [
       "Art Deco"
     ],
     "yr": 1475,
-    "access": "Paid Admission",
+    "access": "paid admission",
     "lat": 51.4504,
     "lng": 0.0508,
     "addr": "Eltham Palace, Court Yard, London SE9 5QE",
@@ -1552,16 +1552,16 @@ var LOCS_LONDON = [
     "transit": "Eltham (District line)",
     "walkFrom": "Eltham High Street (10 min walk)",
     "tags": [
-      "Medieval",
-      "Edward IV",
-      "Great Hall",
-      "Art Deco",
-      "Stephen Courtauld",
-      "Virginia Courtauld",
-      "English Heritage",
-      "Tudor",
-      "Gardens",
-      "Eltham"
+      "medieval",
+      "edward iv",
+      "great hall",
+      "art deco",
+      "stephen courtauld",
+      "virginia courtauld",
+      "english heritage",
+      "tudor",
+      "gardens",
+      "eltham"
     ],
     "photos": []
   },
@@ -1569,14 +1569,14 @@ var LOCS_LONDON = [
     "id": "lon-0034",
     "name": "Kenwood House",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "Neoclassical"
+      "historic",
+      "landmarks",
+      "neoclassical"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Neoclassical",
-      "Georgian"
+      "neoclassical",
+      "georgian"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1586,7 +1586,7 @@ var LOCS_LONDON = [
       "Georgian"
     ],
     "yr": 1764,
-    "access": "Free Entry",
+    "access": "free entry",
     "lat": 51.5716,
     "lng": -0.1669,
     "addr": "Kenwood House, Hampstead Lane, London NW3 7JR",
@@ -1600,16 +1600,16 @@ var LOCS_LONDON = [
     "transit": "Golders Green (Northern line) + bus 210; Hampstead Heath (overland)",
     "walkFrom": "Hampstead Heath (adjacent), Hampstead village (15 min walk downhill)",
     "tags": [
-      "Neoclassical",
-      "Robert Adam",
-      "Georgian",
-      "Library",
-      "Old Masters",
-      "English Heritage",
-      "Hampstead",
-      "Hampstead Heath",
-      "Rembrandt",
-      "Vermeer"
+      "neoclassical",
+      "robert adam",
+      "georgian",
+      "library",
+      "old masters",
+      "english heritage",
+      "hampstead",
+      "hampstead heath",
+      "rembrandt",
+      "vermeer"
     ],
     "photos": []
   },
@@ -1617,14 +1617,14 @@ var LOCS_LONDON = [
     "id": "lon-0035",
     "name": "Apsley House",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "Museum"
+      "historic",
+      "landmarks",
+      "museum"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Neoclassical",
-      "Georgian"
+      "neoclassical",
+      "georgian"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1635,7 +1635,7 @@ var LOCS_LONDON = [
       "Regency"
     ],
     "yr": 1771,
-    "access": "Paid Admission",
+    "access": "paid admission",
     "lat": 51.5027,
     "lng": -0.1512,
     "addr": "Apsley House, 149 Piccadilly, London W1J 7NT",
@@ -1649,16 +1649,16 @@ var LOCS_LONDON = [
     "transit": "Hyde Park Corner (Piccadilly line); Knightsbridge (Piccadilly, District lines)",
     "walkFrom": "Hyde Park (adjacent), Green Park (3 min), Ritz Hotel (2 min)",
     "tags": [
-      "Neoclassical",
-      "Robert Adam",
-      "Georgian",
-      "Benjamin Dean Wyatt",
-      "Waterloo Gallery",
-      "Wellington",
-      "English Heritage",
-      "Grade I",
-      "Old Masters",
-      "Piccadilly"
+      "neoclassical",
+      "robert adam",
+      "georgian",
+      "benjamin dean wyatt",
+      "waterloo gallery",
+      "wellington",
+      "english heritage",
+      "grade i",
+      "old masters",
+      "piccadilly"
     ],
     "photos": []
   },
@@ -1666,14 +1666,14 @@ var LOCS_LONDON = [
     "id": "lon-0036",
     "name": "Wellington Arch",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "Monument"
+      "historic",
+      "landmarks",
+      "monument"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Neoclassical",
-      "Georgian"
+      "neoclassical",
+      "georgian"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1683,7 +1683,7 @@ var LOCS_LONDON = [
       "Georgian"
     ],
     "yr": 1826,
-    "access": "Free to View / Paid Gallery Entry",
+    "access": "free to view / paid gallery entry",
     "lat": 51.5025,
     "lng": -0.1505,
     "addr": "Wellington Arch, Hyde Park Corner, London W1J 7JZ",
@@ -1697,16 +1697,16 @@ var LOCS_LONDON = [
     "transit": "Hyde Park Corner (Piccadilly line)",
     "walkFrom": "Apsley House (30 sec), Green Park (2 min), Knightsbridge (3 min)",
     "tags": [
-      "Neoclassical",
-      "Decimus Burton",
-      "Georgian",
-      "Wellington",
-      "Waterloo",
-      "Triumphal arch",
-      "English Heritage",
-      "Grade I",
-      "Monument",
-      "Hyde Park Corner"
+      "neoclassical",
+      "decimus burton",
+      "georgian",
+      "wellington",
+      "waterloo",
+      "triumphal arch",
+      "english heritage",
+      "grade i",
+      "monument",
+      "hyde park corner"
     ],
     "photos": []
   },
@@ -1714,14 +1714,14 @@ var LOCS_LONDON = [
     "id": "lon-0037",
     "name": "Ham House and Garden",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "National Trust"
+      "historic",
+      "landmarks",
+      "national trust"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Stuart",
-      "Baroque"
+      "stuart",
+      "baroque"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1731,7 +1731,7 @@ var LOCS_LONDON = [
       "Baroque"
     ],
     "yr": 1610,
-    "access": "Paid Admission",
+    "access": "paid admission",
     "lat": 51.4387,
     "lng": -0.3155,
     "addr": "Ham House, Ham Street, Richmond, London TW10 7RS",
@@ -1745,16 +1745,16 @@ var LOCS_LONDON = [
     "transit": "Richmond (District, Overground lines) + bus or riverside walk (40 min)",
     "walkFrom": "Richmond town center (3 km), Richmond Park (adjacent)",
     "tags": [
-      "Stuart",
-      "Baroque",
-      "National Trust",
-      "Restoration",
-      "Duke of Lauderdale",
-      "Tijou ironwork",
-      "Gardens",
-      "Richmond",
-      "Terrace",
-      "Grade I"
+      "stuart",
+      "baroque",
+      "national trust",
+      "restoration",
+      "duke of lauderdale",
+      "tijou ironwork",
+      "gardens",
+      "richmond",
+      "terrace",
+      "grade i"
     ],
     "photos": []
   },
@@ -1762,14 +1762,14 @@ var LOCS_LONDON = [
     "id": "lon-0038",
     "name": "Osterley Park and House",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "National Trust"
+      "historic",
+      "landmarks",
+      "national trust"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Neoclassical",
-      "Georgian"
+      "neoclassical",
+      "georgian"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1779,7 +1779,7 @@ var LOCS_LONDON = [
       "Georgian"
     ],
     "yr": 1761,
-    "access": "Paid Admission",
+    "access": "paid admission",
     "lat": 51.4815,
     "lng": -0.3555,
     "addr": "Osterley Park and House, Jersey Road, Isleworth, London TW7 4RB",
@@ -1793,16 +1793,16 @@ var LOCS_LONDON = [
     "transit": "Osterley (Piccadilly line); Kew Bridge (District, Overground lines)",
     "walkFrom": "Kew Bridge (15 min walk), River Thames path (adjacent)",
     "tags": [
-      "Neoclassical",
-      "Robert Adam",
-      "Georgian",
-      "National Trust",
-      "Etruscan Room",
-      "Library",
-      "Grade I",
-      "Isleworth",
-      "Suburban",
-      "Country house"
+      "neoclassical",
+      "robert adam",
+      "georgian",
+      "national trust",
+      "etruscan room",
+      "library",
+      "grade i",
+      "isleworth",
+      "suburban",
+      "country house"
     ],
     "photos": []
   },
@@ -1810,14 +1810,14 @@ var LOCS_LONDON = [
     "id": "lon-0039",
     "name": "Red House",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "Arts and Crafts"
+      "historic",
+      "landmarks",
+      "arts and crafts"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Arts and Crafts",
-      "Victorian"
+      "arts and crafts",
+      "victorian"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1827,7 +1827,7 @@ var LOCS_LONDON = [
       "Victorian"
     ],
     "yr": 1859,
-    "access": "Paid Admission",
+    "access": "paid admission",
     "lat": 51.4434,
     "lng": 0.1432,
     "addr": "Red House, 13 Kelmscott Road, Bexleyheath, London DA6 8JF",
@@ -1841,16 +1841,16 @@ var LOCS_LONDON = [
     "transit": "Bexleyheath (District line)",
     "walkFrom": "Bexleyheath town center (10 min walk)",
     "tags": [
-      "Arts and Crafts",
-      "William Morris",
-      "Philip Webb",
-      "Victorian",
-      "National Trust",
-      "Grade I",
-      "Design",
-      "Bexleyheath",
-      "Pre-Raphaelite",
-      "Red brick"
+      "arts and crafts",
+      "william morris",
+      "philip webb",
+      "victorian",
+      "national trust",
+      "grade i",
+      "design",
+      "bexleyheath",
+      "pre-raphaelite",
+      "red brick"
     ],
     "photos": []
   },
@@ -1858,14 +1858,14 @@ var LOCS_LONDON = [
     "id": "lon-0040",
     "name": "Fenton House",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "National Trust"
+      "historic",
+      "landmarks",
+      "national trust"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Georgian",
-      "William & Mary"
+      "georgian",
+      "william & mary"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1875,7 +1875,7 @@ var LOCS_LONDON = [
       "William & Mary"
     ],
     "yr": 1686,
-    "access": "Paid Admission",
+    "access": "paid admission",
     "lat": 51.5588,
     "lng": -0.1773,
     "addr": "Fenton House, Windmill Hill, Hampstead, London NW3 6SP",
@@ -1889,16 +1889,16 @@ var LOCS_LONDON = [
     "transit": "Hampstead (Northern line)",
     "walkFrom": "Hampstead village (5 min walk), Hampstead Heath (adjacent)",
     "tags": [
-      "Georgian",
-      "William and Mary",
+      "georgian",
+      "william and mary",
       "1686",
-      "Merchant house",
-      "National Trust",
-      "Grade I",
-      "Hampstead",
-      "Porcelain",
-      "Collection",
-      "Terraced garden"
+      "merchant house",
+      "national trust",
+      "grade i",
+      "hampstead",
+      "porcelain",
+      "collection",
+      "terraced garden"
     ],
     "photos": []
   },
@@ -1906,14 +1906,14 @@ var LOCS_LONDON = [
     "id": "lon-0041",
     "name": "Sutton House",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "National Trust"
+      "historic",
+      "landmarks",
+      "national trust"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Tudor",
-      "Renaissance"
+      "tudor",
+      "renaissance"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1923,7 +1923,7 @@ var LOCS_LONDON = [
       "Renaissance"
     ],
     "yr": 1535,
-    "access": "Paid Admission",
+    "access": "paid admission",
     "lat": 51.5474,
     "lng": -0.0476,
     "addr": "Sutton House, 2–4 Homerton High Street, Hackney, London E9 6JQ",
@@ -1937,16 +1937,16 @@ var LOCS_LONDON = [
     "transit": "Hackney Central (Overground); Hackney Downs (Overground); Homerton (Overground)",
     "walkFrom": "Hackney High Street (adjacent), Hackney Marshes (15 min walk)",
     "tags": [
-      "Tudor",
+      "tudor",
       "1535",
-      "Ralph Sadleir",
-      "National Trust",
-      "Grade II*",
-      "Hackney",
-      "East London",
-      "Community",
-      "Timber-framed",
-      "Oldest domestic"
+      "ralph sadleir",
+      "national trust",
+      "grade ii*",
+      "hackney",
+      "east london",
+      "community",
+      "timber-framed",
+      "oldest domestic"
     ],
     "photos": []
   },
@@ -1954,14 +1954,14 @@ var LOCS_LONDON = [
     "id": "lon-0042",
     "name": "Jewel Tower",
     "cats": [
-      "Historic",
-      "Landmarks",
-      "Medieval"
+      "historic",
+      "landmarks",
+      "medieval"
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Medieval",
-      "Plantagenet"
+      "medieval",
+      "plantagenet"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -1971,7 +1971,7 @@ var LOCS_LONDON = [
       "Plantagenet"
     ],
     "yr": 1365,
-    "access": "Paid Admission",
+    "access": "paid admission",
     "lat": 51.4977,
     "lng": -0.1258,
     "addr": "Jewel Tower, Abingdon Street, Westminster, London SW1P 3JX",
@@ -1985,16 +1985,16 @@ var LOCS_LONDON = [
     "transit": "Westminster (Circle, District, Jubilee lines); St James's Park (District, Circle lines)",
     "walkFrom": "Palace of Westminster (3 min), St James's Park (2 min), Tate Britain (5 min)",
     "tags": [
-      "Medieval",
-      "Edward III",
+      "medieval",
+      "edward iii",
       "1365",
-      "Palace of Westminster",
-      "Plantagenet",
-      "English Heritage",
-      "Grade I",
-      "Westminster",
-      "Crown Jewels",
-      "Survivor"
+      "palace of westminster",
+      "plantagenet",
+      "english heritage",
+      "grade i",
+      "westminster",
+      "crown jewels",
+      "survivor"
     ],
     "photos": []
   },
@@ -2007,8 +2007,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Colonial",
-      "Coaching Inn"
+      "colonial",
+      "coaching inn"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -2017,7 +2017,7 @@ var LOCS_LONDON = [
       "Unknown"
     ],
     "yr": 1677,
-    "access": "Public (food & drink only)",
+    "access": "public (food & drink only)",
     "lat": 51.5048,
     "lng": -0.0888,
     "addr": "77 Borough High Street, Southwark, SE1 1NH",
@@ -2049,8 +2049,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Roman",
-      "Medieval"
+      "roman",
+      "medieval"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -2060,7 +2060,7 @@ var LOCS_LONDON = [
       "Medieval"
     ],
     "yr": 200,
-    "access": "Public (outdoor)",
+    "access": "public (outdoor)",
     "lat": 51.513,
     "lng": -0.0765,
     "addr": "Multiple sections around City of London; best preserved at Tower Hill, EC3N 4AB",
@@ -2092,8 +2092,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-com",
     "styleGroups": [
-      "Neoclassical",
-      "Victorian"
+      "neoclassical",
+      "victorian"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -2102,7 +2102,7 @@ var LOCS_LONDON = [
       "William Tite"
     ],
     "yr": 1844,
-    "access": "Public (shopping only)",
+    "access": "public (shopping only)",
     "lat": 51.5134,
     "lng": -0.0876,
     "addr": "Royal Exchange, City of London, EC3V 3LR",
@@ -2134,8 +2134,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-com",
     "styleGroups": [
-      "Edwardian",
-      "Neoclassical"
+      "edwardian",
+      "neoclassical"
     ],
     "era": "1900-1945",
     "city": "london",
@@ -2145,7 +2145,7 @@ var LOCS_LONDON = [
       "John Soane"
     ],
     "yr": 1925,
-    "access": "Exterior viewing only",
+    "access": "exterior viewing only",
     "lat": 51.5142,
     "lng": -0.0886,
     "addr": "Threadneedle Street, City of London, EC2R 8AH",
@@ -2177,8 +2177,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-pub",
     "styleGroups": [
-      "Victorian",
-      "Ornamental"
+      "victorian",
+      "ornamental"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -2187,7 +2187,7 @@ var LOCS_LONDON = [
       "Horace Jones"
     ],
     "yr": 1881,
-    "access": "Public (shopping & dining)",
+    "access": "public (shopping & dining)",
     "lat": 51.513,
     "lng": -0.0838,
     "addr": "Leadenhall Market, City of London, EC3V 1LT",
@@ -2219,8 +2219,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-inf",
     "styleGroups": [
-      "Victorian Gothic",
-      "Victorian"
+      "victorian gothic",
+      "victorian"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -2230,7 +2230,7 @@ var LOCS_LONDON = [
       "George Gilbert Scott"
     ],
     "yr": 1868,
-    "access": "Public (station & hotel)",
+    "access": "public (station & hotel)",
     "lat": 51.5322,
     "lng": -0.1269,
     "addr": "Pancras Road, King's Cross, N1C 4QP",
@@ -2262,8 +2262,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-inf",
     "styleGroups": [
-      "Victorian",
-      "Contemporary"
+      "victorian",
+      "contemporary"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -2273,7 +2273,7 @@ var LOCS_LONDON = [
       "John McAslan"
     ],
     "yr": 1852,
-    "access": "Public (station)",
+    "access": "public (station)",
     "lat": 51.532,
     "lng": -0.124,
     "addr": "Euston Road, King's Cross, N1 9AP",
@@ -2304,8 +2304,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-inf",
     "styleGroups": [
-      "Victorian Iron & Glass",
-      "Industrial"
+      "victorian iron & glass",
+      "industrial"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -2315,7 +2315,7 @@ var LOCS_LONDON = [
       "Matthew Digby Wyatt"
     ],
     "yr": 1854,
-    "access": "Public (station)",
+    "access": "public (station)",
     "lat": 51.5154,
     "lng": -0.1755,
     "addr": "Praed Street, Paddington, W2 1HQ",
@@ -2347,8 +2347,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-inf",
     "styleGroups": [
-      "Victorian",
-      "Postmodern"
+      "victorian",
+      "postmodern"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -2358,7 +2358,7 @@ var LOCS_LONDON = [
       "Terry Farrell"
     ],
     "yr": 1864,
-    "access": "Public (station)",
+    "access": "public (station)",
     "lat": 51.5074,
     "lng": -0.1234,
     "addr": "The Strand, Westminster, WC2N 5HF",
@@ -2390,8 +2390,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-inf",
     "styleGroups": [
-      "Victorian",
-      "Contemporary"
+      "victorian",
+      "contemporary"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -2400,7 +2400,7 @@ var LOCS_LONDON = [
       "Edward Wilson"
     ],
     "yr": 1874,
-    "access": "Public (station & shopping)",
+    "access": "public (station & shopping)",
     "lat": 51.5178,
     "lng": -0.0823,
     "addr": "Liverpool Street, City of London, EC2M 7QH",
@@ -2431,8 +2431,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-inf",
     "styleGroups": [
-      "Art Deco",
-      "Industrial"
+      "art deco",
+      "industrial"
     ],
     "era": "1900-1945",
     "city": "london",
@@ -2441,7 +2441,7 @@ var LOCS_LONDON = [
       "Giles Gilbert Scott"
     ],
     "yr": 1933,
-    "access": "Public (mixed-use development with tours)",
+    "access": "public (mixed-use development with tours)",
     "lat": 51.482,
     "lng": -0.146,
     "addr": "Circus West Village, Battersea, SW8 5BN",
@@ -2473,8 +2473,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-pub",
     "styleGroups": [
-      "Victorian Industrial",
-      "Contemporary"
+      "victorian industrial",
+      "contemporary"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -2484,7 +2484,7 @@ var LOCS_LONDON = [
       "Bell Phillips Architects"
     ],
     "yr": 1860,
-    "access": "Public (park)",
+    "access": "public (park)",
     "lat": 51.5357,
     "lng": -0.1242,
     "addr": "Gasholder Park, King's Cross, N1C 4AB",
@@ -2516,8 +2516,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-pub",
     "styleGroups": [
-      "Regency",
-      "Victorian"
+      "regency",
+      "victorian"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -2527,7 +2527,7 @@ var LOCS_LONDON = [
       "Inigo Jones"
     ],
     "yr": 1830,
-    "access": "Public (shopping, dining & entertainment)",
+    "access": "public (shopping, dining & entertainment)",
     "lat": 51.512,
     "lng": -0.1227,
     "addr": "Covent Garden, London, WC2E 8RF",
@@ -2559,8 +2559,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-cul",
     "styleGroups": [
-      "Victorian",
-      "Contemporary"
+      "victorian",
+      "contemporary"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -2570,7 +2570,7 @@ var LOCS_LONDON = [
       "Dixon Jones"
     ],
     "yr": 1858,
-    "access": "Ticketed performances; tours available",
+    "access": "ticketed performances; tours available",
     "lat": 51.5129,
     "lng": -0.1224,
     "addr": "Bow Street, Covent Garden, WC2E 9DD",
@@ -2602,8 +2602,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-cul",
     "styleGroups": [
-      "Edwardian Baroque",
-      "Ornamental"
+      "edwardian baroque",
+      "ornamental"
     ],
     "era": "1900-1945",
     "city": "london",
@@ -2612,7 +2612,7 @@ var LOCS_LONDON = [
       "Frank Matcham"
     ],
     "yr": 1904,
-    "access": "Ticketed performances; limited tours",
+    "access": "ticketed performances; limited tours",
     "lat": 51.5092,
     "lng": -0.1267,
     "addr": "St Martin's Lane, Charing Cross, WC2N 4ES",
@@ -2644,8 +2644,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-cul",
     "styleGroups": [
-      "Victorian",
-      "Art Deco"
+      "victorian",
+      "art deco"
     ],
     "era": "Pre-1900",
     "city": "london",
@@ -2655,7 +2655,7 @@ var LOCS_LONDON = [
       "Basil Ionides"
     ],
     "yr": 1881,
-    "access": "Ticketed performances; tours by arrangement",
+    "access": "ticketed performances; tours by arrangement",
     "lat": 51.5104,
     "lng": -0.1203,
     "addr": "The Strand, Westminster, WC2R 0ET",
@@ -2687,8 +2687,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-com",
     "styleGroups": [
-      "Art Deco",
-      "Streamline Moderne"
+      "art deco",
+      "streamline moderne"
     ],
     "era": "1900-1945",
     "city": "london",
@@ -2699,7 +2699,7 @@ var LOCS_LONDON = [
       "Owen Williams"
     ],
     "yr": 1932,
-    "access": "Exterior viewing only",
+    "access": "exterior viewing only",
     "lat": 51.5143,
     "lng": -0.1069,
     "addr": "120 Fleet Street, City of London, EC4A 2DY",
@@ -2731,8 +2731,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Modernist",
-      "International Style"
+      "modernist",
+      "international style"
     ],
     "era": "1900-1945",
     "city": "london",
@@ -2741,7 +2741,7 @@ var LOCS_LONDON = [
       "Wells Coates"
     ],
     "yr": 1934,
-    "access": "Residential (limited public viewing by arrangement)",
+    "access": "residential (limited public viewing by arrangement)",
     "lat": 51.5556,
     "lng": -0.1625,
     "addr": "Isokon Building, Lawn Road, Hampstead, NW3 2XD",
@@ -2773,8 +2773,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Modernist",
-      "Constructivist"
+      "modernist",
+      "constructivist"
     ],
     "era": "1900-1945",
     "city": "london",
@@ -2784,7 +2784,7 @@ var LOCS_LONDON = [
       "Tecton"
     ],
     "yr": 1935,
-    "access": "Residential (exterior viewing)",
+    "access": "residential (exterior viewing)",
     "lat": 51.5684,
     "lng": -0.1472,
     "addr": "Highpoint I, North Hill, Highgate, N6 5HF",
@@ -2816,8 +2816,8 @@ var LOCS_LONDON = [
     ],
     "cc": "c-his",
     "styleGroups": [
-      "Art Deco",
-      "Skyscraper"
+      "art deco",
+      "skyscraper"
     ],
     "era": "1900-1945",
     "city": "london",
@@ -2826,7 +2826,7 @@ var LOCS_LONDON = [
       "Charles Holden"
     ],
     "yr": 1937,
-    "access": "Limited (University of London events; occasional open days)",
+    "access": "limited (university of london events; occasional open days)",
     "lat": 51.5216,
     "lng": -0.13,
     "addr": "Senate House, Malet Street, Bloomsbury, WC1E 7HU",
@@ -4246,13 +4246,13 @@ var LOCS_LONDON = [
     "id": "lon-0096",
     "name": "Broadwick House",
     "cats": [
-      "Commercial",
-      "Office"
+      "commercial",
+      "office"
     ],
     "cc": "GB-ENG",
     "styleGroups": [
-      "Modern",
-      "Contemporary"
+      "modern",
+      "contemporary"
     ],
     "era": "1980-1999",
     "city": "london",
@@ -4261,7 +4261,7 @@ var LOCS_LONDON = [
       "Richard Rogers"
     ],
     "yr": 1996,
-    "access": "Public exterior only",
+    "access": "public exterior only",
     "lat": 51.5135,
     "lng": -0.1373,
     "addr": "Broadwick Street",
@@ -4287,13 +4287,13 @@ var LOCS_LONDON = [
     "id": "lon-0097",
     "name": "30 Grosvenor Square (1960 Embassy Building)",
     "cats": [
-      "Institutional",
-      "Embassy"
+      "institutional",
+      "embassy"
     ],
     "cc": "GB-ENG",
     "styleGroups": [
-      "Modernist",
-      "Brutalist"
+      "modernist",
+      "brutalist"
     ],
     "era": "1945-1979",
     "city": "london",
@@ -4302,7 +4302,7 @@ var LOCS_LONDON = [
       "Eero Saarinen"
     ],
     "yr": 1960,
-    "access": "Exterior only",
+    "access": "exterior only",
     "lat": 51.5117,
     "lng": -0.15,
     "addr": "Grosvenor Square",
@@ -4329,13 +4329,13 @@ var LOCS_LONDON = [
     "id": "lon-0098",
     "name": "Bosideng UK Headquarters",
     "cats": [
-      "Commercial",
-      "Office"
+      "commercial",
+      "office"
     ],
     "cc": "GB-ENG",
     "styleGroups": [
-      "Contemporary",
-      "Modern"
+      "contemporary",
+      "modern"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -4344,7 +4344,7 @@ var LOCS_LONDON = [
       "DSDHA Architects"
     ],
     "yr": 2018,
-    "access": "Public exterior only",
+    "access": "public exterior only",
     "lat": 51.5145,
     "lng": -0.146,
     "addr": "South Molton Street area",
@@ -4370,13 +4370,13 @@ var LOCS_LONDON = [
     "id": "lon-0099",
     "name": "Wood Wharf",
     "cats": [
-      "Mixed-Use",
-      "Development"
+      "mixed-use",
+      "development"
     ],
     "cc": "GB-ENG",
     "styleGroups": [
-      "Contemporary",
-      "Modern"
+      "contemporary",
+      "modern"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -4385,7 +4385,7 @@ var LOCS_LONDON = [
       "Allies and Morrison"
     ],
     "yr": 2020,
-    "access": "Public spaces partially accessible",
+    "access": "public spaces partially accessible",
     "lat": 51.502,
     "lng": -0.0145,
     "addr": "Canary Wharf",
@@ -4411,13 +4411,13 @@ var LOCS_LONDON = [
     "id": "lon-0100",
     "name": "Drapers' Hall",
     "cats": [
-      "Institutional",
-      "Livery Hall"
+      "institutional",
+      "livery hall"
     ],
     "cc": "GB-ENG",
     "styleGroups": [
-      "Georgian",
-      "Victorian"
+      "georgian",
+      "victorian"
     ],
     "era": "1900-1945",
     "city": "london",
@@ -4426,7 +4426,7 @@ var LOCS_LONDON = [
       "Herbert Williams"
     ],
     "yr": 1868,
-    "access": "By prior arrangement only",
+    "access": "by prior arrangement only",
     "lat": 51.5155,
     "lng": -0.0862,
     "addr": "Throgmorton Avenue",
@@ -4452,13 +4452,13 @@ var LOCS_LONDON = [
     "id": "lon-0101",
     "name": "Vanbrugh Park Estate",
     "cats": [
-      "Housing",
-      "Social Housing"
+      "housing",
+      "social housing"
     ],
     "cc": "GB-ENG",
     "styleGroups": [
-      "Modernist",
-      "Brutalist"
+      "modernist",
+      "brutalist"
     ],
     "era": "1945-1979",
     "city": "london",
@@ -4467,7 +4467,7 @@ var LOCS_LONDON = [
       "Chamberlin, Powell and Bon"
     ],
     "yr": 1963,
-    "access": "Public footpaths only",
+    "access": "public footpaths only",
     "lat": 51.4756,
     "lng": 0.002,
     "addr": "Vanbrugh Park",
@@ -4493,13 +4493,13 @@ var LOCS_LONDON = [
     "id": "lon-0102",
     "name": "Langham House Close (Ham Common Flats)",
     "cats": [
-      "Housing",
-      "Residential"
+      "housing",
+      "residential"
     ],
     "cc": "GB-ENG",
     "styleGroups": [
-      "Brutalist",
-      "Modernist"
+      "brutalist",
+      "modernist"
     ],
     "era": "1945-1979",
     "city": "london",
@@ -4509,7 +4509,7 @@ var LOCS_LONDON = [
       "Gowan"
     ],
     "yr": 1958,
-    "access": "Public footpaths only",
+    "access": "public footpaths only",
     "lat": 51.4395,
     "lng": -0.309,
     "addr": "Ham Common",
@@ -4535,13 +4535,13 @@ var LOCS_LONDON = [
     "id": "lon-0103",
     "name": "Dawson's Heights",
     "cats": [
-      "Housing",
-      "Social Housing"
+      "housing",
+      "social housing"
     ],
     "cc": "GB-ENG",
     "styleGroups": [
-      "Brutalist",
-      "Modernist"
+      "brutalist",
+      "modernist"
     ],
     "era": "1945-1979",
     "city": "london",
@@ -4550,7 +4550,7 @@ var LOCS_LONDON = [
       "Kate Macintosh"
     ],
     "yr": 1972,
-    "access": "Public footpaths and communal areas",
+    "access": "public footpaths and communal areas",
     "lat": 51.4508,
     "lng": -0.0712,
     "addr": "East Dulwich, Peckham",
@@ -4576,13 +4576,13 @@ var LOCS_LONDON = [
     "id": "lon-0104",
     "name": "Odhams Walk",
     "cats": [
-      "Mixed-Use",
-      "Housing"
+      "mixed-use",
+      "housing"
     ],
     "cc": "GB-ENG",
     "styleGroups": [
-      "Postmodern",
-      "Contemporary"
+      "postmodern",
+      "contemporary"
     ],
     "era": "1980-1999",
     "city": "london",
@@ -4591,7 +4591,7 @@ var LOCS_LONDON = [
       "GLC Architects Department"
     ],
     "yr": 1981,
-    "access": "Public circulation only",
+    "access": "public circulation only",
     "lat": 51.5148,
     "lng": -0.1244,
     "addr": "Odhams Walk",
@@ -4617,13 +4617,13 @@ var LOCS_LONDON = [
     "id": "lon-0105",
     "name": "Dunboyne Road Estate",
     "cats": [
-      "Housing",
-      "Social Housing"
+      "housing",
+      "social housing"
     ],
     "cc": "GB-ENG",
     "styleGroups": [
-      "Brutalist",
-      "Modernist"
+      "brutalist",
+      "modernist"
     ],
     "era": "1945-1979",
     "city": "london",
@@ -4632,7 +4632,7 @@ var LOCS_LONDON = [
       "Kate Macintosh"
     ],
     "yr": 1966,
-    "access": "Public footpaths only",
+    "access": "public footpaths only",
     "lat": 51.5517,
     "lng": -0.1728,
     "addr": "Dunboyne Road",
@@ -4658,13 +4658,13 @@ var LOCS_LONDON = [
     "id": "lon-0106",
     "name": "Kensal House",
     "cats": [
-      "Housing",
-      "Social Housing"
+      "housing",
+      "social housing"
     ],
     "cc": "GB-ENG",
     "styleGroups": [
-      "Modernist",
-      "International"
+      "modernist",
+      "international"
     ],
     "era": "1900-1945",
     "city": "london",
@@ -4673,7 +4673,7 @@ var LOCS_LONDON = [
       "Maxwell Fry"
     ],
     "yr": 1937,
-    "access": "Public exterior only",
+    "access": "public exterior only",
     "lat": 51.5245,
     "lng": -0.2118,
     "addr": "Ladbroke Grove",
@@ -4699,13 +4699,13 @@ var LOCS_LONDON = [
     "id": "lon-0107",
     "name": "Nine Elms Development Area",
     "cats": [
-      "Mixed-Use",
-      "Development"
+      "mixed-use",
+      "development"
     ],
     "cc": "GB-ENG",
     "styleGroups": [
-      "Contemporary",
-      "Mixed"
+      "contemporary",
+      "mixed"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -4715,7 +4715,7 @@ var LOCS_LONDON = [
       "Norman Foster"
     ],
     "yr": 2015,
-    "access": "Public areas accessible",
+    "access": "public areas accessible",
     "lat": 51.481,
     "lng": -0.138,
     "addr": "Nine Elms Lane",
@@ -4741,13 +4741,13 @@ var LOCS_LONDON = [
     "id": "lon-0108",
     "name": "St Pancras Renaissance Hotel",
     "cats": [
-      "Hotel",
-      "Institutional"
+      "hotel",
+      "institutional"
     ],
     "cc": "GB-ENG",
     "styleGroups": [
-      "Victorian",
-      "Gothic Revival"
+      "victorian",
+      "gothic revival"
     ],
     "era": "1900-1945",
     "city": "london",
@@ -4756,7 +4756,7 @@ var LOCS_LONDON = [
       "George Gilbert Scott"
     ],
     "yr": 1873,
-    "access": "Hotel guests and restaurant visitors",
+    "access": "hotel guests and restaurant visitors",
     "lat": 51.5315,
     "lng": -0.1262,
     "addr": "Euston Road / King's Cross",
@@ -4782,13 +4782,13 @@ var LOCS_LONDON = [
     "id": "lon-0109",
     "name": "Canary Wharf Masterplan Area",
     "cats": [
-      "Mixed-Use",
-      "Financial District"
+      "mixed-use",
+      "financial district"
     ],
     "cc": "GB-ENG",
     "styleGroups": [
-      "Contemporary",
-      "Postmodern"
+      "contemporary",
+      "postmodern"
     ],
     "era": "2000–Present",
     "city": "london",
@@ -4799,7 +4799,7 @@ var LOCS_LONDON = [
       "Norman Foster"
     ],
     "yr": 1990,
-    "access": "Public spaces accessible",
+    "access": "public spaces accessible",
     "lat": 51.5054,
     "lng": -0.0235,
     "addr": "Canary Wharf",
