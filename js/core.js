@@ -305,7 +305,7 @@ function openLoc(loc) {
   document.getElementById('panel-head').innerHTML = `
     <div class="p-cat">${catBadges}</div>
     <div class="p-title">${biName}</div>
-    <div class="p-sub">${loc.arch} &nbsp;·&nbsp; ${loc.yr}</div>
+    <div class="p-sub">${loc.arch}${(loc.archs && loc.archs.length > 1) ? ' + '+(loc.archs.length-1) : ''} &nbsp;·&nbsp; ${loc.yr}</div>
     <div class="p-tags">${loc.tags.map(t=>`<span class="p-tag">${t}</span>`).join('')}</div>
     <div class="p-action-row">
       <button class="p-action-btn${isFav(loc.id)?' fav-active':''}" id="p-fav-btn" onclick="toggleFav('${loc.id}')"><span class="act-icon">${isFav(loc.id)?'★':'☆'}</span> ${t('fav_label')}</button>
@@ -353,7 +353,7 @@ function buildOverviewTab(loc, trans = {}) {
     <p class="desc">${desc}</p>
     <div class="info-row"><span class="info-label">${t('neighborhood')}</span><span class="info-val">${_displayHood(loc, trans.hood)}</span></div>
     <div class="info-row"><span class="info-label">${t('address')}</span><span class="info-val">${_displayAddr(loc, trans.addr)}</span></div>
-    <div class="info-row"><span class="info-label">${t('arch_label')}</span><span class="info-val">${loc.arch}</span></div>
+    <div class="info-row"><span class="info-label">${t('arch_label')}</span><span class="info-val">${(loc.archs && loc.archs.length) ? loc.archs.join(', ') : (loc.arch || '—')}</span></div>
     <div class="info-row"><span class="info-label">${t('completed')}</span><span class="info-val">${loc.yr}</span></div>
     <div class="info-row"><span class="info-label">${t('style_label')}</span><span class="info-val">${_allSGs(loc).join(', ') || '—'}</span></div>
     ${loc.access ? `<div class="info-row"><span class="info-label">${t('access_label')}</span><span class="info-val"><span class="access-badge ${ACCESS_META[loc.access]?.cls||''}">${ACCESS_META[loc.access]?.icon||''} ${loc.access}</span></span></div>` : ''}
