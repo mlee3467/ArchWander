@@ -36,9 +36,9 @@ var LOCS_SEOUL = [
     localName:'커뮤니크 사옥',
     yr:2015, access:'Private (Exterior Viewable)',
     lat:37.4961685, lng:127.039419,
-    addr:'Yeoksam-dong, Gangnam District, Seoul', hood:'Yongsan',
-    localAddr:'서울특별시 용산구 역삼동 일대',
-    localHood:'용산',
+    addr:'Yeoksam-dong, Gangnam District, Seoul', hood:'Gangnam / Yeoksam',
+    localAddr:'서울특별시 강남구 역삼동 일대',
+    localHood:'강남 / 역삼',
     desc: 'This 1980s office renovation in Yongsan by DaeWha Kang Design represents adaptive reuse at its finest, winning Korea\'s 2015 Ministry of Land Award. The striking intervention reclads the facade in intricate granite panels while transforming the neglected ground-floor car park into a crystalline space of tessellated stainless steel. The design integrates biophilic elements alongside an indoor-outdoor cafe and rooftop event space, breathing new urban vitality into Seoul\'s aging commercial landscape.',
     hours:'Office building — exterior freely viewable',
     lastEntry:'',
@@ -100,16 +100,16 @@ var LOCS_SEOUL = [
     localName:'하이씨씨 사옥',
     yr:2018, access:'Private (Exterior Viewable)',
     lat:37.5088283, lng:127.0274685,
-    addr:'South Korea, Seoul, Gangnam District, Nonhyeon-dong, 번지 3층 64-19', hood:'Yeongdeungpo',
+    addr:'South Korea, Seoul, Gangnam District, Nonhyeon-dong, 번지 3층 64-19', hood:'Gangnam / Nonhyeon',
     localAddr:'서울특별시 강남구 논현동 일대',
-    localHood:'영등포',
+    localHood:'강남 / 논현',
     desc: 'Completed in 2018 by LESS Architects, this headquarters for K-pop entertainment company HiCC employs parametrically-controlled facade modules with 2-way kink geometry to generate dynamic visual movement at massive scale. Rather than static corporate geometry, the design features fluid, kinetic surfaces that embody the company\'s creative ethos. The building\'s sophisticated structural expression balances commercial function with architectural performativity.',
     hours:'Private office — exterior viewable',
     lastEntry:'',
     admission:'Private',
     tourOk:false, tourInfo:'',
-    transit:'2 5 → Yeongdeungpo-gu Office (5-min walk)',
-    walkFrom:'Yeouido: 15 min · 63 Building: 15 min',
+    transit:'7 → Hakdong (Exit 10, 5-min walk)',
+    walkFrom:'Sinsa Station: 10 min · Dosan Park: 8 min',
     tags:["LESS Architects","Entertainment","K-Pop","Contemporary","Corporate"],
     photos:[]
   },
@@ -169,7 +169,7 @@ var LOCS_SEOUL = [
     addr:'Daechi-dong, Gangnam District, Seoul', hood:'Daechi-dong / Gangnam',
     localAddr:'서울특별시 강남구 대치동 일대',
     localHood:'대치동 / 강남',
-    desc: 'M.C. Building in Seoul\'s commercial landscape contributes to the city\'s evolving architectural fabric. Further research with local architectural archives would provide comprehensive documentation of its stylistic significance, architect, and design details for architecture visitors.',
+    desc: 'M.C. Building by URCODE Architecture (2018) in Daechi-dong features a dynamic folded facade of perforated aluminium panels that create shifting visual patterns as pedestrians move along the street. The 5-story mixed-use structure negotiates the tight urban grain of Gangnam\'s commercial blocks through setbacks and cantilevered upper volumes, producing covered public space at ground level while maintaining visual interest at the skyline. The parametric facade perforations allow graduated natural light into upper offices.',
     hours:'Commercial building — exterior freely viewable',
     lastEntry:'',
     admission:'Commercial',
@@ -254,10 +254,10 @@ var LOCS_SEOUL = [
     localName:'925 빌딩',
     yr:2015, access:'Private (Exterior Viewable)',
     lat:37.58412420000001, lng:127.0047256,
-    addr:'Dongsung 4ga-gil, Jongno District, Seoul', hood:'Cheongdam-dong / Gangnam',
+    addr:'Dongsung 4ga-gil, Jongno District, Seoul', hood:'Daehangno / Hyehwa',
     localAddr:'서울특별시 종로구 동순4가길 일대',
-    localHood:'청담동 / 강남',
-    desc: '925 Building contributes to Seoul\'s contemporary commercial landscape. Further documentation from local architectural databases would provide definitive project details on this building\'s design authorship and historical significance for architecture visitors.',
+    localHood:'대학로 / 혜화',
+    desc: '925 Building by JHW IROJE architects & planners (2015) in Daehangno features a restrained facade composition of exposed concrete and narrow vertical windows that create a rhythmic interplay of solid and void. The 5-story structure demonstrates principal architect Seung H-Sang\'s signature approach of balancing robust materiality with spatial generosity, where interior courtyards and double-height voids introduce daylight deep into the plan. The building\'s austere aesthetic reflects IROJE\'s philosophy of architecture as spatial experience rather than decorative surface.',
     hours:'Commercial — exterior viewable',
     lastEntry:'',
     admission:'Commercial',
@@ -276,9 +276,9 @@ var LOCS_SEOUL = [
     localName:'아틀리에 채연',
     yr:2015, access:'Private (Exterior Viewable)',
     lat:37.5085818, lng:127.1001887,
-    addr:'Seokchonhosu-ro, Songpa District, Seoul', hood:'Sinsa-dong / Dosan Park',
+    addr:'Seokchonhosu-ro, Songpa District, Seoul', hood:'Songpa / Seokchon Lake',
     localAddr:'서울특별시 송파구 석촌호수로 일대',
-    localHood:'신사동 / 강남',
+    localHood:'송파 / 석촌호수',
     desc: 'Atelier Chaeyeon in Nonhyeon-dong integrates music studio, residential, and workspace within a 16.7-metre height constraint across 4 above-ground floors and 1 basement. Prominent floating concrete facades create sculptural street presence while a sunken garden mediates interior-exterior thresholds. Sophisticated seismic engineering designed 1.5 times stronger than code minimum exemplifies Korean contemporary residential design\'s integration of structural performance with experiential quality.',
     hours:'Private studio — exterior viewable',
     lastEntry:'',
@@ -298,9 +298,9 @@ var LOCS_SEOUL = [
     localName:'마이크로 코스모스 소율',
     yr:2014, access:'Free Admission',
     lat:37.48399, lng:127.0173014,
-    addr:'Seocho-dong, Seocho District, Seoul', hood:'Huam-dong / Namsan',
+    addr:'Seocho-dong, Seocho District, Seoul', hood:'Seocho',
     localAddr:'서울특별시 서초구 서초동 일대',
-    localHood:'회암동 / 남산',
+    localHood:'서초',
     desc: 'KYWC Architects\' 2014 office in Huam-dong\'s historic village employs a sophisticated structural strategy with a full-length second-floor truss eliminating intermediate columns, enabling partitionless open workspace on upper levels while the three-column ground floor functions as public plaza. This 240 m² design balances intimate scale with spatial legibility, situating contemporary architectural practice within Seoul\'s rapidly transforming neighbourhoods.',
     hours:'Varies by programming',
     lastEntry:'',
@@ -342,10 +342,10 @@ var LOCS_SEOUL = [
     localName:'XYZ 포뮬러',
     yr:2017, access:'Free Admission',
     lat:37.5421334, lng:127.0572327,
-    addr:'Yeonmujang-gil, Seongdong-gu, Seoul', hood:'Sinsa-dong / Dosan Park',
+    addr:'Yeonmujang-gil, Seongdong-gu, Seoul', hood:'Seongsu-dong',
     localAddr:'서울특별시 성동구 연무장길 일대',
-    localHood:'신사동 / 강남',
-    desc: 'XYZ Formula contributes to Seoul\'s evolving portfolio of innovative design concepts. Further research into this project\'s specific architectural documentation would provide comprehensive details for architecture visitors interested in its design significance and spatial qualities.',
+    localHood:'성수동',
+    desc: 'XYZ Formula by WGNB (2017) in Seongsu-dong is a multi-brand retail complex housed within a former industrial structure. The architects preserved the raw concrete shell while inserting refined interior volumes of steel, glass, and timber, creating tension between industrial memory and contemporary polish. Geometric display installations and monochromatic palette transform shopping into spatial experience, while the double-height central atrium anchors vertical circulation and visual orientation across three levels of curated retail.',
     hours:'Commercial — varies by tenant',
     lastEntry:'',
     admission:'Commercial',
@@ -458,7 +458,7 @@ var LOCS_SEOUL = [
     addr:'Apgujeong-ro, Cheongdam-dong, Gangnam District, Seoul', hood:'Apgujeong / Gangnam',
     localAddr:'서울특별시 강남구 압구정로 일대',
     localHood:'압구정 / 강남',
-    desc: 'Chungha Building represents the emerging contemporary design consciousness of Seoul\'s upscale residential districts, blending modern materiality with careful urban integration. This boutique structure demonstrates the evolution of Korean luxury commercial architecture where minimalist aesthetics and geometric purity define spatial experience within dense urban context.',
+    desc: 'Chungha Building by MVRDV (2013) in Cheongdam-dong exemplifies the Dutch firm\'s playful approach to urban renovation. The original 1990s facade was reclad with a vibrant patchwork of irregularly sized windows and coloured glass panels, transforming a mundane commercial block into a kaleidoscopic streetscape element. The design treats the facade as a vertical garden of apertures, each window framing different views while collectively creating an animated composition that energises Apgujeong-ro\'s luxury retail corridor.',
     hours:'Commercial — varies by tenant',
     lastEntry:'',
     admission:'Commercial',
@@ -527,7 +527,7 @@ var LOCS_SEOUL = [
     addr:'Gukjegeumyung-ro 2-gil, Yeongdeungpo District, Seoul', hood:'Yeouido',
     localAddr:'서울특별시 영등포구 국제금융로2길 일대',
     localHood:'여의도',
-    desc: 'S-Trenue Tower showcases Korean architectural refinement in high-end retail and commercial design. This contemporary tower integrates sophisticated facade treatments, refined material palettes, and precise geometric control, representing the maturation of Korean commercial architecture where meticulous detailing and proportional harmony established aesthetic benchmarks for Seoul\'s emerging premium districts.',
+    desc: 'S-Trenue Tower by Mass Studies (2007) in Yeouido demonstrates architect Cho Min-suk\'s \'Bundle Matrix\' concept, where the 25-story mixed-use tower is composed of multiple slender volumes bundled together like a cluster of reeds. Each vertical element serves different programmatic functions — residential, office, retail — while their staggered heights create a dynamic skyline profile. The building\'s innovative structural system allowed each \'bundle\' to shift independently, generating terraces and gaps that introduce light and views into the dense Yeouido block.',
     hours:'Private — lobby viewable during business hours',
     lastEntry:'',
     admission:'Private',
@@ -549,7 +549,7 @@ var LOCS_SEOUL = [
     addr:'Ttukseom-ro 1-gil, Seongdong-gu, Seoul', hood:'Seongsu-dong',
     localAddr:'서울특별시 성동구 뚝섬로1길 일대',
     localHood:'성수동',
-    desc: 'Seongdong Cultural & Welfare Center demonstrates Seoul\'s public institutional architecture toward community-responsive design. The facility embraces horizontal scale, garden integration, and accessible public spaces that embed cultural buildings within neighbourhood fabric rather than dominating it, exemplifying how contemporary Seoul invests in culturally sophisticated civic infrastructure.',
+    desc: 'Seongdong Cultural & Welfare Center by UnSangDong Architects (2012) in Seongsu-dong features a distinctive pixelated facade of irregularly stacked cubic volumes that dissolve the boundary between building and landscape. Architect Jang Yoon-gyoo designed the 3-story structure as a topographic extension of the adjacent Ttukseom park, where accessible green roofs cascade from upper to lower levels. Interior programming includes library, gallery, and community performance spaces connected by ramps rather than corridors, encouraging spontaneous encounters and continuous spatial flow.',
     hours:'Mon–Fri 9:00 AM – 10:00 PM · Sat 9:00 AM – 6:00 PM',
     lastEntry:'',
     admission:'Free',
@@ -915,7 +915,7 @@ var LOCS_SEOUL = [
     localName:'신세계 남산',
     localAddr:'서울특별시 중구 장충단로 일대',
     localHood:'남산 / 장충동',
-    desc: 'This 2023 corporate retreat designed by Tim Rowan Architects merges classical composition with contemporary material expression. Five-story rooftop gardens overlook the urban landscape while interior spaces showcase luxury detailing in refined minimalist settings. The Shoebox-type concert hall collaborates with Japan\'s Nagata Acoustics and features a movable stage lift-rotation system. Sustainable design philosophy guides every material choice, creating a model for high-end corporate architecture.',
+    desc: 'Shinsegae Namsan, designed by Robert A.M. Stern Architects with Haeahn Architecture, is a mixed-use complex near Namsan completed in 2024. RAMSA\'s contextual approach honours the surrounding historical fabric through warm brick cladding, classical proportions, and carefully articulated window rhythms that reference traditional Korean masonry. The building integrates commercial, cultural, and hospitality functions within a composition that mediates between Namsan\'s natural landscape and the dense Jangchung-dong urban grid, establishing a new model for heritage-sensitive development in Seoul\'s historic core.',
     hours:'By reservation / event-based', lastEntry:'',
     admission:'Limited public access (corporate facility with event spaces)',
     tourOk:false, tourInfo:'Primarily a private corporate facility. The exterior and surrounding streetscape are the main architectural experience.',
@@ -1078,12 +1078,12 @@ var LOCS_SEOUL = [
     styleGroups:['Contemporary'],
     era:'2000–Present', city:'seoul',
     arch:'THE_SYSTEM LAB', archs:['THE_SYSTEM LAB'],
-    localName:'청진교 벽화거리',
+    localName:'젠틀몬스터 하우스 노웨어',
     yr:2025, access:'Open to Public',
     lat:37.5447, lng:127.0591,
     addr:'433 Ttukseom-ro, Seongdong-gu, Seoul', hood:'Seongsu-dong',
-    localAddr:'서울특별시 종로구 청진2길 일대',
-    localHood:'종로',
+    localAddr:'서울특별시 성동구 뚝섬로 433',
+    localHood:'성수동',
     localName:'젠틀몬스터 하우스 노웨어',
     localAddr:'서울특별시 성동구 뚝섬로 433',
     localHood:'성수동',
@@ -1105,16 +1105,16 @@ var LOCS_SEOUL = [
     styleGroups:['Contemporary'],
     era:'2000–Present', city:'seoul',
     arch:'THE_SYSTEM LAB', archs:['THE_SYSTEM LAB'],
-    localName:'덕성여자대학교 한옥관',
+    localName:'핸즈 코퍼레이션 본사',
     yr:2014, access:'Exterior Only',
     lat:37.5345, lng:126.9940,
     addr:'104 Hannam-daero, Yongsan-gu, Seoul', hood:'Hannam-dong',
-    localAddr:'서울특별시 도봉구 삼양로 일대',
-    localHood:'도봉',
+    localAddr:'서울특별시 용산구 한남대로 104',
+    localHood:'한남동',
     localName:'핸즈 코퍼레이션 본사',
     localAddr:'서울특별시 용산구 한남대로 104',
     localHood:'한남동',
-    desc: 'HANDS Corporation Headquarters reflects Korean corporate architecture\'s evolution toward distinctive design expression. The building contributes to Seoul\'s portfolio of architecturally significant office buildings. Further documentation from local databases would provide comprehensive details on its design authorship and spatial qualities.',
+    desc: 'HANDS Corporation Headquarters by THE_SYSTEM LAB (2014) in Hannam-dong features Kim Chan-joong\'s signature approach of transforming structural logic into visual drama. The 6-story office building\'s exposed steel frame and glass curtain wall create a transparent volume where the structural skeleton becomes the primary aesthetic element. Cantilevered floor plates and diagonal bracing generate dynamic visual rhythms visible from the Hannam-daero approach, while the rooftop terrace frames views of Namsan to the north.',
     hours:'Exterior: 24/7 · Interior: private offices', lastEntry:'',
     admission:'Exterior only',
     tourOk:false, tourInfo:'Private office building. Best viewed from the Hannam-daero sidewalk.',
@@ -1134,12 +1134,12 @@ var LOCS_SEOUL = [
     styleGroups:['Modernist'],
     era:'1930–1969', city:'seoul',
     arch:'Kim Chung-up', archs:['Kim Chung-up'],
-    localName:'서울대 미술관',
+    localName:'주한 프랑스 대사관',
     yr:1962, access:'Exterior Only',
     lat:37.5607, lng:126.9650,
     addr:'43-12 Seosomun-ro, Seodaemun-gu, Seoul', hood:'Seodaemun / Chungjeongno',
-    localAddr:'서울특별시 관악구 관악로 일대',
-    localHood:'관악',
+    localAddr:'서울특별시 서대문구 서소문로 43-12',
+    localHood:'서대문 / 충정로',
     localName:'주한 프랑스 대사관',
     localAddr:'서울특별시 서대문구 서소문로 43-12',
     localHood:'서대문 / 충정로',
@@ -1274,16 +1274,7 @@ var LOCS_SEOUL = [
     transit:'4 → Myeongdong (Exit 8, 3 min walk)',
     walkFrom:'Myeongdong Station: 3 min · Apple Myeongdong: 3 min · Piknic: 5 min',
     tags:['Catholic','Gothic','1898','First Brick Church','Myeongdong','Landmark','Democracy'],
-    photos:[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Myeongdong_Cathedral_church.JPG?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Myeongdong_Cathedral_5.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Myeongdong_Cathedral_front.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Myeongdong_Cathedral_05.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Myeongdong_Cathedral_in_Seoul.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Towards_the_Chancel_of_Myeongdong_Cathedral.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Arches_in_the_Nave_of_Myeongdong_Cathedral.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Myeongdong_Cathedral_01.jpg?width=800'
-    ]
+    photos:[]
   },
 
   {
@@ -1331,11 +1322,7 @@ var LOCS_SEOUL = [
     transit:'1 2 → City Hall (Exit 2, 5 min walk)',
     walkFrom:'City Hall Station: 5 min · Deoksugung Palace: 2 min',
     tags:['Methodist','Protestant','1897','First Protestant Church','Jeongdong','Gothic','Red Brick'],
-    photos:[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Chungdong_church.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/%EC%A0%95%EB%8F%99%EA%B5%90%ED%9A%8C_%EC%A0%95%EB%AC%B8%EB%B0%A9%ED%96%A5_%EC%82%AC%EC%A7%84.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/2008%EB%85%84_%EB%8A%A6%EA%B0%80%EC%9D%84%EC%9D%98_%EC%A0%95%EB%8F%99%EA%B5%90%ED%9A%8C.jpg?width=800'
-    ]
+    photos:[]
   },
 
   {
@@ -1359,13 +1346,7 @@ var LOCS_SEOUL = [
     transit:'1 2 → City Hall (Exit 3, 3 min walk)',
     walkFrom:'City Hall Station: 3 min · Deoksugung Palace: 3 min · Seoul Library: 2 min',
     tags:['Anglican','Romanesque','1926','Granite','Arthur Dixon','City Hall','Deoksugung'],
-    photos:[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Seoul_Anglican_Cathedral-1.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/KSH_Jeongdong_%2884%29.JPG?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Seoul_Cathedral_Anglican_Church-10.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Seoul_Cathedral_Anglican_Church-11.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Seoul_Cathedral_Anglican_Church-6.jpg?width=800'
-    ]
+    photos:[]
   },
 
   {
@@ -1389,10 +1370,7 @@ var LOCS_SEOUL = [
     transit:'1 → Jonggak (Exit 3, 3 min walk)',
     walkFrom:'Jonggak Station: 3 min · Insadong main street: 1 min',
     tags:['Presbyterian','Protestant','1904','March 1st Movement','Independence','Insadong','Heritage'],
-    photos:[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/%EC%8A%B9%EB%8F%99%EA%B5%90%ED%9A%8C%2C_Insadong%2C_Seoul_02.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/%EC%8A%B9%EB%8F%99%EA%B5%90%ED%9A%8C%2C_Insadong%2C_Seoul_03.jpg?width=800'
-    ]
+    photos:[]
   },
 
   // ── COLONIAL-ERA WESTERN BUILDINGS ────────────────────────────
@@ -1478,7 +1456,7 @@ var LOCS_SEOUL = [
     era:'Pre-1930', city:'seoul',
     arch:'Early 20th-century institutional', archs:['Traditional'],
     yr:1908, access:'Open to Public',
-    lat:35.5803, lng:126.9995,
+    lat:37.5803, lng:126.9995,
     addr:'101 Daehak-ro, Jongno-gu, Seoul', hood:'Hyehwa / Daehangno',
     localName:'서울대학교 의학박물관 (구 대한의원)',
     localAddr:'서울특별시 종로구 대학로 101',
@@ -1516,12 +1494,7 @@ var LOCS_SEOUL = [
     transit:'3 → Anguk (Exit 4, 3 min walk) · 1 3 5 → Jongno 3-ga (Exit 5, 5 min)',
     walkFrom:'Anguk Station: 3 min · Insadong: 5 min · Bukchon: 8 min',
     tags:['Palace','Traditional','1866','Daewongun','Joseon','Jongno','Free'],
-    photos:[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Iro-dang%2C_Unhyeongung_-_Seoul%2C_Korea.JPG?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Construction_detail%2C_Unhyeongung_-_Seoul%2C_Korea.JPG?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Korea-Seoul-Unhyeongung_1292-06.JPG?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/%EC%84%9C%EC%9A%B8_%EC%9A%B4%ED%98%84%EA%B6%81_%EC%A0%84%EA%B2%BD.jpg?width=800'
-    ]
+    photos:[]
   },
 
   {
@@ -1545,14 +1518,7 @@ var LOCS_SEOUL = [
     transit:'3 → Dongnimmun (Exit 5, 1 min walk)',
     walkFrom:'Dongnimmun Station: 1 min · Seodaemun Independence Gate: 3 min',
     tags:['Prison','Colonial','1908','Independence','History Museum','Seodaemun','Brick'],
-    photos:[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Seodaemun_Prison_History_Hall_at_night.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Seodaemunprisonbarracks.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Overview_of_the_Old_Seodaemun_Prison_%28%EA%B5%AC%EC%84%9C%EB%8C%80%EB%AC%B8%ED%98%95%EB%AC%B4%EC%86%8C%29.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Inside_View_ofThe_Old_Seodaemun_Prison_%28%EA%B5%AC%EC%84%9C%EB%8C%80%EB%AC%B8%ED%98%95%EB%AC%B4%EC%86%8C%29.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Inside_View_ofThe_Old_Seodaemun_Prison%2C_April_2023_%282%29.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Seodaemun_Prison_20190331_162936.jpg?width=800'
-    ]
+    photos:[]
   },
 
   {
@@ -1576,11 +1542,7 @@ var LOCS_SEOUL = [
     transit:'4 6 → Samgakji (Exit 12, 2 min walk)',
     walkFrom:'Samgakji Station: 2 min · National Museum of Korea: taxi 10 min',
     tags:['Museum','Memorial','Military','Korean War','Free','Yongsan','Outdoor Exhibition'],
-    photos:[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Korea-Seoul-War_Memorial_of_Korea-01.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/The_War_Memorial_Of_Korea_240615_01.jpg?width=800',
-      'https://live.staticflickr.com/3762/11850469153_2567762ca5_b.jpg'
-    ]
+    photos:[]
   },
 
   {
@@ -1604,13 +1566,7 @@ var LOCS_SEOUL = [
     transit:'3 4 → Chungmuro (Exit 3, 3 min walk)',
     walkFrom:'Chungmuro Station: 3 min · Myeongdong: 10 min · Namsan Cable Car: 10 min',
     tags:['Hanok','Traditional','Village','Namsan','Free','Cultural Experience','Lee Seung-eop'],
-    photos:[
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Namsangol_Hanok_Village_20240409_018.jpg?width=800',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Namsangol_Hanok_Village_20240409_012.jpg?width=800',
-      'https://live.staticflickr.com/65535/52903304317_76cbceda49_b.jpg',
-      'https://live.staticflickr.com/65535/52903304127_716fc14264_b.jpg',
-      'https://commons.wikimedia.org/wiki/Special:FilePath/Namsangol_Hanok_Village_20240409_017.jpg?width=800'
-    ]
+    photos:[]
   },
 
 // ── HISTORIC HOUSES & VILLAS ──────────────────────────────────
@@ -2858,7 +2814,7 @@ var LOCS_SEOUL = [
     localAddr:'서울특별시 용산구 새창로44길 10',
     localHood:'용산',
     hood:'Yongsan',
-    desc: 'The Nature Holdings Headquarters represents contemporary Korean corporate architecture positioned within Seoul\'s evolving business ecology. The headquarters demonstrates how outdoor lifestyle brands establish corporate identity through refined spatial environments, reflecting Seoul\'s maturing design consciousness where headquarters function as cultural institutions rather than utilitarian workspaces.',
+    desc: 'The Nature Holdings Headquarters by JOHO Architecture (2019) in Yongsan expresses the outdoor lifestyle brand\'s identity through raw material honesty and biophilic integration. The 6-story concrete structure features deep-set windows and planted terraces that create green layers ascending the facade. A double-height ground-floor showroom connects directly to an interior courtyard garden, while upper office floors employ open plans with exposed timber ceiling beams. The building earned recognition for demonstrating how corporate headquarters can embody brand values through architectural material choices.',
     hours:'Not open to public',
     lastEntry:'',
     admission:'N/A',
