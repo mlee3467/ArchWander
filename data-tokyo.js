@@ -1637,7 +1637,7 @@ var LOCS_TOKYO = [
     tourOk:true, tourInfo:'Freely accessible at all times. The grounds are especially atmospheric at night when the gates are illuminated. Nakamise shopping street shops close by early evening.',
     transit:'Ginza Asakusa Tobu → Asakusa (5 min walk)',
     walkFrom:'Asakusa Station: 5 min · Asakusa Culture Tourist Info Center: 1 min · Tokyo Skytree: 15 min',
-    tags:['temple','traditional','asakusa','kaminarimon','buddhist','645 ad','oldest tokyo','pagoda'],
+    tags:['historic','temple','traditional','asakusa','kaminarimon','buddhist','645 ad','oldest tokyo','pagoda'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Asakusa_during_snowfall_-_Flickr_-_Manish_Prabhune.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Asakusa_-_Senso-ji_35_%2815576702197%29.jpg?width=800',
@@ -1699,7 +1699,7 @@ var LOCS_TOKYO = [
     tourOk:true, tourInfo:'Freely accessible. The Tokugawa mausoleum area requires a separate ticket. The Sangedatsumon gate is the architectural highlight. Famous view: Tokyo Tower framed behind the main hall.',
     transit:'Mita → Onarimon (3 min walk) · Oedo → Daimon (5 min)',
     walkFrom:'Onarimon Station: 3 min · Tokyo Tower: 5 min · Hamamatsucho Station: 8 min',
-    tags:['temple','buddhist','traditional','tokugawa','tokyo tower view','sangedatsumon','1622 gate','shiba'],
+    tags:['historic','temple','buddhist','traditional','tokugawa','tokyo tower view','sangedatsumon','1622 gate','shiba'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/20110405-TokyoTower-Sakura01.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/100_views_edo_049.jpg?width=800',
@@ -1730,7 +1730,7 @@ var LOCS_TOKYO = [
     tourOk:true, tourInfo:'Freely accessible. The azalea festival in April draws large crowds. The torii tunnel on the hillside is photogenic year-round. Combine with a walk through the Yanaka/Nezu/Sendagi historic district.',
     transit:'Chiyoda → Nezu (5 min walk) · Namboku → Todaimae (5 min)',
     walkFrom:'Nezu Station: 5 min · University of Tokyo: 10 min · Ueno Park: 15 min',
-    tags:['shinto','traditional','edo period','1706','torii tunnel','azalea','important cultural property','nezu'],
+    tags:['historic','shinto','traditional','edo period','1706','torii tunnel','azalea','important cultural property','nezu'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Nezu_Shrine_2010.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Nezu-jinja-4.jpg?width=800',
@@ -1792,7 +1792,7 @@ var LOCS_TOKYO = [
     tourOk:true, tourInfo:'English pamphlet available. Spring cherry blossom and autumn maple illumination events (evening) are particularly popular and may require queuing.',
     transit:'JR Namboku → Komagome (2 min walk)',
     walkFrom:'Komagome Station: 2 min',
-    tags:['garden','edo period','1702','strolling garden','cherry blossom','autumn leaves','illumination','komagome'],
+    tags:['historic','garden','edo period','1702','strolling garden','cherry blossom','autumn leaves','illumination','komagome'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/View_from_Fujishiro-toge_Hill_at_Rikugi-en_Garden%2C_Tokyo_%28Detail%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Rikugi-en_20181124-2.jpg?width=800',
@@ -1823,7 +1823,7 @@ var LOCS_TOKYO = [
     tourOk:true, tourInfo:'English pamphlet available. Less crowded than Rikugi-en. The full-moon bridge and plum grove (February) are highlights.',
     transit:'Oedo Tozai Namboku → Iidabashi (3 min walk) · JR → Suidobashi (5 min)',
     walkFrom:'Iidabashi Station: 3 min · Tokyo Dome: 2 min',
-    tags:['garden','edo period','1629','oldest tokyo garden','chinese influence','full-moon bridge','special historic site'],
+    tags:['historic','garden','edo period','1629','oldest tokyo garden','chinese influence','full-moon bridge','special historic site'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Koishikawa_Korakuen_-_Bunky%C5%8D-ku%2C_Tokyo%2C_Japan_-_DSC09183.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Koishikawa_Korakuen_-_Benzai-Tenno-Miya.jpg?width=800',
@@ -1854,7 +1854,7 @@ var LOCS_TOKYO = [
     tourOk:true, tourInfo:'Adjacent to Sensō-ji — visit both together. The Sanja Matsuri (third weekend of May) is one of Tokyo\'s largest festivals.',
     transit:'Ginza Asakusa → Asakusa (5 min walk)',
     walkFrom:'Sensō-ji Main Hall: 1 min · Asakusa Station: 5 min',
-    tags:['shinto','traditional','edo period','1649','important cultural property','sanja matsuri','asakusa'],
+    tags:['historic','shinto','traditional','edo period','1649','important cultural property','sanja matsuri','asakusa'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Asakusa_Shrine_2024.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Asakusa_shrine_2012.JPG?width=800',
@@ -1918,7 +1918,7 @@ var LOCS_TOKYO = [
     tourOk:true, tourInfo:'English pamphlet available. The teahouse on the pond serves matcha (¥510). Water bus service connects Hamarikyu to Asakusa — a scenic way to arrive. Combine with a visit to Tsukiji Outer Market.',
     transit:'Oedo Yurikamome → Shiodome (5 min walk) · Oedo → Tsukijishijo (7 min)',
     walkFrom:'Shiodome Station: 5 min · Dentsu Building (Nouvel): 3 min · Tsukiji Outer Market: 8 min',
-    tags:['garden','edo period','1654','tidal garden','teahouse','tokugawa','shiodome skyline','water bus'],
+    tags:['historic','garden','edo period','1654','tidal garden','teahouse','tokugawa','shiodome skyline','water bus'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/2018_Hama-riky%C5%AB_Garden_02.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/France_Loiret_La_Bussiere_Potager_05.jpg?width=800',
@@ -1949,7 +1949,7 @@ var LOCS_TOKYO = [
     tourOk:true, tourInfo:'Compact garden ideal for a focused 30–45 minute visit. Combine with the surrounding Kiyosumi-Shirakawa coffee shops. Less crowded than central Tokyo gardens.',
     transit:'Hanzomon Oedo → Kiyosumi-Shirakawa (3 min walk)',
     walkFrom:'Kiyosumi-Shirakawa Station: 3 min · Museum of Contemporary Art Tokyo: 10 min',
-    tags:['garden','meiji era','mitsubishi','stepping stones','kiyosumi-shirakawa','1878','strolling garden'],
+    tags:['historic','garden','meiji era','mitsubishi','stepping stones','kiyosumi-shirakawa','1878','strolling garden'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Kiyosumi_Teien_-_Japanese_gardern_1.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Kiyosumi-1.JPG?width=800',
@@ -1980,7 +1980,7 @@ var LOCS_TOKYO = [
     tourOk:true, tourInfo:'Freely accessible. The torii gate tunnel on the south (Akasaka) side is the most photogenic approach. Escalator available for less mobile visitors. Combine with nearby Akasaka dining.',
     transit:'Ginza Namboku → Tameike-Sanno (3 min walk) · Chiyoda → Akasaka (3 min)',
     walkFrom:'Tameike-Sanno Station: 3 min · National Diet Building: 5 min',
-    tags:['shinto','traditional','torii tunnel','nagatacho','sanno matsuri','1478','government district'],
+    tags:['historic','shinto','traditional','torii tunnel','nagatacho','sanno matsuri','1478','government district'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hie_Shrine_Big_Torii_with_escalators_in_the_background.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hie_Shrine_Tokyo.jpg?width=800',
@@ -2042,7 +2042,7 @@ var LOCS_TOKYO = [
     tourOk:true, tourInfo:'Interior of the Western mansion is accessible (shoe removal required). Audio guide available. Photography restricted in some interior rooms. English signage throughout.',
     transit:'Chiyoda → Yushima (3 min walk) · Ginza → Ueno-hirokoji (5 min)',
     walkFrom:'Yushima Station: 3 min · Ueno Station: 10 min · National Museum of Western Art: 12 min',
-    tags:['josiah conder','meiji era','mitsubishi','western mansion','important cultural property','1896','jacobean'],
+    tags:['historic','josiah conder','meiji era','mitsubishi','western mansion','important cultural property','1896','jacobean'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Former_Iwasaki_Family_House_and_Garden_2010.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Kyu_Iwasaki_Tei_Garden_%28180139793%29.jpeg?width=800',
@@ -2141,7 +2141,7 @@ var LOCS_TOKYO = [
     tourOk:true, tourInfo:'Brief visiting hours. The dome exterior is best viewed from Hijiribashi Bridge. Located near Century Tower (Foster) and Athénée Français (Yoshizaka).',
     transit:'Chiyoda → Shin-Ochanomizu (1 min walk) · JR → Ochanomizu (4 min)',
     walkFrom:'Shin-Ochanomizu Station: 1 min · Century Tower: 3 min · Athénée Français: 3 min',
-    tags:['josiah conder','byzantine','orthodox','cathedral','1891','important cultural property','dome','ochanomizu'],
+    tags:['historic','josiah conder','byzantine','orthodox','cathedral','1891','important cultural property','dome','ochanomizu'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo_Resurrection_Cathedral_March_2019.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Nikolai-do.jpg?width=800',
@@ -2258,7 +2258,7 @@ var LOCS_TOKYO = [
     tourOk:true, tourInfo:'Small, intimate concert hall. Occasional performances on the historic organ. Located within Ueno Park near the Tokyo National Museum.',
     transit:'JR → Ueno Park Exit (10 min walk)',
     walkFrom:'TNM Honkan: 3 min · National Museum of Western Art: 5 min',
-    tags:['concert hall','victorian','1890','oldest concert hall','organ','important cultural property','ueno','music'],
+    tags:['historic','concert hall','victorian','1890','oldest concert hall','organ','important cultural property','ueno','music'],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Sogakudo01s2048.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Sogakudo02s2010.jpg?width=800',
@@ -2471,7 +2471,7 @@ var LOCS_TOKYO = [
     tourOk:true, tourInfo:'Very limited opening hours — only two Saturdays per month. Check Shinjuku Gyoen website. The garden itself is worth the visit regardless.',
     transit:'Marunouchi → Shinjuku-gyoenmae (5 min walk)',
     walkFrom:'Shinjuku-gyoenmae Station: 5 min · Shinjuku Station: 15 min',
-    tags:['victorian','stick style','1896','imperial','important cultural property','shinjuku gyoen','wooden'],
+    tags:['historic','victorian','stick style','1896','imperial','important cultural property','shinjuku gyoen','wooden'],
     photos:[]
   },
 

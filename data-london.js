@@ -1073,7 +1073,7 @@ var LOCS_LONDON = [
     "tourInfo": "Yeoman Warders (Beefeaters) offer guided tours hourly; audio guides available",
     "transit": "Tower Hill (Circle, District, DLR lines); riverside access via Thames Path",
     "walkFrom": "St Katharine Docks (5 min), London Bridge (15 min), Bank (15 min)",
-    "tags": [
+    "tags": ["historic",
       "norman",
       "william the conqueror",
       "medieval",
@@ -1120,7 +1120,7 @@ var LOCS_LONDON = [
     "tourInfo": "Official guided tours available year-round; audio guides in 6 languages",
     "transit": "Westminster (Circle, District, Jubilee lines); Embankment (District, Northern, Circle, Bakerloo)",
     "walkFrom": "Westminster Abbey (2 min), Big Ben (adjacent), St James's Park (5 min)",
-    "tags": [
+    "tags": ["historic",
       "victorian",
       "gothic revival",
       "charles barry",
@@ -1168,7 +1168,7 @@ var LOCS_LONDON = [
     "tourInfo": "Guided tours available; audio guides in multiple languages; expert-led photography tours",
     "transit": "Westminster (Circle, District, Jubilee lines); St James's Park (District, Circle lines)",
     "walkFrom": "Palace of Westminster (2 min), St James's Park (5 min), Victoria Street (2 min)",
-    "tags": [
+    "tags": ["historic",
       "gothic",
       "medieval",
       "henry iii",
@@ -1216,7 +1216,7 @@ var LOCS_LONDON = [
     "tourInfo": "Guided tours available; audio guides included with admission",
     "transit": "Cutty Sark DLR or Greenwich (Jubilee line extension via London Bridge)",
     "walkFrom": "Greenwich Park (uphill 10 min), Cutty Sark (5 min), Greenwich Market (5 min)",
-    "tags": [
+    "tags": ["historic",
       "baroque",
       "christopher wren",
       "nicholas hawksmoor",
@@ -1263,7 +1263,7 @@ var LOCS_LONDON = [
     "tourInfo": "Museum staff available; guided tours by National Maritime Museum",
     "transit": "Cutty Sark DLR or Greenwich (Jubilee line extension)",
     "walkFrom": "Greenwich Park (uphill 5 min), Cutty Sark (2 min), Old Royal Naval College (2 min)",
-    "tags": [
+    "tags": ["historic",
       "palladian",
       "inigo jones",
       "renaissance",
@@ -1311,7 +1311,7 @@ var LOCS_LONDON = [
     "tourInfo": "Guided tours available; hop-on hop-off train; garden maps provided; expert-led botanical walks",
     "transit": "Kew Bridge (District line, London Overground); Kew Gardens (District line)",
     "walkFrom": "Kew Bridge (5 min walk), Richmond (riverside path 30 min)",
-    "tags": [
+    "tags": ["historic",
       "victorian",
       "decimus burton",
       "glass architecture",
@@ -1359,7 +1359,7 @@ var LOCS_LONDON = [
     "tourInfo": "Guided tours available; audioguides included; photography tours; access to Whispering Gallery and Dome",
     "transit": "St Paul's (Circle, Metropolitan lines); Bank (Circle, Northern, District lines)",
     "walkFrom": "Museum of London (2 min), Millennium Bridge (2 min), Bank of England (5 min)",
-    "tags": [
+    "tags": ["historic",
       "baroque",
       "christopher wren",
       "english baroque",
@@ -1407,7 +1407,7 @@ var LOCS_LONDON = [
     "tourInfo": "No guided tours; self-guided audio tours available during State Rooms opening",
     "transit": "Victoria (District, Circle, Northern, Hammersmith & City lines); Green Park (Jubilee, Victoria, Piccadilly)",
     "walkFrom": "St James's Park (adjacent), Green Park (2 min), Westminster (10 min)",
-    "tags": [
+    "tags": ["historic",
       "neoclassical",
       "georgian",
       "john nash",
@@ -1455,7 +1455,7 @@ var LOCS_LONDON = [
     "tourInfo": "Self-guided with interpretive panels; guided tours available; audio guides",
     "transit": "Embankment (District, Circle, Bakerloo lines); Westminster (Circle, District, Jubilee)",
     "walkFrom": "Palace of Westminster (5 min), Trafalgar Square (3 min), Thames (2 min)",
-    "tags": [
+    "tags": ["historic",
       "palladian",
       "inigo jones",
       "renaissance",
@@ -1503,7 +1503,7 @@ var LOCS_LONDON = [
     "tourInfo": "Self-guided access to high walkways and engine rooms; educational displays; views of Thames",
     "transit": "Tower Hill (Circle, District, DLR lines); London Bridge (District, Jubilee, Northern lines)",
     "walkFrom": "Tower of London (adjacent), London Bridge (1 min), St Katharine Docks (5 min)",
-    "tags": [
+    "tags": ["historic",
       "victorian gothic",
       "horace jones",
       "john wolfe barry",
@@ -1551,7 +1551,7 @@ var LOCS_LONDON = [
     "tourInfo": "Guided tours available; family activities; historic gardens tour",
     "transit": "Eltham (District line)",
     "walkFrom": "Eltham High Street (10 min walk)",
-    "tags": [
+    "tags": ["historic",
       "medieval",
       "edward iv",
       "great hall",
@@ -1599,7 +1599,7 @@ var LOCS_LONDON = [
     "tourInfo": "Guided tours available; audio guides; sculpture park in grounds",
     "transit": "Golders Green (Northern line) + bus 210; Hampstead Heath (overland)",
     "walkFrom": "Hampstead Heath (adjacent), Hampstead village (15 min walk downhill)",
-    "tags": [
+    "tags": ["historic",
       "neoclassical",
       "robert adam",
       "georgian",
@@ -1648,7 +1648,7 @@ var LOCS_LONDON = [
     "tourInfo": "Guided tours available; audio guides; gallery talks",
     "transit": "Hyde Park Corner (Piccadilly line); Knightsbridge (Piccadilly, District lines)",
     "walkFrom": "Hyde Park (adjacent), Green Park (3 min), Ritz Hotel (2 min)",
-    "tags": [
+    "tags": ["historic",
       "neoclassical",
       "robert adam",
       "georgian",
@@ -1696,7 +1696,7 @@ var LOCS_LONDON = [
     "tourInfo": "Self-guided with interpretive displays; views from gallery level; historical information panels",
     "transit": "Hyde Park Corner (Piccadilly line)",
     "walkFrom": "Apsley House (30 sec), Green Park (2 min), Knightsbridge (3 min)",
-    "tags": [
+    "tags": ["historic",
       "neoclassical",
       "decimus burton",
       "georgian",
@@ -1744,7 +1744,7 @@ var LOCS_LONDON = [
     "tourInfo": "Guided tours available; family activities; tea room in stable block",
     "transit": "Richmond (District, Overground lines) + bus or riverside walk (40 min)",
     "walkFrom": "Richmond town center (3 km), Richmond Park (adjacent)",
-    "tags": [
+    "tags": ["historic",
       "stuart",
       "baroque",
       "national trust",
@@ -1792,7 +1792,7 @@ var LOCS_LONDON = [
     "tourInfo": "Guided tours available; children's activities; tea room; family events",
     "transit": "Osterley (Piccadilly line); Kew Bridge (District, Overground lines)",
     "walkFrom": "Kew Bridge (15 min walk), River Thames path (adjacent)",
-    "tags": [
+    "tags": ["historic",
       "neoclassical",
       "robert adam",
       "georgian",
@@ -1840,7 +1840,7 @@ var LOCS_LONDON = [
     "tourInfo": "Guided tours available; family activities; tea room",
     "transit": "Bexleyheath (District line)",
     "walkFrom": "Bexleyheath town center (10 min walk)",
-    "tags": [
+    "tags": ["historic",
       "arts and crafts",
       "william morris",
       "philip webb",
@@ -1888,7 +1888,7 @@ var LOCS_LONDON = [
     "tourInfo": "Guided tours available; family activities; tea room; music recitals (seasonal)",
     "transit": "Hampstead (Northern line)",
     "walkFrom": "Hampstead village (5 min walk), Hampstead Heath (adjacent)",
-    "tags": [
+    "tags": ["historic",
       "georgian",
       "william and mary",
       "1686",
@@ -1936,7 +1936,7 @@ var LOCS_LONDON = [
     "tourInfo": "Guided tours available; exhibitions; community programs; tea room",
     "transit": "Hackney Central (Overground); Hackney Downs (Overground); Homerton (Overground)",
     "walkFrom": "Hackney High Street (adjacent), Hackney Marshes (15 min walk)",
-    "tags": [
+    "tags": ["historic",
       "tudor",
       "1535",
       "ralph sadleir",
@@ -1984,7 +1984,7 @@ var LOCS_LONDON = [
     "tourInfo": "Self-guided with interpretive displays; exhibition on medieval palace; views from upper level",
     "transit": "Westminster (Circle, District, Jubilee lines); St James's Park (District, Circle lines)",
     "walkFrom": "Palace of Westminster (3 min), St James's Park (2 min), Tate Britain (5 min)",
-    "tags": [
+    "tags": ["historic",
       "medieval",
       "edward iii",
       "1365",
@@ -2030,7 +2030,7 @@ var LOCS_LONDON = [
     "tourInfo": "Self-guided viewing of courtyard and galleries",
     "transit": "Bridge (Circle, District, Northern Lines), London Bridge (Jubilee, Northern), Borough (Northern)",
     "walkFrom": "Tower Bridge (0.3 mi), London Bridge Station (0.2 mi)",
-    "tags": [
+    "tags": ["historic",
       "coaching-inn",
       "17th-century",
       "timber-frame",
@@ -2073,7 +2073,7 @@ var LOCS_LONDON = [
     "tourInfo": "Self-guided; interpretation panels at key sections",
     "transit": "Tower Hill (Circle, District), Aldgate (Circle, District, Hammersmith & City), Moorgate (Circle, Hammersmith & City, Metropolitan)",
     "walkFrom": "Tower of London (0.2 mi), Museum of London (0.3 mi)",
-    "tags": [
+    "tags": ["historic",
       "roman",
       "medieval",
       "scheduled-monument",
@@ -2115,7 +2115,7 @@ var LOCS_LONDON = [
     "tourInfo": "Self-guided viewing of atrium and portico",
     "transit": "Bank (Central, District, Northern), Monument (Circle, District)",
     "walkFrom": "Bank of England (0.1 mi), St Paul's Cathedral (0.3 mi)",
-    "tags": [
+    "tags": ["historic",
       "victorian",
       "neoclassical",
       "commercial-hub",
@@ -2200,7 +2200,7 @@ var LOCS_LONDON = [
     "tourInfo": "Self-guided exploration; photography encouraged",
     "transit": "Bank (Central, District, Northern), Monument (Circle, District), Aldgate (Circle, District)",
     "walkFrom": "Tower of London (0.2 mi), Lloyd's Building (0.1 mi)",
-    "tags": [
+    "tags": ["historic",
       "victorian",
       "ironwork",
       "market-hall",
@@ -2243,7 +2243,7 @@ var LOCS_LONDON = [
     "tourInfo": "Self-guided viewing of train shed and exterior; guided tours by arrangement",
     "transit": "St Pancras International (Circle, Hammersmith & City, Metropolitan, Piccadilly, Northern), King's Cross St Pancras (all lines)",
     "walkFrom": "King's Cross Station (0.2 mi), British Library (0.3 mi)",
-    "tags": [
+    "tags": ["historic",
       "victorian",
       "gothic-revival",
       "railway-station",
@@ -2286,7 +2286,7 @@ var LOCS_LONDON = [
     "tourInfo": "Self-guided; interpretation panels throughout station",
     "transit": "King's Cross St Pancras (all Circle, Hammersmith & City, Metropolitan, Piccadilly, Northern, Vertical Circle)",
     "walkFrom": "St Pancras Station (0.2 mi), British Library (0.3 mi)",
-    "tags": [
+    "tags": ["historic",
       "victorian",
       "railway-station",
       "grade-i",
@@ -2328,7 +2328,7 @@ var LOCS_LONDON = [
     "tourInfo": "Self-guided viewing; interpretation plaques throughout",
     "transit": "Paddington (Bakerloo, Circle, District, Hammersmith & City), Paddington (Heathrow Express)",
     "walkFrom": "Little Venice (0.2 mi), Grand Union Canal (adjacent)",
-    "tags": [
+    "tags": ["historic",
       "victorian",
       "railway-station",
       "iron-and-glass",
@@ -2371,7 +2371,7 @@ var LOCS_LONDON = [
     "tourInfo": "Self-guided; Eleanor Cross is free to view",
     "transit": "Charing Cross (Bakerloo, Northern), Embankment (Bakerloo, Circle, District, Northern)",
     "walkFrom": "Trafalgar Square (0.2 mi), Thames embankment (0.1 mi)",
-    "tags": [
+    "tags": ["historic",
       "victorian",
       "railway-station",
       "gothic-revival",
@@ -2413,7 +2413,7 @@ var LOCS_LONDON = [
     "tourInfo": "Self-guided viewing; historic features labeled throughout",
     "transit": "Liverpool Street (Circle, District, Hammersmith & City, Metropolitan), Liverpool Street Overground",
     "walkFrom": "Tower of London (0.3 mi), Museum of London (0.2 mi)",
-    "tags": [
+    "tags": ["historic",
       "victorian",
       "railway-station",
       "grade-ii*",
@@ -2497,7 +2497,7 @@ var LOCS_LONDON = [
     "tourInfo": "Self-guided park exploration; interpretation plaques explain gasholders history",
     "transit": "King's Cross St Pancras (all lines), St Pancras International",
     "walkFrom": "St Pancras Station (0.2 mi), British Library (0.3 mi)",
-    "tags": [
+    "tags": ["historic",
       "victorian-industrial",
       "gasholders",
       "scheduled-monument",
@@ -2540,7 +2540,7 @@ var LOCS_LONDON = [
     "tourInfo": "Self-guided exploration; street performances and vendor interactions add to experience",
     "transit": "Covent Garden (Piccadilly, Bakerloo), Leicester Square (Piccadilly, Northern)",
     "walkFrom": "Royal Opera House (0.1 mi), National Gallery (0.2 mi)",
-    "tags": [
+    "tags": ["historic",
       "regency",
       "victorian",
       "market-hall",
@@ -2583,7 +2583,7 @@ var LOCS_LONDON = [
     "tourInfo": "Guided backstage tours available on non-performance days; book in advance",
     "transit": "Covent Garden (Piccadilly, Bakerloo), Leicester Square (Piccadilly, Northern)",
     "walkFrom": "Covent Garden Market (0.1 mi), National Gallery (0.2 mi)",
-    "tags": [
+    "tags": ["historic",
       "victorian",
       "theatre",
       "cultural-institution",
@@ -2668,7 +2668,7 @@ var LOCS_LONDON = [
     "tourInfo": "Limited backstage tours available; check with box office",
     "transit": "Charing Cross (Bakerloo, Northern), Covent Garden (Piccadilly, Bakerloo), Temple (Circle, District)",
     "walkFrom": "Royal Opera House (0.3 mi), Charing Cross Station (0.2 mi)",
-    "tags": [
+    "tags": ["historic",
       "victorian",
       "art-deco",
       "theatre",
@@ -2880,7 +2880,7 @@ var LOCS_LONDON = [
     "tourInfo": "Guided tours and architectural routes available",
     "transit": "Temple (Circle, District, Bakerloo lines), Covent Garden (Piccadilly line)",
     "walkFrom": "Waterloo Bridge (5 min), Savoy Theatre (2 min)",
-    "tags": [
+    "tags": ["historic",
       "neoclassical",
       "thames",
       "art",
@@ -2922,7 +2922,7 @@ var LOCS_LONDON = [
     "tourInfo": "Self-guided public access to Great Hall; tours require advance booking",
     "transit": "Temple (Circle, District, Bakerloo lines), Aldwych (Piccadilly line, closed but nearby)",
     "walkFrom": "Waterloo Bridge (5 min), Fleet Street (adjacent)",
-    "tags": [
+    "tags": ["historic",
       "victorian-gothic",
       "street",
       "civic",
@@ -2964,7 +2964,7 @@ var LOCS_LONDON = [
     "tourInfo": "Specialist tours available; evening candlelit openings monthly",
     "transit": "Holborn (Piccadilly, Giclde lines), Russell Square (Piccadilly line)",
     "walkFrom": "Bloomsbury Museum district (8 min)",
-    "tags": [
+    "tags": ["historic",
       "soane",
       "museum",
       "neoclassical",
@@ -3008,7 +3008,7 @@ var LOCS_LONDON = [
     "tourInfo": "Climb 311 steps to viewing gallery",
     "transit": "Monument (Circle, District lines), Eastcheap nearby",
     "walkFrom": "Tower of London (10 min), London Bridge (8 min)",
-    "tags": [
+    "tags": ["historic",
       "wren",
       "baroque",
       "monument",
@@ -3051,7 +3051,7 @@ var LOCS_LONDON = [
     "tourInfo": "Guided tours available; RHS Chelsea Flower Show held annually",
     "transit": "Sloane Square (Circle, District lines), South Kensington (Circle, District, Piccadilly)",
     "walkFrom": "Thames (Chelsea Embankment, adjacent)",
-    "tags": [
+    "tags": ["historic",
       "wren",
       "baroque",
       "institutional",
@@ -3095,7 +3095,7 @@ var LOCS_LONDON = [
     "tourInfo": "Guided tours mandatory; booking essential",
     "transit": "Green Park (Jubilee, Victoria, Piccadilly lines), St James's Park (Circle, District)",
     "walkFrom": "Buckingham Palace (10 min), Park (adjacent)",
-    "tags": [
+    "tags": ["historic",
       "vardy",
       "stuart",
       "rococo",
@@ -3181,7 +3181,7 @@ var LOCS_LONDON = [
     "tourInfo": "Self-guided visits; special services for academic ceremonies",
     "transit": "Temple (Circle, District, Bakerloo lines), Blackfriars (Circle, District, Central)",
     "walkFrom": "Fleet Street (2 min), Thames Path (adjacent)",
-    "tags": [
+    "tags": ["historic",
       "templar",
       "medieval",
       "round-church",
@@ -4112,7 +4112,7 @@ var LOCS_LONDON = [
     "tourInfo": "West tours mandatory; self-guided East Cemetery",
     "transit": "Archway (Northern line), Highgate (Northern line)",
     "walkFrom": "Highgate Village",
-    "tags": [
+    "tags": ["historic",
       "victorian",
       "landscape design",
       "gothic revival",
@@ -4439,7 +4439,7 @@ var LOCS_LONDON = [
     "tourInfo": "Contact Livery Company directly",
     "transit": "Bank (0.20km), Monument (0.35km)",
     "walkFrom": "Threadneedle Street, Cornhill",
-    "tags": [
+    "tags": ["historic",
       "livery hall",
       "victorian",
       "city of london",
@@ -4769,7 +4769,7 @@ var LOCS_LONDON = [
     "tourInfo": "Restaurant and public areas accessible; tours by arrangement",
     "transit": "King's Cross St Pancras Station (immediate)",
     "walkFrom": "British Library, Bloomsbury",
-    "tags": [
+    "tags": ["historic",
       "victorian gothic",
       "scott",
       "hotel",

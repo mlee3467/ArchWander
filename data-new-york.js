@@ -261,7 +261,7 @@ var LOCS_NEW_YORK = [
     tourInfo:'Self-guided walk approx. 30 min one-way. Best views from DUMBO waterfront, Manhattan Bridge walkway, or Brooklyn Heights Promenade.',
     transit:'4 5 6 → Brooklyn Bridge–City Hall\nA C → High St (Brooklyn)',
     walkFrom:'City Hall: 5 min · One WTC: 10 min',
-    tags:[
+    tags:['historic',
       'gothic revival',
       'suspension bridge',
       'free access',
@@ -545,7 +545,7 @@ var LOCS_NEW_YORK = [
     tourInfo:'Self-guided visits welcome at all times. Check saintpatrickscathedral.org for mass schedule and guided tour availability.',
     transit:'B D F M → 47-50 Sts–Rockefeller Ctr\nE M → 5 Av/53 St',
     walkFrom:'Rockefeller Center: 2 min · MoMA: 5 min',
-    tags:[
+    tags:['historic',
       'gothic revival',
       'free entry',
       'fifth avenue',
@@ -686,7 +686,7 @@ var LOCS_NEW_YORK = [
     tourInfo:'Central Park Conservancy offers free tours on weekends. Bike rentals available at multiple points around the park.',
     transit:'Multiple lines (1 2 3 A B C D N Q R) serve stations from 59th to 110th St',
     walkFrom:'Guggenheim Museum: 2 min · The Met: at park edge',
-    tags:[
+    tags:['historic',
       'olmsted & vaux',
       'landscape',
       '843 acres',
@@ -1614,7 +1614,7 @@ var LOCS_NEW_YORK = [
     tourInfo:'Prospect Park Alliance offers free walking tours on select weekends. Bike rentals available. Check prospectpark.org for events.',
     transit:'2 3 → Grand Army Plaza or Eastern Pkwy–Brooklyn Museum\nQ → Seventh Ave (Brooklyn)\nB Q → Prospect Park',
     walkFrom:'Brooklyn Museum: 5 min · Brooklyn Botanic Garden: adjacent',
-    tags:[
+    tags:['historic',
       'olmsted & vaux',
       'brooklyn',
       'natural forest',
@@ -2118,7 +2118,7 @@ var LOCS_NEW_YORK = [
     tourInfo:'Free public tours on select days. Check NYC gov website for schedule.',
     transit:'4 5 6 J Z → Brooklyn Bridge–City Hall · N R W → City Hall',
     walkFrom:'Brooklyn Bridge: 5 min · World Trade Center: 10 min',
-    tags:[
+    tags:['historic',
       'federal',
       'french renaissance',
       'civic',
@@ -2290,7 +2290,7 @@ var LOCS_NEW_YORK = [
     tourInfo:'Free ranger-led tours. Also serves as Statue of Liberty ferry ticket office.',
     transit:'1 → South Ferry · R W → Whitehall St · 4 5 → Bowling Green',
     walkFrom:'Battery Park: adjacent · Bowling Green: 3 min',
-    tags:[
+    tags:['historic',
       'national monument',
       'federal',
       'fort',
@@ -2335,7 +2335,7 @@ var LOCS_NEW_YORK = [
     tourInfo:'NYC Financial District walking tours typically include Stone Street. Best visited weekday lunch for the outdoor seating atmosphere.',
     transit:'R W → Whitehall St · J Z → Broad St · 4 5 → Bowling Green',
     walkFrom:'Bowling Green: 4 min · WTC: 8 min',
-    tags:[
+    tags:['historic',
       'cobblestone',
       'greek revival',
       'historic district',
@@ -2380,7 +2380,7 @@ var LOCS_NEW_YORK = [
     tourInfo:'Self-guided. Washington Square Park is a major gathering space for the NYU community and neighborhood.',
     transit:'A C E B D F M → W 4 St–Washington Sq',
     walkFrom:'NYU campus: adjacent · SoHo: 10 min',
-    tags:[
+    tags:['historic',
       'stanford white',
       'beaux-arts',
       'arch',
@@ -2423,7 +2423,7 @@ var LOCS_NEW_YORK = [
     tourInfo:'Open for services. La Farge stained glass windows are a particular highlight.',
     transit:'A C E B D F M → W 4 St–Washington Sq',
     walkFrom:'Washington Square Arch: 2 min · NYU: adjacent',
-    tags:[
+    tags:['historic',
       'stanford white',
       'romanesque revival',
       'la farge',
@@ -2470,7 +2470,7 @@ var LOCS_NEW_YORK = [
     tourInfo:'Free public library. Ask about the clock tower — it occasionally opens for guided tours.',
     transit:'A C E B D F M → W 4 St–Washington Sq · 1 → Christopher St',
     walkFrom:'Washington Square: 5 min · Christopher St: 3 min',
-    tags:[
+    tags:['historic',
       'calvert vaux',
       'victorian gothic',
       'nypl',
@@ -2604,7 +2604,7 @@ var LOCS_NEW_YORK = [
     tourInfo:'Churchyard freely accessible. Interior open for services and events.',
     transit:'6 → Astor Pl · L → 1 Av',
     walkFrom:'Astor Place: 3 min · Tompkins Square Park: 5 min',
-    tags:[
+    tags:['historic',
       'georgian',
       'greek revival',
       'historic church',
@@ -2833,7 +2833,7 @@ var LOCS_NEW_YORK = [
     tourInfo:'Walking tours available from multiple operators. Best photographed on Washington St at Water St for the Manhattan Bridge frame view.',
     transit:'A C → High St · F → York St',
     walkFrom:'Brooklyn Bridge Park: 5 min · Brooklyn Heights Promenade: 10 min',
-    tags:[
+    tags:['historic',
       'industrial loft',
       'cobblestone',
       'brooklyn',
@@ -3093,7 +3093,7 @@ var LOCS_NEW_YORK = [
     tourInfo:'Free docent tours Sat 11 AM. Garden highlights tours Sun 2 PM.',
     transit:'1 → 231 St, then BX7/BX10 bus · Metro-North Hudson Line → Riverdale',
     walkFrom:'Riverdale neighborhood: 5 min · Hudson River overlook: adjacent',
-    tags:[
+    tags:['historic',
       'garden',
       'estate',
       'bronx',

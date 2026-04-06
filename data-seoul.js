@@ -1273,7 +1273,7 @@ var LOCS_SEOUL = [
     tourOk:true, tourInfo:'Active parish. Visitors welcome during open hours. No food or photography inside. English Mass: Sundays 9:00 AM.',
     transit:'4 → Myeongdong (Exit 8, 3 min walk)',
     walkFrom:'Myeongdong Station: 3 min · Apple Myeongdong: 3 min · Piknic: 5 min',
-    tags:['catholic','gothic','1898','first brick church','myeongdong','landmark','democracy'],
+    tags:['historic','catholic','gothic','1898','first brick church','myeongdong','landmark','democracy'],
     photos:[]
   },
 
@@ -1297,7 +1297,7 @@ var LOCS_SEOUL = [
     tourOk:true, tourInfo:'Active parish. The hilltop setting is visible from Seoullo 7017 skygarden. Combine with a walk along Seoullo 7017.',
     transit:'2 5 → Chungjeongno (Exit 5, 8 min walk)',
     walkFrom:'Seoul Station: 10 min · Seoullo 7017: 5 min',
-    tags:['catholic','romanesque','1892','oldest church','jungnim-dong','red brick'],
+    tags:['historic','catholic','romanesque','1892','oldest church','jungnim-dong','red brick'],
     photos:[]
   },
 
@@ -1321,7 +1321,7 @@ var LOCS_SEOUL = [
     tourOk:true, tourInfo:'The Jeongdong-gil historic quarter is one of Seoul\'s best walking areas. Combine with Deoksugung Palace and Culture Station Seoul 284.',
     transit:'1 2 → City Hall (Exit 2, 5 min walk)',
     walkFrom:'City Hall Station: 5 min · Deoksugung Palace: 2 min',
-    tags:['methodist','protestant','1897','first protestant church','jeongdong','gothic','red brick'],
+    tags:['historic','methodist','protestant','1897','first protestant church','jeongdong','gothic','red brick'],
     photos:[]
   },
 
@@ -1493,7 +1493,7 @@ var LOCS_SEOUL = [
     tourOk:true, tourInfo:'Free admission. Traditional costume experience available. Located between Anguk and Jongno 3-ga stations.',
     transit:'3 → Anguk (Exit 4, 3 min walk) · 1 3 5 → Jongno 3-ga (Exit 5, 5 min)',
     walkFrom:'Anguk Station: 3 min · Insadong: 5 min · Bukchon: 8 min',
-    tags:['palace','traditional','1866','daewongun','joseon','jongno','free'],
+    tags:['historic','palace','traditional','1866','daewongun','joseon','jongno','free'],
     photos:[]
   },
 
@@ -1639,7 +1639,7 @@ var LOCS_SEOUL = [
     tourOk:true, tourInfo:'Part of Seoul Museum annex. The setting among Inwangsan pines is especially atmospheric. Combine with Buam-dong cafes.',
     transit:'3 → Gyeongbokgung (Exit 3) → Bus 1711/7016 to Jahamun Tunnel',
     walkFrom:'Buam-dong village: 5 min · Jahamun Gate: 8 min',
-    tags:['villa','daewongun','traditional','inwangsan','garden','pavilion','buam-dong'],
+    tags:['historic','villa','daewongun','traditional','inwangsan','garden','pavilion','buam-dong'],
     photos:[]
   },
 
@@ -1807,7 +1807,7 @@ var LOCS_SEOUL = [
     tourOk:false, tourInfo:'Private residence. Exterior viewable from Bukchon walking routes.',
     transit:'3 → Anguk (Exit 1, 10 min walk)',
     walkFrom:'Bukchon Hanok Village: 2 min',
-    tags:['hanok','private','bukchon','yangban','heritage','gahoe-dong'],
+    tags:['historic','hanok','private','bukchon','yangban','heritage','gahoe-dong'],
     photos:[]
   },
 
@@ -1927,7 +1927,7 @@ var LOCS_SEOUL = [
     tourOk:false, tourInfo:'Located on university campus. Contact Kookmin University for visiting arrangements.',
     transit:'4 → Kookmin Univ. (Exit 3)',
     walkFrom:'Kookmin University Station: 5 min',
-    tags:['hanok','heritage','relocated','university','independence activist','1890s'],
+    tags:['historic','hanok','heritage','relocated','university','independence activist','1890s'],
     photos:[]
   },
 
@@ -1975,7 +1975,7 @@ var LOCS_SEOUL = [
     tourOk:false, tourInfo:'Primarily private. The Buam-dong neighbourhood itself is worth exploring for its artist studios, cafes, and mountain trails.',
     transit:'3 → Gyeongbokgung (Exit 3) → Bus 1711 to Buam-dong',
     walkFrom:'Buam-dong village: 3 min · Seokpajeong: 8 min',
-    tags:['hanok','heritage','buam-dong','traditional','inwangsan'],
+    tags:['historic','hanok','heritage','buam-dong','traditional','inwangsan'],
     photos:[]
   },
 
