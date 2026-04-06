@@ -197,7 +197,7 @@ function _handleFavFileSelected(event) {
 // CITY SELECTOR + LAZY LOADING
 // ══════════════════════════════════════════════════════════════════
 var CITY_META = {
-  nyc: { key: 'new-york', label: '🗽 New York', localLang: 'en', lat: 40.7128, lng: -74.0060, zoom: 13, dataVar: 'LOCS_NEW_YORK', koVar: 'LOCS_KO_NEW_YORK' },
+  nyc: { key: 'new-york', label: '🗽 New York', localLang: 'en', lat: 40.7580, lng: -73.9855, zoom: 12, dataVar: 'LOCS_NEW_YORK', koVar: 'LOCS_KO_NEW_YORK' },
   sel: { key: 'seoul',    label: '🏙 Seoul',    localLang: 'ko', lat: 37.5663, lng: 126.9779, zoom: 13, dataVar: 'LOCS_SEOUL',    koVar: 'LOCS_KO_SEOUL' },
   lon: { key: 'london',   label: '🎡 London',   localLang: 'en', lat: 51.5101, lng: -0.0763,  zoom: 13, dataVar: 'LOCS_LONDON',   koVar: 'LOCS_KO_LONDON' },
   tky: { key: 'tokyo',    label: '🗼 Tokyo',    localLang: 'ja', lat: 35.6895, lng: 139.6917, zoom: 13, dataVar: 'LOCS_TOKYO',    koVar: 'LOCS_KO_TOKYO' }
@@ -375,6 +375,7 @@ function _nearestCity(lat, lng) {
 function _initCityByGPS() {
   return new Promise(function(resolve) {
     if (!navigator.geolocation) { console.log('[GPS] geolocation not available'); resolve('nyc'); return; }
+    // Use low accuracy for fast city-level detection; generous timeout for mobile
     navigator.geolocation.getCurrentPosition(
       function(pos) {
         var city = _nearestCity(pos.coords.latitude, pos.coords.longitude);
@@ -385,7 +386,7 @@ function _initCityByGPS() {
         console.log('[GPS] error:', err.code, err.message, '→ fallback nyc');
         resolve('nyc');
       },
-      { timeout: 5000, maximumAge: 300000 }
+      { enableHighAccuracy: false, timeout: 10000, maximumAge: 600000 }
     );
   });
 }
