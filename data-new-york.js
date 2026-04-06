@@ -5321,7 +5321,7 @@ var LOCS_NEW_YORK = [
     name:'One Manhattan West',
     cats:[
       'skyscrapers',
-      'landmarks'
+      'commercial'
     ],
     cc:'c-sky',
     styleGroups:[
@@ -5353,9 +5353,11 @@ var LOCS_NEW_YORK = [
       'office',
       'hudson yards',
       'brookfield',
-      'manhattan west'
+      'manhattan west',
+      'cantilever'
     ],
-    photos:[]
+    photos:[],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7518001, lng:-73.9976084 }
   },
   {
     id:'nyc-0124',
