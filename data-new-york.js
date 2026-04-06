@@ -5406,7 +5406,7 @@ var LOCS_NEW_YORK = [
     name:'383 Madison Avenue (Bear Stearns / JPMorgan HQ)',
     cats:[
       'skyscrapers',
-      'landmarks'
+      'commercial'
     ],
     cc:'c-sky',
     styleGroups:[
@@ -5441,14 +5441,15 @@ var LOCS_NEW_YORK = [
       'jpmorgan',
       'park avenue'
     ],
-    photos:[]
+    photos:[],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7556142, lng:-73.976078 }
   },
   {
     id:'nyc-0126',
     name:'10 Hudson Yards',
     cats:[
       'skyscrapers',
-      'landmarks'
+      'commercial'
     ],
     cc:'c-sky',
     styleGroups:[
@@ -5478,9 +5479,7 @@ var LOCS_NEW_YORK = [
       'kpf (kohn pedersen fox)',
       'hudson yards',
       'office',
-      'supertall',
-      'coach',
-      'first completed tower'
+      'supertall'
     ],
     photos:[]
   },
@@ -5489,7 +5488,7 @@ var LOCS_NEW_YORK = [
     name:'55 Hudson Yards',
     cats:[
       'skyscrapers',
-      'landmarks'
+      'commercial'
     ],
     cc:'c-sky',
     styleGroups:[
@@ -5528,7 +5527,7 @@ var LOCS_NEW_YORK = [
     name:'Madison Square Park Tower (45 E 22nd St)',
     cats:[
       'skyscrapers',
-      'landmarks'
+      'residential'
     ],
     cc:'c-sky',
     styleGroups:[
@@ -5559,8 +5558,8 @@ var LOCS_NEW_YORK = [
       'residential',
       'flatiron',
       'slender tower',
-      'ultra-luxury',
-      'madison square park views'
+      'madison square park views',
+      'luxury residential'
     ],
     photos:[]
   },
