@@ -5178,7 +5178,8 @@ var LOCS_NEW_YORK = [
       'exterior',
       'parametric'
     ],
-    photos:[]
+    photos:[],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7477609, lng:-73.9946499 }
   },
   {
     id:'nyc-0120',
