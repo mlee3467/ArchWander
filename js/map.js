@@ -94,8 +94,13 @@ function buildLegend() {
   if (legendControl) map.removeControl(legendControl);
   legendControl = L.control({ position: 'topright' });
   legendControl.onAdd = function() {
-    var div = L.DomUtil.create('div', 'map-legend');
-    var html = '<div class="legend-title">' + (LANG === 'ko' ? '범례' : 'Legend') + '</div>';
+    var isMobile = window.innerWidth <= 900;
+    var div = L.DomUtil.create('div', 'map-legend' + (isMobile ? ' collapsed' : ''));
+    var titleText = LANG === 'ko' ? '범례' : 'Legend';
+    var html = '<div class="legend-toggle" onclick="toggleLegend()">' +
+      '<span class="legend-toggle-label">' + titleText + '</span>' +
+      '<span class="legend-arrow">▾</span></div>';
+    html += '<div class="legend-body">';
     var order = ['c-lmk','c-sky','c-his','c-cul','c-park','c-pub','c-rel','c-aca','c-res','c-inf','c-ret','c-com'];
     order.forEach(function(cc) {
       var m = CC_META[cc];
@@ -104,11 +109,16 @@ function buildLegend() {
         '<span class="legend-dot" style="background:' + m.color + '"></span>' +
         '<span class="legend-label">' + label + '</span></div>';
     });
+    html += '</div>';
     div.innerHTML = html;
     L.DomEvent.disableClickPropagation(div);
     return div;
   };
   legendControl.addTo(map);
+}
+function toggleLegend() {
+  var el = document.querySelector('.map-legend');
+  if (el) el.classList.toggle('collapsed');
 }
 
 function refreshApp() {

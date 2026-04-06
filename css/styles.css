@@ -770,13 +770,11 @@
       max-height: calc(100vh - 80px);
       overflow-y: auto;
     }
-    .legend-title {
-      font-size: 11px;
-      font-weight: 700;
-      color: #333;
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    .legend-toggle {
+      display: none;          /* hidden on desktop — always expanded */
+    }
+    .legend-body {
+      /* desktop: always visible */
     }
     .legend-item {
       display: flex;
@@ -1031,10 +1029,38 @@
     .cluster-lg { width: 52px; height: 52px; font-size: 15px; }
     @media (max-width: 900px) {
       .map-legend {
-        padding: 6px 8px;
-        font-size: 10px;
+        padding: 0;
+        border-radius: 6px;
       }
-      .legend-title { font-size: 10px; margin-bottom: 4px; }
+      .legend-toggle {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 6px 10px;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .legend-toggle-label {
+        font-size: 10px;
+        font-weight: 700;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .legend-arrow {
+        font-size: 10px;
+        color: #666;
+        transition: transform 0.2s;
+      }
+      .map-legend.collapsed .legend-arrow {
+        transform: rotate(-90deg);
+      }
+      .legend-body {
+        padding: 0 10px 8px;
+      }
+      .map-legend.collapsed .legend-body {
+        display: none;
+      }
       .legend-dot { width: 8px; height: 8px; }
       .legend-label { font-size: 10px; }
 
