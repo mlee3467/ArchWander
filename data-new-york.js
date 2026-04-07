@@ -5918,7 +5918,8 @@ var LOCS_NEW_YORK = [
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Alice_Tully_Hall_renovated.jpg?width=800'
-    ]
+    ],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7731461, lng:-73.9824674 }
   },
   {
     id:'nyc-0136',
@@ -5939,8 +5940,8 @@ var LOCS_NEW_YORK = [
     ],
     yr:2012,
     access:'open to public',
-    lat:40.8277,
-    lng:-73.9227,
+    lat:40.819087,
+    lng:-73.9121962,
     addr:'700 Brook Ave, Bronx, NY 10455',
     hood:'South Bronx',
     desc:'Via Verde (The Green Way) is a 222-unit affordable housing development in the South Bronx designed by Grimshaw Architects and Dattner Architects, winner of the New Housing New York Legacy Project competition in 2006. The design steps down from a 20-story tower at the north to a 6-story walk-up block at the south, with each terrace level supporting productive roof gardens — growing vegetables, herbs, and fruit trees accessible to residents. The building\'s stepped section maximises solar access to all units and terraces. Via Verde received LEED Gold certification and is widely cited as a model for integrating sustainability, community, and affordable housing design in dense urban contexts.',
