@@ -34,7 +34,7 @@ var _MULTI_KEYS = new Set(['cat','style','era','access']);
 // "I FEEL LIKE…" THEME DEFINITIONS
 // ══════════════════════════════════════════════════════════════════
 var THEME_DEFS = [
-  { key:'historic',   icon:'🏛️', filter: function(l){ return l.yr < 1900 || (l.tags||[]).some(function(t){ return t==='historic'; }); } },
+  { key:'historic',   icon:'🏛️', filter: function(l){ return (l.tags||[]).some(function(t){ return t==='historic'; }); } },
   { key:'modern',     icon:'🏙️', filter: function(l){ return l.yr >= 2000; } },
   { key:'pritzker',   icon:'🏆', filter: function(l){ return (l.tags||[]).some(function(t){ return t==='pritzker prize' || t==='pritzker'; }); } },
   { key:'kids',       icon:'👨‍👩‍👧‍👦', filter: function(l){ return l.cc==='c-park' || (l.cats||[]).includes('parks') || ((l.tourOk) && ((l.cats||[]).includes('cultural') || (l.tags||[]).some(function(t){ return t==='museum' || t==='free' || t==='touristic'; }))); } },
