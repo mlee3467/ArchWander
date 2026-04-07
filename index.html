@@ -392,6 +392,17 @@
         <div class="fsec-body arch-list" id="body-arch"></div>
       </div>
 
+      <!-- Neighborhood -->
+      <div class="fsec" id="fsec-hood">
+        <button class="fsec-hdr" onclick="toggleFsec('hood')">
+          <span>Neighborhood</span>
+          <span class="fsec-dot" id="dot-hood"></span>
+          <span class="fsec-reset" id="reset-hood" onclick="event.stopPropagation();setFilter('hood','All')" title="Clear neighborhood filter">✕ Clear</span>
+          <span class="fsec-arr">▼</span>
+        </button>
+        <div class="fsec-body hood-list" id="body-hood"></div>
+      </div>
+
       <!-- Favorites -->
       <div class="fsec" id="fsec-fav">
         <button class="fsec-hdr" onclick="toggleFsec('fav')">

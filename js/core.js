@@ -85,6 +85,7 @@ function getFiltered() {
   }
   if (state.access.length) list = list.filter(l => state.access.includes(l.access));
   if (state.arch  !== 'All') list = list.filter(l => (l.archs || [l.arch]).includes(state.arch));
+  if (state.hood  !== 'All') list = list.filter(l => l.hood === state.hood);
   if (state.fav === '★ Favorites') list = list.filter(l => _favSet.has(l.id));
   if (state.fav === '✓ Visited')   list = list.filter(l => _visSet.has(l.id));
   if (state.query) {

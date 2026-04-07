@@ -414,7 +414,7 @@ function applyLang() {
   const sbClear = document.getElementById('sb-clear');
   if (sbClear) sbClear.textContent = t('clear_all');
   // Filter section labels + clear buttons
-  const fsecMap = { cat:'category', style:'style', era:'era', access:'access', arch:'architect', fav:'favorites' };
+  const fsecMap = { cat:'category', style:'style', era:'era', access:'access', arch:'architect', hood:'neighborhood', fav:'favorites' };
   Object.entries(fsecMap).forEach(([id, key]) => {
     const lbl = document.querySelector(`#fsec-${id} .fsec-hdr > span:first-child`);
     if (lbl) lbl.textContent = t(key);

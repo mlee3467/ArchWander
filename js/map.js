@@ -77,6 +77,7 @@ function initMap() {
   map.addLayer(clusterGroup);
   const initLocs = LOCS.filter(l => l.city === activeCityKey);
   ARCHITECTS = [...new Set(initLocs.flatMap(l => l.archs || [l.arch]))].sort();
+  NEIGHBORHOODS = [...new Set(initLocs.map(l => l.hood).filter(Boolean))].sort();
   initLocs.forEach(addMarker);
   buildFilters();
   renderList();
@@ -124,9 +125,10 @@ function toggleLegend() {
 function refreshApp() {
   const cityLocs = LOCS.filter(l => l.city === activeCityKey);
   ARCHITECTS = [...new Set(cityLocs.flatMap(l => l.archs || [l.arch]))].sort();
+  NEIGHBORHOODS = [...new Set(cityLocs.map(l => l.hood).filter(Boolean))].sort();
   if (clusterGroup) clusterGroup.clearLayers();
   markers.length = 0;
-  ['cat','style','era','access','arch'].forEach(k => {
+  ['cat','style','era','access','arch','hood'].forEach(k => {
     const el = document.getElementById(k === 'arch' ? 'body-arch' : `body-${k}`);
     if (el) el.innerHTML = '';
   });

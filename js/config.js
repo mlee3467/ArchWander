@@ -27,7 +27,7 @@ function _mergeLocsFromStorage(freshLocs) {
   } catch(e) { return freshLocs.map(function(l){ return Object.assign({}, l); }); }
 }
 
-var state = { cat:[], style:[], era:[], access:[], arch:'All', fav:'All', sort:'default', query:'', themes:[] };
+var state = { cat:[], style:[], era:[], access:[], arch:'All', hood:'All', fav:'All', sort:'default', query:'', themes:[] };
 var _MULTI_KEYS = new Set(['cat','style','era','access']);
 
 // ══════════════════════════════════════════════════════════════════
@@ -122,6 +122,8 @@ function _pCC(loc)     { return loc.cc || 'c-lmk'; }
 
 // All unique architects (sorted) — will be rebuilt per city in initMap / refreshApp
 var ARCHITECTS = [];
+// All unique neighborhoods (sorted) — rebuilt per city in initMap / refreshApp
+var NEIGHBORHOODS = [];
 
 // ══════════════════════════════════════════════════════════════════
 // CONFIGURATION

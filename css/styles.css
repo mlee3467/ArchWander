@@ -361,12 +361,14 @@
     }
     /* hide body when section closed — !important overrides display:flex/block on arch-list */
     .fsec:not(.open) .fsec-body { display: none !important; }
-    /* Architects list — scrollable column */
-    .fsec-body.arch-list {
+    /* Architects / Neighborhoods list — scrollable column */
+    .fsec-body.arch-list,
+    .fsec-body.hood-list {
       display: flex; flex-direction: column; flex-wrap: nowrap;
       max-height: none; overflow-y: auto; gap: 0; padding: 2px 14px 8px;
     }
-    .arch-item {
+    .arch-item,
+    .hood-item {
       flex-shrink: 0; /* prevent items compressing inside flex column */
       width: 100%; text-align: left;
       padding: 5px 8px; font-size: 12px;
@@ -376,8 +378,8 @@
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
       line-height: 1.5;
     }
-    .arch-item:hover { background: var(--bg); color: #111; }
-    .arch-item.active { background: #111; color: white; }
+    .arch-item:hover, .hood-item:hover { background: var(--bg); color: #111; }
+    .arch-item.active, .hood-item.active { background: #111; color: white; }
 
     /* Filter chips */
     .chip {
@@ -981,7 +983,8 @@
       flex: 1; min-height: 0;
       display: flex; flex-direction: column;
     }
-    #fsec-arch.open > .fsec-body.arch-list {
+    #fsec-arch.open > .fsec-body.arch-list,
+    #fsec-hood.open > .fsec-body.hood-list {
       flex: 1; min-height: 0;
     }
     .sb-list-wrap { display: flex; flex-direction: column; flex: 1; overflow: hidden; min-height: 80px; }
@@ -1236,7 +1239,7 @@
         overflow-y: auto; display: block;
         -webkit-overflow-scrolling: touch;
       }
-      .fsec-body.arch-list { max-height: 200px; }
+      .fsec-body.arch-list, .fsec-body.hood-list { max-height: 200px; }
     }
     
     @media (max-width: 480px) {

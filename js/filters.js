@@ -33,6 +33,20 @@ function buildFilters() {
     b.onclick = () => setFilter('arch', a);
     archWrap.appendChild(b);
   });
+
+  // Neighborhood — scrollable list (same pattern as Architect)
+  const hoodWrap = document.getElementById('body-hood');
+  if (hoodWrap) {
+    hoodWrap.innerHTML = '';
+    ['All', ...NEIGHBORHOODS].forEach(h => {
+      const b = document.createElement('button');
+      b.className = 'hood-item' + (h === 'All' ? ' active' : '');
+      b.textContent = h;
+      b.title = h;
+      b.onclick = () => setFilter('hood', h);
+      hoodWrap.appendChild(b);
+    });
+  }
 }
 
 function buildChipGroup(containerId, items, key, labelFn, valueFn) {
@@ -65,8 +79,8 @@ function setFilter(key, val) {
   }
 
   // Update chip/item highlight
-  const bodyId = key === 'arch' ? 'body-arch' : `body-${key}`;
-  const selector = key === 'arch' ? '.arch-item' : '.chip';
+  const bodyId = (key === 'arch' || key === 'hood') ? `body-${key}` : `body-${key}`;
+  const selector = key === 'arch' ? '.arch-item' : key === 'hood' ? '.hood-item' : '.chip';
   if (_MULTI_KEYS.has(key)) {
     const isAll = state[key].length === 0;
     document.getElementById(bodyId).querySelectorAll(selector).forEach(b => {
@@ -102,11 +116,12 @@ function clearAllFilters() {
   var mobIflBtn = document.getElementById('mob-ifl-btn');
   if (iflBtn) iflBtn.classList.remove('active');
   if (mobIflBtn) mobIflBtn.classList.remove('active');
-  ['cat','style','era','access','arch','fav'].forEach(k => {
+  ['cat','style','era','access','arch','hood','fav'].forEach(k => {
     state[k] = _MULTI_KEYS.has(k) ? [] : 'All';
-    const bodyId = k === 'arch' ? 'body-arch' : `body-${k}`;
-    const sel = k === 'arch' ? '.arch-item' : '.chip';
-    document.getElementById(bodyId).querySelectorAll(sel).forEach(b =>
+    const bodyId = `body-${k}`;
+    const sel = k === 'arch' ? '.arch-item' : k === 'hood' ? '.hood-item' : '.chip';
+    const el = document.getElementById(bodyId);
+    if (el) el.querySelectorAll(sel).forEach(b =>
       b.classList.toggle('active', b.title === 'All')
     );
     const dot = document.getElementById(`dot-${k}`);
@@ -120,7 +135,7 @@ function clearAllFilters() {
 }
 
 function updateClearBtn() {
-  const active = ['cat','style','era','access','arch','fav'].some(k =>
+  const active = ['cat','style','era','access','arch','hood','fav'].some(k =>
     _MULTI_KEYS.has(k) ? state[k].length > 0 : state[k] !== 'All'
   );
   document.getElementById('sb-clear').classList.toggle('show', active);
