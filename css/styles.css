@@ -374,7 +374,7 @@
     .fsec-body.arch-list,
     .fsec-body.hood-list {
       display: flex; flex-direction: column; flex-wrap: nowrap;
-      max-height: none; overflow-y: auto; gap: 0; padding: 2px 14px 8px;
+      max-height: 180px; overflow-y: auto; gap: 0; padding: 2px 14px 8px;
     }
     .arch-item,
     .hood-item {
@@ -986,16 +986,8 @@
       border-bottom: 1px solid var(--border);
       height: 240px; /* initial height; drag-resizable via dh-fl */
     }
-    /* Architect section expands to fill remaining filter panel height */
-    #fsec-arch { flex-shrink: 0; }
-    #fsec-arch.open {
-      flex: 1; min-height: 0;
-      display: flex; flex-direction: column;
-    }
-    #fsec-arch.open > .fsec-body.arch-list,
-    #fsec-hood.open > .fsec-body.hood-list {
-      flex: 1; min-height: 0;
-    }
+    /* Architect / Neighborhood sections — capped height, scrollable */
+    #fsec-arch, #fsec-hood { flex-shrink: 0; }
     .sb-list-wrap { display: flex; flex-direction: column; flex: 1; overflow: hidden; min-height: 80px; }
 
     /* ── MOBILE ─────────────────────────────────────────── */

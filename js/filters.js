@@ -137,7 +137,7 @@ function clearAllFilters() {
 function updateClearBtn() {
   const active = ['cat','style','era','access','arch','hood','fav'].some(k =>
     _MULTI_KEYS.has(k) ? state[k].length > 0 : state[k] !== 'All'
-  );
+  ) || state.themes.length > 0;
   document.getElementById('sb-clear').classList.toggle('show', active);
 }
 
@@ -196,6 +196,7 @@ function applyThemes() {
   var mobBtn = document.getElementById('mob-ifl-btn');
   if (btn) btn.classList.toggle('active', state.themes.length > 0);
   if (mobBtn) mobBtn.classList.toggle('active', state.themes.length > 0);
+  updateClearBtn();
   renderList();
   syncMarkers();
   // Pulse the Route button to hint users can plan a route with filtered results
@@ -221,6 +222,7 @@ function clearThemes() {
   if (btn) btn.classList.remove('active');
   if (mobBtn) mobBtn.classList.remove('active');
   closeThemeModal();
+  updateClearBtn();
   renderList();
   syncMarkers();
 }
