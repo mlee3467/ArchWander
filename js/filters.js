@@ -208,7 +208,7 @@ function _pulseRouteBtn() {
   [desktop, mobile].forEach(function(el) {
     if (!el) return;
     el.classList.add('pulse-hint');
-    setTimeout(function() { el.classList.remove('pulse-hint'); }, 2400);
+    setTimeout(function() { el.classList.remove('pulse-hint'); }, 5000);
   });
 }
 

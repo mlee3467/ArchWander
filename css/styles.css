@@ -143,7 +143,7 @@
       75%  { transform: scale(1.12); box-shadow: 0 0 12px rgba(217,70,168,0.6); }
       100% { transform: scale(1);    box-shadow: 0 1px 3px rgba(217,70,168,0.3); }
     }
-    .pulse-hint { animation: pulse-hint 1.2s ease 2; }
+    .pulse-hint { animation: pulse-hint 2.5s ease 2; }
     /* ── Fav/Visited action buttons inside panel header ── */
     .p-action-row { display: flex; gap: 7px; margin-top: 7px; }
     .p-action-btn {
