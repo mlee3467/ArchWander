@@ -5701,8 +5701,7 @@ var LOCS_NEW_YORK = [
     id:'nyc-0131',
     name:'Sperone Westwater Gallery',
     cats:[
-      'cultural',
-      'landmarks'
+      'cultural'
     ],
     cc:'c-cul',
     styleGroups:[
@@ -5736,7 +5735,9 @@ var LOCS_NEW_YORK = [
       'art',
       'nolita',
       'sliver building',
-      'pritzker prize'
+      'pritzker prize',
+      'museum',
+      'norman foster'
     ],
     photos:[]
   },
@@ -5745,7 +5746,7 @@ var LOCS_NEW_YORK = [
     name:'50 Hudson Yards',
     cats:[
       'skyscrapers',
-      'landmarks'
+      'commercial'
     ],
     cc:'c-sky',
     styleGroups:[
@@ -5789,7 +5790,7 @@ var LOCS_NEW_YORK = [
     name:'425 Park Avenue',
     cats:[
       'skyscrapers',
-      'landmarks'
+      'commercial'
     ],
     cc:'c-sky',
     styleGroups:[
@@ -5824,7 +5825,8 @@ var LOCS_NEW_YORK = [
       'jean-georges',
       'full block',
       '860 ft',
-      'pritzker prize'
+      'pritzker prize',
+      'norman foster'
     ],
     photos:[]
   },
@@ -5833,7 +5835,7 @@ var LOCS_NEW_YORK = [
     name:'270 Park Avenue (JPMorgan Chase HQ)',
     cats:[
       'skyscrapers',
-      'landmarks'
+      'commercial'
     ],
     cc:'c-sky',
     styleGroups:[
@@ -5869,7 +5871,8 @@ var LOCS_NEW_YORK = [
       'leed platinum',
       '1388 ft',
       '2025',
-      'pritzker prize'
+      'pritzker prize',
+      'norman foster'
     ],
     photos:[]
   },
@@ -5877,8 +5880,7 @@ var LOCS_NEW_YORK = [
     id:'nyc-0135',
     name:'Alice Tully Hall',
     cats:[
-      'cultural',
-      'landmarks'
+      'cultural'
     ],
     cc:'c-cul',
     styleGroups:[
@@ -5910,7 +5912,9 @@ var LOCS_NEW_YORK = [
       'lincoln center',
       'concert hall',
       'upper west side',
-      'adaptive reuse'
+      'adaptive reuse',
+      'performance-venues',
+      'acoustic'
     ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Alice_Tully_Hall_renovated.jpg?width=800'
