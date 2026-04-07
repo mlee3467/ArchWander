@@ -528,15 +528,15 @@ var LOCS_KO_LONDON = {
         "walkFrom": "Little Venice (0.2 mi), Grand Union Canal (adjacent)"
   },
   "lon-0051": {
-        "name": "Charing Cross Station",
-        "desc": "Charing Cross Station, 설계된 by John Hawkshaw in 1864, 특징이다 a graceful arched train shed of cast iron and glass that epitomizes 빅토리아 railway aesthetics, complemented by a romantic 고딕 리바이벌 head building with ornamental detailing. The station's Eleanor Cross sculpture, a 빅토리아-era replica of the medieval original, adds ceremonial significance to this significant transport hub. Terry Farrell's bold Post현대주의 addition of 엠뱅크먼트 Place (1990)—a striking curved glass-and-steel structure perched above the historic station—창조한다 an intriguing architectural dialogue between two centuries' design philosophies. 2급 지정 건축물, the complex 나타낸다 London's railway heritage and ongoing architectural innovation.",
+        "name": "채링 크로스 역",
+        "desc": "1864년 존 호크쇼가 설계한 채링 크로스 역은 주철과 유리로 이루어진 우아한 아치형 트레인 셰드가 빅토리아 시대 철도 건축의 정수를 보여주며, 장식적 디테일이 돋보이는 고딕 리바이벌 양식의 역사(驛舍)가 이를 보완한다. 역 앞에 세워진 엘리너 크로스 조각상은 중세 원작의 빅토리아 시대 복제품으로, 이 중요한 교통 허브에 기념비적 의미를 더한다. 테리 파렐이 설계한 대담한 포스트모더니즘 건축물 엠뱅크먼트 플레이스(1990)는 역사적인 역사 위에 놓인 곡선형 유리-철골 구조물로, 두 세기에 걸친 설계 철학 사이의 흥미로운 건축적 대화를 만들어낸다. 2급 지정 건축물(Grade II)로서, 이 복합 건물은 런던의 철도 유산과 지속적인 건축 혁신을 대표한다.",
         "hood": "웨스트민스터 / 스트랜드",
-        "hours": "24/7",
-        "lastEntry": "N/A",
-        "admission": "Free (station)",
-        "tourInfo": "Self-guided; Eleanor Cross is free to view",
-        "transit": "Charing Cross (Bakerloo, Northern), 엠뱅크먼트 (Bakerloo, Circle, District, Northern)",
-        "walkFrom": "트래팔가 광장 (0.2 mi), 템즈 embankment (0.1 mi)"
+        "hours": "24시간",
+        "lastEntry": "해당 없음",
+        "admission": "무료 (역사)",
+        "tourInfo": "자유 관람; 엘리너 크로스는 무료 관람 가능",
+        "transit": "채링 크로스 (베이커루, 노던), 엠뱅크먼트 (베이커루, 서클, 디스트릭트, 노던)",
+        "walkFrom": "트래팔가 광장 (0.3 km), 템즈 강변 (0.2 km)"
   },
   "lon-0052": {
         "name": "Liverpool Street Station",
