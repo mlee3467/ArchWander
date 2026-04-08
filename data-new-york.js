@@ -1,6 +1,6 @@
 /* ============================================================
    ArchWander — New York Location Data
-   229 locations
+   231 locations
    ============================================================ */
 
 var LOCS_NEW_YORK = [
@@ -9439,6 +9439,184 @@ var LOCS_NEW_YORK = [
       'gilded roof',
       'madison square park',
       'skyscraper'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0236',
+    name:'Stavros Niarchos Foundation Library (SNFL)',
+    cats:[
+      'cultural',
+      'landmarks'
+    ],
+    cc:'c-lmk',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'Mecanoo + Beyer Blinder Belle',
+    archs:[
+      'Mecanoo',
+      'Beyer Blinder Belle'
+    ],
+    yr:2021,
+    access:'Free Admission',
+    lat:40.7529,
+    lng:-73.9815,
+    addr:'455 Fifth Ave, New York, NY 10016',
+    hood:'Midtown East',
+    desc:'The Stavros Niarchos Foundation Library (SNFL), designed by Mecanoo and Beyer Blinder Belle and opened in 2021, is a complete transformation of the 1914 Mid-Manhattan Library into New York\'s flagship central circulating branch. The 180,000-square-foot building retains the original shell and steel frame while inserting a radically modern interior across seven above-ground stories. Its most striking feature is the sculptural aluminium roof that slopes upward to 184 feet, creating a dramatic angular silhouette on Fifth Avenue and housing Manhattan\'s only free, publicly accessible rooftop terrace with a garden and café. The second through fourth floors hold over 300,000 browsable volumes in a continuous open landscape, while the fifth and sixth floors house a Business Center and learning facilities. Dutch architect Francine Houben of Mecanoo conceived the design as a contemporary civic living room, blending warm timber interiors with expansive glazing that floods every floor with natural light.',
+    hours:'Mon & Thu–Sat 10:00 AM – 8:00 PM · Tue–Wed 10:00 AM – 9:00 PM · Sun 1:00 PM – 5:00 PM',
+    lastEntry:'',
+    admission:'Free',
+    tourOk:true,
+    tourInfo:'Self-guided tours welcome. Free rooftop terrace accessible during library hours. Guided tours available through NYPL.',
+    transit:'7 → Fifth Ave–Bryant Park · B D F M → 42nd St–Bryant Park · 4 5 6 → Grand Central (5 min)',
+    walkFrom:'Bryant Park: 1 min · New York Public Library (SASB): across the street · Grand Central: 5 min',
+    tags:[
+      'mecanoo',
+      'francine houben',
+      'library',
+      'cultural',
+      'renovation',
+      'rooftop terrace',
+      'free',
+      'touristic',
+      'landmark',
+      'midtown'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0237',
+    name:'25 Kent',
+    cats:[
+      'commercial',
+      'mixed-use'
+    ],
+    cc:'c-com',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'HWKN + Gensler',
+    archs:[
+      'HWKN',
+      'Gensler'
+    ],
+    yr:2019,
+    access:'No Public Access',
+    lat:40.7222,
+    lng:-73.9614,
+    addr:'25 Kent Ave, Brooklyn, NY 11249',
+    hood:'Williamsburg',
+    desc:'25 Kent, designed by HWKN (Hollwich Kushner) and Gensler and completed in 2019, is Brooklyn\'s first speculative ground-up office building in over 40 years. The eight-story, 500,000-square-foot complex on the Williamsburg waterfront takes cues from the neighbourhood\'s industrial warehouses, stacking a series of brick-clad forms in a ziggurat-shaped profile that steps in and out to create outdoor terraces on multiple levels. The H-shaped plan features two wings with independent cores bridged by a shared central spine that encourages chance encounters between tenants. With 15-foot ceiling heights and 70-foot column-free spans offering three-sided window exposure, the building provides views of the East River, Manhattan skyline, and Bushwick Inlet Park. The ground floor includes a pedestrian avenue, retail, and light-manufacturing space, reinforcing the building\'s role as a community hub beyond conventional office use.',
+    hours:'Private office building · Ground-floor retail varies',
+    lastEntry:'',
+    admission:'Private (offices) · Ground-floor retail open to public',
+    tourOk:false,
+    tourInfo:'',
+    transit:'L → Bedford Ave (10 min walk) · NYC Ferry → North Williamsburg',
+    walkFrom:'Domino Park: 5 min · Williamsburg Bridge: 15 min · McCarren Park: 10 min',
+    tags:[
+      'hwkn',
+      'hollwich kushner',
+      'gensler',
+      'office',
+      'brick',
+      'ziggurat',
+      'williamsburg',
+      'brooklyn',
+      'waterfront'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0238',
+    name:'378 Broome Street',
+    cats:[
+      'residential'
+    ],
+    cc:'c-res',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'HWKN',
+    archs:[
+      'HWKN'
+    ],
+    yr:2024,
+    access:'No Public Access',
+    lat:40.7218,
+    lng:-73.9963,
+    addr:'378 Broome St, New York, NY 10013',
+    hood:'Nolita / Little Italy',
+    desc:'378 Broome Street, designed by HWKN (Hollwich Kushner) for developer Urban Standard and completed in 2024, is the firm\'s first luxury condominium in Manhattan. The seven-story boutique building in Nolita contains just four full-floor residences — two duplexes and two single-floor units — ranging from 1,507 to 2,685 square feet. The sandstone-coloured brick facade features triangular-shaped uprights and cross beams that come to a point over the street, adding sculptural depth and movement while harmonising with the historic low-rise neighbours. Each residence has private outdoor space, keyless elevator access, nine-foot ceilings, herringbone white oak floors, honed stone kitchen backsplashes, and marble-lined bathrooms. A communal rooftop garden with landscaping and seating caps the building, offering views across the Nolita roofscape.',
+    hours:'Private residential building',
+    lastEntry:'',
+    admission:'Private',
+    tourOk:false,
+    tourInfo:'',
+    transit:'6 → Spring St · B D F M → Broadway–Lafayette St · J Z → Bowery',
+    walkFrom:'SoHo Cast Iron District: 3 min · New Museum: 5 min · Little Italy: immediate',
+    tags:[
+      'hwkn',
+      'hollwich kushner',
+      'residential',
+      'luxury',
+      'condominium',
+      'brick',
+      'nolita',
+      'boutique'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0239',
+    name:'Journal Squared',
+    cats:[
+      'residential',
+      'skyscrapers'
+    ],
+    cc:'c-sky',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'Handel Architects + HWKN',
+    archs:[
+      'Handel Architects',
+      'HWKN'
+    ],
+    yr:2025,
+    access:'No Public Access',
+    lat:40.7328,
+    lng:-74.0630,
+    addr:'615 Pavonia Ave, Jersey City, NJ 07306',
+    hood:'Journal Square, Jersey City',
+    desc:'Journal Squared, designed by Handel Architects and HWKN and completed in phases from 2016 to 2025, is a three-tower residential complex totalling 2.3 million square feet in Jersey City\'s Journal Square. The tallest tower rises 72 stories and 741 feet, making it one of New Jersey\'s tallest buildings, with the other two at 59 and 53 stories. The three white-clad skyscrapers sit clustered together atop a shared eight-story podium containing retail, dining, and communal amenities. The gridded facades create a unified visual identity while the staggered heights produce a dynamic skyline composition visible from across the Hudson. The complex contains 1,840 apartments and 36,000 square feet of retail and dining areas, transforming the formerly quiet Journal Square neighbourhood into a major residential destination with direct PATH train access to Manhattan.',
+    hours:'Private residential complex · Ground-floor retail varies',
+    lastEntry:'',
+    admission:'Private',
+    tourOk:false,
+    tourInfo:'',
+    transit:'PATH → Journal Square · Hudson-Bergen Light Rail → Journal Square',
+    walkFrom:'Journal Square Transportation Center: 2 min · Loew\'s Jersey Theatre: 5 min',
+    tags:[
+      'hwkn',
+      'hollwich kushner',
+      'handel architects',
+      'skyscraper',
+      'supertall',
+      'residential',
+      'jersey city',
+      'podium',
+      'mixed-use'
     ],
     photos:[]
   }
