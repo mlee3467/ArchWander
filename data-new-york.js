@@ -1,6 +1,6 @@
 /* ============================================================
    ArchWander — New York Location Data
-   233 locations
+   290 locations
    ============================================================ */
 
 var LOCS_NEW_YORK = [
@@ -9708,5 +9708,2502 @@ var LOCS_NEW_YORK = [
       'brutalist renovation'
     ],
     photos:[]
+  },
+  {
+    id:'nyc-0242',
+    name:'Neue Galerie New York',
+    cats:[
+      'cultural',
+      'adaptive-reuse'
+    ],
+    cc:'c-cul',
+    styleGroups:[
+      'beaux-arts',
+      'contemporary'
+    ],
+    era:'Beaux-Arts',
+    city:'new-york',
+    arch:'Selldorf Architects',
+    archs:[
+      'Selldorf Architects',
+      'Carrère & Hastings'
+    ],
+    yr:2001,
+    access:'Ticketed',
+    lat:40.7812,
+    lng:-73.9603,
+    addr:'1048 Fifth Ave, New York, NY 10028',
+    hood:'Upper East Side',
+    desc:'Neue Galerie New York, renovated by Selldorf Architects and opened in 2001, occupies a 1914 Carrère & Hastings mansion on Fifth Avenue dedicated to early twentieth-century German and Austrian art and design. Annabelle Selldorf\'s meticulous renovation restored historical elements including ornate plasterwork, marble fireplaces, and intricate parquet floors while seamlessly integrating modern museum systems for climate control, sophisticated lighting, and security. The intimate gallery design enhances the viewing experience without resorting to neutral white-cube aesthetics, creating an architectural narrative that complements the collection\'s focus on artists such as Gustav Klimt and Egon Schiele. The building\'s Louis XIII-style limestone facade with wrought-iron balconies and mansard roof remains a distinguished presence along Museum Mile, while the interior houses exhibition galleries, the acclaimed Café Sabarsky modeled on a Viennese coffeehouse, and a design shop. The project demonstrated Selldorf\'s ability to honour historic architecture while meeting rigorous contemporary museum standards.',
+    hours:'Thu–Mon 11 am–6 pm · Closed Tue–Wed',
+    lastEntry:'',
+    admission:'$25 adults · $15 students/seniors',
+    tourOk:false,
+    tourInfo:'',
+    transit:'4 5 6 → 86th St · Q → 86th St',
+    walkFrom:'Metropolitan Museum: 3 min · Guggenheim: 5 min · Central Park: 1 min',
+    tags:[
+      'selldorf architects',
+      'carrere and hastings',
+      'museum',
+      'german art',
+      'austrian art',
+      'renovation',
+      'mansion',
+      'museum mile',
+      'klimt'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0243',
+    name:'David Zwirner Gallery (20th Street)',
+    cats:[
+      'cultural',
+      'commercial'
+    ],
+    cc:'c-cul',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'Selldorf Architects',
+    archs:[
+      'Selldorf Architects'
+    ],
+    yr:2013,
+    access:'Open to Public',
+    lat:40.7433,
+    lng:-74.0025,
+    addr:'537 W 20th St, New York, NY 10011',
+    hood:'Chelsea',
+    desc:'David Zwirner\'s 20th Street gallery, designed by Selldorf Architects and completed in 2013, is a ground-up 30,000-square-foot building that responds to Chelsea\'s industrial heritage with bold monumentality. The board-formed exposed concrete facade is simultaneously rough in its grittiness and refined in its elegance, resonating with neighbouring warehouse structures while establishing the gallery\'s distinct identity. A large teak storefront with clear glazing creates warm contrast against the concrete. The building became the first LEED Gold-certified commercial art gallery in the United States, featuring five green roof spaces, high-performance lighting, maximized daylighting, and locally sourced materials. The main 5,000-square-foot column-free exhibition space rises to eighteen-foot ceilings with concrete floors and four north-facing sawtooth skylights that flood the room with even natural light, creating an ideal environment for viewing contemporary art across diverse media and scales.',
+    hours:'Tue–Sat 10 am–6 pm · Closed Sun–Mon',
+    lastEntry:'',
+    admission:'Free',
+    tourOk:false,
+    tourInfo:'',
+    transit:'C E → 23rd St · 1 → 23rd St',
+    walkFrom:'High Line (20th St): 2 min · Chelsea Market: 8 min · Gagosian Gallery: 3 min',
+    tags:[
+      'selldorf architects',
+      'art gallery',
+      'chelsea',
+      'concrete',
+      'leed gold',
+      'contemporary art',
+      'sawtooth skylight',
+      'industrial'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0244',
+    name:'One Domino Square',
+    cats:[
+      'residential',
+      'skyscrapers'
+    ],
+    cc:'c-sky',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'Selldorf Architects',
+    archs:[
+      'Selldorf Architects'
+    ],
+    yr:2024,
+    access:'No Public Access',
+    lat:40.707,
+    lng:-73.9575,
+    addr:'8 S 4th St, Brooklyn, NY 11249',
+    hood:'Williamsburg',
+    desc:'One Domino Square, designed by Selldorf Architects and completed in 2024, is a 700,000-square-foot mixed-use development featuring two connected porcelain-clad towers of fifty-five and thirty-nine stories on the historic Domino Sugar Refinery waterfront site. The pearlescent porcelain tile cladding creates a shimmering presence along the East River beside the Williamsburg Bridge and Domino Park. The project combines luxury condominiums and rental apartments with ground-floor retail and community facilities, reflecting the neighbourhood\'s transformation from industrial to residential. As Selldorf\'s first residential skyscraper, the towers demonstrate a refined approach to high-rise design where the material palette honours the site\'s manufacturing heritage while establishing a contemporary waterfront identity. The staggered tower heights and shared base create visual dynamism, and the development\'s proximity to the restored refinery buildings and six-acre waterfront park grounds the new construction in the area\'s layered industrial history.',
+    hours:'Private residential · Ground-floor retail varies',
+    lastEntry:'',
+    admission:'Private',
+    tourOk:false,
+    tourInfo:'',
+    transit:'J M Z → Marcy Ave · L → Bedford Ave',
+    walkFrom:'Domino Park: 1 min · Williamsburg Bridge: 3 min · Domino Sugar Refinery: adjacent',
+    tags:[
+      'selldorf architects',
+      'residential',
+      'waterfront',
+      'porcelain',
+      'skyscraper',
+      'williamsburg',
+      'brooklyn',
+      'domino',
+      'mixed-use'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0245',
+    name:'Sunset Park Material Recovery Facility',
+    cats:[
+      'civic'
+    ],
+    cc:'c-civ',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'Selldorf Architects',
+    archs:[
+      'Selldorf Architects'
+    ],
+    yr:2013,
+    access:'Limited Access',
+    lat:40.6434,
+    lng:-74.0106,
+    addr:'472 2nd Ave, Brooklyn, NY 11232',
+    hood:'Sunset Park',
+    desc:'The Sunset Park Material Recovery Facility, designed by Selldorf Architects for Sims Municipal Recycling and completed in 2013, is the largest and most sophisticated commingled residential recycling facility in North America. Located at the South Brooklyn Marine Terminal on the Gowanus Canal waterfront, the building processes all of New York City\'s metal, glass, and plastic recyclables. Selldorf elevated a utilitarian infrastructure building into an architectural landmark that reconciles industrial function with civic presence, demonstrating that essential waste processing facilities can achieve design distinction. The facility incorporates sustainable design features including on-site solar power, a green educational centre, and barge access that reduces truck traffic. The building\'s bold industrial aesthetic with its visible sorting machinery and educational observation areas transforms recycling from a hidden process into a public experience, making it a pioneering example of how civic infrastructure design can promote environmental awareness and community engagement.',
+    hours:'Tours by appointment · Open House New York events',
+    lastEntry:'',
+    admission:'Varies for tours',
+    tourOk:true,
+    tourInfo:'Group tours available via Open House New York',
+    transit:'D N R → 36th St · F G → Smith–9th St',
+    walkFrom:'Industry City: 10 min · Green-Wood Cemetery: 15 min',
+    tags:[
+      'selldorf architects',
+      'recycling',
+      'civic infrastructure',
+      'sustainable',
+      'industrial',
+      'brooklyn',
+      'waterfront',
+      'green building'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0246',
+    name:'10 Bond Street',
+    cats:[
+      'residential'
+    ],
+    cc:'c-res',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'Selldorf Architects',
+    archs:[
+      'Selldorf Architects'
+    ],
+    yr:2016,
+    access:'No Public Access',
+    lat:40.7268,
+    lng:-73.9947,
+    addr:'10 Bond St, New York, NY 10012',
+    hood:'NoHo',
+    desc:'10 Bond Street, designed by Selldorf Architects and completed in 2016, is a seven-story boutique residential building containing eleven residences in the heart of NoHo\'s landmarked historic district. The 34,000-square-foot building features a distinctive facade of custom-extruded prefabricated terracotta panels in a deep russet colour with weathered steel details, evoking the cast-iron and brick heritage of the surrounding neighbourhood while maintaining a clearly contemporary identity. The residential layouts are open and loft-like, with a ground-floor maisonette, nine private apartments, and a penthouse crowned by a brise-soleil-covered terrace and roof garden. The terracotta panels create rhythmic depth and shadow play across the facade throughout the day. Selldorf\'s design navigates the challenge of inserting new construction into a historically sensitive context, honouring the visual language of neighbouring nineteenth-century buildings while refusing nostalgic mimicry.',
+    hours:'Private residential',
+    lastEntry:'',
+    admission:'Private',
+    tourOk:false,
+    tourInfo:'',
+    transit:'6 → Bleecker St · B D F M → Broadway–Lafayette',
+    walkFrom:'New Museum: 5 min · Cooper Union: 3 min · SoHo: 5 min',
+    tags:[
+      'selldorf architects',
+      'residential',
+      'terracotta',
+      'noho',
+      'boutique',
+      'landmarked district',
+      'cast iron'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0247',
+    name:'200 Eleventh Avenue',
+    cats:[
+      'residential'
+    ],
+    cc:'c-res',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'Selldorf Architects',
+    archs:[
+      'Selldorf Architects'
+    ],
+    yr:2010,
+    access:'No Public Access',
+    lat:40.7475,
+    lng:-74.006,
+    addr:'200 11th Ave, New York, NY 10011',
+    hood:'West Chelsea',
+    desc:'200 Eleventh Avenue, designed by Selldorf Architects and completed in 2010, is a nineteen-story residential condominium in West Chelsea overlooking the Hudson River. The building is notable as the first apartment tower in New York City to feature a high-rise car elevator and private En-Suite Sky Garages, allowing residents to park vehicles on their own floor. A three-story plinth maintains the street line with large windows and materials that harmonize with the neighbourhood\'s industrial context, while the tower above features a sinuous stainless-steel rainscreen creating an iconic silhouette visible from near and far. Terracotta cladding and blackened steel window frames at the base resonate with the surrounding gallery and warehouse district. The sixteen luxury residences benefit from panoramic river views, and the building\'s placement adjacent to the High Line reinforces West Chelsea\'s transformation from industrial zone to a nexus of art, architecture, and high-end residential living.',
+    hours:'Private residential',
+    lastEntry:'',
+    admission:'Private',
+    tourOk:false,
+    tourInfo:'',
+    transit:'C E → 23rd St · 1 → 23rd St',
+    walkFrom:'High Line: 1 min · Chelsea galleries: 3 min · Hudson River Park: 2 min',
+    tags:[
+      'selldorf architects',
+      'residential',
+      'sky garage',
+      'stainless steel',
+      'west chelsea',
+      'hudson river',
+      'luxury',
+      'innovative'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0248',
+    name:'21 East 12th Street',
+    cats:[
+      'residential'
+    ],
+    cc:'c-res',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'Selldorf Architects',
+    archs:[
+      'Selldorf Architects'
+    ],
+    yr:2018,
+    access:'No Public Access',
+    lat:40.7332,
+    lng:-73.989,
+    addr:'21 E 12th St, New York, NY 10003',
+    hood:'Greenwich Village',
+    desc:'21 East 12th Street, designed by Selldorf Architects and completed in 2018, is a twenty-two-story residential condominium tower containing fifty-two units on the site of the former Bowlmor Lanes bowling alley in Greenwich Village. The 118,500-square-foot mixed-use building features a two-story retail base with expansive storefront windows and a set-back residential tower that maximizes sunlight to adjacent sidewalks. Light-coloured cast stone and punched window openings resonate with the neighbourhood\'s classic prewar limestone apartment buildings while maintaining an unmistakably modern character. The design carefully integrates new construction into one of Manhattan\'s most historically sensitive neighbourhoods, balancing the density expectations of contemporary residential development with Greenwich Village\'s cherished low-rise character through thoughtful massing and material selection.',
+    hours:'Private residential',
+    lastEntry:'',
+    admission:'Private',
+    tourOk:false,
+    tourInfo:'',
+    transit:'L N Q R W 4 5 6 → 14th St–Union Sq',
+    walkFrom:'Washington Square Park: 5 min · Union Square: 3 min · Strand Bookstore: 2 min',
+    tags:[
+      'selldorf architects',
+      'residential',
+      'greenwich village',
+      'cast stone',
+      'condominium',
+      'mixed-use'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0249',
+    name:'Pace Gallery',
+    cats:[
+      'cultural',
+      'commercial'
+    ],
+    cc:'c-cul',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'Bonetti/Kozerski Architecture',
+    archs:[
+      'Bonetti/Kozerski Architecture'
+    ],
+    yr:2019,
+    access:'Open to Public',
+    lat:40.7472,
+    lng:-74.002,
+    addr:'540 W 25th St, New York, NY 10001',
+    hood:'Chelsea',
+    desc:'Pace Gallery\'s global headquarters, designed by Bonetti/Kozerski Architecture and opened in 2019, is an eight-story, 75,000-square-foot purpose-built gallery building in Chelsea. The lower facade is clad in volcanic stone quarried from Sicily\'s Mount Etna and fired at extreme temperatures to create a rich matte black surface, while the upper stories feature aluminium foam panels with a dramatically punctured texture. The entirely column-free interior design with flexible lighting supports diverse exhibition programming across multiple floors. The building unites gallery operations under one roof with expansive indoor and outdoor exhibition spaces, a 10,000-volume research library, and an open art-storage area visible to visitors. Achieving LEED Silver certification, the building represents a new paradigm for the mega-gallery typology, combining industrial material rawness with refined contemporary detailing that honours Chelsea\'s manufacturing heritage while asserting an ambitious architectural presence on 25th Street\'s gallery row.',
+    hours:'Tue–Sat 10 am–6 pm · Closed Sun–Mon',
+    lastEntry:'',
+    admission:'Free',
+    tourOk:false,
+    tourInfo:'',
+    transit:'C E → 23rd St · 1 → 23rd St',
+    walkFrom:'High Line: 3 min · David Zwirner: 3 min · Chelsea galleries: immediate',
+    tags:[
+      'bonetti kozerski',
+      'art gallery',
+      'chelsea',
+      'volcanic stone',
+      'aluminum foam',
+      'contemporary art',
+      'leed silver',
+      'mega gallery'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0250',
+    name:'Jacob K. Javits Convention Center',
+    cats:[
+      'civic',
+      'landmarks'
+    ],
+    cc:'c-civ',
+    styleGroups:[
+      'modernist'
+    ],
+    era:'1980s',
+    city:'new-york',
+    arch:'I.M. Pei & Partners',
+    archs:[
+      'I.M. Pei & Partners',
+      'James Ingo Freed'
+    ],
+    yr:1986,
+    access:'Event Access',
+    lat:40.7569,
+    lng:-74.0018,
+    addr:'655 W 34th St, New York, NY 10001',
+    hood:'Hudson Yards',
+    desc:'The Jacob K. Javits Convention Center, designed by James Ingo Freed of I.M. Pei & Partners and completed in 1986, is New York City\'s primary convention and exhibition facility. The original building\'s defining feature is its soaring glass and steel space-frame structure, creating a 1,000-foot public concourse flooded with natural light through a geometric curtain wall of over 16,000 glass panels. The fifteen-story Crystal Palace atrium and expansive exhibition halls total over 840,000 square feet of event space. A major expansion completed in 2021 by TVS Design and Tishman Construction added a 1.2-million-square-foot addition with a rooftop pavilion, truck marshalling facility, and a 6.75-acre green roof — one of the largest in North America — supporting a working farm and bird sanctuary. The Javits Center received the AIA National Honor Award in 1988 and stands as a landmark of modernist civic architecture in the Hudson Yards district.',
+    hours:'Varies by event',
+    lastEntry:'',
+    admission:'Varies by event',
+    tourOk:false,
+    tourInfo:'',
+    transit:'7 → 34th St–Hudson Yards · A C E → 34th St–Penn Station',
+    walkFrom:'Hudson Yards: 5 min · The Vessel: 5 min · High Line: 3 min',
+    tags:[
+      'i.m. pei',
+      'james ingo freed',
+      'pei cobb freed',
+      'convention center',
+      'glass',
+      'space frame',
+      'green roof',
+      'hudson yards',
+      'civic'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0251',
+    name:'Four Seasons Hotel New York',
+    cats:[
+      'commercial',
+      'skyscrapers'
+    ],
+    cc:'c-com',
+    styleGroups:[
+      'postmodernist'
+    ],
+    era:'1990s',
+    city:'new-york',
+    arch:'I.M. Pei',
+    archs:[
+      'I.M. Pei',
+      'Frank Williams & Associates'
+    ],
+    yr:1993,
+    access:'Lobby Only',
+    lat:40.7624,
+    lng:-73.9713,
+    addr:'57 E 57th St, New York, NY 10022',
+    hood:'Midtown East',
+    desc:'The Four Seasons Hotel New York, designed by I.M. Pei with Frank Williams & Associates and completed in 1993, is a fifty-two-story luxury hotel tower rising 682 feet on East 57th Street. The building is clad in honey-toned French magnesium limestone with geometric Art Deco-influenced setbacks creating a distinctive stepped silhouette. The grand lobby features a dramatic thirty-three-foot backlit onyx ceiling, marble floors, and sleek modernist furnishings that established a new standard for luxury hotel design. At the time of its completion, it was the tallest hotel in North America. Pei\'s design synthesizes modernist clarity with the proportional elegance of prewar Manhattan towers, and the building\'s octagonal footprint maximizes views while creating an efficient structural core. The hotel contains 368 rooms and was one of I.M. Pei\'s few hospitality commissions, representing his ability to translate the principles of institutional modernism into the realm of luxury commercial architecture.',
+    hours:'Hotel lobby open 24/7',
+    lastEntry:'',
+    admission:'Free (lobby)',
+    tourOk:false,
+    tourInfo:'',
+    transit:'N R W → 5th Ave/59th St · F → 57th St · 4 5 6 → 59th St',
+    walkFrom:'MoMA: 5 min · Central Park: 3 min · Bergdorf Goodman: 2 min',
+    tags:[
+      'i.m. pei',
+      'hotel',
+      'luxury',
+      'limestone',
+      'skyscraper',
+      'midtown',
+      'art deco influenced',
+      'modernist'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0252',
+    name:'499 Park Avenue',
+    cats:[
+      'commercial'
+    ],
+    cc:'c-com',
+    styleGroups:[
+      'modernist'
+    ],
+    era:'1980s',
+    city:'new-york',
+    arch:'I.M. Pei & Partners',
+    archs:[
+      'I.M. Pei & Partners'
+    ],
+    yr:1981,
+    access:'Lobby Only',
+    lat:40.764,
+    lng:-73.9736,
+    addr:'499 Park Ave, New York, NY 10022',
+    hood:'Midtown East',
+    desc:'499 Park Avenue, designed by I.M. Pei & Partners and completed in 1981, is a twenty-seven-story office tower at the southeast corner of Park Avenue and 59th Street known for its striking polished black glass curtain wall. The building\'s dark reflective facade earned it the nickname \'Black Diamond\' and creates a bold contrast with the surrounding limestone and brick of the Upper East Side. High-efficiency floor plates maximise usable area while providing panoramic views of Park Avenue and Central Park from upper floors. The sleek minimalist exterior represents Pei\'s commitment to geometric purity and material refinement in commercial architecture. A recently renovated ground-level entry enhances the building\'s street presence. Standing at the transition between Midtown\'s commercial intensity and the Upper East Side\'s residential character, the tower demonstrates how a dark monolithic form can command attention through material precision rather than ornamental elaboration.',
+    hours:'Lobby: Mon–Fri business hours',
+    lastEntry:'',
+    admission:'Free (lobby)',
+    tourOk:false,
+    tourInfo:'',
+    transit:'N R W → Lexington Ave/59th St · 4 5 6 → 59th St',
+    walkFrom:'Central Park: 2 min · Bloomingdale\'s: 3 min · Seagram Building: 5 min',
+    tags:[
+      'i.m. pei',
+      'pei cobb freed',
+      'black glass',
+      'office tower',
+      'park avenue',
+      'modernist',
+      'curtain wall'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0253',
+    name:'88 Pine Street',
+    cats:[
+      'commercial'
+    ],
+    cc:'c-com',
+    styleGroups:[
+      'modernist',
+      'international style'
+    ],
+    era:'1970s',
+    city:'new-york',
+    arch:'I.M. Pei & Partners',
+    archs:[
+      'I.M. Pei & Partners',
+      'James Ingo Freed'
+    ],
+    yr:1973,
+    access:'Lobby Only',
+    lat:40.7065,
+    lng:-74.0043,
+    addr:'88 Pine St, New York, NY 10005',
+    hood:'Financial District',
+    desc:'88 Pine Street, designed by I.M. Pei & Partners with James Ingo Freed and completed in 1973, is a thirty-two-story office tower in the Financial District featuring a crisp white aluminium and glass curtain wall. The 624,000-square-foot building, also known as Wall Street Plaza, received an AIA Honor Award for its refined modernist aesthetic that brought International Style elegance to Lower Manhattan\'s commercial core. Located at the intersection of Pine, Water, Front, and Maiden Lane, the building\'s white aluminium facade creates a luminous presence that contrasts with the darker stone and glass of surrounding financial district towers. The clean geometry and precise detailing exemplify the Pei office\'s commitment to rigorous modernist principles, while the ground-level plaza provides public open space in one of Manhattan\'s densest neighbourhoods.',
+    hours:'Lobby: Mon–Fri business hours',
+    lastEntry:'',
+    admission:'Free (lobby)',
+    tourOk:false,
+    tourInfo:'',
+    transit:'2 3 → Wall St · J Z → Broad St · 4 5 → Wall St',
+    walkFrom:'South Street Seaport: 5 min · Federal Hall: 5 min · One World Trade: 10 min',
+    tags:[
+      'i.m. pei',
+      'james ingo freed',
+      'pei cobb freed',
+      'aluminum',
+      'international style',
+      'financial district',
+      'office tower',
+      'aia award'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0254',
+    name:'The Centurion',
+    cats:[
+      'residential'
+    ],
+    cc:'c-res',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'I.M. Pei',
+    archs:[
+      'I.M. Pei',
+      'Sandi Pei'
+    ],
+    yr:2009,
+    access:'No Public Access',
+    lat:40.7653,
+    lng:-73.9787,
+    addr:'33 W 56th St, New York, NY 10019',
+    hood:'Midtown',
+    desc:'The Centurion, designed by I.M. Pei with his son Sandi Pei and completed in 2009, is a seventeen-story residential building containing forty-eight luxury condominiums — Pei\'s only ground-up residential condominium project in New York City. Clad in Chamesson limestone, the same French stone used on the Four Seasons Hotel, the facade features five dramatic double-height \'lanterns\' — seventeen-foot windows that punctuate the upper floors and glow warmly at night. Cascading planted terraces soften the building\'s profile and create private outdoor spaces for select units. Interiors include nine-foot ceilings, custom millwork, and a water garden with waterfall in the lobby. The building represents the final phase of Pei\'s long career, translating the monumental principles of his institutional work into an intimate residential scale while maintaining his signature commitment to geometric clarity and material refinement.',
+    hours:'Private residential',
+    lastEntry:'',
+    admission:'Private',
+    tourOk:false,
+    tourInfo:'',
+    transit:'F → 57th St · N R W → 57th St–7th Ave · B D E → 7th Ave',
+    walkFrom:'MoMA: 3 min · Carnegie Hall: 2 min · Central Park: 3 min',
+    tags:[
+      'i.m. pei',
+      'residential',
+      'luxury',
+      'limestone',
+      'condominium',
+      'midtown',
+      'lantern windows'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0255',
+    name:'Goldman Sachs Headquarters',
+    cats:[
+      'commercial',
+      'skyscrapers'
+    ],
+    cc:'c-com',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'Pei Cobb Freed & Partners',
+    archs:[
+      'Pei Cobb Freed & Partners',
+      'Henry N. Cobb'
+    ],
+    yr:2009,
+    access:'No Public Access',
+    lat:40.7147,
+    lng:-74.0145,
+    addr:'200 West St, New York, NY 10282',
+    hood:'Battery Park City',
+    desc:'Goldman Sachs Headquarters at 200 West Street, designed by Henry N. Cobb of Pei Cobb Freed & Partners and completed in 2009, is a forty-four-story, 749-foot glass and stainless steel tower in Battery Park City. The building\'s distinctive curved western facade follows the Hudson River sightline, creating a sculptural profile that distinguishes it from the rectilinear towers of the Financial District. LEED Gold certified, the tower incorporates advanced sustainable features including a cogeneration plant, rainwater harvesting, and high-performance curtain wall. The 2.1-million-square-foot headquarters consolidates Goldman Sachs operations that were previously scattered across Lower Manhattan. Ground-level retail and a landscaped public plaza activate the street edge along the Hudson River waterfront esplanade. The project was part of the post-9/11 commitment to rebuild and revitalise Lower Manhattan, and its completion anchored Battery Park City\'s northern commercial district.',
+    hours:'Not open to public',
+    lastEntry:'',
+    admission:'Private',
+    tourOk:false,
+    tourInfo:'',
+    transit:'1 → Chambers St · E → World Trade Center · R W → Cortlandt St',
+    walkFrom:'Brookfield Place: 3 min · Irish Hunger Memorial: 2 min · One World Trade: 8 min',
+    tags:[
+      'pei cobb freed',
+      'henry cobb',
+      'goldman sachs',
+      'office tower',
+      'glass',
+      'battery park city',
+      'leed gold',
+      'headquarters'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0256',
+    name:'Fiterman Hall (BMCC)',
+    cats:[
+      'civic',
+      'cultural'
+    ],
+    cc:'c-civ',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'Pei Cobb Freed & Partners',
+    archs:[
+      'Pei Cobb Freed & Partners'
+    ],
+    yr:2012,
+    access:'Limited Access',
+    lat:40.7179,
+    lng:-74.0088,
+    addr:'245 Greenwich St, New York, NY 10007',
+    hood:'Tribeca',
+    desc:'Fiterman Hall, designed by Pei Cobb Freed & Partners and completed in 2012, is a fourteen-story, 390,000-square-foot academic facility for the Borough of Manhattan Community College that replaced the original building destroyed on September 11, 2001. The new structure houses four major academic programmes, classrooms, laboratories, administrative offices, a conference centre on the top two floors, a café, and an art gallery. The contemporary glass and metal facade reflects Pei Cobb Freed\'s commitment to institutional clarity while the building\'s massing responds sensitively to the evolving streetscape of Lower Manhattan\'s rebuilding. The project received the AIA New York Excelsior Award for Public Architecture in 2015, recognising both its architectural quality and its significance as a symbol of post-9/11 recovery and renewal in the World Trade Center neighbourhood.',
+    hours:'Academic hours · Gallery hours vary',
+    lastEntry:'',
+    admission:'Free (public gallery)',
+    tourOk:false,
+    tourInfo:'',
+    transit:'1 2 3 A C E → Chambers St · R W → City Hall',
+    walkFrom:'One World Trade: 3 min · Tribeca: 2 min · City Hall: 5 min',
+    tags:[
+      'pei cobb freed',
+      'academic',
+      '9/11 rebuilding',
+      'institutional',
+      'lower manhattan',
+      'bmcc',
+      'cuny'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0257',
+    name:'Fordham University School of Law',
+    cats:[
+      'civic'
+    ],
+    cc:'c-civ',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'Pei Cobb Freed & Partners',
+    archs:[
+      'Pei Cobb Freed & Partners',
+      'Henry N. Cobb'
+    ],
+    yr:2014,
+    access:'Limited Access',
+    lat:40.771,
+    lng:-73.9852,
+    addr:'150 W 62nd St, New York, NY 10023',
+    hood:'Lincoln Center',
+    desc:'Fordham University\'s School of Law and McKeon Residence Hall, designed by Henry N. Cobb of Pei Cobb Freed & Partners and completed in 2014, is a twenty-two-story building with an undulating facade that curves gracefully toward Lincoln Center. Clad in precast panels, metal, and glass, the building houses a nine-story law school with a curved south facade framing Robert Moses Plaza, and above it a residence hall accommodating 430 undergraduates with five learning suites, a dance studio, and a dining hall. The building\'s sinuous form responds to its prominent position at the intersection of Lincoln Center\'s cultural campus and the Upper West Side\'s residential fabric, creating a fluid architectural gesture that mediates between the monumental scale of the performing arts centre and the neighbourhood\'s domestic scale. The project received the International Architecture Award and the AIA New York Excelsior Award in 2016.',
+    hours:'Academic hours',
+    lastEntry:'',
+    admission:'Not open to general public',
+    tourOk:false,
+    tourInfo:'',
+    transit:'1 → 66th St–Lincoln Center · A C B D → 59th St–Columbus Circle',
+    walkFrom:'Lincoln Center: 1 min · Central Park: 3 min · Columbus Circle: 5 min',
+    tags:[
+      'pei cobb freed',
+      'henry cobb',
+      'academic',
+      'law school',
+      'lincoln center',
+      'precast',
+      'institutional',
+      'undulating facade'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0258',
+    name:'Metropolitan Life North Building',
+    cats:[
+      'commercial',
+      'landmarks'
+    ],
+    cc:'c-com',
+    styleGroups:[
+      'art deco'
+    ],
+    era:'Art Deco',
+    city:'new-york',
+    arch:'Harvey Wiley Corbett & D. Everett Waid',
+    archs:[
+      'Harvey Wiley Corbett',
+      'D. Everett Waid'
+    ],
+    yr:1950,
+    access:'Lobby Only',
+    lat:40.7416,
+    lng:-73.9866,
+    addr:'11-25 Madison Ave, New York, NY 10010',
+    hood:'Flatiron District',
+    desc:'The Metropolitan Life North Building, designed by Harvey Wiley Corbett and D. Everett Waid and constructed in phases from the 1920s to 1950, is a thirty-story Art Deco skyscraper adjacent to Madison Square Park. Originally serving as the northern annex to the Metropolitan Life Insurance Company headquarters complex, the massive limestone-clad structure occupies a full city block and features restrained geometric ornamentation characteristic of late Art Deco commercial architecture. The building was originally planned to be much taller — a hundred-story tower that would have been the world\'s tallest — but the Great Depression forced a dramatic scaling back. Despite the reduced ambition, the completed structure is an imposing presence on Madison Avenue, and its Art Deco lobbies and public spaces retain their original grandeur. Now operating as Eleven Madison, the building continues to serve as premium office space in one of Midtown South\'s most desirable locations.',
+    hours:'Lobby: Mon–Fri business hours',
+    lastEntry:'',
+    admission:'Free (lobby)',
+    tourOk:false,
+    tourInfo:'',
+    transit:'N R W 6 → 23rd St',
+    walkFrom:'Flatiron Building: 3 min · Madison Square Park: adjacent · Eataly: 2 min',
+    tags:[
+      'art deco',
+      'commercial',
+      'flatiron',
+      'met life',
+      'limestone',
+      'office tower',
+      'madison square park'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0259',
+    name:'Metropolitan Life Insurance Company Tower',
+    cats:[
+      'commercial',
+      'skyscrapers',
+      'landmarks'
+    ],
+    cc:'c-sky',
+    styleGroups:[
+      'beaux-arts'
+    ],
+    era:'Edwardian',
+    city:'new-york',
+    arch:'Napoleon LeBrun & Sons',
+    archs:[
+      'Napoleon LeBrun & Sons'
+    ],
+    yr:1909,
+    access:'Lobby Only',
+    lat:40.7412,
+    lng:-73.9874,
+    addr:'1 Madison Ave, New York, NY 10010',
+    hood:'Flatiron District',
+    desc:'The Metropolitan Life Insurance Company Tower, designed by Napoleon LeBrun & Sons and completed in 1909, is a 700-foot Renaissance Revival skyscraper that held the title of world\'s tallest building for four years until the Woolworth Building surpassed it in 1913. Modelled after the Campanile di San Marco in Venice, the tower rises from a massive eleven-story base with an ornate limestone and granite facade enriched by elaborate cornice work, balustrades, and classical detailing. The famous four-faced clock near the summit features dials measuring 26.5 feet in diameter with minute hands weighing half a ton each, making them among the largest clock faces in the world. A powerful beacon light at the top was once visible for miles. The tower anchored the Metropolitan Life headquarters complex that dominated the east side of Madison Square Park and symbolised the insurance industry\'s financial might during the early skyscraper era.',
+    hours:'Lobby: Mon–Fri business hours',
+    lastEntry:'',
+    admission:'Free (lobby)',
+    tourOk:false,
+    tourInfo:'',
+    transit:'N R W 6 → 23rd St',
+    walkFrom:'Flatiron Building: adjacent · Madison Square Park: adjacent · Met Life North: adjacent',
+    tags:[
+      'napoleon lebrun',
+      'renaissance revival',
+      'clock tower',
+      'tallest building',
+      'skyscraper',
+      'flatiron',
+      'met life',
+      'campanile',
+      'landmark'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0260',
+    name:'Japan Society',
+    cats:[
+      'cultural',
+      'landmarks'
+    ],
+    cc:'c-cul',
+    styleGroups:[
+      'modernist'
+    ],
+    era:'1970s',
+    city:'new-york',
+    arch:'Junzo Yoshimura',
+    archs:[
+      'Junzo Yoshimura',
+      'George G. Shimamoto'
+    ],
+    yr:1971,
+    access:'Ticketed',
+    lat:40.7525,
+    lng:-73.9683,
+    addr:'333 E 47th St, New York, NY 10017',
+    hood:'Turtle Bay',
+    desc:'The Japan Society headquarters, designed by Junzo Yoshimura with George G. Shimamoto and completed in 1971, is a rare example of Japanese modernist architecture in New York City and likely the earliest permanent structure in the city designed by a Japanese architect. The building\'s sleek black facade with continuous horizontal concrete bands synthesises Japanese aesthetic sensibilities with International Style modernism. Interior details including metal komoyose fencing, custom door pulls, and wood ceiling grilles bring traditional Japanese craftsmanship into a contemporary institutional framework. The building houses exhibition galleries, a 260-seat theatre for performing arts, a language centre, and conference facilities promoting cross-cultural understanding. A serene interior garden by landscape architect Ken Nakajima provides a contemplative oasis. The headquarters represents a singular architectural achievement — a building that bridges two distinct architectural cultures with quiet authority.',
+    hours:'Tue–Thu 11 am–6 pm · Fri 11 am–9 pm · Sat–Sun 11 am–5 pm',
+    lastEntry:'',
+    admission:'$12 adults · $10 students/seniors · Free Fri 6–9 pm',
+    tourOk:false,
+    tourInfo:'',
+    transit:'6 → 51st St · E M → Lexington Ave–53rd St',
+    walkFrom:'UN Headquarters: 5 min · Grand Central: 10 min · Tudor City: 3 min',
+    tags:[
+      'junzo yoshimura',
+      'japanese modernist',
+      'cultural center',
+      'gallery',
+      'theater',
+      'japanese garden',
+      'turtle bay'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0261',
+    name:'St. Bartholomew\'s Church',
+    cats:[
+      'religious',
+      'landmarks'
+    ],
+    cc:'c-rel',
+    styleGroups:[
+      'romanesque'
+    ],
+    era:'Early 20th Century',
+    city:'new-york',
+    arch:'Bertram Goodhue',
+    archs:[
+      'Bertram Goodhue',
+      'McKim Mead & White'
+    ],
+    yr:1919,
+    access:'Open to Public',
+    lat:40.7574,
+    lng:-73.9733,
+    addr:'325 Park Ave, New York, NY 10022',
+    hood:'Midtown East',
+    desc:'St. Bartholomew\'s Episcopal Church, designed by Bertram Goodhue and completed in 1919, is a masterpiece of Byzantine-Romanesque Revival architecture prominently sited on Park Avenue between 50th and 51st Streets. The building combines a polychromatic brick and limestone exterior with a richly decorated interior of mosaics, soaring vaults, and intricate stained glass. The iconic triple-arched portal on the south facade, designed earlier by McKim, Mead & White and originally commissioned by the Vanderbilt family, was incorporated into Goodhue\'s design and features extraordinary sculptural ornamentation. The church houses the only page from a Gutenberg Bible displayed in a church setting, a baptismal font by Danish sculptor Bertel Thorvaldsen, and New York City\'s largest pipe organ. Designated a National Historic Landmark in 2016, St. Bartholomew\'s stands as a monumental counterpoint to the glass and steel towers of Midtown, preserving a powerful sense of sacred space amid commercial density.',
+    hours:'Mon–Fri 9 am–5 pm · Sun 8 am–6 pm',
+    lastEntry:'',
+    admission:'Free',
+    tourOk:true,
+    tourInfo:'Guided tours available after Sunday services',
+    transit:'6 → 51st St · E M → Lexington Ave–53rd St',
+    walkFrom:'Waldorf Astoria: 2 min · Seagram Building: 3 min · Lever House: 3 min',
+    tags:[
+      'bertram goodhue',
+      'mckim mead white',
+      'byzantine',
+      'romanesque',
+      'church',
+      'national historic landmark',
+      'park avenue',
+      'gutenberg bible',
+      'organ'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0262',
+    name:'David H. Koch Center for Cancer Care',
+    cats:[
+      'civic'
+    ],
+    cc:'c-civ',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'Ennead Architects',
+    archs:[
+      'Ennead Architects',
+      'Perkins Eastman'
+    ],
+    yr:2020,
+    access:'Limited Access',
+    lat:40.7666,
+    lng:-73.9556,
+    addr:'530 E 74th St, New York, NY 10021',
+    hood:'Upper East Side',
+    desc:'The David H. Koch Center for Cancer Care at Memorial Sloan Kettering, designed by Ennead Architects with Perkins Eastman and completed in 2020, is a twenty-five-story, 750,000-square-foot outpatient cancer care facility on the Upper East Side. The building\'s massing is intentionally broken into distinct volumes to reduce the institutional scale and integrate harmoniously with the surrounding residential neighbourhood. The facade combines glass, metal, and stone in a warm palette that softens the building\'s considerable size. Interior spaces prioritise patient wellbeing with landscaped terraces overlooking the East River, abundant natural light, curated artwork, and a full-service café. The facility consolidates outpatient cancer care across multiple specialties under one roof, combining advanced radiation and surgical technology with environments designed to reduce anxiety and promote healing. The project won the 2020 Best of Year Award for healthcare design.',
+    hours:'Patient/visitor access only',
+    lastEntry:'',
+    admission:'Not applicable',
+    tourOk:false,
+    tourInfo:'',
+    transit:'6 → 77th St · Q → 72nd St',
+    walkFrom:'NewYork-Presbyterian: 3 min · Carl Schurz Park: 8 min · East River: 2 min',
+    tags:[
+      'ennead architects',
+      'healthcare',
+      'hospital',
+      'memorial sloan kettering',
+      'medical',
+      'contemporary',
+      'upper east side'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0263',
+    name:'Battery Park City',
+    cats:[
+      'parks',
+      'landmarks'
+    ],
+    cc:'c-park',
+    styleGroups:[
+      'landscape architecture',
+      'contemporary'
+    ],
+    era:'1980s',
+    city:'new-york',
+    arch:'Cooper, Eckstut Associates',
+    archs:[
+      'Alexander Cooper',
+      'Stanton Eckstut'
+    ],
+    yr:1979,
+    access:'Open to Public',
+    lat:40.7138,
+    lng:-74.016,
+    addr:'Battery Park City, New York, NY 10280',
+    hood:'Battery Park City',
+    desc:'Battery Park City, masterplanned by Alexander Cooper and Stanton Eckstut in 1979, is a ninety-two-acre planned community built on landfill created from the World Trade Center excavation along the Hudson River waterfront. The revolutionary 1979 master plan rejected the prevailing megastructure approach in favour of extending Manhattan\'s traditional street grid into the site, creating conventional blocks, tree-lined streets, and intimate public spaces that integrate seamlessly with Lower Manhattan\'s urban fabric. The plan called for a mix of residential, commercial, and cultural uses organised around a continuous 1.7-mile waterfront esplanade. Key realisations include the World Financial Center by Cesar Pelli, the Irish Hunger Memorial, Nelson A. Rockefeller Park, and numerous residential towers by distinguished architects. Battery Park City demonstrated that large-scale urban development could achieve diversity, walkability, and genuine public access to the waterfront — principles that influenced waterfront planning worldwide.',
+    hours:'Open 24/7 · Parks dawn to 1 am',
+    lastEntry:'',
+    admission:'Free',
+    tourOk:false,
+    tourInfo:'',
+    transit:'1 → Rector St or Chambers St · E → World Trade Center · R W → Cortlandt St',
+    walkFrom:'One World Trade: 5 min · Brookfield Place: 2 min · The Battery: 5 min',
+    tags:[
+      'alexander cooper',
+      'stanton eckstut',
+      'masterplan',
+      'urban planning',
+      'waterfront',
+      'esplanade',
+      'landfill',
+      'mixed-use',
+      'public space'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0264',
+    name:'The Eldorado',
+    cats:[
+      'residential',
+      'skyscrapers',
+      'landmarks'
+    ],
+    cc:'c-sky',
+    styleGroups:[
+      'art deco'
+    ],
+    era:'Art Deco',
+    city:'new-york',
+    arch:'Emery Roth',
+    archs:[
+      'Emery Roth',
+      'Margon & Holder'
+    ],
+    yr:1931,
+    access:'No Public Access',
+    lat:40.7884,
+    lng:-73.9677,
+    addr:'300 Central Park West, New York, NY 10024',
+    hood:'Upper West Side',
+    desc:'The Eldorado, designed by Emery Roth with Margon & Holder and completed in 1931, is one of the iconic twin-towered residential skyscrapers that define the Central Park West skyline. Rising from a broad base, the symmetrical Art Deco towers feature distinctive setbacks, geometric terra cotta ornament, and metallic finials that create a dramatic vertical composition visible across Central Park. The building is one of four celebrated twin-towered apartment houses on Central Park West, alongside the San Remo, the Majestic, and the Century. The Eldorado\'s limestone and brick facade combines Art Deco patterning with Renaissance Revival elements, while its grand lobby showcases the period\'s luxury residential design at its finest. As a prestigious cooperative, the building has housed many notable residents and remains among the Upper West Side\'s most desirable addresses, its towers serving as beloved landmarks in one of New York\'s most recognisable skyline compositions.',
+    hours:'Private residential',
+    lastEntry:'',
+    admission:'Private',
+    tourOk:false,
+    tourInfo:'',
+    transit:'B C → 86th St · 1 → 86th St',
+    walkFrom:'Central Park: adjacent · AMNH: 5 min · Reservoir: 8 min',
+    tags:[
+      'emery roth',
+      'art deco',
+      'twin towers',
+      'central park west',
+      'cooperative',
+      'landmark',
+      'residential',
+      'upper west side'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0265',
+    name:'The Dakota',
+    cats:[
+      'residential',
+      'landmarks'
+    ],
+    cc:'c-res',
+    styleGroups:[
+      'neo-classical'
+    ],
+    era:'Victorian',
+    city:'new-york',
+    arch:'Henry Janeway Hardenbergh',
+    archs:[
+      'Henry Janeway Hardenbergh'
+    ],
+    yr:1884,
+    access:'No Public Access',
+    lat:40.7768,
+    lng:-73.9761,
+    addr:'1 W 72nd St, New York, NY 10023',
+    hood:'Upper West Side',
+    desc:'The Dakota, designed by Henry Janeway Hardenbergh and completed in 1884, is one of New York City\'s most iconic residential buildings and a masterpiece of German Renaissance Revival architecture. The imposing structure features a red brick and terra cotta facade with ornamental gables, copper-topped turrets, and deeply carved sandstone detailing. When built, it stood in near-isolation at the northwestern edge of developed Manhattan — its name reportedly an ironic reference to the Dakota Territory, suggesting the building was as remote as the frontier. The monumental interior courtyard, reached through an arched carriage entrance on 72nd Street, provides a sheltered communal space surrounded by elaborate ironwork and lanterns. The building\'s historical significance extends beyond architecture: John Lennon lived here from 1973 until his assassination at the entrance in 1980. Designated a National Historic Landmark in 1976, the Dakota remains the definitive example of late-nineteenth-century luxury apartment design in America.',
+    hours:'Private residential',
+    lastEntry:'',
+    admission:'Private',
+    tourOk:false,
+    tourInfo:'',
+    transit:'1 2 3 → 72nd St · B C → 72nd St',
+    walkFrom:'Strawberry Fields: 2 min · Lincoln Center: 5 min · Central Park: adjacent',
+    tags:[
+      'henry hardenbergh',
+      'german renaissance',
+      'victorian',
+      'cooperative',
+      'landmark',
+      'national historic landmark',
+      'john lennon',
+      'central park west'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0266',
+    name:'The San Remo',
+    cats:[
+      'residential',
+      'skyscrapers',
+      'landmarks'
+    ],
+    cc:'c-sky',
+    styleGroups:[
+      'neo-classical'
+    ],
+    era:'Art Deco',
+    city:'new-york',
+    arch:'Emery Roth',
+    archs:[
+      'Emery Roth'
+    ],
+    yr:1930,
+    access:'No Public Access',
+    lat:40.778,
+    lng:-73.9752,
+    addr:'145-146 Central Park West, New York, NY 10023',
+    hood:'Upper West Side',
+    desc:'The San Remo, designed by Emery Roth and completed in 1930, is New York City\'s first twin-towered residential skyscraper and one of the most recognisable silhouettes on the Central Park West skyline. The twenty-seven-story building features a Renaissance Revival aesthetic with a limestone and brick facade, ornamental balustrades, and two distinctive towers crowned by columned Roman temples housing the building\'s water tanks — an elegant solution that transformed a utilitarian necessity into an architectural landmark. Roth\'s design established the twin-tower residential model that would influence countless subsequent developments along Central Park West. The building\'s placement provides exceptional Central Park exposure, and the symmetrical towers create a visual anchor when viewed from across the park. As one of the city\'s most exclusive cooperatives, the San Remo has attracted prominent residents and represents a pinnacle of prewar luxury residential architecture, combining classical grandeur with the scale and ambition of the early skyscraper era.',
+    hours:'Private residential',
+    lastEntry:'',
+    admission:'Private',
+    tourOk:false,
+    tourInfo:'',
+    transit:'1 2 3 → 72nd St · B C → 72nd St or 81st St',
+    walkFrom:'Central Park: adjacent · AMNH: 3 min · Lincoln Center: 8 min',
+    tags:[
+      'emery roth',
+      'renaissance revival',
+      'twin towers',
+      'central park west',
+      'cooperative',
+      'landmark',
+      'residential',
+      'upper west side',
+      'first twin tower'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0267',
+    name:'Two United Nations Plaza',
+    cats:[
+      'commercial'
+    ],
+    cc:'c-com',
+    styleGroups:[
+      'modernist'
+    ],
+    era:'1980s',
+    city:'new-york',
+    arch:'Kevin Roche John Dinkeloo & Associates',
+    archs:[
+      'Kevin Roche John Dinkeloo & Associates'
+    ],
+    yr:1983,
+    access:'Lobby Only',
+    lat:40.7495,
+    lng:-73.9685,
+    addr:'2 United Nations Plaza, New York, NY 10017',
+    hood:'Turtle Bay',
+    desc:'Two United Nations Plaza, designed by Kevin Roche John Dinkeloo & Associates and completed in 1983, is a forty-story mixed-use tower combining office and hotel space opposite the United Nations Headquarters. Together with its predecessor One UN Plaza completed in 1975, the building forms a shimmering pair of angular glass towers with distinctive chamfered corners that create a faceted, crystalline appearance. The reflective blue-green glass curtain wall mirrors the sky and surrounding cityscape, making the towers appear to dematerialise depending on light conditions. The building houses approximately 450,000 square feet of office space on lower floors and a hotel on the upper floors, with separate lobbies for each use. The angular geometry and reflective surfaces represent Kevin Roche\'s evolution from Eero Saarinen\'s sculptural approach toward a more abstract, technologically refined modernism that defined corporate architecture in the late twentieth century.',
+    hours:'Lobby open 24/7',
+    lastEntry:'',
+    admission:'Free (lobby)',
+    tourOk:false,
+    tourInfo:'',
+    transit:'4 5 6 7 S → Grand Central–42nd St · E → Lexington Ave–53rd St',
+    walkFrom:'UN Headquarters: 2 min · Grand Central: 8 min · Japan Society: 3 min',
+    tags:[
+      'kevin roche',
+      'john dinkeloo',
+      'united nations',
+      'glass',
+      'office tower',
+      'hotel',
+      'turtle bay',
+      'reflective',
+      'chamfered'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0268',
+    name:'American Museum of Natural History',
+    cats:[
+      'cultural',
+      'landmarks'
+    ],
+    cc:'c-cul',
+    styleGroups:[
+      'beaux-arts',
+      'contemporary'
+    ],
+    era:'Victorian',
+    city:'new-york',
+    arch:'Various',
+    archs:[
+      'Calvert Vaux',
+      'J. Cleaveland Cady',
+      'Polshek Partnership',
+      'Studio Gang'
+    ],
+    yr:1877,
+    access:'Ticketed',
+    lat:40.7813,
+    lng:-73.9741,
+    addr:'200 Central Park West, New York, NY 10024',
+    hood:'Upper West Side',
+    desc:'The American Museum of Natural History, founded in 1869 and occupying four Manhattan blocks, is one of the world\'s premier science museums with forty-five permanent exhibition halls. The complex spans multiple architectural eras: the original Romanesque Revival building by Calvert Vaux and J. Cleaveland Cady, the grand Beaux-Arts entrance on Central Park West by Trowbridge & Livingston, and two transformative modern additions. The Rose Center for Earth and Space, completed in 2000 by Polshek Partnership, encases the spherical Hayden Planetarium within a six-story glass cube that appears to float at night. The Richard Gilder Center for Science, Education, and Innovation, designed by Studio Gang and completed in 2023, adds 230,000 square feet across six floors centred on a five-story flowing concrete atrium inspired by natural canyon formations, creating thirty-three connections between ten existing museum buildings. Together these additions represent dramatically different approaches to institutional expansion — one crystalline and geometric, the other organic and fluid.',
+    hours:'Daily 10 am–5:30 pm · Closed Thanksgiving & Christmas',
+    lastEntry:'',
+    admission:'NY State residents pay-what-you-wish · Others from $28',
+    tourOk:true,
+    tourInfo:'Free guided highlight tours daily',
+    transit:'B C → 81st St–Museum of Natural History · 1 → 79th St',
+    walkFrom:'Central Park: adjacent · New-York Historical Society: 2 min · The San Remo: 3 min',
+    tags:[
+      'natural history',
+      'museum',
+      'planetarium',
+      'rose center',
+      'gilder center',
+      'polshek',
+      'studio gang',
+      'hayden',
+      'dinosaurs',
+      'upper west side'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0269',
+    name:'New-York Historical Society',
+    cats:[
+      'cultural',
+      'landmarks'
+    ],
+    cc:'c-cul',
+    styleGroups:[
+      'beaux-arts'
+    ],
+    era:'Edwardian',
+    city:'new-york',
+    arch:'York & Sawyer',
+    archs:[
+      'York & Sawyer',
+      'Walker & Gillette'
+    ],
+    yr:1908,
+    access:'Ticketed',
+    lat:40.7794,
+    lng:-73.9741,
+    addr:'170 Central Park West, New York, NY 10024',
+    hood:'Upper West Side',
+    desc:'The New-York Historical Society, founded in 1804 and housed in its current building since 1908, is New York\'s oldest museum and one of America\'s most important research libraries. The main building was designed by York & Sawyer in a restrained Neoclassical style with a dignified limestone facade facing Central Park West, and sympathetic pavilion extensions were added by Walker & Gillette in 1938. The institution holds an extraordinary collection of historical artifacts, manuscripts, maps, prints, photographs, and Tiffany lamps, spanning from the colonial period through the present. The research library contains over three million items documenting the history of New York and the nation. The building\'s classical proportions and understated ornamentation reflect the seriousness of its mission, and its prominent position on Central Park West between 76th and 77th Streets places it at the heart of the Upper West Side\'s cultural corridor alongside the American Museum of Natural History.',
+    hours:'Tue–Sun 11 am–5 pm · Fri until 8 pm · Closed Mon',
+    lastEntry:'',
+    admission:'$22 adults · $17 seniors/educators · $13 students · Free Fri 6–8 pm',
+    tourOk:true,
+    tourInfo:'Guided tours available',
+    transit:'B C → 81st St · 1 → 79th St',
+    walkFrom:'AMNH: 2 min · Central Park: 1 min · The San Remo: 3 min',
+    tags:[
+      'york and sawyer',
+      'museum',
+      'history',
+      'library',
+      'neoclassical',
+      'upper west side',
+      'tiffany',
+      'research',
+      'central park west'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0270',
+    name:'Central Savings Bank (Apple Bank)',
+    cats:[
+      'commercial',
+      'landmarks'
+    ],
+    cc:'c-com',
+    styleGroups:[
+      'neo-classical'
+    ],
+    era:'1920s',
+    city:'new-york',
+    arch:'York & Sawyer',
+    archs:[
+      'York & Sawyer'
+    ],
+    yr:1928,
+    access:'Lobby Only',
+    lat:40.7789,
+    lng:-73.981,
+    addr:'2100 Broadway, New York, NY 10023',
+    hood:'Upper West Side',
+    desc:'The Central Savings Bank, designed by York & Sawyer and completed in 1928, is a monumental Italian Renaissance palazzo-style banking hall at the corner of Broadway and 73rd Street, now operating as Apple Bank for Savings. The building\'s rusticated limestone facade with arched windows, wrought-iron lanterns, and a richly coffered entrance draws directly from Florentine Renaissance palaces. The interior is equally grand: a soaring double-height banking hall with ornate iron grillework, mosaic floors, marble walls, and elaborate ceiling murals creates one of the most spectacular commercial interiors on the Upper West Side. The building was designated a New York City Landmark in 1996, recognising both its architectural distinction and its role as a civic anchor in the Broadway commercial corridor. York & Sawyer, best known for the Federal Reserve Bank of New York, brought the same sense of institutional gravitas to this neighbourhood bank, producing a building that far exceeds its utilitarian programme.',
+    hours:'Bank hours: Mon–Fri 9 am–4 pm · Sat 9 am–1 pm',
+    lastEntry:'',
+    admission:'Free (public banking hall)',
+    tourOk:false,
+    tourInfo:'',
+    transit:'1 2 3 → 72nd St',
+    walkFrom:'The Ansonia: adjacent · Verdi Square: 1 min · Lincoln Center: 8 min',
+    tags:[
+      'york and sawyer',
+      'bank',
+      'italian renaissance',
+      'palazzo',
+      'landmark',
+      'limestone',
+      'upper west side',
+      'broadway',
+      'banking hall'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0271',
+    name:'The Ansonia',
+    cats:[
+      'residential',
+      'landmarks'
+    ],
+    cc:'c-res',
+    styleGroups:[
+      'beaux-arts'
+    ],
+    era:'Edwardian',
+    city:'new-york',
+    arch:'Paul Emile Duboy',
+    archs:[
+      'Paul Emile Duboy'
+    ],
+    yr:1904,
+    access:'No Public Access',
+    lat:40.7803,
+    lng:-73.981,
+    addr:'2109 Broadway, New York, NY 10023',
+    hood:'Upper West Side',
+    desc:'The Ansonia, designed by French architect Paul Emile Duboy and completed in 1904, is a seventeen-story Beaux-Arts masterwork occupying a full trapezoidal block bounded by Broadway, Amsterdam Avenue, and 73rd–74th Streets. Built as a residential hotel by developer William Earle Dodge Stokes and named after his grandfather, industrialist Anson Greene Phelps, the building features an extraordinarily ornate facade of limestone, granite, white brick, and terracotta with distinctive corner turrets, internal light courts, and a prominent three-story mansard roof. The lavish ornamentation includes scrolled brackets, garlands, cartouches, and iron balconies in the French tradition. Famed for its superior soundproofing from thick masonry walls, the Ansonia attracted generations of opera singers, conductors, and musicians including Enrico Caruso, Igor Stravinsky, and Arturo Toscanini. Converted to condominiums in 1992, the Ansonia remains one of the Upper West Side\'s most recognisable architectural landmarks and a designated New York City Landmark.',
+    hours:'Private residential',
+    lastEntry:'',
+    admission:'Private',
+    tourOk:false,
+    tourInfo:'',
+    transit:'1 2 3 → 72nd St',
+    walkFrom:'Verdi Square: adjacent · Apple Bank: 1 min · Lincoln Center: 8 min · Beacon Theatre: 1 min',
+    tags:[
+      'paul duboy',
+      'beaux-arts',
+      'french',
+      'residential',
+      'landmark',
+      'broadway',
+      'upper west side',
+      'mansard',
+      'turrets',
+      'musicians'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0272',
+    name:'NYPD 40th Precinct',
+    cats:[
+      'civic'
+    ],
+    cc:'c-civ',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'BIG (Bjarke Ingels Group)',
+    archs:[
+      'BIG'
+    ],
+    yr:2022,
+    access:'Open to Public',
+    lat:40.8103,
+    lng:-73.925,
+    addr:'257 Alexander Ave, Bronx, NY 10454',
+    hood:'Mott Haven, Bronx',
+    desc:'The NYPD 40th Precinct station house, designed by BIG (Bjarke Ingels Group) and completed in 2022, is a 45,000-square-foot civic building in the South Bronx\'s Melrose neighbourhood representing a new approach to police station design. The building features a distinctive stacked brick facade that steps back progressively, creating planted terraces and the first green roof on any NYPD facility. BIG\'s design reimagines the traditionally fortress-like police station typology as an open, community-oriented civic building with ground-floor transparency and welcoming public spaces. The stacked massing allows natural light to penetrate deep into the interior while the green infrastructure contributes to stormwater management in a neighbourhood historically underserved by green space. The project exemplifies how contemporary architecture can transform essential public safety infrastructure into a catalyst for neighbourhood revitalisation and community engagement.',
+    hours:'24/7',
+    lastEntry:'',
+    admission:'Public building',
+    tourOk:false,
+    tourInfo:'',
+    transit:'2 5 → 3rd Ave–149th St · 6 → 3rd Ave–138th St',
+    walkFrom:'Bronx Museum of the Arts: 10 min · Mott Haven Historic District: 5 min',
+    tags:[
+      'big',
+      'bjarke ingels',
+      'police station',
+      'civic',
+      'green roof',
+      'bronx',
+      'mott haven',
+      'community',
+      'sustainable'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0273',
+    name:'Eagle + West',
+    cats:[
+      'residential',
+      'skyscrapers'
+    ],
+    cc:'c-sky',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'OMA',
+    archs:[
+      'OMA',
+      'Jason Long'
+    ],
+    yr:2022,
+    access:'No Public Access',
+    lat:40.735,
+    lng:-73.9609,
+    addr:'1 Eagle St, Brooklyn, NY 11222',
+    hood:'Greenpoint',
+    desc:'Eagle + West, designed by OMA under partner Jason Long and completed in 2022, is a striking residential development within the larger Greenpoint Landing waterfront megaproject in Brooklyn. The complex features two cantilevered high-rise towers of thirty and forty stories containing 745 total units, their forms dramatically projecting outward as they rise. The bold cantilever engineering creates a sculptural presence along the East River waterfront while maximising views for upper-floor residents. The development includes a mix of market-rate and affordable housing, with amenities including indoor and outdoor pools, coworking spaces, and fitness facilities. Positioned along a twenty-two-acre waterfront esplanade, Eagle + West represents OMA\'s first completed residential project in New York City and a significant architectural statement in Greenpoint\'s ongoing transformation from industrial waterfront to one of Brooklyn\'s most dynamic residential neighbourhoods.',
+    hours:'Private residential',
+    lastEntry:'',
+    admission:'Private',
+    tourOk:false,
+    tourInfo:'',
+    transit:'G → Greenpoint Ave',
+    walkFrom:'Greenpoint waterfront: adjacent · WNYC Transmitter Park: 3 min · McCarren Park: 10 min',
+    tags:[
+      'oma',
+      'rem koolhaas',
+      'jason long',
+      'cantilever',
+      'residential',
+      'waterfront',
+      'greenpoint',
+      'brooklyn',
+      'skyscraper',
+      'mixed-income'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0274',
+    name:'Museum of the Moving Image',
+    cats:[
+      'cultural',
+      'adaptive-reuse'
+    ],
+    cc:'c-cul',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'Leeser Architecture',
+    archs:[
+      'Leeser Architecture'
+    ],
+    yr:2011,
+    access:'Ticketed',
+    lat:40.7562,
+    lng:-73.924,
+    addr:'36-01 35th Ave, Astoria, NY 11106',
+    hood:'Astoria, Queens',
+    desc:'The Museum of the Moving Image, renovated and expanded by Leeser Architecture and reopened in 2011, occupies a former building at Kaufman Astoria Studios in Queens. The sixty-seven-million-dollar project doubled the museum\'s size from 50,000 to 97,700 square feet through a complete ground-floor redesign, a three-story addition, and a new courtyard garden. The striking exterior features lightweight aluminium panels arranged in a tessellated triangular grid that creates a visually dynamic and technically innovative contemporary facade. Interior highlights include a state-of-the-art 264-seat theatre capable of projecting formats from 16mm to 70mm film and 3D digital content, along with a 68-seat screening room, digital learning suite, and a functioning production studio. The museum explores all aspects of moving image culture from cinema and television to digital media, housed in a building whose own innovative surface treatment embodies the creative energy of the medium it celebrates.',
+    hours:'Thu 2–6 pm · Fri 2–8 pm · Sat–Sun 11 am–6 pm · Closed Mon–Wed',
+    lastEntry:'',
+    admission:'$17.50 adults · $12 students/seniors · Free Thu 2–6 pm',
+    tourOk:false,
+    tourInfo:'',
+    transit:'R M → Steinway St · N W → 36th Ave',
+    walkFrom:'Kaufman Astoria Studios: adjacent · Steinway St: 5 min',
+    tags:[
+      'leeser architecture',
+      'museum',
+      'film',
+      'cinema',
+      'media',
+      'aluminum',
+      'astoria',
+      'queens',
+      'adaptive reuse',
+      'theater'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0275',
+    name:'The Met Cloisters',
+    cats:[
+      'cultural',
+      'landmarks'
+    ],
+    cc:'c-cul',
+    styleGroups:[
+      'romanesque'
+    ],
+    era:'1930s',
+    city:'new-york',
+    arch:'Charles Collens',
+    archs:[
+      'Charles Collens'
+    ],
+    yr:1938,
+    access:'Ticketed',
+    lat:40.8647,
+    lng:-73.9312,
+    addr:'99 Margaret Corbin Dr, New York, NY 10040',
+    hood:'Fort Tryon Park',
+    desc:'The Met Cloisters, designed by Charles Collens and opened in 1938, is a branch of the Metropolitan Museum of Art dedicated to medieval European art and architecture. Set within the sixty-six-acre Fort Tryon Park high above the Hudson River, the building was constructed to evoke a French Romanesque abbey, incorporating authentic architectural elements from five medieval European monasteries and churches — including cloisters from Saint-Michel-de-Cuxa, Saint-Guilhem-le-Désert, Bonnefont-en-Comminges, Trie-sur-Baïse, and Froville — that were disassembled in Europe, shipped to New York, and reassembled within a modern structure. The collection includes sculpture, manuscripts, tapestries including the celebrated Unicorn Tapestries, stained glass, and liturgical objects spanning the Romanesque through Gothic periods. Enclosed medieval-style herb gardens complement the architectural experience. Donated by John D. Rockefeller Jr., the Cloisters represents an unparalleled achievement in cultural preservation and museum design.',
+    hours:'Daily 10 am–4:30 pm · Closed Wed, Thanksgiving, Dec 25, Jan 1',
+    lastEntry:'',
+    admission:'$30 adults · $22 seniors · $17 students · NY State pay-what-you-wish',
+    tourOk:true,
+    tourInfo:'Free gallery talks and tours daily',
+    transit:'A → 190th St (elevator exit, walk north 10 min)',
+    walkFrom:'Fort Tryon Park: within · Inwood Hill Park: 15 min',
+    tags:[
+      'metropolitan museum',
+      'medieval',
+      'cloisters',
+      'romanesque',
+      'gothic',
+      'tapestries',
+      'monastery',
+      'fort tryon',
+      'rockefeller',
+      'unicorn tapestries'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0276',
+    name:'Hispanic Society Museum & Library',
+    cats:[
+      'cultural',
+      'landmarks'
+    ],
+    cc:'c-cul',
+    styleGroups:[
+      'beaux-arts'
+    ],
+    era:'Edwardian',
+    city:'new-york',
+    arch:'Charles Pratt Huntington',
+    archs:[
+      'Charles Pratt Huntington'
+    ],
+    yr:1908,
+    access:'Open to Public',
+    lat:40.8334,
+    lng:-73.9466,
+    addr:'613 W 155th St, New York, NY 10032',
+    hood:'Washington Heights',
+    desc:'The Hispanic Society Museum & Library, founded in 1904 by Archer Milton Huntington and housed in a Spanish Renaissance Revival building by Charles Pratt Huntington completed in 1908, is one of the most important collections of Spanish and Latin American art outside Spain. Located on the Audubon Terrace cultural campus in Washington Heights, the main gallery features a thirty-five-foot covered courtyard with hexagonal red clay floor tiles evoking Spanish convents, ornate terracotta detailing, and a viewing gallery above. The permanent collection spans from the eleventh century to the present, including major paintings by Velázquez, El Greco, Goya, and Sorolla — the latter represented by a monumental room-encircling mural cycle depicting the regions of Spain. The adjoining research library holds over 250,000 manuscripts and documents. Remarkably, admission has been free since the museum\'s founding, fulfilling Huntington\'s vision of universal public access to Hispanic cultural heritage.',
+    hours:'Tue–Sat 10 am–4:30 pm · Sun 1–4:30 pm · Closed Mon',
+    lastEntry:'',
+    admission:'Free',
+    tourOk:true,
+    tourInfo:'Guided tours available',
+    transit:'1 → 157th St · A C → 155th St',
+    walkFrom:'Audubon Terrace: within · Morris-Jumel Mansion: 8 min',
+    tags:[
+      'hispanic society',
+      'spanish art',
+      'museum',
+      'library',
+      'sorolla',
+      'goya',
+      'velazquez',
+      'washington heights',
+      'audubon terrace',
+      'free museum',
+      'renaissance revival'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0277',
+    name:'Frick Collection',
+    cats:[
+      'cultural',
+      'landmarks'
+    ],
+    cc:'c-cul',
+    styleGroups:[
+      'beaux-arts',
+      'contemporary'
+    ],
+    era:'Edwardian',
+    city:'new-york',
+    arch:'Carrère & Hastings',
+    archs:[
+      'Carrère & Hastings',
+      'Selldorf Architects'
+    ],
+    yr:1914,
+    access:'Ticketed',
+    lat:40.7714,
+    lng:-73.9576,
+    addr:'1 E 70th St, New York, NY 10021',
+    hood:'Upper East Side',
+    desc:'The Frick Collection, housed in the 1914 mansion designed by Thomas Hastings of Carrère & Hastings for industrialist Henry Clay Frick, is one of New York\'s most beloved art museums. The Beaux-Arts and Italian Renaissance Revival mansion features an Indiana limestone facade, a tranquil interior courtyard with fountain, and intimate gallery rooms displaying masterworks by Rembrandt, Vermeer, Bellini, Goya, and Turner. Following a four-year, $220 million renovation and expansion by Selldorf Architects completed in April 2025, the museum now features ten new second-floor galleries converted from the former Frick family residence, a new underground 220-seat auditorium, expanded education facilities, and a seven-story rear addition — all designed to enhance the collection\'s accessibility while preserving the domestic character that distinguishes the Frick from conventional museums. The restored 70th Street Garden by landscape architect Lynden B. Miller completes an architectural ensemble spanning over a century of sensitive stewardship.',
+    hours:'Wed–Sun 11 am–6 pm · Fri until 9 pm · Closed Mon–Tue',
+    lastEntry:'',
+    admission:'$30 adults · $22 seniors · $17 students · Pay-what-you-wish Wed 2–6 pm',
+    tourOk:true,
+    tourInfo:'Audio guides included with admission',
+    transit:'6 → 68th St–Hunter College · Q → 72nd St',
+    walkFrom:'Central Park: 2 min · Asia Society: 3 min · Met Museum: 10 min',
+    tags:[
+      'carrere and hastings',
+      'selldorf architects',
+      'art museum',
+      'mansion',
+      'beaux-arts',
+      'vermeer',
+      'rembrandt',
+      'museum mile',
+      'upper east side',
+      'renovation'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0278',
+    name:'Shepard Hall (City College)',
+    cats:[
+      'civic',
+      'landmarks'
+    ],
+    cc:'c-civ',
+    styleGroups:[
+      'gothic'
+    ],
+    era:'Edwardian',
+    city:'new-york',
+    arch:'George Browne Post',
+    archs:[
+      'George Browne Post'
+    ],
+    yr:1907,
+    access:'Limited Access',
+    lat:40.8198,
+    lng:-73.95,
+    addr:'160 Convent Ave, New York, NY 10031',
+    hood:'Hamilton Heights',
+    desc:'Shepard Hall, designed by George Browne Post and completed in 1907, is the monumental centerpiece of City College of New York\'s historic North Campus. The English Perpendicular Gothic building is constructed from Manhattan schist — dark metamorphic stone quarried on site during construction — with elaborate white terracotta ornamentation including gargoyles, grotesques, crocketed pinnacles, and floral tracery modelled after medieval cathedral plans. The Great Hall, a soaring assembly space within the building, has hosted generations of students at one of America\'s most important institutions of public higher education. Post designed the entire five-building North Campus complex as a unified Gothic composition, creating one of the most distinguished collegiate Gothic campuses in the nation. The campus was listed on the National Register of Historic Places in 1984 and received the Lucy G. Moses Award for preservation from the New York Landmarks Conservancy.',
+    hours:'Campus hours · Interior access varies by department',
+    lastEntry:'',
+    admission:'Free (campus)',
+    tourOk:true,
+    tourInfo:'Campus tours available through admissions office',
+    transit:'1 → 137th St–City College · A C → 135th St',
+    walkFrom:'CCNY campus: within · Hamilton Grange: 5 min · St. Nicholas Park: adjacent',
+    tags:[
+      'george browne post',
+      'gothic revival',
+      'manhattan schist',
+      'terracotta',
+      'city college',
+      'ccny',
+      'academic',
+      'landmark',
+      'national register'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0279',
+    name:'Compton-Goethals Hall (City College)',
+    cats:[
+      'civic',
+      'cultural'
+    ],
+    cc:'c-civ',
+    styleGroups:[
+      'gothic',
+      'contemporary'
+    ],
+    era:'Edwardian',
+    city:'new-york',
+    arch:'George Browne Post',
+    archs:[
+      'George Browne Post',
+      'LHP Architects'
+    ],
+    yr:1908,
+    access:'Event Access',
+    lat:40.8195,
+    lng:-73.9505,
+    addr:'Convent Ave at 138th St, New York, NY 10031',
+    hood:'Hamilton Heights',
+    desc:'Compton-Goethals Hall, combining two original George Browne Post neo-Gothic buildings from 1908, serves as City College\'s arts centre following a sensitive renovation by LHP Architects completed in 2010. The complex preserves the historic Gothic Revival exterior of Manhattan schist with terracotta ornaments by sculptor Livingston Smith while converting approximately 100,000 square feet into performance and teaching space. The renovation retained the original arched trusses of the former gymnasium on the third floor, now used for dance instruction. The facility houses theatre, dance, music, and visual arts programmes and contains New York City\'s largest Dance Notation Library. Nearby on the CCNY campus stand other notable Post-designed buildings including Baskerville Hall, which now houses the High School for Mathematics, Science and Engineering, and Harris Hall, home to the CUNY School of Medicine — together forming one of the finest collegiate Gothic ensembles in America.',
+    hours:'Varies by event · Generally 10 am–8 pm on performance days',
+    lastEntry:'',
+    admission:'Free–$25 depending on event',
+    tourOk:false,
+    tourInfo:'',
+    transit:'1 → 137th St–City College · A C → 135th St',
+    walkFrom:'Shepard Hall: 2 min · CCNY campus: within · Hamilton Grange: 5 min',
+    tags:[
+      'george browne post',
+      'gothic revival',
+      'arts center',
+      'theater',
+      'dance',
+      'city college',
+      'ccny',
+      'renovation',
+      'performing arts'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0280',
+    name:'High School for Math, Science & Engineering',
+    cats:[
+      'civic'
+    ],
+    cc:'c-civ',
+    styleGroups:[
+      'gothic'
+    ],
+    era:'Edwardian',
+    city:'new-york',
+    arch:'George Browne Post',
+    archs:[
+      'George Browne Post'
+    ],
+    yr:1908,
+    access:'No Public Access',
+    lat:40.8189,
+    lng:-73.9502,
+    addr:'240 Convent Ave, New York, NY 10031',
+    hood:'Hamilton Heights',
+    desc:'The High School for Mathematics, Science and Engineering at City College occupies Baskerville Hall, one of the original George Browne Post neo-Gothic buildings on the CCNY North Campus, completed in 1908. Originally designed as a state-of-the-art chemistry research facility, the Gothic Revival structure of Manhattan schist with terracotta detailing now houses one of New York City\'s nine specialised public high schools, serving approximately 580 students selected through the rigorous Specialised High Schools Admissions Test. The school achieves exceptional academic outcomes — a 99 percent graduation rate and average SAT scores well above city averages — within a historic architectural setting that connects students to the tradition of public education that has defined City College since its founding in 1847. The building\'s integration within Post\'s comprehensive Gothic campus plan creates an educational environment where architectural heritage reinforces academic ambition.',
+    hours:'School hours: 8 am–3:30 pm · Not open to public',
+    lastEntry:'',
+    admission:'Not open to public',
+    tourOk:false,
+    tourInfo:'',
+    transit:'1 → 137th St–City College · A C → 135th St',
+    walkFrom:'Shepard Hall: 2 min · CCNY campus: within',
+    tags:[
+      'george browne post',
+      'gothic revival',
+      'high school',
+      'stem',
+      'specialized school',
+      'city college',
+      'ccny',
+      'baskerville hall'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0281',
+    name:'The Corinthian',
+    cats:[
+      'residential',
+      'skyscrapers'
+    ],
+    cc:'c-sky',
+    styleGroups:[
+      'postmodernist'
+    ],
+    era:'1980s',
+    city:'new-york',
+    arch:'Der Scutt',
+    archs:[
+      'Der Scutt',
+      'Michael Schimenti'
+    ],
+    yr:1988,
+    access:'No Public Access',
+    lat:40.7462,
+    lng:-73.9717,
+    addr:'330 E 38th St, New York, NY 10016',
+    hood:'Murray Hill',
+    desc:'The Corinthian, designed by Der Scutt with Michael Schimenti and completed in 1988, is a fifty-seven-story, 610-foot residential tower in Murray Hill that was the largest apartment building in New York City at the time of its completion. The building\'s most distinctive feature is its fluted facade of semicircular bay windows that create a sculptural, column-like profile departing dramatically from conventional boxy residential tower design. The curved glass bays provide 180-degree panoramic views from most apartments. Developed by Bernard Spitzer on the site of the former East Side Airlines Terminal, the tower occupies an entire city block and contains over 800 condominiums. The AIA Guide to New York City called it \'Scutt\'s best building by far,\' praising the bold formal gesture that brings genuine architectural ambition to the residential high-rise typology. The building includes a privately owned public space at ground level.',
+    hours:'Private residential',
+    lastEntry:'',
+    admission:'Private',
+    tourOk:false,
+    tourInfo:'',
+    transit:'4 5 6 7 → Grand Central–42nd St · 6 → 33rd St',
+    walkFrom:'Grand Central: 5 min · UN Headquarters: 8 min · Morgan Library: 5 min',
+    tags:[
+      'der scutt',
+      'postmodern',
+      'residential',
+      'skyscraper',
+      'fluted',
+      'bay windows',
+      'murray hill',
+      'sculptural',
+      '1980s'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0282',
+    name:'20 Exchange Place',
+    cats:[
+      'residential',
+      'skyscrapers',
+      'landmarks'
+    ],
+    cc:'c-sky',
+    styleGroups:[
+      'art deco'
+    ],
+    era:'Art Deco',
+    city:'new-york',
+    arch:'Cross & Cross',
+    archs:[
+      'Cross & Cross'
+    ],
+    yr:1931,
+    access:'Lobby Only',
+    lat:40.7055,
+    lng:-74.0096,
+    addr:'20 Exchange Pl, New York, NY 10005',
+    hood:'Financial District',
+    desc:'20 Exchange Place, designed by Cross & Cross and completed in 1931, is a fifty-seven-story Art Deco skyscraper originally built as the headquarters of the City Bank-Farmers Trust Company. At 741 feet, it was briefly the tallest stone-clad building in the world. The restrained Classical Moderne facade of granite and limestone features remarkable sculptural details: bronze-trimmed silver nickel entrance doors by British sculptor David Evans celebrate the evolution of transportation from sailing ships and hot-air balloons to ocean liners and aeroplanes, while limestone piers at the base bear figures symbolising \'giants of finance.\' The building drew 25,000 visitors on its opening day. Now converted to luxury residential condominiums, it preserves its magnificent Art Deco lobbies and ornamental programme. The project exemplifies the extraordinary ambition of Lower Manhattan\'s financial district architecture during the final exuberant years before the Depression permanently altered the city\'s building culture.',
+    hours:'Lobby accessible during business hours',
+    lastEntry:'',
+    admission:'Free (lobby)',
+    tourOk:false,
+    tourInfo:'',
+    transit:'2 3 → Wall St · 4 5 → Wall St · J Z → Broad St',
+    walkFrom:'NYSE: 2 min · Federal Hall: 3 min · Trinity Church: 5 min',
+    tags:[
+      'cross and cross',
+      'art deco',
+      'financial district',
+      'skyscraper',
+      'landmark',
+      'residential conversion',
+      'banking',
+      'sculpture',
+      '1930s'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0283',
+    name:'40 Wall Street',
+    cats:[
+      'commercial',
+      'skyscrapers',
+      'landmarks'
+    ],
+    cc:'c-sky',
+    styleGroups:[
+      'gothic',
+      'art deco'
+    ],
+    era:'Art Deco',
+    city:'new-york',
+    arch:'H. Craig Severance',
+    archs:[
+      'H. Craig Severance',
+      'Yasuo Matsui'
+    ],
+    yr:1930,
+    access:'Lobby Only',
+    lat:40.7067,
+    lng:-74.0098,
+    addr:'40 Wall St, New York, NY 10005',
+    hood:'Financial District',
+    desc:'40 Wall Street, designed by H. Craig Severance with Yasuo Matsui and completed in 1930, is a seventy-two-story, 927-foot neo-Gothic skyscraper that briefly held the title of world\'s tallest building before the Chrysler Building\'s spire surpassed it weeks later. Originally the Bank of Manhattan Trust Building, the tower was erected at extraordinary speed — just ninety-three days of steel framing — as part of the famous \'Race to the Sky\' between Severance and Chrysler Building architect William Van Alen. The Gothic-inspired ornamentation includes pointed arches, setback massing, and a distinctive pyramidal copper crown that has turned green with age, creating one of Lower Manhattan\'s most recognisable silhouettes. The ornamental limestone facade gives way to a granite base with elaborate banking hall entrances. The building exemplifies the final exuberant burst of skyscraper construction before the Depression, representing both the technological ambition and competitive spirit that defined Manhattan\'s vertical expansion.',
+    hours:'Lobby: Mon–Fri 9 am–6 pm',
+    lastEntry:'',
+    admission:'Free (lobby)',
+    tourOk:false,
+    tourInfo:'',
+    transit:'2 3 → Wall St · 4 5 → Wall St · J Z → Broad St',
+    walkFrom:'Federal Hall: 1 min · NYSE: 2 min · Trinity Church: 3 min',
+    tags:[
+      'h. craig severance',
+      'neo-gothic',
+      'art deco',
+      'skyscraper',
+      'financial district',
+      'tallest building',
+      'race to the sky',
+      'copper crown',
+      '1930'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0284',
+    name:'Trinity and US Realty Buildings',
+    cats:[
+      'commercial',
+      'landmarks'
+    ],
+    cc:'c-com',
+    styleGroups:[
+      'gothic'
+    ],
+    era:'Edwardian',
+    city:'new-york',
+    arch:'Francis H. Kimball',
+    archs:[
+      'Francis H. Kimball'
+    ],
+    yr:1907,
+    access:'Lobby Only',
+    lat:40.7083,
+    lng:-74.01,
+    addr:'111-115 Broadway, New York, NY 10006',
+    hood:'Financial District',
+    desc:'The Trinity Building at 111 Broadway and the US Realty Building at 115 Broadway, both designed by Francis H. Kimball and completed in 1905 and 1907 respectively, are among New York\'s earliest and most faithful neo-Gothic skyscrapers. Standing side by side on Broadway near Trinity Church, the paired twenty-two-story towers create a \'twin towers\' composition with ornate limestone facades featuring pointed arches, crocketed pinnacles, bronze tracery, and intricate carved detailing that evokes medieval cathedral architecture. Kimball was an early advocate for applying Gothic Revival vocabulary to modern commercial buildings, and these structures established design precedents that influenced subsequent Gothic skyscrapers including Cass Gilbert\'s Woolworth Building. The 1988 New York City Landmarks Preservation Commission designation recognised them as \'among the first Gothic-inspired skyscrapers in New York.\' The Trinity Building\'s foundation required fifty caissons sunk through quicksand to bedrock at depths averaging eighty feet — pioneering engineering for the era.',
+    hours:'Lobbies: Mon–Fri business hours',
+    lastEntry:'',
+    admission:'Free (lobbies)',
+    tourOk:false,
+    tourInfo:'',
+    transit:'R W → Cortlandt St · 4 5 → Fulton St · 2 3 → Park Place',
+    walkFrom:'Trinity Church: adjacent · One World Trade: 5 min · City Hall: 5 min',
+    tags:[
+      'francis kimball',
+      'gothic revival',
+      'twin towers',
+      'financial district',
+      'landmark',
+      'limestone',
+      'neo-gothic',
+      'earliest gothic skyscrapers',
+      'broadway'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0285',
+    name:'90 West Street',
+    cats:[
+      'residential',
+      'landmarks'
+    ],
+    cc:'c-res',
+    styleGroups:[
+      'gothic',
+      'beaux-arts'
+    ],
+    era:'Edwardian',
+    city:'new-york',
+    arch:'Cass Gilbert',
+    archs:[
+      'Cass Gilbert'
+    ],
+    yr:1907,
+    access:'No Public Access',
+    lat:40.7107,
+    lng:-74.0123,
+    addr:'90 West St, New York, NY 10006',
+    hood:'Financial District',
+    desc:'90 West Street, designed by Cass Gilbert and completed in 1907, is a twenty-three-story neo-Gothic skyscraper that served as the architect\'s proving ground for the techniques he would perfect in the Woolworth Building six years later. The 324-foot tower features a polychromatic terracotta facade with a granite base adorned with distinctive gargoyles, pointed arches, and a mansard roof crown inspired by Belgian Gothic sources including St. Rumbold\'s Cathedral in Mechelen and Brussels Town Hall. Originally built as an office tower for the shipping and railroad industry, the building suffered significant damage during the September 11 attacks when debris from the World Trade Center collapse ignited fires on upper floors. A painstaking restoration preserved the historic exterior while converting the interiors to residential condominiums. The building represents Gilbert\'s first of three great neo-Gothic towers in New York, preceding both the Woolworth Building and the New York Life Insurance Building.',
+    hours:'Private residential',
+    lastEntry:'',
+    admission:'Private',
+    tourOk:false,
+    tourInfo:'',
+    transit:'1 → Rector St · R W → Cortlandt St · 4 5 → Bowling Green',
+    walkFrom:'One World Trade: 3 min · Battery Park: 5 min · Brookfield Place: 5 min',
+    tags:[
+      'cass gilbert',
+      'neo-gothic',
+      'terracotta',
+      'gargoyles',
+      'mansard roof',
+      'financial district',
+      '9/11 damage',
+      'residential conversion',
+      'belgian gothic'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0286',
+    name:'Carnegie Hall Tower',
+    cats:[
+      'commercial',
+      'skyscrapers'
+    ],
+    cc:'c-com',
+    styleGroups:[
+      'postmodernist'
+    ],
+    era:'1990s',
+    city:'new-york',
+    arch:'César Pelli & Associates',
+    archs:[
+      'César Pelli & Associates'
+    ],
+    yr:1991,
+    access:'Lobby Only',
+    lat:40.7648,
+    lng:-73.9797,
+    addr:'152 W 57th St, New York, NY 10019',
+    hood:'Midtown',
+    desc:'Carnegie Hall Tower, designed by César Pelli & Associates and completed in 1991, is a sixty-story, 757-foot office tower notable for its slender profile and richly polychromatic facade. Rising on a lot just fifty feet wide adjacent to the historic Carnegie Hall, the tower employs multicoloured glazed brick and terracotta in warm earth tones that reference the neighbouring concert hall\'s Romanesque Revival aesthetic while maintaining a distinctly contemporary character. The extreme slenderness of the tower — one of the most slender in Manhattan at the time — required innovative structural engineering and created a landmark of proportional daring. Pelli\'s design demonstrates sensitive contextual response: the tower\'s base carefully defers to Carnegie Hall\'s cornice line before rising dramatically skyward, and the polychromatic facade creates visual warmth and texture that distinguishes it from the glass and steel towers of Midtown.',
+    hours:'Lobby: Mon–Fri business hours',
+    lastEntry:'',
+    admission:'Free (lobby)',
+    tourOk:false,
+    tourInfo:'',
+    transit:'N Q R W → 57th St–7th Ave · F → 57th St · B D E → 7th Ave',
+    walkFrom:'Carnegie Hall: adjacent · Central Park: 2 min · MoMA: 5 min',
+    tags:[
+      'cesar pelli',
+      'office tower',
+      'polychromatic',
+      'glazed brick',
+      'slender tower',
+      'midtown',
+      'carnegie hall',
+      'postmodern',
+      'terracotta'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0287',
+    name:'Bloomberg Tower (One Beacon Court)',
+    cats:[
+      'commercial',
+      'residential',
+      'skyscrapers'
+    ],
+    cc:'c-sky',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'César Pelli & Associates',
+    archs:[
+      'César Pelli & Associates'
+    ],
+    yr:2004,
+    access:'Lobby Only',
+    lat:40.762,
+    lng:-73.968,
+    addr:'731 Lexington Ave, New York, NY 10022',
+    hood:'Midtown East',
+    desc:'Bloomberg Tower, also known as One Beacon Court, designed by César Pelli & Associates and completed in 2004, is a fifty-five-story, 806-foot mixed-use skyscraper containing the Bloomberg L.P. headquarters and 105 luxury condominiums. The tower\'s most distinctive feature is the dramatic curved glass courtyard at its base — a soaring public atrium that connects 58th and 59th Streets through a luminous passage flanked by retail shops. Above, the elliptical glass curtain wall creates a sleek profile that shifts in appearance with changing light and weather. The building combines 700,000 square feet of Bloomberg office space with some of the most expensive residential condominiums in Manhattan, representing Pelli\'s evolution from postmodern contextual design toward a more technologically refined contemporary aesthetic. The tower\'s prominent position on Lexington Avenue at 59th Street makes it a skyline landmark visible from Central Park and a key component of Midtown East\'s commercial identity.',
+    hours:'Lobby & arcade: daily 7 am–11 pm',
+    lastEntry:'',
+    admission:'Free (lobby & arcade)',
+    tourOk:false,
+    tourInfo:'',
+    transit:'N R W → Lexington Ave/59th St · 4 5 6 → 59th St',
+    walkFrom:'Bloomingdale\'s: adjacent · Central Park: 2 min · Plaza Hotel: 3 min',
+    tags:[
+      'cesar pelli',
+      'bloomberg',
+      'mixed-use',
+      'skyscraper',
+      'glass',
+      'office tower',
+      'condominium',
+      'midtown',
+      'elliptical',
+      'arcade'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0288',
+    name:'Museum Tower',
+    cats:[
+      'residential',
+      'skyscrapers'
+    ],
+    cc:'c-sky',
+    styleGroups:[
+      'modernist'
+    ],
+    era:'1980s',
+    city:'new-york',
+    arch:'César Pelli & Associates',
+    archs:[
+      'César Pelli & Associates'
+    ],
+    yr:1985,
+    access:'No Public Access',
+    lat:40.7618,
+    lng:-73.9776,
+    addr:'15 W 53rd St, New York, NY 10019',
+    hood:'Midtown',
+    desc:'Museum Tower, designed by César Pelli & Associates and completed in 1985, is a fifty-two-story residential condominium rising directly above the expanded Museum of Modern Art. The mixed-use tower contains 248 luxury condominiums above six floors of museum gallery space, establishing an innovative model for cultural-residential symbiosis in dense urban environments. The sleek glass curtain wall facade in muted tones recedes against the sky, designed to be as architecturally quiet as possible so as not to compete with MoMA\'s galleries below. The tower\'s slender proportions and restrained material palette demonstrate Pelli\'s ability to create elegant density without visual aggression. The project was part of MoMA\'s landmark 1984 expansion by Pelli that doubled the museum\'s gallery space and created the beloved Abby Aldrich Rockefeller Sculpture Garden redesign, fundamentally transforming the museum\'s relationship with its Midtown block.',
+    hours:'Private residential',
+    lastEntry:'',
+    admission:'Private',
+    tourOk:false,
+    tourInfo:'',
+    transit:'E M → 5th Ave/53rd St · B D F → 47–50th Sts',
+    walkFrom:'MoMA: directly above · St. Patrick\'s Cathedral: 5 min · Rockefeller Center: 3 min',
+    tags:[
+      'cesar pelli',
+      'residential',
+      'museum',
+      'moma',
+      'skyscraper',
+      'glass',
+      'curtain wall',
+      'midtown',
+      'condominium'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0289',
+    name:'The Visionaire',
+    cats:[
+      'residential'
+    ],
+    cc:'c-res',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'Pelli Clarke Pelli Architects',
+    archs:[
+      'Pelli Clarke Pelli Architects'
+    ],
+    yr:2008,
+    access:'No Public Access',
+    lat:40.7077,
+    lng:-74.0173,
+    addr:'70 Little West St, New York, NY 10280',
+    hood:'Battery Park City',
+    desc:'The Visionaire, designed by Pelli Clarke Pelli Architects and completed in 2008, is a thirty-three-story residential tower containing 251 condominiums in Battery Park City. The building earned distinction as the first condominium in New York City to achieve LEED Platinum certification, incorporating an extensive array of sustainable technologies including photovoltaic panels, a building-integrated fuel cell, filtered fresh air systems, and a greywater recycling system. The distinctive curved facade features horizontal terracotta bands in warm red tones that soften the glass curtain wall and give the building a layered, organic quality unique among Battery Park City\'s residential towers. The design represents Pelli\'s commitment to environmental responsibility without sacrificing architectural elegance, demonstrating that high-end residential development and aggressive sustainability standards need not be mutually exclusive. The building won the 2010 ULI Award of Excellence for innovative urban development.',
+    hours:'Private residential',
+    lastEntry:'',
+    admission:'Private',
+    tourOk:false,
+    tourInfo:'',
+    transit:'1 → Rector St · R W → Whitehall St',
+    walkFrom:'The Battery: 3 min · Statue of Liberty ferry: 5 min · Brookfield Place: 8 min',
+    tags:[
+      'pelli clarke pelli',
+      'cesar pelli',
+      'residential',
+      'leed platinum',
+      'green building',
+      'battery park city',
+      'sustainable',
+      'terracotta',
+      'condominium'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0290',
+    name:'The Solaire',
+    cats:[
+      'residential'
+    ],
+    cc:'c-res',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'Pelli Clarke Pelli Architects',
+    archs:[
+      'Pelli Clarke Pelli Architects'
+    ],
+    yr:2003,
+    access:'No Public Access',
+    lat:40.7165,
+    lng:-74.0145,
+    addr:'20 River Terrace, New York, NY 10282',
+    hood:'Battery Park City',
+    desc:'The Solaire, designed by Pelli Clarke Pelli Architects and completed in 2003, is a twenty-seven-story residential tower containing 293 apartments in Battery Park City. It holds the distinction of being the first green residential high-rise in the United States, achieving LEED Gold certification with features that reduce electricity consumption by sixty-five percent and water use by fifty percent compared to conventional high-rise buildings. The building incorporates rooftop photovoltaic panels, a combined heat and power plant, advanced air filtration, and sustainably harvested interior materials. The facade\'s glass and metal composition is cleanly detailed in Pelli\'s characteristic understated modernist vocabulary, with the building\'s environmental ambition expressed through technology rather than formal gesture. The Solaire established the template for Battery Park City\'s subsequent green residential towers, including the Verdesian and the Visionaire, and helped demonstrate the commercial viability of sustainable residential development in New York.',
+    hours:'Private residential',
+    lastEntry:'',
+    admission:'Private',
+    tourOk:false,
+    tourInfo:'',
+    transit:'1 → Chambers St · E → World Trade Center',
+    walkFrom:'Brookfield Place: 3 min · Irish Hunger Memorial: 2 min · North Cove Marina: adjacent',
+    tags:[
+      'pelli clarke pelli',
+      'cesar pelli',
+      'residential',
+      'leed gold',
+      'green building',
+      'battery park city',
+      'sustainable',
+      'first green high-rise'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0291',
+    name:'The Verdesian',
+    cats:[
+      'residential'
+    ],
+    cc:'c-res',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'Pelli Clarke Pelli Architects',
+    archs:[
+      'Pelli Clarke Pelli Architects'
+    ],
+    yr:2006,
+    access:'No Public Access',
+    lat:40.7155,
+    lng:-74.015,
+    addr:'211 North End Ave, New York, NY 10282',
+    hood:'Battery Park City',
+    desc:'The Verdesian, designed by Pelli Clarke Pelli Architects and completed in 2006, is a twenty-seven-story residential tower containing 252 apartments in Battery Park City. The building achieved the distinction of being the first residential high-rise in the United States to earn LEED Platinum certification, surpassing even the neighbouring Solaire\'s Gold rating. Sustainable features include an on-site wastewater treatment system, photovoltaic arrays, a green roof, and advanced air quality management. The building\'s glass and metal facade with its clean modernist lines fits within Pelli\'s Battery Park City residential portfolio, which collectively represents one of the most ambitious experiments in sustainable urban housing in American history. The name \'Verdesian\' derives from \'verde,\' reflecting the project\'s commitment to green principles. Together with the Solaire and the Visionaire, the Verdesian helped establish Battery Park City as a laboratory for high-performance residential architecture.',
+    hours:'Private residential',
+    lastEntry:'',
+    admission:'Private',
+    tourOk:false,
+    tourInfo:'',
+    transit:'1 → Chambers St · E → World Trade Center',
+    walkFrom:'Brookfield Place: 2 min · The Solaire: 2 min · North Cove Marina: adjacent',
+    tags:[
+      'pelli clarke pelli',
+      'cesar pelli',
+      'residential',
+      'leed platinum',
+      'green building',
+      'battery park city',
+      'sustainable',
+      'first platinum high-rise'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0292',
+    name:'76 Trinity Place',
+    cats:[
+      'commercial',
+      'religious'
+    ],
+    cc:'c-com',
+    styleGroups:[
+      'contemporary'
+    ],
+    era:'2000–Present',
+    city:'new-york',
+    arch:'Pelli Clarke Pelli Architects',
+    archs:[
+      'Pelli Clarke Pelli Architects'
+    ],
+    yr:2018,
+    access:'Limited Access',
+    lat:40.7088,
+    lng:-74.012,
+    addr:'76 Trinity Pl, New York, NY 10006',
+    hood:'Financial District',
+    desc:'76 Trinity Place, designed by Pelli Clarke Pelli Architects and completed in 2018, is a twenty-seven-story, 316,000-square-foot mixed-use tower built for Trinity Church Wall Street. The building combines a community centre for the historic parish with office space above, providing revenue to support Trinity Church\'s extensive social programmes. Pelli\'s design philosophy treated the tower as a respectful \'backdrop to the church\' — contemporary and forward-looking while deferring to the Gothic Revival landmark across the street. The glass and metal facade is finely detailed with subtle horizontal banding that creates scale and visual interest without competing with the richly ornamented stonework of Richard Upjohn\'s 1846 Trinity Church. The community centre floors contain gathering spaces, a gymnasium, and educational facilities, while the upper office floors feature column-free floor plates and Hudson River views. The project demonstrates how institutional architecture can simultaneously serve spiritual community needs and generate financial sustainability.',
+    hours:'Community centre hours vary · Office: Mon–Fri business hours',
+    lastEntry:'',
+    admission:'Community events vary',
+    tourOk:false,
+    tourInfo:'',
+    transit:'R W → Cortlandt St · 1 → Rector St · 4 5 → Wall St',
+    walkFrom:'Trinity Church: adjacent · One World Trade: 3 min · NYSE: 3 min',
+    tags:[
+      'pelli clarke pelli',
+      'cesar pelli',
+      'trinity church',
+      'mixed-use',
+      'community center',
+      'financial district',
+      'institutional',
+      'glass tower'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0293',
+    name:'Adventure Playground',
+    cats:[
+      'parks'
+    ],
+    cc:'c-park',
+    styleGroups:[
+      'landscape architecture'
+    ],
+    era:'1960s',
+    city:'new-york',
+    arch:'Richard Dattner',
+    archs:[
+      'Richard Dattner'
+    ],
+    yr:1967,
+    access:'Open to Public',
+    lat:40.7735,
+    lng:-73.9772,
+    addr:'W 67th St entrance, Central Park, New York, NY 10023',
+    hood:'Upper West Side',
+    desc:'Adventure Playground, designed by Richard Dattner and opened in 1967, is a groundbreaking play space at Central Park\'s West 67th Street entrance that revolutionised playground design in America. Funded by the Estée Lauder Foundation, the playground rejected standardised equipment in favour of custom-designed structures including a wooden pyramid, a concrete climbing mound with tunnel and slide, water features, a fortress, and a maze — all intended to stimulate creative, child-directed play. Dattner synthesised European adventure play concepts with the landscape artistry of Isamu Noguchi and M. Paul Friedberg to create an environment where children shape their own experience through exploration and imagination. The design philosophy — \'the environment for play must be rich in experience, and under the control of the child\' — influenced playground design nationwide. Renovated in 2015 by the Central Park Conservancy with faithful attention to Dattner\'s original vision, the playground remains a vital testament to the creative potential of public play infrastructure.',
+    hours:'Daily dawn–dusk',
+    lastEntry:'',
+    admission:'Free',
+    tourOk:false,
+    tourInfo:'',
+    transit:'1 → 66th St–Lincoln Center · B C → 72nd St',
+    walkFrom:'Lincoln Center: 3 min · Tavern on the Green: 5 min · The Dakota: 5 min',
+    tags:[
+      'richard dattner',
+      'playground',
+      'central park',
+      'adventure play',
+      'landscape',
+      'children',
+      'public space',
+      'upper west side',
+      'innovative'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0294',
+    name:'Ancient Playground',
+    cats:[
+      'parks'
+    ],
+    cc:'c-park',
+    styleGroups:[
+      'landscape architecture'
+    ],
+    era:'1970s',
+    city:'new-york',
+    arch:'Richard Dattner',
+    archs:[
+      'Richard Dattner'
+    ],
+    yr:1973,
+    access:'Open to Public',
+    lat:40.7792,
+    lng:-73.9631,
+    addr:'E 85th St entrance, Central Park, New York, NY 10028',
+    hood:'Upper East Side',
+    desc:'Ancient Playground, designed by Richard Dattner and completed in 1973, is a thematic play space inspired by the Metropolitan Museum of Art\'s Egyptian Temple of Dendur, located steps from the museum\'s entrance in Central Park. The playground evokes an ancient city through pyramid structures, an obelisk, a sundial, and archaeological motifs that transform standard play elements into imaginative environments where children engage with historical and architectural concepts through physical exploration. Features include nine slides, four tire swings, a sandbox, and integrated water play elements. Dattner\'s approach combines educational symbolism with robust physical challenges, creating a playground that functions simultaneously as recreation, education, and public art. The proximity to the Metropolitan Museum creates a natural educational continuum where families can move between the museum\'s ancient collections and the playground\'s architectural abstractions of the same themes.',
+    hours:'Daily dawn–dusk',
+    lastEntry:'',
+    admission:'Free',
+    tourOk:false,
+    tourInfo:'',
+    transit:'4 5 6 → 86th St · Q → 86th St',
+    walkFrom:'Metropolitan Museum: 2 min · Guggenheim: 8 min · Reservoir: 3 min',
+    tags:[
+      'richard dattner',
+      'playground',
+      'central park',
+      'egyptian',
+      'ancient',
+      'landscape',
+      'children',
+      'public space',
+      'upper east side',
+      'thematic'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0295',
+    name:'Terminal Warehouse',
+    cats:[
+      'commercial',
+      'adaptive-reuse',
+      'landmarks'
+    ],
+    cc:'c-com',
+    styleGroups:[
+      'romanesque',
+      'contemporary'
+    ],
+    era:'Victorian',
+    city:'new-york',
+    arch:'George B. Mallory',
+    archs:[
+      'George B. Mallory',
+      'COOKFOX Architects'
+    ],
+    yr:1891,
+    access:'Limited Access',
+    lat:40.7492,
+    lng:-74.0026,
+    addr:'261 11th Ave, New York, NY 10001',
+    hood:'West Chelsea',
+    desc:'Terminal Warehouse, originally designed by George B. Mallory in 1891 and adaptively reused by COOKFOX Architects in a transformation completed in 2024, is a monumental 1.2-million-square-foot industrial landmark spanning an entire city block between 11th and 12th Avenues along 27th and 28th Streets. Built as a freight hub connecting the New York Central, Erie, and Lehigh railroads to the Hudson River, the seven-story brick warehouse features an American Round Arch facade with enormous arches and a magnificent 670-foot barrel-vaulted train tunnel at its core. COOKFOX\'s ambitious $1.8 billion adaptive reuse — the largest in recent New York City history — removed 130,000 square feet from the centre to create a lush planted courtyard, bringing daylight into the deep floor plates for the first time. A six-story glass pavilion inspired by freight car proportions was added, featuring garden loggias and terraces overlooking the Hudson. The restored train tunnel now serves as a central corridor. The complex houses Class A offices, 100,000 square feet of green space with twenty-nine private terraces, ground-floor retail, and dining venues, targeting LEED Platinum and WELL Gold certification.',
+    hours:'Office building · Ground-floor retail & dining hours vary',
+    lastEntry:'',
+    admission:'Free (ground-floor retail & courtyard)',
+    tourOk:false,
+    tourInfo:'',
+    transit:'C E → 23rd St · 1 → 28th St',
+    walkFrom:'High Line: adjacent · Chelsea galleries: 2 min · Hudson River Park: 1 min',
+    tags:[
+      'cookfox',
+      'george mallory',
+      'adaptive reuse',
+      'warehouse',
+      'industrial',
+      'train tunnel',
+      'barrel vault',
+      'west chelsea',
+      'leed platinum',
+      'romanesque'
+    ],
+    photos:[]
+  },
+  {
+    id:'nyc-0296',
+    name:'Madison Square Garden',
+    cats:[
+      'cultural',
+      'landmarks'
+    ],
+    cc:'c-cul',
+    styleGroups:[
+      'brutalist',
+      'modernist'
+    ],
+    era:'1960s',
+    city:'new-york',
+    arch:'Charles Luckman Associates',
+    archs:[
+      'Charles Luckman Associates'
+    ],
+    yr:1968,
+    access:'Ticketed',
+    lat:40.7505,
+    lng:-73.9934,
+    addr:'4 Pennsylvania Plaza, New York, NY 10001',
+    hood:'Midtown',
+    desc:'Madison Square Garden, designed by Charles Luckman Associates and completed in 1968, is a cylindrical arena and entertainment venue built directly above Penn Station\'s active railroad tracks. The distinctive drum-shaped structure, 404 feet in diameter and 150 feet tall, employs a revolutionary cable-suspended roof system designed by Severud Associates: forty-eight cables radiate from a central tension connector to an exterior compression ring, eliminating all interior support columns and providing unobstructed sightlines from every one of its 20,789 seats. When completed, this was the largest cable-suspension roof of its kind. The mechanical equipment atop the roof functions as a mass damper, resisting wind uplift. The arena has hosted generations of iconic sporting events, concerts, and political conventions, earning it the title \'The World\'s Most Famous Arena.\' Its construction, however, required the demolition of McKim, Mead & White\'s monumental 1910 Pennsylvania Station — a loss widely considered the catalyst for New York City\'s modern landmarks preservation movement. The ongoing debate about relocating the Garden to allow Penn Station\'s reconstruction remains one of the city\'s most significant urban planning controversies.',
+    hours:'Event-dependent · Doors typically 90 min before events',
+    lastEntry:'',
+    admission:'Varies by event',
+    tourOk:true,
+    tourInfo:'All Access Tour available daily',
+    transit:'A C E 1 2 3 → 34th St–Penn Station · B D F N Q R W → 34th St–Herald Square',
+    walkFrom:'Penn Station: directly above · Empire State Building: 5 min · Hudson Yards: 10 min',
+    tags:[
+      'charles luckman',
+      'arena',
+      'cable suspension',
+      'brutalist',
+      'penn station',
+      'entertainment',
+      'sports',
+      'concert venue',
+      'drum shape',
+      'landmarks preservation'
+    ],
+    photos:[]
+  },
+{
+    id:'nyc-0297',
+    name:"Bronx Children's Museum",
+    city:'new-york',
+    type:'museum',
+    style:'Adaptive Reuse / Contemporary',
+    arch:'O\'Neill McVoy Architects',
+    yr:2022,
+    access:'Ticketed',
+    lat:40.823,
+    lng:-73.932,
+    addr:'725 Exterior Street, Bronx, NY 10451',
+    hood:'Mott Haven',
+    desc:'The Bronx Children\'s Museum, designed by O\'Neill McVoy Architects and completed in 2022, occupies a 1925 industrial powerhouse within Mill Pond Park along the Harlem River waterfront. The 13,800-square-foot interior features the first use of curved cross-laminated timber (CLT) in the United States — digitally fabricated walls, guardrails, and elevated floors form undulating arcs inspired by Jean Piaget\'s theories of how children perceive and navigate space. Translucent recycled acrylic partitions etch, diverge, and reconnect to create distinct exhibition zones while maintaining caregiver sightlines throughout. A Cloud Mezzanine hosts interactive performances with projections and artwork above the main floor. The design blends Euclidean geometry with organic curves, using FSC-certified wood, cork, linoleum, and stone in a LEED Gold–certified sustainable framework. The project won an AIA New York Design Award in 2023, recognized for transforming a forgotten utility structure into a vibrant cultural anchor for the South Bronx.',
+    hours:'Tue–Fri 10 AM–1 PM · Sat 10 AM–1 PM & 2–5 PM · Closed Sun–Mon',
+    lastEntry:'',
+    admission:'Adults $14 · Children $8 · Seniors $10 · Under 1 free',
+    tourOk:false,
+    tourInfo:'',
+    transit:'2 4 5 → 149th St–Grand Concourse · B D 4 → 161st St–Yankee Stadium',
+    walkFrom:'Mill Pond Park: adjacent · Yankee Stadium: 10 min · Bronx Terminal Market: 2 min',
+    tags:[
+      'oneill mcvoy',
+      'adaptive reuse',
+      'cross-laminated timber',
+      'clt',
+      'childrens museum',
+      'powerhouse',
+      'curved timber',
+      'leed gold',
+      'south bronx',
+      'piaget',
+      'sustainable'
+    ],
+    photos:[]
+  },
+{
+    id:'nyc-0298',
+    name:"Brooklyn Children's Museum",
+    city:'new-york',
+    type:'museum',
+    style:'Contemporary',
+    arch:'Rafael Viñoly Architects (2008 expansion) · Hardy Holzman Pfeiffer (1977 building)',
+    yr:2008,
+    access:'Ticketed',
+    lat:40.674,
+    lng:-73.944,
+    addr:'145 Brooklyn Avenue, Brooklyn, NY 11213',
+    hood:'Crown Heights',
+    desc:'The Brooklyn Children\'s Museum — the world\'s first children\'s museum, founded in 1899 — received a transformative expansion by Rafael Viñoly Architects completed in 2008, wrapping and extending the 1977 Hardy Holzman Pfeiffer underground building beneath Brower Park. The striking exterior is clad in approximately 8.1 million bright yellow ceramic tiles by AGROB BUCHTAL, creating an unmistakable luminous presence within Crown Heights\' primarily low-rise residential fabric. A bold red-and-green ceramic wall frames the main entrance at the corner of Brooklyn Avenue and St. Marks Avenue. The design prioritizes child engagement through low-level wooden handrails and porthole windows at varied heights that create visual connections scaled to young visitors. A geothermal heating and cooling system and photovoltaic cells on the exterior earned it LEED Silver certification in 2010 — making it the first New York City museum to achieve this distinction. Roof gardens, terraces, and an amphitheater integrate the building into Brower Park\'s landscape, while the partially underground footprint preserves valuable park space above.',
+    hours:'Wed–Sun 10 AM–5 PM · Last entry 4:50 PM · Closed Mon–Tue',
+    lastEntry:'4:50 PM',
+    admission:'$15 · Free Thu 2–5 PM',
+    tourOk:false,
+    tourInfo:'',
+    transit:'A C → Nostrand Ave · 3 → Kingston Ave',
+    walkFrom:'Brower Park: adjacent · Weeksville Heritage Center: 8 min · Prospect Park: 15 min',
+    tags:[
+      'rafael vinoly',
+      'hardy holzman pfeiffer',
+      'childrens museum',
+      'yellow tiles',
+      'ceramic cladding',
+      'leed silver',
+      'geothermal',
+      'crown heights',
+      'worlds first',
+      'underground',
+      'brower park'
+    ],
+    photos:[]
   }
+
 ];
