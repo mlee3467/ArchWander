@@ -1,6 +1,6 @@
 /* ============================================================
    ArchWander — New York Location Data
-   290 locations
+   292 locations
    ============================================================ */
 
 var LOCS_NEW_YORK = [
@@ -12202,6 +12202,75 @@ var LOCS_NEW_YORK = [
       'worlds first',
       'underground',
       'brower park'
+    ],
+    photos:[]
+  },
+{
+    id:'nyc-0299',
+    name:"425 Fifth Avenue",
+    city:'new-york',
+    type:'residential',
+    style:'Postmodern / Art Deco Revival',
+    arch:'Michael Graves & Associates',
+    yr:2003,
+    access:'POPS plaza',
+    lat:40.751,
+    lng:-73.982,
+    addr:'425 Fifth Avenue, New York, NY 10016',
+    hood:'Murray Hill',
+    desc:'Designed by Michael Graves & Associates and completed in 2003, 425 Fifth Avenue is a 55-story, 618-foot postmodern residential tower at the corner of Fifth Avenue and 38th Street. The facade is clad in pale yellow and beige limestone and brick, with vertical bands of white glazed brick piers that emphasize the tower\'s slender proportions — a deliberate evocation of Manhattan\'s pre-war skyscraper tradition. Four corner spires crown the building, paying homage to Art Deco landmarks like the Chrysler Building. The base features six retail and office levels articulated in a Beaux-Arts manner with larger window openings and heavier rustication, while the residential floors above employ narrower fenestration and lighter cladding that tapers toward the ornamental top. Mandated setbacks at intervals create a classic wedding-cake silhouette. Originally commissioned to Robert A. M. Stern, the project was reassigned to Graves in 2001; it remains one of the most prominent examples of postmodern skyscraper design on Fifth Avenue.',
+    hours:'POPS plaza open 24 hrs · Residential lobby not publicly accessible',
+    lastEntry:'',
+    admission:'Free (plaza)',
+    tourOk:false,
+    tourInfo:'',
+    transit:'4 5 6 7 → Grand Central–42nd St · B D F M → 42nd St–Bryant Park',
+    walkFrom:'Empire State Building: 5 min · Bryant Park: 3 min · NY Public Library: 3 min',
+    tags:[
+      'michael graves',
+      'postmodern',
+      'art deco revival',
+      'residential tower',
+      'condominium',
+      'fifth avenue',
+      'spires',
+      'limestone',
+      'murray hill',
+      'skyscraper'
+    ],
+    photos:[]
+  },
+{
+    id:'nyc-0300',
+    name:"The Impala",
+    city:'new-york',
+    type:'residential',
+    style:'Postmodern',
+    arch:'Michael Graves & Associates',
+    yr:2000,
+    access:'Private exterior',
+    lat:40.770,
+    lng:-73.954,
+    addr:'404 East 76th Street, New York, NY 10021',
+    hood:'Upper East Side',
+    desc:'The Impala, designed by Michael Graves and completed in 2000 at 404 East 76th Street, is a 31-story postmodern residential tower that marked the architect\'s first New York City residential project. The 194-unit building features a bold facade of red brick and white trim organized into three-story segments delineated by slightly protruding bandcourses, giving the elevation a stacked rhythm reminiscent of classical palazzo proportions reinterpreted in a decidedly contemporary idiom. Large multi-paned windows with white-trimmed reveals punctuate the lower floors, while the upper tower narrows to create varied roofline silhouettes. An existing four-story corner building was integrated into a seven-story masonry base topped by the 24-story tower above. The landscaped courtyard — spanning 15,000 square feet — features bronze impala sculptures by South African artist Danie de Jager, from which the building takes its name. Developed by RFR Holdings, The Impala demonstrates Graves\' signature postmodern palette of warm materials, geometric patterning, and contextual references to the Upper East Side\'s traditional residential fabric.',
+    hours:'Private residential · Exterior and courtyard viewable from street',
+    lastEntry:'',
+    admission:'N/A',
+    tourOk:false,
+    tourInfo:'',
+    transit:'6 → 77th St · Q → 72nd St–2nd Ave',
+    walkFrom:'Lenox Hill: adjacent · Sotheby\'s: 5 min · Carl Schurz Park: 8 min',
+    tags:[
+      'michael graves',
+      'postmodern',
+      'residential tower',
+      'condominium',
+      'red brick',
+      'upper east side',
+      'impala sculptures',
+      'rfr holdings',
+      'courtyard'
     ],
     photos:[]
   }
