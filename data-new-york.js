@@ -8132,7 +8132,10 @@ var LOCS_NEW_YORK = [
       'international-style',
       'landmark',
       'pritzker prize',
-      'gordon bunshaft'
+      'gordon bunshaft',
+      'touristic',
+      'shopping',
+      'restaurant'
     ],
     photos:[]
   },
@@ -8161,7 +8164,10 @@ var LOCS_NEW_YORK = [
       'hotel',
       'historic',
       'luxury',
-      'upper-east-side'
+      'upper-east-side',
+      'touristic',
+      'shopping',
+      'restaurant'
     ],
     photos:[]
   },
@@ -8190,7 +8196,10 @@ var LOCS_NEW_YORK = [
       'hotel',
       'historic',
       'landmark',
-      'national-historic-landmark'
+      'national-historic-landmark',
+      'touristic',
+      'shopping',
+      'restaurant'
     ],
     photos:[]
   },
@@ -8219,7 +8228,10 @@ var LOCS_NEW_YORK = [
       'hotel',
       'historic',
       'landmark',
-      'skyscraper'
+      'skyscraper',
+      'touristic',
+      'shopping',
+      'restaurant'
     ],
     photos:[]
   },
@@ -8248,7 +8260,10 @@ var LOCS_NEW_YORK = [
       'hotel',
       'historic',
       'luxury',
-      'upper-east-side'
+      'upper-east-side',
+      'touristic',
+      'shopping',
+      'restaurant'
     ],
     photos:[]
   },
@@ -8276,7 +8291,10 @@ var LOCS_NEW_YORK = [
       'postmodern',
       'skyscraper',
       'luxury',
-      'commercial'
+      'commercial',
+      'touristic',
+      'shopping',
+      'restaurant'
     ],
     photos:[]
   },
@@ -8306,7 +8324,10 @@ var LOCS_NEW_YORK = [
       'modern',
       'mixed-use',
       'som',
-      'landmark'
+      'landmark',
+      'touristic',
+      'shopping',
+      'restaurant'
     ],
     photos:[]
   },
@@ -8336,7 +8357,10 @@ var LOCS_NEW_YORK = [
       'luxury',
       'adaptive-reuse',
       'landmark',
-      'hotel'
+      'hotel',
+      'touristic',
+      'shopping',
+      'restaurant'
     ],
     photos:[]
   },
@@ -8365,7 +8389,8 @@ var LOCS_NEW_YORK = [
       'landmark',
       'skyscraper',
       'historic',
-      'commercial'
+      'commercial',
+      'touristic'
     ],
     photos:[]
   },
@@ -8395,7 +8420,10 @@ var LOCS_NEW_YORK = [
       'leed',
       'glass',
       'modern',
-      'landmark'
+      'landmark',
+      'touristic',
+      'shopping',
+      'restaurant'
     ],
     photos:[]
   },
@@ -8424,7 +8452,9 @@ var LOCS_NEW_YORK = [
       'postmodern',
       'atrium',
       'broadway',
-      'times-square'
+      'times-square',
+      'touristic',
+      'restaurant'
     ],
     photos:[]
   },
@@ -8454,7 +8484,8 @@ var LOCS_NEW_YORK = [
       'historic',
       'banking',
       'financial-district',
-      'landmark'
+      'landmark',
+      'touristic'
     ],
     photos:[]
   },
@@ -8512,7 +8543,8 @@ var LOCS_NEW_YORK = [
       'cultural-center',
       'glass',
       'modern',
-      'contemporary'
+      'contemporary',
+      'touristic'
     ],
     photos:[]
   },
@@ -8541,7 +8573,8 @@ var LOCS_NEW_YORK = [
       'performing-arts',
       'neo-georgian',
       'broadway',
-      'historic'
+      'historic',
+      'touristic'
     ],
     photos:[]
   },
@@ -8661,7 +8694,10 @@ var LOCS_NEW_YORK = [
       'the new york five',
       'museum addition',
       'upper east side',
-      'frank lloyd wright'
+      'frank lloyd wright',
+      'touristic',
+      'shopping',
+      'restaurant'
     ],
     photos:[]
   },
@@ -8783,7 +8819,8 @@ var LOCS_NEW_YORK = [
       'renovation',
       'architectural education',
       'great hall',
-      'historic'
+      'historic',
+      'touristic'
     ],
     photos:[]
   },
@@ -8911,7 +8948,8 @@ var LOCS_NEW_YORK = [
       'glass facade',
       'nyc landmark',
       'fifth avenue',
-      'banking architecture'
+      'banking architecture',
+      'touristic'
     ],
     photos:[]
   },
@@ -9001,7 +9039,8 @@ var LOCS_NEW_YORK = [
       'financial district',
       'isamu noguchi',
       'red cube',
-      'public art'
+      'public art',
+      'touristic'
     ],
     photos:[]
   },
@@ -9044,7 +9083,8 @@ var LOCS_NEW_YORK = [
       'travertine',
       'sloped facade',
       'midtown',
-      'billionaires row'
+      'billionaires row',
+      'touristic'
     ],
     photos:[]
   },
@@ -9133,7 +9173,9 @@ var LOCS_NEW_YORK = [
       'performing arts',
       'lincoln center',
       'travertine',
-      'upper west side'
+      'upper west side',
+      'touristic',
+      'shopping'
     ],
     photos:[]
   },
@@ -9219,7 +9261,8 @@ var LOCS_NEW_YORK = [
       'fort greene',
       'steinback',
       'sainte-chapelle',
-      'limestone'
+      'limestone',
+      'touristic'
     ],
     photos:[]
   },
@@ -9262,7 +9305,10 @@ var LOCS_NEW_YORK = [
       'perforated metal',
       'cultural',
       'brooklyn',
-      'affordable housing'
+      'affordable housing',
+      'touristic',
+      'shopping',
+      'restaurant'
     ],
     photos:[]
   },
@@ -9307,7 +9353,8 @@ var LOCS_NEW_YORK = [
       'bank',
       'condominium',
       'mosaic',
-      'gilded dome'
+      'gilded dome',
+      'touristic'
     ],
     photos:[]
   },
@@ -9350,7 +9397,9 @@ var LOCS_NEW_YORK = [
       'jersey city',
       'waterfront',
       'leed',
-      'pritzker prize'
+      'pritzker prize',
+      'shopping',
+      'restaurant'
     ],
     photos:[]
   },
@@ -9394,7 +9443,10 @@ var LOCS_NEW_YORK = [
       'luxury',
       'chelsea',
       'high line',
-      'condominium'
+      'condominium',
+      'touristic',
+      'shopping',
+      'restaurant'
     ],
     photos:[]
   },
@@ -9438,7 +9490,8 @@ var LOCS_NEW_YORK = [
       'landmark',
       'gilded roof',
       'madison square park',
-      'skyscraper'
+      'skyscraper',
+      'touristic'
     ],
     photos:[]
   },
@@ -9484,7 +9537,9 @@ var LOCS_NEW_YORK = [
       'free',
       'touristic',
       'landmark',
-      'midtown'
+      'midtown',
+      'shopping',
+      'restaurant'
     ],
     photos:[]
   },
@@ -9529,7 +9584,9 @@ var LOCS_NEW_YORK = [
       'ziggurat',
       'williamsburg',
       'brooklyn',
-      'waterfront'
+      'waterfront',
+      'shopping',
+      'restaurant'
     ],
     photos:[]
   },
@@ -9616,7 +9673,10 @@ var LOCS_NEW_YORK = [
       'residential',
       'jersey city',
       'podium',
-      'mixed-use'
+      'mixed-use',
+      'touristic',
+      'shopping',
+      'restaurant'
     ],
     photos:[]
   },
@@ -9660,7 +9720,10 @@ var LOCS_NEW_YORK = [
       'translucent',
       'world trade center',
       'flexible theater',
-      'cultural center'
+      'cultural center',
+      'touristic',
+      'shopping',
+      'restaurant'
     ],
     photos:[]
   },
@@ -9705,7 +9768,9 @@ var LOCS_NEW_YORK = [
       'glass facade',
       'hudson yards',
       'manhattan west',
-      'brutalist renovation'
+      'brutalist renovation',
+      'shopping',
+      'restaurant'
     ],
     photos:[]
   },
