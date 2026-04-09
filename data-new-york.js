@@ -6783,7 +6783,8 @@ var LOCS_NEW_YORK = [
       'shopping',
       'restaurant',
       'performance-venues',
-      'performing-arts'
+      'performing-arts',
+      'acoustic'
     ],
     photos:[],
     sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7682323, lng:-73.9823409 }
@@ -7060,10 +7061,10 @@ var LOCS_NEW_YORK = [
       'collegiate-gothic',
       'luxury-residential',
       'contextual',
-      'restaurant',
       'high-rise'
     ],
-    photos:[]
+    photos:[],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.8119567, lng:-73.9623106 }
   },
   {
     id:'nyc-0166',
@@ -7082,8 +7083,8 @@ var LOCS_NEW_YORK = [
     arch:'Renzo Piano Building Workshop',
     yr:2017,
     access:'limited',
-    lat:40.8184,
-    lng:-73.9585,
+    lat:40.816846,
+    lng:-73.9582014,
     addr:'3227 Broadway, New York 10027',
     hood:'Manhattanville',
     desc:'Renzo Piano\'s 2017 nine-story glass "palace of light" houses Columbia\'s Mortimer B. Zuckerman Mind Brain Behavior Institute. The transparent ground floor invites public engagement with neuroscience research and teaching. The luminous facade becomes a beacon at night, symbolizing intellectual inquiry.',
@@ -7099,11 +7100,12 @@ var LOCS_NEW_YORK = [
       'neuroscience-research',
       'contemporary',
       'pritzker prize',
-      'touristic',
-      'restaurant',
-      'kids'
+      'kids',
+      'facade design',
+      'college'
     ],
-    photos:[]
+    photos:[],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.816505, lng:-73.9582227 }
   },
   {
     id:'nyc-0167',
@@ -7121,8 +7123,8 @@ var LOCS_NEW_YORK = [
     arch:'Renzo Piano Building Workshop',
     yr:2017,
     access:'open to public',
-    lat:40.8178,
-    lng:-73.9588,
+    lat:40.8172277,
+    lng:-73.9587057,
     addr:'615 W 129th St, New York 10027',
     hood:'Manhattanville',
     desc:'Renzo Piano\'s 2017 eight-story arts center at Columbia\'s Manhattanville campus houses the Wallach Art Gallery and Miriam and Ira D. Wallach Art Gallery along with flexible performance spaces. The building serves as a gateway to the expanding campus and activates the street with cultural programming.',
@@ -7139,21 +7141,23 @@ var LOCS_NEW_YORK = [
       'performance-venues',
       'pritzker prize',
       'touristic',
-      'restaurant'
+      'restaurant',
+      'performing-arts'
     ],
-    photos:[]
+    photos:[],
+    sv:{ heading:210, pitch:10, fov:90, source:'default', lat:40.8172765, lng:-73.9587969 }
   },
   {
     id:'nyc-0168',
     name:'The Forum',
     cats:[
       'academic',
-      'institution'
+      'institution',
+      'cultural'
     ],
     cc:'c-aca',
     styleGroups:[
-      'contemporary',
-      'glass'
+      'contemporary'
     ],
     era:'2000–Present',
     city:'new-york',
@@ -7177,10 +7181,13 @@ var LOCS_NEW_YORK = [
       'glass-pavilion',
       'public-engagement',
       'pritzker prize',
-      'touristic',
-      'restaurant'
+      'auditorium'
     ],
-    photos:[]
+    photos:[],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.816367, lng:-73.9584048 },
+    archs:[
+      'Dattner Architects'
+    ]
   },
   {
     id:'nyc-0169',
@@ -7197,8 +7204,8 @@ var LOCS_NEW_YORK = [
     arch:'Rafael Moneo',
     yr:2010,
     access:'limited',
-    lat:40.8097,
-    lng:-73.9618,
+    lat:40.8100739,
+    lng:-73.9619243,
     addr:'550 W 120th St, New York, NY 10027',
     hood:'Morningside Heights',
     desc:'Glass laboratory tower at Columbia spanning over the existing gymnasium below. Transparent science building where the campus meets Broadway. An open glass structure revealing its interior programs to the street.',
@@ -7215,7 +7222,8 @@ var LOCS_NEW_YORK = [
       'columbia',
       'institutional',
       'pritzker prize',
-      'restaurant'
+      'restaurant',
+      'louver'
     ],
     photos:[]
   },
@@ -7254,8 +7262,9 @@ var LOCS_NEW_YORK = [
       'gothic',
       'landmark',
       'historic landmark',
-      'touristic',
-      'shopping'
+      'performing-arts',
+      'performance-venues',
+      'acoustic'
     ],
     photos:[]
   },
