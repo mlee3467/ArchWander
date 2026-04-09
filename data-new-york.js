@@ -35,7 +35,16 @@ var LOCS_NEW_YORK = [
     tourInfo:'Self-guided audio tours in 11 languages. Guided group tours and express passes available.',
     transit:'B D F M N Q R W → 34 St–Herald Sq\n1 2 3 → 34 St–Penn Station',
     walkFrom:'Times Square: 10 min · Grand Central: 8 min',
-    tags:['observatory', 'art deco', 'landmark', 'midtown', 'touristic', 'supertall', 'shopping', 'restaurant'],
+    tags:[
+      'observatory',
+      'art deco',
+      'landmark',
+      'midtown',
+      'touristic',
+      'supertall',
+      'shopping',
+      'restaurant'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/EmpireStateBuildingCU.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/ESBandDowntown2015.jpg?width=800',
@@ -72,7 +81,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Public access limited to the lobby. Exterior viewable 24/7.',
     transit:'4 5 6 7 → Grand Central–42 St\nS → Times Sq–42 St',
     walkFrom:'Grand Central Terminal: 3 min · Times Square: 12 min',
-    tags:['art deco', 'eagle gargoyles', 'free lobby', 'midtown east', 'touristic', 'historic landmark'],
+    tags:[
+      'art deco',
+      'eagle gargoyles',
+      'free lobby',
+      'midtown east',
+      'touristic',
+      'historic landmark'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Chrysler_Building_spire%2C_Manhattan%2C_by_Carol_Highsmith_%28LOC_highsm.04444%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Chrysler_Building_2005_4.jpg?width=800',
@@ -111,7 +127,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Immersive self-guided observatory with documentary presentations about the site.',
     transit:'E → World Trade Center\n2 3 → Park Pl\nA C → Fulton St',
     walkFrom:'The Oculus: 2 min · Brooklyn Bridge: 12 min',
-    tags:['observatory', 'memorial', 'lower manhattan', 'supertall', 'post-9/11', 'touristic'],
+    tags:[
+      'observatory',
+      'memorial',
+      'lower manhattan',
+      'supertall',
+      'post-9/11',
+      'touristic'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Lower_Manhattan_from_Jersey_City_November_2014_panorama_3_cropped.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/1WorldTradeCenterEntrance.jpg?width=800',
@@ -148,7 +171,16 @@ var LOCS_NEW_YORK = [
     tourInfo:'Best viewed from Madison Square Park or the pedestrian island at 23rd Street.',
     transit:'N R W → 23 St\n1 → 23 St',
     walkFrom:'Union Square: 8 min · Empire State Bldg: 10 min',
-    tags:['beaux-arts', 'triangular', 'chicago school', 'free', 'touristic', 'historic landmark', 'shopping', 'restaurant'],
+    tags:[
+      'beaux-arts',
+      'triangular',
+      'chicago school',
+      'free',
+      'touristic',
+      'historic landmark',
+      'shopping',
+      'restaurant'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Flatiron_Building_3618433845_5745ebc1b9.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Edificio_Fuller_%28Flatiron%29_en_2010_desde_el_Empire_State_crop_boxin.jpg?width=800',
@@ -190,7 +222,16 @@ var LOCS_NEW_YORK = [
     tourInfo:'Free tours by Grand Central Partnership every Friday at 12:30 PM. Audio tours available via the official app.',
     transit:'4 5 6 7 → Grand Central–42 St\nS → Times Sq–42 St',
     walkFrom:'Times Square: 10 min · Chrysler Building: 3 min',
-    tags:['beaux-arts', 'celestial ceiling', 'transit hub', 'free entry', 'touristic', 'historic landmark', 'shopping', 'restaurant'],
+    tags:[
+      'beaux-arts',
+      'celestial ceiling',
+      'transit hub',
+      'free entry',
+      'touristic',
+      'historic landmark',
+      'shopping',
+      'restaurant'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Image-Grand_central_Station_Outside_Night_2.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Grand_Central_Terminal_Main_Concourse%2C_New_York%2C_August_2021.jpg?width=800',
@@ -274,7 +315,24 @@ var LOCS_NEW_YORK = [
     tourInfo:'Audio guides available ($8). Free guided highlight tours on select days—check at information desk.',
     transit:'4 5 6 → 86 St\nQ → 86 St',
     walkFrom:'The Met: 10 min · Central Park: 2 min',
-    tags:['frank lloyd wright', 'spiral ramp', 'modern art', 'upper east side', 'modern architecture', 'contemporary art', 'touristic', 'legendary', 'museum', 'gallery', 'pritzker prize', 'cultural', 'landmark', 'shopping', 'restaurant', 'kids'],
+    tags:[
+      'frank lloyd wright',
+      'spiral ramp',
+      'modern art',
+      'upper east side',
+      'modern architecture',
+      'contemporary art',
+      'touristic',
+      'legendary',
+      'museum',
+      'gallery',
+      'pritzker prize',
+      'cultural',
+      'landmark',
+      'shopping',
+      'restaurant',
+      'kids'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/2003-03-New-York-Guggenheim-Museum-Frank-Lloyd-Wright.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Solomon_R._Guggenheim_Museum%2C_New_York_City%2C_Lobby_Skylight_Delight.jpg?width=800',
@@ -311,7 +369,18 @@ var LOCS_NEW_YORK = [
     tourInfo:'Free guided gallery tours most days. Ask at the information desk for current schedule.',
     transit:'A C E → 14 St\nL → 8 Av',
     walkFrom:'High Line (south end): 2 min · Chelsea Market: 5 min',
-    tags:['renzo piano', 'american art', 'meatpacking', 'gallery', 'museum', 'pritzker prize', 'cultural', 'touristic', 'shopping', 'restaurant'],
+    tags:[
+      'renzo piano',
+      'american art',
+      'meatpacking',
+      'gallery',
+      'museum',
+      'pritzker prize',
+      'cultural',
+      'touristic',
+      'shopping',
+      'restaurant'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Whitney_Museum_of_American_Art_%2849051573133%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Whitney_Museum%2C_New_York_City_in_2015.JPG?width=800',
@@ -354,7 +423,16 @@ var LOCS_NEW_YORK = [
     tourInfo:'Free public tours on weekends. Art installations change seasonally. See thehighline.org for events.',
     transit:'A C E → 14 St, 23 St, or 34 St\nL → 8 Av',
     walkFrom:'Whitney Museum (south end): 2 min · Vessel (north): 5 min',
-    tags:['adaptive reuse', 'linear park', 'free access', 'ds+r', 'touristic', 'preservation', 'kids', 'restaurant'],
+    tags:[
+      'adaptive reuse',
+      'linear park',
+      'free access',
+      'ds+r',
+      'touristic',
+      'preservation',
+      'kids',
+      'restaurant'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/High_Line%2C_Manhattan%2C_New_York_City%2C_20231001_1722_1458.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/At_New_York_City_2023_024_-_High_Line_Section_3.jpg?width=800',
@@ -490,7 +568,17 @@ var LOCS_NEW_YORK = [
     tourInfo:'Self-guided visits welcome at all times. Check saintpatrickscathedral.org for mass schedule and guided tour availability.',
     transit:'B D F M → 47-50 Sts–Rockefeller Ctr\nE M → 5 Av/53 St',
     walkFrom:'Rockefeller Center: 2 min · MoMA: 5 min',
-    tags:['historic', 'gothic revival', 'free entry', 'fifth avenue', 'active parish', 'church', 'cathedral', 'touristic', 'shopping'],
+    tags:[
+      'historic',
+      'gothic revival',
+      'free entry',
+      'fifth avenue',
+      'active parish',
+      'church',
+      'cathedral',
+      'touristic',
+      'shopping'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/St._Patrick%27s_Cathedral%2C_New_York_1.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/St._Patrick%27s_Cathedral_%28New_York%29_1.jpg?width=800',
@@ -527,7 +615,15 @@ var LOCS_NEW_YORK = [
     tourInfo:'Free guided tours Mon–Sat at 11 AM and 2 PM. Meet in Astor Hall inside the main entrance.',
     transit:'7 → 5 Av\nB D F M → 42 St–Bryant Pk',
     walkFrom:'Grand Central: 5 min · Bryant Park: adjacent',
-    tags:['beaux-arts', 'free entry', 'rose reading room', 'bryant park', 'touristic', 'historic landmark', 'shopping'],
+    tags:[
+      'beaux-arts',
+      'free entry',
+      'rose reading room',
+      'bryant park',
+      'touristic',
+      'historic landmark',
+      'shopping'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Public_Building_Library.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/NYPL_portals.JPG?width=800',
@@ -617,7 +713,18 @@ var LOCS_NEW_YORK = [
     tourInfo:'Central Park Conservancy offers free tours on weekends. Bike rentals available at multiple points around the park.',
     transit:'Multiple lines (1 2 3 A B C D N Q R) serve stations from 59th to 110th St',
     walkFrom:'Guggenheim Museum: 2 min · The Met: at park edge',
-    tags:['historic', 'olmsted & vaux', 'landscape', '843 acres', 'free access', 'picturesque', 'park', 'touristic', 'kids', 'restaurant'],
+    tags:[
+      'historic',
+      'olmsted & vaux',
+      'landscape',
+      '843 acres',
+      'free access',
+      'picturesque',
+      'park',
+      'touristic',
+      'kids',
+      'restaurant'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/3015-Central_Park-Sheep_Meadow.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Angel_of_the_Waters_Fountain_and_Bethesda_Terrace%2C_Central_Park%2C_NYC.jpg?width=800',
@@ -658,7 +765,16 @@ var LOCS_NEW_YORK = [
     tourInfo:'NBC Studio Tour available separately (from $33). Self-guided observatory with multiple outdoor decks.',
     transit:'B D F M → 47-50 Sts–Rockefeller Ctr',
     walkFrom:'St. Patrick\'s Cathedral: 2 min · MoMA: 5 min',
-    tags:['art deco', 'observatory', 'nbc studios', 'rockefeller center', 'touristic', 'shopping', 'restaurant', 'historic landmark'],
+    tags:[
+      'art deco',
+      'observatory',
+      'nbc studios',
+      'rockefeller center',
+      'touristic',
+      'shopping',
+      'restaurant',
+      'historic landmark'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/GE_Building_by_David_Shankbone.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/30_Rockefeller_Plaza.jpg?width=800',
@@ -698,7 +814,18 @@ var LOCS_NEW_YORK = [
     tourInfo:'No formal tours. The building is best appreciated from the Park Avenue plaza.',
     transit:'4 5 6 → 51 St\nE M → Lexington Av/53 St',
     walkFrom:'Grand Central: 8 min · St. Patrick\'s Cathedral: 5 min',
-    tags:['mies van der rohe', 'international style', 'bronze glass', 'plaza', 'modern architecture', 'legendary', 'pritzker prize', 'historic landmark', 'touristic', 'restaurant'],
+    tags:[
+      'mies van der rohe',
+      'international style',
+      'bronze glass',
+      'plaza',
+      'modern architecture',
+      'legendary',
+      'pritzker prize',
+      'historic landmark',
+      'touristic',
+      'restaurant'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Seagram_Building_%2835098307116%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/270_Park_Avenue.JPG?width=800',
@@ -926,7 +1053,15 @@ var LOCS_NEW_YORK = [
     tourInfo:'Best viewed from the corner of Church St or from the pedestrian plaza with Anish Kapoor\'s sculpture.',
     transit:'A C E → Chambers St\n1 2 3 → Chambers St',
     walkFrom:'City Hall: 5 min · Oculus: 8 min',
-    tags:['herzog & de meuron', 'jenga tower', 'tribeca', 'anish kapoor', 'luxury residential', 'pritzker prize', 'touristic'],
+    tags:[
+      'herzog & de meuron',
+      'jenga tower',
+      'tribeca',
+      'anish kapoor',
+      'luxury residential',
+      'pritzker prize',
+      'touristic'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/56_Leonard_Street_%2824249%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/56_Leonard_Street_012.jpg?width=800',
@@ -1102,7 +1237,20 @@ var LOCS_NEW_YORK = [
     tourInfo:'Free audio guide app available. Highlights tours daily; check metmuseum.org for current schedule.',
     transit:'4 5 6 → 86 St\nQ → 86 St',
     walkFrom:'Central Park: at park edge · Guggenheim: 10 min',
-    tags:['beaux-arts', 'world collection', '5th avenue', 'central park', 'touristic', 'museum', 'gallery', 'kids', 'cultural', 'landmark', 'shopping', 'restaurant'],
+    tags:[
+      'beaux-arts',
+      'world collection',
+      '5th avenue',
+      'central park',
+      'touristic',
+      'museum',
+      'gallery',
+      'kids',
+      'cultural',
+      'landmark',
+      'shopping',
+      'restaurant'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Metropolitan_Museum_of_Art_%28The_Met%29_-_Central_Park%2C_NYC.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Metropolitan_Museum_of_Art%2C_New_York_City_NY%2C_entrance.jpg?width=800',
@@ -1183,7 +1331,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Woolworth Building Tours offers 30-minute lobby tours and 90-minute complete tours including previously restricted areas. Book at woolworthtours.com.',
     transit:'4 5 6 → Brooklyn Bridge–City Hall\n2 3 → Park Pl',
     walkFrom:'City Hall: 3 min · 9/11 Memorial: 8 min',
-    tags:['cass gilbert', 'gothic revival', 'cathedral of commerce', 'gilded lobby', 'historic landmark', 'touristic'],
+    tags:[
+      'cass gilbert',
+      'gothic revival',
+      'cathedral of commerce',
+      'gilded lobby',
+      'historic landmark',
+      'touristic'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Woolworth_Building_in_New_York_City_LCCN2013650474.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Municipal_Building_-_New_York_City.jpg?width=800',
@@ -1322,7 +1477,16 @@ var LOCS_NEW_YORK = [
     tourInfo:'The interior atrium garden is open to the public during business hours. One of the few private office buildings that offers free public access to its interior.',
     transit:'4 5 6 7 → Grand Central–42 St',
     walkFrom:'Grand Central: 5 min · United Nations: 5 min',
-    tags:['kevin roche', 'interior atrium', 'biophilic', 'midtown east', 'indoor garden', 'pritzker prize', 'historic landmark', 'touristic'],
+    tags:[
+      'kevin roche',
+      'interior atrium',
+      'biophilic',
+      'midtown east',
+      'indoor garden',
+      'pritzker prize',
+      'historic landmark',
+      'touristic'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Ford_Foundation_Building_%2851921997207%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Ford_Foundation_Building_May_2021_26.jpg?width=800',
@@ -1509,7 +1673,17 @@ var LOCS_NEW_YORK = [
     tourInfo:'Prospect Park Alliance offers free walking tours on select weekends. Bike rentals available. Check prospectpark.org for events.',
     transit:'2 3 → Grand Army Plaza or Eastern Pkwy–Brooklyn Museum\nQ → Seventh Ave (Brooklyn)\nB Q → Prospect Park',
     walkFrom:'Brooklyn Museum: 5 min · Brooklyn Botanic Garden: adjacent',
-    tags:['historic', 'olmsted & vaux', 'brooklyn', 'natural forest', 'long meadow', 'kids', 'park', 'touristic', 'restaurant'],
+    tags:[
+      'historic',
+      'olmsted & vaux',
+      'brooklyn',
+      'natural forest',
+      'long meadow',
+      'kids',
+      'park',
+      'touristic',
+      'restaurant'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/A_walk_in_the_park_%2849086734093%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Grecian_Shelter_shade_jeh.JPG?width=800',
@@ -1682,7 +1856,17 @@ var LOCS_NEW_YORK = [
     tourInfo:'Best viewed from the High Line itself. Washington St looking north offers the classic straddle view.',
     transit:'A C E → 14 St · L → 8 Av',
     walkFrom:'High Line: adjacent · Meatpacking District: 2 min',
-    tags:['ennead architects', 'hotel', 'high line', 'meatpacking', 'pilotis', 'straddle', 'polshek', 'touristic', 'restaurant'],
+    tags:[
+      'ennead architects',
+      'hotel',
+      'high line',
+      'meatpacking',
+      'pilotis',
+      'straddle',
+      'polshek',
+      'touristic',
+      'restaurant'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Standard_High_Line_%2824245%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Standard_NYC_4255367163_fffef9e487_crop.jpg?width=800'
@@ -2005,7 +2189,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Free public tours on select days. Check NYC gov website for schedule.',
     transit:'4 5 6 J Z → Brooklyn Bridge–City Hall · N R W → City Hall',
     walkFrom:'Brooklyn Bridge: 5 min · World Trade Center: 10 min',
-    tags:['historic', 'federal', 'french renaissance', 'civic', 'landmark', 'touristic'],
+    tags:[
+      'historic',
+      'federal',
+      'french renaissance',
+      'civic',
+      'landmark',
+      'touristic'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/New_York_City_Hall.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/View_of_Woolworth_Building_fixed.jpg?width=800'
@@ -2043,7 +2234,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Public lobby and ground-floor arcade open during business hours.',
     transit:'4 5 6 J Z → Chambers St · N R W → City Hall',
     walkFrom:'City Hall: 3 min · Brooklyn Bridge: 5 min',
-    tags:['beaux-arts', 'mckim mead white', 'civic fame', 'landmark', 'subway integration', 'touristic'],
+    tags:[
+      'beaux-arts',
+      'mckim mead white',
+      'civic fame',
+      'landmark',
+      'subway integration',
+      'touristic'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Municipal_Building_-_New_York_City.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Manhattan-Municipal-Building-New-York-City-September-2014.jpg?width=800',
@@ -2082,7 +2280,16 @@ var LOCS_NEW_YORK = [
     tourInfo:'Self-guided. Free public events including concerts in the Winter Garden atrium.',
     transit:'E → World Trade Center · 1 2 3 → Chambers St · A C → Fulton St',
     walkFrom:'One WTC: 5 min · Battery Park City Esplanade: 2 min',
-    tags:['cesar pelli', 'winter garden', 'atrium', 'battery park city', 'palm trees', 'shopping', 'restaurant', 'touristic'],
+    tags:[
+      'cesar pelli',
+      'winter garden',
+      'atrium',
+      'battery park city',
+      'palm trees',
+      'shopping',
+      'restaurant',
+      'touristic'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/World_Financial_Center_Evening.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/World_Financial_Center_Winter_Garden_200706.jpg?width=800',
@@ -2118,7 +2325,17 @@ var LOCS_NEW_YORK = [
     tourInfo:'Self-guided. Ferry to Statue of Liberty and Ellis Island departs from here.',
     transit:'1 → South Ferry · R W → Whitehall St · 4 5 → Bowling Green',
     walkFrom:'Bowling Green: 3 min · Fulton Center: 10 min',
-    tags:['harbor', 'statue of liberty ferry', 'historic', 'public space', 'waterfront', 'battery park city', 'kids', 'touristic', 'restaurant'],
+    tags:[
+      'harbor',
+      'statue of liberty ferry',
+      'historic',
+      'public space',
+      'waterfront',
+      'battery park city',
+      'kids',
+      'touristic',
+      'restaurant'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Battery_Park.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Battery_Park_td_%282019-08-10%29_003_-_Battery_Bikeway.jpg?width=800'
@@ -2153,7 +2370,16 @@ var LOCS_NEW_YORK = [
     tourInfo:'Free ranger-led tours. Also serves as Statue of Liberty ferry ticket office.',
     transit:'1 → South Ferry · R W → Whitehall St · 4 5 → Bowling Green',
     walkFrom:'Battery Park: adjacent · Bowling Green: 3 min',
-    tags:['historic', 'national monument', 'federal', 'fort', 'immigration', 'nps', 'battery park', 'touristic'],
+    tags:[
+      'historic',
+      'national monument',
+      'federal',
+      'fort',
+      'immigration',
+      'nps',
+      'battery park',
+      'touristic'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Castle_Clinton%2C_Battery_Park.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Castle_Clinton_National_Monument%2C_Battery_Park%2C_Manhattan%2C_New_York_%287237092384%29.jpg?width=800',
@@ -2191,7 +2417,16 @@ var LOCS_NEW_YORK = [
     tourInfo:'NYC Financial District walking tours typically include Stone Street. Best visited weekday lunch for the outdoor seating atmosphere.',
     transit:'R W → Whitehall St · J Z → Broad St · 4 5 → Bowling Green',
     walkFrom:'Bowling Green: 4 min · WTC: 8 min',
-    tags:['historic', 'cobblestone', 'greek revival', 'historic district', 'oldest street', 'restaurant row', 'restaurant', 'touristic'],
+    tags:[
+      'historic',
+      'cobblestone',
+      'greek revival',
+      'historic district',
+      'oldest street',
+      'restaurant row',
+      'restaurant',
+      'touristic'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Stone_Street%2C_NYC.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Stone_Street_NYC_005.JPG?width=800'
@@ -2230,7 +2465,17 @@ var LOCS_NEW_YORK = [
     tourInfo:'Self-guided. Washington Square Park is a major gathering space for the NYU community and neighborhood.',
     transit:'A C E B D F M → W 4 St–Washington Sq',
     walkFrom:'NYU campus: adjacent · SoHo: 10 min',
-    tags:['historic', 'stanford white', 'beaux-arts', 'arch', 'greenwich village', 'nyu', 'landmark', 'kids', 'touristic'],
+    tags:[
+      'historic',
+      'stanford white',
+      'beaux-arts',
+      'arch',
+      'greenwich village',
+      'nyu',
+      'landmark',
+      'kids',
+      'touristic'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Washington_Square_Arch_01.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Washington_Square_Arch.jpg?width=800',
@@ -2266,7 +2511,15 @@ var LOCS_NEW_YORK = [
     tourInfo:'Open for services. La Farge stained glass windows are a particular highlight.',
     transit:'A C E B D F M → W 4 St–Washington Sq',
     walkFrom:'Washington Square Arch: 2 min · NYU: adjacent',
-    tags:['historic', 'stanford white', 'romanesque revival', 'la farge', 'greenwich village', 'activism', 'touristic'],
+    tags:[
+      'historic',
+      'stanford white',
+      'romanesque revival',
+      'la farge',
+      'greenwich village',
+      'activism',
+      'touristic'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Judson_Memorial_Church_%2851660334986%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Judson_Memorial_Church_Worship_Area.JPG?width=800',
@@ -2307,7 +2560,16 @@ var LOCS_NEW_YORK = [
     tourInfo:'Free public library. Ask about the clock tower — it occasionally opens for guided tours.',
     transit:'A C E B D F M → W 4 St–Washington Sq · 1 → Christopher St',
     walkFrom:'Washington Square: 5 min · Christopher St: 3 min',
-    tags:['historic', 'calvert vaux', 'victorian gothic', 'nypl', 'clock tower', 'greenwich village', 'adaptive reuse', 'touristic'],
+    tags:[
+      'historic',
+      'calvert vaux',
+      'victorian gothic',
+      'nypl',
+      'clock tower',
+      'greenwich village',
+      'adaptive reuse',
+      'touristic'
+    ],
     photos:[
       'https://live.staticflickr.com/65535/50637852851_8f05553ec9_b.jpg',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Jefferson_Market_Library_October_2022_006.jpg?width=800',
@@ -2434,7 +2696,18 @@ var LOCS_NEW_YORK = [
     tourInfo:'Churchyard freely accessible. Interior open for services and events.',
     transit:'6 → Astor Pl · L → 1 Av',
     walkFrom:'Astor Place: 3 min · Tompkins Square Park: 5 min',
-    tags:['historic', 'georgian', 'greek revival', 'historic church', 'poetry project', 'east village', 'stuyvesant', 'italianate steeple', 'bowery', 'touristic'],
+    tags:[
+      'historic',
+      'georgian',
+      'greek revival',
+      'historic church',
+      'poetry project',
+      'east village',
+      'stuyvesant',
+      'italianate steeple',
+      'bowery',
+      'touristic'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/St_Mark%27s_Church_-_New_York_City.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/St.-Marks-In-The-Bowery_Portico.JPG?width=800',
@@ -2654,7 +2927,18 @@ var LOCS_NEW_YORK = [
     tourInfo:'Walking tours available from multiple operators. Best photographed on Washington St at Water St for the Manhattan Bridge frame view.',
     transit:'A C → High St · F → York St',
     walkFrom:'Brooklyn Bridge Park: 5 min · Brooklyn Heights Promenade: 10 min',
-    tags:['historic', 'industrial loft', 'cobblestone', 'brooklyn', 'manhattan bridge', 'art district', 'renovation', 'touristic', 'shopping', 'restaurant'],
+    tags:[
+      'historic',
+      'industrial loft',
+      'cobblestone',
+      'brooklyn',
+      'manhattan bridge',
+      'art district',
+      'renovation',
+      'touristic',
+      'shopping',
+      'restaurant'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/DUMBO_Historic_and_Industrial_District.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/DUMBO_from_Bridge.JPG?width=800',
@@ -2689,7 +2973,18 @@ var LOCS_NEW_YORK = [
     tourInfo:'Pay at the booth. Pavilion exterior freely viewable at all times.',
     transit:'A C → High St · F → York St',
     walkFrom:'DUMBO: 5 min · Brooklyn Bridge Park: adjacent',
-    tags:['jean nouvel', 'carousel', 'glass pavilion', 'dumbo', 'brooklyn bridge park', 'victorian', 'renovation', 'pritzker prize', 'kids', 'touristic'],
+    tags:[
+      'jean nouvel',
+      'carousel',
+      'glass pavilion',
+      'dumbo',
+      'brooklyn bridge park',
+      'victorian',
+      'renovation',
+      'pritzker prize',
+      'kids',
+      'touristic'
+    ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Janes_Carousel_Pavilion_2011.jpg/800px-Janes_Carousel_Pavilion_2011.jpg'
     ]
@@ -2903,7 +3198,19 @@ var LOCS_NEW_YORK = [
     tourInfo:'Free docent tours Sat 11 AM. Garden highlights tours Sun 2 PM.',
     transit:'1 → 231 St, then BX7/BX10 bus · Metro-North Hudson Line → Riverdale',
     walkFrom:'Riverdale neighborhood: 5 min · Hudson River overlook: adjacent',
-    tags:['historic', 'garden', 'estate', 'bronx', 'hudson river', 'mark twain', 'theodore roosevelt', 'landscape', 'park', 'touristic', 'kids'],
+    tags:[
+      'historic',
+      'garden',
+      'estate',
+      'bronx',
+      'hudson river',
+      'mark twain',
+      'theodore roosevelt',
+      'landscape',
+      'park',
+      'touristic',
+      'kids'
+    ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Wave_Hill_greenhouse.jpg/800px-Wave_Hill_greenhouse.jpg'
     ],
@@ -3028,7 +3335,15 @@ var LOCS_NEW_YORK = [
     tourInfo:'Best viewed from West St. Residential building not open to public.',
     transit:'1 → Houston St · A C E → 14 St',
     walkFrom:'Whitney Museum: 10 min · Hudson River Park: 3 min',
-    tags:['herzog & de meuron', 'exposed concrete', 'west village', 'ian schrager', 'curved facade', 'pritzker prize', 'touristic'],
+    tags:[
+      'herzog & de meuron',
+      'exposed concrete',
+      'west village',
+      'ian schrager',
+      'curved facade',
+      'pritzker prize',
+      'touristic'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hudson_River_Park_td_%282019-04-24%29_005_-_One_Morton_Square%2C_160_Leroy_Street.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Houston_St_West_St_td_%282021-10-28%29_03_-_160_Leroy_Street.jpg?width=800',
@@ -3322,7 +3637,15 @@ var LOCS_NEW_YORK = [
     tourInfo:'Best viewed from Vestry St near the Hudson River.',
     transit:'1 → Canal St · A C E → Canal St',
     walkFrom:'Hudson River Park: 2 min',
-    tags:['ramsa', 'red brick', 'tribeca', 'waterfront', 'contextual', 'industrial heritage', 'touristic'],
+    tags:[
+      'ramsa',
+      'red brick',
+      'tribeca',
+      'waterfront',
+      'contextual',
+      'industrial heritage',
+      'touristic'
+    ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/70_Vestry_Street.jpg/800px-70_Vestry_Street.jpg'
     ],
@@ -3609,7 +3932,16 @@ var LOCS_NEW_YORK = [
     tourInfo:'Free lobby access during business hours. The Chippendale top is best appreciated from midblock on Madison Ave.',
     transit:'4 5 6 → 51 St · E M → 5 Av/53 St',
     walkFrom:'MoMA: 5 min · Seagram Building: 8 min',
-    tags:['philip johnson', 'chippendale top', 'midtown east', 'granite', 'legendary', 'pritzker prize', 'historic landmark', 'touristic'],
+    tags:[
+      'philip johnson',
+      'chippendale top',
+      'midtown east',
+      'granite',
+      'legendary',
+      'pritzker prize',
+      'historic landmark',
+      'touristic'
+    ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/550_Madison_Avenue_from_south.jpg/800px-550_Madison_Avenue_from_south.jpg',
       'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/AT%26T_Building_from_street_level.jpg/800px-AT%26T_Building_from_street_level.jpg'
@@ -3925,7 +4257,19 @@ var LOCS_NEW_YORK = [
     tourInfo:'Office building. Lobby viewable during business hours. WTC Plaza freely accessible 24/7.',
     transit:'E → World Trade Center · 1 2 3 → Chambers St · A C → Fulton St',
     walkFrom:'9/11 Memorial: 5 min · Oculus: 5 min',
-    tags:['rogers stirk harbour', 'richard rogers', 'world trade center', 'supertall', 'glass', 'lower manhattan', 'post-9/11', 'pritzker prize', 'touristic', 'shopping', 'restaurant'],
+    tags:[
+      'rogers stirk harbour',
+      'richard rogers',
+      'world trade center',
+      'supertall',
+      'glass',
+      'lower manhattan',
+      'post-9/11',
+      'pritzker prize',
+      'touristic',
+      'shopping',
+      'restaurant'
+    ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/3_World_Trade_Center_2018.jpg/800px-3_World_Trade_Center_2018.jpg'
     ]
@@ -4171,7 +4515,16 @@ var LOCS_NEW_YORK = [
     tourInfo:'Louis Vuitton flagship store on retail floors. Lobby and boutique accessible during business hours.',
     transit:'N R W → 5 Av/59 St · 4 5 6 → 59 St',
     walkFrom:'Apple Store 5th Ave: 5 min · Central Park: 5 min',
-    tags:['christian de portzamparc', 'pritzker prize', 'lvmh', 'louis vuitton', 'luxury', 'midtown', 'faceted glass', 'shopping'],
+    tags:[
+      'christian de portzamparc',
+      'pritzker prize',
+      'lvmh',
+      'louis vuitton',
+      'luxury',
+      'midtown',
+      'faceted glass',
+      'shopping'
+    ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/LVMH_Tower_NYC.jpg/800px-LVMH_Tower_NYC.jpg'
     ]
@@ -4204,7 +4557,15 @@ var LOCS_NEW_YORK = [
     tourInfo:'Office building. WTC Plaza, 9/11 Memorial, and Oculus all adjacent.',
     transit:'E → World Trade Center · 1 2 3 → Chambers St · A C → Fulton St',
     walkFrom:'9/11 Memorial: adjacent · Oculus: 5 min',
-    tags:['fumihiko maki', 'pritzker prize', 'world trade center', 'minimalist', 'glass curtain wall', 'post-9/11', 'touristic'],
+    tags:[
+      'fumihiko maki',
+      'pritzker prize',
+      'world trade center',
+      'minimalist',
+      'glass curtain wall',
+      'post-9/11',
+      'touristic'
+    ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/4_World_Trade_Center_2013.jpg/800px-4_World_Trade_Center_2013.jpg'
     ]
@@ -4279,7 +4640,15 @@ var LOCS_NEW_YORK = [
     tourInfo:'Best viewed from Fulton St or from across the East River in Brooklyn.',
     transit:'J Z → Fulton St · 2 3 4 5 A C → Fulton St',
     walkFrom:'Brooklyn Bridge: 8 min · WTC: 10 min',
-    tags:['david adjaye', 'hand-cast concrete', 'financial district', 'arched windows', 'supertall', 'first nyc work', 'restaurant'],
+    tags:[
+      'david adjaye',
+      'hand-cast concrete',
+      'financial district',
+      'arched windows',
+      'supertall',
+      'first nyc work',
+      'restaurant'
+    ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/130_William_Street_Adjaye.jpg/800px-130_William_Street_Adjaye.jpg'
     ]
@@ -4312,7 +4681,18 @@ var LOCS_NEW_YORK = [
     tourInfo:'Museum programming for children 0–8 years. Adult admission required with child.',
     transit:'A C → 145 St · 1 → 145 St',
     walkFrom:'Hamilton Grange: 5 min · Jackie Robinson Park: 5 min',
-    tags:['david adjaye', 'harlem', 'community', 'children\'s museum', 'affordable housing', 'west african', 'kids', 'museum', 'cultural', 'touristic'],
+    tags:[
+      'david adjaye',
+      'harlem',
+      'community',
+      'children\'s museum',
+      'affordable housing',
+      'west african',
+      'kids',
+      'museum',
+      'cultural',
+      'touristic'
+    ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Sugar_Hill_Museum_Adjaye.jpg/800px-Sugar_Hill_Museum_Adjaye.jpg'
     ],
@@ -4349,7 +4729,17 @@ var LOCS_NEW_YORK = [
     tourInfo:'Free public library. The reading room\'s panoramic Manhattan view is the highlight.',
     transit:'7 → Vernon Blvd–Jackson Ave · E M → Court Sq–23 St',
     walkFrom:'Gantry Plaza State Park: 5 min · Long Island City waterfront: adjacent',
-    tags:['steven holl architects', 'library', 'long island city', 'queens', 'concrete', 'waterfront', 'panoramic view', 'kids', 'touristic'],
+    tags:[
+      'steven holl architects',
+      'library',
+      'long island city',
+      'queens',
+      'concrete',
+      'waterfront',
+      'panoramic view',
+      'kids',
+      'touristic'
+    ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Hunters_Point_Community_Library_2019.jpg/800px-Hunters_Point_Community_Library_2019.jpg'
     ]
@@ -4504,7 +4894,15 @@ var LOCS_NEW_YORK = [
     tourInfo:'Retail boutique, freely open during business hours. The glass smell columns are the key spatial experience.',
     transit:'C E → Spring St · 1 → Houston St · N R W → Prince St',
     walkFrom:'SoHo: central · Prada Epicenter: 8 min',
-    tags:['perfume boutique', 'smell columns', 'soho', 'retail', 'phenomenological', 'steven holl architects', 'shopping'],
+    tags:[
+      'perfume boutique',
+      'smell columns',
+      'soho',
+      'retail',
+      'phenomenological',
+      'steven holl architects',
+      'shopping'
+    ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Frederic_Malle_Steven_Holl_NYC.jpg/800px-Frederic_Malle_Steven_Holl_NYC.jpg'
     ],
@@ -4540,7 +4938,16 @@ var LOCS_NEW_YORK = [
     tourInfo:'Included in Meatpacking District and High Line walking tour routes.',
     transit:'A C E – 14 St · L – 8 Av',
     walkFrom:'High Line (14th St entrance): 5 min · Chelsea Market: 6 min',
-    tags:['shop architects', 'zinc cladding', 'residential', 'meatpacking district', 'warehouse conversion', 'aia award', 'addition', 'historic landmark'],
+    tags:[
+      'shop architects',
+      'zinc cladding',
+      'residential',
+      'meatpacking district',
+      'warehouse conversion',
+      'aia award',
+      'addition',
+      'historic landmark'
+    ],
     photos:[]
   },
   {
@@ -4618,7 +5025,20 @@ var LOCS_NEW_YORK = [
     tourInfo:'',
     transit:'6 – 33 St · M15 bus',
     walkFrom:'Grand Central: 15 min walk · 34 St–Midtown: 10 min walk',
-    tags:['shop architects', 'copper cladding', 'skybridge', 'twin towers', 'residential', 'waterfront', 'kips bay', 'facade design', 'parametric', 'exterior', 'touristic', 'restaurant'],
+    tags:[
+      'shop architects',
+      'copper cladding',
+      'skybridge',
+      'twin towers',
+      'residential',
+      'waterfront',
+      'kips bay',
+      'facade design',
+      'parametric',
+      'exterior',
+      'touristic',
+      'restaurant'
+    ],
     photos:[],
     sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7443674, lng:-73.971387 }
   },
@@ -4652,7 +5072,20 @@ var LOCS_NEW_YORK = [
     tourInfo:'Free public access to the rooftop deck during non-event daytime hours. Views of Brooklyn Bridge and harbor.',
     transit:'2 3 4 5 J Z – Fulton St · A C – Broadway–Nassau St',
     walkFrom:'Brooklyn Bridge: 8 min · One World Trade Center: 12 min',
-    tags:['shop architects', 'seaport', 'rooftop venue', 'waterfront', 'public', 'entertainment', 'brooklyn bridge views', 'facade design', 'exterior', 'touristic', 'shopping', 'restaurant'],
+    tags:[
+      'shop architects',
+      'seaport',
+      'rooftop venue',
+      'waterfront',
+      'public',
+      'entertainment',
+      'brooklyn bridge views',
+      'facade design',
+      'exterior',
+      'touristic',
+      'shopping',
+      'restaurant'
+    ],
     photos:[],
     sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7057499, lng:-74.0023992 }
   },
@@ -4732,7 +5165,19 @@ var LOCS_NEW_YORK = [
     tourInfo:'',
     transit:'N Q R W – 57 St–7 Av · F – 57 St · B D E – 7 Av',
     walkFrom:'Carnegie Hall: 3 min · Central Park South: 4 min',
-    tags:['shop architects', 'supertall', 'skyscraper', 'billionaires row', 'steinway hall', 'terracotta', 'slender tower', 'skinny', 'luxury residential', 'historic landmark', 'touristic'],
+    tags:[
+      'shop architects',
+      'supertall',
+      'skyscraper',
+      'billionaires row',
+      'steinway hall',
+      'terracotta',
+      'slender tower',
+      'skinny',
+      'luxury residential',
+      'historic landmark',
+      'touristic'
+    ],
     photos:[],
     sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7650657, lng:-73.9775162 }
   },
@@ -4767,7 +5212,20 @@ var LOCS_NEW_YORK = [
     tourInfo:'The landmarked Dime Savings Bank interior is publicly accessible as a retail atrium. Notable Beaux-Arts dome and columns.',
     transit:'2 3 4 5 B D N Q R – Atlantic Av–Barclays Ctr · A C F – Jay St–MetroTech',
     walkFrom:'Barclays Center: 5 min · Brooklyn Borough Hall: 7 min',
-    tags:['shop architects', 'supertall', 'brooklyn', 'dime savings bank', 'landmark preservation', 'downtown brooklyn', 'tallest in brooklyn', '1066 ft', 'facade design', 'exterior', 'historic landmark', 'shopping'],
+    tags:[
+      'shop architects',
+      'supertall',
+      'brooklyn',
+      'dime savings bank',
+      'landmark preservation',
+      'downtown brooklyn',
+      'tallest in brooklyn',
+      '1066 ft',
+      'facade design',
+      'exterior',
+      'historic landmark',
+      'shopping'
+    ],
     photos:[]
   },
   {
@@ -4800,7 +5258,21 @@ var LOCS_NEW_YORK = [
     tourInfo:'The ICP Museum at ground floor is open to the public. Essex Crossing public plaza accessible.',
     transit:'J Z – Essex St · F – Delancey St · B D – Grand St',
     walkFrom:'Essex Street Market: 3 min · Delancey–Essex subway: 4 min',
-    tags:['shop architects', 'essex crossing', 'lower east side', 'folded aluminum', 'icp museum', 'mixed-use', 'condo', 'parametric', 'digital architecture', 'facade design', 'exterior', 'shopping', 'restaurant'],
+    tags:[
+      'shop architects',
+      'essex crossing',
+      'lower east side',
+      'folded aluminum',
+      'icp museum',
+      'mixed-use',
+      'condo',
+      'parametric',
+      'digital architecture',
+      'facade design',
+      'exterior',
+      'shopping',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -4881,7 +5353,17 @@ var LOCS_NEW_YORK = [
     tourInfo:'Public lobby with Ellsworth Kelly paintings and Jenny Holzer light installation. Free to enter during business hours.',
     transit:'E – World Trade Center · R W – Cortlandt St · 1 2 3 A C – Chambers St',
     walkFrom:'9/11 Memorial: 4 min · One World Trade Center: 3 min',
-    tags:['som (skidmore', 'owings & merrill)', 'david childs', 'world trade center', 'post-9/11', 'jenny holzer', 'ellsworth kelly', 'leed gold', 'touristic'],
+    tags:[
+      'som (skidmore',
+      'owings & merrill)',
+      'david childs',
+      'world trade center',
+      'post-9/11',
+      'jenny holzer',
+      'ellsworth kelly',
+      'leed gold',
+      'touristic'
+    ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/7WTC2012.jpg/800px-7WTC2012.jpg'
     ]
@@ -4916,7 +5398,18 @@ var LOCS_NEW_YORK = [
     tourInfo:'Public plaza with Jean Dubuffet sculpture accessible at all times. No interior tours.',
     transit:'2 3 4 5 A C – Fulton St · J Z – Fulton St',
     walkFrom:'Fulton Center: 4 min · 9/11 Memorial: 8 min',
-    tags:['som (skidmore', 'owings & merrill)', 'international style', 'financial district', 'chase manhattan', 'dubuffet sculpture', '1960s modernism', 'pritzker prize', 'gordon bunshaft', 'historic landmark'],
+    tags:[
+      'som (skidmore',
+      'owings & merrill)',
+      'international style',
+      'financial district',
+      'chase manhattan',
+      'dubuffet sculpture',
+      '1960s modernism',
+      'pritzker prize',
+      'gordon bunshaft',
+      'historic landmark'
+    ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/28_Liberty_Street_by_David_Shankbone.jpg/800px-28_Liberty_Street_by_David_Shankbone.jpg'
     ]
@@ -4952,7 +5445,22 @@ var LOCS_NEW_YORK = [
     tourInfo:'Public train hall with monumental skylit interior. No tour required — freely accessible to all.',
     transit:'A C E – 34 St–Penn Station · 1 2 3 – 34 St–Penn Station · N Q R W – 34 St–Herald Sq',
     walkFrom:'Madison Square Garden: 3 min · Empire State Building: 8 min',
-    tags:['som (skidmore', 'owings & merrill)', 'adaptive reuse', 'penn station', 'train hall', 'beaux-arts', 'skylight', 'farley building', '2021', 'renovation', 'shopping', 'restaurant', 'retail', 'touristic'],
+    tags:[
+      'som (skidmore',
+      'owings & merrill)',
+      'adaptive reuse',
+      'penn station',
+      'train hall',
+      'beaux-arts',
+      'skylight',
+      'farley building',
+      '2021',
+      'renovation',
+      'shopping',
+      'restaurant',
+      'retail',
+      'touristic'
+    ],
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Moynihan_Train_Hall_interior_2021.jpg/800px-Moynihan_Train_Hall_interior_2021.jpg'
     ],
@@ -5032,7 +5540,18 @@ var LOCS_NEW_YORK = [
     tourInfo:'',
     transit:'7 – 34 St–Hudson Yards',
     walkFrom:'The Vessel: 4 min · 30 Hudson Yards (The Edge): 3 min',
-    tags:['som (skidmore', 'owings & merrill)', 'supertall', 'hudson yards', 'limestone', 'equinox hotel', 'residential', 'david childs', 'shopping', 'restaurant'],
+    tags:[
+      'som (skidmore',
+      'owings & merrill)',
+      'supertall',
+      'hudson yards',
+      'limestone',
+      'equinox hotel',
+      'residential',
+      'david childs',
+      'shopping',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -5152,7 +5671,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'',
     transit:'7 – 34 St–Hudson Yards',
     walkFrom:'The Vessel: 5 min · 30 Hudson Yards: 3 min',
-    tags:['kpf (kohn pedersen fox)', 'hudson yards', 'office', 'skyscraper', 'shopping', 'restaurant'],
+    tags:[
+      'kpf (kohn pedersen fox)',
+      'hudson yards',
+      'office',
+      'skyscraper',
+      'shopping',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -5226,7 +5752,17 @@ var LOCS_NEW_YORK = [
     tourInfo:'',
     transit:'2 3 4 5 B D N Q R – Atlantic Av–Barclays Ctr · A C F – Jay St–MetroTech',
     walkFrom:'The Brooklyn Tower: 3 min · Barclays Center: 6 min',
-    tags:['kpf (kohn pedersen fox)', 'residential', 'downtown brooklyn', 'checkered facade', 'rooftop pool', 'supertall', 'shopping', 'restaurant', 'kids'],
+    tags:[
+      'kpf (kohn pedersen fox)',
+      'residential',
+      'downtown brooklyn',
+      'checkered facade',
+      'rooftop pool',
+      'supertall',
+      'shopping',
+      'restaurant',
+      'kids'
+    ],
     photos:[]
   },
   {
@@ -5301,7 +5837,20 @@ var LOCS_NEW_YORK = [
     tourInfo:'Free public gallery. The moving room / traveling gallery is a must-see spatial experience.',
     transit:'6 – Spring St · B D F M – Broadway–Lafayette St · J Z – Bowery',
     walkFrom:'New Museum: 5 min · NoLita: 5 min',
-    tags:['foster + partners', 'gallery', 'bowery', 'moving room', 'art', 'nolita', 'sliver building', 'pritzker prize', 'museum', 'norman foster', 'cultural', 'touristic'],
+    tags:[
+      'foster + partners',
+      'gallery',
+      'bowery',
+      'moving room',
+      'art',
+      'nolita',
+      'sliver building',
+      'pritzker prize',
+      'museum',
+      'norman foster',
+      'cultural',
+      'touristic'
+    ],
     photos:[]
   },
   {
@@ -5335,7 +5884,18 @@ var LOCS_NEW_YORK = [
     tourInfo:'',
     transit:'7 – 34 St–Hudson Yards',
     walkFrom:'The Vessel: 4 min · The Shed: 5 min · 30 Hudson Yards (The Edge): 6 min',
-    tags:['foster + partners', 'supertall', 'hudson yards', 'office', 'italian marble', 'leed gold', 'blackrock', '1011 ft', 'pritzker prize', 'restaurant'],
+    tags:[
+      'foster + partners',
+      'supertall',
+      'hudson yards',
+      'office',
+      'italian marble',
+      'leed gold',
+      'blackrock',
+      '1011 ft',
+      'pritzker prize',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -5369,7 +5929,19 @@ var LOCS_NEW_YORK = [
     tourInfo:'Triple-height lobby open to public during business hours. Jean-Georges restaurant at ground floor.',
     transit:'4 5 6 – 51 St · E M – Lexington Av–53 St · N R W – Lexington Av–59 St',
     walkFrom:'Seagram Building: 3 min · Lever House: 3 min · Grand Central: 10 min',
-    tags:['foster + partners', 'park avenue', 'office', 'exoskeleton', 'midtown east', 'jean-georges', 'full block', '860 ft', 'pritzker prize', 'norman foster', 'restaurant'],
+    tags:[
+      'foster + partners',
+      'park avenue',
+      'office',
+      'exoskeleton',
+      'midtown east',
+      'jean-georges',
+      'full block',
+      '860 ft',
+      'pritzker prize',
+      'norman foster',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -5449,7 +6021,17 @@ var LOCS_NEW_YORK = [
     tourInfo:'Lincoln Center tours include Alice Tully Hall. Public programs and free events in the lobby regularly.',
     transit:'1 → 66 St–Lincoln Center',
     walkFrom:'Lincoln Center Plaza: 1 min · Columbus Circle: 10 min',
-    tags:['diller scofidio + renfro', 'lincoln center', 'concert hall', 'upper west side', 'adaptive reuse', 'performance-venues', 'acoustic', 'touristic', 'restaurant'],
+    tags:[
+      'diller scofidio + renfro',
+      'lincoln center',
+      'concert hall',
+      'upper west side',
+      'adaptive reuse',
+      'performance-venues',
+      'acoustic',
+      'touristic',
+      'restaurant'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Alice_Tully_Hall_renovated.jpg?width=800'
     ],
@@ -5486,7 +6068,16 @@ var LOCS_NEW_YORK = [
     tourInfo:'Organised tours available by arrangement. The rooftop garden terraces are a landmark example of productive urban agriculture integrated into social housing.',
     transit:'6 → Brook Ave · 2 3 → 149 St–Grand Concourse',
     walkFrom:'149th St Grand Concourse: 10 min',
-    tags:['grimshaw architects', 'dattner architects', 'affordable housing', 'green roof', 'bronx', 'leed gold', 'sustainable', 'kids'],
+    tags:[
+      'grimshaw architects',
+      'dattner architects',
+      'affordable housing',
+      'green roof',
+      'bronx',
+      'leed gold',
+      'sustainable',
+      'kids'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Via_Verde_Bronx_NYC.jpg?width=800'
     ]
@@ -5572,7 +6163,18 @@ var LOCS_NEW_YORK = [
     tourInfo:'Free guided tours on weekends. Accessible via Roosevelt Island tram (from 59th St & 2nd Ave) or subway F train to Roosevelt Island.',
     transit:'F → Roosevelt Island · Tram from 59 St & 2 Ave',
     walkFrom:'Roosevelt Island Tram: 10 min walk south along waterfront',
-    tags:['louis kahn', 'memorial', 'fdr', 'roosevelt island', 'modernism', 'east river', 'posthumous', 'legendary', 'touristic', 'kids'],
+    tags:[
+      'louis kahn',
+      'memorial',
+      'fdr',
+      'roosevelt island',
+      'modernism',
+      'east river',
+      'posthumous',
+      'legendary',
+      'touristic',
+      'kids'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/FDR_Four_Freedoms_Park_room.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/FDR_Four_Freedoms_Park_aerial.jpg?width=800'
@@ -5609,7 +6211,19 @@ var LOCS_NEW_YORK = [
     tourInfo:'',
     transit:'1 → Houston St · C E → Spring St',
     walkFrom:'SoHo Cast Iron District: 3 min · Hudson River Park: 5 min',
-    tags:['renzo piano', 'rpbw', 'glass', 'residential', 'soho', 'luxury', 'curved facade', 'pritzker prize', 'facade design', 'exterior', 'shopping'],
+    tags:[
+      'renzo piano',
+      'rpbw',
+      'glass',
+      'residential',
+      'soho',
+      'luxury',
+      'curved facade',
+      'pritzker prize',
+      'facade design',
+      'exterior',
+      'shopping'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/565_Broome_SoHo_Ando.jpg?width=800'
     ],
@@ -5648,7 +6262,18 @@ var LOCS_NEW_YORK = [
     tourInfo:'Walk-in entry available on weekdays. Weekend and holiday timed-entry tickets bookable at littleisland.org.',
     transit:'A C E L → 14 St (8 Ave or 8 St) · Path → 14 St',
     walkFrom:'High Line (north end): 5 min · Whitney Museum: 8 min · The Standard Hotel: 4 min',
-    tags:['heatherwick studio', 'thomas heatherwick', 'public park', 'hudson river', 'pier 55', 'meatpacking district', 'landscape', 'modular-design', 'touristic', 'kids'],
+    tags:[
+      'heatherwick studio',
+      'thomas heatherwick',
+      'public park',
+      'hudson river',
+      'pier 55',
+      'meatpacking district',
+      'landscape',
+      'modular-design',
+      'touristic',
+      'kids'
+    ],
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Little_Island_NYC_aerial.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Little_Island_park_Hudson_River.jpg?width=800'
@@ -5681,7 +6306,15 @@ var LOCS_NEW_YORK = [
     tourInfo:'Theater tours available for groups.',
     transit:'A, C → High St–Brooklyn Bridge',
     walkFrom:'Jane\'s Carousel: 3 min',
-    tags:['adaptive-reuse', 'theater', 'brick-architecture', 'performance-venues', 'performing-arts', 'cultural', 'touristic'],
+    tags:[
+      'adaptive-reuse',
+      'theater',
+      'brick-architecture',
+      'performance-venues',
+      'performing-arts',
+      'cultural',
+      'touristic'
+    ],
     photos:[],
     sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7033506, lng:-73.99303 }
   },
@@ -5715,7 +6348,13 @@ var LOCS_NEW_YORK = [
     tourInfo:'Self-guided exploration recommended.',
     transit:'A, C → High St–Brooklyn Bridge',
     walkFrom:'St. Ann\'s Warehouse: 2 min',
-    tags:['adaptive-reuse', 'shopping', 'romanesque-revival', 'restaurant', 'touristic'],
+    tags:[
+      'adaptive-reuse',
+      'shopping',
+      'romanesque-revival',
+      'restaurant',
+      'touristic'
+    ],
     photos:[],
     sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7033262, lng:-73.9924804 }
   },
@@ -5748,7 +6387,13 @@ var LOCS_NEW_YORK = [
     tourInfo:'Private residential tower.',
     transit:'A, C → High St–Brooklyn Bridge',
     walkFrom:'Jane\'s Carousel: 4 min',
-    tags:['luxury-residential', 'parametric-form', 'waterfront', 'digital architecture', 'kids'],
+    tags:[
+      'luxury-residential',
+      'parametric-form',
+      'waterfront',
+      'digital architecture',
+      'kids'
+    ],
     photos:[],
     sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7025616, lng:-73.9916436 }
   },
@@ -5822,7 +6467,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Private residential tower.',
     transit:'2, 3, 4, 5 → Borough Hall',
     walkFrom:'Boerum Hill Park: 6 min',
-    tags:['all-electric', 'sustainable', 'green-building', 'alloy', 'shopping', 'kids'],
+    tags:[
+      'all-electric',
+      'sustainable',
+      'green-building',
+      'alloy',
+      'shopping',
+      'kids'
+    ],
     photos:[],
     sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.685766, lng:-73.9787712 }
   },
@@ -5855,7 +6507,12 @@ var LOCS_NEW_YORK = [
     tourInfo:'Educational tours for groups available.',
     transit:'2, 3, 4, 5 → Borough Hall',
     walkFrom:'505 State Street: 2 min',
-    tags:['passive-house', 'schools', 'sustainable', 'kids'],
+    tags:[
+      'passive-house',
+      'schools',
+      'sustainable',
+      'kids'
+    ],
     photos:[],
     sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.686423, lng:-73.9792681 },
     archs:[
@@ -5889,7 +6546,15 @@ var LOCS_NEW_YORK = [
     tourInfo:'Private residential tower.',
     transit:'A, C → High St–Brooklyn Bridge',
     walkFrom:'Jane\'s Carousel: 2 min',
-    tags:['leed-gold', 'concrete-sculpture', 'situ', 'luxury residential', 'waterfront', 'shopping', 'restaurant'],
+    tags:[
+      'leed-gold',
+      'concrete-sculpture',
+      'situ',
+      'luxury residential',
+      'waterfront',
+      'shopping',
+      'restaurant'
+    ],
     photos:[],
     sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7048492, lng:-73.9879847 },
     archs:[
@@ -5900,10 +6565,9 @@ var LOCS_NEW_YORK = [
     id:'nyc-0153',
     name:'420 Kent Avenue',
     cats:[
-      'residential',
-      'skyscrapers'
+      'residential'
     ],
-    cc:'c-sky',
+    cc:'c-res',
     styleGroups:[
       'contemporary'
     ],
@@ -5912,8 +6576,8 @@ var LOCS_NEW_YORK = [
     arch:'ODA Architecture',
     yr:2019,
     access:'restricted',
-    lat:40.7107,
-    lng:-73.9574,
+    lat:40.7104752,
+    lng:-73.968823,
     addr:'420 Kent Ave, Brooklyn 11249',
     hood:'Williamsburg',
     desc:'ODA Architecture\'s 2019 riverfront development features three glass towers with corner apartments and full-height glazing maximizing views. The 857-residence complex includes over 80,000 square feet of outdoor space and a 400-foot riverside esplanade open to the public, integrating the waterfront into neighborhood life.',
@@ -5924,8 +6588,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Private residential towers.',
     transit:'L → Bedford Ave',
     walkFrom:'Williamsburg waterfront: adjacent',
-    tags:['waterfront', 'glass-towers', 'public-space', 'shopping', 'restaurant'],
-    photos:[]
+    tags:[
+      'waterfront',
+      'glass-towers',
+      'public-space',
+      'affordable housing'
+    ],
+    photos:[],
+    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7095637, lng:-73.9685062 }
   },
   {
     id:'nyc-0154',
@@ -5988,7 +6658,12 @@ var LOCS_NEW_YORK = [
     tourInfo:'Private residential tower.',
     transit:'G → Myrtle–Willoughby Aves',
     walkFrom:'Bushwick collective: 8 min',
-    tags:['modular-design', 'sloped-roofs', 'industrial-site', 'restaurant'],
+    tags:[
+      'modular-design',
+      'sloped-roofs',
+      'industrial-site',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -6018,7 +6693,12 @@ var LOCS_NEW_YORK = [
     tourInfo:'Private residential complex.',
     transit:'G → Myrtle–Willoughby Aves',
     walkFrom:'The Rheingold: 3 min',
-    tags:['large-scale', 'public-park', 'industrial-reuse', 'restaurant'],
+    tags:[
+      'large-scale',
+      'public-park',
+      'industrial-reuse',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -6049,7 +6729,12 @@ var LOCS_NEW_YORK = [
     tourInfo:'Private residential tower.',
     transit:'G → Court Sq',
     walkFrom:'Queensbridge Park: 7 min',
-    tags:['stepped-facade', 'outdoor-spaces', 'atrium', 'kids'],
+    tags:[
+      'stepped-facade',
+      'outdoor-spaces',
+      'atrium',
+      'kids'
+    ],
     photos:[]
   },
   {
@@ -6081,7 +6766,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Behind-the-scenes tours available.',
     transit:'A, C, D → Columbus Circle',
     walkFrom:'Central Park: adjacent',
-    tags:['jazz-venue', 'glass-architecture', 'cultural-landmark', 'touristic', 'shopping', 'restaurant'],
+    tags:[
+      'jazz-venue',
+      'glass-architecture',
+      'cultural-landmark',
+      'touristic',
+      'shopping',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -6112,7 +6804,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Private residential tower.',
     transit:'N, R, W → Cortlandt St',
     walkFrom:'Battery Park: 8 min',
-    tags:['luxury-residential', 'curved-form', 'financial-district', 'touristic', 'shopping', 'restaurant'],
+    tags:[
+      'luxury-residential',
+      'curved-form',
+      'financial-district',
+      'touristic',
+      'shopping',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -6143,7 +6842,12 @@ var LOCS_NEW_YORK = [
     tourInfo:'Office building.',
     transit:'A, C, E → 14th St',
     walkFrom:'High Line: adjacent',
-    tags:['parametric-design', 'solar-carved', 'office-building', 'shopping'],
+    tags:[
+      'parametric-design',
+      'solar-carved',
+      'office-building',
+      'shopping'
+    ],
     photos:[]
   },
   {
@@ -6175,7 +6879,13 @@ var LOCS_NEW_YORK = [
     tourInfo:'Private residential tower.',
     transit:'2, 3, 4, 5 → Hoyt–Schermerhorn',
     walkFrom:'Atlantic Avenue Terminal: 6 min',
-    tags:['scalloped-facade', 'rooftop-park', 'residential-tower', 'shopping', 'restaurant'],
+    tags:[
+      'scalloped-facade',
+      'rooftop-park',
+      'residential-tower',
+      'shopping',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -6206,7 +6916,13 @@ var LOCS_NEW_YORK = [
     tourInfo:'Museum docent tours available.',
     transit:'B, C → 79th St–Museum of Natural History',
     walkFrom:'Central Park: adjacent',
-    tags:['museum-addition', 'cave-like', 'institutional', 'touristic', 'kids'],
+    tags:[
+      'museum-addition',
+      'cave-like',
+      'institutional',
+      'touristic',
+      'kids'
+    ],
     photos:[]
   },
   {
@@ -6238,7 +6954,12 @@ var LOCS_NEW_YORK = [
     tourInfo:'Campus tours by appointment.',
     transit:'1 → 125th St',
     walkFrom:'Columbia University: 2 min',
-    tags:['gothic-revival', 'theological-campus', 'historic landmark', 'touristic'],
+    tags:[
+      'gothic-revival',
+      'theological-campus',
+      'historic landmark',
+      'touristic'
+    ],
     photos:[]
   },
   {
@@ -6269,7 +6990,13 @@ var LOCS_NEW_YORK = [
     tourInfo:'Bell tower tours available Wed 2pm.',
     transit:'1 → 125th St',
     walkFrom:'Union Theological Seminary: 2 min',
-    tags:['neo-gothic', 'carillon', 'landmark-tower', 'historic landmark', 'touristic'],
+    tags:[
+      'neo-gothic',
+      'carillon',
+      'landmark-tower',
+      'historic landmark',
+      'touristic'
+    ],
     photos:[]
   },
   {
@@ -6301,7 +7028,13 @@ var LOCS_NEW_YORK = [
     tourInfo:'Private residential tower.',
     transit:'1 → 125th St',
     walkFrom:'Riverside Church: 4 min',
-    tags:['collegiate-gothic', 'luxury-residential', 'contextual', 'restaurant', 'kids'],
+    tags:[
+      'collegiate-gothic',
+      'luxury-residential',
+      'contextual',
+      'restaurant',
+      'kids'
+    ],
     photos:[]
   },
   {
@@ -6333,7 +7066,15 @@ var LOCS_NEW_YORK = [
     tourInfo:'Educational programs and campus tours available.',
     transit:'1 → 125th St',
     walkFrom:'Columbia University campus: adjacent',
-    tags:['glass-palace', 'neuroscience-research', 'contemporary', 'pritzker prize', 'touristic', 'restaurant', 'kids'],
+    tags:[
+      'glass-palace',
+      'neuroscience-research',
+      'contemporary',
+      'pritzker prize',
+      'touristic',
+      'restaurant',
+      'kids'
+    ],
     photos:[]
   },
   {
@@ -6364,7 +7105,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Gallery talks and performance tours available.',
     transit:'1 → 125th St',
     walkFrom:'Jerome L. Greene Science Center: 4 min',
-    tags:['art-center', 'gallery-spaces', 'performance-venues', 'pritzker prize', 'touristic', 'restaurant'],
+    tags:[
+      'art-center',
+      'gallery-spaces',
+      'performance-venues',
+      'pritzker prize',
+      'touristic',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -6396,7 +7144,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Campus tours include the Forum.',
     transit:'A, C, D, 1 → 125th St',
     walkFrom:'Lenfest Center for the Arts: 3 min',
-    tags:['conference-space', 'glass-pavilion', 'public-engagement', 'pritzker prize', 'touristic', 'restaurant'],
+    tags:[
+      'conference-space',
+      'glass-pavilion',
+      'public-engagement',
+      'pritzker prize',
+      'touristic',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -6426,7 +7181,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Contact Columbia University for academic tours.',
     transit:'A/C → 125th St',
     walkFrom:'Columbia University campus center: 2 min',
-    tags:['glass', 'laboratory', 'columbia', 'institutional', 'pritzker prize', 'restaurant'],
+    tags:[
+      'glass',
+      'laboratory',
+      'columbia',
+      'institutional',
+      'pritzker prize',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -6458,7 +7220,15 @@ var LOCS_NEW_YORK = [
     tourInfo:'Guided tours available; check website for schedule.',
     transit:'1 → 110th St; A/C → 125th St',
     walkFrom:'Morningside Park: 1 min; Columbia University: 3 min',
-    tags:['cathedral', 'religious', 'gothic', 'landmark', 'historic landmark', 'touristic', 'shopping'],
+    tags:[
+      'cathedral',
+      'religious',
+      'gothic',
+      'landmark',
+      'historic landmark',
+      'touristic',
+      'shopping'
+    ],
     photos:[]
   },
   {
@@ -6558,7 +7328,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Academic facility; contact City College for more information.',
     transit:'A/D → 155th St',
     walkFrom:'City College campus: adjacent',
-    tags:['research', 'laboratory', 'academic', 'modern', 'institutional', 'restaurant'],
+    tags:[
+      'research',
+      'laboratory',
+      'academic',
+      'modern',
+      'institutional',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -6589,7 +7366,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Columbia University campus tours include exterior; some interior access during events.',
     transit:'1 → 116th St; A/C → 125th St',
     walkFrom:'Columbia University center: 1 min',
-    tags:['beaux-arts', 'landmark', 'neoclassical', 'columbia', 'historic landmark', 'touristic'],
+    tags:[
+      'beaux-arts',
+      'landmark',
+      'neoclassical',
+      'columbia',
+      'historic landmark',
+      'touristic'
+    ],
     photos:[]
   },
   {
@@ -6619,7 +7403,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Campus tours may include exterior; interior access requires affiliation.',
     transit:'1 → 114th St',
     walkFrom:'Columbia University: 1 min',
-    tags:['library', 'neoclassical', 'academic', 'columbia', 'institutional', 'restaurant'],
+    tags:[
+      'library',
+      'neoclassical',
+      'academic',
+      'columbia',
+      'institutional',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -6649,7 +7440,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Student center; contact Columbia for access information.',
     transit:'1 → 116th St; A/C → 125th St',
     walkFrom:'Columbia University: adjacent',
-    tags:['deconstructivism', 'student-center', 'glass', 'columbia', 'modern', 'restaurant'],
+    tags:[
+      'deconstructivism',
+      'student-center',
+      'glass',
+      'columbia',
+      'modern',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -6679,7 +7477,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Academic facility; contact Columbia Business School.',
     transit:'1 → 125th St; A/C → 125th St',
     walkFrom:'Columbia Manhattanville campus: adjacent',
-    tags:['business-school', 'academic', 'contemporary', 'columbia', 'institutional', 'restaurant'],
+    tags:[
+      'business-school',
+      'academic',
+      'contemporary',
+      'columbia',
+      'institutional',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -6710,7 +7515,16 @@ var LOCS_NEW_YORK = [
     tourInfo:'Private residential building.',
     transit:'7 → Hudson Yards-34th St; A/C/E → 34th St',
     walkFrom:'The Shed: 1 min; High Line: 2 min',
-    tags:['residential', 'skyscraper', 'luxury', 'hudson-yards', 'contemporary', 'touristic', 'shopping', 'restaurant'],
+    tags:[
+      'residential',
+      'skyscraper',
+      'luxury',
+      'hudson-yards',
+      'contemporary',
+      'touristic',
+      'shopping',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -6740,7 +7554,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Medical school facility; contact Columbia CUMC.',
     transit:'A/C → 168th St',
     walkFrom:'Columbia Medical Center: adjacent',
-    tags:['medical-education', 'academic', 'contemporary', 'columbia', 'institutional', 'restaurant'],
+    tags:[
+      'medical-education',
+      'academic',
+      'contemporary',
+      'columbia',
+      'institutional',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -6770,7 +7591,15 @@ var LOCS_NEW_YORK = [
     tourInfo:'Barnard College facility; contact for event access.',
     transit:'1 → 116th St; A/C → 125th St',
     walkFrom:'Barnard College campus: adjacent',
-    tags:['arts-center', 'academic', 'contemporary', 'barnard', 'institutional', 'shopping', 'restaurant'],
+    tags:[
+      'arts-center',
+      'academic',
+      'contemporary',
+      'barnard',
+      'institutional',
+      'shopping',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -6800,7 +7629,15 @@ var LOCS_NEW_YORK = [
     tourInfo:'Private residential building.',
     transit:'N/R/W → 23rd St; 6 → 23rd St',
     walkFrom:'Gramercy Park: 2 min',
-    tags:['residential', 'oma', 'contemporary', 'luxury', 'prismatic', 'pritzker prize', 'shopping'],
+    tags:[
+      'residential',
+      'oma',
+      'contemporary',
+      'luxury',
+      'prismatic',
+      'pritzker prize',
+      'shopping'
+    ],
     photos:[]
   },
   {
@@ -6831,7 +7668,16 @@ var LOCS_NEW_YORK = [
     tourInfo:'Hotel guests and public lobby access.',
     transit:'B/D/F/M → 42nd St; 7 → 42nd St',
     walkFrom:'Bryant Park: 1 min; Times Square: 2 min',
-    tags:['mixed-use', 'hotel', 'residential', 'chipperfield', 'contemporary', 'pritzker prize', 'shopping', 'restaurant'],
+    tags:[
+      'mixed-use',
+      'hotel',
+      'residential',
+      'chipperfield',
+      'contemporary',
+      'pritzker prize',
+      'shopping',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -6861,7 +7707,15 @@ var LOCS_NEW_YORK = [
     tourInfo:'Retail space; public entry.',
     transit:'E/M → 53rd St; N/R/W → 5th Ave',
     walkFrom:'St. Patrick\'s Cathedral: 1 min; Fifth Avenue: adjacent',
-    tags:['retail', 'flagship', 'luxury', 'chipperfield', 'contemporary', 'pritzker prize', 'shopping'],
+    tags:[
+      'retail',
+      'flagship',
+      'luxury',
+      'chipperfield',
+      'contemporary',
+      'pritzker prize',
+      'shopping'
+    ],
     photos:[]
   },
   {
@@ -6892,7 +7746,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Courthouse; limited public access during operations.',
     transit:'4/5/6 → Brooklyn Bridge-City Hall; J/Z → Chambers St',
     walkFrom:'City Hall: 2 min; The Oculus: 3 min',
-    tags:['courthouse', 'beaux-arts', 'landmark', 'civic', 'historic landmark', 'touristic'],
+    tags:[
+      'courthouse',
+      'beaux-arts',
+      'landmark',
+      'civic',
+      'historic landmark',
+      'touristic'
+    ],
     photos:[]
   },
   {
@@ -6923,7 +7784,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Federal courthouse; limited public access.',
     transit:'4/5/6 → Brooklyn Bridge-City Hall; J/Z → Chambers St',
     walkFrom:'City Hall: 2 min; Woolworth Building: 2 min',
-    tags:['courthouse', 'art-deco', 'landmark', 'federal', 'historic landmark', 'touristic'],
+    tags:[
+      'courthouse',
+      'art-deco',
+      'landmark',
+      'federal',
+      'historic landmark',
+      'touristic'
+    ],
     photos:[]
   },
   {
@@ -6954,7 +7822,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Visitor gallery closed; contact for information on special access.',
     transit:'4/5 → Wall St; 2/3 → Wall St; J/Z → Broad St',
     walkFrom:'Wall Street: adjacent; Federal Hall: 1 min',
-    tags:['stock-exchange', 'beaux-arts', 'landmark', 'financial', 'historic landmark', 'touristic'],
+    tags:[
+      'stock-exchange',
+      'beaux-arts',
+      'landmark',
+      'financial',
+      'historic landmark',
+      'touristic'
+    ],
     photos:[]
   },
   {
@@ -6985,7 +7860,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Self-guided; exhibitions displayed throughout.',
     transit:'M/N/W → Queensboro Plaza; 7 → Court Sq',
     walkFrom:'Queensboro Bridge: 2 min; Gantry Plaza State Park: 1 min',
-    tags:['contemporary-art', 'moma', 'landmark', 'long-island-city', 'adaptive-reuse', 'touristic'],
+    tags:[
+      'contemporary-art',
+      'moma',
+      'landmark',
+      'long-island-city',
+      'adaptive-reuse',
+      'touristic'
+    ],
     photos:[]
   },
   {
@@ -7015,7 +7897,15 @@ var LOCS_NEW_YORK = [
     tourInfo:'Self-guided tours; docent talks on weekends.',
     transit:'M/R → Steinway St; N/W → Astoria Blvd',
     walkFrom:'Astoria Park: 1 min',
-    tags:['museum', 'sculpture', 'noguchi', 'astoria', 'contemporary-art', 'touristic', 'restaurant'],
+    tags:[
+      'museum',
+      'sculpture',
+      'noguchi',
+      'astoria',
+      'contemporary-art',
+      'touristic',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -7046,7 +7936,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Public landscape; self-guided exploration.',
     transit:'Ferry from Battery Park or Brooklyn Bridge Park',
     walkFrom:'Governors Island center: 10 min walk',
-    tags:['landscape', 'park', 'sculpture', 'governors-island', 'public-art', 'kids'],
+    tags:[
+      'landscape',
+      'park',
+      'sculpture',
+      'governors-island',
+      'public-art',
+      'kids'
+    ],
     photos:[]
   },
   {
@@ -7077,7 +7974,15 @@ var LOCS_NEW_YORK = [
     tourInfo:'Private residential building.',
     transit:'1/2/3 → Park Place; 4/5 → Fulton St',
     walkFrom:'Tribeca: 1 min; The Oculus: 2 min',
-    tags:['residential', 'skyscraper', 'luxury', 'tribeca', 'contemporary', 'shopping', 'restaurant'],
+    tags:[
+      'residential',
+      'skyscraper',
+      'luxury',
+      'tribeca',
+      'contemporary',
+      'shopping',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -7107,7 +8012,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Private residential building.',
     transit:'L → Bedford Ave; G → Nassau Ave',
     walkFrom:'East River Waterfront: 1 min; Domino Park: 2 min',
-    tags:['residential', 'waterfront', 'sustainable', 'williamsburg', 'adaptive-reuse', 'shopping'],
+    tags:[
+      'residential',
+      'waterfront',
+      'sustainable',
+      'williamsburg',
+      'adaptive-reuse',
+      'shopping'
+    ],
     photos:[]
   },
   {
@@ -7137,7 +8049,15 @@ var LOCS_NEW_YORK = [
     tourInfo:'Guided and self-guided exhibition tours available.',
     transit:'F → Broadway-Lafayette; J/Z → Bowery',
     walkFrom:'Lower East Side: adjacent',
-    tags:['museum', 'contemporary', 'oma', 'lower-east-side', 'expansion', 'pritzker prize', 'touristic'],
+    tags:[
+      'museum',
+      'contemporary',
+      'oma',
+      'lower-east-side',
+      'expansion',
+      'pritzker prize',
+      'touristic'
+    ],
     photos:[]
   },
   {
@@ -7168,7 +8088,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Public performances and special events; lobby accessible.',
     transit:'2/3/4/5 → Fulton St; J/Z → Fulton St; 1 → Park Place',
     walkFrom:'World Trade Center: 1 min; The Oculus: 1 min',
-    tags:['performing-arts', 'theater', 'landmark', 'wtc', 'contemporary', 'touristic'],
+    tags:[
+      'performing-arts',
+      'theater',
+      'landmark',
+      'wtc',
+      'contemporary',
+      'touristic'
+    ],
     photos:[]
   },
   {
@@ -7220,7 +8147,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Lobby and public spaces; guest rooms available',
     transit:'1/2/3 → 34th St-Penn Station',
     walkFrom:'Penn Station: 2 min',
-    tags:['art-deco', 'hotel', 'skyscraper', 'historic', 'touristic', 'restaurant'],
+    tags:[
+      'art-deco',
+      'hotel',
+      'skyscraper',
+      'historic',
+      'touristic',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -7243,7 +8177,16 @@ var LOCS_NEW_YORK = [
     tourInfo:'Self-guided shopping; architectural features throughout building',
     transit:'B/D/F/M/N/Q/R/W → 34th St-Herald Square',
     walkFrom:'Herald Square: 0 min',
-    tags:['beaux-arts', 'landmark', 'historic landmark', 'retail', 'commercial', 'touristic', 'shopping', 'restaurant'],
+    tags:[
+      'beaux-arts',
+      'landmark',
+      'historic landmark',
+      'retail',
+      'commercial',
+      'touristic',
+      'shopping',
+      'restaurant'
+    ],
     photos:[]
   },
   {
@@ -7295,7 +8238,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Guided tours showcase grand lobby, auditorium, and backstage areas',
     transit:'B/D/F/M → 47-50th Sts-Rockefeller Center',
     walkFrom:'Rockefeller Center: 2 min',
-    tags:['art-deco', 'performing-arts', 'historic landmark', 'landmark', 'theatrical', 'touristic'],
+    tags:[
+      'art-deco',
+      'performing-arts',
+      'historic landmark',
+      'landmark',
+      'theatrical',
+      'touristic'
+    ],
     photos:[]
   },
   {
@@ -7318,7 +8268,14 @@ var LOCS_NEW_YORK = [
     tourInfo:'Guided tours of main hall, intimate theaters, and landmark spaces',
     transit:'N/Q/R/W → 57th St-7th Ave',
     walkFrom:'Columbus Circle: 5 min',
-    tags:['renaissance-revival', 'performing-arts', 'historic landmark', 'landmark', 'music', 'touristic'],
+    tags:[
+      'renaissance-revival',
+      'performing-arts',
+      'historic landmark',
+      'landmark',
+      'music',
+      'touristic'
+    ],
     photos:[]
   },
   {
@@ -8869,7 +9826,7 @@ var LOCS_NEW_YORK = [
     yr:2025,
     access:'No Public Access',
     lat:40.7328,
-    lng:-74.0630,
+    lng:-74.063,
     addr:'615 Pavonia Ave, Jersey City, NJ 07306',
     hood:'Journal Square, Jersey City',
     desc:'Journal Squared, designed by Handel Architects and HWKN and completed in phases from 2016 to 2025, is a three-tower residential complex totalling 2.3 million square feet in Jersey City\'s Journal Square. The tallest tower rises 72 stories and 741 feet, making it one of New Jersey\'s tallest buildings, with the other two at 59 and 53 stories. The three white-clad skyscrapers sit clustered together atop a shared eight-story podium containing retail, dining, and communal amenities. The gridded facades create a unified visual identity while the staggered heights produce a dynamic skyline composition visible from across the Hudson. The complex contains 1,840 apartments and 36,000 square feet of retail and dining areas, transforming the formerly quiet Journal Square neighbourhood into a major residential destination with direct PATH train access to Manhattan.',
@@ -11495,9 +12452,9 @@ var LOCS_NEW_YORK = [
     ],
     photos:[]
   },
-{
+  {
     id:'nyc-0297',
-    name:"Bronx Children's Museum",
+    name:'Bronx Children\'s Museum',
     cats:[
       'cultural',
       'adaptive-reuse'
@@ -11544,9 +12501,9 @@ var LOCS_NEW_YORK = [
     ],
     photos:[]
   },
-{
+  {
     id:'nyc-0298',
-    name:"Brooklyn Children's Museum",
+    name:'Brooklyn Children\'s Museum',
     cats:[
       'cultural',
       'expansion'
@@ -11594,9 +12551,9 @@ var LOCS_NEW_YORK = [
     ],
     photos:[]
   },
-{
+  {
     id:'nyc-0299',
-    name:"425 Fifth Avenue",
+    name:'425 Fifth Avenue',
     cats:[
       'residential',
       'skyscrapers'
@@ -11640,9 +12597,9 @@ var LOCS_NEW_YORK = [
     ],
     photos:[]
   },
-{
+  {
     id:'nyc-0300',
-    name:"The Impala",
+    name:'The Impala',
     cats:[
       'residential'
     ],
@@ -11658,7 +12615,7 @@ var LOCS_NEW_YORK = [
     ],
     yr:2000,
     access:'Private exterior',
-    lat:40.770,
+    lat:40.77,
     lng:-73.954,
     addr:'404 East 76th Street, New York, NY 10021',
     hood:'Upper East Side',
@@ -11683,5 +12640,4 @@ var LOCS_NEW_YORK = [
     ],
     photos:[]
   }
-
 ];
