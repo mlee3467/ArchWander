@@ -1428,6 +1428,47 @@
 }
 .route-addall-list:hover { background: #FCE7F3; border-color: #C026D3; }
 
+/* Add locations around me button */
+.route-nearbyme-btn {
+  display: flex; align-items: center; justify-content: center;
+  background: #EFF6FF; border: 1px dashed #3B82F6; color: #1D4ED8;
+}
+.route-nearbyme-btn:hover { background: #DBEAFE; border-color: #2563EB; color: #1e40af; }
+
+/* Near me slider panel */
+.route-nearbyme-inner {
+  background: #F8FAFF; border: 1px solid #BFDBFE; border-radius: 8px;
+  padding: 12px 14px; margin-bottom: 12px; margin-top: -6px;
+}
+.route-nearbyme-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 8px;
+}
+.route-nearbyme-label {
+  font-size: 12px; font-weight: 600; color: #1D4ED8;
+}
+.route-nearbyme-val {
+  font-size: 13px; font-weight: 700; color: #1D4ED8;
+}
+.route-nearbyme-slider {
+  width: 100%; margin-bottom: 4px; accent-color: #3B82F6;
+}
+.route-nearbyme-ticks {
+  display: flex; justify-content: space-between;
+  font-size: 10px; color: #9CA3AF; margin-bottom: 10px; padding: 0 2px;
+}
+.route-nearbyme-go {
+  display: block; width: 100%; padding: 9px;
+  background: #3B82F6; border: none; border-radius: 7px;
+  color: #fff; font-size: 13px; font-weight: 600;
+  cursor: pointer; font-family: Inter, -apple-system, sans-serif;
+}
+.route-nearbyme-go:hover { background: #2563EB; }
+.route-nearbyme-msg {
+  font-size: 12px; color: #1D4ED8; margin-top: 8px;
+  text-align: center; min-height: 16px;
+}
+
 /* Top actions — sticky bar */
 .route-top-actions {
   position: sticky; top: 0; z-index: 2;
@@ -1735,8 +1776,11 @@
 .ifl-card.selected .ifl-card-label { color: #3366FF; font-weight: 600; }
 
 .ifl-footer {
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; flex-direction: column; gap: 8px;
   padding: 12px 20px 16px; border-top: 1px solid #f0f0f0;
+}
+.ifl-footer-row1 {
+  display: flex; align-items: center; justify-content: space-between;
 }
 .ifl-clear-btn {
   background: none; border: 1px solid #ddd; border-radius: 8px;
@@ -1751,6 +1795,23 @@
   font-family: Inter, -apple-system, sans-serif;
 }
 .ifl-apply-btn:hover { background: #2855DD; }
+
+/* IFL → Route shortcut button */
+@keyframes ifl-route-blink {
+  0%, 100% { opacity: 1; box-shadow: 0 2px 8px rgba(217,70,168,0.45); }
+  50%       { opacity: 0.72; box-shadow: 0 2px 4px rgba(217,70,168,0.2); }
+}
+.ifl-route-btn {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  width: 100%; border: none; border-radius: 9px;
+  padding: 9px 0; font-size: 13px; font-weight: 700;
+  color: #fff; cursor: pointer;
+  background: linear-gradient(135deg, #E052A0, #D946A8);
+  font-family: Inter, -apple-system, sans-serif;
+  animation: ifl-route-blink 1.4s ease-in-out infinite;
+}
+.ifl-route-btn svg { stroke: white; }
+.ifl-route-btn:hover { opacity: 1; animation: none; background: #c9379a; }
 
 /* Mobile adjustments */
 @media (max-width: 900px) {

@@ -115,7 +115,25 @@ function _renderRouteHoods(hoods, locs) {
     (LANG === 'ko' ? '리스트 전체 추가' : 'Add All from List') +
     ' (' + (locs ? locs.length : 0) + ')</button>';
 
-  container.innerHTML = walkInfo + addAllBtn +
+  var nearMeBtn = '<button class="route-addall-list route-nearbyme-btn" onclick="toggleRouteNearMeSlider()">' +
+    '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" style="flex-shrink:0;vertical-align:-1px;margin-right:4px"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>' +
+    (LANG === 'ko' ? '내 주변 장소 추가' : 'Add locations around me') + '</button>' +
+    '<div id="route-nearbyme-panel" style="display:none">' +
+      '<div class="route-nearbyme-inner">' +
+        '<div class="route-nearbyme-row">' +
+          '<label class="route-nearbyme-label">' + (LANG === 'ko' ? '도보 거리' : 'Walking distance') + '</label>' +
+          '<span class="route-nearbyme-val" id="route-nearbyme-val">10 min</span>' +
+        '</div>' +
+        '<input type="range" id="route-nearbyme-slider" class="route-nearbyme-slider" min="5" max="30" step="5" value="10" oninput="updateRouteNearMeLabel(this.value)">' +
+        '<div class="route-nearbyme-ticks"><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span></div>' +
+        '<button class="route-nearbyme-go" onclick="addNearbyToRoute()">' +
+          (LANG === 'ko' ? '이 범위의 장소 모두 추가' : 'Add all within range') +
+        '</button>' +
+        '<div id="route-nearbyme-msg" class="route-nearbyme-msg"></div>' +
+      '</div>' +
+    '</div>';
+
+  container.innerHTML = walkInfo + nearMeBtn + addAllBtn +
     '<div class="route-section-label">' +
     (LANG === 'ko' ? '동네별 건축물' : 'Architecture by Neighborhood') + '</div>' +
     hoods.map(function(h) {
@@ -511,12 +529,13 @@ function _renderRouteResult(data, ordered) {
       var legDur  = Math.ceil(leg.duration / 60) + (LANG === 'ko' ? '분' : ' min');
       legInfo = '<div class="route-leg-info">🚶 ' + legDist + ' · ' + legDur + '</div>';
     }
+    var catBadge = _pCat(loc);
     html += '<div class="route-stop">' +
       '<div class="route-stop-num">' + (i + 1) + '</div>' +
       '<div class="route-stop-info">' +
         '<div class="route-stop-name">' + _routeLocName(loc) + '</div>' +
         '<div class="route-stop-meta">' +
-          '<span class="cat-badge ' + _pCC(loc) + '" style="font-size:10px">' + _pCat(loc) + '</span>' +
+          '<span class="cat-badge ' + (CAT_CC_MAP[catBadge] || 'c-lmk') + '" style="font-size:10px">' + catBadge + '</span>' +
           (loc.hood ? ' · ' + _escHtml(loc.hood) : '') +
         '</div>' +
       '</div>' +
@@ -563,6 +582,93 @@ function _routeStatus(msg) {
 
 // Helper: Alias for _refreshRouteUI
 function _updateRouteSelectedUI() {
+  _refreshRouteUI();
+}
+
+// ── Add Locations Around Me ──────────────────────────────────────
+
+function toggleRouteNearMeSlider() {
+  var panel = document.getElementById('route-nearbyme-panel');
+  if (!panel) return;
+  var isOpen = panel.style.display !== 'none';
+  panel.style.display = isOpen ? 'none' : 'block';
+
+  // If no origin yet, try to get GPS when opening
+  if (!isOpen && !walkOrigin) {
+    _routeRequestLocation();
+  }
+}
+
+function updateRouteNearMeLabel(val) {
+  var el = document.getElementById('route-nearbyme-val');
+  if (el) el.textContent = val + (LANG === 'ko' ? '분' : ' min');
+}
+
+function _routeRequestLocation() {
+  var msg = document.getElementById('route-nearbyme-msg');
+  if (!navigator.geolocation) {
+    if (msg) msg.textContent = LANG === 'ko' ? '위치 정보를 사용할 수 없습니다.' : 'Geolocation not supported.';
+    return;
+  }
+  if (msg) msg.textContent = LANG === 'ko' ? '📍 위치를 가져오는 중…' : '📍 Getting your location…';
+
+  navigator.geolocation.getCurrentPosition(
+    function(pos) {
+      // Store as walkOrigin (reuse the walk system's origin)
+      walkOrigin = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+      walkActive = false; // don't activate full walk filter, just use origin for distance
+      if (msg) msg.textContent = LANG === 'ko' ? '✅ 위치 확인됨. 거리를 선택하세요.' : '✅ Location found. Choose your distance.';
+      setTimeout(function() { if (msg) msg.textContent = ''; }, 2500);
+    },
+    function() {
+      if (msg) msg.textContent = LANG === 'ko' ? '위치를 가져올 수 없습니다. 브라우저 권한을 확인하세요.' : 'Could not get location. Check browser permissions.';
+    }
+  );
+}
+
+function addNearbyToRoute() {
+  var msg = document.getElementById('route-nearbyme-msg');
+
+  if (!walkOrigin) {
+    if (msg) msg.textContent = LANG === 'ko' ? '📍 먼저 위치를 확인해야 합니다.' : '📍 Location not available yet. Try again.';
+    _routeRequestLocation();
+    return;
+  }
+
+  var slider = document.getElementById('route-nearbyme-slider');
+  var minutes = parseInt(slider ? slider.value : 10, 10);
+  var radiusM = minutes * 80; // ~80 m/min
+
+  var cityLocs = LOCS.filter(function(l) { return l.city === activeCityKey; });
+  var nearby = cityLocs.filter(function(l) {
+    return haversineM(walkOrigin.lat, walkOrigin.lng, l.lat, l.lng) <= radiusM;
+  });
+
+  if (nearby.length === 0) {
+    if (msg) msg.textContent = LANG === 'ko' ? '이 범위 내에 장소가 없습니다.' : 'No locations found within this range.';
+    return;
+  }
+
+  var existingIds = new Set(routeLocations.map(function(l) { return l.id; }));
+  var added = 0;
+  nearby.forEach(function(loc) {
+    if (!existingIds.has(loc.id)) {
+      routeLocations.push(loc);
+      added++;
+    }
+  });
+
+  if (msg) {
+    msg.textContent = added > 0
+      ? (LANG === 'ko' ? added + '개 장소가 추가되었습니다!' : added + ' locations added!')
+      : (LANG === 'ko' ? '모두 이미 추가됨.' : 'All already added.');
+    setTimeout(function() { if (msg) msg.textContent = ''; }, 2500);
+  }
+
+  // Close slider panel
+  var panel = document.getElementById('route-nearbyme-panel');
+  if (panel) panel.style.display = 'none';
+
   _refreshRouteUI();
 }
 
