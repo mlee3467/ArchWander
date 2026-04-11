@@ -4013,7 +4013,7 @@ var LOCS_NEW_YORK = [
     access:'private',
     lat:40.7421035,
     lng:-73.9758074,
-    addr:'First Ave between E 30th & E 33rd Streets, New York, NY 10016',
+    addr: '300 E 33rd St, New York, NY 10016, United States',
     hood:'Kips Bay',
     desc:'Kips Bay Towers consists of two 21-story reinforced concrete residential slabs by I.M. Pei, completed in 1963 (Phase 1) and 1965 (Phase 2), commissioned by real estate developer William Zeckendorf as part of his urban renewal program. The towers are notable for their pioneering use of precast concrete grid facades — deeply recessed openings that eliminate the conventional window in favor of a continuously textured surface that reads as pure geometry. At the time they were among the most technically ambitious concrete structures in New York. The project was an early demonstration of Pei\'s ability to combine rigorous structural thinking with aesthetic refinement, and influenced a generation of Brutalist residential design.',
     hours:'Exterior: 24/7',
