@@ -115,19 +115,34 @@ function _renderRouteHoods(hoods, locs) {
     (LANG === 'ko' ? '리스트 전체 추가' : 'Add All from List') +
     ' (' + (locs ? locs.length : 0) + ')</button>';
 
+  var ko = LANG === 'ko';
   var nearMeBtn = '<button class="route-addall-list route-nearbyme-btn" onclick="toggleRouteNearMeSlider()">' +
     '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" style="flex-shrink:0;vertical-align:-1px;margin-right:4px"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>' +
-    (LANG === 'ko' ? '내 주변 장소 추가' : 'Add locations around me') + '</button>' +
+    (ko ? '내 주변 장소 추가' : 'Add locations around me') + '</button>' +
     '<div id="route-nearbyme-panel" style="display:none">' +
       '<div class="route-nearbyme-inner">' +
-        '<div class="route-nearbyme-row">' +
-          '<label class="route-nearbyme-label">' + (LANG === 'ko' ? '도보 거리' : 'Walking distance') + '</label>' +
-          '<span class="route-nearbyme-val" id="route-nearbyme-val">10 min</span>' +
+        /* ── Location source selector ── */
+        '<div class="route-nm-src-label">' + (ko ? '기준 위치' : 'Location source') + '</div>' +
+        '<div class="route-nm-src-row">' +
+          '<button class="route-nm-src-btn" id="route-nm-gps-btn" onclick="routeNearMeUseGPS()">' +
+            '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>' +
+            (ko ? 'GPS 위치' : 'Use GPS') +
+          '</button>' +
+          '<button class="route-nm-src-btn" id="route-nm-pin-btn" onclick="routeNearMeDropPin()">' +
+            '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>' +
+            (ko ? '핀으로 지정' : 'Drop a pin') +
+          '</button>' +
         '</div>' +
-        '<input type="range" id="route-nearbyme-slider" class="route-nearbyme-slider" min="5" max="30" step="5" value="10" oninput="updateRouteNearMeLabel(this.value)">' +
-        '<div class="route-nearbyme-ticks"><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span></div>' +
+        '<div id="route-nm-src-status" class="route-nm-src-status"></div>' +
+        /* ── Distance slider ── */
+        '<div class="route-nearbyme-row">' +
+          '<label class="route-nearbyme-label">' + (ko ? '도보 거리' : 'Walking distance') + '</label>' +
+          '<span class="route-nearbyme-val" id="route-nearbyme-val">10 ' + (ko ? '분' : 'min') + '</span>' +
+        '</div>' +
+        '<input type="range" id="route-nearbyme-slider" class="route-nearbyme-slider" min="5" max="60" step="5" value="10" oninput="updateRouteNearMeLabel(this.value)">' +
+        '<div class="route-nearbyme-ticks"><span>5</span><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span><span>60</span></div>' +
         '<button class="route-nearbyme-go" onclick="addNearbyToRoute()">' +
-          (LANG === 'ko' ? '이 범위의 장소 모두 추가' : 'Add all within range') +
+          (ko ? '이 범위의 장소 모두 추가' : 'Add all within range') +
         '</button>' +
         '<div id="route-nearbyme-msg" class="route-nearbyme-msg"></div>' +
       '</div>' +
@@ -592,10 +607,25 @@ function toggleRouteNearMeSlider() {
   if (!panel) return;
   var isOpen = panel.style.display !== 'none';
   panel.style.display = isOpen ? 'none' : 'block';
+  if (!isOpen) _routeNearMeUpdateSrcUI();
+}
 
-  // If no origin yet, try to get GPS when opening
-  if (!isOpen && !walkOrigin) {
-    _routeRequestLocation();
+function _routeNearMeUpdateSrcUI() {
+  var gpsBtn = document.getElementById('route-nm-gps-btn');
+  var pinBtn = document.getElementById('route-nm-pin-btn');
+  var status = document.getElementById('route-nm-src-status');
+  if (!gpsBtn || !pinBtn) return;
+  // Clear active states
+  gpsBtn.classList.remove('active');
+  pinBtn.classList.remove('active');
+  if (walkOrigin) {
+    // Show which source is active
+    if (pinDropMarker || (!userMarker && walkOrigin)) {
+      pinBtn.classList.add('active');
+    } else {
+      gpsBtn.classList.add('active');
+    }
+    if (status) status.textContent = '✅ ' + (LANG === 'ko' ? '위치 준비됨' : 'Location ready');
   }
 }
 
@@ -604,34 +634,102 @@ function updateRouteNearMeLabel(val) {
   if (el) el.textContent = val + (LANG === 'ko' ? '분' : ' min');
 }
 
-function _routeRequestLocation() {
-  var msg = document.getElementById('route-nearbyme-msg');
+// GPS button
+function routeNearMeUseGPS() {
+  var status = document.getElementById('route-nm-src-status');
+  var gpsBtn = document.getElementById('route-nm-gps-btn');
+  var pinBtn = document.getElementById('route-nm-pin-btn');
   if (!navigator.geolocation) {
-    if (msg) msg.textContent = LANG === 'ko' ? '위치 정보를 사용할 수 없습니다.' : 'Geolocation not supported.';
+    if (status) status.textContent = LANG === 'ko' ? '위치 서비스 미지원' : 'Geolocation not supported';
     return;
   }
-  if (msg) msg.textContent = LANG === 'ko' ? '📍 위치를 가져오는 중…' : '📍 Getting your location…';
+  if (status) status.textContent = LANG === 'ko' ? '📡 위치를 가져오는 중…' : '📡 Getting your location…';
+  if (gpsBtn) { gpsBtn.classList.add('active'); gpsBtn.disabled = true; }
+  if (pinBtn) pinBtn.classList.remove('active');
 
   navigator.geolocation.getCurrentPosition(
     function(pos) {
-      // Store as walkOrigin (reuse the walk system's origin)
       walkOrigin = { lat: pos.coords.latitude, lng: pos.coords.longitude };
-      walkActive = false; // don't activate full walk filter, just use origin for distance
-      if (msg) msg.textContent = LANG === 'ko' ? '✅ 위치 확인됨. 거리를 선택하세요.' : '✅ Location found. Choose your distance.';
-      setTimeout(function() { if (msg) msg.textContent = ''; }, 2500);
+      if (gpsBtn) { gpsBtn.classList.add('active'); gpsBtn.disabled = false; }
+      if (status) {
+        status.textContent = '✅ ' + (LANG === 'ko' ? 'GPS 위치 확인됨' : 'GPS location found');
+        setTimeout(function() { if (status) status.textContent = ''; }, 3000);
+      }
     },
     function() {
-      if (msg) msg.textContent = LANG === 'ko' ? '위치를 가져올 수 없습니다. 브라우저 권한을 확인하세요.' : 'Could not get location. Check browser permissions.';
+      if (gpsBtn) { gpsBtn.classList.remove('active'); gpsBtn.disabled = false; }
+      if (status) status.textContent = LANG === 'ko' ? '⚠️ 위치를 가져올 수 없습니다' : '⚠️ Could not get location';
     }
   );
+}
+
+// Pin button — minimize route panel, enter pin drop mode
+function routeNearMeDropPin() {
+  // Minimize the route panel on mobile so the map is accessible
+  _minimizeRoutePanelMobile();
+  // On desktop just keep panel open but shift focus
+  if (window.innerWidth <= 900) {
+    // Show a toast hint below the minimized bar
+    var panel = document.getElementById('route-panel');
+    if (panel) {
+      var existing = panel.querySelector('.route-pin-toast');
+      if (!existing) {
+        var toast = document.createElement('div');
+        toast.className = 'route-pin-toast';
+        toast.textContent = LANG === 'ko' ? '📍 지도를 탭해 위치를 지정하세요' : '📍 Tap the map to set location';
+        panel.appendChild(toast);
+      }
+    }
+  }
+  // Enter route pin drop mode
+  routePinDropMode = true;
+  map.getContainer().style.cursor = 'crosshair';
+}
+
+// Called from init.js when map is clicked in routePinDropMode
+function _onRoutePinDropped(lat, lng) {
+  walkOrigin = { lat: lat, lng: lng };
+
+  // Place a pin marker (reuse existing pinDropMarker slot)
+  if (pinDropMarker) { pinDropMarker.remove(); pinDropMarker = null; }
+  pinDropMarker = L.marker([lat, lng], {
+    pane: 'walkMarker',
+    draggable: true,
+    icon: (typeof _personMarkerIcon === 'function') ? _personMarkerIcon() : L.marker([lat, lng]).options.icon
+  }).addTo(map);
+  pinDropMarker.on('dragend', function() {
+    var p = pinDropMarker.getLatLng();
+    walkOrigin = { lat: p.lat, lng: p.lng };
+  });
+
+  // Remove pin toast if present
+  var panel = document.getElementById('route-panel');
+  if (panel) {
+    var toast = panel.querySelector('.route-pin-toast');
+    if (toast) toast.remove();
+  }
+
+  // Restore route panel
+  _restoreRoutePanel();
+  // Re-open near me panel and show ready status
+  var nmPanel = document.getElementById('route-nearbyme-panel');
+  if (nmPanel) nmPanel.style.display = 'block';
+  var pinBtn = document.getElementById('route-nm-pin-btn');
+  var gpsBtn = document.getElementById('route-nm-gps-btn');
+  if (pinBtn) pinBtn.classList.add('active');
+  if (gpsBtn) gpsBtn.classList.remove('active');
+  var status = document.getElementById('route-nm-src-status');
+  if (status) {
+    status.textContent = '✅ ' + (LANG === 'ko' ? '핀 위치 지정됨' : 'Pin location set');
+    setTimeout(function() { if (status) status.textContent = ''; }, 3000);
+  }
 }
 
 function addNearbyToRoute() {
   var msg = document.getElementById('route-nearbyme-msg');
 
   if (!walkOrigin) {
-    if (msg) msg.textContent = LANG === 'ko' ? '📍 먼저 위치를 확인해야 합니다.' : '📍 Location not available yet. Try again.';
-    _routeRequestLocation();
+    if (msg) msg.textContent = LANG === 'ko' ? '📍 먼저 위치를 선택하세요.' : '📍 Choose a location first.';
     return;
   }
 

@@ -6,7 +6,8 @@ var clusterGroup = null;   // Leaflet.markercluster group
 // ── Walk filter state ──────────────────────────────────────────────
 var walkOrigin    = null;   // { lat, lng } GPS position or dropped pin
 var walkActive    = false;  // is walk filter currently on?
-var pinDropMode   = false;  // waiting for user to click map
+var pinDropMode      = false;  // waiting for user to click map (walk filter)
+var routePinDropMode = false;  // waiting for user to click map (route near-me)
 var pinDropMarker = null;   // the draggable pin on map
 // Walk overlay layers
 var walkMaskLayer   = null; // gray outer mask (inverted circle)

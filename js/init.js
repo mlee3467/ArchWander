@@ -35,6 +35,12 @@ function _postInitMap() {
 
   // ── Pin drop: place marker on map click ────────────────────────
   map.on('click', function(e) {
+    if (routePinDropMode) {
+      routePinDropMode = false;
+      map.getContainer().style.cursor = '';
+      _onRoutePinDropped(e.latlng.lat, e.latlng.lng);
+      return;
+    }
     if (!pinDropMode) return;
     pinDropMode = false;
     map.getContainer().style.cursor = '';
@@ -145,35 +151,20 @@ window.addEventListener('load', function() {
 // ADMIN PANEL
 // ══════════════════════════════════════════════════════════════════
 var CAT_CC_MAP = {
-  'skyscrapers':           'c-sky',
-  'historic':              'c-his',
-  'infrastructure':        'c-inf',
-  'cultural':              'c-cul',
-  'parks':                 'c-park',
-  'religious':             'c-rel',
-  'academic / institution':'c-aca',
-  'academic':              'c-aca',
-  'educational':           'c-aca',
-  'institution':           'c-aca',
-  'residential':           'c-res',
-  'housing':               'c-res',
-  'landmarks':             'c-lmk',
-  'landmark':              'c-lmk',
-  'public':                'c-pub',
-  'civic':                 'c-pub',
-  'government':            'c-pub',
-  'retail':                'c-ret',
-  'commercial':            'c-com',
-  'mixed-use':             'c-com',
-  'office':                'c-com',
-  'public space':          'c-park',
-  'park':                  'c-park',
-  'museum':                'c-cul',
-  'gallery':               'c-cul',
-  'hospitality':           'c-com',
-  'observatory':           'c-sky',
-  'sports':                'c-park',
-  'memorial':              'c-his',
+  'Skyscrapers':           'c-sky',
+  'Historic':              'c-his',
+  'Infrastructure':        'c-inf',
+  'Cultural':              'c-cul',
+  'Parks':                 'c-park',
+  'Religious':             'c-rel',
+  'Academic / Institution':'c-aca',
+  'Residential':           'c-res',
+  'Landmarks':             'c-lmk',
+  'Public':                'c-pub',
+  'Retail':                'c-ret',
+  'Commercial':            'c-com',
+  'Mixed-use':             'c-com',
+  'Public Space':          'c-park',
 };
 
 // Open with Ctrl+Shift+A
@@ -287,7 +278,7 @@ function renderAdminTable() {
       <td class="td-name">${loc.name}</td>
       <td style="color:var(--text-secondary)">${loc.arch}</td>
       <td style="color:var(--text-secondary)">${loc.yr}</td>
-      <td>${_allCats(loc).map((c,i) => `<span class="cat-badge ${i===0 ? _pCC(loc) : (CAT_CC_MAP[c]||'c-lmk')}" style="font-size:10px">${c}</span>`).join(' ')}</td>
+      <td>${_allCats(loc).map(c => `<span class="cat-badge ${CAT_CC_MAP[c]||'c-lmk'}" style="font-size:10px">${c}</span>`).join(' ')}</td>
       <td>${loc.access ? `<span class="access-badge ${ACCESS_META[loc.access]?.cls||''}" style="font-size:10px">${ACCESS_META[loc.access]?.icon||''} ${loc.access}</span>` : '—'}</td>
       <td style="color:var(--text-secondary)">${(loc.city||'').replace(/-/g,' ').replace(/\b\w/g,x=>x.toUpperCase())}</td>
       <td>
@@ -326,8 +317,8 @@ function _clearAdmForm() {
     if (el) el.value = '';
   });
   document.getElementById('af-tourOk').checked = false;
-  document.getElementById('af-cat').value    = 'landmarks';
-  document.getElementById('af-access').value = 'open to public';
+  document.getElementById('af-cat').value    = 'Landmarks';
+  document.getElementById('af-access').value = 'Open to Public';
   document.getElementById('af-era').value    = '2000–Present';
   document.getElementById('af-city').value   = activeCityKey || 'new-york';
 }
@@ -349,8 +340,8 @@ function _fillAdmForm(loc) {
   sv('af-tags',       (loc.tags || []).join(', '));
   sv('af-photos',     (loc.photos || []).join('\n'));
   document.getElementById('af-tourOk').checked = !!loc.tourOk;
-  document.getElementById('af-cat').value    = _allCats(loc).join(', ') || 'landmarks';
-  document.getElementById('af-access').value = loc.access || 'open to public';
+  document.getElementById('af-cat').value    = _allCats(loc).join(', ') || 'Landmarks';
+  document.getElementById('af-access').value = loc.access || 'Open to Public';
   document.getElementById('af-era').value    = loc.era    || '2000–Present';
   document.getElementById('af-city').value   = loc.city   || 'new-york';
 }
@@ -380,10 +371,10 @@ function saveAdmForm() {
   if (!name)           { alert('Name is required.'); return; }
   if (isNaN(lat)||isNaN(lng)) { alert('Valid Latitude and Longitude are required.'); return; }
 
-  const catsRaw = fv('af-cat') || 'landmarks';
+  const catsRaw = fv('af-cat') || 'Landmarks';
   const cats = catsRaw.split(',').map(s => s.trim()).filter(Boolean);
   const pCat = cats[0];
-  const sgsRaw = fv('af-styleGroup') || 'contemporary';
+  const sgsRaw = fv('af-styleGroup') || 'Contemporary';
   const styleGroups = sgsRaw.split(',').map(s => s.trim()).filter(Boolean);
   const loc = {
     id:         _admEditId || generateLocationId(fv('af-city') || 'new-york'),
@@ -392,7 +383,7 @@ function saveAdmForm() {
     cats,       cc:         CAT_CC_MAP[pCat] || 'c-lmk',
     styleGroups,
     era:        fv('af-era') || '2000–Present',
-    access:     fv('af-access') || 'open to public',
+    access:     fv('af-access') || 'Open to Public',
     city:       fv('af-city') || 'new-york',
     lat, lng,
     addr:       fv('af-addr'),   hood:     fv('af-hood'),
