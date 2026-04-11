@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
   <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-  <link rel="stylesheet" href="css/styles.css?v=20260405a">
+  <link rel="stylesheet" href="css/styles.css?v=20260411b">
 </head>
 <body>
 
@@ -209,7 +209,7 @@
   <div class="header-row2">
     <button id="near-me-btn" onclick="toggleNearMe()" title="Find architecture near a location">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="flex-shrink:0"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
-      <span class="near-text">Find Near Me</span>
+      <span class="near-text">My Location</span>
     </button>
     <button id="fav-btn" onclick="toggleFavFilter()" title="Show favorites & visited">
       <span style="font-size:14px;line-height:1;flex-shrink:0">&#9734;</span>
@@ -218,6 +218,10 @@
     <button id="route-btn" onclick="openRoutePanel()" title="Plan a walking route">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="flex-shrink:0"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg>
       <span class="route-text">Route</span>
+    </button>
+    <button id="ifl-btn" onclick="openThemeModal()" title="I feel like…">
+      <span style="font-size:14px;line-height:1;flex-shrink:0">✨</span>
+      <span class="ifl-text">I feel like…</span>
     </button>
     <select id="city-select-mobile" onchange="selectCity(this.value)">
       <option value="nyc">🗽 New York</option>
@@ -249,7 +253,7 @@
 <div id="mobile-action-bar">
   <button class="mob-action-btn" id="mob-near-btn" onclick="toggleNearMe(); closeMobileActions();">
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
-    <span class="mob-near-text">Find Near</span>
+    <span class="mob-near-text">My Location</span>
   </button>
   <button class="mob-action-btn" id="mob-fav-btn" onclick="toggleFavFilter(); closeMobileActions();">
     <span style="font-size:14px;line-height:1;flex-shrink:0">&#9734;</span>
@@ -258,6 +262,10 @@
   <button class="mob-action-btn" id="mob-route-btn" onclick="openRoutePanel(); closeMobileActions();">
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg>
     <span class="mob-route-text">Route</span>
+  </button>
+  <button class="mob-action-btn" id="mob-ifl-btn" onclick="openThemeModal(); closeMobileActions();">
+    <span style="font-size:14px;line-height:1;flex-shrink:0">✨</span>
+    <span class="mob-ifl-text">I feel like…</span>
   </button>
 </div>
 
@@ -384,6 +392,17 @@
         <div class="fsec-body arch-list" id="body-arch"></div>
       </div>
 
+      <!-- Neighborhood -->
+      <div class="fsec" id="fsec-hood">
+        <button class="fsec-hdr" onclick="toggleFsec('hood')">
+          <span>Neighborhood</span>
+          <span class="fsec-dot" id="dot-hood"></span>
+          <span class="fsec-reset" id="reset-hood" onclick="event.stopPropagation();setFilter('hood','All')" title="Clear neighborhood filter">✕ Clear</span>
+          <span class="fsec-arr">▼</span>
+        </button>
+        <div class="fsec-body hood-list" id="body-hood"></div>
+      </div>
+
       <!-- Favorites -->
       <div class="fsec" id="fsec-fav">
         <button class="fsec-hdr" onclick="toggleFsec('fav')">
@@ -503,18 +522,40 @@
   <button class="pwa-close-btn" onclick="pwaDismiss()">✕</button>
 </div>
 
-<script src="js/config.js?v=20260405a"></script>
-<script src="js/i18n.js?v=20260405a"></script>
-<script src="js/map.js?v=20260405a"></script>
-<script src="js/filters.js?v=20260405a"></script>
-<script src="js/core.js?v=20260405a"></script>
-<script src="js/audio.js?v=20260405a"></script>
-<script src="js/ui.js?v=20260405a"></script>
-<script src="js/walk.js?v=20260405a"></script>
-<script src="js/city.js?v=20260405a"></script>
-<script src="js/route.js?v=20260405a"></script>
-<script src="js/pdf.js?v=20260405a"></script>
-<script src="js/init.js?v=20260405a"></script>
+<!-- ── "I FEEL LIKE…" THEME MODAL ────────────────────────── -->
+<div id="ifl-overlay" class="ifl-overlay" onclick="closeThemeModal()"></div>
+<div id="ifl-modal" class="ifl-modal">
+  <div class="ifl-header">
+    <span class="ifl-title" id="ifl-title">I feel like exploring…</span>
+    <button class="ifl-close" onclick="closeThemeModal()">✕</button>
+  </div>
+  <div class="ifl-body" id="ifl-body">
+    <!-- Theme cards injected by JS -->
+  </div>
+  <div class="ifl-footer">
+    <div class="ifl-footer-row1">
+      <button class="ifl-clear-btn" id="ifl-clear-btn" onclick="clearThemes()">✕ Clear</button>
+      <button class="ifl-apply-btn" id="ifl-apply-btn" onclick="applyThemes()">Apply to filter</button>
+    </div>
+    <button class="ifl-route-btn" onclick="applyThemes(); closeThemeModal(); openRoutePanel();">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" style="flex-shrink:0"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg>
+      Route
+    </button>
+  </div>
+</div>
+
+<script src="js/config.js?v=20260411b"></script>
+<script src="js/i18n.js?v=20260411b"></script>
+<script src="js/map.js?v=20260411b"></script>
+<script src="js/filters.js?v=20260411b"></script>
+<script src="js/core.js?v=20260411b"></script>
+<script src="js/audio.js?v=20260411b"></script>
+<script src="js/ui.js?v=20260411b"></script>
+<script src="js/walk.js?v=20260411b"></script>
+<script src="js/city.js?v=20260411b"></script>
+<script src="js/route.js?v=20260411b"></script>
+<script src="js/pdf.js?v=20260411b"></script>
+<script src="js/init.js?v=20260411b"></script>
 </body>
 
 </html>

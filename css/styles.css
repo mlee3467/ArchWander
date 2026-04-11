@@ -135,6 +135,15 @@
     }
     #route-btn:hover { background: linear-gradient(135deg, #E86AB5, #DF58B2); box-shadow: 0 2px 6px rgba(217,70,168,0.4); }
     #route-btn.active { background: linear-gradient(135deg, #C73D95, #B53588); box-shadow: 0 2px 8px rgba(181,53,136,0.5); }
+    /* ── Route button pulse hint after theme apply ── */
+    @keyframes pulse-hint {
+      0%   { transform: scale(1);    box-shadow: 0 1px 3px rgba(217,70,168,0.3); }
+      25%  { transform: scale(1.12); box-shadow: 0 0 12px rgba(217,70,168,0.6); }
+      50%  { transform: scale(1);    box-shadow: 0 1px 3px rgba(217,70,168,0.3); }
+      75%  { transform: scale(1.12); box-shadow: 0 0 12px rgba(217,70,168,0.6); }
+      100% { transform: scale(1);    box-shadow: 0 1px 3px rgba(217,70,168,0.3); }
+    }
+    .pulse-hint { animation: pulse-hint 2.5s ease 2; }
     /* ── Fav/Visited action buttons inside panel header ── */
     .p-action-row { display: flex; gap: 7px; margin-top: 7px; }
     .p-action-btn {
@@ -361,12 +370,14 @@
     }
     /* hide body when section closed — !important overrides display:flex/block on arch-list */
     .fsec:not(.open) .fsec-body { display: none !important; }
-    /* Architects list — scrollable column */
-    .fsec-body.arch-list {
+    /* Architects / Neighborhoods list — scrollable column */
+    .fsec-body.arch-list,
+    .fsec-body.hood-list {
       display: flex; flex-direction: column; flex-wrap: nowrap;
-      max-height: none; overflow-y: auto; gap: 0; padding: 2px 14px 8px;
+      max-height: 180px; overflow-y: auto; gap: 0; padding: 2px 14px 8px;
     }
-    .arch-item {
+    .arch-item,
+    .hood-item {
       flex-shrink: 0; /* prevent items compressing inside flex column */
       width: 100%; text-align: left;
       padding: 5px 8px; font-size: 12px;
@@ -376,8 +387,8 @@
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
       line-height: 1.5;
     }
-    .arch-item:hover { background: var(--bg); color: #111; }
-    .arch-item.active { background: #111; color: white; }
+    .arch-item:hover, .hood-item:hover { background: var(--bg); color: #111; }
+    .arch-item.active, .hood-item.active { background: #111; color: white; }
 
     /* Filter chips */
     .chip {
@@ -385,6 +396,7 @@
       border: 1px solid var(--border); font-size: 11px;
       font-family: inherit; cursor: pointer;
       background: white; color: var(--text-secondary); transition: all 0.15s;
+      text-transform: capitalize;
     }
     .chip.active { background: rgb(0,0,255); border-color: rgb(0,0,255); color: white; }
 
@@ -452,7 +464,7 @@
     }
     .card-meta { font-size: 11px; color: var(--text-secondary); margin-bottom: 5px; }
     .card-row { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
-    .cat-badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 10px; }
+    .cat-badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 10px; text-transform: capitalize; }
     .year-badge { font-size: 10px; color: var(--text-secondary); }
     /* Access badges */
     .access-badge {
@@ -758,19 +770,55 @@
     }
     .ext-link:hover { border-color: #999; background: var(--bg); }
 
+    /* ── MAP LEGEND ──────────────────────────── */
+    .map-legend {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(6px);
+      border-radius: 8px;
+      padding: 10px 12px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+    }
+    .legend-toggle {
+      display: none;          /* hidden on desktop — always expanded */
+    }
+    .legend-body {
+      /* desktop: always visible */
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 2px 0;
+    }
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .legend-label {
+      font-size: 11px;
+      color: #444;
+      text-transform: capitalize;
+      white-space: nowrap;
+    }
+
     /* ── CATEGORY COLORS ─────────────────────── */
-    .c-sky  { background: #EEF2FF; color: #4338CA; }  /* Skyscrapers     — indigo  */
-    .c-his  { background: #FFF7ED; color: #C2410C; }  /* Historic         — orange  */
-    .c-inf  { background: #F8FAFC; color: #475569; }  /* Infrastructure   — slate   */
-    .c-cul  { background: #FDF4FF; color: #9333EA; }  /* Cultural         — purple  */
-    .c-park { background: #F0FDF4; color: #166534; }  /* Parks            — green   */
-    .c-rel  { background: #FFFBEB; color: #B45309; }  /* Religious        — amber   */
-    .c-aca  { background: #EFF6FF; color: #1D4ED8; }  /* Academic / Inst. — blue    */
-    .c-res  { background: #F0FDFA; color: #0F766E; }  /* Residential      — teal    */
-    .c-lmk  { background: #F0F9FF; color: #0369A1; }  /* Landmarks        — sky     */
-    .c-pub  { background: #F9FAFB; color: #6B7280; }  /* Public           — gray    */
-    .c-ret  { background: #FFF1F2; color: #BE185D; }  /* Retail           — pink    */
-    .c-com  { background: #FFFBEB; color: #92400E; }  /* Commercial       — amber   */
+    .c-sky  { background: #DDE6FF; color: #3366FF; }  /* Skyscrapers     — vivid blue   */
+    .c-his  { background: #FFF0DB; color: #FF8C00; }  /* Historic         — orange       */
+    .c-inf  { background: #EDF1F4; color: #708899; }  /* Infrastructure   — slate gray   */
+    .c-cul  { background: #F3E5FC; color: #AA44DD; }  /* Cultural         — purple       */
+    .c-park { background: #DCFCE8; color: #22BB55; }  /* Parks            — green        */
+    .c-rel  { background: #FDF8D8; color: #CCAA00; }  /* Religious        — gold         */
+    .c-aca  { background: #D8F7FA; color: #11AABB; }  /* Academic / Inst. — cyan         */
+    .c-res  { background: #F0F6DC; color: #88AA22; }  /* Residential      — lime-olive   */
+    .c-lmk  { background: #FFE3E5; color: #EE3344; }  /* Landmarks        — red          */
+    .c-pub  { background: #F5ECE5; color: #BB7755; }  /* Public           — warm brown   */
+    .c-ret  { background: #FFE0F0; color: #EE2299; }  /* Retail           — hot pink     */
+    .c-com  { background: #F2EADD; color: #886633; }  /* Commercial       — brown        */
 
     /* ── REVIEWS ─────────────────────────────────────────── */
     .star-selector { display: flex; gap: 2px; }
@@ -938,15 +986,8 @@
       border-bottom: 1px solid var(--border);
       height: 240px; /* initial height; drag-resizable via dh-fl */
     }
-    /* Architect section expands to fill remaining filter panel height */
-    #fsec-arch { flex-shrink: 0; }
-    #fsec-arch.open {
-      flex: 1; min-height: 0;
-      display: flex; flex-direction: column;
-    }
-    #fsec-arch.open > .fsec-body.arch-list {
-      flex: 1; min-height: 0;
-    }
+    /* Architect / Neighborhood sections — capped height, scrollable */
+    #fsec-arch, #fsec-hood { flex-shrink: 0; }
     .sb-list-wrap { display: flex; flex-direction: column; flex: 1; overflow: hidden; min-height: 80px; }
 
     /* ── MOBILE ─────────────────────────────────────────── */
@@ -991,6 +1032,42 @@
     .cluster-md { width: 42px; height: 42px; font-size: 14px; }
     .cluster-lg { width: 52px; height: 52px; font-size: 15px; }
     @media (max-width: 900px) {
+      .map-legend {
+        padding: 0;
+        border-radius: 6px;
+      }
+      .legend-toggle {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 6px 10px;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .legend-toggle-label {
+        font-size: 10px;
+        font-weight: 700;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .legend-arrow {
+        font-size: 10px;
+        color: #666;
+        transition: transform 0.2s;
+      }
+      .map-legend.collapsed .legend-arrow {
+        transform: rotate(-90deg);
+      }
+      .legend-body {
+        padding: 0 10px 8px;
+      }
+      .map-legend.collapsed .legend-body {
+        display: none;
+      }
+      .legend-dot { width: 8px; height: 8px; }
+      .legend-label { font-size: 10px; }
+
       /* ── Mobile 2-row header (CSS Grid) ── */
       header {
         display: grid;
@@ -1029,6 +1106,8 @@
       #fav-btn { padding: 0 8px; height: 28px; font-size: 13px; }
       #route-btn .route-text { display: none; }
       #route-btn { padding: 0 8px; height: 28px; font-size: 11px; }
+      #ifl-btn .ifl-text { display: none; }
+      #ifl-btn { padding: 0 8px; height: 28px; font-size: 13px; }
       #fav-io-bar.visible { display: flex; font-size: 11px; padding: 0 10px; min-height: 36px; gap: 6px; }
       #fav-io-bar .fav-io-label { font-size: 10px; }
       #fav-io-bar .fav-io-btn { height: 24px; padding: 0 8px; font-size: 10px; }
@@ -1087,7 +1166,7 @@
       .leaflet-bottom.leaflet-right { bottom: 60px; }
 
       /* ── Hide header action buttons on mobile (use action bar instead) ── */
-      #near-me-btn, #fav-btn, #route-btn { display: none !important; }
+      #near-me-btn, #fav-btn, #route-btn, #ifl-btn { display: none !important; }
 
       /* ── Mobile Action Bar ── */
       #mobile-action-bar {
@@ -1099,29 +1178,35 @@
         background: var(--surface);
         border-bottom: 1px solid var(--border);
         padding: 6px 12px;
-        gap: 8px;
+        gap: 6px 8px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        flex-wrap: wrap;
       }
       #mobile-action-bar.open { display: flex; }
-      /* When action bar is open, push sidebar & backdrop below it */
+      /* When action bar is open, push sidebar & backdrop below it (2-row = ~84px) */
       #mobile-action-bar.open ~ .app .sidebar {
-        top: calc(var(--mob-header-h) + var(--safe-top) + 44px);
+        top: calc(var(--mob-header-h) + var(--safe-top) + 84px);
       }
       #mobile-action-bar.open ~ #sidebar-backdrop {
-        top: calc(var(--mob-header-h) + var(--safe-top) + 44px);
+        top: calc(var(--mob-header-h) + var(--safe-top) + 84px);
       }
       .mob-action-btn {
-        display: flex; align-items: center; gap: 5px;
+        display: flex; align-items: center; justify-content: center; gap: 5px;
         padding: 7px 14px; border: none; border-radius: 8px;
         font-size: 12px; font-weight: 600; font-family: Inter, -apple-system, sans-serif;
         cursor: pointer; white-space: nowrap;
         color: white;
+        flex: 1 1 calc(50% - 4px);
+        min-width: 0;
+        box-sizing: border-box;
       }
       #mob-near-btn { background: linear-gradient(135deg, #6366F1, #4F46E5); box-shadow: 0 1px 3px rgba(79,70,229,0.3); }
       #mob-near-btn svg { stroke: white; }
       #mob-fav-btn { background: linear-gradient(135deg, #FF7A1A, #FF5F00); box-shadow: 0 1px 3px rgba(255,95,0,0.3); }
       #mob-route-btn { background: linear-gradient(135deg, #E052A0, #D946A8); box-shadow: 0 1px 3px rgba(217,70,168,0.3); }
       #mob-route-btn svg { stroke: white; }
+      #mob-ifl-btn { background: linear-gradient(135deg, #22C55E, #16A34A); box-shadow: 0 1px 3px rgba(22,163,74,0.3); }
+      #mob-ifl-btn.active { background: linear-gradient(135deg, #15803D, #166534); }
 
       /* ── Sidebar backdrop ── */
       #sidebar-backdrop { display: none; position: fixed; top: calc(var(--mob-header-h) + var(--safe-top)); left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 350; }
@@ -1159,7 +1244,7 @@
         overflow-y: auto; display: block;
         -webkit-overflow-scrolling: touch;
       }
-      .fsec-body.arch-list { max-height: 200px; }
+      .fsec-body.arch-list, .fsec-body.hood-list { max-height: 200px; }
     }
     
     @media (max-width: 480px) {
@@ -1342,6 +1427,79 @@
   font-family: Inter, -apple-system, sans-serif;
 }
 .route-addall-list:hover { background: #FCE7F3; border-color: #C026D3; }
+
+/* Add locations around me button */
+.route-nearbyme-btn {
+  display: flex; align-items: center; justify-content: center;
+  background: #EFF6FF; border: 1px dashed #3B82F6; color: #1D4ED8;
+}
+.route-nearbyme-btn:hover { background: #DBEAFE; border-color: #2563EB; color: #1e40af; }
+
+/* Near me slider panel */
+.route-nearbyme-inner {
+  background: #F8FAFF; border: 1px solid #BFDBFE; border-radius: 8px;
+  padding: 12px 14px; margin-bottom: 12px; margin-top: -6px;
+}
+.route-nearbyme-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 8px;
+}
+.route-nearbyme-label {
+  font-size: 12px; font-weight: 600; color: #1D4ED8;
+}
+.route-nearbyme-val {
+  font-size: 13px; font-weight: 700; color: #1D4ED8;
+}
+.route-nearbyme-slider {
+  width: 100%; margin-bottom: 4px; accent-color: #3B82F6;
+}
+.route-nearbyme-ticks {
+  display: flex; justify-content: space-between;
+  font-size: 10px; color: #9CA3AF; margin-bottom: 10px; padding: 0 2px;
+}
+.route-nearbyme-go {
+  display: block; width: 100%; padding: 9px;
+  background: #3B82F6; border: none; border-radius: 7px;
+  color: #fff; font-size: 13px; font-weight: 600;
+  cursor: pointer; font-family: Inter, -apple-system, sans-serif;
+}
+.route-nearbyme-go:hover { background: #2563EB; }
+.route-nearbyme-msg {
+  font-size: 12px; color: #1D4ED8; margin-top: 8px;
+  text-align: center; min-height: 16px;
+}
+
+/* Near me — location source (GPS / pin) */
+.route-nm-src-label {
+  font-size: 11px; font-weight: 600; color: #374151;
+  margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em;
+}
+.route-nm-src-row {
+  display: flex; gap: 8px; margin-bottom: 8px;
+}
+.route-nm-src-btn {
+  flex: 1; padding: 7px 8px;
+  background: #fff; border: 1.5px solid #CBD5E1; border-radius: 7px;
+  font-size: 12px; font-weight: 600; color: #374151;
+  cursor: pointer; font-family: Inter, -apple-system, sans-serif;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.route-nm-src-btn:hover { border-color: #3B82F6; color: #1D4ED8; background: #EFF6FF; }
+.route-nm-src-btn.active {
+  background: #EFF6FF; border-color: #3B82F6; color: #1D4ED8;
+}
+.route-nm-src-status {
+  font-size: 11px; color: #6B7280; margin-bottom: 8px;
+  min-height: 14px; line-height: 1.3;
+}
+/* Toast hint for pin-drop mode */
+.route-pin-toast {
+  position: fixed; bottom: 76px; left: 50%; transform: translateX(-50%);
+  background: rgba(17,17,17,0.88); color: #fff;
+  font-size: 13px; font-weight: 500; padding: 10px 18px;
+  border-radius: 22px; z-index: 9999; pointer-events: none;
+  white-space: nowrap; box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+}
 
 /* Top actions — sticky bar */
 .route-top-actions {
@@ -1570,5 +1728,131 @@
     font-size: 12px; font-weight: 600; color: var(--text-secondary);
     font-family: Inter, -apple-system, sans-serif;
   }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   "I FEEL LIKE…" THEME MODAL
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Header button — matches near-me / fav / route button style */
+#ifl-btn {
+  position: relative; height: 34px; padding: 0 13px;
+  border: none; border-radius: 8px;
+  font-size: 12px; font-family: inherit;
+  background: linear-gradient(135deg, #22C55E, #16A34A);
+  cursor: pointer; display: flex; align-items: center; gap: 5px;
+  white-space: nowrap; flex-shrink: 0; transition: all 0.2s;
+  color: white; font-weight: 600; box-shadow: 0 1px 3px rgba(22,163,74,0.3);
+}
+#ifl-btn:hover { background: linear-gradient(135deg, #34D06E, #1FB855); box-shadow: 0 2px 6px rgba(22,163,74,0.4); }
+#ifl-btn.active { background: linear-gradient(135deg, #15803D, #166534); box-shadow: 0 2px 8px rgba(21,128,61,0.5); }
+#ifl-btn.active::after {
+  content: ''; position: absolute; top: 3px; right: 3px;
+  width: 6px; height: 6px; border-radius: 50%; background: #FF6B6B;
+}
+
+/* Overlay */
+.ifl-overlay {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45);
+  z-index: 9998; backdrop-filter: blur(2px);
+}
+.ifl-overlay.open { display: block; }
+
+/* Modal */
+.ifl-modal {
+  display: none; position: fixed;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  z-index: 9999; background: #fff; border-radius: 16px;
+  width: 420px; max-width: 92vw; max-height: 85vh;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  overflow: hidden;
+  font-family: Inter, -apple-system, sans-serif;
+}
+.ifl-modal.open { display: flex; flex-direction: column; }
+
+.ifl-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 20px 12px; border-bottom: 1px solid #f0f0f0;
+}
+.ifl-title {
+  font-size: 16px; font-weight: 600; color: #222;
+}
+.ifl-close {
+  background: none; border: none; font-size: 18px; color: #999;
+  cursor: pointer; padding: 4px 8px; border-radius: 6px; line-height: 1;
+}
+.ifl-close:hover { background: #f5f5f5; color: #333; }
+
+.ifl-body {
+  padding: 16px 20px; overflow-y: auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+}
+
+/* Theme card */
+.ifl-card {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 6px; padding: 16px 10px; border-radius: 12px;
+  border: 2px solid #e8e8e8; background: #fafafa;
+  cursor: pointer; transition: all 0.15s ease;
+  font-family: Inter, -apple-system, sans-serif;
+}
+.ifl-card:hover { border-color: #ccc; background: #f5f5f5; }
+.ifl-card.selected {
+  border-color: #3366FF; background: #EBF0FF;
+}
+.ifl-card-icon { font-size: 26px; line-height: 1; }
+.ifl-card-label {
+  font-size: 12px; font-weight: 500; color: #444;
+  text-align: center; line-height: 1.3;
+}
+.ifl-card.selected .ifl-card-label { color: #3366FF; font-weight: 600; }
+
+.ifl-footer {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 12px 20px 16px; border-top: 1px solid #f0f0f0;
+}
+.ifl-footer-row1 {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.ifl-clear-btn {
+  background: none; border: 1px solid #ddd; border-radius: 8px;
+  padding: 8px 16px; font-size: 13px; color: #666; cursor: pointer;
+  font-family: Inter, -apple-system, sans-serif;
+}
+.ifl-clear-btn:hover { background: #f5f5f5; color: #333; }
+.ifl-apply-btn {
+  background: #3366FF; border: none; border-radius: 8px;
+  padding: 8px 24px; font-size: 13px; font-weight: 600;
+  color: #fff; cursor: pointer;
+  font-family: Inter, -apple-system, sans-serif;
+}
+.ifl-apply-btn:hover { background: #2855DD; }
+
+/* IFL → Route shortcut button */
+@keyframes ifl-route-blink {
+  0%, 100% { opacity: 1; box-shadow: 0 2px 8px rgba(217,70,168,0.45); }
+  50%       { opacity: 0.72; box-shadow: 0 2px 4px rgba(217,70,168,0.2); }
+}
+.ifl-route-btn {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  width: 100%; border: none; border-radius: 9px;
+  padding: 9px 0; font-size: 13px; font-weight: 700;
+  color: #fff; cursor: pointer;
+  background: linear-gradient(135deg, #E052A0, #D946A8);
+  font-family: Inter, -apple-system, sans-serif;
+  animation: ifl-route-blink 1.4s ease-in-out infinite;
+}
+.ifl-route-btn svg { stroke: white; }
+.ifl-route-btn:hover { opacity: 1; animation: none; background: #c9379a; }
+
+/* Mobile adjustments */
+@media (max-width: 900px) {
+  .ifl-modal { width: 94vw; border-radius: 14px; }
+  .ifl-body { grid-template-columns: 1fr 1fr; gap: 8px; padding: 12px 14px; }
+  .ifl-card { padding: 12px 8px; }
+  .ifl-card-icon { font-size: 22px; }
+  .ifl-card-label { font-size: 11px; }
+  .ifl-header { padding: 14px 16px 10px; }
+  .ifl-footer { padding: 10px 16px 14px; }
 }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       

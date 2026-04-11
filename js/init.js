@@ -35,6 +35,12 @@ function _postInitMap() {
 
   // ── Pin drop: place marker on map click ────────────────────────
   map.on('click', function(e) {
+    if (routePinDropMode) {
+      routePinDropMode = false;
+      map.getContainer().style.cursor = '';
+      _onRoutePinDropped(e.latlng.lat, e.latlng.lng);
+      return;
+    }
     if (!pinDropMode) return;
     pinDropMode = false;
     map.getContainer().style.cursor = '';

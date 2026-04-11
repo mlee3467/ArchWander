@@ -6,7 +6,8 @@ var clusterGroup = null;   // Leaflet.markercluster group
 // ── Walk filter state ──────────────────────────────────────────────
 var walkOrigin    = null;   // { lat, lng } GPS position or dropped pin
 var walkActive    = false;  // is walk filter currently on?
-var pinDropMode   = false;  // waiting for user to click map
+var pinDropMode      = false;  // waiting for user to click map (walk filter)
+var routePinDropMode = false;  // waiting for user to click map (route near-me)
 var pinDropMarker = null;   // the draggable pin on map
 // Walk overlay layers
 var walkMaskLayer   = null; // gray outer mask (inverted circle)
@@ -77,6 +78,7 @@ function initMap() {
   map.addLayer(clusterGroup);
   const initLocs = LOCS.filter(l => l.city === activeCityKey);
   ARCHITECTS = [...new Set(initLocs.flatMap(l => l.archs || [l.arch]))].sort();
+  NEIGHBORHOODS = [...new Set(initLocs.map(l => l.hood).filter(Boolean))].sort();
   initLocs.forEach(addMarker);
   buildFilters();
   renderList();
@@ -85,14 +87,49 @@ function initMap() {
   // Update badge with city-specific count
   const badge = document.getElementById('pilot-badge');
   if (badge) badge.textContent = `🗺 ArchWander · Pilot v0.2 · ${initLocs.length} Locations`;
+  buildLegend();
+}
+
+// ── Map Legend ──────────────────────────────────────────────
+var legendControl = null;
+function buildLegend() {
+  if (legendControl) map.removeControl(legendControl);
+  legendControl = L.control({ position: 'topright' });
+  legendControl.onAdd = function() {
+    var isMobile = window.innerWidth <= 900;
+    var div = L.DomUtil.create('div', 'map-legend' + (isMobile ? ' collapsed' : ''));
+    var titleText = LANG === 'ko' ? '범례' : 'Legend';
+    var html = '<div class="legend-toggle" onclick="toggleLegend()">' +
+      '<span class="legend-toggle-label">' + titleText + '</span>' +
+      '<span class="legend-arrow">▾</span></div>';
+    html += '<div class="legend-body">';
+    var order = ['c-lmk','c-sky','c-his','c-cul','c-park','c-pub','c-rel','c-aca','c-res','c-inf','c-ret','c-com'];
+    order.forEach(function(cc) {
+      var m = CC_META[cc];
+      var label = typeof _tCat === 'function' ? _tCat(CC_LABEL[cc]) : CC_LABEL[cc];
+      html += '<div class="legend-item">' +
+        '<span class="legend-dot" style="background:' + m.color + '"></span>' +
+        '<span class="legend-label">' + label + '</span></div>';
+    });
+    html += '</div>';
+    div.innerHTML = html;
+    L.DomEvent.disableClickPropagation(div);
+    return div;
+  };
+  legendControl.addTo(map);
+}
+function toggleLegend() {
+  var el = document.querySelector('.map-legend');
+  if (el) el.classList.toggle('collapsed');
 }
 
 function refreshApp() {
   const cityLocs = LOCS.filter(l => l.city === activeCityKey);
   ARCHITECTS = [...new Set(cityLocs.flatMap(l => l.archs || [l.arch]))].sort();
+  NEIGHBORHOODS = [...new Set(cityLocs.map(l => l.hood).filter(Boolean))].sort();
   if (clusterGroup) clusterGroup.clearLayers();
   markers.length = 0;
-  ['cat','style','era','access','arch'].forEach(k => {
+  ['cat','style','era','access','arch','hood'].forEach(k => {
     const el = document.getElementById(k === 'arch' ? 'body-arch' : `body-${k}`);
     if (el) el.innerHTML = '';
   });
