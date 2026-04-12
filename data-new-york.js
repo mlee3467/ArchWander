@@ -23,8 +23,8 @@ var LOCS_NEW_YORK = [
     yr:1931,
     access:'paid ticket',
     city:'new-york',
-    lat: 40.748535,
-    lng: -73.9856571,
+    lat:40.748535,
+    lng:-73.9856571,
     sv:{ heading:266.4, pitch:44.4, fov:180, source:'outdoor', lat:40.7484275, lng:-73.9844797 },
     addr:'350 5th Ave, New York, NY 10118',
     hood:'Midtown Manhattan',
@@ -70,9 +70,9 @@ var LOCS_NEW_YORK = [
     yr:1930,
     access:'open to public',
     city:'new-york',
-    lat:40.7514392,
-    lng:-73.97708,
-    sv:{ heading:75.9, pitch:47.5, fov:157, source:'outdoor', lat:40.751461, lng:-73.9760393 },
+    lat:40.7515972,
+    lng:-73.9753139,
+    sv:{ heading:76, pitch:48, fov:180, source:'outdoor', lat:40.751461, lng:-73.9760393 },
     addr:'405 Lexington Ave, New York, NY',
     hood:'Midtown East',
     desc:'Often cited as the most beautiful skyscraper ever built, the Chrysler Building held the title of world\'s tallest structure for 11 months. Its stainless-steel eagle gargoyles and sunburst crown are among the most recognized architectural details in American history. The Art Deco lobby—featuring onyx, marble, and wood veneers—is open to the public on weekdays.',
@@ -659,8 +659,8 @@ var LOCS_NEW_YORK = [
     yr:2009,
     access:'open to public',
     city:'new-york',
-    lat: 40.7285196,
-    lng: -73.9902112,
+    lat:40.7285196,
+    lng:-73.9902112,
     addr:'41 Cooper Sq, New York, NY 10003',
     hood:'East Village / NoHo',
     desc:'The Cooper Union Academic Building by Pritzker Prize-winning architect Thom Mayne of Morphosis is one of the most significant academic buildings constructed in New York in decades. Its perforated stainless-steel outer skin creates a constantly shifting visual effect. The building is LEED Gold certified with a passive ventilation chimney at center. The interior atrium—defined by irregular stairs and bridges—has become a celebrated public gathering space.',
@@ -1097,8 +1097,8 @@ var LOCS_NEW_YORK = [
     yr:2015,
     access:'private',
     city:'new-york',
-    lat: 40.7617561,
-    lng: -73.9719035,
+    lat:40.7617561,
+    lng:-73.9719035,
     sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7617561, lng:-73.9719035 },
     addr:'432 Park Ave, New York, NY 10022',
     hood:'Midtown East',
@@ -2664,10 +2664,10 @@ var LOCS_NEW_YORK = [
     arch:'Tony Rosenthal (sculptor)',
     yr:1967,
     access:'open to public',
-    lat: 40.7299053,
-    lng: -73.9910201,
+    lat:40.7299053,
+    lng:-73.9910201,
     sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7299053, lng:-73.9910201 },
-    addr: '149-179 E 8th St, New York, NY 10003, USA',
+    addr:'149-179 E 8th St, New York, NY 10003, USA',
     hood:'Astor Place / NoHo',
     desc:'Astor Place is one of New York\'s great urban crossroads. At its center stands the Alamo (1967), a 15-foot Cor-Ten steel cube by sculptor Tony Rosenthal that can be set spinning on its central axis. Originally a temporary installation in the city\'s Art in Public Places program, it became so beloved that it was made permanent. The plaza sits at the convergence of several neighborhoods — the East Village, NoHo, and Greenwich Village — and remains a gathering point for street life, protest, and the daily theater of New York City.',
     hours:'Plaza: 24/7',
@@ -2897,8 +2897,8 @@ var LOCS_NEW_YORK = [
     arch:'Michael Van Valkenburgh Associates',
     yr:2010,
     access:'open to public',
-    lat: 40.7022472,
-    lng: -73.9958582,
+    lat:40.7022472,
+    lng:-73.9958582,
     addr:'334 Furman St, Brooklyn, NY 11201',
     hood:'Brooklyn Heights / DUMBO, Brooklyn',
     desc:'An 85-acre waterfront park by Michael Van Valkenburgh Associates, transforming derelict container shipping piers into a varied landscape of lawns, beaches, playgrounds, sports courts, and Jane\'s Carousel pavilion. Opened in phases from 2010, the park is funded by adjacent residential and hotel development — a model of value-capture planning. The views of the Manhattan Bridge, Brooklyn Bridge, and Lower Manhattan skyline from the park\'s piers are among the most photographed in New York. It has become one of the most beloved urban parks created in America in the 21st century.',
@@ -3033,10 +3033,10 @@ var LOCS_NEW_YORK = [
     arch:'Grimshaw Architects',
     yr:2013,
     access:'paid ticket',
-    lat: 40.745914,
-    lng: -73.8467247,
+    lat:40.745914,
+    lng:-73.8467247,
     sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.745914, lng:-73.8467247 },
-    addr: 'Flushing Meadows Corona Park, Building, Corona, NY 11368, USA',
+    addr:'Flushing Meadows Corona Park, Building, Corona, NY 11368, USA',
     hood:'Flushing Meadows, Queens',
     desc:'The Queens Museum occupies the New York City Building from the 1939 World\'s Fair. Grimshaw Architects completed a major expansion in 2013, doubling its size to 105,000 sq ft with a glass-and-steel atrium flooding the original building with natural light. The museum\'s most celebrated artifact is the 9,335-sq-ft Panorama of the City of New York — an architectural scale model of all five boroughs, updated continuously since 1964. The expansion is a landmark of contextual, sustainable museum design.',
     hours:'Thu–Fri 12–6 PM · Sat–Sun 11 AM–5 PM',
@@ -4055,7 +4055,7 @@ var LOCS_NEW_YORK = [
     access:'private',
     lat:40.7421035,
     lng:-73.9758074,
-    addr: '300 E 33rd St, New York, NY 10016, United States',
+    addr:'300 E 33rd St, New York, NY 10016, United States',
     hood:'Kips Bay',
     desc:'Kips Bay Towers consists of two 21-story reinforced concrete residential slabs by I.M. Pei, completed in 1963 (Phase 1) and 1965 (Phase 2), commissioned by real estate developer William Zeckendorf as part of his urban renewal program. The towers are notable for their pioneering use of precast concrete grid facades — deeply recessed openings that eliminate the conventional window in favor of a continuously textured surface that reads as pure geometry. At the time they were among the most technically ambitious concrete structures in New York. The project was an early demonstration of Pei\'s ability to combine rigorous structural thinking with aesthetic refinement, and influenced a generation of Brutalist residential design.',
     hours:'Exterior: 24/7',
@@ -4077,7 +4077,7 @@ var LOCS_NEW_YORK = [
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Kips_Bay_Towers_jeh.jpg/800px-Kips_Bay_Towers_jeh.jpg'
     ],
-    sv: { heading: 30, pitch: 25, fov: 90, source:'outdoor', lat:40.7416768, lng:-73.9761372 }
+    sv:{ heading:30, pitch:25, fov:90, source:'outdoor', lat:40.7416768, lng:-73.9761372 }
   },
   {
     id:'nyc-0091',
@@ -4121,7 +4121,7 @@ var LOCS_NEW_YORK = [
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Silver_Towers_NYC.jpg/800px-Silver_Towers_NYC.jpg'
     ],
-    sv: { heading: 243, pitch: 2, fov: 97, source:'outdoor', lat:40.7267953, lng:-73.9982736 }
+    sv:{ heading:243, pitch:2, fov:97, source:'outdoor', lat:40.7267953, lng:-73.9982736 }
   },
   {
     id:'nyc-0092',
@@ -4143,7 +4143,7 @@ var LOCS_NEW_YORK = [
     access:'private',
     lat:40.7344364,
     lng:-74.0097048,
-    addr: '176 Perry St, New York, NY 10014, United States',
+    addr:'176 Perry St, New York, NY 10014, United States',
     hood:'West Village',
     desc:'The Perry Street Towers are a series of three all-glass and white-panel residential buildings by Richard Meier in the West Village, completed in two phases: 173–176 Perry Street (2002) and 165 Charles Street (2005). The towers\' pure, austere aesthetic — floor-to-ceiling glass, white porcelain panels, and planar geometry — creates a radical formal contrast with the surrounding 19th-century brick rowhouses and cobblestone streets of the West Village. Meier brought his signature white minimalism, more familiar from his California houses and the Getty Center, to the compressed urban grain of Manhattan. The buildings remain among the most divisive works of architecture in the city — and among the most sought-after residential addresses.',
     hours:'Exterior: 24/7',
@@ -4166,7 +4166,7 @@ var LOCS_NEW_YORK = [
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/173_Perry_St_by_David_Shankbone.jpg/800px-173_Perry_St_by_David_Shankbone.jpg'
     ],
-    sv: { heading: 135, pitch: 10, fov: 117, source:'outdoor', lat:40.7346044, lng:-74.0100297 }
+    sv:{ heading:135, pitch:10, fov:117, source:'outdoor', lat:40.7346044, lng:-74.0100297 }
   },
   {
     id:'nyc-0093',
@@ -8058,10 +8058,10 @@ var LOCS_NEW_YORK = [
     arch:'West 8 Urban Design',
     yr:2016,
     access:'open to public',
-    lat: 40.6869405,
-    lng: -74.024449,
+    lat:40.6869405,
+    lng:-74.024449,
     sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.6869405, lng:-74.024449 },
-    addr: '870-898 Gresham Rd, New York, NY 10004, USA',
+    addr:'870-898 Gresham Rd, New York, NY 10004, USA',
     hood:'Governors Island',
     desc:'Four sculpted hills rising up to 70 feet offering panoramic views of the Statue of Liberty and Lower Manhattan skyline. Built from recycled demolition materials and storm debris. Artistic landscape reclamation.',
     hours:'Open daily during Governors Island season',
