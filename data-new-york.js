@@ -26,7 +26,7 @@ var LOCS_NEW_YORK = [
     lat:40.748535,
     lng:-73.9856571,
     sv:{ heading:266.4, pitch:44.4, fov:180, source:'outdoor', lat:40.7484275, lng:-73.9844797 },
-    svInt:{ heading:116, pitch:-4.4, fov:167, source:'default', lat:40.7485625, lng:-73.9856565 }
+    svInt:{ heading:116, pitch:-4.4, fov:167, source:'default', lat:40.7485625, lng:-73.9856565 },
     addr:'350 5th Ave, New York, NY 10118',
     hood:'Midtown Manhattan',
     desc:'A 102-story Art Deco masterpiece that stood as the world\'s tallest building for nearly 40 years. Its iconic stepped silhouette and illuminated antenna are synonymous with New York City. Built in just 410 days during the Great Depression, it was designated a National Historic Landmark in 1986 and attracts nearly 4 million visitors annually.',
@@ -74,7 +74,7 @@ var LOCS_NEW_YORK = [
     lat:40.7515972,
     lng:-73.9753139,
     sv:{ heading:76, pitch:48, fov:180, source:'outdoor', lat:40.751461, lng:-73.9760393 },
-    svInt:{ heading:176, pitch:4.2, fov:167, source:'default', lat:40.7515259, lng:-73.9755173 }
+    svInt:{ heading:176, pitch:4.2, fov:167, source:'default', lat:40.7515259, lng:-73.9755173 },
     addr:'405 Lexington Ave, New York, NY',
     hood:'Midtown East',
     desc:'Often cited as the most beautiful skyscraper ever built, the Chrysler Building held the title of world\'s tallest structure for 11 months. Its stainless-steel eagle gargoyles and sunburst crown are among the most recognized architectural details in American history. The Art Deco lobby—featuring onyx, marble, and wood veneers—is open to the public on weekdays.',
@@ -122,7 +122,7 @@ var LOCS_NEW_YORK = [
     lat:40.712985,
     lng:-74.0133848,
     sv:{ heading:164.2, pitch:31, fov:157, source:'outdoor', lat:40.713426, lng:-74.0135464 },
-    svInt:{ heading:125.5, pitch:-1.1, fov:90, source:'default', lat:40.7130203, lng:-74.0132217 }
+    svInt:{ heading:125.5, pitch:-1.1, fov:90, source:'default', lat:40.7130203, lng:-74.0132217 },
     addr:'285 Fulton St, New York, NY 10007',
     hood:'Lower Manhattan',
     desc:'Standing at exactly 1,776 feet—a symbolic reference to American independence—One WTC is the tallest building in the Western Hemisphere. Built on the site of the original Twin Towers, the tower\'s shimmering glass facade reflects sky and city throughout the day. The One World Observatory (floors 100–102) offers a moving multimedia experience about New York\'s history.',
@@ -168,7 +168,7 @@ var LOCS_NEW_YORK = [
     lat:40.7410592,
     lng:-73.9896416,
     sv:{ heading:226.2, pitch:34, fov:158, source:'outdoor', lat:40.7414597, lng:-73.9892154 },
-    svIntNA: true
+    svIntNA: true,
     addr:'175 5th Ave, New York, NY 10010',
     hood:'Flatiron District',
     desc:'One of the most photographed buildings in New York City, the Flatiron Building\'s triangular shape—occupying just 6 feet at its narrowest—was dictated by the unusual three-way intersection of Fifth Avenue, Broadway, and 22nd Street. Daniel Burnham\'s 22-story tower was considered a skyscraper upon completion in 1902 and has inspired generations of architects worldwide.',
@@ -350,7 +350,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Int%C3%A9rieur_du_mus%C3%A9e_Solomon_R._Guggenheim_%C3%A0_New-York.jpg?width=800'
     ],
     sv:{ heading:152.4, pitch:7.4, fov:158, source:'outdoor', lat:40.7834147, lng:-73.9590722 },
-    svInt:{ heading:40, pitch:16.9, fov:180, source:'default', lat:40.7828782, lng:-73.9590064 }
+    svInt:{ heading:40, pitch:16.9, fov:180, source:'default', lat:40.7828782, lng:-73.9590064 },
   },
   {
     id:'nyc-0008',
@@ -371,7 +371,7 @@ var LOCS_NEW_YORK = [
     lat:40.7395868,
     lng:-74.00914089999999,
     sv:{ heading:59.3, pitch:22.5, fov:159, source:'outdoor', lat:40.7393457, lng:-74.0096856 },
-    svInt:{ heading:266.1, pitch:-8.4, fov:159, source:'default', lat:40.7396073, lng:-74.008671 }
+    svInt:{ heading:266.1, pitch:-8.4, fov:159, source:'default', lat:40.7396073, lng:-74.008671 },
     addr:'99 Gansevoort St, New York, NY 10014',
     hood:'Meatpacking District',
     desc:'Renzo Piano\'s Whitney downtown building sits at the southern terminus of the High Line. The asymmetric stacked volumes clad in blue-gray steel panels respond sensitively to the industrial Meatpacking District while opening onto the Hudson River via multiple cantilevered terraces. Home to the foremost collection of 20th- and 21st-century American art.',
@@ -456,7 +456,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/High_Line%2C_New_York_2012_39.jpg?width=800'
     ],
     sv:{ heading:58.5, pitch:5.2, fov:52, source:'outdoor', lat:40.7473602, lng:-74.0051346 },
-    svInt:{ heading:0, pitch:0, fov:90, source:'default', lat:40.7479925, lng:-74.0047649 }
+    svInt:{ heading:0, pitch:0, fov:90, source:'default', lat:40.7479925, lng:-74.0047649 },
   },
   {
     id:'nyc-0010',
@@ -502,7 +502,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Vessel%2C_Hudson_Yards%2C_New_York_City%2C_June_2019.jpg?width=800'
     ],
     sv:{ heading:146.8, pitch:26.7, fov:120, source:'default', lat:40.7541144, lng:-74.0023237 },
-    svInt:{ heading:280.8, pitch:-8.1, fov:161, source:'default', lat:40.7538542, lng:-74.0020096 }
+    svInt:{ heading:280.8, pitch:-8.1, fov:161, source:'default', lat:40.7538542, lng:-74.0020096 },
     archs:[
       'Thomas Heartherwick'
     ]
@@ -553,7 +553,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/WTC_Oculus_Exterior_018.jpg?width=800'
     ],
     sv:{ heading:236.5, pitch:28.8, fov:180, source:'outdoor', lat:40.7117615, lng:-74.0107956 },
-    svInt:{ heading:320.2, pitch:18.5, fov:161, source:'default', lat:40.7115301, lng:-74.011404 }
+    svInt:{ heading:320.2, pitch:18.5, fov:161, source:'default', lat:40.7115301, lng:-74.011404 },
   },
   {
     id:'nyc-0012',
@@ -575,7 +575,7 @@ var LOCS_NEW_YORK = [
     lat:40.758611699999996,
     lng:-73.9761953,
     sv:{ heading:100.6, pitch:28.3, fov:180, source:'outdoor', lat:40.7587648, lng:-73.9770111 },
-    svInt:{ heading:142, pitch:23.9, fov:161, source:'default', lat:40.7584877, lng:-73.9761581 }
+    svInt:{ heading:142, pitch:23.9, fov:161, source:'default', lat:40.7584877, lng:-73.9761581 },
     addr:'5th Ave at 50th St, New York, NY 10022',
     hood:'Midtown East',
     desc:'The largest Gothic Revival Catholic cathedral in North America stands in striking contrast to Rockefeller Center across Fifth Avenue—one of New York\'s most powerful urban juxtapositions. Designed by James Renwick Jr. and consecrated in 1879, its twin spires rise 330 feet above Fifth Avenue. The interior features magnificent stained glass, a 26-foot rose window, and bronze entrance doors each weighing 9,200 pounds. Fully restored in 2015.',
@@ -649,7 +649,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/New_York_Public_Library_1908c.jpg?width=800'
     ],
     sv:{ heading:304.5, pitch:11.3, fov:90, source:'outdoor', lat:40.7527431, lng:-73.9811941 },
-    svInt:{ heading:19.8, pitch:13.4, fov:180, source:'default', lat:40.7531029, lng:-73.9820234 }
+    svInt:{ heading:19.8, pitch:13.4, fov:180, source:'default', lat:40.7531029, lng:-73.9820234 },
   },
   {
     id:'nyc-0014',
@@ -723,7 +723,7 @@ var LOCS_NEW_YORK = [
     lat:40.7825547,
     lng:-73.9655834,
     sv:{ heading:160.3, pitch:-29.2, fov:161, source:'outdoor', lat:40.7825547, lng:-73.9655834 },
-    svInt:{ heading:173.8, pitch:14.7, fov:90, source:'default', lat:40.7721793, lng:-73.9746304 }
+    svInt:{ heading:173.8, pitch:14.7, fov:90, source:'default', lat:40.7721793, lng:-73.9746304 },
     addr:'Central Park, New York, NY 10024',
     hood:'Manhattan (59th–110th St)',
     desc:'Central Park is a masterwork of 19th-century landscape design by Olmsted and Vaux, and one of the most consequential works of American landscape architecture. Its 843 acres were sculpted from rocky, swampy terrain into a pastoral counterpoint to the Manhattan grid. Key landmarks include Bethesda Terrace, the Ramble, the Great Lawn, Strawberry Fields, and Belvedere Castle. Restored by the Central Park Conservancy from the 1980s onward.',
@@ -803,7 +803,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Lunch_atop_a_Skyscraper_-_Charles_Clyde_Ebbets.jpg?width=800'
     ],
     sv:{ heading:94.6, pitch:17.4, fov:180, source:'outdoor', lat:40.7585939, lng:-73.9784521 },
-    svInt:{ heading:291.5, pitch:-2.7, fov:180, source:'default', lat:40.7585673, lng:-73.978302 }
+    svInt:{ heading:291.5, pitch:-2.7, fov:180, source:'default', lat:40.7585673, lng:-73.978302 },
   },
   {
     id:'nyc-0017',
@@ -827,7 +827,7 @@ var LOCS_NEW_YORK = [
     lat:40.7585212,
     lng:-73.9724896,
     sv:{ heading:123.7, pitch:20.1, fov:164, source:'outdoor', lat:40.7587189, lng:-73.9727586 },
-    svIntNA: true
+    svIntNA: true,
     addr:'375 Park Ave, New York, NY 10152',
     hood:'Midtown East',
     desc:'The Seagram Building is widely regarded as the finest example of the International Style skyscraper and one of the most influential buildings of the 20th century. Mies van der Rohe\'s bronze-and-glass tower set back from Park Avenue—with its travertine plaza—established a new standard for corporate architecture and prompted New York City to revise its zoning laws to encourage plazas. The interior Four Seasons Restaurant was designated a landmark in its own right.',
@@ -904,7 +904,7 @@ var LOCS_NEW_YORK = [
       'Gordon Bunshaft'
     ],
     sv:{ heading:258.4, pitch:11.3, fov:144, source:'outdoor', lat:40.7597342, lng:-73.9722702 },
-    svIntNA: true
+    svIntNA: true,
   },
   {
     id:'nyc-0019',
@@ -954,7 +954,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hearst_Tower_Lobby_October_2006.jpg?width=800'
     ],
     sv:{ heading:324.9, pitch:27.4, fov:164, source:'outdoor', lat:40.7659504, lng:-73.9831322 },
-    svIntNA: true
+    svIntNA: true,
   },
   {
     id:'nyc-0020',
@@ -1004,7 +1004,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/New_Museum_in_New_York_City_2015.JPG?width=800'
     ],
     sv:{ heading:126.5, pitch:26.4, fov:180, source:'outdoor', lat:40.7225404, lng:-73.9932763 },
-    svInt:{ heading:347.6, pitch:4.2, fov:90, source:'default', lat:40.7222216, lng:-73.9927691 }
+    svInt:{ heading:347.6, pitch:4.2, fov:90, source:'default', lat:40.7222216, lng:-73.9927691 },
   },
   {
     id:'nyc-0021',
@@ -1025,7 +1025,7 @@ var LOCS_NEW_YORK = [
     lat:40.7455869,
     lng:-74.00765670000001,
     sv:{ heading:106, pitch:23.9, fov:159, source:'outdoor', lat:40.7458562, lng:-74.0082789 },
-    svIntNA: true
+    svIntNA: true,
     addr:'555 W 18th St, New York, NY 10011',
     hood:'West Chelsea',
     desc:'Frank Gehry\'s IAC/InterActiveCorp headquarters is his first New York building and the first completed Gehry building in Manhattan. Ten floors of undulating white glass panels evoke billowing sails—a deliberate departure from Manhattan\'s rectilinear grid. The building sits at the south end of the High Line corridor and is considered a catalyst for the transformation of West Chelsea into a world-class arts and architecture destination.',
@@ -1073,7 +1073,7 @@ var LOCS_NEW_YORK = [
     lat:40.7176412,
     lng:-74.006259,
     sv:{ heading:285.3, pitch:26.9, fov:180, source:'outdoor', lat:40.7176014, lng:-74.0058354 },
-    svInt:{ heading:278, pitch:18.3, fov:168, source:'default', lat:40.7175465, lng:-74.0060652 }
+    svInt:{ heading:278, pitch:18.3, fov:168, source:'default', lat:40.7175465, lng:-74.0060652 },
     addr:'56 Leonard St, New York, NY 10013',
     hood:'Tribeca',
     desc:'Nicknamed the "Jenga Tower" for its stacked and cantilevered volumes, 56 Leonard Street by Herzog & de Meuron is one of the most distinctive residential skyscrapers in New York. Each of its 57 floors steps out or in at irregular intervals, creating 145 unique residences and a constantly shifting sculptural silhouette. Anish Kapoor\'s large-scale outdoor sculpture "Tango" anchors the building\'s public plaza at street level.',
@@ -1119,7 +1119,7 @@ var LOCS_NEW_YORK = [
     lat:40.7617561,
     lng:-73.9719035,
     sv:{ heading:249.5, pitch:36.7, fov:180, source:'outdoor', lat:40.7618024, lng:-73.9711615 },
-    svIntNA: true
+    svIntNA: true,
     addr:'432 Park Ave, New York, NY 10022',
     hood:'Midtown East',
     desc:'At 1,396 feet, 432 Park Avenue is the tallest residential building in the Western Hemisphere. Rafael Viñoly\'s austere concrete grid tower—its 96-story shaft rising from a square footprint just 93 feet per side—is inspired by a wastebasket designed by Josef Hoffmann. The extreme slenderness ratio (1:15) required innovative structural engineering including eight mechanical floors that act as vibration dampers. Its silhouette has fundamentally altered the Manhattan skyline.',
@@ -1192,7 +1192,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/11_Memorial_Museum_-_steel_beams_in_foundation.jpg?width=800'
     ],
     sv:{ heading:27.5, pitch:-16, fov:180, source:'outdoor', lat:40.7119062, lng:-74.0133453 },
-    svIntNA: true
+    svIntNA: true,
   },
   {
     id:'nyc-0025',
@@ -1217,7 +1217,7 @@ var LOCS_NEW_YORK = [
     sv:{ heading:91.4, pitch:25.9, fov:180, source:'outdoor', lat:40.7560935, lng:-73.9906381 },
     svInt:[
     { heading:156.2, pitch:-2.1, fov:180, source:'default', lat:40.7562571, lng:-73.9899428, panoId:'CAoSFkNJSE0wb2dLRUlDQWdJRFozdGJrTWc.' }
-  ]
+  ],
     addr:'620 8th Ave, New York, NY 10018',
     hood:'Midtown West / Hell\'s Kitchen',
     desc:'Renzo Piano\'s New York Times Building is one of the most technically sophisticated skyscrapers in New York. Its distinctive exterior is wrapped in a second skin of ceramic tubes that modulate light, reduce glare, and give the tower a luminous, ethereal quality that changes with the light of day. The 52-story tower achieves LEED Silver certification and includes a publicly accessible lobby garden. The building exemplifies Piano\'s philosophy of transparency and light in architecture.',
@@ -1295,7 +1295,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/People_in_the_rooftop_bar_of_the_Metropolitan_Museum_of_Art%2C_New_York%2C_2007.jpg?width=800'
     ],
     sv:{ heading:301.4, pitch:8.3, fov:157, source:'outdoor', lat:40.7789391, lng:-73.9622102 },
-    svInt:{ heading:304.9, pitch:12.8, fov:180, source:'default', lat:40.7803198, lng:-73.9625755 }
+    svInt:{ heading:304.9, pitch:12.8, fov:180, source:'default', lat:40.7803198, lng:-73.9625755 },
   },
   {
     id:'nyc-0027',
@@ -1318,7 +1318,7 @@ var LOCS_NEW_YORK = [
     svInt:[
     { heading:291.5, pitch:15.6, fov:164, source:'default', lat:40.761402, lng:-73.977616, panoId:'CAoSFkNJSE0wb2dLRUlDQWdJRGMtZl8xWnc.' },
     { heading:153.2, pitch:0.6, fov:90, source:'default', lat:40.7615186, lng:-73.9771127, panoId:'CAoSFkNJSE0wb2dLRUlDQWdJQ080X1BjUXc.' }
-  ]
+  ],
     addr:'11 W 53rd St, New York, NY 10019',
     hood:'Midtown East',
     desc:'The Museum of Modern Art houses the world\'s most important collection of modern and contemporary art. The current building—the result of a major 2004 expansion by Japanese architect Yoshio Taniguchi—doubled the gallery space to 630,000 square feet. Taniguchi\'s design is defined by pure geometric volumes, generous natural light, and the serene Abby Aldrich Rockefeller Sculpture Garden, which has anchored the museum since 1939. A second expansion by Diller Scofidio + Renfro followed in 2019.',
@@ -1368,7 +1368,7 @@ var LOCS_NEW_YORK = [
     sv:{ heading:268.9, pitch:35.5, fov:180, source:'outdoor', lat:40.712431, lng:-74.0077642 },
     svInt:[
     { heading:108.9, pitch:13.4, fov:180, source:'default', lat:40.712458, lng:-74.008358, panoId:'CAoSFkNJSE0wb2dLRUlDQWdJREVuSnJHVmc.' }
-  ]
+  ],
     addr:'233 Broadway, New York, NY 10279',
     hood:'Lower Manhattan',
     desc:'Cass Gilbert\'s Woolworth Building was the world\'s tallest building for 17 years upon its completion in 1913 and remains one of the finest skyscrapers ever built. President Woodrow Wilson illuminated it from Washington, D.C. on its opening night. Its Gothic terracotta cladding, pointed arches, and flying buttresses earned the nickname "Cathedral of Commerce." The gilded lobby—with its Byzantine mosaics, marble walls, and grotesque caricatures of Woolworth counting nickels—is among the most extraordinary interiors in New York.',
