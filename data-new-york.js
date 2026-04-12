@@ -25,7 +25,7 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat: 40.748535,
     lng: -73.9856571,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.748535, lng:-73.9856571 },
+    sv:{ heading:265.4, pitch:35.6, fov:110, source:'outdoor', lat:40.7484275, lng:-73.9844797 },
     addr:'350 5th Ave, New York, NY 10118',
     hood:'Midtown Manhattan',
     desc:'A 102-story Art Deco masterpiece that stood as the world\'s tallest building for nearly 40 years. Its iconic stepped silhouette and illuminated antenna are synonymous with New York City. Built in just 410 days during the Great Depression, it was designated a National Historic Landmark in 1986 and attracts nearly 4 million visitors annually.',
@@ -72,7 +72,7 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.7514392,
     lng:-73.97708,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7514392, lng:-73.97708 },
+    sv:{ heading:75.9, pitch:47.5, fov:157, source:'outdoor', lat:40.751461, lng:-73.9760393 },
     addr:'405 Lexington Ave, New York, NY',
     hood:'Midtown East',
     desc:'Often cited as the most beautiful skyscraper ever built, the Chrysler Building held the title of world\'s tallest structure for 11 months. Its stainless-steel eagle gargoyles and sunburst crown are among the most recognized architectural details in American history. The Art Deco lobby—featuring onyx, marble, and wood veneers—is open to the public on weekdays.',
@@ -119,7 +119,7 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.712985,
     lng:-74.0133848,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.712985, lng:-74.0133848 },
+    sv:{ heading:134.6, pitch:52.1, fov:157, source:'outdoor', lat:40.7135565, lng:-74.0136568 },
     addr:'285 Fulton St, New York, NY 10007',
     hood:'Lower Manhattan',
     desc:'Standing at exactly 1,776 feet—a symbolic reference to American independence—One WTC is the tallest building in the Western Hemisphere. Built on the site of the original Twin Towers, the tower\'s shimmering glass facade reflects sky and city throughout the day. The One World Observatory (floors 100–102) offers a moving multimedia experience about New York\'s history.',
@@ -164,7 +164,7 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.7410592,
     lng:-73.9896416,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7410592, lng:-73.9896416 },
+    sv:{ heading:226.2, pitch:34, fov:158, source:'outdoor', lat:40.7414597, lng:-73.9892154 },
     addr:'175 5th Ave, New York, NY 10010',
     hood:'Flatiron District',
     desc:'One of the most photographed buildings in New York City, the Flatiron Building\'s triangular shape—occupying just 6 feet at its narrowest—was dictated by the unusual three-way intersection of Fifth Avenue, Broadway, and 22nd Street. Daniel Burnham\'s 22-story tower was considered a skyscraper upon completion in 1902 and has inspired generations of architects worldwide.',
@@ -216,7 +216,7 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.7526944,
     lng:-73.977253,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7526944, lng:-73.977253 },
+    sv:{ heading:351.2, pitch:20.2, fov:157, source:'outdoor', lat:40.7528583, lng:-73.977175 },
     addr:'89 E 42nd St, New York, NY 10017',
     hood:'Midtown East',
     desc:'Grand Central Terminal is one of the world\'s greatest buildings. The celestial ceiling of the Main Concourse—painted turquoise with 2,500 constellation stars—is one of the most spectacular interior spaces in New York. The terminal handles over 750,000 visitors daily, and was dramatically restored between 1994 and 1998. The Whispering Gallery acoustic phenomenon in the lower level is a must-visit.',
@@ -266,7 +266,7 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.705949,
     lng:-73.9968028,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.705949, lng:-73.9968028 },
+    sv:{ heading:318.6, pitch:11.1, fov:90, source:'outdoor', lat:40.7056959, lng:-73.9964918 },
     addr:'Brooklyn Bridge, New York, NY 10038',
     hood:'Lower Manhattan / DUMBO',
     desc:'When completed in 1883, the Brooklyn Bridge was the longest suspension bridge in the world. John Roebling conceived the design but died before construction began; his son Washington completed the project after years of decompression illness. Its Gothic granite towers stand 276 feet above the East River, and the pedestrian walkway offers spectacular views of the Manhattan skyline. Best photographed from DUMBO waterfront.',
@@ -345,7 +345,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Solomon_R._Guggenheim_Museum_skylight.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Int%C3%A9rieur_du_mus%C3%A9e_Solomon_R._Guggenheim_%C3%A0_New-York.jpg?width=800'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7833604, lng:-73.9589579 }
+    sv:{ heading:152.4, pitch:7.4, fov:158, source:'outdoor', lat:40.7834147, lng:-73.9590722 }
   },
   {
     id:'nyc-0008',
@@ -365,7 +365,7 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.7395868,
     lng:-74.00914089999999,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7395868, lng:-74.00914089999999 },
+    sv:{ heading:59.3, pitch:22.5, fov:159, source:'outdoor', lat:40.7393457, lng:-74.0096856 },
     addr:'99 Gansevoort St, New York, NY 10014',
     hood:'Meatpacking District',
     desc:'Renzo Piano\'s Whitney downtown building sits at the southern terminus of the High Line. The asymmetric stacked volumes clad in blue-gray steel panels respond sensitively to the industrial Meatpacking District while opening onto the Hudson River via multiple cantilevered terraces. Home to the foremost collection of 20th- and 21st-century American art.',
@@ -449,7 +449,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/New_York%27s_High_Line_in_March_2025_06.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/High_Line%2C_New_York_2012_39.jpg?width=800'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7479905, lng:-74.0046572 }
+    sv:{ heading:58.5, pitch:5.2, fov:90, source:'outdoor', lat:40.7473602, lng:-74.0051346 }
   },
   {
     id:'nyc-0010',
@@ -494,7 +494,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Vessel_%28top-down_view%29%2C_Hudson_Yards%2C_New_York_City%2C_July_2019.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Vessel%2C_Hudson_Yards%2C_New_York_City%2C_June_2019.jpg?width=800'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7533912, lng:-74.0014093 },
+    sv:{ heading:146.8, pitch:26.7, fov:120, source:'default', lat:40.7541144, lng:-74.0023237 },
     archs:[
       'Thomas Heartherwick'
     ]
@@ -544,7 +544,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Oculus_%2841285p%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/WTC_Oculus_Exterior_018.jpg?width=800'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7118984, lng:-74.0120333 }
+    sv:{ heading:236.5, pitch:28.8, fov:180, source:'outdoor', lat:40.7117419, lng:-74.0108175 }
   },
   {
     id:'nyc-0012',
