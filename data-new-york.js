@@ -25,8 +25,8 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.748535,
     lng:-73.9856571,
-    sv:{ heading:266.4, pitch:44.4, fov:180, source:'outdoor', lat:40.7484275, lng:-73.9844797 },
-    svInt:{ heading:116, pitch:-4.4, fov:167, source:'default', lat:40.7485625, lng:-73.9856565 },
+    sv:{ heading:266.4, pitch:44.4, fov:100, source:'outdoor', lat:40.7484275, lng:-73.9844797 },
+    svInt:{ heading:116, pitch:-4.4, fov:100, source:'default', lat:40.7485625, lng:-73.9856565 },
     addr:'350 5th Ave, New York, NY 10118',
     hood:'Midtown Manhattan',
     desc:'A 102-story Art Deco masterpiece that stood as the world\'s tallest building for nearly 40 years. Its iconic stepped silhouette and illuminated antenna are synonymous with New York City. Built in just 410 days during the Great Depression, it was designated a National Historic Landmark in 1986 and attracts nearly 4 million visitors annually.',
@@ -73,8 +73,8 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.7515972,
     lng:-73.9753139,
-    sv:{ heading:76, pitch:48, fov:180, source:'outdoor', lat:40.751461, lng:-73.9760393 },
-    svInt:{ heading:176, pitch:4.2, fov:167, source:'default', lat:40.7515259, lng:-73.9755173 },
+    sv:{ heading:76, pitch:48, fov:100, source:'outdoor', lat:40.751461, lng:-73.9760393 },
+    svInt:{ heading:176, pitch:4.2, fov:100, source:'default', lat:40.7515259, lng:-73.9755173 },
     addr:'405 Lexington Ave, New York, NY',
     hood:'Midtown East',
     desc:'Often cited as the most beautiful skyscraper ever built, the Chrysler Building held the title of world\'s tallest structure for 11 months. Its stainless-steel eagle gargoyles and sunburst crown are among the most recognized architectural details in American history. The Art Deco lobby—featuring onyx, marble, and wood veneers—is open to the public on weekdays.',
@@ -121,7 +121,7 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.712985,
     lng:-74.0133848,
-    sv:{ heading:164.2, pitch:31, fov:157, source:'outdoor', lat:40.713426, lng:-74.0135464 },
+    sv:{ heading:164.2, pitch:31, fov:100, source:'outdoor', lat:40.713426, lng:-74.0135464 },
     svInt:{ heading:125.5, pitch:-1.1, fov:90, source:'default', lat:40.7130203, lng:-74.0132217 },
     addr:'285 Fulton St, New York, NY 10007',
     hood:'Lower Manhattan',
@@ -167,7 +167,7 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.7410592,
     lng:-73.9896416,
-    sv:{ heading:226.2, pitch:34, fov:158, source:'outdoor', lat:40.7414597, lng:-73.9892154 },
+    sv:{ heading:226.2, pitch:34, fov:100, source:'outdoor', lat:40.7414597, lng:-73.9892154 },
     svIntNA: true,
     addr:'175 5th Ave, New York, NY 10010',
     hood:'Flatiron District',
@@ -220,7 +220,7 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.7526944,
     lng:-73.977253,
-    sv:{ heading:29.6, pitch:11.1, fov:157, source:'outdoor', lat:40.7519791, lng:-73.9778074 },
+    sv:{ heading:29.6, pitch:11.1, fov:100, source:'outdoor', lat:40.7519791, lng:-73.9778074 },
     addr:'89 E 42nd St, New York, NY 10017',
     hood:'Midtown East',
     desc:'Grand Central Terminal is one of the world\'s greatest buildings. The celestial ceiling of the Main Concourse—painted turquoise with 2,500 constellation stars—is one of the most spectacular interior spaces in New York. The terminal handles over 750,000 visitors daily, and was dramatically restored between 1994 and 1998. The Whispering Gallery acoustic phenomenon in the lower level is a must-visit.',
@@ -349,8 +349,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Solomon_R._Guggenheim_Museum_skylight.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Int%C3%A9rieur_du_mus%C3%A9e_Solomon_R._Guggenheim_%C3%A0_New-York.jpg?width=800'
     ],
-    sv:{ heading:152.4, pitch:7.4, fov:158, source:'outdoor', lat:40.7834147, lng:-73.9590722 },
-    svInt:{ heading:40, pitch:16.9, fov:180, source:'default', lat:40.7828782, lng:-73.9590064 },
+    sv:{ heading:152.4, pitch:7.4, fov:100, source:'outdoor', lat:40.7834147, lng:-73.9590722 },
+    svInt:{ heading:40, pitch:16.9, fov:100, source:'default', lat:40.7828782, lng:-73.9590064 },
   },
   {
     id:'nyc-0008',
@@ -370,8 +370,8 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.7395868,
     lng:-74.00914089999999,
-    sv:{ heading:59.3, pitch:22.5, fov:159, source:'outdoor', lat:40.7393457, lng:-74.0096856 },
-    svInt:{ heading:266.1, pitch:-8.4, fov:159, source:'default', lat:40.7396073, lng:-74.008671 },
+    sv:{ heading:59.3, pitch:22.5, fov:100, source:'outdoor', lat:40.7393457, lng:-74.0096856 },
+    svInt:{ heading:266.1, pitch:-8.4, fov:100, source:'default', lat:40.7396073, lng:-74.008671 },
     addr:'99 Gansevoort St, New York, NY 10014',
     hood:'Meatpacking District',
     desc:'Renzo Piano\'s Whitney downtown building sits at the southern terminus of the High Line. The asymmetric stacked volumes clad in blue-gray steel panels respond sensitively to the industrial Meatpacking District while opening onto the Hudson River via multiple cantilevered terraces. Home to the foremost collection of 20th- and 21st-century American art.',
@@ -501,8 +501,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Vessel_%28top-down_view%29%2C_Hudson_Yards%2C_New_York_City%2C_July_2019.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Vessel%2C_Hudson_Yards%2C_New_York_City%2C_June_2019.jpg?width=800'
     ],
-    sv:{ heading:146.8, pitch:26.7, fov:120, source:'default', lat:40.7541144, lng:-74.0023237 },
-    svInt:{ heading:280.8, pitch:-8.1, fov:161, source:'default', lat:40.7538542, lng:-74.0020096 },
+    sv:{ heading:146.8, pitch:26.7, fov:100, source:'default', lat:40.7541144, lng:-74.0023237 },
+    svInt:{ heading:280.8, pitch:-8.1, fov:100, source:'default', lat:40.7538542, lng:-74.0020096 },
     archs:[
       'Thomas Heartherwick'
     ]
@@ -552,8 +552,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Oculus_%2841285p%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/WTC_Oculus_Exterior_018.jpg?width=800'
     ],
-    sv:{ heading:236.5, pitch:28.8, fov:180, source:'outdoor', lat:40.7117615, lng:-74.0107956 },
-    svInt:{ heading:320.2, pitch:18.5, fov:161, source:'default', lat:40.7115301, lng:-74.011404 },
+    sv:{ heading:236.5, pitch:28.8, fov:100, source:'outdoor', lat:40.7117615, lng:-74.0107956 },
+    svInt:{ heading:320.2, pitch:18.5, fov:100, source:'default', lat:40.7115301, lng:-74.011404 },
   },
   {
     id:'nyc-0012',
@@ -574,8 +574,8 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.758611699999996,
     lng:-73.9761953,
-    sv:{ heading:100.6, pitch:28.3, fov:180, source:'outdoor', lat:40.7587648, lng:-73.9770111 },
-    svInt:{ heading:142, pitch:23.9, fov:161, source:'default', lat:40.7584877, lng:-73.9761581 },
+    sv:{ heading:100.6, pitch:28.3, fov:100, source:'outdoor', lat:40.7587648, lng:-73.9770111 },
+    svInt:{ heading:142, pitch:23.9, fov:100, source:'default', lat:40.7584877, lng:-73.9761581 },
     addr:'5th Ave at 50th St, New York, NY 10022',
     hood:'Midtown East',
     desc:'The largest Gothic Revival Catholic cathedral in North America stands in striking contrast to Rockefeller Center across Fifth Avenue—one of New York\'s most powerful urban juxtapositions. Designed by James Renwick Jr. and consecrated in 1879, its twin spires rise 330 feet above Fifth Avenue. The interior features magnificent stained glass, a 26-foot rose window, and bronze entrance doors each weighing 9,200 pounds. Fully restored in 2015.',
@@ -649,7 +649,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/New_York_Public_Library_1908c.jpg?width=800'
     ],
     sv:{ heading:304.5, pitch:11.3, fov:90, source:'outdoor', lat:40.7527431, lng:-73.9811941 },
-    svInt:{ heading:19.8, pitch:13.4, fov:180, source:'default', lat:40.7531029, lng:-73.9820234 },
+    svInt:{ heading:19.8, pitch:13.4, fov:100, source:'default', lat:40.7531029, lng:-73.9820234 },
   },
   {
     id:'nyc-0014',
@@ -697,7 +697,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Atrium_and_Staircase_Interior.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Cooper_Union_-_Cooper_Union_Academic_Building_Entrance_%2848072760147%29.jpg?width=800'
     ],
-    sv:{ heading:152, pitch:25.5, fov:180, source:'outdoor', lat:40.7288213, lng:-73.9904446 }
+    sv:{ heading:152, pitch:25.5, fov:100, source:'outdoor', lat:40.7288213, lng:-73.9904446 }
   },
   {
     id:'nyc-0015',
@@ -722,7 +722,7 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.7825547,
     lng:-73.9655834,
-    sv:{ heading:160.3, pitch:-29.2, fov:161, source:'outdoor', lat:40.7825547, lng:-73.9655834 },
+    sv:{ heading:160.3, pitch:-29.2, fov:100, source:'outdoor', lat:40.7825547, lng:-73.9655834 },
     svInt:{ heading:173.8, pitch:14.7, fov:90, source:'default', lat:40.7721793, lng:-73.9746304 },
     addr:'Central Park, New York, NY 10024',
     hood:'Manhattan (59th–110th St)',
@@ -802,8 +802,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Rockefeller_Center%2C_December_1933.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Lunch_atop_a_Skyscraper_-_Charles_Clyde_Ebbets.jpg?width=800'
     ],
-    sv:{ heading:94.6, pitch:17.4, fov:180, source:'outdoor', lat:40.7585939, lng:-73.9784521 },
-    svInt:{ heading:291.5, pitch:-2.7, fov:180, source:'default', lat:40.7585673, lng:-73.978302 },
+    sv:{ heading:94.6, pitch:17.4, fov:100, source:'outdoor', lat:40.7585939, lng:-73.9784521 },
+    svInt:{ heading:291.5, pitch:-2.7, fov:100, source:'default', lat:40.7585673, lng:-73.978302 },
   },
   {
     id:'nyc-0017',
@@ -826,7 +826,7 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.7585212,
     lng:-73.9724896,
-    sv:{ heading:123.7, pitch:20.1, fov:164, source:'outdoor', lat:40.7587189, lng:-73.9727586 },
+    sv:{ heading:123.7, pitch:20.1, fov:100, source:'outdoor', lat:40.7587189, lng:-73.9727586 },
     svIntNA: true,
     addr:'375 Park Ave, New York, NY 10152',
     hood:'Midtown East',
@@ -903,7 +903,7 @@ var LOCS_NEW_YORK = [
     archs:[
       'Gordon Bunshaft'
     ],
-    sv:{ heading:258.4, pitch:11.3, fov:144, source:'outdoor', lat:40.7597342, lng:-73.9722702 },
+    sv:{ heading:258.4, pitch:11.3, fov:100, source:'outdoor', lat:40.7597342, lng:-73.9722702 },
     svIntNA: true,
   },
   {
@@ -953,7 +953,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/W_57th_St_Nov_2020_160.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hearst_Tower_Lobby_October_2006.jpg?width=800'
     ],
-    sv:{ heading:324.9, pitch:27.4, fov:164, source:'outdoor', lat:40.7659504, lng:-73.9831322 },
+    sv:{ heading:324.9, pitch:27.4, fov:100, source:'outdoor', lat:40.7659504, lng:-73.9831322 },
     svIntNA: true,
   },
   {
@@ -1003,7 +1003,7 @@ var LOCS_NEW_YORK = [
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/New_Museum_in_New_York_City_2015.JPG?width=800'
     ],
-    sv:{ heading:126.5, pitch:26.4, fov:180, source:'outdoor', lat:40.7225404, lng:-73.9932763 },
+    sv:{ heading:126.5, pitch:26.4, fov:100, source:'outdoor', lat:40.7225404, lng:-73.9932763 },
     svInt:{ heading:347.6, pitch:4.2, fov:90, source:'default', lat:40.7222216, lng:-73.9927691 },
   },
   {
@@ -1024,7 +1024,7 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.7455869,
     lng:-74.00765670000001,
-    sv:{ heading:106, pitch:23.9, fov:159, source:'outdoor', lat:40.7458562, lng:-74.0082789 },
+    sv:{ heading:106, pitch:23.9, fov:100, source:'outdoor', lat:40.7458562, lng:-74.0082789 },
     svIntNA: true,
     addr:'555 W 18th St, New York, NY 10011',
     hood:'West Chelsea',
@@ -1072,8 +1072,8 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.7176412,
     lng:-74.006259,
-    sv:{ heading:285.3, pitch:26.9, fov:180, source:'outdoor', lat:40.7176014, lng:-74.0058354 },
-    svInt:{ heading:278, pitch:18.3, fov:168, source:'default', lat:40.7175465, lng:-74.0060652 },
+    sv:{ heading:285.3, pitch:26.9, fov:100, source:'outdoor', lat:40.7176014, lng:-74.0058354 },
+    svInt:{ heading:278, pitch:18.3, fov:100, source:'default', lat:40.7175465, lng:-74.0060652 },
     addr:'56 Leonard St, New York, NY 10013',
     hood:'Tribeca',
     desc:'Nicknamed the "Jenga Tower" for its stacked and cantilevered volumes, 56 Leonard Street by Herzog & de Meuron is one of the most distinctive residential skyscrapers in New York. Each of its 57 floors steps out or in at irregular intervals, creating 145 unique residences and a constantly shifting sculptural silhouette. Anish Kapoor\'s large-scale outdoor sculpture "Tango" anchors the building\'s public plaza at street level.',
@@ -1118,7 +1118,7 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.7617561,
     lng:-73.9719035,
-    sv:{ heading:249.5, pitch:36.7, fov:180, source:'outdoor', lat:40.7618024, lng:-73.9711615 },
+    sv:{ heading:249.5, pitch:36.7, fov:100, source:'outdoor', lat:40.7618024, lng:-73.9711615 },
     svIntNA: true,
     addr:'432 Park Ave, New York, NY 10022',
     hood:'Midtown East',
@@ -1191,7 +1191,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/One_WTC_From_W_Hotel_7-28-10.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/11_Memorial_Museum_-_steel_beams_in_foundation.jpg?width=800'
     ],
-    sv:{ heading:27.5, pitch:-16, fov:180, source:'outdoor', lat:40.7119062, lng:-74.0133453 },
+    sv:{ heading:27.5, pitch:-16, fov:100, source:'outdoor', lat:40.7119062, lng:-74.0133453 },
     svIntNA: true,
   },
   {
@@ -1214,9 +1214,9 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.7560713,
     lng:-73.990109,
-    sv:{ heading:91.4, pitch:25.9, fov:180, source:'outdoor', lat:40.7560935, lng:-73.9906381 },
+    sv:{ heading:91.4, pitch:25.9, fov:100, source:'outdoor', lat:40.7560935, lng:-73.9906381 },
     svInt:[
-    { heading:156.2, pitch:-2.1, fov:180, source:'default', lat:40.7562571, lng:-73.9899428, panoId:'CAoSFkNJSE0wb2dLRUlDQWdJRFozdGJrTWc.' }
+    { heading:156.2, pitch:-2.1, fov:100, source:'default', lat:40.7562571, lng:-73.9899428, panoId:'CAoSFkNJSE0wb2dLRUlDQWdJRFozdGJrTWc.' }
   ],
     addr:'620 8th Ave, New York, NY 10018',
     hood:'Midtown West / Hell\'s Kitchen',
@@ -1294,8 +1294,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Metropolitan_Museum_of_Art%2C_New_York_City_NY%2C_entrance.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/People_in_the_rooftop_bar_of_the_Metropolitan_Museum_of_Art%2C_New_York%2C_2007.jpg?width=800'
     ],
-    sv:{ heading:301.4, pitch:8.3, fov:157, source:'outdoor', lat:40.7789391, lng:-73.9622102 },
-    svInt:{ heading:304.9, pitch:12.8, fov:180, source:'default', lat:40.7803198, lng:-73.9625755 },
+    sv:{ heading:301.4, pitch:8.3, fov:100, source:'outdoor', lat:40.7789391, lng:-73.9622102 },
+    svInt:{ heading:304.9, pitch:12.8, fov:100, source:'default', lat:40.7803198, lng:-73.9625755 },
   },
   {
     id:'nyc-0027',
@@ -1314,9 +1314,9 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.76134920000001,
     lng:-73.9773325,
-    sv:{ heading:65.6, pitch:8.3, fov:158, source:'outdoor', lat:40.7612747, lng:-73.9778762 },
+    sv:{ heading:65.6, pitch:8.3, fov:100, source:'outdoor', lat:40.7612747, lng:-73.9778762 },
     svInt:[
-    { heading:291.5, pitch:15.6, fov:164, source:'default', lat:40.761402, lng:-73.977616, panoId:'CAoSFkNJSE0wb2dLRUlDQWdJRGMtZl8xWnc.' },
+    { heading:291.5, pitch:15.6, fov:100, source:'default', lat:40.761402, lng:-73.977616, panoId:'CAoSFkNJSE0wb2dLRUlDQWdJRGMtZl8xWnc.' },
     { heading:153.2, pitch:0.6, fov:90, source:'default', lat:40.7615186, lng:-73.9771127, panoId:'CAoSFkNJSE0wb2dLRUlDQWdJQ080X1BjUXc.' }
   ],
     addr:'11 W 53rd St, New York, NY 10019',
@@ -1365,9 +1365,9 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.7126314,
     lng:-74.0083037,
-    sv:{ heading:268.9, pitch:35.5, fov:180, source:'outdoor', lat:40.712431, lng:-74.0077642 },
+    sv:{ heading:268.9, pitch:35.5, fov:100, source:'outdoor', lat:40.712431, lng:-74.0077642 },
     svInt:[
-    { heading:108.9, pitch:13.4, fov:180, source:'default', lat:40.712458, lng:-74.008358, panoId:'CAoSFkNJSE0wb2dLRUlDQWdJREVuSnJHVmc.' }
+    { heading:108.9, pitch:13.4, fov:100, source:'default', lat:40.712458, lng:-74.008358, panoId:'CAoSFkNJSE0wb2dLRUlDQWdJREVuSnJHVmc.' }
   ],
     addr:'233 Broadway, New York, NY 10279',
     hood:'Lower Manhattan',
@@ -1444,10 +1444,10 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/2003-03-New-York-United-Nations-Secretariat-Building.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/United_Nations_Headquarters_-_Security_Council_chamber%2C_angled_view.jpg?width=800'
     ],
-    sv:{ heading:120.5, pitch:23.5, fov:166, source:'outdoor', lat:40.7494676, lng:-73.9693532 },
+    sv:{ heading:120.5, pitch:23.5, fov:100, source:'outdoor', lat:40.7494676, lng:-73.9693532 },
     svInt:[
-    { heading:105.2, pitch:-7.2, fov:180, source:'default', lat:40.7491281, lng:-73.9678382, panoId:'CAoSFkNJSE0wb2dLRUlDQWdJRHF6Wks1SGc.' },
-    { heading:123.4, pitch:13.6, fov:180, source:'default', lat:40.7496958, lng:-73.9681165, panoId:'CAoSFkNJSE0wb2dLRUlDQWdJQ1Vtc0h1YXc.' }
+    { heading:105.2, pitch:-7.2, fov:100, source:'default', lat:40.7491281, lng:-73.9678382, panoId:'CAoSFkNJSE0wb2dLRUlDQWdJRHF6Wks1SGc.' },
+    { heading:123.4, pitch:13.6, fov:100, source:'default', lat:40.7496958, lng:-73.9681165, panoId:'CAoSFkNJSE0wb2dLRUlDQWdJQ1Vtc0h1YXc.' }
   ]
   },
   {
@@ -4202,7 +4202,7 @@ var LOCS_NEW_YORK = [
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/173_Perry_St_by_David_Shankbone.jpg/800px-173_Perry_St_by_David_Shankbone.jpg'
     ],
-    sv:{ heading:135, pitch:10, fov:117, source:'outdoor', lat:40.7346044, lng:-74.0100297 }
+    sv:{ heading:135, pitch:10, fov:100, source:'outdoor', lat:40.7346044, lng:-74.0100297 }
   },
   {
     id:'nyc-0093',

@@ -283,7 +283,7 @@ function openLoc(loc) {
     svIframe.setAttribute('allowfullscreen', '');
     var svH   = (loc.sv && loc.sv.heading != null) ? loc.sv.heading : 210;
     var svP   = (loc.sv && loc.sv.pitch   != null) ? loc.sv.pitch   : 10;
-    var svF   = (loc.sv && loc.sv.fov     != null) ? loc.sv.fov     : 90;
+    var svF   = Math.min(100, Math.max(10, (loc.sv && loc.sv.fov != null) ? loc.sv.fov : 90)); // Embed API: 10–100
     var svS   = (loc.sv && loc.sv.source)           ? loc.sv.source  : 'outdoor';
     var svLat = (loc.sv && loc.sv.lat     != null)  ? loc.sv.lat     : loc.lat;
     var svLng = (loc.sv && loc.sv.lng     != null)  ? loc.sv.lng     : loc.lng;
@@ -305,7 +305,7 @@ function openLoc(loc) {
       svIntIframe.style.display = 'none';
       var siH = (si.heading != null) ? si.heading : 0;
       var siP = (si.pitch   != null) ? si.pitch   : 0;
-      var siF = (si.fov     != null) ? si.fov     : 90;
+      var siF = Math.min(100, Math.max(10, (si.fov != null) ? si.fov : 90)); // Embed API: 10–100
       var intSrc;
       if (si.panoId) {
         intSrc = 'https://www.google.com/maps/embed/v1/streetview?key=' +
