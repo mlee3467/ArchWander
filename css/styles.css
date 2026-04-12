@@ -1901,17 +1901,8 @@ body::after { animation: crt-flicker 12s infinite; }
   letter-spacing: 0 !important;
   padding: 6px 14px !important;
 }
-.cat-badge {
-  font-family: 'Press Start 2P', monospace !important;
-  font-size: 6px !important;
-  border-radius: 0 !important;
-  padding: 3px 6px !important;
-  letter-spacing: 0 !important;
-}
-.year-badge {
-  font-family: 'Press Start 2P', monospace !important;
-  font-size: 6px !important;
-}
+
+
 /* Cluster counter */
 .cluster-icon {
   font-family: 'Press Start 2P', monospace !important;
