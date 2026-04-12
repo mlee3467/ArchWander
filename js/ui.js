@@ -26,23 +26,26 @@ function _gallerySlideCount() {
   if (!activeLoc) return 0;
   var n = activeLoc.photos ? activeLoc.photos.length : 0;
   var hasSV = typeof GOOGLE_MAPS_API_KEY === 'string' && GOOGLE_MAPS_API_KEY;
-  return n + (hasSV ? 1 : 0);
+  var hasIntSV = hasSV && !!activeLoc.svInt;
+  return n + (hasSV ? 1 : 0) + (hasIntSV ? 1 : 0);
 }
 function gotoPhoto(idx) {
   var gallery = document.getElementById('gallery');
   var imgs = Array.from(gallery.querySelectorAll('img'));
-  var svIframe = gallery.querySelector('.sv-fallback');
+  var svExt = gallery.querySelector('.sv-fallback');
+  var svInt = gallery.querySelector('.sv-fallback-int');
   var photoCount = activeLoc && activeLoc.photos ? activeLoc.photos.length : 0;
-  var isSV = svIframe && idx === photoCount;
+  var isSVExt = !!svExt && idx === photoCount;
+  var isSVInt = !!svInt && idx === photoCount + 1;
+  var isSV = isSVExt || isSVInt;
 
   // Toggle images: hide all, show active photo (or none if SV)
   imgs.forEach(function(img, i) { img.classList.toggle('active', !isSV && i === idx); });
 
-  // Toggle Street View iframe
-  if (svIframe) {
-    svIframe.style.display = isSV ? '' : 'none';
-    gallery.classList.toggle('sv-mode', isSV);
-  }
+  // Toggle Street View iframes
+  if (svExt) svExt.style.display = isSVExt ? '' : 'none';
+  if (svInt) svInt.style.display = isSVInt ? '' : 'none';
+  gallery.classList.toggle('sv-mode', isSV);
 
   // Load deferred image
   if (!isSV && imgs[idx]) {
@@ -74,10 +77,14 @@ function gotoPhoto(idx) {
 }
 function updateGLabel() {
   if (!activeLoc) return;
-  var total = _gallerySlideCount();
   var photoCount = activeLoc.photos ? activeLoc.photos.length : 0;
-  var isSV = photoIdx === photoCount && typeof GOOGLE_MAPS_API_KEY === 'string' && GOOGLE_MAPS_API_KEY;
-  document.getElementById('g-label').textContent = isSV ? 'Street View' : (photoIdx + 1) + ' / ' + photoCount;
+  var hasSV = typeof GOOGLE_MAPS_API_KEY === 'string' && GOOGLE_MAPS_API_KEY;
+  var isSVExt = hasSV && photoIdx === photoCount;
+  var isSVInt = hasSV && activeLoc.svInt && photoIdx === photoCount + 1;
+  var label = isSVInt ? 'Street View · Interior' :
+              isSVExt ? 'Street View · Exterior' :
+              (photoIdx + 1) + ' / ' + photoCount;
+  document.getElementById('g-label').textContent = label;
 }
 function prevPhoto() { if (activeLoc) { var t = _gallerySlideCount(); gotoPhoto((photoIdx - 1 + t) % t); } }
 function nextPhoto() { if (activeLoc) { var t = _gallerySlideCount(); gotoPhoto((photoIdx + 1) % t); } }
