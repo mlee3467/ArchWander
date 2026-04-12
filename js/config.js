@@ -135,7 +135,7 @@ var MAPTILER_STYLE   = 'streets-v2'; // 'streets-v2' | 'basic-v2' | 'topo-v2' | 
 
 // Thunderforest — fallback if MapTiler key is empty. Free: 150,000 tiles/month.
 var THUNDERFOREST_API_KEY = '078a67760db947a9803755fe3b7a4916';
-var THUNDERFOREST_STYLE   = 'atlas'; // 'transport' | 'cycle' | 'atlas'
+var THUNDERFOREST_STYLE   = 'pioneer'; // 'transport' | 'cycle' | 'atlas' | 'pioneer' | 'landscape'
 
 // DeepL API (optional) — translates location descriptions, hours, directions etc.
 // Free tier: 500,000 characters/month.

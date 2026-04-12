@@ -49,26 +49,23 @@ function _refreshMarkerIcon(id) {
 }
 
 function _buildLocIcon(loc) {
-  const S = 26; // marker size (10% up from 24)
+  // Pixel-art diamond marker: square rotated 45° — no border-radius, hard shadow
+  const S = 20;
   const color = _ccMeta(loc).color;
   const fav = isFav(loc.id);
   const vis = isVisited(loc.id);
-  // Star overlay — same size for fav and fav+vis, with white outline
+  const fill = vis ? 'white' : color;
+  const borderColor = '#1a1a1a';
+  // Hard offset shadow (no blur) = pixel art feel
+  const shadow = vis
+    ? '3px 3px 0 rgba(0,0,0,0.2)'
+    : '3px 3px 0 rgba(0,0,0,0.4)';
   const starOverlay = fav
-    ? `<span style="position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;font-size:28px;color:#FF5F00;-webkit-text-stroke:2px white;paint-order:stroke fill;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.4));transform:rotate(45deg);line-height:1">★</span>`
+    ? `<span style="position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;font-size:20px;color:#FF5F00;-webkit-text-stroke:1.5px white;paint-order:stroke fill;transform:rotate(45deg);line-height:1">★</span>`
     : '';
-  if (vis) {
-    // Visited (or fav+vis): hollow — white fill, black outline
-    return L.divIcon({
-      className: '',
-      html: `<div class="m-pin-wrap"><div style="position:relative;width:${S}px;height:${S}px;background:white;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2.5px solid #333;box-shadow:0 2px 8px rgba(0,0,0,0.15)">${starOverlay}</div></div>`,
-      iconSize: [S, S], iconAnchor: [S/2, S]
-    });
-  }
-  // Default (or fav-only) marker — original category color
   return L.divIcon({
     className: '',
-    html: `<div class="m-pin-wrap"><div style="position:relative;width:${S}px;height:${S}px;background:${color};border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2.5px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3)">${starOverlay}</div></div>`,
+    html: `<div class="m-pin-wrap"><div style="position:relative;width:${S}px;height:${S}px;background:${fill};transform:rotate(-45deg);border:2.5px solid ${borderColor};box-shadow:${shadow}">${starOverlay}</div></div>`,
     iconSize: [S, S], iconAnchor: [S/2, S]
   });
 }
