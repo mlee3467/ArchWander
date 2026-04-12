@@ -26,6 +26,7 @@ var LOCS_NEW_YORK = [
     lat:40.748535,
     lng:-73.9856571,
     sv:{ heading:266.4, pitch:44.4, fov:180, source:'outdoor', lat:40.7484275, lng:-73.9844797 },
+    svInt:{ heading:116, pitch:-4.4, fov:167, source:'default', lat:40.7485625, lng:-73.9856565 }
     addr:'350 5th Ave, New York, NY 10118',
     hood:'Midtown Manhattan',
     desc:'A 102-story Art Deco masterpiece that stood as the world\'s tallest building for nearly 40 years. Its iconic stepped silhouette and illuminated antenna are synonymous with New York City. Built in just 410 days during the Great Depression, it was designated a National Historic Landmark in 1986 and attracts nearly 4 million visitors annually.',
@@ -73,6 +74,7 @@ var LOCS_NEW_YORK = [
     lat:40.7515972,
     lng:-73.9753139,
     sv:{ heading:76, pitch:48, fov:180, source:'outdoor', lat:40.751461, lng:-73.9760393 },
+    svInt:{ heading:176, pitch:4.2, fov:167, source:'default', lat:40.7515259, lng:-73.9755173 }
     addr:'405 Lexington Ave, New York, NY',
     hood:'Midtown East',
     desc:'Often cited as the most beautiful skyscraper ever built, the Chrysler Building held the title of world\'s tallest structure for 11 months. Its stainless-steel eagle gargoyles and sunburst crown are among the most recognized architectural details in American history. The Art Deco lobby—featuring onyx, marble, and wood veneers—is open to the public on weekdays.',
@@ -120,6 +122,7 @@ var LOCS_NEW_YORK = [
     lat:40.712985,
     lng:-74.0133848,
     sv:{ heading:164.2, pitch:31, fov:157, source:'outdoor', lat:40.713426, lng:-74.0135464 },
+    svInt:{ heading:125.5, pitch:-1.1, fov:90, source:'default', lat:40.7130203, lng:-74.0132217 }
     addr:'285 Fulton St, New York, NY 10007',
     hood:'Lower Manhattan',
     desc:'Standing at exactly 1,776 feet—a symbolic reference to American independence—One WTC is the tallest building in the Western Hemisphere. Built on the site of the original Twin Towers, the tower\'s shimmering glass facade reflects sky and city throughout the day. The One World Observatory (floors 100–102) offers a moving multimedia experience about New York\'s history.',
@@ -165,6 +168,7 @@ var LOCS_NEW_YORK = [
     lat:40.7410592,
     lng:-73.9896416,
     sv:{ heading:226.2, pitch:34, fov:158, source:'outdoor', lat:40.7414597, lng:-73.9892154 },
+    svIntNA: true
     addr:'175 5th Ave, New York, NY 10010',
     hood:'Flatiron District',
     desc:'One of the most photographed buildings in New York City, the Flatiron Building\'s triangular shape—occupying just 6 feet at its narrowest—was dictated by the unusual three-way intersection of Fifth Avenue, Broadway, and 22nd Street. Daniel Burnham\'s 22-story tower was considered a skyscraper upon completion in 1902 and has inspired generations of architects worldwide.',
@@ -216,7 +220,7 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.7526944,
     lng:-73.977253,
-    sv:{ heading:351.2, pitch:20.2, fov:157, source:'outdoor', lat:40.7528583, lng:-73.977175 },
+    sv:{ heading:29.6, pitch:11.1, fov:157, source:'outdoor', lat:40.7519791, lng:-73.9778074 },
     addr:'89 E 42nd St, New York, NY 10017',
     hood:'Midtown East',
     desc:'Grand Central Terminal is one of the world\'s greatest buildings. The celestial ceiling of the Main Concourse—painted turquoise with 2,500 constellation stars—is one of the most spectacular interior spaces in New York. The terminal handles over 750,000 visitors daily, and was dramatically restored between 1994 and 1998. The Whispering Gallery acoustic phenomenon in the lower level is a must-visit.',
@@ -345,7 +349,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Solomon_R._Guggenheim_Museum_skylight.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Int%C3%A9rieur_du_mus%C3%A9e_Solomon_R._Guggenheim_%C3%A0_New-York.jpg?width=800'
     ],
-    sv:{ heading:152.4, pitch:7.4, fov:158, source:'outdoor', lat:40.7834147, lng:-73.9590722 }
+    sv:{ heading:152.4, pitch:7.4, fov:158, source:'outdoor', lat:40.7834147, lng:-73.9590722 },
+    svInt:{ heading:40, pitch:16.9, fov:180, source:'default', lat:40.7828782, lng:-73.9590064 }
   },
   {
     id:'nyc-0008',
@@ -366,6 +371,7 @@ var LOCS_NEW_YORK = [
     lat:40.7395868,
     lng:-74.00914089999999,
     sv:{ heading:59.3, pitch:22.5, fov:159, source:'outdoor', lat:40.7393457, lng:-74.0096856 },
+    svInt:{ heading:266.1, pitch:-8.4, fov:159, source:'default', lat:40.7396073, lng:-74.008671 }
     addr:'99 Gansevoort St, New York, NY 10014',
     hood:'Meatpacking District',
     desc:'Renzo Piano\'s Whitney downtown building sits at the southern terminus of the High Line. The asymmetric stacked volumes clad in blue-gray steel panels respond sensitively to the industrial Meatpacking District while opening onto the Hudson River via multiple cantilevered terraces. Home to the foremost collection of 20th- and 21st-century American art.',
@@ -449,7 +455,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/New_York%27s_High_Line_in_March_2025_06.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/High_Line%2C_New_York_2012_39.jpg?width=800'
     ],
-    sv:{ heading:58.5, pitch:5.2, fov:90, source:'outdoor', lat:40.7473602, lng:-74.0051346 }
+    sv:{ heading:58.5, pitch:5.2, fov:52, source:'outdoor', lat:40.7473602, lng:-74.0051346 },
+    svInt:{ heading:0, pitch:0, fov:90, source:'default', lat:40.7479925, lng:-74.0047649 }
   },
   {
     id:'nyc-0010',
@@ -495,6 +502,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Vessel%2C_Hudson_Yards%2C_New_York_City%2C_June_2019.jpg?width=800'
     ],
     sv:{ heading:146.8, pitch:26.7, fov:120, source:'default', lat:40.7541144, lng:-74.0023237 },
+    svInt:{ heading:280.8, pitch:-8.1, fov:161, source:'default', lat:40.7538542, lng:-74.0020096 }
     archs:[
       'Thomas Heartherwick'
     ]
@@ -544,7 +552,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Oculus_%2841285p%29.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/WTC_Oculus_Exterior_018.jpg?width=800'
     ],
-    sv:{ heading:236.5, pitch:28.8, fov:180, source:'outdoor', lat:40.7117419, lng:-74.0108175 }
+    sv:{ heading:236.5, pitch:28.8, fov:180, source:'outdoor', lat:40.7117615, lng:-74.0107956 },
+    svInt:{ heading:320.2, pitch:18.5, fov:161, source:'default', lat:40.7115301, lng:-74.011404 }
   },
   {
     id:'nyc-0012',
@@ -565,7 +574,8 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.758611699999996,
     lng:-73.9761953,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.758611699999996, lng:-73.9761953 },
+    sv:{ heading:100.6, pitch:28.3, fov:180, source:'outdoor', lat:40.7587648, lng:-73.9770111 },
+    svInt:{ heading:142, pitch:23.9, fov:161, source:'default', lat:40.7584877, lng:-73.9761581 }
     addr:'5th Ave at 50th St, New York, NY 10022',
     hood:'Midtown East',
     desc:'The largest Gothic Revival Catholic cathedral in North America stands in striking contrast to Rockefeller Center across Fifth Avenue—one of New York\'s most powerful urban juxtapositions. Designed by James Renwick Jr. and consecrated in 1879, its twin spires rise 330 feet above Fifth Avenue. The interior features magnificent stained glass, a 26-foot rose window, and bronze entrance doors each weighing 9,200 pounds. Fully restored in 2015.',
@@ -638,7 +648,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Main_Reading_Room_of_the_New_York_City_Public_Library_on_5th_Avenue_ca%2C_1910-1920.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/New_York_Public_Library_1908c.jpg?width=800'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7528814, lng:-73.981429 }
+    sv:{ heading:304.5, pitch:11.3, fov:90, source:'outdoor', lat:40.7527431, lng:-73.9811941 },
+    svInt:{ heading:19.8, pitch:13.4, fov:180, source:'default', lat:40.7531029, lng:-73.9820234 }
   },
   {
     id:'nyc-0014',
@@ -686,7 +697,7 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Atrium_and_Staircase_Interior.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Cooper_Union_-_Cooper_Union_Academic_Building_Entrance_%2848072760147%29.jpg?width=800'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7288449, lng:-73.9904519 }
+    sv:{ heading:152, pitch:25.5, fov:180, source:'outdoor', lat:40.7288213, lng:-73.9904446 }
   },
   {
     id:'nyc-0015',
@@ -711,7 +722,8 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.7825547,
     lng:-73.9655834,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7825547, lng:-73.9655834 },
+    sv:{ heading:160.3, pitch:-29.2, fov:161, source:'outdoor', lat:40.7825547, lng:-73.9655834 },
+    svInt:{ heading:173.8, pitch:14.7, fov:90, source:'default', lat:40.7721793, lng:-73.9746304 }
     addr:'Central Park, New York, NY 10024',
     hood:'Manhattan (59th–110th St)',
     desc:'Central Park is a masterwork of 19th-century landscape design by Olmsted and Vaux, and one of the most consequential works of American landscape architecture. Its 843 acres were sculpted from rocky, swampy terrain into a pastoral counterpoint to the Manhattan grid. Key landmarks include Bethesda Terrace, the Ramble, the Great Lawn, Strawberry Fields, and Belvedere Castle. Restored by the Central Park Conservancy from the 1980s onward.',
@@ -790,7 +802,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Rockefeller_Center%2C_December_1933.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Lunch_atop_a_Skyscraper_-_Charles_Clyde_Ebbets.jpg?width=800'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7586843, lng:-73.9786504 }
+    sv:{ heading:94.6, pitch:17.4, fov:180, source:'outdoor', lat:40.7585939, lng:-73.9784521 },
+    svInt:{ heading:291.5, pitch:-2.7, fov:180, source:'default', lat:40.7585673, lng:-73.978302 }
   },
   {
     id:'nyc-0017',
@@ -813,7 +826,8 @@ var LOCS_NEW_YORK = [
     city:'new-york',
     lat:40.7585212,
     lng:-73.9724896,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7585212, lng:-73.9724896 },
+    sv:{ heading:123.7, pitch:20.1, fov:164, source:'outdoor', lat:40.7587189, lng:-73.9727586 },
+    svIntNA: true
     addr:'375 Park Ave, New York, NY 10152',
     hood:'Midtown East',
     desc:'The Seagram Building is widely regarded as the finest example of the International Style skyscraper and one of the most influential buildings of the 20th century. Mies van der Rohe\'s bronze-and-glass tower set back from Park Avenue—with its travertine plaza—established a new standard for corporate architecture and prompted New York City to revise its zoning laws to encourage plazas. The interior Four Seasons Restaurant was designated a landmark in its own right.',
@@ -889,7 +903,8 @@ var LOCS_NEW_YORK = [
     archs:[
       'Gordon Bunshaft'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7595882, lng:-73.9725806 }
+    sv:{ heading:258.4, pitch:11.3, fov:144, source:'outdoor', lat:40.7597342, lng:-73.9722702 },
+    svIntNA: true
   },
   {
     id:'nyc-0019',
@@ -938,7 +953,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/W_57th_St_Nov_2020_160.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Hearst_Tower_Lobby_October_2006.jpg?width=800'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.766079, lng:-73.9833766 }
+    sv:{ heading:323.2, pitch:26.9, fov:178, source:'outdoor', lat:40.7659504, lng:-73.9831322 },
+    svIntNA: true
   },
   {
     id:'nyc-0020',
