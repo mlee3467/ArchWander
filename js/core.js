@@ -238,8 +238,10 @@ function openLoc(loc) {
   var hasPhotos = loc.photos && loc.photos.length > 0;
   var hasSV = typeof GOOGLE_MAPS_API_KEY === 'string' && GOOGLE_MAPS_API_KEY;
   var photoCount = hasPhotos ? loc.photos.length : 0;
-  var hasIntSV = hasSV && !!loc.svInt;
-  var totalSlides = photoCount + (hasSV ? 1 : 0) + (hasIntSV ? 1 : 0);
+  // Normalize svInt → always an array (backward compat: single object → [obj])
+  var svIntArr = hasSV ? (Array.isArray(loc.svInt) ? loc.svInt : (loc.svInt ? [loc.svInt] : [])) : [];
+  var hasIntSV = svIntArr.length > 0;
+  var totalSlides = photoCount + (hasSV ? 1 : 0) + svIntArr.length;
 
   // Add photo images
   var _photoFails = 0;
@@ -292,25 +294,34 @@ function openLoc(loc) {
     gallery.insertBefore(svIframe, gallery.querySelector('.g-btn'));
     if (!hasPhotos) gallery.classList.add('sv-mode');
 
-    // ── Interior SV (optional) ──
-    if (hasIntSV) {
+    // ── Interior SV slides (one per entry in svIntArr) ──
+    svIntArr.forEach(function(si, i) {
       var svIntIframe = document.createElement('iframe');
       svIntIframe.className = 'sv-fallback-int';
+      svIntIframe.dataset.intIndex = i;
       svIntIframe.setAttribute('loading', 'lazy');
       svIntIframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
       svIntIframe.setAttribute('allowfullscreen', '');
       svIntIframe.style.display = 'none';
-      var siH   = (loc.svInt.heading != null) ? loc.svInt.heading : 0;
-      var siP   = (loc.svInt.pitch   != null) ? loc.svInt.pitch   : 0;
-      var siF   = (loc.svInt.fov     != null) ? loc.svInt.fov     : 90;
-      var siS   = loc.svInt.source || 'default';
-      var siLat = (loc.svInt.lat     != null) ? loc.svInt.lat     : loc.lat;
-      var siLng = (loc.svInt.lng     != null) ? loc.svInt.lng     : loc.lng;
-      svIntIframe.src = 'https://www.google.com/maps/embed/v1/streetview?key=' +
-        GOOGLE_MAPS_API_KEY + '&location=' + siLat + ',' + siLng +
-        '&heading=' + siH + '&pitch=' + siP + '&fov=' + siF + '&source=' + siS;
+      var siH = (si.heading != null) ? si.heading : 0;
+      var siP = (si.pitch   != null) ? si.pitch   : 0;
+      var siF = (si.fov     != null) ? si.fov     : 90;
+      var intSrc;
+      if (si.panoId) {
+        intSrc = 'https://www.google.com/maps/embed/v1/streetview?key=' +
+          GOOGLE_MAPS_API_KEY + '&pano=' + si.panoId +
+          '&heading=' + siH + '&pitch=' + siP + '&fov=' + siF;
+      } else {
+        var siS   = si.source || 'default';
+        var siLat = (si.lat != null) ? si.lat : loc.lat;
+        var siLng = (si.lng != null) ? si.lng : loc.lng;
+        intSrc = 'https://www.google.com/maps/embed/v1/streetview?key=' +
+          GOOGLE_MAPS_API_KEY + '&location=' + siLat + ',' + siLng +
+          '&heading=' + siH + '&pitch=' + siP + '&fov=' + siF + '&source=' + siS;
+      }
+      svIntIframe.src = intSrc;
       gallery.insertBefore(svIntIframe, gallery.querySelector('.g-btn'));
-    }
+    });
   }
 
   // Build dots for all slides
@@ -318,7 +329,8 @@ function openLoc(loc) {
     var dotsHtml = '';
     for (var di = 0; di < totalSlides; di++) {
       var isSvDot    = di === photoCount && hasSV;
-      var isSvIntDot = di === photoCount + 1 && hasIntSV;
+      var intIdx     = di - photoCount - (hasSV ? 1 : 0);
+      var isSvIntDot = hasIntSV && intIdx >= 0 && intIdx < svIntArr.length;
       dotsHtml += '<div class="g-dot' + (di === 0 ? ' active' : '') +
         (isSvDot ? ' sv-dot' : '') +
         (isSvIntDot ? ' sv-int-dot' : '') +

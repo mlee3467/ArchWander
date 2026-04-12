@@ -26,25 +26,31 @@ function _gallerySlideCount() {
   if (!activeLoc) return 0;
   var n = activeLoc.photos ? activeLoc.photos.length : 0;
   var hasSV = typeof GOOGLE_MAPS_API_KEY === 'string' && GOOGLE_MAPS_API_KEY;
-  var hasIntSV = hasSV && !!activeLoc.svInt;
-  return n + (hasSV ? 1 : 0) + (hasIntSV ? 1 : 0);
+  var svIntArr = hasSV ? (Array.isArray(activeLoc.svInt) ? activeLoc.svInt : (activeLoc.svInt ? [activeLoc.svInt] : [])) : [];
+  return n + (hasSV ? 1 : 0) + svIntArr.length;
 }
 function gotoPhoto(idx) {
   var gallery = document.getElementById('gallery');
   var imgs = Array.from(gallery.querySelectorAll('img'));
   var svExt = gallery.querySelector('.sv-fallback');
-  var svInt = gallery.querySelector('.sv-fallback-int');
+  var svIntFrames = Array.from(gallery.querySelectorAll('.sv-fallback-int'));
   var photoCount = activeLoc && activeLoc.photos ? activeLoc.photos.length : 0;
   var isSVExt = !!svExt && idx === photoCount;
-  var isSVInt = !!svInt && idx === photoCount + 1;
+  var intRelIdx = idx - photoCount - 1; // index into svIntFrames (0-based), -1 if not interior
+  var isSVInt = svIntFrames.length > 0 && intRelIdx >= 0 && intRelIdx < svIntFrames.length;
   var isSV = isSVExt || isSVInt;
 
   // Toggle images: hide all, show active photo (or none if SV)
   imgs.forEach(function(img, i) { img.classList.toggle('active', !isSV && i === idx); });
 
-  // Toggle Street View iframes
+  // Toggle exterior SV iframe
   if (svExt) svExt.style.display = isSVExt ? '' : 'none';
-  if (svInt) svInt.style.display = isSVInt ? '' : 'none';
+
+  // Toggle interior SV iframes — show only the matching one
+  svIntFrames.forEach(function(fr, fi) {
+    fr.style.display = (isSVInt && fi === intRelIdx) ? '' : 'none';
+  });
+
   gallery.classList.toggle('sv-mode', isSV);
 
   // Load deferred image
@@ -79,11 +85,20 @@ function updateGLabel() {
   if (!activeLoc) return;
   var photoCount = activeLoc.photos ? activeLoc.photos.length : 0;
   var hasSV = typeof GOOGLE_MAPS_API_KEY === 'string' && GOOGLE_MAPS_API_KEY;
+  var svIntArr = hasSV ? (Array.isArray(activeLoc.svInt) ? activeLoc.svInt : (activeLoc.svInt ? [activeLoc.svInt] : [])) : [];
   var isSVExt = hasSV && photoIdx === photoCount;
-  var isSVInt = hasSV && activeLoc.svInt && photoIdx === photoCount + 1;
-  var label = isSVInt ? 'Street View · Interior' :
-              isSVExt ? 'Street View · Exterior' :
-              (photoIdx + 1) + ' / ' + photoCount;
+  var intRelIdx = photoIdx - photoCount - 1;
+  var isSVInt = svIntArr.length > 0 && intRelIdx >= 0 && intRelIdx < svIntArr.length;
+  var label;
+  if (isSVInt) {
+    label = svIntArr.length > 1
+      ? 'Street View · Interior ' + (intRelIdx + 1) + '/' + svIntArr.length
+      : 'Street View · Interior';
+  } else if (isSVExt) {
+    label = 'Street View · Exterior';
+  } else {
+    label = (photoIdx + 1) + ' / ' + photoCount;
+  }
   document.getElementById('g-label').textContent = label;
 }
 function prevPhoto() { if (activeLoc) { var t = _gallerySlideCount(); gotoPhoto((photoIdx - 1 + t) % t); } }
