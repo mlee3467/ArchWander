@@ -10,6 +10,116 @@ var routeLine      = null; // Leaflet polyline for the route
 var routeMarkers   = [];   // numbered step markers on map
 var routeData      = null; // { distance, duration, steps: [...] }
 
+// ── Pixel Walker Animation ───────────────────────────────────────
+var routeWalkerMarker = null;
+var _walkerAnimId     = null;
+var _walkerSprites    = null;
+var _WALKER_FRAME_MS  = 280; // ms per stride frame
+
+// 8×12 pixel art character — 2 stride frames (left / right foot forward)
+// Characters: 0=transparent 1=skin 2=jacket 3=pants/shoes 4=hair
+var _WALKER_PX_FRAMES = [
+  '00444400' + '04111140' + '04111140' + '00111100' +
+  '02222220' + '22222222' + '02222220' +
+  '02300320' + '03000030' + '33000030' + '33000000' + '00000000',
+
+  '00444400' + '04111140' + '04111140' + '00111100' +
+  '02222220' + '22222222' + '02222220' +
+  '02300320' + '03000030' + '03000033' + '00000033' + '00000000'
+];
+var _WALKER_COLORS = { '0':null, '1':'#FFD0A0', '2':'#4488EE', '3':'#222244', '4':'#5D3A1A' };
+
+function _buildWalkerSprites() {
+  if (_walkerSprites) return _walkerSprites;
+  var px = 2, W = 8, H = 12;
+  _walkerSprites = _WALKER_PX_FRAMES.map(function(f) {
+    var c = document.createElement('canvas');
+    c.width = W * px; c.height = H * px;
+    var ctx = c.getContext('2d');
+    for (var i = 0; i < f.length; i++) {
+      var col = _WALKER_COLORS[f[i]]; if (!col) continue;
+      ctx.fillStyle = col;
+      ctx.fillRect((i % W) * px, Math.floor(i / W) * px, px, px);
+    }
+    return c.toDataURL();
+  });
+  return _walkerSprites;
+}
+
+function _buildWalkerIcon(frameIdx, facingRight) {
+  var sprites = _buildWalkerSprites();
+  var src = sprites[frameIdx % sprites.length];
+  return L.divIcon({
+    className: '',
+    html: '<img src="' + src + '" style="width:16px;height:24px;image-rendering:pixelated;display:block;' +
+          (facingRight ? '' : 'transform:scaleX(-1);') +
+          'filter:drop-shadow(1px 1px 0 rgba(0,0,0,0.7))" draggable="false">',
+    iconSize: [16, 24],
+    iconAnchor: [8, 24]
+  });
+}
+
+function _startWalkerAnimation(coords) {
+  _stopWalkerAnimation();
+  if (!coords || coords.length < 2) return;
+  _buildWalkerSprites();
+
+  // Pre-compute cumulative distances along path
+  var cumDist = [0];
+  for (var i = 1; i < coords.length; i++) {
+    var d = haversineM(coords[i-1][0], coords[i-1][1], coords[i][0], coords[i][1]);
+    cumDist.push(cumDist[i-1] + d);
+  }
+  var totalDist = cumDist[cumDist.length - 1];
+  if (totalDist < 1) return;
+
+  // Full loop duration: 30ms/m, clamped 15s–60s
+  var durationMs = Math.min(60000, Math.max(15000, totalDist * 30));
+
+  routeWalkerMarker = L.marker(coords[0], {
+    icon: _buildWalkerIcon(0, true),
+    zIndexOffset: 1000,
+    interactive: false
+  }).addTo(map);
+
+  var startTime = null;
+  function animate(ts) {
+    if (!routeWalkerMarker) return;
+    if (!startTime) startTime = ts;
+    var elapsed = (ts - startTime) % durationMs;
+    var targetDist = (elapsed / durationMs) * totalDist;
+
+    // Find segment via linear scan
+    var seg = 0;
+    for (var j = 1; j < cumDist.length; j++) {
+      if (cumDist[j] >= targetDist) { seg = j - 1; break; }
+      seg = j - 1;
+    }
+    seg = Math.min(seg, coords.length - 2);
+
+    var segLen = cumDist[seg + 1] - cumDist[seg];
+    var t = segLen > 0 ? (targetDist - cumDist[seg]) / segLen : 0;
+    var lat = coords[seg][0] + t * (coords[seg+1][0] - coords[seg][0]);
+    var lng = coords[seg][1] + t * (coords[seg+1][1] - coords[seg][1]);
+
+    var facingRight = (coords[seg+1][1] - coords[seg][1]) >= 0;
+    var frameIdx = Math.floor(ts / _WALKER_FRAME_MS) % 2;
+
+    routeWalkerMarker.setLatLng([lat, lng]);
+    routeWalkerMarker.setIcon(_buildWalkerIcon(frameIdx, facingRight));
+    _walkerAnimId = requestAnimationFrame(animate);
+  }
+  _walkerAnimId = requestAnimationFrame(animate);
+}
+
+function _stopWalkerAnimation() {
+  if (_walkerAnimId) { cancelAnimationFrame(_walkerAnimId); _walkerAnimId = null; }
+  if (routeWalkerMarker) {
+    try { map.removeLayer(routeWalkerMarker); } catch(e) {}
+    routeWalkerMarker = null;
+  }
+}
+
 // ── Route Panel UI ───────────────────────────────────────────────
 
 function _getRouteLocs() {
@@ -463,6 +573,7 @@ function _displayRoute(route, ordered) {
     legs: route.legs || []
   };
   _renderRouteResult(routeData, ordered);
+  _startWalkerAnimation(coords);
 }
 
 function _displayStraightRoute(ordered) {
@@ -500,6 +611,7 @@ function _displayStraightRoute(ordered) {
   var totalDur = totalDist / 1.33; // ~80m/min
   routeData = { distance: totalDist, duration: totalDur, stops: ordered.length, legs: [], estimated: true };
   _renderRouteResult(routeData, ordered);
+  _startWalkerAnimation(coords);
 }
 
 function _renderRouteResult(data, ordered) {
@@ -576,6 +688,7 @@ function _renderRouteResult(data, ordered) {
 }
 
 function clearRoute() {
+  _stopWalkerAnimation();
   if (routeLine) { map.removeLayer(routeLine); routeLine = null; }
   routeMarkers.forEach(function(m) { map.removeLayer(m); });
   routeMarkers = [];
