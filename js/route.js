@@ -109,7 +109,7 @@ var _WALKER_PX_FRAMES = [
   '0411111111111400' +
   '0411411111141400' +  // R3 X-eyes top: col4=4 (\), col11=4 (/)
   '0411141111411400' +  // R4 X-eyes bot: col5=4 (\), col10=4 (/)
-  '0411111111111400' +
+  '0411141111411400' +  // R5 teardrops: col5=left tear, col10=right tear
   '0411144444111400' +  // R6 frown arc (top of arc comes first = ∩ shape)
   '0411411111411400' +  // R7 frown corners (lower = ends droop down)
   '0041111111114000' +
@@ -125,11 +125,11 @@ var _WALKER_PX_FRAMES = [
   '0004444444440000' +
   '0041111111114000' +
   '0411111111111400' +
-  '0411411111141400' +
-  '0411141111411400' +
-  '0411111111111400' +
-  '0411144444111400' +
-  '0411411111411400' +
+  '0411411111141400' +  // R3 X-eyes top
+  '0411141111411400' +  // R4 X-eyes bot
+  '0411141111411400' +  // R5 teardrops
+  '0411144444111400' +  // R6 frown arc
+  '0411411111411400' +  // R7 frown corners
   '0041111111114000' +
   '0441111111114400' +
   '0441111111114400' +
@@ -139,8 +139,13 @@ var _WALKER_PX_FRAMES = [
   '0000440004400000' +
   '0000440000440000'
 ];
-var _WALKER_COLORS = { '0':null, '1':'#ffffff', '4':'#111111' };
 var _WALKER_PX_W = 16, _WALKER_PX_H = 16, _WALKER_PX_SCALE = 2;
+
+// Three expression-tinted palettes: 0=transparent  1=body colour  4=black outline
+var _WALKER_PAL_HAPPY     = { '0':null, '1':'#ffffff', '4':'#111111' }; // white
+var _WALKER_PAL_TIRED     = { '0':null, '1':'#FFF4AA', '4':'#111111' }; // light yellow
+var _WALKER_PAL_EXHAUSTED = { '0':null, '1':'#DFC8FF', '4':'#111111' }; // light purple
+var _walkerSpriteCache    = {};  // keyed by body colour string
 
 // Select base frame index from distance walked
 function _walkerGetBaseFrame(dist) {
@@ -149,21 +154,39 @@ function _walkerGetBaseFrame(dist) {
   return 4;                            // exhausted → frames 4,5
 }
 
-function _buildWalkerSprites() {
-  if (_walkerSprites) return _walkerSprites;
+// Get the correct palette for current distance
+function _walkerGetPalette(dist) {
+  if (dist < _WLK_D30MIN)  return _WALKER_PAL_HAPPY;
+  if (dist < _WLK_D_EMPTY) return _WALKER_PAL_TIRED;
+  return _WALKER_PAL_EXHAUSTED;
+}
+
+// Build (or return cached) sprites for a given palette
+function _buildWalkerSpritesForPalette(pal) {
+  var cacheKey = pal['1'];  // body colour is the differentiator
+  if (_walkerSpriteCache[cacheKey]) return _walkerSpriteCache[cacheKey];
   var px = _WALKER_PX_SCALE, W = _WALKER_PX_W, H = _WALKER_PX_H;
-  _walkerSprites = _WALKER_PX_FRAMES.map(function(f) {
+  var sprites = _WALKER_PX_FRAMES.map(function(f) {
     var c = document.createElement('canvas');
     c.width = W * px; c.height = H * px;
     var ctx = c.getContext('2d');
     for (var i = 0; i < f.length; i++) {
-      var col = _WALKER_COLORS[f[i]]; if (!col) continue;
+      var col = pal[f[i]]; if (!col) continue;
       ctx.fillStyle = col;
       ctx.fillRect((i % W) * px, Math.floor(i / W) * px, px, px);
     }
     return c.toDataURL();
   });
-  return _walkerSprites;
+  _walkerSpriteCache[cacheKey] = sprites;
+  return sprites;
+}
+
+// Legacy helper — pre-build all three palettes
+function _buildWalkerSprites() {
+  _buildWalkerSpritesForPalette(_WALKER_PAL_HAPPY);
+  _buildWalkerSpritesForPalette(_WALKER_PAL_TIRED);
+  _buildWalkerSpritesForPalette(_WALKER_PAL_EXHAUSTED);
+  return _walkerSpriteCache[_WALKER_PAL_HAPPY['1']];
 }
 
 // ── Stamina helpers ──────────────────────────────────────────────
@@ -182,7 +205,8 @@ function _walkerGetSpeedMod(dist) {
 // ── Icon builder — distance label + stamina bar + badge in divIcon HTML ──
 // badge: null | 'camera' | 'stopped'
 function _buildWalkerIcon(frameIdx, facingRight, dist, badge) {
-  var sprites = _buildWalkerSprites();
+  var pal      = _walkerGetPalette(dist);
+  var sprites  = _buildWalkerSpritesForPalette(pal);
   var baseFrame = _walkerGetBaseFrame(dist);
   var src = sprites[Math.min(frameIdx + baseFrame, sprites.length - 1)];
   var stamina = _walkerGetStamina(dist);
@@ -202,14 +226,10 @@ function _buildWalkerIcon(frameIdx, facingRight, dist, badge) {
 
   // Badge (below distance)
   var badgeHtml = '';
-  if (stopped) {
-    badgeHtml = '<div style="display:flex;flex-direction:row;justify-content:center;gap:1px;margin-bottom:2px">' +
-                '<span style="font-size:20px;line-height:1">☕</span>' +
-                '<span style="font-size:20px;line-height:1">🍔</span></div>';
-  } else if (badge === 'camera') {
-    badgeHtml = '<div style="font-size:10px;line-height:1;text-align:center;margin-bottom:2px">📷</div>';
+  if (badge === 'camera') {
+    badgeHtml = '<div style="font-size:20px;line-height:1;text-align:center;margin-bottom:2px">📷</div>';
   }
-  var badgeH = stopped ? 28 : (badgeHtml ? 16 : 0);
+  var badgeH = badgeHtml ? 24 : 0;
 
   // Status label
   var statusTxt = '';
@@ -221,7 +241,7 @@ function _buildWalkerIcon(frameIdx, facingRight, dist, badge) {
   var statusHtml = statusTxt
     ? '<div style="font-size:7px;font-family:\'Press Start 2P\',monospace;color:' + statusColor +
       ';background:rgba(0,0,0,0.75);padding:1px 4px;' +
-      'text-align:center;white-space:nowrap;margin-top:-2px;margin-bottom:2px;letter-spacing:0.5px">' + statusTxt + '</div>'
+      'text-align:center;white-space:nowrap;margin-top:-4px;margin-bottom:2px;letter-spacing:0.5px">' + statusTxt + '</div>'
     : '';
   var statusH = statusHtml ? 12 : 0;
 
@@ -355,7 +375,7 @@ function _startWalkerAnimation(coords, stopIndices) {
     lastTs = ts;
 
     // ── Reveal path at full speed (independent of character stamina) ─
-    _walkerRevealMs = (_walkerRevealMs + dt) % timelineTotal;
+    _walkerRevealMs = Math.min(_walkerRevealMs + dt, timelineTotal - 1);
     var revealAccum = _walkerRevealMs;
     var revealEntry = timeline[timeline.length - 1];
     for (var ri = 0; ri < timeline.length; ri++) {
