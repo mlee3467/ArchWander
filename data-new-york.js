@@ -501,8 +501,10 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Vessel_%28top-down_view%29%2C_Hudson_Yards%2C_New_York_City%2C_July_2019.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/The_Vessel%2C_Hudson_Yards%2C_New_York_City%2C_June_2019.jpg?width=800'
     ],
-    sv:{ heading:146.8, pitch:26.7, fov:100, source:'default', lat:40.7541144, lng:-74.0023237 },
-    svInt:{ heading:280.8, pitch:-8.1, fov:100, source:'default', lat:40.7538542, lng:-74.0020096 },
+    sv:{ heading:146.4, pitch:25.2, fov:100, source:'default', lat:40.7541144, lng:-74.0023237 },
+    svInt:[
+    { heading:121.6, pitch:-20.5, fov:100, source:'default', lat:40.7538542, lng:-74.0020096 }
+  ],
     archs:[
       'Thomas Heartherwick'
     ]
@@ -2843,7 +2845,8 @@ var LOCS_NEW_YORK = [
     access:'private',
     lat:40.7482092,
     lng:-74.0046333,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7482092, lng:-74.0046333 },
+    sv:{ heading:6.2, pitch:25, fov:100, source:'outdoor', lat:40.7479462, lng:-74.0047488 },
+    svIntNA: true,
     addr:'515 W 23rd St, New York, NY 10011',
     hood:'West Chelsea',
     desc:'A 14-story residential building by Neil M. Denari that cantileveres dramatically over the High Line at West 23rd Street. Its \'exoskeleton\' of exposed diagonal steel members wraps the exterior and expresses the structural logic of the cantilever — giving the building a mechanical, industrial aesthetic unlike any other residential building in the city. The dark glass and angular geometry create a sharp contrast with the planted High Line park below. HL23 is one of the most technically complex small residential buildings built in New York in the 2000s.',
@@ -2915,7 +2918,8 @@ var LOCS_NEW_YORK = [
       'https://live.staticflickr.com/558/31969570440_59e06fed79_b.jpg',
       'https://live.staticflickr.com/2586/4130651435_111d2ece84_b.jpg'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'default', lat:40.7603735, lng:-73.975051 }
+    sv:{ heading:353.2, pitch:4.1, fov:100, source:'default', lat:40.7603574, lng:-73.974801 },
+    svIntNA: true,
   },
   {
     id:'nyc-0062',
@@ -2959,7 +2963,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Brooklyn_Bridge_Park_at_Sunset..jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Brooklyn_Bridge_Park_-_overpass.jpg?width=800'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7018866, lng:-73.9968149 }
+    sv:{ heading:209.3, pitch:-2.4, fov:90, source:'outdoor', lat:40.7018701, lng:-73.9968217 },
+    svIntNA: true,
   },
   {
     id:'nyc-0063',
@@ -3007,7 +3012,8 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/DUMBO_from_Bridge.JPG?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/DUMBO_Industrial_District_168.JPG?width=800'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7032612, lng:-73.9895779 }
+    sv:{ heading:1.9, pitch:12.4, fov:100, source:'outdoor', lat:40.703295, lng:-73.9895771 },
+    svIntNA: true,
   },
   {
     id:'nyc-0064',
@@ -3026,7 +3032,8 @@ var LOCS_NEW_YORK = [
     access:'paid ticket',
     lat:40.7044405,
     lng:-73.9923728,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7044405, lng:-73.9923728 },
+    sv:{ heading:35.5, pitch:7.6, fov:90, source:'outdoor', lat:40.7041946, lng:-73.9925399 },
+    svIntNA: true,
     addr:'Old Dock St, Brooklyn, NY 11201',
     hood:'DUMBO, Brooklyn',
     desc:'A 1922 Armitage Herschell carousel meticulously restored by artist Jane Walentas over 27 years, housed in a minimalist glass-and-steel pavilion by Jean Nouvel (2011) on a Hudson River pier in Brooklyn Bridge Park. The contrast between the ornate gilded Victorian carousel and Nouvel\'s crisp contemporary box creates an unforgettable juxtaposition — with panoramic views of the Manhattan skyline and both bridges. The pavilion\'s polycarbonate walls can be raised in summer to merge carousel and park. Named one of the top 10 works of architecture in NYC by the New York Times.',
@@ -3071,7 +3078,10 @@ var LOCS_NEW_YORK = [
     access:'paid ticket',
     lat:40.745914,
     lng:-73.8467247,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.745914, lng:-73.8467247 },
+    sv:{ heading:55.5, pitch:9.1, fov:100, source:'outdoor', lat:40.7456609, lng:-73.8471977 },
+    svInt:[
+    { heading:47.1, pitch:-3.6, fov:90, source:'default', lat:40.7460813, lng:-73.8468998, panoId:'CAoSF0NJSE0wb2dLRUlDQWdJQ0VuTGp1akFF' }
+  ],
     addr:'Flushing Meadows Corona Park, Building, Corona, NY 11368, USA',
     hood:'Flushing Meadows, Queens',
     desc:'The Queens Museum occupies the New York City Building from the 1939 World\'s Fair. Grimshaw Architects completed a major expansion in 2013, doubling its size to 105,000 sq ft with a glass-and-steel atrium flooding the original building with natural light. The museum\'s most celebrated artifact is the 9,335-sq-ft Panorama of the City of New York — an architectural scale model of all five boroughs, updated continuously since 1964. The expansion is a landmark of contextual, sustainable museum design.',
@@ -3119,7 +3129,8 @@ var LOCS_NEW_YORK = [
     access:'open to public',
     lat:40.7463961,
     lng:-73.8450629,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7463961, lng:-73.8450629 },
+    sv:{ heading:250, pitch:24.3, fov:100, source:'outdoor', lat:40.7467205, lng:-73.8443242 },
+    svIntNA: true,
     addr:'Flushing Meadows–Corona Park, Queens, NY 11368',
     hood:'Flushing Meadows, Queens',
     desc:'A 140-foot-tall, 700,000-pound stainless steel globe — the largest representation of the Earth ever constructed — built for the 1964 World\'s Fair as a symbol of global interdependence. Three orbital rings representing early space satellites (Sputnik, the first US satellite, and the first manned orbital spacecraft) encircle the globe. Despite the fairgrounds being largely demolished, the Unisphere and its reflecting pools survived and are designated a NYC Landmark (1995). An enduring symbol of Queens and New York\'s international ambition.',
@@ -3193,7 +3204,10 @@ var LOCS_NEW_YORK = [
       'https://commons.wikimedia.org/wiki/Special:FilePath/Yankee_Stadium%2C_New_York_-_panoramio.jpg?width=800',
       'https://commons.wikimedia.org/wiki/Special:FilePath/Yankee_Stadium_upper_deck_2010.jpg?width=800'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'default', lat:40.8293429, lng:-73.9277479 }
+    sv:{ heading:343.4, pitch:13, fov:100, source:'outdoor', lat:40.8280331, lng:-73.9260405 },
+    svInt:[
+    { heading:350.7, pitch:10.3, fov:100, source:'default', lat:40.829608, lng:-73.927391, panoId:'CAoSFkNJSE0wb2dLRUlDQWdJRHFuY3lrU1E.' }
+  ],
   },
   {
     id:'nyc-0068',
