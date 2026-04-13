@@ -2918,7 +2918,7 @@ var LOCS_NEW_YORK = [
       'https://live.staticflickr.com/558/31969570440_59e06fed79_b.jpg',
       'https://live.staticflickr.com/2586/4130651435_111d2ece84_b.jpg'
     ],
-    sv:{ heading:353.2, pitch:4.1, fov:100, source:'default', lat:40.7603574, lng:-73.974801 },
+    sv:{ heading:353.2, pitch:4.1, fov:59, source:'outdoor', lat:40.7603574, lng:-73.974801 },
     svIntNA: true,
   },
   {
@@ -3226,7 +3226,10 @@ var LOCS_NEW_YORK = [
     access:'open to public',
     lat:40.8262781,
     lng:-73.9235089,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.8262781, lng:-73.9235089 },
+    sv:{ heading:290.1, pitch:24.2, fov:100, source:'outdoor', lat:40.8261341, lng:-73.9229912 },
+    svInt:[
+    { heading:301.6, pitch:0, fov:100, source:'default', lat:40.8264301, lng:-73.9237169, panoId:'CAoSF0NJSE0wb2dLRUlDQWdJQ20zYS1TLUFF' }
+  ],
     addr:'851 Grand Concourse, Bronx, NY 10451',
     hood:'Grand Concourse, Bronx',
     desc:'An imposing Art Deco Neoclassical building by Max Haupt (1934) at the apex of the Grand Concourse. Its monumental Ionic colonnade, terraced entrance plaza, and low-relief Art Deco ornament combine classical civic gravitas with the streamlined aesthetic of the 1930s. Featured prominently in Tom Wolfe\'s The Bonfire of the Vanities as a symbol of Bronx justice. Designated a NYC Landmark in 1981, it commands a dramatic urban position at Joyce Kilmer Park.',
@@ -3295,7 +3298,8 @@ var LOCS_NEW_YORK = [
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Wave_Hill_greenhouse.jpg/800px-Wave_Hill_greenhouse.jpg'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.8975301, lng:-73.9122718 }
+    sv:{ heading:321.7, pitch:7.6, fov:90, source:'outdoor', lat:40.8975103, lng:-73.9121373 },
+    svIntNA: true,
   },
   {
     id:'nyc-0070',
@@ -3337,7 +3341,8 @@ var LOCS_NEW_YORK = [
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Grand_Concourse_Bronx.jpg/800px-Grand_Concourse_Bronx.jpg'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.8260442, lng:-73.9228605 }
+    sv:{ heading:114.5, pitch:6.3, fov:90, source:'outdoor', lat:40.8260337, lng:-73.922863 },
+    svIntNA: true,
   },
   {
     id:'nyc-0071',
@@ -3356,7 +3361,8 @@ var LOCS_NEW_YORK = [
     access:'private',
     lat:40.7264027,
     lng:-73.99318319999999,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7264027, lng:-73.99318319999999 },
+    sv:{ heading:74.3, pitch:25.7, fov:100, source:'outdoor', lat:40.7263389, lng:-73.9935245 },
+    svIntNA: true,
     addr:'40 Bond St, New York, NY 10012',
     hood:'NoHo',
     desc:'A luxury residential building in NoHo designed by Herzog & de Meuron with Ian Schrager. Its defining feature is a custom-cast glass screen composed of undulating green glass rods evoking graffiti spray patterns — a translation of the neighborhood\'s street art culture into an architectural cladding system. The cast glass sits in front of the primary facade and creates shifting effects of transparency, translucency, and reflection throughout the day. One of the first major luxury residential projects in NoHo and a landmark of Herzog & de Meuron\'s New York engagement.',
@@ -3407,7 +3413,8 @@ var LOCS_NEW_YORK = [
     access:'private',
     lat:40.730409,
     lng:-74.0099347,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.730409, lng:-74.0099347 },
+    sv:{ heading:174.2, pitch:20.5, fov:100, source:'outdoor', lat:40.7305306, lng:-74.0100848 },
+    svIntNA: true,
     addr:'160 Leroy St, New York, NY 10014',
     hood:'West Village',
     desc:'A 12-story luxury residential building in the West Village by Herzog & de Meuron with Ian Schrager. Its sculptural exposed-concrete facade undulates in continuous wave-like curves responding to Hudson River views and creating distinctly shaped floor plates. The building breaks the typical Manhattan grid street wall: its curved surfaces and gentle cantilevers produce a fluid, organic mass unlike any other in the city. Stacked balconies with frameless glass railings amplify the river connection. Herzog & de Meuron\'s most sculptural residential work in New York.',
@@ -3474,7 +3481,10 @@ var LOCS_NEW_YORK = [
     photos:[
       'https://commons.wikimedia.org/wiki/Special:FilePath/Escalator%2C_Public_Hotel_New_York_%282024%29-L1005609.jpg?width=800'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7228336, lng:-73.9918872 }
+    sv:{ heading:303.3, pitch:29.9, fov:100, source:'outdoor', lat:40.7228148, lng:-73.9914886 },
+    svInt:[
+    { heading:200, pitch:-4.1, fov:100, source:'default', lat:40.7227831, lng:-73.9915942, panoId:'CAoSF0NJSE0wb2dLRUlDQWdJQ0VyNDN0NkFF' }
+  ],
   },
   {
     id:'nyc-0074',
@@ -3515,7 +3525,10 @@ var LOCS_NEW_YORK = [
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/15CPW.jpg/800px-15CPW.jpg'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7700971, lng:-73.9820089 },
+    sv:{ heading:114.7, pitch:43.1, fov:100, source:'outdoor', lat:40.7700992, lng:-73.9820745 },
+    svInt:[
+    { heading:45, pitch:0.5, fov:90, source:'default', lat:40.7695999, lng:-73.9813232, panoId:'CAoSFkNJSE0wb2dLRUlDQWdJQzRrZm5NRVE.' }
+  ],
     archs:[
       'Robert A.M Stern'
     ]
@@ -3538,7 +3551,10 @@ var LOCS_NEW_YORK = [
     access:'open to public',
     lat:40.712838,
     lng:-74.008988,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.712838, lng:-74.008988 },
+    sv:{ heading:96, pitch:54, fov:100, source:'outdoor', lat:40.7128413, lng:-74.0095714 },
+    svInt:[
+    { heading:305.5, pitch:3, fov:100, source:'default', lat:40.7128111, lng:-74.0091019, panoId:'CAoSHENJQUJJaENvR05JVkh1Q202b25QQ0tfZE11QzQ.' }
+  ],
     addr:'30 Park Place, New York, NY 10007',
     hood:'Tribeca / Financial District',
     desc:'An 82-story, 926-foot supertall by RAMSA combining the Four Seasons Hotel (floors 1–38) with luxury private residences above. Its limestone and granite facade is organized as a series of setbacks and classical towers evoking the pre-war skyscrapers of lower Manhattan. The building responds to its context — the City Hall neighborhood\'s history of civic towers — while achieving contemporary supertall heights. It offers some of the highest-floor residential units in Lower Manhattan, with sweeping views of the harbor and all five boroughs.',
