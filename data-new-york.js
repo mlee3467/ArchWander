@@ -3864,7 +3864,8 @@ var LOCS_NEW_YORK = [
     access:'private',
     lat:40.7826012,
     lng:-73.9578633,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7826012, lng:-73.9578633 },
+    sv:{ heading:320, pitch:38.1, fov:100, source:'outdoor', lat:40.7825041, lng:-73.9575858 },
+    svIntNA: true,
     addr:'1228 Madison Ave, New York, NY 10128',
     hood:'Upper East Side / Carnegie Hill',
     desc:'A 16-story boutique residential building by RAMSA (2018) in Carnegie Hill. The warm brick and limestone facade responds to the residential character of the Madison Avenue corridor north of 96th Street, with articulated bays, classical cornice, and ground-floor retail continuity. Carnegie Hill — historically one of New York\'s most dignified residential neighborhoods — is defined by late 19th and early 20th-century townhouses and apartment buildings, and RAMSA\'s building continues this tradition with contemporary craftsmanship.',
@@ -3906,7 +3907,8 @@ var LOCS_NEW_YORK = [
     access:'private',
     lat:40.7655091,
     lng:-73.9640744,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7655091, lng:-73.9640744 },
+    sv:{ heading:1.6, pitch:28.3, fov:100, source:'outdoor', lat:40.7653742, lng:-73.9639838 },
+    svIntNA: true,
     addr:'181 E 65th St, New York, NY 10065',
     hood:'Upper East Side',
     desc:'One of RAMSA\'s first major luxury residential buildings in New York (2001), The Chatham\'s 35-story limestone and brick tower draws on the tradition of the great pre-war apartment buildings of Park and Fifth Avenues, with a carefully composed base-shaft-capital organization and deeply set windows that create shadow and texture on the facade. The building established RAMSA\'s reputation as the leading practitioner of contextual luxury residential architecture in New York City and set the template for the firm\'s subsequent residential portfolio.',
@@ -3948,7 +3950,8 @@ var LOCS_NEW_YORK = [
     access:'private',
     lat:40.778012,
     lng:-73.9537962,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.778012, lng:-73.9537962 },
+    sv:{ heading:22.2, pitch:34.3, fov:100, source:'outdoor', lat:40.7778854, lng:-73.9538647 },
+    svIntNA: true,
     addr:'205 E 85th St, New York, NY 10028',
     hood:'Upper East Side',
     desc:'A 24-story luxury residential building by RAMSA (2005). Its red brick and limestone facade is organized with vertical bays, double-height base, and classically detailed crown, reflecting RAMSA\'s commitment to the contextual tradition of the Upper East Side. The Brompton takes its name from the prestigious London neighborhood, evoking the building\'s aspiration to the refined residential character of the Upper East Side\'s pre-war legacy. One of RAMSA\'s early luxury residential projects after The Chatham established the firm\'s residential practice.',
@@ -4011,7 +4014,8 @@ var LOCS_NEW_YORK = [
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Superior_Ink_NYC.jpg/800px-Superior_Ink_NYC.jpg'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7369658, lng:-74.0098127 },
+    sv:{ heading:52.9, pitch:32, fov:100, source:'outdoor', lat:40.736987, lng:-74.0097817 },
+    svIntNA: true,
     archs:[
       'Robert A.M Stern'
     ]
@@ -4063,7 +4067,10 @@ var LOCS_NEW_YORK = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/550_Madison_Avenue_from_south.jpg/800px-550_Madison_Avenue_from_south.jpg',
       'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/AT%26T_Building_from_street_level.jpg/800px-AT%26T_Building_from_street_level.jpg'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7612055, lng:-73.973168 }
+    sv:{ heading:291.1, pitch:37.8, fov:100, source:'outdoor', lat:40.7613573, lng:-73.9730595 },
+    svInt:[
+    { heading:96, pitch:13.4, fov:100, source:'default', lat:40.7614103, lng:-73.9738011, panoId:'CAoSF0NJSE0wb2dLRUlDQWdJQ0VvcUNHOXdF' }
+  ],
   },
   {
     id:'nyc-0089',
