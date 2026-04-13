@@ -3553,7 +3553,8 @@ var LOCS_NEW_YORK = [
     lng:-74.008988,
     sv:{ heading:96, pitch:54, fov:100, source:'outdoor', lat:40.7128413, lng:-74.0095714 },
     svInt:[
-    { heading:305.5, pitch:3, fov:100, source:'default', lat:40.7128111, lng:-74.0091019, panoId:'CAoSHENJQUJJaENvR05JVkh1Q202b25QQ0tfZE11QzQ.' }
+    { heading:305.5, pitch:3, fov:100, source:'default', lat:40.7128111, lng:-74.0091019, panoId:'CAoSHENJQUJJaENvR05JVkh1Q202b25QQ0tfZE11QzQ.' },
+    { heading:39.3, pitch:-4.8, fov:90, source:'default', lat:40.7126974, lng:-74.0088635, panoId:'CAoSHENJQUJJaEF1M2VVTW4wOTJlYTl6QVRFcnMwN3Q.' }
   ],
     addr:'30 Park Place, New York, NY 10007',
     hood:'Tribeca / Financial District',
@@ -3599,7 +3600,10 @@ var LOCS_NEW_YORK = [
     access:'private',
     lat:40.7669995,
     lng:-73.9807192,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7669995, lng:-73.9807192 },
+    sv:{ heading:102.9, pitch:51.4, fov:100, source:'outdoor', lat:40.7669517, lng:-73.9812997 },
+    svInt:[
+    { heading:170.8, pitch:0.3, fov:100, source:'default', lat:40.7673639, lng:-73.9809165, panoId:'CAoSF0NJSE0wb2dLRUlDQWdJQzh2OEtsOHdF' }
+  ],
     addr:'220 Central Park South, New York, NY 10019',
     hood:'Midtown West',
     desc:'A 65-story limestone supertall by RAMSA, completed in 2019, that became the most financially successful residential building in American real estate history — a penthouse sold for $238 million, the most ever paid for a US residential property. The limestone facade is organized as two interconnected towers of different heights, with bay windows and setbacks that echo pre-war apartment buildings of Central Park South. Its contextual massing and traditional detailing deliberately contrast with the glass-and-steel towers of Billionaires\' Row.',
@@ -3644,7 +3648,8 @@ var LOCS_NEW_YORK = [
     access:'private',
     lat:40.7638689,
     lng:-73.96988379999999,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7638689, lng:-73.96988379999999 },
+    sv:{ heading:0.2, pitch:65.3, fov:90, source:'outdoor', lat:40.7638107, lng:-73.9699791 },
+    svIntNA: true,
     addr:'520 Park Ave, New York, NY 10065',
     hood:'Lenox Hill / Upper East Side',
     desc:'A 54-story, 780-foot supertall by RAMSA at the corner of Park Avenue and 60th Street. Its limestone facade is organized as a giant order of pilasters running the full height of the tower, creating a monumental unified composition. The classical proportioning system — defined base, shaft, and capital — draws on the great Park Avenue apartments of Rosario Candela and J.E.R. Carpenter. With only 34 full-floor and duplex residences, it is one of the most exclusive addresses in New York City.',
@@ -3687,7 +3692,8 @@ var LOCS_NEW_YORK = [
     access:'private',
     lat:40.7714157,
     lng:-73.9477655,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7714157, lng:-73.9477655 },
+    sv:{ heading:1.5, pitch:34.5, fov:100, source:'outdoor', lat:40.7710396, lng:-73.947685 },
+    svIntNA: true,
     addr:'20 East End Ave, New York, NY 10028',
     hood:'Yorkville / Carnegie Hill',
     desc:'A boutique 16-story limestone residential building by RAMSA (2017) on the Upper East Side overlooking Carl Schurz Park and the East River. Its brick and limestone facade is organized with classical detailing — double-height base, rusticated banding, and refined cornice — that responds to the traditional residential character of the neighborhood. With only 42 residences, it exemplifies RAMSA\'s approach to understated contextual luxury: buildings that aspire to belong to their neighborhood rather than contrast with it.',
@@ -3752,7 +3758,8 @@ var LOCS_NEW_YORK = [
     photos:[
       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/70_Vestry_Street.jpg/800px-70_Vestry_Street.jpg'
     ],
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7232624, lng:-74.011422 }
+    sv:{ heading:76.7, pitch:19.4, fov:100, source:'outdoor', lat:40.7231661, lng:-74.0117514 },
+    svIntNA: true,
   },
   {
     id:'nyc-0081',
@@ -3771,7 +3778,8 @@ var LOCS_NEW_YORK = [
     access:'private',
     lat:40.7766789,
     lng:-73.9552566,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7766789, lng:-73.9552566 },
+    sv:{ heading:93.6, pitch:54, fov:100, source:'outdoor', lat:40.7765893, lng:-73.9556216 },
+    svIntNA: true,
     addr:'200 E 83rd St, New York, NY 10028',
     hood:'Upper East Side',
     desc:'A 34-story limestone residential tower by RAMSA (2022) near the Neue Galerie and Metropolitan Museum. The buff limestone facade draws on the traditions of the finest pre-war Park and Fifth Avenue apartment buildings, with classically proportioned windows, detailed cornices, and a monumental ground-floor base. Its slender proportions allow it to rise above its neighbors while maintaining the refined domestic character of the Carnegie Hill block.',
@@ -3813,7 +3821,8 @@ var LOCS_NEW_YORK = [
     access:'open to public',
     lat:40.7805166,
     lng:-73.9587754,
-    sv:{ heading:210, pitch:10, fov:90, source:'outdoor', lat:40.7805166, lng:-73.9587754 },
+    sv:{ heading:176.4, pitch:28, fov:100, source:'outdoor', lat:40.7809056, lng:-73.9587545 },
+    svIntNA: true,
     addr:'1165 Madison Ave, New York, NY 10028',
     hood:'Upper East Side / Carnegie Hill',
     desc:'A mixed-use building at 1165 Madison Avenue by RAMSA (2022) combining luxury residences above with upscale street-level retail. The detailed brick and limestone facade responds to the boutique shopping character of Madison Avenue in Carnegie Hill, with carefully proportioned retail bays and a residential tower rising with classical setbacks. Named after the historic Bellemont Farm estate in Tuxedo Park, it represents RAMSA\'s approach to contextual urban building that serves the complete life of the street.',
