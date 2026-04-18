@@ -20,7 +20,7 @@ var _walkerDistCovered = 0;     // cumulative meters walked
 var _walkerRevealLine  = null;  // growing polyline that reveals the walked path
 var _walkerRevealMs    = 0;     // reveal clock, always advances at full speed
 var _walkerPassedStops = null;  // Set of stopIndices already visited
-var _WALKER_FRAME_MS   = 190;   // ms per stride frame (1.5× faster)
+var _WALKER_FRAME_MS   = 120;   // ms per stride frame (1.5× faster)
 
 // ── Distance thresholds (80 m/min average walking pace) ──────────
 var _WLK_D30MIN  = 2400;   // 30 min  → 50% stamina, speed −50%
@@ -352,7 +352,7 @@ function _startWalkerAnimation(coords, stopIndices, ordered) {
   if (totalTravelDist < 1) return;
 
   // Travel duration: 20ms/m, clamped 10-40s (1.5× faster than before)
-  var travelMs = Math.min(40000, Math.max(10000, totalTravelDist * 20));
+  var travelMs = Math.min(20000, Math.max(5000, totalTravelDist * 10));
 
   // pause → travel → pause → travel → ...
   var timeline = [], tCursor = 0;
