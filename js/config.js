@@ -145,6 +145,6 @@ var DEEPL_API_KEY = '';
 
 // Google Maps Embed — Street View fallback for locations without photos.
 // Free: 28,000 loads/month. Secure with HTTP Referrer restriction in Google Cloud Console.
-var GOOGLE_MAPS_API_KEY = 'AIzaSyCnoNNGVJN-7FnhsZXXLZwTZY9D8xzOwXE';
+var GOOGLE_MAPS_API_KEY = 'AIzaSyCNRDEjE4xhxb1QlK7_WERTn7VCX9dVNP0';
 
 // ══════════════════════════════════════════════════════════════════
