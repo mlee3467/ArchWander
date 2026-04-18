@@ -147,4 +147,16 @@ var DEEPL_API_KEY = '';
 // Free: 28,000 loads/month. Secure with HTTP Referrer restriction in Google Cloud Console.
 var GOOGLE_MAPS_API_KEY = 'AIzaSyCNRDEjE4xhxb1QlK7_WERTn7VCX9dVNP0';
 
+// ── Supabase ─────────────────────────────────────────────────────
+// Location data is served from Supabase instead of public JS files.
+// Dashboard → Settings → API 에서 Project URL과 anon key를 복사하세요.
+// anon key는 클라이언트에 노출되어도 안전 (RLS로 읽기 전용 제한됨).
+var SUPABASE_URL      = '';  // e.g. 'https://abcdefgh.supabase.co'
+var SUPABASE_ANON_KEY = '';  // anon public key
+
+// Supabase 클라이언트 초기화 (URL/KEY 없으면 로컬 JS 파일 폴백)
+var _supabase = (SUPABASE_URL && SUPABASE_ANON_KEY && typeof supabase !== 'undefined')
+  ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+  : null;
+
 // ══════════════════════════════════════════════════════════════════

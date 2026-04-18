@@ -261,29 +261,99 @@ function _mergeKO(meta) {
   }
 }
 
-// Load city data on demand. If global var already exists, merge directly.
-// Never force-reload scripts because const cannot be re-declared.
+// ── DB row → LOCS object ─────────────────────────────────────
+function _dbRowToLoc(row) {
+  return {
+    id:          row.id,
+    name:        row.name,
+    city:        row.city,
+    lat:         row.lat,
+    lng:         row.lng,
+    cats:        row.cats         || [],
+    cc:          row.cc           || '',
+    styleGroups: row.style_groups || [],
+    era:         row.era          || '',
+    arch:        row.arch         || '',
+    archs:       row.archs        || [],
+    yr:          row.yr           || null,
+    localName:   row.local_name   || '',
+    access:      row.access       || '',
+    addr:        row.addr         || '',
+    hood:        row.hood         || '',
+    localAddr:   row.local_addr   || '',
+    localHood:   row.local_hood   || '',
+    desc:        row.description  || '',
+    hours:       row.hours        || '',
+    lastEntry:   row.last_entry   || '',
+    admission:   row.admission    || '',
+    tourOk:      row.tour_ok      || false,
+    tourInfo:    row.tour_info    || '',
+    transit:     row.transit      || '',
+    walkFrom:    row.walk_from    || '',
+    tags:        row.tags         || [],
+    photos:      row.photos       || [],
+  };
+}
+
+// ── Supabase city load ────────────────────────────────────────
+function _loadCityDataSupabase(cityCode, meta) {
+  return _supabase
+    .from('locations')
+    .select('*')
+    .eq('city', meta.key)
+    .then(function(result) {
+      if (result.error) throw result.error;
+      var freshLocs = result.data.map(_dbRowToLoc);
+      // Merge with any localStorage edits (admin panel changes)
+      var merged    = _mergeLocsFromStorage(freshLocs);
+      var cityIds   = new Set(freshLocs.map(function(l) { return l.id; }));
+      var cityMerged = merged.filter(function(l) { return cityIds.has(l.id); });
+      var existingIds = new Set(LOCS.map(function(l) { return l.id; }));
+      cityMerged.forEach(function(l) {
+        if (!existingIds.has(l.id)) LOCS.push(l);
+      });
+      // Merge Korean translations from ko_* columns
+      result.data.forEach(function(row) {
+        if (row.ko_name || row.ko_desc) {
+          LOCS_KO[row.id] = {
+            name:      row.ko_name      || '',
+            desc:      row.ko_desc      || '',
+            hood:      row.ko_hood      || '',
+            hours:     row.ko_hours     || '',
+            admission: row.ko_admission || '',
+            transit:   row.ko_transit   || '',
+            walkFrom:  row.ko_walk_from || '',
+          };
+        }
+      });
+      _loadedCities[cityCode] = true;
+      console.log('[supabase] Loaded', meta.key + ':', freshLocs.length, 'locations');
+    });
+}
+
+// Load city data on demand.
+// ① Supabase가 설정돼 있으면 API로 로드
+// ② 아니면 기존 data-*.js 스크립트 방식으로 폴백
 function loadCityData(cityCode) {
   if (_loadedCities[cityCode]) return Promise.resolve();
   var meta = CITY_META[cityCode];
   if (!meta) return Promise.reject(new Error('Unknown city: ' + cityCode));
 
-  // Global var already exists -> merge immediately, no script load
+  // ── Supabase path ──
+  if (_supabase) return _loadCityDataSupabase(cityCode, meta);
+
+  // ── Legacy script path (폴백) ──
   if (_getGlobal(meta.dataVar)) {
     _mergeCityLocs(cityCode, meta);
     _mergeKO(meta);
     return Promise.resolve();
   }
-
-  // Otherwise load script dynamically (cache-bust with timestamp)
   var cb = '?_=' + Date.now();
-  var dataFile = 'data-' + meta.key + '.js' + cb;
-  var koFile   = 'data-ko-' + meta.key + '.js' + cb;
-  return _loadScript(dataFile).then(function() {
+  return _loadScript('data-' + meta.key + '.js' + cb).then(function() {
     _mergeCityLocs(cityCode, meta);
-    return _loadScript(koFile).then(function() {
-      _mergeKO(meta);
-    }).catch(function() { /* ko file optional */ });
+    return _loadScript('data-ko-' + meta.key + '.js' + cb)
+      .then(function() { _mergeKO(meta); })
+      .catch(function() { /* ko optional */ });
   });
 }
 
