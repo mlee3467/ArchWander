@@ -138,44 +138,7 @@ var _WALKER_PX_FRAMES = [
   '0000440044000000' +
   '0000440044000000' +
   '0000440004400000' +
-  '0000440000440000',
-
-  // ── Frame 6: STOPPED/SITTING, pose A ─────────────────────────
-  // Character slumps down, legs splayed wide — used when fully exhausted
-  '0004444444440000' +
-  '0041111111114000' +
-  '0411111111111400' +
-  '0411411111141400' +  // R3 X eyes top
-  '0411141111411400' +  // R4 X eyes bot
-  '0411141111411400' +  // R5 teardrops
-  '0411144444111400' +  // R6 frown arc
-  '0411411111411400' +  // R7 frown corners
-  '0041111111114000' +  // R8 chin
-  '0441111111114400' +  // R9 shoulders / body
-  '0444111111114440' +  // R10 arms hanging wide
-  '4444111111111444' +  // R11 hips/lap splayed very wide
-  '4400111111110044' +  // R12 thighs out to sides
-  '4000111111110004' +  // R13 lower legs (feet touching ground)
-  '4000000000000004' +  // R14 feet flat on ground
-  '0400000000000040',   // R15 foot tips
-
-  // ── Frame 7: STOPPED/SITTING, pose B (slightly more slumped) ─
-  '0004444444440000' +
-  '0041111111114000' +
-  '0411111111111400' +
-  '0411411111141400' +
-  '0411141111411400' +
-  '0411141111411400' +
-  '0411144444111400' +
-  '0411411111411400' +
-  '0041111111114000' +
-  '0441111111114400' +
-  '4444111111114440' +  // R10 more slumped (arms lower/wider)
-  '4444411111444440' +  // R11 hips even wider
-  '4400001111000044' +  // R12 thighs
-  '4000001111000004' +  // R13 lower legs
-  '0400000000000040' +  // R14 feet slightly raised (more collapsed)
-  '0040000000000400'    // R15 tips
+  '0000440000440000'
 ];
 var _WALKER_PX_W = 16, _WALKER_PX_H = 16, _WALKER_PX_SCALE = 2;
 
@@ -188,10 +151,9 @@ var _walkerSpriteCache    = {};  // keyed by body colour string
 
 // Select base frame index from distance walked
 function _walkerGetBaseFrame(dist) {
-  if (dist < _WLK_D30MIN)  return 0;  // happy      → frames 0,1
-  if (dist < _WLK_D_EMPTY) return 2;  // tired      → frames 2,3
-  if (dist < _WLK_D_STOP)  return 4;  // exhausted  → frames 4,5
-  return 6;                            // stopped    → frames 6,7 (sitting)
+  if (dist < _WLK_D30MIN)  return 0;  // happy     → frames 0,1
+  if (dist < _WLK_D_EMPTY) return 2;  // tired     → frames 2,3
+  return 4;                            // exhausted/stopped → frames 4,5 (gray palette for stopped)
 }
 
 // Get the correct palette for current distance
@@ -222,42 +184,33 @@ function _buildWalkerSpritesForPalette(pal) {
   return sprites;
 }
 
-// Legacy helper — pre-build all three palettes
+// Legacy helper — pre-build all four palettes
 function _buildWalkerSprites() {
   _buildWalkerSpritesForPalette(_WALKER_PAL_HAPPY);
   _buildWalkerSpritesForPalette(_WALKER_PAL_TIRED);
   _buildWalkerSpritesForPalette(_WALKER_PAL_EXHAUSTED);
+  _buildWalkerSpritesForPalette(_WALKER_PAL_STOPPED);
   return _walkerSpriteCache[_WALKER_PAL_HAPPY['1']];
 }
 
 // ── Route Marker Icon Builder ────────────────────────────────────
 // visited=false → pink circle; visited=true → black circle
-// Always includes a small colored flag SVG above the number circle.
 function _buildRouteMarkerIcon(num, name, visited) {
-  var circleBg  = visited ? '#111111' : '#D946A8';
-  var flagColor = visited ? '#555555' : '#D946A8';
-  var flagSvg =
-    '<svg width="12" height="15" viewBox="0 0 12 15" style="display:block">' +
-      '<line x1="2" y1="0" x2="2" y2="14" stroke="#777" stroke-width="1.5"/>' +
-      '<polygon points="2,1 11,5 2,9" fill="' + flagColor + '" stroke="white" stroke-width="0.7"/>' +
-    '</svg>';
+  var circleBg = visited ? '#111111' : '#D946A8';
   return L.divIcon({
     html:
-      '<div style="display:flex;flex-direction:column;align-items:flex-start;gap:0">' +
-        '<div style="margin-left:1px;line-height:0">' + flagSvg + '</div>' +
-        '<div style="display:flex;align-items:center;gap:4px;white-space:nowrap">' +
-          '<div style="background:' + circleBg + ';color:white;width:24px;height:24px;border-radius:50%;' +
-          'display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;' +
-          'border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3);font-family:Inter,sans-serif;flex-shrink:0">' + num + '</div>' +
-          '<div style="font-size:9px;font-family:Inter,sans-serif;font-weight:600;color:#111;' +
-          'background:rgba(255,255,255,0.92);padding:2px 5px;border-radius:3px;' +
-          'box-shadow:0 1px 4px rgba(0,0,0,0.25);max-width:90px;overflow:hidden;text-overflow:ellipsis">' +
-          _escHtml(name) + '</div>' +
-        '</div>' +
+      '<div style="display:flex;align-items:center;gap:4px;white-space:nowrap">' +
+        '<div style="background:' + circleBg + ';color:white;width:24px;height:24px;border-radius:50%;' +
+        'display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;' +
+        'border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3);font-family:Inter,sans-serif;flex-shrink:0">' + num + '</div>' +
+        '<div style="font-size:9px;font-family:Inter,sans-serif;font-weight:600;color:#111;' +
+        'background:rgba(255,255,255,0.92);padding:2px 5px;border-radius:3px;' +
+        'box-shadow:0 1px 4px rgba(0,0,0,0.25);max-width:90px;overflow:hidden;text-overflow:ellipsis">' +
+        _escHtml(name) + '</div>' +
       '</div>',
     className: '',
-    iconSize:   [120, 39],
-    iconAnchor: [12, 39]   // anchor at bottom of the full icon (flag 15px + circle 24px)
+    iconSize:   [120, 24],
+    iconAnchor: [12, 12]
   });
 }
 
@@ -268,10 +221,8 @@ function _walkerGetStamina(dist) {
   return 0;
 }
 function _walkerGetSpeedMod(dist) {
-  if (dist >= _WLK_D_STOP)  return 0;    // stopped
-  if (dist >= _WLK_D_EMPTY) return 0.25; // stamina=0: speed −75%
-  if (dist >= _WLK_D30MIN)  return 0.5;  // phase2: speed −50%
-  return 1.0;
+  if (dist >= _WLK_D_STOP) return 0;  // stopped
+  return 1.0;                          // always full speed otherwise
 }
 
 // ── Icon builder — distance label + stamina bar + badge in divIcon HTML ──
@@ -424,7 +375,8 @@ function _startWalkerAnimation(coords, stopIndices, ordered) {
   }).addTo(map);
 
   // Reveal polyline: only the walked segment is drawn (pink dotted, grows as char walks)
-  _walkerRevealLine = L.polyline([coords[stopIndices[0]]], {
+  var _revealStartPt = coords[stopIndices[0]];
+  _walkerRevealLine = L.polyline([_revealStartPt, _revealStartPt], {
     color: '#D946A8', weight: 5, opacity: 0.9,
     dashArray: '4 4', lineCap: 'square'
   }).addTo(map);
@@ -467,7 +419,8 @@ function _startWalkerAnimation(coords, stopIndices, ordered) {
         revealEntry.toIdx
       );
     }
-    if (_walkerRevealLine) _walkerRevealLine.setLatLngs(coords.slice(0, revealCoordIdx + 1));
+    var slice = coords.slice(0, revealCoordIdx + 1);
+    if (_walkerRevealLine && slice.length >= 2) _walkerRevealLine.setLatLngs(slice);
 
     // ── Mark visited stops (turn marker black when reveal passes them) ──
     if (_walkerPassedStops) {
@@ -508,10 +461,7 @@ function _startWalkerAnimation(coords, stopIndices, ordered) {
     prevStopIdx   = (entry.type === 'pause') ? entry.stopIdx : -1;
 
     // ── Position & icon ──────────────────────────────────────────
-    // Sitting frames cycle slowly (600ms); walking frames cycle at normal rate
-    var frameIdx = stopped
-      ? Math.floor(ts / 600) % 2          // sitting: slow oscillation (frames 6,7)
-      : Math.floor(ts / _WALKER_FRAME_MS) % 2;  // walking: normal stride (0-1, 2-3, 4-5)
+    var frameIdx = Math.floor(ts / _WALKER_FRAME_MS) % 2;  // walking: normal stride (0-1, 2-3, 4-5)
     var isPaused = stopped || entry.type === 'pause';
     var badge    = (!stopped && entry.type === 'pause') ? 'camera' : null;
     var stamPct  = Math.round(_walkerGetStamina(_walkerDistCovered) * 2) / 2; // 0.5% steps
@@ -523,10 +473,9 @@ function _startWalkerAnimation(coords, stopIndices, ordered) {
         routeWalkerMarker.setLatLng(stopCoord);
       }
       var distKey = Math.floor(dist / 5); // update every 5 m
-      var sitFrame = stopped ? Math.floor(ts / 600) % 2 : 0;
-      var iconKey = 'p:' + badge + ':' + stamPct + ':' + distKey + ':' + (Math.floor(ts / 200) % 2) + ':' + sitFrame;
+      var iconKey = 'p:' + badge + ':' + stamPct + ':' + distKey + ':' + (Math.floor(ts / 200) % 2);
       if (iconKey !== lastIconKey) {
-        routeWalkerMarker.setIcon(_buildWalkerIcon(sitFrame, true, dist, badge));
+        routeWalkerMarker.setIcon(_buildWalkerIcon(0, true, dist, badge));
         lastIconKey = iconKey;
       }
     } else {
