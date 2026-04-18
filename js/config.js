@@ -151,12 +151,9 @@ var GOOGLE_MAPS_API_KEY = 'AIzaSyCNRDEjE4xhxb1QlK7_WERTn7VCX9dVNP0';
 // Location data is served from Supabase instead of public JS files.
 // Dashboard → Settings → API 에서 Project URL과 anon key를 복사하세요.
 // anon key는 클라이언트에 노출되어도 안전 (RLS로 읽기 전용 제한됨).
-var SUPABASE_URL      = '';  // e.g. 'https://abcdefgh.supabase.co'
-var SUPABASE_ANON_KEY = '';  // anon public key
+var SUPABASE_URL      = 'https://bfhheauvuvrkdeajfjzy.supabase.co';
+var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJmaGhlYXV2dXZya2RlYWpmanp5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0OTU0MTEsImV4cCI6MjA5MjA3MTQxMX0.SSWxRtwebLXo7eU-d2rvcu28XXRNpFnz9HcDhq-FUiY';
 
 // Supabase 클라이언트 초기화 (URL/KEY 없으면 로컬 JS 파일 폴백)
 var _supabase = (SUPABASE_URL && SUPABASE_ANON_KEY && typeof supabase !== 'undefined')
-  ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-  : null;
-
-// ══════════════════════════════════════════════════════════════════
+  ? supabase
