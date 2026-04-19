@@ -123,9 +123,12 @@ var nearMeActive = false;
 
 function toggleNearMe() {
   nearMeActive = !nearMeActive;
-  document.getElementById('near-me-btn').classList.toggle('active', nearMeActive);
+  var nearBtn = document.getElementById('near-me-btn');
+  if (nearBtn) nearBtn.classList.toggle('active', nearMeActive);
   if (nearMeActive) {
-    document.getElementById('walk-bar').classList.add('visible');
+    var wb = document.getElementById('walk-bar');
+    wb.style.display = '';   // clear any inline override before adding class
+    wb.classList.add('visible');
     history.pushState({ view: 'nearMe' }, '');
   } else {
     _fullDeactivate();
@@ -141,8 +144,11 @@ function _fullDeactivate() {
   if (userMarker)    { userMarker.remove();    userMarker    = null; }
   if (pinDropMarker) { pinDropMarker.remove(); pinDropMarker = null; }
   _clearWalkOverlay();
-  document.getElementById('walk-bar').classList.remove('visible');
-  document.getElementById('near-me-btn').classList.remove('active');
+  var wb = document.getElementById('walk-bar');
+  wb.classList.remove('visible');
+  wb.style.display = 'none';   // force hide — prevents iOS Safari background lingering
+  var nearBtn = document.getElementById('near-me-btn');
+  if (nearBtn) nearBtn.classList.remove('active');
   document.getElementById('walk-gps-btn').classList.remove('active', 'locating');
   document.getElementById('walk-pin-btn').classList.remove('active', 'locating');
   var wrb = document.getElementById('walk-route-btn');

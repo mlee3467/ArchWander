@@ -475,6 +475,11 @@ function applyLang() {
   const chkKo = document.getElementById('check-ko');
   if (chkEn) chkEn.textContent = LANG === 'en' ? '✓' : '';
   if (chkKo) chkKo.textContent = LANG === 'ko' ? '✓' : '';
+  // Sidebar lang buttons (mobile)
+  const sblEn = document.getElementById('sblang-en');
+  const sblKo = document.getElementById('sblang-ko');
+  if (sblEn) sblEn.classList.toggle('active', LANG === 'en');
+  if (sblKo) sblKo.classList.toggle('active', LANG === 'ko');
   // Rebuild dynamic content
   buildFilters();
   renderList();

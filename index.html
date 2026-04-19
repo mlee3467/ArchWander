@@ -49,7 +49,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-  <link rel="stylesheet" href="css/styles.css?v=20260419l">
+  <link rel="stylesheet" href="css/styles.css?v=20260419m">
 </head>
 <body>
 
@@ -439,6 +439,15 @@
 <div class="app">
   <aside class="sidebar" id="sidebar">
 
+    <!-- Language toggle row (mobile) -->
+    <div class="sb-lang-row" id="sb-lang-row">
+      <span class="sb-lang-label">Language</span>
+      <div class="sb-lang-btns">
+        <button id="sblang-en" class="sb-lang-opt active" onclick="setLang('en')">EN</button>
+        <button id="sblang-ko" class="sb-lang-opt" onclick="setLang('ko')">KO</button>
+      </div>
+    </div>
+
     <!-- Action buttons — My Location / Favorites / Route / I Feel Like -->
     <div class="sb-actions" id="sb-actions">
       <button class="sba-btn" id="sba-loc" onclick="_sbaMyLocation()">
@@ -547,28 +556,37 @@
     <!-- My Journey — shown when visited/saved items exist -->
     <div id="passport-stats" style="display:none"></div>
 
-    <!-- Location list (flex: 1, fills remaining space) -->
-    <div class="sb-list-wrap">
-      <div class="list-bar">
-        <span id="list-meta">Loading…</span>
-        <select id="sort-sel" onchange="setSort(this.value)">
-          <option value="default">Default order</option>
-          <option value="year-asc">Oldest first</option>
-          <option value="year-desc">Newest first</option>
-          <option value="name">Name A–Z</option>
-          <option value="clicks">Most Visited</option>
-          <option value="searches">Most Searched</option>
-          <option value="reviews">Most Reviewed</option>
-        </select>
-      </div>
-      <div class="loc-list" id="loc-list"></div>
-    </div>
+    <!-- Review Filtered List button -->
+    <button class="sb-review-btn" onclick="_openListOverlay()">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="flex-shrink:0"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      Review filtered list
+    </button>
 
     <!-- Right-edge horizontal resize handle -->
     <div class="sb-resize" id="sb-resize"></div>
 
   </aside>
 <div id="sidebar-backdrop" onclick="closeSidebar()"></div>
+
+<!-- ── LIST OVERLAY (filtered locations, opened via "Review filtered list") -->
+<div id="list-overlay" style="display:none">
+  <div class="list-overlay-box">
+    <div class="list-overlay-hdr">
+      <span id="list-meta">Loading…</span>
+      <select id="sort-sel" onchange="setSort(this.value)">
+        <option value="default">Default order</option>
+        <option value="year-asc">Oldest first</option>
+        <option value="year-desc">Newest first</option>
+        <option value="name">Name A–Z</option>
+        <option value="clicks">Most Visited</option>
+        <option value="searches">Most Searched</option>
+        <option value="reviews">Most Reviewed</option>
+      </select>
+      <button class="list-overlay-close" onclick="_closeListOverlay()">✕</button>
+    </div>
+    <div class="loc-list" id="loc-list"></div>
+  </div>
+</div>
 <!-- Report Issue Modal -->
 <div class="report-modal-overlay" id="report-modal-overlay" onclick="handleReportOverlayClick(event)">
   <div class="report-modal-box" onclick="event.stopPropagation()">
@@ -674,18 +692,18 @@
   </div>
 </div>
 
-<script src="js/config.js?v=20260419l"></script>
-<script src="js/i18n.js?v=20260419l"></script>
-<script src="js/map.js?v=20260419l"></script>
-<script src="js/filters.js?v=20260419l"></script>
-<script src="js/core.js?v=20260419l"></script>
-<script src="js/audio.js?v=20260419l"></script>
-<script src="js/ui.js?v=20260419l"></script>
-<script src="js/walk.js?v=20260419l"></script>
-<script src="js/city.js?v=20260419l"></script>
-<script src="js/route.js?v=20260419l"></script>
-<script src="js/landing.js?v=20260419l"></script>
-<script src="js/init.js?v=20260419l"></script>
+<script src="js/config.js?v=20260419m"></script>
+<script src="js/i18n.js?v=20260419m"></script>
+<script src="js/map.js?v=20260419m"></script>
+<script src="js/filters.js?v=20260419m"></script>
+<script src="js/core.js?v=20260419m"></script>
+<script src="js/audio.js?v=20260419m"></script>
+<script src="js/ui.js?v=20260419m"></script>
+<script src="js/walk.js?v=20260419m"></script>
+<script src="js/city.js?v=20260419m"></script>
+<script src="js/route.js?v=20260419m"></script>
+<script src="js/landing.js?v=20260419m"></script>
+<script src="js/init.js?v=20260419m"></script>
 </body>
 
 </html>

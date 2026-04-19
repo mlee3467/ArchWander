@@ -758,6 +758,8 @@ function _displayRoute(route, ordered) {
   map.fitBounds(L.latLngBounds(coords), { padding: [60, 60] });
   routeData = { distance: route.distance, duration: route.duration, stops: ordered.length, legs: route.legs || [] };
   _renderRouteResult(routeData, ordered, cumDistAtStop);
+  // Hide regular flag markers for route stops (numbered markers now show instead)
+  if (typeof syncMarkers === 'function') syncMarkers();
 
   if (_routeSkipAnim) {
     _routeSkipAnim = false;
@@ -808,6 +810,8 @@ function _displayStraightRoute(ordered) {
   map.fitBounds(L.latLngBounds(coords), { padding: [60, 60] });
   routeData = { distance: running, duration: running / 1.33, stops: ordered.length, legs: [], estimated: true };
   _renderRouteResult(routeData, ordered, cumDistAtStop);
+  // Hide regular flag markers for route stops (numbered markers now show instead)
+  if (typeof syncMarkers === 'function') syncMarkers();
   var stopIndices = coords.map(function(_, i) { return i; });
 
   if (_routeSkipAnim) {
@@ -874,7 +878,7 @@ function _showRouteMarkerPopup(loc, beyondLimit) {
     '<button class="rmp-close" onclick="_closeRouteCustomPopup()" aria-label="close">✕</button>' +
     thumbHtml +
     '<div class="rmp-body">' +
-      '<div class="rmp-name">' + _escHtml(loc.name) + '</div>' +
+      '<div class="rmp-name" onclick="_closeRouteCustomPopup();openLocById(\'' + loc.id + '\')" style="cursor:pointer;text-decoration:underline;text-underline-offset:2px">' + _escHtml(loc.name) + '</div>' +
       '<div class="rmp-meta">' +
         '<span class="cat-badge ' + catClass + '" style="font-size:10px">' + catBadge + '</span>' +
         (loc.hood ? '<span style="color:#888"> · ' + _escHtml(loc.hood) + '</span>' : '') +
@@ -997,6 +1001,8 @@ function clearRoute() {
   routeData = null;
   var resultDiv = document.getElementById('route-result');
   if (resultDiv) { resultDiv.style.display = 'none'; resultDiv.innerHTML = ''; }
+  // Restore regular flag markers for route stops
+  if (typeof syncMarkers === 'function') syncMarkers();
 }
 
 function _routeStatus(msg) {

@@ -248,12 +248,35 @@ function renderList() {
 
 function syncMarkers() {
   const visible = new Set(getFiltered().map(l => l.id));
-  // 클러스터 그룹 전체 초기화 후 필터 통과한 마커만 재추가
-  // → 클러스터 숫자도 필터 결과를 정확히 반영
+  // When route is active, hide the regular flag markers for route stops
+  // (numbered route markers take their place, avoiding the double-marker overlap)
+  const routeIds = (typeof routeActive !== 'undefined' && routeActive &&
+                    typeof routeLocations !== 'undefined')
+    ? new Set(routeLocations.map(l => l.id)) : new Set();
   clusterGroup.clearLayers();
   markers.forEach(({ loc, m }) => {
-    if (visible.has(loc.id)) clusterGroup.addLayer(m);
+    if (visible.has(loc.id) && !routeIds.has(loc.id)) clusterGroup.addLayer(m);
   });
+}
+
+// ── List Overlay ──────────────────────────────────────────────
+function _openListOverlay() {
+  if (typeof closeSidebar === 'function') closeSidebar();
+  var ov = document.getElementById('list-overlay');
+  if (!ov) return;
+  ov.style.display = 'flex';
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() { ov.classList.add('visible'); });
+  });
+  // Re-render list into overlay
+  if (typeof renderList === 'function') renderList();
+}
+
+function _closeListOverlay() {
+  var ov = document.getElementById('list-overlay');
+  if (!ov) return;
+  ov.classList.remove('visible');
+  setTimeout(function() { ov.style.display = 'none'; }, 220);
 }
 
 // ══════════════════════════════════════════════════════════════════
@@ -288,6 +311,7 @@ function photoUrl(u, mob, role) {
 function openLocById(id) { awStats.click(id); openLoc(LOCS.find(l => l.id === id)); }
 
 function openLoc(loc) {
+  _closeListOverlay();  // close list overlay if open
   activeLoc = loc;
   map.flyTo([loc.lat, loc.lng], 16, { duration:1.1 });
 
