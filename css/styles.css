@@ -106,8 +106,7 @@
       #landing-screen .landing-btn-sub   { color: rgba(255,255,255,0.38) !important; }
       #landing-screen .landing-hdr-city  { color: rgba(255,255,255,0.35) !important; }
 
-      /* Logo inversion for dark mode — white logo on dark bg, black logo on light bg */
-      .logo-img,
+      /* Logo inversion for dark mode — first-screen logos only (splash + landing header) */
       .splash-logo-img,
       .landing-hdr-logo img {
         filter: invert(1) !important;
