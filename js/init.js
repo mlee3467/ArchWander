@@ -50,6 +50,42 @@ function _postInitMap() {
 
 // BOOT
 // ══════════════════════════════════════════════════════════════════
+
+// Shared map-init routine — called either immediately (desktop/returning) or
+// by a landing button (mobile first visit). afterFn runs after map+data ready.
+function _doFullMapInit(afterFn) {
+  console.log('[boot] starting GPS detection...');
+  _initCityByGPS().then(function(city) {
+    console.log('[boot] city selected:', city);
+    activeCity    = city;
+    activeCityKey = CITY_META[city].key;
+    var _msel = document.getElementById('city-select-mobile');
+    if (_msel) _msel.value = city;
+    return loadCityData(city);
+  }).then(function() {
+    _postInitMap();
+    if (afterFn) {
+      afterFn();
+    } else {
+      // Default: auto Near Me on launch
+      if (typeof toggleNearMe === 'function') toggleNearMe();
+    }
+    // Show GPS blue dot (passive — no walk filter activation)
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function(pos) { _showUserLocationMarker(pos.coords.latitude, pos.coords.longitude); },
+        function() {},
+        { timeout: 5000, maximumAge: 300000 }
+      );
+    }
+    _preloadOtherCities();
+  }).catch(function(err) {
+    console.error('[boot] Failed to load initial city data:', err);
+    _postInitMap();
+    if (afterFn) afterFn();
+  });
+}
+
 window.addEventListener('load', function() {
   if (typeof L === 'undefined') {
     document.getElementById('map').innerHTML =
@@ -61,37 +97,17 @@ window.addEventListener('load', function() {
     return;
   }
 
-  // Detect nearest city via GPS (with default fallback), lazy-load its data, then boot
-  console.log('[boot] starting GPS detection...');
-  _initCityByGPS().then(function(city) {
-    console.log('[boot] city selected:', city);
-    activeCity    = city;
-    activeCityKey = CITY_META[city].key;
-    // Sync mobile city select to GPS-detected city
-    var _msel = document.getElementById('city-select-mobile');
-    if (_msel) _msel.value = city;
-    return loadCityData(city);
-  }).then(function() {
-    _postInitMap();
-    // Auto-activate Near Me mode on launch
-    if (typeof toggleNearMe === 'function') toggleNearMe();
-    // Show GPS location marker on map (passive, without activating walk filter)
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        function(pos) {
-          _showUserLocationMarker(pos.coords.latitude, pos.coords.longitude);
-        },
-        function() {},
-        { timeout: 5000, maximumAge: 300000 }
-      );
-    }
-    // Preload other cities in background
-    _preloadOtherCities();
-  }).catch(function(err) {
-    console.error('[boot] Failed to load initial city data:', err);
-    // Fallback: init map with empty LOCS
-    _postInitMap();
-  });
+  var _isMobile    = window.innerWidth <= 900;
+  var _firstVisit  = !localStorage.getItem('aw_landing_seen');
+
+  if (_isMobile && _firstVisit) {
+    // Show splash → landing; map init deferred until user picks a mode
+    if (typeof showSplash === 'function') showSplash();
+  } else {
+    // Desktop, or returning mobile user → init map immediately
+    _mapInited = true;
+    _doFullMapInit();
+  }
 
   // ── Walk slider: re-filter on change ──────────────────────────
   document.getElementById('walk-slider').addEventListener('input', function() {
