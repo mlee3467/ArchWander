@@ -105,6 +105,13 @@
       #landing-screen .landing-btn-title { color: #ffffff !important; }
       #landing-screen .landing-btn-sub   { color: rgba(255,255,255,0.38) !important; }
       #landing-screen .landing-hdr-city  { color: rgba(255,255,255,0.35) !important; }
+
+      /* Logo inversion for dark mode — white logo on dark bg, black logo on light bg */
+      .logo-img,
+      .splash-logo-img,
+      .landing-hdr-logo img {
+        filter: invert(1) !important;
+      }
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
