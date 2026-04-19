@@ -548,7 +548,7 @@ function openRoutePanel() {
 
 function closeRoutePanel() {
   routeActive = false;
-  if (_routeActivePopup) { map.closePopup(_routeActivePopup); _routeActivePopup = null; }
+  _closeRouteCustomPopup();
   var panel = document.getElementById('route-panel');
   if (panel) { panel.classList.remove('visible'); panel.classList.remove('minimized'); }
   clearRoute();
@@ -575,14 +575,14 @@ function _createRoutePanel() {
 }
 
 function clearRouteSelection() {
-  if (_routeActivePopup) { map.closePopup(_routeActivePopup); _routeActivePopup = null; }
+  _closeRouteCustomPopup();
   routeLocations = [];
   clearRoute();
   _refreshRouteUI();
 }
 
 function removeRouteStop(locId) {
-  if (_routeActivePopup) { map.closePopup(_routeActivePopup); _routeActivePopup = null; }
+  _closeRouteCustomPopup();
   routeLocations = routeLocations.filter(function(l) { return l.id !== locId; });
   _refreshRouteUI();
   if (routeLocations.length >= 2) calcRoute();
@@ -717,10 +717,15 @@ function _displayRoute(route, ordered) {
     var distAtStop = cumDistAtStop[i] || 0;
     var beyondLimit = distAtStop > _WLK_D_STOP;
     var m = L.marker([loc.lat, loc.lng], {
-      icon: _buildRouteMarkerIcon(i + 1, loc.name, false, beyondLimit)
+      icon: _buildRouteMarkerIcon(i + 1, loc.name, false, beyondLimit),
+      opacity: beyondLimit ? 0.35 : 1.0,
+      zIndexOffset: beyondLimit ? -100 : 0
     })
     .on('click', (function(l, beyond) {
-      return function() { _showRouteMarkerPopup(l, [l.lat, l.lng], beyond); };
+      return function(e) {
+        L.DomEvent.stopPropagation(e);
+        _showRouteMarkerPopup(l, beyond);
+      };
     })(loc, beyondLimit))
     .addTo(map);
     routeMarkers.push(m);
@@ -751,10 +756,15 @@ function _displayStraightRoute(ordered) {
     var distAtStop = cumDistAtStop[i] || 0;
     var beyondLimit = distAtStop > _WLK_D_STOP;
     var m = L.marker([loc.lat, loc.lng], {
-      icon: _buildRouteMarkerIcon(i + 1, loc.name, false, beyondLimit)
+      icon: _buildRouteMarkerIcon(i + 1, loc.name, false, beyondLimit),
+      opacity: beyondLimit ? 0.35 : 1.0,
+      zIndexOffset: beyondLimit ? -100 : 0
     })
     .on('click', (function(l, beyond) {
-      return function() { _showRouteMarkerPopup(l, [l.lat, l.lng], beyond); };
+      return function(e) {
+        L.DomEvent.stopPropagation(e);
+        _showRouteMarkerPopup(l, beyond);
+      };
     })(loc, beyondLimit))
     .addTo(map);
     routeMarkers.push(m);
@@ -767,31 +777,65 @@ function _displayStraightRoute(ordered) {
   _startWalkerAnimation(coords, stopIndices, ordered);
 }
 
-// ── Route Marker Popup ───────────────────────────────────────────
+// ── Route Marker Popup (custom DOM — works on mobile) ────────────
 
-function _showRouteMarkerPopup(loc, latlng, beyondLimit) {
-  if (_routeActivePopup) { map.closePopup(_routeActivePopup); _routeActivePopup = null; }
+function _showRouteMarkerPopup(loc, beyondLimit) {
+  _closeRouteCustomPopup();
+
   var catBadge = _pCat(loc);
   var catClass = (typeof CAT_CC_MAP !== 'undefined' && CAT_CC_MAP[catBadge]) ? CAT_CC_MAP[catBadge] : 'c-lmk';
   var beyondNote = beyondLimit
-    ? '<div class="rmp-beyond">⚠ ' + (LANG === 'ko' ? '6km 범위 밖 (회색 마커)' : 'Beyond 6km range (grayed)') + '</div>'
+    ? '<div class="rmp-beyond">⚠ ' + (LANG === 'ko' ? '6km 범위 밖' : 'Beyond 6km') + '</div>'
     : '';
-  var html =
-    '<div class="rmp-box">' +
-      '<div class="rmp-name">' + _escHtml(loc.name) + '</div>' +
-      '<div class="rmp-meta">' +
-        '<span class="cat-badge ' + catClass + '" style="font-size:10px">' + catBadge + '</span>' +
-        (loc.hood ? ' · ' + _escHtml(loc.hood) : '') +
-      '</div>' +
-      beyondNote +
-      '<button class="rmp-remove" onclick="_routePopupRemove(\'' + loc.id + '\')">✕ ' +
-        (LANG === 'ko' ? '루트에서 제거' : 'Remove from route') +
-      '</button>' +
-    '</div>';
-  _routeActivePopup = L.popup({ closeButton: false, offset: [0, -16], className: 'route-marker-popup' })
-    .setLatLng(latlng)
-    .setContent(html)
-    .openOn(map);
+
+  var el = document.createElement('div');
+  el.id = 'route-custom-popup';
+  el.className = 'route-custom-popup';
+  el.innerHTML =
+    '<button class="rmp-close" onclick="_closeRouteCustomPopup()" aria-label="close">✕</button>' +
+    '<div class="rmp-name">' + _escHtml(loc.name) + '</div>' +
+    '<div class="rmp-meta">' +
+      '<span class="cat-badge ' + catClass + '" style="font-size:10px">' + catBadge + '</span>' +
+      (loc.hood ? '<span style="color:#888"> · ' + _escHtml(loc.hood) + '</span>' : '') +
+    '</div>' +
+    beyondNote +
+    '<button class="rmp-remove" onclick="_routePopupRemove(\'' + loc.id + '\')">✕ ' +
+      (LANG === 'ko' ? '루트에서 제거' : 'Remove from route') +
+    '</button>';
+  document.body.appendChild(el);
+
+  var isMobile = window.innerWidth <= 900;
+  if (isMobile) {
+    // Fixed bottom card, above the minimized panel peek bar (52px) + small gap
+    el.style.cssText =
+      'position:fixed;bottom:64px;left:50%;transform:translateX(-50%);z-index:3000;';
+  } else {
+    // Position near marker on desktop — get marker's screen coordinates
+    var pt  = map.latLngToContainerPoint([loc.lat, loc.lng]);
+    var box = map.getContainer().getBoundingClientRect();
+    var sx  = box.left + pt.x;
+    var sy  = box.top  + pt.y;
+    // After appending we can measure el size
+    var pw = el.offsetWidth  || 220;
+    var ph = el.offsetHeight || 110;
+    var left = Math.max(8, Math.min(sx - pw / 2, window.innerWidth  - pw - 8));
+    var top  = Math.max(8, Math.min(sy - ph - 16, window.innerHeight - ph - 8));
+    el.style.cssText =
+      'position:fixed;left:' + left + 'px;top:' + top + 'px;z-index:3000;';
+  }
+
+  _routeActivePopup = el;
+
+  // Close when user taps elsewhere on the map
+  setTimeout(function() {
+    map.once('click', function() { _closeRouteCustomPopup(); });
+  }, 80);
+}
+
+function _closeRouteCustomPopup() {
+  var el = document.getElementById('route-custom-popup');
+  if (el && el.parentNode) el.parentNode.removeChild(el);
+  _routeActivePopup = null;
 }
 
 function _routePopupRemove(locId) {
@@ -864,7 +908,7 @@ function _renderRouteResult(data, ordered, cumDistAtStop) {
 
 function clearRoute() {
   _stopWalkerAnimation();
-  if (_routeActivePopup) { map.closePopup(_routeActivePopup); _routeActivePopup = null; }
+  _closeRouteCustomPopup();
   if (routeLine) { try { map.removeLayer(routeLine); } catch(e) {} routeLine = null; }
   routeMarkers.forEach(function(m) { try { map.removeLayer(m); } catch(e) {} });
   routeMarkers = [];

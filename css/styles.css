@@ -1722,40 +1722,47 @@
 .route-stop-list { padding: 4px 0; }
 .route-stop-beyond { opacity: 0.5; }
 
-/* Route marker popup */
-.route-marker-popup .leaflet-popup-content-wrapper {
-  padding: 0; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.18);
-  border: none; overflow: hidden;
-}
-.route-marker-popup .leaflet-popup-content { margin: 0; }
-.route-marker-popup .leaflet-popup-tip-container { display: none; }
-
-.rmp-box {
-  min-width: 180px; max-width: 240px;
-  padding: 12px 14px;
+/* Route marker popup (custom DOM, works on mobile) */
+.route-custom-popup {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.20), 0 1px 4px rgba(0,0,0,0.10);
+  padding: 14px 14px 12px;
+  min-width: 180px; max-width: 260px;
   font-family: Inter, -apple-system, sans-serif;
+  position: fixed; /* overridden by JS */
+  z-index: 3000;
+  pointer-events: all;
 }
+.rmp-close {
+  position: absolute; top: 8px; right: 8px;
+  background: none; border: none; cursor: pointer;
+  color: #bbb; font-size: 14px; line-height: 1;
+  padding: 2px 5px; border-radius: 4px;
+}
+.rmp-close:hover { color: #555; background: #f3f3f0; }
 .rmp-name {
-  font-size: 13px; font-weight: 600; color: #111;
-  margin-bottom: 4px;
+  font-size: 13px; font-weight: 700; color: #111;
+  margin-bottom: 5px; padding-right: 20px;
 }
 .rmp-meta {
   font-size: 11px; color: #666; margin-bottom: 8px;
 }
 .rmp-beyond {
-  font-size: 11px; color: #f59e0b; background: #fffbeb;
+  font-size: 11px; color: #d97706; background: #fffbeb;
   border: 1px solid #fcd34d; border-radius: 5px;
-  padding: 3px 7px; margin-bottom: 8px;
+  padding: 3px 8px; margin-bottom: 8px;
 }
 .rmp-remove {
   display: block; width: 100%;
-  padding: 7px 10px; border-radius: 7px;
-  background: #fef2f2; border: 1px solid #fecaca;
+  padding: 8px 10px; border-radius: 8px;
+  background: #fef2f2; border: 1.5px solid #fecaca;
   color: #ef4444; font-size: 12px; font-weight: 600;
   cursor: pointer; font-family: inherit;
   transition: background 0.12s;
+  -webkit-tap-highlight-color: transparent;
 }
-.rmp-remove:hover { background: #fee2e2; border-color: #f87171; }
+.rmp-remove:hover, .rmp-remove:active { background: #fee2e2; border-color: #f87171; }
 
 /* Peek handle (hidden by default, shown when minimized on mobile) */
 .route-peek-handle {
