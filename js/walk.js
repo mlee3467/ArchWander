@@ -127,7 +127,13 @@ function toggleNearMe() {
   if (nearBtn) nearBtn.classList.toggle('active', nearMeActive);
   if (nearMeActive) {
     var wb = document.getElementById('walk-bar');
-    wb.style.display = '';   // clear any inline override before adding class
+    // Clear all collapse overrides before making visible
+    wb.style.display = '';
+    wb.style.height = '';
+    wb.style.minHeight = '';
+    wb.style.overflow = '';
+    wb.style.border = '';
+    wb.style.padding = '';
     wb.classList.add('visible');
     history.pushState({ view: 'nearMe' }, '');
   } else {
@@ -146,7 +152,13 @@ function _fullDeactivate() {
   _clearWalkOverlay();
   var wb = document.getElementById('walk-bar');
   wb.classList.remove('visible');
-  wb.style.display = 'none';   // force hide — prevents iOS Safari background lingering
+  // Force full collapse — display:none + height:0 to defeat iOS Safari ghost strip
+  wb.style.display = 'none';
+  wb.style.height = '0';
+  wb.style.minHeight = '0';
+  wb.style.overflow = 'hidden';
+  wb.style.border = 'none';
+  wb.style.padding = '0';
   var nearBtn = document.getElementById('near-me-btn');
   if (nearBtn) nearBtn.classList.remove('active');
   document.getElementById('walk-gps-btn').classList.remove('active', 'locating');
@@ -504,5 +516,31 @@ function _showUserLocationMarker(lat, lng) {
     interactive: false
   }).addTo(map);
 }
+
+// ── Sidebar Position Sync ────────────────────────────────────
+// Dynamically aligns sidebar top to actual header bottom, fixing
+// any sub-pixel or safe-area mismatch on mobile devices.
+function _syncSidebarTop() {
+  if (window.innerWidth > 900) return;  // desktop: CSS handles it
+  var hdr = document.querySelector('header');
+  if (!hdr) return;
+  var bottom = Math.ceil(hdr.getBoundingClientRect().bottom);
+  var topVal = bottom + 'px';
+  var els = [
+    document.getElementById('sidebar'),
+    document.getElementById('sidebar-backdrop'),
+    document.getElementById('list-overlay')
+  ];
+  els.forEach(function(el) { if (el) el.style.top = topVal; });
+}
+
+// Run once on load and on orientation/resize changes
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function() { setTimeout(_syncSidebarTop, 50); });
+} else {
+  setTimeout(_syncSidebarTop, 50);
+}
+window.addEventListener('resize', function() { setTimeout(_syncSidebarTop, 100); });
+window.addEventListener('orientationchange', function() { setTimeout(_syncSidebarTop, 300); });
 
 // ══════════════════════════════════════════════════════════════════

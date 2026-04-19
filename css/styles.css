@@ -320,6 +320,11 @@
       flex-shrink: 0; z-index: 999; flex-wrap: wrap;
     }
     #walk-bar.visible { display: flex; }
+    /* Aggressive hide — prevents iOS Safari ghost strip after close */
+    #walk-bar:not(.visible) {
+      display: none !important; height: 0 !important; min-height: 0 !important;
+      overflow: hidden !important; border: none !important; padding: 0 !important;
+    }
     /* Location picker buttons inside walk-bar */
     .walk-loc-btn {
       height: 28px; padding: 0 10px; border-radius: 6px; border: 1px solid #A5B4FC;
@@ -1230,10 +1235,9 @@
       /* ── Mobile single-row header ── */
       header {
         display: flex; align-items: center; gap: 8px;
-        height: var(--mob-header-h);
         min-height: calc(var(--mob-header-h) + var(--safe-top));
         padding: env(safe-area-inset-top, 0px) 10px 0;
-        box-sizing: border-box;
+        /* no fixed height — let min-height + padding control actual height */
       }
       .header-row1 {
         display: contents;
@@ -2800,3 +2804,97 @@
   font-size: 10.5px; color: rgb(80,80,80);
   line-height: 1.45;
 }
+
+/* ─────────────────────────────────────────────────────────────
+   ROUTE PRE-SELECTION MODAL
+   ───────────────────────────────────────────────────────────── */
+.route-presel-overlay {
+  position: fixed; inset: 0; z-index: 9500;
+  background: rgba(0,0,0,0.45);
+  display: none; align-items: center; justify-content: center;
+  font-family: Inter, -apple-system, sans-serif;
+}
+.route-presel-overlay.open { display: flex; }
+.rps-box {
+  background: white; border-radius: 18px;
+  padding: 24px 20px; max-width: 380px; width: 92vw;
+  max-height: 78vh; overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.22);
+}
+.rps-title { font-size: 15px; font-weight: 700; color: #111; margin-bottom: 5px; }
+.rps-sub { font-size: 12px; color: #666; margin-bottom: 14px; line-height: 1.45; }
+.rps-section-label {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.6px;
+  text-transform: uppercase; color: #999; margin-bottom: 8px;
+}
+.rps-hoods {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px;
+}
+.rps-hood-chip {
+  padding: 6px 12px; border-radius: 99px;
+  border: 1.5px solid #E5E7EB; background: white;
+  font-size: 12px; color: #111; cursor: pointer;
+  font-family: inherit; transition: all 0.12s;
+}
+.rps-hood-chip:hover,
+.rps-hood-chip:active { background: #111; color: white; border-color: #111; }
+.rps-divider {
+  text-align: center; font-size: 11px; color: #bbb;
+  margin: 8px 0 12px; position: relative;
+}
+.rps-divider::before {
+  content: ''; position: absolute;
+  top: 50%; left: 0; right: 0; height: 1px; background: #E5E7EB; z-index: 0;
+}
+.rps-divider span { background: white; padding: 0 8px; position: relative; z-index: 1; }
+.rps-btns { display: flex; gap: 8px; margin-top: 4px; }
+.rps-manual-btn {
+  flex: 1; padding: 11px; border-radius: 11px;
+  background: #111; color: white; border: none;
+  font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit;
+  transition: opacity 0.12s;
+}
+.rps-manual-btn:active { opacity: 0.7; }
+.rps-cancel-btn {
+  flex: 1; padding: 11px; border-radius: 11px;
+  background: #F3F4F6; color: #374151; border: none;
+  font-size: 13px; cursor: pointer; font-family: inherit;
+  transition: background 0.12s;
+}
+.rps-cancel-btn:active { background: #E5E7EB; }
+
+/* ─────────────────────────────────────────────────────────────
+   ROUTE 6KM WARNING DIALOG
+   ───────────────────────────────────────────────────────────── */
+.route-6km-overlay {
+  position: fixed; inset: 0; z-index: 9500;
+  background: rgba(0,0,0,0.45);
+  display: none; align-items: center; justify-content: center;
+  font-family: Inter, -apple-system, sans-serif;
+}
+.route-6km-overlay.open { display: flex; }
+.r6km-box {
+  background: white; border-radius: 18px;
+  padding: 24px 20px 20px; max-width: 320px; width: 88vw;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.22); text-align: center;
+}
+.r6km-icon { font-size: 30px; margin-bottom: 10px; }
+.r6km-msg {
+  font-size: 14px; color: #111; line-height: 1.55;
+  margin-bottom: 18px; font-weight: 500;
+}
+.r6km-btns { display: flex; gap: 8px; }
+.r6km-yes {
+  flex: 1; padding: 11px; border-radius: 11px;
+  background: #111; color: white; border: none;
+  font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit;
+  transition: opacity 0.12s;
+}
+.r6km-yes:active { opacity: 0.7; }
+.r6km-no {
+  flex: 1; padding: 11px; border-radius: 11px;
+  background: #F3F4F6; color: #374151; border: none;
+  font-size: 13px; cursor: pointer; font-family: inherit;
+  transition: background 0.12s;
+}
+.r6km-no:active { background: #E5E7EB; }

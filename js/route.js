@@ -550,6 +550,8 @@ function _getRouteLocs() {
     : LOCS.filter(function(l) { return l.city === activeCityKey; });
 }
 
+var _ROUTE_PRESEL_THRESHOLD = 12; // max locations before pre-selection modal
+
 function openRoutePanel() {
   routeActive = true;
   if (typeof _updateSetRouteFab === 'function') _updateSetRouteFab(); // hide FAB
@@ -557,8 +559,18 @@ function openRoutePanel() {
   var panel = document.getElementById('route-panel');
   panel.classList.remove('minimized');
   panel.classList.add('visible');
+
+  // If too many locations, show pre-selection modal first
+  var locs = _getRouteLocs();
+  if (locs.length > _ROUTE_PRESEL_THRESHOLD) {
+    routeLocations = [];
+    _refreshRouteUI();
+    _showRoutePreselModal(locs);
+    return;
+  }
+
   // Auto-populate from current filtered list
-  routeLocations = _getRouteLocs().slice();
+  routeLocations = locs.slice();
   _refreshRouteUI();
   // Auto-calculate immediately
   if (routeLocations.length >= 2) calcRoute();
@@ -760,6 +772,8 @@ function _displayRoute(route, ordered) {
   _renderRouteResult(routeData, ordered, cumDistAtStop);
   // Hide regular flag markers for route stops (numbered markers now show instead)
   if (typeof syncMarkers === 'function') syncMarkers();
+  // Warn if total route exceeds 6km
+  _check6kmWarning();
 
   if (_routeSkipAnim) {
     _routeSkipAnim = false;
@@ -812,6 +826,8 @@ function _displayStraightRoute(ordered) {
   _renderRouteResult(routeData, ordered, cumDistAtStop);
   // Hide regular flag markers for route stops (numbered markers now show instead)
   if (typeof syncMarkers === 'function') syncMarkers();
+  // Warn if total route exceeds 6km
+  _check6kmWarning();
   var stopIndices = coords.map(function(_, i) { return i; });
 
   if (_routeSkipAnim) {
@@ -1026,5 +1042,141 @@ function routeNearMeUseGPS()       { /* removed in v0.3 */ }
 function routeNearMeDropPin()      { routePinDropMode = false; }
 function _onRoutePinDropped()      { /* removed in v0.3 */ }
 function addNearbyToRoute()        { /* removed in v0.3 */ }
+
+// ══════════════════════════════════════════════════════════════════
+// ROUTE PRE-SELECTION MODAL
+// ══════════════════════════════════════════════════════════════════
+
+function _showRoutePreselModal(locs) {
+  var overlay = document.getElementById('route-presel-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'route-presel-overlay';
+    overlay.className = 'route-presel-overlay';
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) _closeRoutePresel();
+    });
+    document.body.appendChild(overlay);
+  }
+
+  // Build unique, sorted neighborhood list from the current locs
+  var hoods = [];
+  var seen = {};
+  locs.forEach(function(l) {
+    if (l.hood && !seen[l.hood]) { seen[l.hood] = true; hoods.push(l.hood); }
+  });
+  hoods.sort();
+
+  // Count per hood
+  var hoodCount = {};
+  locs.forEach(function(l) { if (l.hood) hoodCount[l.hood] = (hoodCount[l.hood] || 0) + 1; });
+
+  var ko = typeof LANG !== 'undefined' && LANG === 'ko';
+  var chipsHtml = hoods.map(function(h) {
+    var cnt = hoodCount[h] || 0;
+    return '<button class="rps-hood-chip" onclick="_routePreselHood(\'' +
+      h.replace(/\\/g,'\\\\').replace(/'/g,"\\'") + '\')">' +
+      _escHtml(h) + ' <span style="opacity:0.5;font-size:11px">(' + cnt + ')</span></button>';
+  }).join('');
+
+  overlay.innerHTML =
+    '<div class="rps-box">' +
+      '<div class="rps-title">' +
+        (ko ? '루트에 ' + locs.length + '개 위치가 있습니다' : locs.length + ' locations in route') +
+      '</div>' +
+      '<div class="rps-sub">' +
+        (ko
+          ? '동네를 선택하면 해당 지역만 루트로 로드됩니다.<br>또는 직접 선택 모드로 시작하세요.'
+          : 'Select a neighborhood to load just that area,<br>or start in manual selection mode.') +
+      '</div>' +
+      '<div class="rps-section-label">' + (ko ? '동네 선택' : 'Choose a neighborhood') + '</div>' +
+      '<div class="rps-hoods">' + (chipsHtml || ('<span style="color:#999;font-size:12px">' + (ko ? '동네 정보 없음' : 'No neighborhood data') + '</span>')) + '</div>' +
+      '<div class="rps-divider"><span>' + (ko ? '또는' : 'or') + '</span></div>' +
+      '<div class="rps-btns">' +
+        '<button class="rps-manual-btn" onclick="_routePreselManual()">' +
+          '📍 ' + (ko ? '직접 선택' : 'Manual select') +
+        '</button>' +
+        '<button class="rps-cancel-btn" onclick="_closeRoutePresel(true)">' +
+          (ko ? '취소' : 'Cancel') +
+        '</button>' +
+      '</div>' +
+    '</div>';
+
+  overlay.classList.add('open');
+}
+
+function _routePreselHood(hood) {
+  _closeRoutePresel();
+  routeLocations = _getRouteLocs().filter(function(l) { return l.hood === hood; });
+  _refreshRouteUI();
+  if (routeLocations.length >= 2) calcRoute();
+}
+
+function _routePreselManual() {
+  _closeRoutePresel();
+  // Open route panel empty — user can remove stops or use filters then re-open
+  routeLocations = [];
+  _refreshRouteUI();
+  // Show a hint in the empty list state (handled by _refreshRouteUI)
+}
+
+function _closeRoutePresel(andClosePanel) {
+  var overlay = document.getElementById('route-presel-overlay');
+  if (overlay) overlay.classList.remove('open');
+  if (andClosePanel) {
+    closeRoutePanel();
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════
+// ROUTE 6KM WARNING
+// ══════════════════════════════════════════════════════════════════
+
+function _check6kmWarning() {
+  if (!routeData || routeData.distance <= _WLK_D_STOP) return;
+  var overlay = document.getElementById('route-6km-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'route-6km-overlay';
+    overlay.className = 'route-6km-overlay';
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) _6kmNo();
+    });
+    document.body.appendChild(overlay);
+  }
+
+  var ko = typeof LANG !== 'undefined' && LANG === 'ko';
+  var dist = (routeData.distance / 1000).toFixed(1);
+
+  overlay.innerHTML =
+    '<div class="r6km-box">' +
+      '<div class="r6km-icon">⚠️</div>' +
+      '<div class="r6km-msg">' +
+        (ko
+          ? '총 이동거리가 <strong>' + dist + 'km</strong>입니다.<br>location list를 조정하시겠습니까?'
+          : 'Total route is <strong>' + dist + 'km</strong>.<br>Would you like to adjust the location list?') +
+      '</div>' +
+      '<div class="r6km-btns">' +
+        '<button class="r6km-yes" onclick="_6kmYes()">' + (ko ? '예' : 'Yes') + '</button>' +
+        '<button class="r6km-no"  onclick="_6kmNo()">'  + (ko ? '아니요' : 'No') + '</button>' +
+      '</div>' +
+    '</div>';
+
+  overlay.classList.add('open');
+}
+
+function _6kmYes() {
+  // Dismiss warning and re-open route panel for editing
+  var overlay = document.getElementById('route-6km-overlay');
+  if (overlay) overlay.classList.remove('open');
+  var panel = document.getElementById('route-panel');
+  if (panel) { panel.classList.remove('minimized'); panel.classList.add('visible'); }
+}
+
+function _6kmNo() {
+  // Dismiss warning, keep route as-is
+  var overlay = document.getElementById('route-6km-overlay');
+  if (overlay) overlay.classList.remove('open');
+}
 
 // ══════════════════════════════════════════════════════════════════
