@@ -49,18 +49,122 @@ function goHome() {
   showLandingScreen();
 }
 
-// ── Landing button handlers ──────────────────────────────────────
+// ── City & Location popup ────────────────────────────────────────
 
-function landingGoCity() {
+var _clpSelectedCity = null;
+var _clpLocMode      = null;  // 'gps' | 'pin'
+
+var _CLP_CITIES = [
+  { meta: 'nyc', flag: '🗽', name: 'New York', sub: '뉴욕'  },
+  { meta: 'sel', flag: '🏙', name: 'Seoul',    sub: '서울'  },
+  { meta: 'lon', flag: '🎡', name: 'London',   sub: '런던'  },
+  { meta: 'tky', flag: '🗼', name: 'Tokyo',    sub: '도쿄'  }
+];
+
+function _openCityLocPopup() {
+  var el = document.getElementById('city-loc-popup');
+  if (!el) return;
+  _clpRenderCityGrid();
+  _clpUpdateGoBtn();
+  el.style.display = 'flex';
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() { el.classList.add('visible'); });
+  });
+}
+
+function _closeCityLocPopup() {
+  var el = document.getElementById('city-loc-popup');
+  if (!el) return;
+  el.classList.remove('visible');
+  setTimeout(function() { el.style.display = 'none'; }, 280);
+}
+
+function _clpRenderCityGrid() {
+  var grid = document.getElementById('clp-city-grid');
+  if (!grid) return;
+  grid.innerHTML = _CLP_CITIES.map(function(c) {
+    var sel = _clpSelectedCity === c.meta;
+    return '<button class="clp-city-btn' + (sel ? ' selected' : '') +
+      '" onclick="_clpPickCity(\'' + c.meta + '\')">' +
+      '<span class="clp-city-flag">' + c.flag + '</span>' +
+      '<span class="clp-city-name">' + c.name + '</span>' +
+      '<span class="clp-city-sub">' + c.sub + '</span>' +
+      '</button>';
+  }).join('');
+}
+
+function _clpPickCity(metaKey) {
+  _clpSelectedCity = metaKey;
+  _clpRenderCityGrid();
+  // Fly map to selected city if map is already available
+  if (typeof map !== 'undefined' && map && typeof CITY_META !== 'undefined') {
+    var meta = CITY_META[metaKey];
+    if (meta) map.flyTo([meta.lat, meta.lng], meta.zoom || 13, { duration: 1.1 });
+  }
+  _clpUpdateGoBtn();
+}
+
+function _clpUseGPS() {
+  _clpLocMode = 'gps';
+  var g = document.getElementById('clp-gps-btn');
+  var p = document.getElementById('clp-pin-btn');
+  if (g) g.classList.add('selected');
+  if (p) p.classList.remove('selected');
+  _clpUpdateGoBtn();
+}
+
+function _clpDropPin() {
+  _clpLocMode = 'pin';
+  var g = document.getElementById('clp-gps-btn');
+  var p = document.getElementById('clp-pin-btn');
+  if (g) g.classList.remove('selected');
+  if (p) p.classList.add('selected');
+  _clpUpdateGoBtn();
+}
+
+function _clpUpdateGoBtn() {
+  var btn = document.getElementById('clp-go-btn');
+  if (!btn) return;
+  btn.classList.toggle('ready', _clpLocMode !== null);
+}
+
+function _clpConfirm() {
+  if (!_clpLocMode) return;
   localStorage.setItem('aw_landing_seen', '1');
+  var chosenCity = _clpSelectedCity;
+  var chosenMode = _clpLocMode;
+  _closeCityLocPopup();
   hideLandingScreen(function() {
     _ensureMapInit(function() {
-      // Open Near Me bar so user can pick GPS or drop pin
-      if (typeof nearMeActive !== 'undefined' && !nearMeActive) {
-        if (typeof toggleNearMe === 'function') toggleNearMe();
+      // Switch city if user chose one different from auto-detected
+      if (chosenCity && typeof activeCity !== 'undefined' && activeCity !== chosenCity) {
+        if (typeof selectCity === 'function') selectCity(chosenCity);
+        setTimeout(function() { _clpActivateMode(chosenMode); }, 600);
+      } else {
+        _clpActivateMode(chosenMode);
       }
     });
   });
+}
+
+function _clpActivateMode(mode) {
+  if (mode === 'gps') {
+    if (typeof toggleNearMe === 'function' && !nearMeActive) toggleNearMe();
+    setTimeout(function() {
+      if (typeof locateUserGPS === 'function') locateUserGPS();
+    }, 200);
+  } else if (mode === 'pin') {
+    if (typeof toggleNearMe === 'function' && !nearMeActive) toggleNearMe();
+    setTimeout(function() {
+      if (typeof startPinDrop === 'function') startPinDrop();
+    }, 200);
+  }
+}
+
+// ── Landing button handlers ──────────────────────────────────────
+
+function landingGoCity() {
+  _openCityLocPopup();
 }
 
 function landingGoIfl() {

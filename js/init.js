@@ -15,6 +15,14 @@ function hardRefresh() {
   } else { location.reload(true); }
 }
 
+// ── Tile-only init (called once, used as visual bg behind landing) ──
+var _mapTilesInited = false;
+function _initMapTiles() {
+  if (_mapTilesInited) return;
+  _mapTilesInited = true;
+  _postInitMap();
+}
+
 // ── Post-init: map + panes + listeners (called after initMap) ──
 function _postInitMap() {
   initMap();
@@ -63,7 +71,7 @@ function _doFullMapInit(afterFn) {
     if (_msel) _msel.value = city;
     return loadCityData(city);
   }).then(function() {
-    _postInitMap();
+    _initMapTiles();  // no-op if tiles already initialized
     // Render passport stats (reads from localStorage — works before city data)
     if (typeof _updatePassportStats === 'function') _updatePassportStats();
     if (afterFn) {
@@ -83,7 +91,7 @@ function _doFullMapInit(afterFn) {
     _preloadOtherCities();
   }).catch(function(err) {
     console.error('[boot] Failed to load initial city data:', err);
-    _postInitMap();
+    _initMapTiles();  // ensure map exists even on error
     if (afterFn) afterFn();
   });
 }
@@ -103,7 +111,9 @@ window.addEventListener('load', function() {
   var _firstVisit  = !localStorage.getItem('aw_landing_seen');
 
   if (_isMobile && _firstVisit) {
-    // Show splash → landing; map init deferred until user picks a mode
+    // Init map tiles immediately → map becomes transparent bg behind landing
+    _initMapTiles();
+    // City data deferred until user picks a mode in the landing popup
     if (typeof showSplash === 'function') showSplash();
   } else {
     // Desktop, or returning mobile user → init map immediately

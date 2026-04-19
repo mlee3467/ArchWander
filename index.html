@@ -49,7 +49,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-  <link rel="stylesheet" href="css/styles.css?v=20260419g">
+  <link rel="stylesheet" href="css/styles.css?v=20260419h">
 </head>
 <body>
 
@@ -105,6 +105,33 @@
   <div class="ifl-sel-body" id="ifl-sel-body"></div>
   <div class="ifl-sel-footer">
     <button class="ifl-sel-go" id="ifl-sel-go" onclick="iflSelConfirm()">View all →</button>
+  </div>
+</div>
+
+<!-- ── CITY & LOCATION POPUP (bottom sheet) ─────────────── -->
+<div id="city-loc-popup" style="display:none">
+  <div class="clp-inner">
+    <div class="clp-top-bar"><span class="clp-handle"></span></div>
+    <button class="clp-close-btn" onclick="_closeCityLocPopup()">✕</button>
+
+    <div class="clp-sect-label">Select City</div>
+    <div class="clp-city-grid" id="clp-city-grid"></div>
+
+    <div class="clp-sect-label">My Location</div>
+    <div class="clp-loc-row">
+      <button class="clp-loc-btn" id="clp-gps-btn" onclick="_clpUseGPS()">
+        <span class="clp-loc-icon">📡</span>
+        <span class="clp-loc-text">GPS 자동 감지</span>
+        <span class="clp-loc-sub">Auto locate</span>
+      </button>
+      <button class="clp-loc-btn" id="clp-pin-btn" onclick="_clpDropPin()">
+        <span class="clp-loc-icon">📌</span>
+        <span class="clp-loc-text">직접 핀 설정</span>
+        <span class="clp-loc-sub">Place on map</span>
+      </button>
+    </div>
+
+    <button class="clp-go" id="clp-go-btn" onclick="_clpConfirm()">탐색 시작 →</button>
   </div>
 </div>
 
@@ -645,18 +672,18 @@
   </div>
 </div>
 
-<script src="js/config.js?v=20260419g"></script>
-<script src="js/i18n.js?v=20260419g"></script>
-<script src="js/map.js?v=20260419g"></script>
-<script src="js/filters.js?v=20260419g"></script>
-<script src="js/core.js?v=20260419g"></script>
-<script src="js/audio.js?v=20260419g"></script>
-<script src="js/ui.js?v=20260419g"></script>
-<script src="js/walk.js?v=20260419g"></script>
-<script src="js/city.js?v=20260419g"></script>
-<script src="js/route.js?v=20260419g"></script>
-<script src="js/landing.js?v=20260419g"></script>
-<script src="js/init.js?v=20260419g"></script>
+<script src="js/config.js?v=20260419h"></script>
+<script src="js/i18n.js?v=20260419h"></script>
+<script src="js/map.js?v=20260419h"></script>
+<script src="js/filters.js?v=20260419h"></script>
+<script src="js/core.js?v=20260419h"></script>
+<script src="js/audio.js?v=20260419h"></script>
+<script src="js/ui.js?v=20260419h"></script>
+<script src="js/walk.js?v=20260419h"></script>
+<script src="js/city.js?v=20260419h"></script>
+<script src="js/route.js?v=20260419h"></script>
+<script src="js/landing.js?v=20260419h"></script>
+<script src="js/init.js?v=20260419h"></script>
 </body>
 
 </html>
