@@ -261,7 +261,8 @@ function syncMarkers() {
 
 // ── List Overlay ──────────────────────────────────────────────
 function _openListOverlay() {
-  if (typeof closeSidebar === 'function') closeSidebar();
+  // On mobile, close sidebar first (it overlaps the map). On desktop, keep sidebar open.
+  if (window.innerWidth <= 900 && typeof closeSidebar === 'function') closeSidebar();
   var ov = document.getElementById('list-overlay');
   if (!ov) return;
   ov.style.display = 'flex';
