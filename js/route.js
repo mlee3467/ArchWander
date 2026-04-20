@@ -356,6 +356,11 @@ function _startWalkerAnimation(coords, stopIndices, ordered, cumDistAtStop) {
   }
   if (totalTravelDist < 1) return;
 
+  // Set stamina thresholds to equal thirds of this route's total distance
+  _WLK_D30MIN  = totalTravelDist / 3;        // 0–1/3  → fresh
+  _WLK_D_EMPTY = totalTravelDist * 2 / 3;    // 1/3–2/3 → tired
+  _WLK_D_STOP  = totalTravelDist;            // 2/3–end → exhausted, then stopped
+
   // Travel duration: 10ms/m, clamped 5-20s (2× faster than before)
   var travelMs = Math.min(10000, Math.max(2500, totalTravelDist * 5));
 

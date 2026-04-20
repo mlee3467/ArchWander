@@ -206,20 +206,58 @@ function _openPpList(type) {
     ? (isKo ? '⭐ 즐겨찾기' : '⭐ Favorites')
     : (isKo ? '✓ 방문한 곳' : '✓ Visited');
 
-  // Build loc objects across ALL cities
+  // Show popup immediately with loading state, then fill once all city data loads
+  // (IDs may belong to cities not yet lazy-loaded, so we must preload all)
+  var overlay = document.createElement('div');
+  overlay.id = 'aw-pp-list';
+  overlay.className = 'arm-overlay';
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) _closePpList(); });
+  var panel = document.createElement('div');
+  panel.className = 'arm-panel';
+  panel.innerHTML =
+    '<div class="arm-header">' +
+      '<button class="arm-back" onclick="_closePpList()">⬅</button>' +
+      '<span class="arm-title">' + title +
+        ' <span style="font-size:12px;font-weight:400;color:#aaa">(' + ids.length + ')</span>' +
+      '</span>' +
+      '<button class="arm-close" onclick="_closePpList()">✕</button>' +
+    '</div>' +
+    '<div class="arm-scrollable" id="pp-list-body">' +
+      '<div class="arm-empty">' + (isKo ? '불러오는 중…' : 'Loading…') + '</div>' +
+    '</div>';
+  overlay.appendChild(panel);
+  document.body.appendChild(overlay);
+
+  // Load ALL city data (no-op for already-loaded cities) then render rows
+  var allCodes = typeof CITY_META !== 'undefined' ? Object.keys(CITY_META) : [];
+  var loads = allCodes.map(function(c) {
+    return (typeof loadCityData === 'function') ? loadCityData(c).catch(function(){}) : Promise.resolve();
+  });
+  Promise.all(loads).then(function() {
+    var body = document.getElementById('pp-list-body');
+    if (body) body.innerHTML = _buildPpListRows(type, isFavType, isKo, ids);
+  });
+
+}
+
+// Build the scrollable rows HTML for visited/favs list (called after all city data is loaded)
+function _buildPpListRows(type, isFavType, isKo, ids) {
+  // Build loc objects — LOCS now has all cities loaded
   var locs = [];
   if (typeof LOCS !== 'undefined') {
     ids.forEach(function(id) {
       var l = LOCS.find(function(x) { return x.id === id; });
       if (l) locs.push(l);
+      // If still not found (edge case), show placeholder so count matches
+      else locs.push({ id: id, name: id, city: '' });
     });
   } else {
     ids.forEach(function(id) { locs.push({ id: id, name: id, city: '' }); });
   }
 
-  // City order follows CITY_META definition order
+  // City order from CITY_META
   var cityOrder = typeof CITY_META !== 'undefined' ? Object.keys(CITY_META) : [];
-  var cityKeyOf = {};  // 'new-york' → 'nyc' etc.
+  var cityKeyOf = {};
   cityOrder.forEach(function(code) { cityKeyOf[CITY_META[code].key] = code; });
 
   // Group by city
@@ -247,72 +285,50 @@ function _openPpList(type) {
     }
   });
 
-  // Build HTML — city sections
-  var rowsHtml = '';
   if (!locs.length) {
-    rowsHtml = '<div class="arm-empty">' +
+    return '<div class="arm-empty">' +
       (isFavType
         ? (isKo ? '즐겨찾기가 없습니다' : 'No favorites yet')
         : (isKo ? '방문 기록이 없습니다' : 'No visited places yet')) +
     '</div>';
-  } else {
-    var allSections = [];
-    cityOrder.concat(unknown.length ? ['__unknown'] : []).forEach(function(code) {
-      var group = (code === '__unknown') ? unknown : byCity[code];
-      if (!group || !group.length) return;
-      var cityMeta = (typeof CITY_META !== 'undefined' && CITY_META[code]) ? CITY_META[code] : null;
-      var cityLabel = cityMeta ? cityMeta.label : (isKo ? '기타' : 'Other');
-      var sectionHtml =
-        '<div style="padding:8px 14px 4px;font-size:10px;font-weight:700;' +
-          'color:#aaa;letter-spacing:0.06em;text-transform:uppercase;' +
-          'border-bottom:1px solid #f0f0f0;background:#fafaf8">' +
-          cityLabel + ' <span style="font-weight:400">(' + group.length + ')</span>' +
-        '</div>' +
-        group.map(function(l) {
-          var catBadge = (typeof _pCat === 'function') ? _pCat(l) : (l.cat || '');
-          var catClass = (typeof CAT_CC_MAP !== 'undefined' && CAT_CC_MAP[catBadge]) ? CAT_CC_MAP[catBadge] : 'c-lmk';
-          var hood    = l.hood ? '<span class="arm-tag">' + l.hood + '</span>' : '';
-          var yr      = l.yr   ? '<span class="arm-tag">' + l.yr + '</span>' : '';
-          var dateStr = (!isFavType && dates2[l.id])
-            ? '<span class="arm-tag arm-tag-date">' + new Date(dates2[l.id]).toLocaleDateString() + '</span>' : '';
-          var bothBadges = (isFav(l.id) && isVisited(l.id))
-            ? '<span style="font-size:10px;margin-left:4px">⭐✓</span>' : '';
-          return '<div class="arm-route-row" style="cursor:pointer" ' +
-              'onclick="_ppListOpenLoc(\'' + l.id + '\',\'' + (l.city || '') + '\')">' +
-            '<div class="arm-route-main">' +
-              '<div class="arm-route-name">' + (l.name || l.id) + bothBadges + '</div>' +
-              '<div class="arm-route-meta">' +
-                (catBadge ? '<span class="cat-badge ' + catClass + '" style="font-size:10px">' + catBadge + '</span>' : '') +
-                hood + yr + dateStr +
-              '</div>' +
-            '</div>' +
-            '<span style="font-size:16px;color:#ccc;flex-shrink:0">›</span>' +
-          '</div>';
-        }).join('');
-      allSections.push(sectionHtml);
-    });
-    rowsHtml = allSections.join('');
   }
 
-  var overlay = document.createElement('div');
-  overlay.id = 'aw-pp-list';
-  overlay.className = 'arm-overlay';
-  overlay.addEventListener('click', function(e) {
-    if (e.target === overlay) _closePpList();
+  var allSections = [];
+  cityOrder.concat(unknown.length ? ['__unknown'] : []).forEach(function(code) {
+    var group = (code === '__unknown') ? unknown : byCity[code];
+    if (!group || !group.length) return;
+    var cityMeta = (typeof CITY_META !== 'undefined' && CITY_META[code]) ? CITY_META[code] : null;
+    var cityLabel = cityMeta ? cityMeta.label : (isKo ? '기타' : 'Other');
+    var sectionHtml =
+      '<div style="padding:8px 14px 4px;font-size:10px;font-weight:700;' +
+        'color:#aaa;letter-spacing:0.06em;text-transform:uppercase;' +
+        'border-bottom:1px solid #f0f0f0;background:#fafaf8">' +
+        cityLabel + ' <span style="font-weight:400">(' + group.length + ')</span>' +
+      '</div>' +
+      group.map(function(l) {
+        var catBadge = (typeof _pCat === 'function') ? _pCat(l) : (l.cat || '');
+        var catClass = (typeof CAT_CC_MAP !== 'undefined' && CAT_CC_MAP[catBadge]) ? CAT_CC_MAP[catBadge] : 'c-lmk';
+        var hood    = l.hood ? '<span class="arm-tag">' + l.hood + '</span>' : '';
+        var yr      = l.yr   ? '<span class="arm-tag">' + l.yr + '</span>' : '';
+        var dateStr = (!isFavType && dates2[l.id])
+          ? '<span class="arm-tag arm-tag-date">' + new Date(dates2[l.id]).toLocaleDateString() + '</span>' : '';
+        var bothBadges = (isFav(l.id) && isVisited(l.id))
+          ? '<span style="font-size:10px;margin-left:4px">⭐✓</span>' : '';
+        return '<div class="arm-route-row" style="cursor:pointer" ' +
+            'onclick="_ppListOpenLoc(\'' + l.id + '\',\'' + (l.city || '') + '\')">' +
+          '<div class="arm-route-main">' +
+            '<div class="arm-route-name">' + (l.name || l.id) + bothBadges + '</div>' +
+            '<div class="arm-route-meta">' +
+              (catBadge ? '<span class="cat-badge ' + catClass + '" style="font-size:10px">' + catBadge + '</span>' : '') +
+              hood + yr + dateStr +
+            '</div>' +
+          '</div>' +
+          '<span style="font-size:16px;color:#ccc;flex-shrink:0">›</span>' +
+        '</div>';
+      }).join('');
+    allSections.push(sectionHtml);
   });
-  var panel = document.createElement('div');
-  panel.className = 'arm-panel';
-  panel.innerHTML =
-    '<div class="arm-header">' +
-      '<button class="arm-back" onclick="_closePpList()">⬅</button>' +
-      '<span class="arm-title">' + title +
-        ' <span style="font-size:12px;font-weight:400;color:#aaa">(' + locs.length + ')</span>' +
-      '</span>' +
-      '<button class="arm-close" onclick="_closePpList()">✕</button>' +
-    '</div>' +
-    '<div class="arm-scrollable">' + rowsHtml + '</div>';
-  overlay.appendChild(panel);
-  document.body.appendChild(overlay);
+  return allSections.join('');
 }
 
 function _closePpList() {
