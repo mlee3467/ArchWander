@@ -403,103 +403,101 @@ function _refreshMarkerIcon(id) {
 }
 
 function _buildLocIcon(loc, scale) {
-  // FLAG marker: rectangular flag (always), + SVG badge overlaid on flag center.
-  //   Normal      → plain flag (category color), no badge
-  //   Fav         → flag + yellow star (yellow fill, white border)
-  //   Visited     → flag + red checkmark (red stroke, white border)
-  //   Fav+Visited → flag + yellow star + red checkmark overlay on star
+  // Markers:
+  //   Normal      → pole + rectangular flag (category color)
+  //   Fav         → yellow star only (no flag/pole), 2px black border
+  //   Visited     → red checkmark only (no flag/pole), 2px black border
+  //   Fav+Visited → yellow star + red checkmark overlay (no flag/pole)
+  // Anchor: pole base for normal; symbol center for fav/vis
   scale = scale || 1;
   const color = _ccMeta(loc).color;
   const fav   = isFav(loc.id);
   const vis   = isVisited(loc.id);
 
-  const poleW  = Math.round(2  * scale);
-  const poleH  = Math.round(22 * scale);
-  const flagW  = Math.round(11 * scale);
-  const flagH  = Math.round(9  * scale);
-  const footH  = Math.round(6  * scale);
-  const bw     = Math.ceil(2 * scale);
-  const totalW = poleW + flagW + Math.round(2 * scale);
-  const totalH = poleH + footH;
+  // ── Normal: pole + flag ───────────────────────────────────────
+  if (!fav && !vis) {
+    const poleW  = Math.round(2  * scale);
+    const poleH  = Math.round(22 * scale);
+    const flagW  = Math.round(11 * scale);
+    const flagH  = Math.round(9  * scale);
+    const footH  = Math.round(6  * scale);
+    const bw     = Math.ceil(2 * scale);
+    const totalW = poleW + flagW + Math.round(2 * scale);
+    const totalH = poleH + footH;
+    return L.divIcon({
+      className: '',
+      html:
+        `<div style="position:relative;width:${totalW}px;height:${totalH}px">` +
+          `<div style="position:absolute;left:0;top:0;width:${poleW}px;height:${poleH}px;background:#1a1a1a"></div>` +
+          `<div style="position:absolute;left:${poleW}px;top:${Math.round(scale)}px;` +
+            `width:${flagW}px;height:${flagH}px;background:${color};` +
+            `border:${bw}px solid #1a1a1a;border-left:none;` +
+            `box-shadow:${Math.round(2*scale)}px ${Math.round(2*scale)}px 0 rgba(0,0,0,0.38)"></div>` +
+          `<div style="position:absolute;bottom:${footH}px;left:-2px;` +
+            `width:${Math.round(6*scale)}px;height:${Math.round(2*scale)}px;background:#1a1a1a"></div>` +
+        `</div>`,
+      iconSize:   [totalW, totalH],
+      iconAnchor: [1, Math.round(22 * scale)]
+    });
+  }
 
-  // Flag center — symbol is centered here
-  const flagCX = poleW + flagW * 0.5;
-  const flagCY = Math.round(scale) + flagH * 0.5;
+  // ── Fav / Vis: pure SVG symbol, no pole/flag ──────────────────
+  const pad  = Math.round(3 * scale);   // padding so stroke doesn't clip
+  const sR   = Math.round(9 * scale);   // star outer radius
+  const sr   = Math.round(sR * 0.42);   // star inner radius
+  const sz   = sR * 2 + pad * 2;        // square canvas side
+  const cx   = sR + pad;                // symbol center X
+  const cy   = sR + pad;                // symbol center Y
 
-  // ── Star geometry: 5-point polygon ───────────────────────────
-  // sR sized so star fills the flag face (outer radius ~ 55% of flagH)
-  const sR = flagH * 0.55;
-  const sr = sR * 0.42;
+  // 5-point star points
   let starPts = '';
   for (let i = 0; i < 10; i++) {
     const a = (i * 36 - 90) * Math.PI / 180;
     const r = i % 2 === 0 ? sR : sr;
-    starPts += `${(flagCX + r * Math.cos(a)).toFixed(2)},${(flagCY + r * Math.sin(a)).toFixed(2)} `;
+    starPts += `${(cx + r * Math.cos(a)).toFixed(2)},${(cy + r * Math.sin(a)).toFixed(2)} `;
   }
 
-  // ── Checkmark geometry: 3-point thick stroke ─────────────────
-  // When vis-only: larger check centered on flag
-  // When fav+vis : smaller check centered on flag (overlaid on star)
-  const ckScale  = (fav && vis) ? 0.52 : 0.80;  // fraction of flagH
-  const ckR      = flagH * ckScale;
-  const ckX0     = flagCX - ckR * 0.72;
-  const ckY0     = flagCY + ckR * 0.05;
-  const ckXM     = flagCX - ckR * 0.08;
-  const ckYM     = flagCY + ckR * 0.72;
-  const ckX1     = flagCX + ckR * 0.82;
-  const ckY1     = flagCY - ckR * 0.72;
-  const ckSW     = Math.max(1.5, flagH * 0.22 * ((fav && vis) ? 0.85 : 1));
-  const ckBdr    = ckSW + Math.max(1, scale * 0.8);
+  // Checkmark helper: centered at (cx, cy), scaled by ckR
+  function ckPath(ckR) {
+    const x0 = cx - ckR * 0.72, y0 = cy + ckR * 0.05;
+    const xM = cx - ckR * 0.08, yM = cy + ckR * 0.72;
+    const x1 = cx + ckR * 0.82, y1 = cy - ckR * 0.72;
+    return `M${x0.toFixed(2)},${y0.toFixed(2)} L${xM.toFixed(2)},${yM.toFixed(2)} L${x1.toFixed(2)},${y1.toFixed(2)}`;
+  }
 
-  // ── Build SVG overlay paths ───────────────────────────────────
-  const starBdr  = Math.max(0.8, scale * 0.8);
-  const ckPath   = `M${ckX0.toFixed(2)},${ckY0.toFixed(2)} L${ckXM.toFixed(2)},${ckYM.toFixed(2)} L${ckX1.toFixed(2)},${ckY1.toFixed(2)}`;
+  const border  = 2 * scale;               // 2px black border (scales with icon)
+  const ckSW    = Math.round(3 * scale);   // checkmark red stroke width
 
-  let svgBadge = '';
+  let svgBody = '';
   if (fav && vis) {
-    svgBadge =
-      // Yellow star + white border
-      `<polygon points="${starPts.trim()}" fill="#FFD700" stroke="white" stroke-width="${starBdr.toFixed(2)}" stroke-linejoin="round"/>` +
-      // Red checkmark border (white underneath)
-      `<path d="${ckPath}" fill="none" stroke="white" stroke-width="${ckBdr.toFixed(2)}" stroke-linecap="round" stroke-linejoin="round"/>` +
-      // Red checkmark fill
-      `<path d="${ckPath}" fill="none" stroke="#EF4444" stroke-width="${ckSW.toFixed(2)}" stroke-linecap="round" stroke-linejoin="round"/>`;
+    // Star (yellow + 2px black) + check (red + 2px black) overlay
+    const ck = ckPath(sR * 0.52);
+    svgBody =
+      `<polygon points="${starPts.trim()}" fill="#FFD700" stroke="#111" stroke-width="${border}" stroke-linejoin="round"/>` +
+      `<path d="${ck}" fill="none" stroke="#111" stroke-width="${(ckSW * 0.85 + border * 2).toFixed(1)}" stroke-linecap="round" stroke-linejoin="round"/>` +
+      `<path d="${ck}" fill="none" stroke="#EF4444" stroke-width="${(ckSW * 0.85).toFixed(1)}" stroke-linecap="round" stroke-linejoin="round"/>`;
   } else if (fav) {
-    svgBadge =
-      `<polygon points="${starPts.trim()}" fill="#FFD700" stroke="white" stroke-width="${starBdr.toFixed(2)}" stroke-linejoin="round"/>`;
-  } else if (vis) {
-    svgBadge =
-      `<path d="${ckPath}" fill="none" stroke="white" stroke-width="${ckBdr.toFixed(2)}" stroke-linecap="round" stroke-linejoin="round"/>` +
-      `<path d="${ckPath}" fill="none" stroke="#EF4444" stroke-width="${ckSW.toFixed(2)}" stroke-linecap="round" stroke-linejoin="round"/>`;
+    svgBody =
+      `<polygon points="${starPts.trim()}" fill="#FFD700" stroke="#111" stroke-width="${border}" stroke-linejoin="round"/>`;
+  } else {
+    // vis only
+    const ck = ckPath(sR * 0.72);
+    svgBody =
+      `<path d="${ck}" fill="none" stroke="#111" stroke-width="${(ckSW + border * 2).toFixed(1)}" stroke-linecap="round" stroke-linejoin="round"/>` +
+      `<path d="${ck}" fill="none" stroke="#EF4444" stroke-width="${ckSW}" stroke-linecap="round" stroke-linejoin="round"/>`;
   }
 
-  const svgOverlay = (fav || vis)
-    ? `<svg xmlns="http://www.w3.org/2000/svg" ` +
-        `style="position:absolute;left:0;top:0;overflow:visible;pointer-events:none" ` +
-        `width="${totalW}" height="${totalH}">` +
-        svgBadge +
-      `</svg>`
-    : '';
+  const html =
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${sz}" height="${sz}" ` +
+      `style="display:block;overflow:visible">` +
+      svgBody +
+    `</svg>`;
 
   return L.divIcon({
     className: '',
-    html:
-      `<div style="position:relative;width:${totalW}px;height:${totalH}px;overflow:visible">` +
-        // Pole
-        `<div style="position:absolute;left:0;top:0;width:${poleW}px;height:${poleH}px;background:#1a1a1a"></div>` +
-        // Flag (always rectangular, always category color)
-        `<div style="position:absolute;left:${poleW}px;top:${Math.round(scale)}px;` +
-          `width:${flagW}px;height:${flagH}px;background:${color};` +
-          `border:${bw}px solid #1a1a1a;border-left:none;` +
-          `box-shadow:${Math.round(2*scale)}px ${Math.round(2*scale)}px 0 rgba(0,0,0,0.38)"></div>` +
-        // Fav/vis badge SVG
-        svgOverlay +
-        // Base foot
-        `<div style="position:absolute;bottom:${footH}px;left:-2px;` +
-          `width:${Math.round(6*scale)}px;height:${Math.round(2*scale)}px;background:#1a1a1a"></div>` +
-      `</div>`,
-    iconSize:   [totalW, totalH],
-    iconAnchor: [1, poleH]
+    html: `<div style="overflow:visible">${html}</div>`,
+    iconSize:   [sz, sz],
+    iconAnchor: [cx, cy]   // anchor = center of symbol
   });
 }
 
