@@ -209,56 +209,79 @@ function _refreshMarkerIcon(id) {
   const entry = markers.find(e => e.loc.id === id);
   if (!entry) return;
   const loc = entry.loc;
-  entry.m.setIcon(_buildLocIcon(loc));
+  const scale = (_favFilterActive && (isFav(id) || isVisited(id))) ? 2 : 1;
+  entry.m.setIcon(_buildLocIcon(loc, scale));
 }
 
-function _buildLocIcon(loc) {
+function _buildLocIcon(loc, scale) {
   // Pixel-art FLAG marker: vertical pole + colored flag rectangle (RPG map style)
-  const color = _ccMeta(loc).color;
-  const fav   = isFav(loc.id);
-  const vis   = isVisited(loc.id);
-  const fill  = vis ? '#f0f0ec' : color;
-  // Flag dimensions (all in px)
-  const poleW = 2, poleH = 22;
-  const flagW = 11, flagH = 9;
-  const totalW = poleW + flagW + 2; // +2 for right border
-  // ★ inside flag for favorites (orange)
+  // scale=2 used when fav filter is active for fav/visited markers
+  scale = scale || 1;
+  const color  = _ccMeta(loc).color;
+  const fav    = isFav(loc.id);
+  const vis    = isVisited(loc.id);
+  const fill   = vis ? '#f0f0ec' : color;
+
+  const poleW  = Math.round(2  * scale);
+  const poleH  = Math.round(22 * scale);
+  const flagW  = Math.round(11 * scale);
+  const flagH  = Math.round(9  * scale);
+  const footH  = Math.round(6  * scale);
+  const totalW = poleW + flagW + Math.round(2 * scale);
+
+  // ★ at TOP of pole — always 14px, above the flag body
+  const starSize = 14;
+  const topPad   = fav ? (starSize + 1) : 0;  // extra space above pole for star
+  const totalH   = topPad + poleH + footH;
+
   const star = fav
-    ? `<span style="position:absolute;inset:0;display:flex;align-items:center;` +
-      `justify-content:center;font-size:7px;color:#FF5F00;` +
-      `-webkit-text-stroke:0.5px white;line-height:1">★</span>`
+    ? `<span style="position:absolute;left:0;top:1px;` +
+      `font-size:${starSize}px;color:#FF5F00;` +
+      `-webkit-text-stroke:0.5px white;line-height:1;pointer-events:none">★</span>`
     : '';
-  // ✓ badge below base for visited (green dot)
+
+  // Green dot badge at pole base (visited)
+  const dotSize  = Math.round(7 * scale);
   const visBadge = vis
-    ? `<div style="position:absolute;bottom:-6px;left:-1px;` +
-      `width:7px;height:7px;border-radius:50%;` +
+    ? `<div style="position:absolute;top:${topPad + poleH}px;left:-1px;` +
+      `width:${dotSize}px;height:${dotSize}px;border-radius:50%;` +
       `background:#22c55e;border:1.5px solid #fff;` +
       `box-shadow:0 1px 3px rgba(0,0,0,0.4)"></div>`
     : '';
+
+  const borderW = Math.ceil(2 * scale);
+
   return L.divIcon({
     className: '',
     html:
-      `<div style="position:relative;width:${totalW}px;height:${poleH + 6}px">` +
+      `<div style="position:relative;width:${totalW}px;height:${totalH}px">` +
+        // Star at top of pole
+        star +
         // Pole
-        `<div style="position:absolute;left:0;top:0;width:${poleW}px;height:${poleH}px;background:#1a1a1a"></div>` +
+        `<div style="position:absolute;left:0;top:${topPad}px;` +
+          `width:${poleW}px;height:${poleH}px;background:#1a1a1a"></div>` +
         // Flag body
-        `<div style="position:absolute;left:${poleW}px;top:1px;` +
-             `width:${flagW}px;height:${flagH}px;background:${fill};` +
-             `border:2px solid #1a1a1a;border-left:none;` +
-             `box-shadow:2px 2px 0 rgba(0,0,0,0.38)">${star}</div>` +
+        `<div style="position:absolute;left:${poleW}px;top:${topPad + Math.round(1 * scale)}px;` +
+          `width:${flagW}px;height:${flagH}px;background:${fill};` +
+          `border:${borderW}px solid #1a1a1a;border-left:none;` +
+          `box-shadow:${Math.round(2*scale)}px ${Math.round(2*scale)}px 0 rgba(0,0,0,0.38)"></div>` +
         // Base foot
-        `<div style="position:absolute;bottom:6px;left:-2px;width:6px;height:2px;background:#1a1a1a"></div>` +
+        `<div style="position:absolute;bottom:${footH}px;left:-2px;` +
+          `width:${Math.round(6*scale)}px;height:${Math.round(2*scale)}px;` +
+          `background:#1a1a1a"></div>` +
         // Visited green dot
         visBadge +
       `</div>`,
-    iconSize:   [totalW, poleH + 6],
-    iconAnchor: [1, poleH]   // anchor = bottom of pole
+    iconSize:   [totalW, totalH],
+    iconAnchor: [1, topPad + poleH]  // anchor = bottom of pole
   });
 }
 
 function toggleFavFilter() {
   _favFilterActive = !_favFilterActive;
   document.getElementById('fav-btn').classList.toggle('active', _favFilterActive);
+  var sbaFav = document.getElementById('sba-fav');
+  if (sbaFav) sbaFav.classList.toggle('sba-active', _favFilterActive);
   // Show/hide export-import bar on all screen sizes
   document.getElementById('fav-io-bar').classList.toggle('visible', _favFilterActive);
   _applyFavFilter();
@@ -273,10 +296,14 @@ function _applyFavFilter() {
   const favVisIds = new Set([..._favSet, ..._visSet]);
   markers.forEach(({ loc, m }) => {
     if (loc.city !== activeCityKey) return;
-    if (_favFilterActive && !favVisIds.has(loc.id)) {
+    const isFavVis = favVisIds.has(loc.id);
+    if (_favFilterActive && !isFavVis) {
       m.setOpacity(0.34);
+      m.setIcon(_buildLocIcon(loc, 1));
     } else {
       m.setOpacity(1);
+      const scale = (_favFilterActive && isFavVis) ? 2 : 1;
+      m.setIcon(_buildLocIcon(loc, scale));
     }
   });
 }

@@ -73,6 +73,7 @@ function _syncSbCitySelect() {
 
 var _clpSelectedCity = null;
 var _clpLocMode      = null;  // 'gps' | 'pin'
+var _iflFromSidebar  = false; // true when IFL screen opened from sidebar (not landing)
 
 var _CLP_CITIES = [
   { meta: 'nyc', flag: '🗽', name: 'New York', sub: '뉴욕'  },
@@ -226,7 +227,12 @@ function iflSelBack() {
     iflSel.classList.remove('visible');
     setTimeout(function() { iflSel.style.display = 'none'; }, 280);
   }
-  showLandingScreen();
+  if (_iflFromSidebar) {
+    _iflFromSidebar = false;
+    // Came from sidebar — just close the IFL screen, no landing
+  } else {
+    showLandingScreen();
+  }
 }
 
 function _renderIflSelectScreen() {
@@ -282,6 +288,9 @@ function iflSelConfirm() {
     if (typeof updateClearBtn === 'function') updateClearBtn();
     if (typeof renderList === 'function') renderList();
     if (typeof syncMarkers === 'function') syncMarkers();
+    // Mark IFL button active if themes were selected
+    var sbaIfl = document.getElementById('sba-ifl');
+    if (sbaIfl && typeof state !== 'undefined') sbaIfl.classList.toggle('sba-active', state.themes.length > 0);
     // Also activate Near Me so user sees filtered nearby results
     if (typeof nearMeActive !== 'undefined' && !nearMeActive) {
       if (typeof toggleNearMe === 'function') toggleNearMe();
@@ -369,6 +378,7 @@ function _sbaRoute() {
 }
 
 function _sbaIfl() {
+  _iflFromSidebar = true;
   landingGoIfl();
 }
 

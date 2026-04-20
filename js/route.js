@@ -557,6 +557,8 @@ var _ROUTE_PRESEL_THRESHOLD = 12; // max locations before pre-selection modal
 
 function openRoutePanel() {
   routeActive = true;
+  var sbaRoute = document.getElementById('sba-route');
+  if (sbaRoute) sbaRoute.classList.add('sba-active');
   if (typeof _updateSetRouteFab === 'function') _updateSetRouteFab(); // hide FAB
   if (!document.getElementById('route-panel')) _createRoutePanel();
   var panel = document.getElementById('route-panel');
@@ -584,6 +586,8 @@ function openRoutePanel() {
 
 function closeRoutePanel() {
   routeActive = false;
+  var sbaRoute = document.getElementById('sba-route');
+  if (sbaRoute) sbaRoute.classList.remove('sba-active');
   _closeRouteCustomPopup();
   if (typeof _updateSetRouteFab === 'function') _updateSetRouteFab(); // re-show FAB
   var panel = document.getElementById('route-panel');
@@ -816,6 +820,8 @@ function _loadSavedRouteById(id) {
 // ══════════════════════════════════════════════════════════════════
 
 function _openRouteManager(startLevel) {
+  var sbaRoute = document.getElementById('sba-route');
+  if (sbaRoute) sbaRoute.classList.add('sba-active');
   var existing = document.getElementById('aw-route-manager');
   if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
 
@@ -836,6 +842,11 @@ function _openRouteManager(startLevel) {
 function _closeRouteManager() {
   var el = document.getElementById('aw-route-manager');
   if (el && el.parentNode) el.parentNode.removeChild(el);
+  // sba-route only stays active if route panel is also open
+  if (!routeActive) {
+    var sbaRoute = document.getElementById('sba-route');
+    if (sbaRoute) sbaRoute.classList.remove('sba-active');
+  }
 }
 
 function _rmRender(level) {
@@ -849,6 +860,7 @@ function _rmRender(level) {
 
 function _rmHomeHTML(ko) {
   return '<div class="arm-header">' +
+    '<button class="arm-back" onclick="_closeRouteManager()">⬅</button>' +
     '<span class="arm-title">🗺&nbsp;' + (ko ? '루트 매니저' : 'Route Manager') + '</span>' +
     '<button class="arm-close" onclick="_closeRouteManager()">✕</button>' +
   '</div>' +

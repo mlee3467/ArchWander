@@ -207,7 +207,7 @@ function _showMapMarkerPopup(loc) {
   var _lang    = (typeof LANG !== 'undefined') ? LANG : 'en';
   var _esc     = (typeof _escHtml === 'function') ? _escHtml : function(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); };
 
-  // Thumbnail: SV (orientation-aware) → photo → nothing
+  // Thumbnail: photo → SV fallback (only if no photo available)
   var thumbHtml  = '';
   var hasSvKey   = (typeof GOOGLE_MAPS_API_KEY !== 'undefined') && GOOGLE_MAPS_API_KEY;
   var svEmbedSrc = '';
@@ -223,12 +223,7 @@ function _showMapMarkerPopup(loc) {
     svEmbedSrc = 'https://www.google.com/maps/embed/v1/streetview?' + svQ;
   }
   var SV_ALLOW = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; magnetometer; picture-in-picture';
-  if (svEmbedSrc) {
-    thumbHtml = '<div class="rmp-sv-wrap" style="height:160px">' +
-      '<div class="rmp-sv-pane rmp-sv-outdoor">' +
-      '<iframe src="' + svEmbedSrc + '" allowfullscreen allow="' + SV_ALLOW + '" loading="lazy"></iframe>' +
-      '</div></div>';
-  } else if (loc.photos && loc.photos.length > 0) {
+  if (loc.photos && loc.photos.length > 0) {
     var pUrl = loc.photos[0];
     if (pUrl.indexOf('wikimedia') >= 0 || pUrl.indexOf('commons') >= 0) {
       pUrl = pUrl.replace(/[?&]width=\d+/, '') + (pUrl.indexOf('?') >= 0 ? '&' : '?') + 'width=400';
@@ -236,6 +231,11 @@ function _showMapMarkerPopup(loc) {
     thumbHtml = '<div class="rmp-thumb">' +
       '<img src="' + pUrl + '" loading="lazy" onerror="this.parentNode.style.display=\'none\'">' +
       '</div>';
+  } else if (svEmbedSrc) {
+    thumbHtml = '<div class="rmp-sv-wrap" style="height:160px">' +
+      '<div class="rmp-sv-pane rmp-sv-outdoor">' +
+      '<iframe src="' + svEmbedSrc + '" allowfullscreen allow="' + SV_ALLOW + '" loading="lazy"></iframe>' +
+      '</div></div>';
   }
 
   var el = document.createElement('div');
