@@ -24,7 +24,7 @@ var _walkerDistCovered = 0;     // cumulative meters walked
 var _walkerRevealLine  = null;  // growing polyline that reveals the walked path
 var _walkerRevealMs    = 0;     // reveal clock, always advances at full speed
 var _walkerPassedStops = null;  // Set of stopIndices already visited
-var _WALKER_FRAME_MS   = 120;   // ms per stride frame (1.5× faster)
+var _WALKER_FRAME_MS   = 60;    // ms per stride frame (3× faster total — 2× from prev)
 
 // ── Distance thresholds (80 m/min average walking pace) ──────────
 var _WLK_D30MIN  = 2400;   // 30 min  → 50% stamina, speed −50%
@@ -356,8 +356,8 @@ function _startWalkerAnimation(coords, stopIndices, ordered, cumDistAtStop) {
   }
   if (totalTravelDist < 1) return;
 
-  // Travel duration: 20ms/m, clamped 10-40s (1.5× faster than before)
-  var travelMs = Math.min(20000, Math.max(5000, totalTravelDist * 10));
+  // Travel duration: 10ms/m, clamped 5-20s (2× faster than before)
+  var travelMs = Math.min(10000, Math.max(2500, totalTravelDist * 5));
 
   // pause → travel → pause → travel → ...
   var timeline = [], tCursor = 0;
@@ -597,7 +597,7 @@ function _createRoutePanel() {
   div.className = 'route-panel';
   div.innerHTML =
     '<div class="route-panel-hdr" style="position:relative">' +
-      '<button class="route-panel-back" onclick="_routePanelBack()" title="' + (LANG === 'ko' ? '지도로 돌아가기' : 'Back to map') + '">←</button>' +
+      '<button class="route-panel-back" onclick="_routePanelBack()" title="' + (LANG === 'ko' ? '지도로 돌아가기' : 'Back to map') + '">⬅</button>' +
       '<span class="route-panel-title">🗺 ' + (LANG === 'ko' ? '루트 플래너' : 'Route Planner') + '</span>' +
       '<div class="route-hdr-right">' +
         '<button class="route-btn-save" onclick="_saveMyRoute()" title="' + (LANG === 'ko' ? '루트 저장' : 'Save route') + '">💾</button>' +
@@ -910,7 +910,7 @@ function _rmSavedHTML(ko) {
     }).join('');
   }
   return '<div class="arm-header">' +
-    '<button class="arm-back" onclick="_rmRender(\'home\')">←</button>' +
+    '<button class="arm-back" onclick="_rmRender(\'home\')">⬅</button>' +
     '<span class="arm-title">📂&nbsp;' + (ko ? '저장된 루트' : 'Saved Routes') + '</span>' +
     '<button class="arm-close" onclick="_closeRouteManager()">✕</button>' +
   '</div>' +
@@ -924,7 +924,7 @@ function _rmSettingsHTML(ko) {
   var maxKm = (_routeMaxDistM / 1000).toFixed(1);
   var radius = typeof walkRadius !== 'undefined' ? walkRadius : 15;
   return '<div class="arm-header">' +
-    '<button class="arm-back" onclick="_rmRender(\'home\')">←</button>' +
+    '<button class="arm-back" onclick="_rmRender(\'home\')">⬅</button>' +
     '<span class="arm-title">⚙&nbsp;' + (ko ? '루트 설정' : 'Route Settings') + '</span>' +
     '<button class="arm-close" onclick="_closeRouteManager()">✕</button>' +
   '</div>' +
@@ -1582,6 +1582,9 @@ function _showRoutePreselModal(locs) {
           ? '동네를 하나 이상 선택한 뒤 진행하거나, 전체 위치로 바로 진행하거나, 직접 선택 모드를 사용하세요.'
           : 'Select one or more neighborhoods then proceed, proceed with all, or pick manually.') +
       '</div>' +
+      '<button class="rps-set-loc-btn" onclick="_closeRoutePresel(true);if(typeof _sbaMyLocation===\'function\')_sbaMyLocation();">' +
+        '📍 ' + (ko ? '내 위치 설정' : 'Set My Location') +
+      '</button>' +
       '<div class="rps-btns">' +
         '<button class="rps-proceed-btn" onclick="_routePreselProceed()">' +
           '▶ ' + (ko ? '전체 진행' : 'Proceed') +
@@ -1593,11 +1596,8 @@ function _showRoutePreselModal(locs) {
           (ko ? '취소' : 'Cancel') +
         '</button>' +
       '</div>' +
-      '<div class="rps-section-label">' + (ko ? '동네 선택' : 'Choose a neighborhood') + '</div>' +
+      '<div class="rps-section-label" style="margin-top:18px">' + (ko ? '동네 선택' : 'Choose a neighborhood') + '</div>' +
       '<div class="rps-hoods">' + (chipsHtml || ('<span style="color:#999;font-size:12px">' + (ko ? '동네 정보 없음' : 'No neighborhood data') + '</span>')) + '</div>' +
-      '<button class="rps-set-loc-btn" onclick="_closeRoutePresel(true);if(typeof _sbaMyLocation===\'function\')_sbaMyLocation();">' +
-        '📍 ' + (ko ? '내 위치 설정' : 'Set My Location') +
-      '</button>' +
     '</div>';
 
   overlay.classList.add('open');

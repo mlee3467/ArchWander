@@ -2823,6 +2823,8 @@
 }
 .sba-btn.sba-active .sba-label { color: #FFAC00; }
 .sba-btn.sba-active .sba-icon  { filter: none; }  /* restore emoji color when toggled on */
+/* Favorites heart: always red, never grayscale */
+#sba-fav .sba-icon { filter: none; }
 
 /* ═══════════════════════════════════════════════════════════════
    MY LOCATION POPUP  (center modal)
