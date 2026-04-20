@@ -769,6 +769,8 @@ function _confirmSaveRoute() {
   var routes = _getSavedRoutes();
   routes.push(entry);
   _putSavedRoutes(routes);
+  // Immediately refresh My Journey count so sidebar shows updated number
+  if (typeof _updatePassportStats === 'function') _updatePassportStats();
   _cancelSaveRoute();
 
   var toast = document.getElementById('route-save-toast');
@@ -1063,7 +1065,21 @@ function _refreshRouteUI() {
       (LANG === 'ko' ? '현재 필터에 장소가 없습니다' : 'No locations match current filters') + '</div>';
     return;
   }
-  selList.innerHTML = routeLocations.map(function(loc, i) {
+  // Summary header: total stops + distance (if route already calculated)
+  var ko = LANG === 'ko';
+  var distPart = '';
+  if (typeof routeData !== 'undefined' && routeData && routeData.distance > 0) {
+    var dStr = routeData.distance < 1000
+      ? Math.round(routeData.distance) + 'm'
+      : (routeData.distance / 1000).toFixed(1) + 'km';
+    distPart = '<span class="rsl-dist">🚶 ' + dStr + '</span>';
+  }
+  var header = '<div class="rsl-header">' +
+    '<span class="rsl-count">📍 ' + (ko ? '총 ' + routeLocations.length + ' 곳' : routeLocations.length + ' stop' + (routeLocations.length !== 1 ? 's' : '')) + '</span>' +
+    distPart +
+  '</div>';
+
+  selList.innerHTML = header + routeLocations.map(function(loc, i) {
     return '<div class="route-sel-item" data-id="' + loc.id + '">' +
       '<span class="route-sel-num">' + (i + 1) + '</span>' +
       '<span class="route-sel-name">' + _routeLocName(loc) + '</span>' +

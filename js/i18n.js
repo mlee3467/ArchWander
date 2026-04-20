@@ -39,6 +39,10 @@ var T = {
     mob_near:     'My Location',
     mob_fav:      'Favorites',
     mob_route:    'Route',
+    sba_loc:      'My\nLocation',
+    sba_fav:      'Favorites',
+    sba_route:    'Route',
+    sba_ifl:      'I Feel\nLike',
     export_pdf:   'PDF',
     pdf_need_pin: 'Place a pin first using "My Location" to export the nearby locations as PDF.',
     pdf_generating:'Generating…',
@@ -120,6 +124,10 @@ var T = {
     mob_near:     '내 위치',
     mob_fav:      '즐겨찾기',
     mob_route:    '루트',
+    sba_loc:      '내\n위치',
+    sba_fav:      '즐겨찾기',
+    sba_route:    '루트',
+    sba_ifl:      '추천\n테마',
     export_pdf:   'PDF',
     pdf_need_pin: '"내 위치"에서 핀을 먼저 설정해야 주변 장소를 PDF로 내보낼 수 있습니다.',
     pdf_generating:'생성 중…',
@@ -445,6 +453,11 @@ function applyLang() {
   if (mobFav) mobFav.textContent = t('mob_fav');
   const mobRoute = document.querySelector('.mob-route-text');
   if (mobRoute) mobRoute.textContent = t('mob_route');
+  // Sidebar action buttons
+  ['loc','fav','route','ifl'].forEach(function(k) {
+    var el = document.getElementById('sba-' + k + '-label');
+    if (el) el.innerHTML = t('sba_' + k).replace(/\n/g, '<br>');
+  });
   updateReportBtnLabel();
   // Fav export/import bar + modal
   const fioLbl = document.getElementById('fav-io-label');       if (fioLbl) fioLbl.textContent = t('fav_io_label');

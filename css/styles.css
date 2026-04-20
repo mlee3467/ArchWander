@@ -1802,6 +1802,17 @@
   font-size: 12px; font-weight: 600; color: var(--text-secondary);
   margin-bottom: 8px;
 }
+.rsl-header {
+  display: flex; align-items: center; gap: 8px;
+  padding: 4px 2px 6px; margin-bottom: 2px;
+  border-bottom: 1px solid #e8e8e4;
+}
+.rsl-count {
+  font-size: 12px; font-weight: 700; color: #111; flex: 1;
+}
+.rsl-dist {
+  font-size: 11px; color: #4338CA; font-weight: 600;
+}
 .route-sel-empty {
   font-size: 12px; color: #aaa; padding: 8px 0; text-align: center;
 }
@@ -2823,9 +2834,6 @@
 }
 .sba-btn.sba-active .sba-label { color: #FFAC00; }
 .sba-btn.sba-active .sba-icon  { filter: none; }  /* restore emoji color when toggled on */
-/* Favorites heart: always red, never grayscale */
-#sba-fav .sba-icon { filter: none; }
-
 /* ═══════════════════════════════════════════════════════════════
    MY LOCATION POPUP  (center modal)
    ═══════════════════════════════════════════════════════════════ */
