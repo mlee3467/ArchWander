@@ -844,7 +844,15 @@ function _nearestCity(lat, lng) {
   return best;
 }
 
+var _AW_DEFAULT_CITY_KEY = 'AW_DEFAULT_CITY';
+
 function _initCityByGPS() {
+  // Check if user has set a default city — skip GPS if so
+  var defaultCity = localStorage.getItem(_AW_DEFAULT_CITY_KEY);
+  if (defaultCity && CITY_META[defaultCity]) {
+    console.log('[GPS] skipped — default city set:', defaultCity);
+    return Promise.resolve(defaultCity);
+  }
   return new Promise(function(resolve) {
     if (!navigator.geolocation) { console.log('[GPS] geolocation not available'); resolve('nyc'); return; }
     // Use low accuracy for fast city-level detection; generous timeout for mobile

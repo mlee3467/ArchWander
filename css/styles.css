@@ -3330,3 +3330,97 @@
   transition: background 0.12s;
 }
 .r6km-no:active { background: #E5E7EB; }
+
+/* ══════════════════════════════════════════════════════════════════
+   MY PAGE POPUP
+   ══════════════════════════════════════════════════════════════════ */
+#my-page-overlay {
+  opacity: 0;
+  transition: opacity 0.22s ease;
+  pointer-events: none;
+}
+#my-page-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.arm-body { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+
+/* ── Sections ── */
+.mpp-section {
+  border: 1px solid #eee; border-radius: 14px;
+  padding: 14px 14px 16px; margin-bottom: 14px;
+  background: #fafaf8;
+}
+.mpp-sec-title {
+  font-size: 13px; font-weight: 700; color: #111;
+  margin-bottom: 10px; letter-spacing: 0.01em;
+}
+.mpp-sec-sub {
+  font-size: 11px; color: #888; margin-bottom: 10px; line-height: 1.5;
+}
+.mpp-row-label {
+  font-size: 12px; color: #444; font-weight: 600; margin-bottom: 6px;
+}
+
+/* ── Button row ── */
+.mpp-btn-row {
+  display: flex; gap: 7px;
+}
+.mpp-btn {
+  flex: 1; padding: 8px 4px; border-radius: 9px;
+  font-size: 11.5px; font-weight: 600; cursor: pointer;
+  font-family: inherit; border: 1px solid transparent;
+  transition: opacity 0.12s, background 0.12s;
+  white-space: nowrap;
+}
+.mpp-btn:active { opacity: 0.7; }
+.mpp-btn-export {
+  background: #111; color: #fff; border-color: #111;
+}
+.mpp-btn-import {
+  background: #fff; color: #111; border-color: #ddd;
+}
+.mpp-btn-delete {
+  background: #fff0f0; color: #c0392b; border-color: #f5c6c6;
+}
+
+/* ── City grid ── */
+.mpp-city-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px;
+}
+@media (max-width: 400px) {
+  .mpp-city-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.mpp-city-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 8px 4px; border-radius: 10px;
+  background: #fff; border: 1.5px solid #e0e0de;
+  cursor: pointer; font-family: inherit;
+  transition: background 0.1s, border-color 0.1s;
+}
+.mpp-city-btn span:first-child { font-size: 18px; line-height: 1; }
+.mpp-city-btn span:last-child  { font-size: 10px; color: #555; font-weight: 500; }
+.mpp-city-btn.mpp-city-sel {
+  background: #111; border-color: #111;
+}
+.mpp-city-btn.mpp-city-sel span:last-child { color: rgba(255,255,255,0.85); }
+
+/* ── Stats ── */
+.mpp-stats-row {
+  display: flex; gap: 8px; margin-bottom: 10px;
+}
+.mpp-stat-card {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;
+  background: #fff; border: 1px solid #eee; border-radius: 10px;
+  padding: 10px 6px;
+}
+.mpp-stat-num {
+  font-size: 22px; font-weight: 800; color: #111; line-height: 1;
+}
+.mpp-stat-lbl {
+  font-size: 10px; color: #888; font-weight: 500;
+}
+.mpp-coming-soon {
+  font-size: 12px; color: #aaa; text-align: center; padding: 6px 0 2px;
+}
