@@ -180,9 +180,11 @@ function _updatePassportStats() {
       '<span class="pp-title">' + (isKo ? '내 건축 여행' : 'My Journey') + '</span>' +
     '</div>' +
     '<div class="pp-counts">' +
-      '<span class="pp-count-vis"><span class="pp-num">' + total + '</span> ' + (isKo ? '방문' : 'visited') + '</span>' +
+      '<span class="pp-count-vis" onclick="_openPpList(\'vis\')" style="cursor:pointer" title="' + (isKo ? '방문 목록 보기' : 'View visited list') + '">' +
+        '<span class="pp-num">' + total + '</span> ' + (isKo ? '방문' : 'visited') + '</span>' +
       '<span class="pp-sep">·</span>' +
-      '<span class="pp-count-fav"><span class="pp-num">' + totalF + '</span> ' + (isKo ? '즐겨찾기' : 'favs') + '</span>' +
+      '<span class="pp-count-fav" onclick="_openPpList(\'fav\')" style="cursor:pointer" title="' + (isKo ? '즐겨찾기 목록 보기' : 'View favorites list') + '">' +
+        '<span class="pp-num">' + totalF + '</span> ' + (isKo ? '즐겨찾기' : 'favs') + '</span>' +
       '<span class="pp-sep">·</span>' +
       '<span class="pp-count-route" onclick="if(typeof _openRouteManager===\'function\')_openRouteManager(\'saved\')" style="cursor:pointer" title="' + (isKo ? '저장된 루트 보기' : 'View saved routes') + '">' +
         '<span class="pp-num">' + totalR + '</span> ' + (isKo ? '루트' : 'routes') + '</span>' +
@@ -190,6 +192,102 @@ function _updatePassportStats() {
     (cityBars ? '<div class="pp-cities">' + cityBars + '</div>' : '') +
     recentHtml +
     legendHtml;
+}
+
+// ── Visited / Favs list popup ─────────────────────────────────────
+function _openPpList(type) {
+  var existing = document.getElementById('aw-pp-list');
+  if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
+
+  var isKo  = typeof LANG !== 'undefined' && LANG === 'ko';
+  var isFavType = (type === 'fav');
+  var ids   = isFavType ? [..._favSet] : [..._visSet];
+  var title = isFavType
+    ? (isKo ? '⭐ 즐겨찾기' : '⭐ Favorites')
+    : (isKo ? '✓ 방문한 곳' : '✓ Visited');
+
+  // Build loc objects from LOCS (cross all cities)
+  var locs = [];
+  if (typeof LOCS !== 'undefined') {
+    ids.forEach(function(id) {
+      var l = LOCS.find(function(x) { return x.id === id; });
+      if (l) locs.push(l);
+    });
+  } else {
+    // LOCS not yet loaded — show IDs only
+    ids.forEach(function(id) { locs.push({ id: id, name: id }); });
+  }
+
+  // Sort visited by most recent date; favs by city then name
+  if (!isFavType) {
+    var dates = _readVisitDates();
+    locs.sort(function(a, b) {
+      var da = dates[a.id] || '';
+      var db = dates[b.id] || '';
+      return db > da ? 1 : db < da ? -1 : 0;
+    });
+  } else {
+    locs.sort(function(a, b) {
+      var ca = (a.city || ''), cb = (b.city || '');
+      if (ca !== cb) return ca < cb ? -1 : 1;
+      return (a.name || '') < (b.name || '') ? -1 : 1;
+    });
+  }
+
+  // Build rows HTML
+  var rowsHtml = '';
+  if (!locs.length) {
+    rowsHtml = '<div class="arm-empty">' +
+      (isFavType
+        ? (isKo ? '즐겨찾기가 없습니다' : 'No favorites yet')
+        : (isKo ? '방문 기록이 없습니다' : 'No visited places yet')) +
+    '</div>';
+  } else {
+    var dates2 = _readVisitDates();
+    rowsHtml = locs.map(function(l) {
+      var catBadge = (typeof _pCat === 'function') ? _pCat(l) : (l.cat || '');
+      var catClass = (typeof CAT_CC_MAP !== 'undefined' && CAT_CC_MAP[catBadge]) ? CAT_CC_MAP[catBadge] : 'c-lmk';
+      var hood = l.hood ? '<span class="arm-tag">' + l.hood + '</span>' : '';
+      var yr   = l.yr   ? '<span class="arm-tag">' + l.yr + '</span>' : '';
+      var dateStr = (!isFavType && dates2[l.id]) ? '<span class="arm-tag arm-tag-date">' + new Date(dates2[l.id]).toLocaleDateString() + '</span>' : '';
+      var bothBadges = (isFav(l.id) && isVisited(l.id))
+        ? '<span style="font-size:10px;margin-left:4px">⭐✓</span>' : '';
+      return '<div class="arm-route-row" style="cursor:pointer" onclick="_closePpList();if(typeof openLocById===\'function\')openLocById(\'' + l.id + '\')">' +
+        '<div class="arm-route-main">' +
+          '<div class="arm-route-name">' + (l.name || l.id) + bothBadges + '</div>' +
+          '<div class="arm-route-meta">' +
+            (catBadge ? '<span class="cat-badge ' + catClass + '" style="font-size:10px">' + catBadge + '</span>' : '') +
+            hood + yr + dateStr +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  var overlay = document.createElement('div');
+  overlay.id = 'aw-pp-list';
+  overlay.className = 'arm-overlay';
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) _closePpList();
+  });
+
+  var panel = document.createElement('div');
+  panel.className = 'arm-panel';
+  panel.innerHTML =
+    '<div class="arm-header">' +
+      '<button class="arm-back" onclick="_closePpList()">⬅</button>' +
+      '<span class="arm-title">' + title + ' <span style="font-size:12px;font-weight:400;color:#aaa">(' + locs.length + ')</span></span>' +
+      '<button class="arm-close" onclick="_closePpList()">✕</button>' +
+    '</div>' +
+    '<div class="arm-scrollable">' + rowsHtml + '</div>';
+
+  overlay.appendChild(panel);
+  document.body.appendChild(overlay);
+}
+
+function _closePpList() {
+  var overlay = document.getElementById('aw-pp-list');
+  if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
 }
 
 function _updateFavBtns(id) {
