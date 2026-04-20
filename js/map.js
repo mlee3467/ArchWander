@@ -225,8 +225,9 @@ function _showMapMarkerPopup(loc) {
   var SV_ALLOW = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; magnetometer; picture-in-picture';
   if (loc.photos && loc.photos.length > 0) {
     var pUrl = loc.photos[0];
-    if (pUrl.indexOf('wikimedia') >= 0 || pUrl.indexOf('commons') >= 0) {
-      pUrl = pUrl.replace(/[?&]width=\d+/, '') + (pUrl.indexOf('?') >= 0 ? '&' : '?') + 'width=400';
+    // Use the shared photoUrl() resize helper if available (defined in core.js)
+    if (typeof photoUrl === 'function') {
+      pUrl = photoUrl(pUrl, window.innerWidth <= 900, 'gallery');
     }
     thumbHtml = '<div class="rmp-thumb">' +
       '<img src="' + pUrl + '" onerror="this.parentNode.style.display=\'none\'">' +
