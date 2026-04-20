@@ -854,11 +854,10 @@ function _showRouteMarkerPopup(loc, beyondLimit) {
     ? '<div class="rmp-beyond">⚠ ' + (LANG === 'ko' ? '6km 범위 밖' : 'Beyond 6km') + '</div>'
     : '';
 
-  // Thumbnail: first photo (img) or interactive Street View (iframe)
-  // Build SV iframe HTML if available (used as primary or photo-fail fallback)
+  // Thumbnail: SV primary (orientation-aware) → photo fallback → nothing
   var thumbHtml = '';
   var hasSvKey = typeof GOOGLE_MAPS_API_KEY !== 'undefined' && GOOGLE_MAPS_API_KEY;
-  var svThumbSrc = '';
+  var svEmbedSrc = '';
   if (loc.sv && hasSvKey) {
     var svLat = loc.sv.lat || loc.lat;
     var svLng = loc.sv.lng || loc.lng;
@@ -868,29 +867,54 @@ function _showRouteMarkerPopup(loc, beyondLimit) {
       '&fov='     + (loc.sv.fov     || 90);
     if (loc.sv.panoId) svQ += '&pano=' + loc.sv.panoId;
     else               svQ += '&location=' + svLat + ',' + svLng;
-    svThumbSrc = 'https://www.google.com/maps/embed/v1/streetview?' + svQ;
+    svEmbedSrc = 'https://www.google.com/maps/embed/v1/streetview?' + svQ;
   }
-  if (loc.photos && loc.photos.length > 0) {
+  var SV_ALLOW = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; magnetometer; picture-in-picture';
+  var svIntArr = (loc.svInt && loc.svInt.length) ? loc.svInt : (loc.svInt ? [loc.svInt] : []);
+  var hasInt = svIntArr.length > 0;
+
+  if (svEmbedSrc) {
+    // SV is primary — device orientation/direction works on mobile
+    var togBar = '';
+    if (hasInt) {
+      var togBtns = '<button class="rmp-sv-tog active" onclick="_rmpSvToggle(this,\'outdoor\')">' +
+        (LANG === 'ko' ? '외부' : 'Outdoor') + '</button>';
+      for (var ii = 0; ii < svIntArr.length; ii++) {
+        var intLabel = svIntArr.length === 1
+          ? (LANG === 'ko' ? '내부' : 'Interior')
+          : (LANG === 'ko' ? '내부 ' + (ii + 1) : 'Interior ' + (ii + 1));
+        togBtns += '<button class="rmp-sv-tog" onclick="_rmpSvToggle(this,\'interior-' + ii + '\')">' + intLabel + '</button>';
+      }
+      togBar = '<div class="rmp-sv-tog-bar">' + togBtns + '</div>';
+    }
+    var outdoorPane = '<div class="rmp-sv-pane rmp-sv-outdoor">' +
+      '<iframe src="' + svEmbedSrc + '" allowfullscreen allow="' + SV_ALLOW + '" loading="lazy"></iframe>' +
+      '</div>';
+    var intPanes = '';
+    if (hasInt) {
+      for (var ji = 0; ji < svIntArr.length; ji++) {
+        var si = svIntArr[ji];
+        var svCfgObj = {
+          panoId: si.panoId || null,
+          lat:    (si.lat     != null) ? si.lat     : loc.lat,
+          lng:    (si.lng     != null) ? si.lng     : loc.lng,
+          h:      (si.heading != null) ? si.heading : 0,
+          p:      (si.pitch   != null) ? si.pitch   : 0,
+          f:      Math.min(100, Math.max(10, (si.fov != null) ? si.fov : 90))
+        };
+        var svCfgStr = JSON.stringify(svCfgObj).replace(/'/g, '&#39;');
+        intPanes += '<div class="rmp-sv-pane rmp-sv-interior" data-sv-cfg=\'' + svCfgStr + '\' style="display:none"></div>';
+      }
+    }
+    thumbHtml = '<div class="rmp-sv-wrap">' + togBar + outdoorPane + intPanes + '</div>';
+  } else if (loc.photos && loc.photos.length > 0) {
+    // Photo fallback (no SV data for this location)
     var pUrl = loc.photos[0];
-    // Wikimedia: force small width
     if (pUrl.indexOf('wikimedia') >= 0 || pUrl.indexOf('commons') >= 0) {
       pUrl = pUrl.replace(/[?&]width=\d+/, '') + (pUrl.indexOf('?') >= 0 ? '&' : '?') + 'width=400';
     }
-    var svFbHtml = svThumbSrc
-      ? '<iframe class="rmp-sv-fb" src="' + svThumbSrc + '" style="display:none;position:absolute;inset:0;width:100%;height:100%;border:none" allowfullscreen loading="lazy"></iframe>'
-      : '';
-    var onErr = svThumbSrc
-      ? 'this.style.display=\'none\';var f=this.parentNode.querySelector(\'.rmp-sv-fb\');if(f)f.style.display=\'\''
-      : 'this.parentNode.style.display=\'none\'';
-    thumbHtml = '<div class="rmp-thumb" style="position:relative">' +
-      '<img src="' + pUrl + '" loading="lazy" onerror="' + onErr + '">' +
-      svFbHtml + '</div>';
-  } else if (svThumbSrc) {
-    // No photos — show SV directly
     thumbHtml = '<div class="rmp-thumb">' +
-      '<iframe src="' + svThumbSrc + '" allowfullscreen' +
-      ' allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"' +
-      ' loading="lazy"></iframe>' +
+      '<img src="' + pUrl + '" loading="lazy" onerror="this.parentNode.style.display=\'none\'">' +
       '</div>';
   }
 
@@ -950,6 +974,38 @@ function _closeRouteCustomPopup() {
 
 function _routePopupRemove(locId) {
   removeRouteStop(locId);
+}
+
+// Toggle outdoor ↔ interior SV in route marker popup
+function _rmpSvToggle(btn, mode) {
+  var wrap = btn.closest ? btn.closest('.rmp-sv-wrap') : null;
+  if (!wrap) return;
+  // Update active button
+  var togs = wrap.querySelectorAll('.rmp-sv-tog');
+  for (var i = 0; i < togs.length; i++) togs[i].classList.remove('active');
+  btn.classList.add('active');
+  // Show/hide panes
+  var outdoor   = wrap.querySelector('.rmp-sv-outdoor');
+  var interiors = wrap.querySelectorAll('.rmp-sv-interior');
+  if (mode === 'outdoor') {
+    if (outdoor) outdoor.style.display = '';
+    for (var a = 0; a < interiors.length; a++) interiors[a].style.display = 'none';
+  } else {
+    var idx = parseInt(mode.replace('interior-', ''), 10);
+    if (outdoor) outdoor.style.display = 'none';
+    for (var b = 0; b < interiors.length; b++) {
+      var pane = interiors[b];
+      if (b === idx) {
+        pane.style.display = '';
+        if (!pane._svInited) {
+          pane._svInited = true;
+          if (typeof initIntSVPane === 'function') initIntSVPane(pane);
+        }
+      } else {
+        pane.style.display = 'none';
+      }
+    }
+  }
 }
 
 function _renderRouteResult(data, ordered, cumDistAtStop) {
