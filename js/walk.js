@@ -125,6 +125,8 @@ function toggleNearMe() {
   nearMeActive = !nearMeActive;
   var nearBtn = document.getElementById('near-me-btn');
   if (nearBtn) nearBtn.classList.toggle('active', nearMeActive);
+  var sbaLoc = document.getElementById('sba-loc');
+  if (sbaLoc) sbaLoc.classList.toggle('sba-active', nearMeActive);
   if (nearMeActive) {
     history.pushState({ view: 'nearMe' }, '');
   } else {
@@ -149,6 +151,8 @@ function _fullDeactivate() {
   if (_wctrl) _wctrl.style.display = 'none';
   var nearBtn = document.getElementById('near-me-btn');
   if (nearBtn) nearBtn.classList.remove('active');
+  var sbaLoc = document.getElementById('sba-loc');
+  if (sbaLoc) sbaLoc.classList.remove('sba-active');
   document.getElementById('walk-gps-btn').classList.remove('active', 'locating');
   document.getElementById('walk-pin-btn').classList.remove('active', 'locating');
   var wrb = document.getElementById('walk-route-btn');
@@ -298,15 +302,24 @@ function _setMarkerWalkMode(active) {
   m.setIcon(active ? _walkingPersonIcon() : _personMarkerIcon());
 }
 
-// ── Set Route FAB (mobile only) ──────────────────────────────────
+// ── Set Route FAB + Exit button (mobile only) ────────────────────
 function _updateSetRouteFab() {
   var fab = document.getElementById('set-route-fab');
-  if (!fab) return;
+  var exitBtn = document.getElementById('walk-exit-btn');
   var show = nearMeActive && walkOrigin && window.innerWidth <= 900 && !routeActive;
-  fab.style.display = show ? 'flex' : 'none';
-  if (typeof LANG !== 'undefined') {
-    var lbl = fab.querySelector('.srf-label');
-    if (lbl) lbl.textContent = LANG === 'ko' ? '루트 설정' : 'Set Route';
+  if (fab) {
+    fab.style.display = show ? 'flex' : 'none';
+    if (typeof LANG !== 'undefined') {
+      var lbl = fab.querySelector('.srf-label');
+      if (lbl) lbl.textContent = LANG === 'ko' ? '루트 설정' : 'Set Route';
+    }
+  }
+  if (exitBtn) {
+    exitBtn.style.display = show ? 'flex' : 'none';
+    if (typeof LANG !== 'undefined') {
+      var exlbl = exitBtn.querySelector('.wex-label');
+      if (exlbl) exlbl.textContent = LANG === 'ko' ? '나가기' : 'Exit';
+    }
   }
 }
 function _setRouteFabTap() {

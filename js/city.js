@@ -418,13 +418,17 @@ function _buildLocIcon(loc, scale) {
   const footH  = Math.round(6  * scale);
   const totalW = poleW + flagW + Math.round(2 * scale);
 
-  // ★ at TOP of pole — 28px normally (2x permanent upgrade), 56px in favorites mode (scale≥2)
-  const starSize = scale >= 2 ? 56 : 28;
-  const topPad   = fav ? (starSize + 2) : 0;  // extra space above pole for star
-  const totalH   = topPad + poleH + footH;
+  // ★ overlapping the top of the flag — fixed small size regardless of scale
+  const starSize = 16;  // small, consistent across all modes
+  const topPad   = 0;   // no extra space; star floats above via negative positioning
+  const totalH   = poleH + footH;
 
+  // Position star so it slightly overlaps the top of the flag body
+  // flag top is at y=topPad + 1*scale = 1*scale from pole top
+  // star bottom third sits at the flag top area
+  const starTop  = Math.round(poleH * 0.05);  // 5% down from pole top → mostly above flag
   const star = fav
-    ? `<span style="position:absolute;left:0;top:1px;` +
+    ? `<span style="position:absolute;left:-1px;top:${starTop}px;` +
       `font-size:${starSize}px;color:#FF5F00;` +
       `-webkit-text-stroke:0.5px white;line-height:1;pointer-events:none">★</span>`
     : '';
@@ -491,10 +495,13 @@ function _applyFavFilter() {
       m.setIcon(_buildLocIcon(loc, 1));
     } else {
       m.setOpacity(1);
+      // scale=2 only for fav/visited in fav mode — icon is enlarged but star stays normal
       const scale = (_favFilterActive && isFavVis) ? 2 : 1;
       m.setIcon(_buildLocIcon(loc, scale));
     }
   });
+  // Re-sync cluster/direct layers so fav markers bypass clustering
+  if (typeof syncMarkers === 'function') syncMarkers();
 }
 
 // ── Fav Export / Import ─────────────────────────────────────────

@@ -253,9 +253,31 @@ function syncMarkers() {
   const routeIds = (typeof routeActive !== 'undefined' && routeActive &&
                     typeof routeLocations !== 'undefined')
     ? new Set(routeLocations.map(l => l.id)) : new Set();
+
+  // In favorites mode, fav/visited markers bypass the cluster group
+  // so they remain individually visible at any zoom level.
+  const favMode = typeof _favFilterActive !== 'undefined' && _favFilterActive;
+  const favVisIds = favMode
+    ? new Set([...(typeof _favSet !== 'undefined' ? [..._favSet] : []),
+               ...(typeof _visSet !== 'undefined' ? [..._visSet] : [])])
+    : new Set();
+
   clusterGroup.clearLayers();
   markers.forEach(({ loc, m }) => {
-    if (visible.has(loc.id) && !routeIds.has(loc.id)) clusterGroup.addLayer(m);
+    const show = visible.has(loc.id) && !routeIds.has(loc.id);
+    const bypass = favMode && favVisIds.has(loc.id);
+
+    if (!show) {
+      // Not visible — remove from direct map layer if it was there
+      if (map.hasLayer(m)) map.removeLayer(m);
+    } else if (bypass) {
+      // Fav/visited in favorites mode: add directly to map (no clustering)
+      if (!map.hasLayer(m)) map.addLayer(m);
+    } else {
+      // Normal: remove from direct layer and add to cluster
+      if (map.hasLayer(m)) map.removeLayer(m);
+      clusterGroup.addLayer(m);
+    }
   });
 }
 
