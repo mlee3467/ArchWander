@@ -2036,18 +2036,21 @@
    "I FEEL LIKE…" THEME MODAL
    ══════════════════════════════════════════════════════════════════ */
 
-/* Header button — matches near-me / fav / route button style */
+/* Header button — simple B&W icon style */
 #ifl-btn {
-  position: relative; height: 34px; padding: 0 13px;
-  border: none; border-radius: 8px;
-  font-size: 12px; font-family: inherit;
-  background: linear-gradient(135deg, #22C55E, #16A34A);
-  cursor: pointer; display: flex; align-items: center; gap: 5px;
-  white-space: nowrap; flex-shrink: 0; transition: all 0.2s;
-  color: white; font-weight: 600; box-shadow: 0 1px 3px rgba(22,163,74,0.3);
+  position: relative; height: 34px; width: 34px; padding: 0;
+  border: 1px solid var(--border); border-radius: 8px;
+  background: white; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 15px; color: #111;
+  transition: background 0.15s, border-color 0.15s;
 }
-#ifl-btn:hover { background: linear-gradient(135deg, #34D06E, #1FB855); box-shadow: 0 2px 6px rgba(22,163,74,0.4); }
-#ifl-btn.active { background: linear-gradient(135deg, #15803D, #166534); box-shadow: 0 2px 8px rgba(21,128,61,0.5); }
+#ifl-btn .ifl-text { display: none; }
+#ifl-btn svg { display: none; }
+#ifl-btn::before { content: '✦'; font-size: 14px; color: #111; }
+#ifl-btn:hover { background: #f3f3f0; border-color: #ccc; }
+#ifl-btn.active { background: #111; border-color: #111; }
+#ifl-btn.active::before { color: #fff; }
 #ifl-btn.active::after {
   content: ''; position: absolute; top: 3px; right: 3px;
   width: 6px; height: 6px; border-radius: 50%; background: #FF6B6B;
