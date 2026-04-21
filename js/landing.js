@@ -9,7 +9,10 @@ var _mapInited = false;  // true once _doFullMapInit has been called
 function showSplash() {
   var el = document.getElementById('landing-splash');
   var _firstVisit = !localStorage.getItem('aw_landing_seen');
-  if (!el) {
+  // Skip web splash when launched as PWA standalone — OS already shows its own splash
+  var _isPWA = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches)
+             || window.navigator.standalone === true;
+  if (_isPWA || !el) {
     if (_firstVisit) showLandingScreen();
     else _ensureMapInit();
     return;
@@ -393,6 +396,19 @@ function _sbaIfl() {
   landingGoIfl();
 }
 
+// Sidebar My Page button (replaces IFL in sidebar)
+function _sbaMyPage() {
+  if (typeof closeSidebar === 'function') closeSidebar();
+  _openMyPage();
+}
+
+// Landing → I Feel Lucky
+function landingGoLucky() {
+  hideLandingScreen(function() {
+    _ensureMapInit(function() { _openIflLucky(); });
+  });
+}
+
 // ══════════════════════════════════════════════════════════════════
 // MY PAGE POPUP
 // ══════════════════════════════════════════════════════════════════
@@ -670,6 +686,284 @@ function _mpHandleFileSelected(event) {
     }
   };
   reader.readAsText(file);
+}
+
+// ══════════════════════════════════════════════════════════════════
+// I FEEL LUCKY — Daily card swipe system
+// ══════════════════════════════════════════════════════════════════
+
+var _LUCKY_LIMIT   = 10;
+var _LUCKY_KEY_DATE  = 'aw_lucky_date';
+var _LUCKY_KEY_SEEN  = 'aw_lucky_seen';
+var _LUCKY_KEY_LIKED = 'aw_lucky_liked';
+
+var _luckyQueue  = [];
+var _luckyIndex  = 0;
+var _luckyLiked  = [];   // IDs liked this session
+var _luckyTouchX = 0;
+var _luckyTouchY = 0;
+var _luckyDragging = false;
+
+function _luckyTodayStr() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function _luckyGetSeen() {
+  var today = _luckyTodayStr();
+  if (localStorage.getItem(_LUCKY_KEY_DATE) !== today) {
+    localStorage.setItem(_LUCKY_KEY_DATE, today);
+    localStorage.setItem(_LUCKY_KEY_SEEN, '[]');
+  }
+  try { return JSON.parse(localStorage.getItem(_LUCKY_KEY_SEEN) || '[]'); } catch(e) { return []; }
+}
+
+function _luckySaveSeen(arr) {
+  localStorage.setItem(_LUCKY_KEY_SEEN, JSON.stringify(arr));
+}
+
+function _luckyGetLiked() {
+  try { return JSON.parse(localStorage.getItem(_LUCKY_KEY_LIKED) || '[]'); } catch(e) { return []; }
+}
+
+function _luckySaveLiked(arr) {
+  localStorage.setItem(_LUCKY_KEY_LIKED, JSON.stringify(arr));
+}
+
+function _openIflLucky() {
+  var screen = document.getElementById('ifl-lucky-screen');
+  if (!screen) return;
+
+  var seen = _luckyGetSeen();
+
+  // Already used all 10 today → show results
+  if (seen.length >= _LUCKY_LIMIT) {
+    _showLuckyResults(screen, seen);
+    return;
+  }
+
+  // Build queue from locations not seen today in current city
+  var allLocs = (typeof LOCS !== 'undefined' ? LOCS : []).filter(function(l) {
+    return seen.indexOf(l.id) === -1;
+  });
+  // shuffle
+  allLocs.sort(function() { return Math.random() - 0.5; });
+  _luckyQueue = allLocs.slice(0, _LUCKY_LIMIT - seen.length);
+  _luckyIndex = 0;
+  _luckyLiked = [];
+
+  screen.style.display = 'flex';
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() { screen.classList.add('visible'); });
+  });
+  _renderLuckyCard(screen, seen);
+}
+
+function _closeLuckyScreen() {
+  var screen = document.getElementById('ifl-lucky-screen');
+  if (!screen) return;
+  screen.classList.remove('visible');
+  setTimeout(function() { screen.style.display = 'none'; }, 280);
+}
+
+function _renderLuckyCard(screen, seen) {
+  var cardArea = document.getElementById('ilk-card-area');
+  var counter  = document.getElementById('ilk-counter');
+  var actions  = document.getElementById('ilk-actions');
+  if (!cardArea) return;
+
+  if (_luckyIndex >= _luckyQueue.length) {
+    _showLuckyResults(screen, seen || _luckyGetSeen());
+    return;
+  }
+
+  var loc = _luckyQueue[_luckyIndex];
+  var total = seen ? seen.length + _luckyQueue.length : _LUCKY_LIMIT;
+  var current = seen ? seen.length + _luckyIndex + 1 : _luckyIndex + 1;
+  if (counter) counter.textContent = current + ' / ' + Math.min(total, _LUCKY_LIMIT);
+  if (actions) actions.style.display = 'flex';
+
+  // Build photo URL
+  var photos = (loc.photos && loc.photos.length) ? loc.photos : [];
+  var imgHtml = photos.length
+    ? '<img class="ilk-card-img" src="' + photos[0] + '" loading="eager" onerror="this.style.display=\'none\'">'
+    : '<div class="ilk-card-img ilk-card-no-photo"></div>';
+
+  var catLabel = loc.cat || loc.type || '';
+  var cityLabel = (typeof CITY_META !== 'undefined' && loc.city)
+    ? (Object.values(CITY_META).find(function(m) { return m.key === loc.city; }) || {}).label || loc.city
+    : loc.city || '';
+
+  var desc = loc.desc_en || loc.desc_ko || loc.address || '';
+  if (desc.length > 80) desc = desc.slice(0, 80) + '…';
+
+  cardArea.innerHTML =
+    '<div class="ilk-card" id="ilk-active-card">' +
+      imgHtml +
+      '<div class="ilk-card-info">' +
+        '<div class="ilk-card-name">' + (loc.name || '') + '</div>' +
+        '<div class="ilk-card-cat">' + catLabel + '</div>' +
+        (desc ? '<div class="ilk-card-desc">' + desc + '</div>' : '') +
+        '<div class="ilk-card-city">' + cityLabel + '</div>' +
+      '</div>' +
+      '<div class="ilk-like-badge">LIKE</div>' +
+      '<div class="ilk-pass-badge">PASS</div>' +
+    '</div>';
+
+  // Bind swipe
+  var card = document.getElementById('ilk-active-card');
+  if (card) _bindLuckySwipe(card, screen, seen);
+}
+
+function _bindLuckySwipe(card, screen, seen) {
+  card.addEventListener('touchstart', function(e) {
+    _luckyTouchX = e.touches[0].clientX;
+    _luckyTouchY = e.touches[0].clientY;
+    _luckyDragging = true;
+    card.style.transition = 'none';
+  }, { passive: true });
+
+  card.addEventListener('touchmove', function(e) {
+    if (!_luckyDragging) return;
+    var dx = e.touches[0].clientX - _luckyTouchX;
+    var rotate = dx * 0.07;
+    card.style.transform = 'translateX(' + dx + 'px) rotate(' + rotate + 'deg)';
+    var likeBadge = card.querySelector('.ilk-like-badge');
+    var passBadge = card.querySelector('.ilk-pass-badge');
+    if (likeBadge) likeBadge.style.opacity = Math.min(1, Math.max(0, dx / 80));
+    if (passBadge) passBadge.style.opacity = Math.min(1, Math.max(0, -dx / 80));
+  }, { passive: true });
+
+  card.addEventListener('touchend', function(e) {
+    if (!_luckyDragging) return;
+    _luckyDragging = false;
+    var dx = e.changedTouches[0].clientX - _luckyTouchX;
+    card.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+    if (dx > 70) {
+      card.style.transform = 'translateX(120vw) rotate(20deg)';
+      card.style.opacity = '0';
+      setTimeout(function() { _luckyAdvance('like', screen, seen); }, 300);
+    } else if (dx < -70) {
+      card.style.transform = 'translateX(-120vw) rotate(-20deg)';
+      card.style.opacity = '0';
+      setTimeout(function() { _luckyAdvance('pass', screen, seen); }, 300);
+    } else {
+      card.style.transform = '';
+      var likeBadge = card.querySelector('.ilk-like-badge');
+      var passBadge = card.querySelector('.ilk-pass-badge');
+      if (likeBadge) likeBadge.style.opacity = '0';
+      if (passBadge) passBadge.style.opacity = '0';
+    }
+  }, { passive: true });
+}
+
+function _luckyAction(action) {
+  var card = document.getElementById('ilk-active-card');
+  if (!card || _luckyDragging) return;
+  var seen = _luckyGetSeen();
+  card.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+  if (action === 'like') {
+    card.style.transform = 'translateX(120vw) rotate(20deg)';
+  } else {
+    card.style.transform = 'translateX(-120vw) rotate(-20deg)';
+  }
+  card.style.opacity = '0';
+  setTimeout(function() { _luckyAdvance(action, null, seen); }, 300);
+}
+
+function _luckyAdvance(action, screen, seen) {
+  if (!screen) screen = document.getElementById('ifl-lucky-screen');
+  if (!seen) seen = _luckyGetSeen();
+  var loc = _luckyQueue[_luckyIndex];
+  if (!loc) return;
+
+  // Record as seen
+  seen = seen.concat([loc.id]);
+  _luckySaveSeen(seen);
+
+  // Record like
+  if (action === 'like') {
+    _luckyLiked.push(loc.id);
+    var allLiked = _luckyGetLiked();
+    if (allLiked.indexOf(loc.id) === -1) {
+      allLiked.push(loc.id);
+      _luckySaveLiked(allLiked);
+    }
+  }
+
+  _luckyIndex++;
+
+  if (seen.length >= _LUCKY_LIMIT || _luckyIndex >= _luckyQueue.length) {
+    _showLuckyResults(screen, seen);
+  } else {
+    _renderLuckyCard(screen, seen);
+  }
+}
+
+function _showLuckyResults(screen, seen) {
+  if (!screen) screen = document.getElementById('ifl-lucky-screen');
+  var cardArea  = document.getElementById('ilk-card-area');
+  var counter   = document.getElementById('ilk-counter');
+  var actions   = document.getElementById('ilk-actions');
+  if (!cardArea) return;
+
+  if (counter) counter.textContent = '✓ Done';
+  if (actions) actions.style.display = 'none';
+
+  var liked = _luckyGetLiked();
+  var allLocs = typeof LOCS !== 'undefined' ? LOCS : [];
+  // Matches: liked locations in the current active city
+  var cityKey = typeof activeCityKey !== 'undefined' ? activeCityKey : null;
+  var matches = liked
+    .map(function(id) { return allLocs.find(function(l) { return l.id === id; }); })
+    .filter(function(l) { return l && (!cityKey || l.city === cityKey); });
+
+  var isKo = typeof LANG !== 'undefined' && LANG === 'ko';
+  var tomorrowHint = isKo ? '내일 새로운 10개의 장소를 만나보세요.' : 'Come back tomorrow for 10 new places.';
+  var matchTitle = isKo ? '🎯 내 관심 장소' : '🎯 Your Matches';
+  var noMatch = isKo ? '아직 좋아한 장소가 없어요.' : 'No liked places yet.';
+  var favHint = isKo ? '탭하면 즐겨찾기에 추가됩니다.' : 'Tap to add to favorites.';
+
+  var matchHtml = matches.length
+    ? matches.map(function(loc) {
+        var photos = loc.photos && loc.photos.length ? loc.photos : [];
+        var img = photos.length
+          ? '<img src="' + photos[0] + '" style="width:48px;height:48px;object-fit:cover;border-radius:8px;flex-shrink:0" onerror="this.style.display=\'none\'">'
+          : '<div style="width:48px;height:48px;border-radius:8px;background:#333;flex-shrink:0"></div>';
+        var isFaved = typeof isFav === 'function' && isFav(loc.id);
+        return '<div class="ilk-match-row" onclick="_luckyMatchTap(\'' + loc.id + '\')" style="display:flex;align-items:center;gap:12px;padding:10px;border-radius:12px;background:rgba(255,255,255,0.06);margin-bottom:8px;cursor:pointer">' +
+          img +
+          '<div style="flex:1;min-width:0">' +
+            '<div style="color:#fff;font-weight:600;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + (loc.name || '') + '</div>' +
+            '<div style="color:rgba(255,255,255,0.45);font-size:11px;margin-top:2px">' + (loc.cat || '') + '</div>' +
+          '</div>' +
+          '<span style="font-size:18px">' + (isFaved ? '⭐' : '☆') + '</span>' +
+        '</div>';
+      }).join('')
+    : '<div style="color:rgba(255,255,255,0.4);font-size:13px;text-align:center;padding:24px 0">' + noMatch + '</div>';
+
+  cardArea.innerHTML =
+    '<div style="width:100%;max-width:400px;padding:0 4px;overflow-y:auto;max-height:100%">' +
+      '<div style="color:#fff;font-size:22px;font-weight:800;margin-bottom:4px">' + matchTitle + '</div>' +
+      '<div style="color:rgba(255,255,255,0.4);font-size:12px;margin-bottom:20px">' +
+        (matches.length ? favHint : tomorrowHint) +
+      '</div>' +
+      matchHtml +
+      '<div style="color:rgba(255,255,255,0.3);font-size:11px;text-align:center;margin-top:16px">' + tomorrowHint + '</div>' +
+    '</div>';
+}
+
+function _luckyMatchTap(locId) {
+  if (typeof toggleFav === 'function') {
+    toggleFav(locId);
+    // Refresh the star icon
+    var rows = document.querySelectorAll('.ilk-match-row');
+    rows.forEach(function(row) {
+      if (row.getAttribute('onclick') && row.getAttribute('onclick').indexOf(locId) !== -1) {
+        var star = row.querySelector('span');
+        if (star) star.textContent = (typeof isFav === 'function' && isFav(locId)) ? '⭐' : '☆';
+      }
+    });
+  }
 }
 
 // ══════════════════════════════════════════════════════════════════

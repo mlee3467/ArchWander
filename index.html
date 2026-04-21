@@ -85,10 +85,10 @@
       <span class="landing-btn-title">Archwander<br>Picks</span>
       <span class="landing-btn-sub">큐레이션 코스</span>
     </button>
-    <button class="landing-btn landing-btn-my" onclick="landingGoMyPage()">
-      <span class="landing-btn-icon">⚙️</span>
-      <span class="landing-btn-title">My Page</span>
-      <span class="landing-btn-sub">즐겨찾기 · 고급 설정</span>
+    <button class="landing-btn landing-btn-lucky" onclick="landingGoLucky()">
+      <span class="landing-btn-icon">🎲</span>
+      <span class="landing-btn-title">I Feel<br>Lucky</span>
+      <span class="landing-btn-sub">오늘의 건축 추천</span>
     </button>
   </div>
 </div>
@@ -104,6 +104,20 @@
   <div class="ifl-sel-body" id="ifl-sel-body"></div>
   <div class="ifl-sel-footer">
     <button class="ifl-sel-go" id="ifl-sel-go" onclick="iflSelConfirm()">View all →</button>
+  </div>
+</div>
+
+<!-- ── I FEEL LUCKY CARD SCREEN ──────────────────────────── -->
+<div id="ifl-lucky-screen" style="display:none">
+  <div class="ilk-hdr">
+    <span class="ilk-title">🎲 I Feel Lucky</span>
+    <span class="ilk-counter" id="ilk-counter">1 / 10</span>
+    <button class="ilk-close" onclick="_closeLuckyScreen()">✕</button>
+  </div>
+  <div class="ilk-card-area" id="ilk-card-area"></div>
+  <div class="ilk-actions" id="ilk-actions">
+    <button class="ilk-btn ilk-pass" onclick="_luckyAction('pass')">✕&nbsp; Pass</button>
+    <button class="ilk-btn ilk-like" onclick="_luckyAction('like')">♥&nbsp; Like</button>
   </div>
 </div>
 
@@ -470,9 +484,9 @@
         <span class="sba-icon">🗺</span>
         <span class="sba-label" id="sba-route-label">Route</span>
       </button>
-      <button class="sba-btn" id="sba-ifl" onclick="_sbaIfl()">
-        <span class="sba-icon">✨</span>
-        <span class="sba-label" id="sba-ifl-label">I Feel<br>Like</span>
+      <button class="sba-btn" id="sba-ifl" onclick="_sbaMyPage()">
+        <span class="sba-icon">⚙️</span>
+        <span class="sba-label" id="sba-ifl-label">My<br>Page</span>
       </button>
     </div>
 

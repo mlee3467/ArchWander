@@ -2267,6 +2267,8 @@
 
 .landing-btn-my    { border-color: rgba(16,185,129,0.35); }
 .landing-btn-my:active    { background: rgba(16,185,129,0.2); }
+.landing-btn-lucky { border-color: rgba(245,158,11,0.35); }
+.landing-btn-lucky:active { background: rgba(245,158,11,0.15); }
 
 .landing-coming-soon {
   position: absolute; top: 11px; right: 11px;
@@ -2391,6 +2393,110 @@
 }
 .ifl-sel-go:active { opacity: 0.8; }
 
+
+/* ═══════════════════════════════════════════════════════════════
+   I FEEL LUCKY — card swipe screen
+   ═══════════════════════════════════════════════════════════════ */
+#ifl-lucky-screen {
+  position: fixed; inset: 0; z-index: 9998;
+  background: #0d0d14;
+  display: none; flex-direction: column;
+  font-family: Inter, -apple-system, sans-serif;
+  opacity: 0; transition: opacity 0.28s ease;
+}
+#ifl-lucky-screen.visible { opacity: 1; }
+
+.ilk-hdr {
+  display: flex; align-items: center; gap: 8px;
+  padding: 18px 20px 12px;
+  flex-shrink: 0;
+}
+.ilk-title {
+  color: #fff; font-size: 16px; font-weight: 700;
+  flex: 1;
+}
+.ilk-counter {
+  color: rgba(255,255,255,0.45); font-size: 12px; font-weight: 600;
+}
+.ilk-close {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(255,255,255,0.1); border: none;
+  color: rgba(255,255,255,0.6); font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; margin-left: 8px;
+  -webkit-tap-highlight-color: transparent;
+}
+.ilk-close:active { background: rgba(255,255,255,0.2); }
+
+.ilk-card-area {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  padding: 0 20px 8px; overflow: hidden; position: relative;
+}
+
+.ilk-card {
+  width: 100%; max-width: 400px; height: 100%;
+  max-height: calc(100vh - 180px);
+  border-radius: 20px; overflow: hidden; position: relative;
+  background: #1a1a2e; cursor: grab;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+  user-select: none; -webkit-user-select: none;
+  display: flex; flex-direction: column;
+}
+.ilk-card-img {
+  width: 100%; height: 55%; object-fit: cover; flex-shrink: 0;
+}
+.ilk-card-no-photo {
+  background: linear-gradient(135deg, #1e1e3a 0%, #2a1a3e 100%);
+}
+.ilk-card-info {
+  flex: 1; padding: 20px 20px 16px; overflow: hidden;
+}
+.ilk-card-name {
+  color: #fff; font-size: 21px; font-weight: 800;
+  line-height: 1.2; margin-bottom: 6px;
+}
+.ilk-card-cat {
+  color: rgba(255,255,255,0.55); font-size: 13px; font-weight: 500;
+}
+.ilk-card-desc {
+  color: rgba(255,255,255,0.4); font-size: 12px; margin-top: 8px; line-height: 1.5;
+}
+.ilk-card-city {
+  color: rgba(255,255,255,0.3); font-size: 11px; margin-top: 10px; font-weight: 500;
+}
+
+/* Like / Pass overlay badges */
+.ilk-like-badge, .ilk-pass-badge {
+  position: absolute; top: 28px;
+  font-size: 18px; font-weight: 900; letter-spacing: 1px;
+  opacity: 0; pointer-events: none;
+  padding: 5px 14px; border-radius: 6px; border-width: 3px; border-style: solid;
+}
+.ilk-like-badge { right: 20px; color: #22c55e; border-color: #22c55e; }
+.ilk-pass-badge { left: 20px; color: #ef4444; border-color: #ef4444; }
+
+/* Action buttons */
+.ilk-actions {
+  display: flex; gap: 16px; padding: 12px 32px 32px;
+  flex-shrink: 0; justify-content: center;
+}
+.ilk-btn {
+  flex: 1; max-width: 150px; padding: 14px 0;
+  border-radius: 40px; border: none;
+  font-size: 15px; font-weight: 700; font-family: Inter, sans-serif;
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: transform 0.12s, opacity 0.12s;
+}
+.ilk-btn:active { transform: scale(0.96); opacity: 0.85; }
+.ilk-pass {
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.7);
+  border: 1.5px solid rgba(255,255,255,0.12);
+}
+.ilk-like {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff; box-shadow: 0 4px 16px rgba(34,197,94,0.35);
+}
 
 /* ═══════════════════════════════════════════════════════════════
    VISIT DATE + MEMO SECTION  (inside detail panel)
