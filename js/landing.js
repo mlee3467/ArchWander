@@ -735,15 +735,24 @@ function _openIflLucky() {
 
   var seen = _luckyGetSeen();
 
-  // Already used all 10 today → show results
+  // Already used all 10 today → show results screen
   if (seen.length >= _LUCKY_LIMIT) {
+    screen.style.display = 'flex';
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() { screen.classList.add('visible'); });
+    });
     _showLuckyResults(screen, seen);
     return;
   }
 
-  // Build queue from locations not seen today in current city
+  // Current active city key (e.g. 'new-york', 'seoul')
+  var cityKey = (typeof activeCityKey !== 'undefined' && activeCityKey) ? activeCityKey : null;
+
+  // Build queue from current city only, excluding already-seen today
   var allLocs = (typeof LOCS !== 'undefined' ? LOCS : []).filter(function(l) {
-    return seen.indexOf(l.id) === -1;
+    if (seen.indexOf(l.id) !== -1) return false;
+    if (cityKey && l.city !== cityKey) return false;
+    return true;
   });
   // shuffle
   allLocs.sort(function() { return Math.random() - 0.5; });
