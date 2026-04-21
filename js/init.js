@@ -216,10 +216,12 @@ window.addEventListener('load', function() {
       if (window.innerWidth > 900 || !panelEl.classList.contains('open')) return;
       var dy = e.changedTouches[0].clientY - _dragStartY;
       var isFullscreen = panelEl.classList.contains('panel-fullscreen');
-      if (!isFullscreen && dy < -40) {
-        panelEl.classList.add('panel-fullscreen');
-      } else if (isFullscreen && dy > 40) {
+      if (isFullscreen && (dy > 40 || Math.abs(dy) < 10)) {
+        // swipe down OR simple tap → collapse from fullscreen
         panelEl.classList.remove('panel-fullscreen');
+      } else if (!isFullscreen && dy < -40) {
+        // swipe up → go fullscreen
+        panelEl.classList.add('panel-fullscreen');
       }
     }, { passive: true });
   })();
