@@ -1369,10 +1369,9 @@ function _showRouteMarkerPopup(loc, beyondLimit) {
     thumbHtml = '<div class="rmp-sv-wrap">' + togBar + outdoorPane + intPanes + '</div>';
   } else if (loc.photos && loc.photos.length > 0) {
     // Photo fallback (no SV data for this location)
-    var pUrl = loc.photos[0];
-    if (pUrl.indexOf('wikimedia') >= 0 || pUrl.indexOf('commons') >= 0) {
-      pUrl = pUrl.replace(/[?&]width=\d+/, '') + (pUrl.indexOf('?') >= 0 ? '&' : '?') + 'width=400';
-    }
+    var pUrl = typeof photoUrl === 'function'
+      ? photoUrl(loc.photos[0], true, 'popup')
+      : loc.photos[0];
     thumbHtml = '<div class="rmp-thumb">' +
       '<img src="' + pUrl + '" loading="lazy" onerror="this.parentNode.style.display=\'none\'">' +
       '</div>';

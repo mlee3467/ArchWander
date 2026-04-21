@@ -311,7 +311,8 @@ function photoUrl(u, mob, role) {
   if (!u) return u;
   // Determine target width by role and viewport
   let w;
-  if      (role === 'card')    w = mob ? 80  : 120;   // sidebar thumbnail
+  if      (role === 'card')    w = mob ? 80  : 120;   // sidebar list thumbnail
+  else if (role === 'popup')   w = 400;                // mini-popup + IFL card (fixed, good for 2x retina up to 200px containers)
   else if (role === 'gallery') w = mob ? 480 : 700;   // gallery panel
   else                         w = mob ? 500 : 800;   // legacy / default
 
@@ -327,6 +328,12 @@ function photoUrl(u, mob, role) {
   // Pattern 3: Generic ?width= parameter
   if (u.includes('?width='))
     return u.replace(/\?width=\d+/, `?width=${w}`);
+
+  // Pattern 4: Non-parameterised URL — proxy via wsrv.nl (resizes any image, cached CDN)
+  // Only apply for popup/card roles where smaller size is critical
+  if (role === 'popup' || role === 'card') {
+    return 'https://wsrv.nl/?url=' + encodeURIComponent(u) + '&w=' + w + '&output=webp&q=82';
+  }
 
   return u;
 }

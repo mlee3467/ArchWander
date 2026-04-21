@@ -225,9 +225,9 @@ function _showMapMarkerPopup(loc) {
   var SV_ALLOW = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; magnetometer; picture-in-picture';
   if (loc.photos && loc.photos.length > 0) {
     var pUrl = loc.photos[0];
-    // Use the shared photoUrl() resize helper if available (defined in core.js)
+    // Use popup-sized thumbnail — 400px is enough for a 280px popup at 2x retina
     if (typeof photoUrl === 'function') {
-      pUrl = photoUrl(pUrl, window.innerWidth <= 900, 'gallery');
+      pUrl = photoUrl(pUrl, true, 'popup');
     }
     thumbHtml = '<div class="rmp-thumb">' +
       '<img src="' + pUrl + '" onerror="this.parentNode.style.display=\'none\'">' +

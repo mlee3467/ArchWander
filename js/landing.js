@@ -806,8 +806,11 @@ function _renderLuckyCard(screen, seen) {
   var hasSVKey = typeof GOOGLE_MAPS_API_KEY === 'string' && GOOGLE_MAPS_API_KEY;
   var _SV_ALLOW = 'accelerometer; gyroscope; magnetometer; fullscreen';
   var mediaInner;
+  var _pUrl = (photos.length && typeof photoUrl === 'function')
+    ? photoUrl(photos[0], true, 'popup')
+    : (photos.length ? photos[0] : '');
   if (photos.length) {
-    mediaInner = '<img class="ilk-card-img" src="' + photos[0] + '" loading="eager"' +
+    mediaInner = '<img class="ilk-card-img" src="' + _pUrl + '" loading="eager" fetchpriority="high"' +
       ' onerror="this.style.display=\'none\';this.nextElementSibling && (this.nextElementSibling.style.display=\'\')">' +
       '<div class="ilk-card-no-photo" style="display:none"></div>';
   } else if (hasSVKey && loc.lat && loc.lng) {
@@ -875,6 +878,19 @@ function _renderLuckyCard(screen, seen) {
   // Bind swipe
   var card = document.getElementById('ilk-active-card');
   if (card) _bindLuckySwipe(card, screen, seen);
+
+  // Preload next card's image so the transition is instant
+  var _nextIdx = _luckyIndex + 1;
+  if (_nextIdx < _luckyQueue.length) {
+    var _nextLoc = _luckyQueue[_nextIdx];
+    var _nextPhotos = (_nextLoc.photos && _nextLoc.photos.length) ? _nextLoc.photos : [];
+    if (_nextPhotos.length) {
+      var _preload = new Image();
+      _preload.src = (typeof photoUrl === 'function')
+        ? photoUrl(_nextPhotos[0], true, 'popup')
+        : _nextPhotos[0];
+    }
+  }
 }
 
 function _bindLuckySwipe(card, screen, seen) {
