@@ -799,26 +799,64 @@ function _renderLuckyCard(screen, seen) {
   if (counter) counter.textContent = current + ' / ' + Math.min(total, _LUCKY_LIMIT);
   if (actions) actions.style.display = 'flex';
 
-  // Build photo URL
-  var photos = (loc.photos && loc.photos.length) ? loc.photos : [];
-  var imgHtml = photos.length
-    ? '<img class="ilk-card-img" src="' + photos[0] + '" loading="eager" onerror="this.style.display=\'none\'">'
-    : '<div class="ilk-card-img ilk-card-no-photo"></div>';
+  var isKo = typeof LANG !== 'undefined' && LANG === 'ko';
 
-  var catLabel = loc.cat || loc.type || '';
+  // ── Media section: photo → Street View → placeholder ──────────
+  var photos = (loc.photos && loc.photos.length) ? loc.photos : [];
+  var hasSVKey = typeof GOOGLE_MAPS_API_KEY === 'string' && GOOGLE_MAPS_API_KEY;
+  var mediaInner;
+  if (photos.length) {
+    mediaInner = '<img class="ilk-card-img" src="' + photos[0] + '" loading="eager"' +
+      ' onerror="this.style.display=\'none\';this.nextElementSibling && (this.nextElementSibling.style.display=\'flex\')">' +
+      '<div class="ilk-card-no-photo" style="display:none;position:absolute;inset:0"></div>';
+  } else if (hasSVKey && loc.lat && loc.lng) {
+    var svLat = (loc.sv && loc.sv.lat) ? loc.sv.lat : loc.lat;
+    var svLng = (loc.sv && loc.sv.lng) ? loc.sv.lng : loc.lng;
+    var svH   = (loc.sv && loc.sv.h  != null) ? loc.sv.h  : 0;
+    var svP   = (loc.sv && loc.sv.p  != null) ? loc.sv.p  : 5;
+    var svFov = Math.min(100, Math.max(10, (loc.sv && loc.sv.fov != null) ? loc.sv.fov : 80));
+    var svSrc = 'https://www.google.com/maps/embed/v1/streetview?key=' + GOOGLE_MAPS_API_KEY +
+      '&location=' + svLat + ',' + svLng +
+      '&heading=' + svH + '&pitch=' + svP + '&fov=' + svFov;
+    mediaInner = '<iframe class="ilk-card-sv" src="' + svSrc + '" frameborder="0" allowfullscreen></iframe>' +
+      '<div class="ilk-card-sv-overlay"></div>';
+  } else {
+    mediaInner = '<div class="ilk-card-no-photo"></div>';
+  }
+
+  // ── Meta: architect · year ────────────────────────────────────
+  var archParts = [];
+  if (loc.arch) archParts.push(loc.arch);
+  if (loc.yr)   archParts.push(loc.yr);
+  var archYrHtml = archParts.length
+    ? '<div class="ilk-arch-yr">' + archParts.join(' · ') + '</div>'
+    : '';
+
+  // ── Tags (max 4) ──────────────────────────────────────────────
+  var tagsHtml = '';
+  if (loc.tags && loc.tags.length) {
+    tagsHtml = '<div class="ilk-tags">' +
+      loc.tags.slice(0, 4).map(function(tag) {
+        return '<span class="ilk-tag">' + tag + '</span>';
+      }).join('') + '</div>';
+  }
+
+  // ── Description ───────────────────────────────────────────────
+  var desc = (isKo ? (loc.desc_ko || loc.desc_en) : (loc.desc_en || loc.desc_ko)) || '';
+  if (desc.length > 120) desc = desc.slice(0, 120) + '…';
+
+  // ── City label ────────────────────────────────────────────────
   var cityLabel = (typeof CITY_META !== 'undefined' && loc.city)
     ? (Object.values(CITY_META).find(function(m) { return m.key === loc.city; }) || {}).label || loc.city
     : loc.city || '';
 
-  var desc = loc.desc_en || loc.desc_ko || loc.address || '';
-  if (desc.length > 80) desc = desc.slice(0, 80) + '…';
-
   cardArea.innerHTML =
     '<div class="ilk-card" id="ilk-active-card">' +
-      imgHtml +
+      '<div class="ilk-card-media">' + mediaInner + '</div>' +
       '<div class="ilk-card-info">' +
         '<div class="ilk-card-name">' + (loc.name || '') + '</div>' +
-        '<div class="ilk-card-cat">' + catLabel + '</div>' +
+        archYrHtml +
+        tagsHtml +
         (desc ? '<div class="ilk-card-desc">' + desc + '</div>' : '') +
         '<div class="ilk-card-city">' + cityLabel + '</div>' +
       '</div>' +

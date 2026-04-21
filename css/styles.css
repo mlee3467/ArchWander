@@ -2463,27 +2463,63 @@
   user-select: none; -webkit-user-select: none;
   display: flex; flex-direction: column;
 }
+/* ── Card media area (photo OR Street View) ── */
+.ilk-card-media {
+  width: 100%; height: 55%; flex-shrink: 0;
+  position: relative; overflow: hidden;
+  background: #0d0d14;
+}
 .ilk-card-img {
-  width: 100%; height: 55%; object-fit: cover; flex-shrink: 0;
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.ilk-card-sv {
+  width: 100%; height: 100%; border: none; display: block;
+}
+/* Transparent overlay so swipe touch events aren't absorbed by the iframe */
+.ilk-card-sv-overlay {
+  position: absolute; inset: 0; z-index: 1; background: transparent;
 }
 .ilk-card-no-photo {
+  width: 100%; height: 100%;
   background: linear-gradient(135deg, #1e1e3a 0%, #2a1a3e 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.ilk-card-no-photo::after {
+  content: '🏛'; font-size: 40px; opacity: 0.25;
 }
 .ilk-card-info {
-  flex: 1; padding: 20px 20px 16px; overflow: hidden;
+  flex: 1; padding: 14px 18px 12px; overflow: hidden;
+  display: flex; flex-direction: column; gap: 0;
 }
 .ilk-card-name {
-  color: #fff; font-size: 21px; font-weight: 800;
-  line-height: 1.2; margin-bottom: 6px;
+  color: #fff; font-size: 19px; font-weight: 800;
+  line-height: 1.2; margin-bottom: 4px;
+  /* clamp to 2 lines */
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
 }
-.ilk-card-cat {
-  color: rgba(255,255,255,0.55); font-size: 13px; font-weight: 500;
+.ilk-arch-yr {
+  color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 500;
+  margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.ilk-tags {
+  display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px;
+}
+.ilk-tag {
+  background: rgba(255,255,255,0.09); color: rgba(255,255,255,0.6);
+  font-size: 10px; font-weight: 600; letter-spacing: 0.2px;
+  padding: 3px 8px; border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.14);
 }
 .ilk-card-desc {
-  color: rgba(255,255,255,0.4); font-size: 12px; margin-top: 8px; line-height: 1.5;
+  color: rgba(255,255,255,0.38); font-size: 11.5px; line-height: 1.55;
+  overflow: hidden; display: -webkit-box;
+  -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  flex-shrink: 0;
 }
 .ilk-card-city {
-  color: rgba(255,255,255,0.3); font-size: 11px; margin-top: 10px; font-weight: 500;
+  color: rgba(255,255,255,0.28); font-size: 10.5px; margin-top: auto;
+  padding-top: 6px; font-weight: 500; letter-spacing: 0.2px;
 }
 
 /* Like / Pass overlay badges */
