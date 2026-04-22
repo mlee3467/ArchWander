@@ -25,9 +25,8 @@ function switchTab(id) {
 function _gallerySlideCount() {
   if (!activeLoc) return 0;
   var n = activeLoc.photos ? activeLoc.photos.length : 0;
-  var _hasApiKey = typeof GOOGLE_MAPS_API_KEY === 'string' && GOOGLE_MAPS_API_KEY;
-  var hasSV = _hasApiKey && !!activeLoc.sv; // exterior SV only when sv is configured
-  var svIntArr = _hasApiKey ? (Array.isArray(activeLoc.svInt) ? activeLoc.svInt : (activeLoc.svInt ? [activeLoc.svInt] : [])) : [];
+  var hasSV = typeof GOOGLE_MAPS_API_KEY === 'string' && GOOGLE_MAPS_API_KEY;
+  var svIntArr = hasSV ? (Array.isArray(activeLoc.svInt) ? activeLoc.svInt : (activeLoc.svInt ? [activeLoc.svInt] : [])) : [];
   return n + (hasSV ? 1 : 0) + svIntArr.length;
 }
 function gotoPhoto(idx) {
@@ -93,9 +92,8 @@ function gotoPhoto(idx) {
 function updateGLabel() {
   if (!activeLoc) return;
   var photoCount = activeLoc.photos ? activeLoc.photos.length : 0;
-  var _hasApiKey = typeof GOOGLE_MAPS_API_KEY === 'string' && GOOGLE_MAPS_API_KEY;
-  var hasSV = _hasApiKey && !!activeLoc.sv; // exterior SV only when sv is configured
-  var svIntArr = _hasApiKey ? (Array.isArray(activeLoc.svInt) ? activeLoc.svInt : (activeLoc.svInt ? [activeLoc.svInt] : [])) : [];
+  var hasSV = typeof GOOGLE_MAPS_API_KEY === 'string' && GOOGLE_MAPS_API_KEY;
+  var svIntArr = hasSV ? (Array.isArray(activeLoc.svInt) ? activeLoc.svInt : (activeLoc.svInt ? [activeLoc.svInt] : [])) : [];
   var isSVExt = hasSV && photoIdx === photoCount;
   var intRelIdx = photoIdx - photoCount - (hasSV ? 1 : 0); // consistent with gotoPhoto
   var isSVInt = svIntArr.length > 0 && intRelIdx >= 0 && intRelIdx < svIntArr.length;

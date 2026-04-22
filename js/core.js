@@ -358,13 +358,10 @@ function openLoc(loc) {
   if (gAttrib) { gAttrib.textContent = ''; gAttrib.style.display = 'none'; }
 
   var hasPhotos = loc.photos && loc.photos.length > 0;
-  var _hasApiKey = typeof GOOGLE_MAPS_API_KEY === 'string' && GOOGLE_MAPS_API_KEY;
-  // Exterior SV: only show when loc.sv is explicitly configured (not null)
-  // Prevents wrong "default heading:210" view for buildings whose sv hasn't been set in Supabase yet
-  var hasSV = _hasApiKey && !!loc.sv;
+  var hasSV = typeof GOOGLE_MAPS_API_KEY === 'string' && GOOGLE_MAPS_API_KEY;
   var photoCount = hasPhotos ? loc.photos.length : 0;
   // Normalize svInt → always an array (backward compat: single object → [obj])
-  var svIntArr = _hasApiKey ? (Array.isArray(loc.svInt) ? loc.svInt : (loc.svInt ? [loc.svInt] : [])) : [];
+  var svIntArr = hasSV ? (Array.isArray(loc.svInt) ? loc.svInt : (loc.svInt ? [loc.svInt] : [])) : [];
   var hasIntSV = svIntArr.length > 0;
   var totalSlides = photoCount + (hasSV ? 1 : 0) + svIntArr.length;
 
@@ -407,15 +404,15 @@ function openLoc(loc) {
     svIframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
     svIframe.setAttribute('allowfullscreen', '');
     svIframe.setAttribute('allow', 'accelerometer; gyroscope; magnetometer; fullscreen');
-    var svH   = loc.sv.heading != null ? loc.sv.heading : 210;
-    var svP   = loc.sv.pitch   != null ? loc.sv.pitch   : 10;
-    var svF   = Math.min(100, Math.max(10, loc.sv.fov != null ? loc.sv.fov : 90)); // Embed API: 10–100
-    var svLat = loc.sv.lat     != null ? loc.sv.lat     : loc.lat;
-    var svLng = loc.sv.lng     != null ? loc.sv.lng     : loc.lng;
+    var svH   = (loc.sv && loc.sv.heading != null) ? loc.sv.heading : 210;
+    var svP   = (loc.sv && loc.sv.pitch   != null) ? loc.sv.pitch   : 10;
+    var svF   = Math.min(100, Math.max(10, (loc.sv && loc.sv.fov != null) ? loc.sv.fov : 90));
+    var svLat = (loc.sv && loc.sv.lat     != null) ? loc.sv.lat     : loc.lat;
+    var svLng = (loc.sv && loc.sv.lng     != null) ? loc.sv.lng     : loc.lng;
     var _svBase = 'https://www.google.com/maps/embed/v1/streetview?key=' +
       GOOGLE_MAPS_API_KEY + '&heading=' + svH + '&pitch=' + svP + '&fov=' + svF;
     // Prefer panoId (exact panorama) over lat/lng (nearest search)
-    svIframe.src = loc.sv.panoId
+    svIframe.src = (loc.sv && loc.sv.panoId)
       ? _svBase + '&pano=' + loc.sv.panoId
       : _svBase + '&location=' + svLat + ',' + svLng;
     if (hasPhotos) svIframe.style.display = 'none';
