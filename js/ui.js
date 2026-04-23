@@ -501,7 +501,12 @@ function submitReview(locId) {
 // ══════════════════════════════════════════════════════════════════
 function _shareUrl() {
   if (!activeLoc) return '';
-  return `https://www.google.com/maps/search/?api=1&query=${activeLoc.lat},${activeLoc.lng}`;
+  // 이름+도시 기반 쿼리 → Google Maps OG 태그에 장소명이 표시됨
+  // (좌표 쿼리는 "40.75, -74.00 - Google Maps" 로 표시돼 이름이 안 보임)
+  const CITY_LABEL = { 'new-york':'New York', 'seoul':'Seoul', 'london':'London', 'tokyo':'Tokyo' };
+  const cityStr = CITY_LABEL[activeLoc.city] ? ', ' + CITY_LABEL[activeLoc.city] : '';
+  const query = activeLoc.name + cityStr;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
 function _shareText() {
   if (!activeLoc) return '';
