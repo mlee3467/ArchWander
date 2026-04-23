@@ -345,34 +345,79 @@ function setReviewStar(locId, val) {
   });
 }
 
+// Supabase row는 snake_case (loc_id, created_at), localStorage row는 camelCase
+function _normalizeReview(r) {
+  return {
+    stars: r.stars,
+    name:  r.name  || 'Anonymous',
+    text:  r.text  || '',
+    date:  r.date  || (r.created_at
+      ? new Date(r.created_at).toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric' })
+      : '')
+  };
+}
+
 function renderReviewList(reviews) {
   if (!reviews.length) return '<div class="review-empty">No reviews yet — be the first to share your experience!</div>';
-  return reviews.map(r => `
+  return reviews.map(r => {
+    const n = _normalizeReview(r);
+    return `
     <div class="review-card">
       <div style="display:flex;align-items:center;gap:6px">
-        <span class="review-card-stars">${'★'.repeat(r.stars)}${'☆'.repeat(5 - r.stars)}</span>
-        <span class="review-name-badge">${r.name}</span>
+        <span class="review-card-stars">${'★'.repeat(n.stars)}${'☆'.repeat(5 - n.stars)}</span>
+        <span class="review-name-badge">${n.name}</span>
       </div>
-      <div class="review-card-meta">${r.date}</div>
-      ${r.text ? `<div class="review-card-text">${r.text}</div>` : ''}
-    </div>
-  `).join('');
+      <div class="review-card-meta">${n.date}</div>
+      ${n.text ? `<div class="review-card-text">${n.text}</div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+function _updateReviewAvgBlock(reviews) {
+  if (!reviews.length) return;
+  const avg = reviews.reduce((s, r) => s + r.stars, 0) / reviews.length;
+  const avgEl = document.querySelector('.review-avg');
+  if (avgEl) {
+    avgEl.querySelector('.review-avg-score').textContent = avg.toFixed(1);
+    avgEl.querySelector('.review-avg-stars').innerHTML   = starsHtml(Math.round(avg), 5, 15);
+    avgEl.querySelector('.review-avg-count').textContent = `${reviews.length} review${reviews.length !== 1 ? 's' : ''}`;
+  }
+}
+
+// Supabase에서 locId의 리뷰를 가져와 DOM 갱신
+function _fetchAndRenderReviews(locId) {
+  if (typeof SUPABASE_URL === 'undefined' || !SUPABASE_URL) return;
+  if (typeof SUPABASE_ANON_KEY === 'undefined' || !SUPABASE_ANON_KEY) return;
+  fetch(`${SUPABASE_URL}/rest/v1/reviews?loc_id=eq.${encodeURIComponent(locId)}&order=created_at.desc`, {
+    headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
+  })
+  .then(r => r.ok ? r.json() : Promise.reject(r.status))
+  .then(rows => {
+    const listEl = document.getElementById(`reviews-list-${locId}`);
+    if (!listEl) return; // 탭이 닫혔으면 무시
+    if (!rows.length) return; // 결과 없으면 localStorage 그대로 유지
+    listEl.innerHTML = renderReviewList(rows);
+    _updateReviewAvgBlock(rows);
+    renderList(); // 사이드바 rating 뱃지 갱신
+  })
+  .catch(() => {}); // 실패해도 localStorage 표시 유지
 }
 
 function buildReviewsTab(loc) {
-  const reviews = loadReviews(loc.id);
-  const avg = reviews.length ? reviews.reduce((s, r) => s + r.stars, 0) / reviews.length : 0;
+  // 1) 즉시 localStorage로 렌더 (오프라인/초기 로드 대응)
+  const localReviews = loadReviews(loc.id);
+  const avg = localReviews.length ? localReviews.reduce((s, r) => s + r.stars, 0) / localReviews.length : 0;
 
-  const avgBlock = reviews.length ? `
+  const avgBlock = localReviews.length ? `
     <div class="review-avg">
       <div class="review-avg-score">${avg.toFixed(1)}</div>
       <div>
         <div class="review-avg-stars">${starsHtml(Math.round(avg), 5, 15)}</div>
-        <div class="review-avg-count">${reviews.length} review${reviews.length !== 1 ? 's' : ''}</div>
+        <div class="review-avg-count">${localReviews.length} review${localReviews.length !== 1 ? 's' : ''}</div>
       </div>
     </div>` : '';
 
-  return `
+  const html = `
     ${avgBlock}
     <div class="review-form">
       <div class="review-form-title">Write a Review</div>
@@ -398,14 +443,19 @@ function buildReviewsTab(loc) {
       </div>
       <button class="review-submit" onclick="submitReview('${loc.id}')">Submit Review</button>
     </div>
-    <div id="reviews-list-${loc.id}">${renderReviewList(reviews)}</div>
+    <div id="reviews-list-${loc.id}">${renderReviewList(localReviews)}</div>
   `;
+
+  // 2) 렌더 직후 Supabase에서 전체 리뷰 비동기 로드 (다른 디바이스 리뷰 포함)
+  setTimeout(() => _fetchAndRenderReviews(loc.id), 0);
+
+  return html;
 }
 
 function submitReview(locId) {
   const stars = reviewStarState[locId] || 0;
   if (!stars) { alert('Please select a star rating first.'); return; }
-  awStats.click(locId); // count review submission as an engagement
+  awStats.click(locId);
 
   const nameEl = document.getElementById(`rev-name-${locId}`);
   const textEl = document.getElementById(`rev-text-${locId}`);
@@ -427,24 +477,21 @@ function submitReview(locId) {
   if (nameEl) nameEl.value = '';
   if (textEl) textEl.value = '';
 
-  // Refresh reviews list + avg block
-  document.getElementById(`reviews-list-${locId}`).innerHTML = renderReviewList(loadReviews(locId));
-  // Update avg display
-  const reviews = loadReviews(locId);
-  const avg = reviews.reduce((s, r) => s + r.stars, 0) / reviews.length;
-  const avgEl = document.querySelector('.review-avg');
-  if (avgEl) {
-    avgEl.querySelector('.review-avg-score').textContent = avg.toFixed(1);
-    avgEl.querySelector('.review-avg-stars').innerHTML = starsHtml(Math.round(avg), 5, 15);
-    avgEl.querySelector('.review-avg-count').textContent = `${reviews.length} review${reviews.length !== 1 ? 's' : ''}`;
-  } else {
-    // Avg block didn't exist before (first review) — rebuild tab
-    if (activeLoc?.id === locId) {
-      document.getElementById('pane-reviews').innerHTML = buildReviewsTab(activeLoc);
-    }
+  // 즉시 localStorage로 갱신 (즉각 피드백)
+  const localReviews = loadReviews(locId);
+  document.getElementById(`reviews-list-${locId}`).innerHTML = renderReviewList(localReviews);
+  _updateReviewAvgBlock(localReviews);
+
+  // Supabase 저장 완료 후 전체 리뷰 재로드 (약간 딜레이)
+  setTimeout(() => {
+    _fetchAndRenderReviews(locId);
+    renderList();
+  }, 800);
+
+  // avg 블록 없으면 (첫 리뷰) 탭 전체 재렌더
+  if (!document.querySelector('.review-avg') && activeLoc?.id === locId) {
+    document.getElementById('pane-reviews').innerHTML = buildReviewsTab(activeLoc);
   }
-  // Refresh sidebar card rating badge
-  renderList();
 }
 
 // ══════════════════════════════════════════════════════════════════
