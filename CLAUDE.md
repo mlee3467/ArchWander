@@ -78,8 +78,8 @@ js/init.js          ← 부팅, 관리자 패널, SW 등록
 ### 형식: `{city-prefix}-{4자리 순번}`
 | 도시 | city 값 | ID prefix | 현재 범위 | 다음 ID |
 |------|---------|-----------|-----------|---------|
-| New York | `new-york` | `nyc` | nyc-0001 ~ nyc-0229 | **nyc-0230** |
-| Seoul | `seoul` | `sel` | sel-0001 ~ sel-0127 | **sel-0128** |
+| New York | `new-york` | `nyc` | nyc-0001 ~ nyc-0302 | **nyc-0303** |
+| Seoul | `seoul` | `sel` | sel-0001 ~ sel-0131 | **sel-0132** |
 | London | `london` | `lon` | lon-0001 ~ lon-0022 | **lon-0023** |
 | Tokyo | `tokyo` | `tok` | tok-0001 ~ tok-0094 | **tok-0095** |
 
@@ -108,6 +108,7 @@ const LOCS_NEW_YORK = [  // 또는 LOCS_SEOUL, LOCS_LONDON
 - **`map-tool.html`**: 지도 기반 좌표 편집기. Leaflet 사용.
   - `renderList()` — `#loc-list-empty` 별도 DOM 엘리먼트 없이 인라인 HTML로 처리 (null 참조 버그 방지)
 - **`photo-tool.html`**: Wikimedia Commons 사진 검색. fetch 시 `mode:'cors', credentials:'omit'` 필수.
+- **`diagram-converter-tool.html`**: 도면 이미지 → 단순화 다이어그램 변환 (Canvas API, 로컬 처리). 6가지 모드: Line Extract / Blueprint / Diagram / Minimal / Posterize / Hatch.
 
 ## 주요 해결된 버그 이력
 1. **mobile gallery 이미지 오프셋**: 데스크탑 `transform:translate(-50%,-50%)` → 모바일 `transform:none` 으로 리셋
