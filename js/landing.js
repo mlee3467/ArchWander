@@ -584,6 +584,9 @@ function _mpForceDbRefresh() {
   if (typeof LOCS_KO !== 'undefined') {
     Object.keys(LOCS_KO).forEach(function(k) { delete LOCS_KO[k]; });
   }
+  // ⚠️ KEY FIX: _mergeLocsFromStorage() in config.js prioritises localStorage
+  // over fresh Supabase data for existing IDs. Clear it so the DB wins.
+  localStorage.removeItem('archwander_locs_v2');
 
   // ── Reload from Supabase (or data-*.js fallback) ───────────────
   var start    = Date.now();
