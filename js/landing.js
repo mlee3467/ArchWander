@@ -587,6 +587,22 @@ function _mpForceDbRefresh() {
   // ⚠️ KEY FIX: _mergeLocsFromStorage() in config.js prioritises localStorage
   // over fresh Supabase data for existing IDs. Clear it so the DB wins.
   localStorage.removeItem('archwander_locs_v2');
+  // ⚠️ KEY FIX 2: Service Worker caches external URLs (Cache First).
+  // Supabase API responses may be stale in aw-ext-v2 cache.
+  // Evict all supabase.co entries before fetching fresh data.
+  if ('caches' in window) {
+    caches.keys().then(function(cacheNames) {
+      cacheNames.forEach(function(name) {
+        caches.open(name).then(function(cache) {
+          cache.keys().then(function(reqs) {
+            reqs.forEach(function(req) {
+              if (req.url.includes('supabase.co')) cache.delete(req);
+            });
+          });
+        });
+      });
+    });
+  }
 
   // ── Reload from Supabase (or data-*.js fallback) ───────────────
   var start    = Date.now();

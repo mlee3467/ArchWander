@@ -55,6 +55,10 @@ self.addEventListener('fetch', e => {
     return;
   }
 
+  // ── Supabase API: never cache — location data changes dynamically ──
+  // Without this, SW serves stale DB responses even after updates.
+  if (url.hostname.endsWith('.supabase.co')) return;
+
   // ── External resources: Cache First ───────────────────────
   // Map tiles, CDN scripts, fonts, Wikimedia images, etc.
   // These are large and rarely change — cache for performance
